@@ -1,0 +1,12 @@
+run:
+  id: 0
+  name: 'run'
+race:
+  id: 1
+  name: 'race'
+longrun:
+  id: 2
+  name: 'long run'
+workout:
+  id: 3
+  name: 'workout'

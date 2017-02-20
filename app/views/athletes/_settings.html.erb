@@ -1,0 +1,132 @@
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-light">
+  <!-- Create the tabs -->
+  <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+    <li class="active">
+      <a href="#control-sidebar-profile-tab" data-toggle="tab">
+        <i class="fa fa-gears"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#control-sidebar-data-tab" data-toggle="tab">
+        <i class="fa fa-bar-chart"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#control-sidebar-diagnostics-tab" data-toggle="tab">
+        <i class="fa fa-wrench"></i>
+      </a>
+    </li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <!-- Profile tab content -->
+    <div class="tab-pane active" id="control-sidebar-profile-tab">
+      <%= form_tag({controller: 'athletes', action: 'publicize_profile'}, class: 'form-publicize-profile') do %>
+      <h3 class="control-sidebar-heading">Profile Settings</h3>
+      <div class="form-group">
+        <%= label_tag(:is_public, 'Make profile public:', class: 'control-sidebar-subheading checkbox inline') %>
+        <%= check_box_tag(:is_public, @athlete.is_public, @athlete.is_public, class: 'pull-right') %>
+        <p>
+          Anyone with the link can see this page.
+        </p>
+      </div>
+      <button class="btn btn-block btn-default btn-flat submit-form">
+        <i class="fa fa-floppy-o"></i>
+        Save
+      </button>
+      <% end %>
+
+      <div class="form-group">
+        <h3 class="control-sidebar-heading">Sign Out</h3>
+        <a href="/auth/logout" class="btn btn-block btn-default btn-flat sign-out" data-turbolinks="false">
+          <i class="fa fa-sign-out"></i>
+          Sign Out
+        </a>
+      </div>
+    </div>
+    <!-- /.tab-pane -->
+
+    <!-- Data tab content -->
+    <div class="tab-pane" id="control-sidebar-data-tab">
+      <form method="post">
+        <h3 class="control-sidebar-heading">Data Settings</h3>
+        <p>
+          Coming soon...
+        </p>
+      </form>
+    </div>
+    <!-- /.tab-pane -->
+
+    <!-- Diagnostics tab content -->
+    <div class="tab-pane" id="control-sidebar-diagnostics-tab">
+      <h3 class="control-sidebar-heading">Diagnostics</h3>
+      <div class="form-group">
+        <label class="control-sidebar-subheading">
+          Last activity retrieved:
+          <i
+            class="fa fa-question-circle"
+            aria-hidden="true"
+            data-toggle="tooltip"
+            title="Last activity that contains achievements, not necessarily the latest activity returned from Strava API."></i>
+        </label>
+        <label></label>
+        <% if @athlete.last_activity_retrieved.blank? %>
+        <span class="pull-right">N/A</span>
+      <% else %>
+        <a class="pull-right last_activity_retrieved" href="https://www.strava.com/activities/<%= @athlete.last_activity_retrieved %>" target="_blank">
+          <%= @athlete.last_activity_retrieved %>
+        </a>
+        <p>
+          Worker process will only fetch activities with IDs greater than this. Reset if you'd like to have your older activities updated.
+        </p>
+        <%= form_tag({controller: 'athletes', action: 'reset_last_activity_retrieved'}, class: 'form-reset-last-activity-retrieved') do %>
+        <button type="button" class="btn btn-block btn-danger btn-flat submit-form">Reset</button>
+        <% end %>
+
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <label class="control-sidebar-subheading">Last updated at:</label>
+        <label></label>
+        <label class="pull-right"><%= @athlete.updated_at.strftime('%F %H:%M UTC') %></label>
+      </div>
+
+      <div class="form-group">
+        <h3 class="control-sidebar-heading">Delete Profile</h3>
+        <p>Revoke access to Strava and delete all best efforts data from our server.</p>
+        <button type="button" class="btn btn-block btn-danger btn-flat" data-toggle="modal" data-target="#confirm-delete-profile">
+          Delete All
+        </button>
+      </div>
+    </div>
+    <!-- /.tab-pane -->
+  </div>
+</aside>
+<!-- /.control-sidebar -->
+
+<!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+<div class="control-sidebar-bg"></div>
+
+<!-- Modal - Confirm Profile Deletion -->
+<div class="modal modal-danger" id="confirm-delete-profile" tabindex="-1" role="dialog" aria-labelledby="confirm-delete-profile-label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="confirm-delete-profile-label">Are you sure?</h4>
+      </div>
+      <div class="modal-body">
+        By clicking 'Confirm' below, Strafforts will revoke access to your Strava account and delete all best efforts data from our server.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" data-dismiss="modal">Cancel</button>
+        <a href="/auth/deauthorize" class="btn btn-outline" data-turbolinks="false">Confirm</a>
+      </div>
+    </div>
+  </div>
+</div>

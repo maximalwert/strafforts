@@ -1,0 +1,10 @@
+one:
+  id: 100001
+  activity_id: 9999
+  athlete_id: 123
+  race_distance_id: 1
+two:
+  id: 100002
+  activity_id: 9999
+  athlete_id: 123
+  race_distance_id: 1

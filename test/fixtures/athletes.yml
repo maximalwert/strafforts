@@ -1,0 +1,16 @@
+one:
+  id: 123
+  access_token: '3f2a45886980ebec9f4a689371e95860'
+  firstname: 'Tony'
+  lastname: 'Stark'
+  username: 'tonystark'
+  is_public: false
+
+two:
+  id: 456
+  access_token: '58e42e6f5e496dc5aa0d5ec354da8048'
+  firstname: 'Jessica'
+  lastname: 'Jones'
+  username: 'jessicajones'
+  is_public: true
+  last_activity_retrieved: 9999

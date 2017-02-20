@@ -1,0 +1,30 @@
+one:
+  id: 100001
+  activity_id: 9999
+  athlete_id: 123
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400
+  moving_time: 92
+  elapsed_time: 90
+  start_date: '2013-01-06 15:16:02'
+two:
+  id: 100002
+  activity_id: 9999
+  athlete_id: 123
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805
+  moving_time: 205
+  elapsed_time: 200
+  start_date: '2013-01-06 15:16:02'
+three:
+  id: 100003
+  activity_id: 9999
+  athlete_id: 123
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000
+  moving_time: 249
+  elapsed_time: 238
+  start_date: '2013-01-06 15:16:11'

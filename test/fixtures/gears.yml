@@ -1,0 +1,9 @@
+one:
+  athlete_id: 123
+  name: 'ASICS GT 2000'
+  gear_id: 'g00'
+
+two:
+  athlete_id: 123
+  name: 'ASICS DS Trainer 20'
+  gear_id: 'g11'

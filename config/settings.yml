@@ -1,0 +1,14 @@
+app:
+  name: 'Strafforts'
+  demo_path: '/athletes/yizeng'
+  description: 'A Visualizer for Strava Estimated Best Efforts'
+  html_meta_description: 'Strafforts, a visualizer for Strava Estimated Best Efforts and Races, which calls Strava API to fetch estimated best efforts data and visualize it in data tables, line charts and pie charts.'
+  html_meta_keywords: 'strava,bestefforts,running,activity,visualizer,races,strafforts'
+  production_url: 'http://strafforts.yizeng.me'
+  title: 'Strafforts - A Visualizer for Strava Estimated Best Efforts and Races'
+strava:
+  api_auth_authorize_url: 'http://www.strava.com/oauth/authorize'
+  api_auth_token_url: 'https://www.strava.com/oauth/token'
+  api_auth_deauthorize_url: 'https://www.strava.com/oauth/deauthorize'
+  api_client_id: <%= ENV['STRAVA_API_CLIENT_ID'] %>
+  athletes_base_url: 'https://www.strava.com/athletes'

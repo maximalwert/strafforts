@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Strafforts</title>
+    <title><%= Settings.app.title %></title>
+
+    <meta charset="utf-8">
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <!-- SEO meta tags -->
+    <meta name="author" content="Yi Zeng">
+    <meta name="description" content="<%= Settings.app.html_meta_description %>"/>
+    <meta name="keywords" content="<%= Settings.app.html_meta_keywords %>"/>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>

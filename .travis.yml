@@ -1,0 +1,32 @@
+language: ruby
+sudo: false
+cache: bundler
+
+branches:
+  except:
+    - gh-pages
+
+rvm:
+  - 2.3.3
+  - 2.4.0
+  - ruby-head
+
+services:
+  - postgresql
+
+bundler_args: --without production
+
+before_install:
+  - rm ${BUNDLE_GEMFILE}.lock
+
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
+
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - RAILS_ENV=test bundle exec rake db:seed
+  - bundle exec rake test
+
+notifications:
+  email: false

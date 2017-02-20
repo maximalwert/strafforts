@@ -1,0 +1,9 @@
+one:
+  id: 9999
+  athlete_id: 123
+  name: 'Jog to find Pepper'
+  distance: 4955.2
+  moving_time: 1227
+  elapsed_time: 1227
+  start_date: '2013-01-06 15:16:02'
+  workout_type_id: 0

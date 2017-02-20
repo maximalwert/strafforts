@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= Settings.app.title %></title>
+
+    <meta charset="utf-8">
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <!-- SEO meta tags -->
+    <meta name="author" content="Yi Zeng">
+    <meta name="description" content="<%= Settings.app.html_meta_description %>"/>
+    <meta name="keywords" content="<%= Settings.app.html_meta_keywords %>"/>
+
+    <%= csrf_meta_tags %>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]> <%= javascript_include_tag 'html5shiv.min' %> <%= javascript_include_tag 'respond.min' %> <![endif]-->
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'athletes', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <%= yield %>
+</html>
