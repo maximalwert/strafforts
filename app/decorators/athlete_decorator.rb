@@ -37,14 +37,24 @@ class AthleteDecorator < Draper::Decorator
 
   def location
     return '' if object.city.nil? && object.country.nil?
+    if object.city.nil?
+      if object.country.name.blank?
+        return ''
+      else
+        return object.country.name
+      end
+    end
+    if object.country.nil?
+      if object.city.name.blank?
+        return ''
+      else
+        return object.city.name
+      end
+    end
     return '' if object.city.name.blank? && object.country.name.blank?
-    if !object.city.name.blank? && object.country.name.blank?
-      return object.city.name
-    end
-    if !object.country.name.blank? && object.city.name.blank?
-      return object.country.name
-    end
-    "#{object.city.name}, #{object.country.name}"
+    return object.country.name if object.city.name.blank? && !object.country.name.blank?
+    return object.city.name if !object.city.name.blank? && object.country.name.blank?
+    return "#{object.city.name}, #{object.country.name}"
   end
 
   def friend_count
