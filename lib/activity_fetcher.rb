@@ -18,14 +18,16 @@ class ActivityFetcher
 
       # Retrieve activities of the current athlete.
       activities_to_retrieve = []
-      activity_ids = get_all_activity_ids(athlete.id, type)
+      activity_ids = get_all_activity_ids(type)
       activity_ids.sort.each do |activity_id|
-        if (mode == 'all') || athlete.last_activity_retrieved.nil?
+        if (mode == 'all') || athlete.last_activity_retrieved.blank?
           activities_to_retrieve << activity_id
         else
           activities_to_retrieve << activity_id if activity_id > athlete.last_activity_retrieved
         end
       end
+
+      Rails.logger.info("ActivityFetcher - Total number of #{activities_to_retrieve.count} activities to be retrieved for athlete #{athlete.id}.")
       activities_to_retrieve.sort.each do |activity_id|
         activity = @api_wrapper.retrieve_an_activity(activity_id)
         Creators::ActivityCreator.create_or_update(activity)
@@ -40,10 +42,7 @@ class ActivityFetcher
   private
 
   # Get ids of all running activities that have achievement items or are races.
-  # Pass in athlete_id purely for logging purposes.
-  def get_all_activity_ids(athlete_id, type)
-    Rails.logger.info("ActivityFetcher - Getting activities ids for athlete #{athlete_id}.")
-
+  def get_all_activity_ids(type)
     # Call Strava API to list all athlete activities,
     # then parse out all activity ids.
     athlete_activities = @api_wrapper.list_all_athlete_activities
@@ -64,8 +63,6 @@ class ActivityFetcher
       end
     end
     activity_ids.uniq!
-
-    Rails.logger.info("ActivityFetcher - Total number of #{activity_ids.count} activity ids retrieved for athlete #{athlete_id}.")
     activity_ids
   end
 end
