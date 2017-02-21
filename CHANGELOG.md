@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.2.0] - 2016-02-22
+Issue #1: Fix nil exception setting location when city or country is nill.
 Issue #2: Use semantic versioning.
 
 ## [0.1.0] - 2016-02-21
