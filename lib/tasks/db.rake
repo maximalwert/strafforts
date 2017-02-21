@@ -15,13 +15,13 @@ namespace :db do
     system 'heroku pg:backups:capture'
     system 'heroku pg:backups:download'
 
-    # Read develpoment DB configs.
+    # Read development DB configs.
     database_yml = YAML.load_file("#{Rails.root}/config/database.yml")
     host = database_yml['development']['host']
     database = database_yml['development']['database']
     username = database_yml['development']['username']
 
-    command = "pg_restore --verbose --clean --no-acl --no-owner -h #{host} -U #{username} -d #{database} #{dump_file}"
+    command = "pg_restore --verbose --clean --no-acl --no-owner -h #{host} -U #{username} -W -d #{database} #{dump_file}"
     puts "Executing: #{command}"
     system command
 
