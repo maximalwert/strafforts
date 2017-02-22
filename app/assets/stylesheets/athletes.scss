@@ -138,14 +138,29 @@ input[type='submit'] {
     }
   }
 
-  /* Style alerts in main-content */
-  .alert-info {
-    background-color: $primary-color !important;
-    border-color: $primary-color !important;
-    margin-top: 30px;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
+  /* Style notification alerts in main-content */
+  .notification-alert {
+    .modal {
+      background: transparent !important;
+      color: #fff;
+      position: relative;
+      top: auto;
+      bottom: auto;
+      right: auto;
+      left: auto;
+      display: block;
+      z-index: 1;
+    }
+    .modal-header {
+      background-color: $primary-color !important;
+      border-color: $primary-color !important;
+      padding-bottom: 0;
+    }
+    .modal-body {
+      background-color: $primary-color !important;
+      border-color: $primary-color !important;
+      font-size: 16px;
+     }
   }
 
   /* DataTable styles */
