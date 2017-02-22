@@ -185,12 +185,16 @@ function constructLoadingIconHtml() {
 }
 
 function constructNoDataInfoBox() {
-    var infoBox = "<div class='alert alert-info col-md-8 col-md-offset-2'>";
-    infoBox += "<h4>No activities found in this category yet</h4>";
-    infoBox += "<p>Our background worker process runs <b>every minute</b> to fetch all estimated best efforts and races in the queue.</p>";
-    infoBox += "<p>If you have just connected Strafforts with your Strava account, please be patient while the data is being retrieved.</p>";
-    infoBox += "<p>Thank you!</p>";
-    infoBox += "</div>";
+    var infoBox = '<div class="notification-alert">';
+    infoBox += '<div class="modal">';
+    infoBox += '<div class="modal-dialog">';
+    infoBox += '<div class="modal-content">';
+    infoBox += '<div class="modal-header"><h4 class="modal-title">Nothing Yet!</h4></div>';
+    infoBox += '<div class="modal-body">';
+    infoBox += "<p>If you have just connected Strafforts with your Strava account, " +
+        "please be patient while your data is being processed. " +
+        "For newly connected athletes, our background worker process runs <b>every minute</b> to fetch the data.</p>";
+    infoBox += '</div></div></div></div></div>';
     return infoBox;
 }
 

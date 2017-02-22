@@ -1,7 +1,8 @@
 app:
   name: 'Strafforts'
+  contact_url: 'http://yizeng.me/#contact'
   demo_path: '/athletes/yizeng'
-  description: 'A Visualizer for Strava Estimated Best Efforts'
+  description: 'A Visualizer for Strava Estimated Best Efforts and Race'
   html_meta_description: 'Strafforts, a visualizer for Strava Estimated Best Efforts and Races, which calls Strava API to fetch estimated best efforts data and visualize it in data tables, line charts and pie charts.'
   html_meta_keywords: 'strava,bestefforts,running,activity,visualizer,races,strafforts'
   production_url: 'http://strafforts.yizeng.me'
