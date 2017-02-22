@@ -48,6 +48,11 @@
                       <span>Go to Homepage</span>
                     </a>
                   </li>
+                  <li>
+                    <a href="<%= Settings.app.contact_url %>" class="btn btn-default btn-lg">
+                      <span>Contact Us</span>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -71,7 +76,7 @@
         m.parentNode.insertBefore(a, m)
       })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-      ga('create', '<%= ENV["GOOGLE_ANALYTICS_TRACKING_CODE"] %>', 'auto');
+      ga('create', '<%= ENV['GOOGLE_ANALYTICS_TRACKING_CODE'] %>', 'auto');
       ga('send', 'pageview');
     </script>
     <%= javascript_include_tag 'application' %>
