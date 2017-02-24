@@ -73,7 +73,6 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
     Then add the following configurations items in:
 
         GOOGLE_ANALYTICS_TRACKING_CODE=add_this_line_if_you_have_one_setup
-        NEW_RELIC_LICENSE_KEY=add_this_line_if_you_have_one_setup
         STRAVA_API_CLIENT_ID=replace_with_client_id_of_your_strava_api_application
         STRAVA_API_CLIENT_SECRET=replace_with_client_secret_of_your_strava_api_application
 
@@ -97,11 +96,11 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
     Foreman's worker process should fetch all estimated best efforts once Strafforts has connected to Strava. Alternatively, the same can be achieved by the following rake tasks:
 
-        # Fetch the latest best efforts for all athletes
-        rake fetch:latest
-
-        # Fetch all best efforts for all athletes
-        rake fetch:all
+        rake fetch:all                          # Fetch all data for all athletes
+        rake fetch:athlete                      # Fetch data for a particular athlete by ID. Usage: rake fetch:athlete [all/latest] athlete_id
+        rake fetch:best_efforts                 # Fetch best efforts for all athletes. Usage: rake fetch:best_efforts [all/latest]
+        rake fetch:latest                       # Fetch the latest data for all athletes
+        rake fetch:races                        # Fetch races for all athletes. Usage: rake fetch:races [all/latest]
 
 10. Run tests
 

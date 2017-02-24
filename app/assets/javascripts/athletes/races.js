@@ -1,86 +1,88 @@
 function loadRacesView(distanceText) {
     var constructProgressionChartHtml = function (withLoadingIcon) {
-        var chart = "<div class='row'><div class='col-xs-12'>";
-        chart += "<div class='box'>";
-        chart += "<div class='box-header with-border>";
-        chart += "<i class='fa fa-bar-chart-o'></i><h3 class='box-title'>Progression Chart</h3>";
-        chart += "<div class='box-body'>";
+        var chart = '<div class="row"><div class="col-xs-12">';
+        chart += '<div class="box">';
+        chart += '<div class="box-header with-border>';
+        chart += '<i class="fa fa-bar-chart-o"></i><h3 class="box-title">Progression Chart</h3>';
+        chart += '<div class="box-body">';
         if (withLoadingIcon) {
             chart += constructLoadingIconHtml();
         } else {
-            chart += "<div class='chart'>";
-            chart += "<canvas id='progression-chart'></canvas>";
-            chart += "</div>";
+            chart += '<div class="chart">';
+            chart += '<canvas id="progression-chart"></canvas>';
+            chart += '</div>';
         }
-        chart += "</div></div></div></div>";
+        chart += '</div></div></div></div>';
         return chart;
     };
     var constructDataTableHtml = function (races) {
-        var table = "<div class='row'>";
-        table += "<div class='col-xs-12'>";
-        table += "<div class='box'>";
-        table += "<div class='box-header with-border>";
-        table += "<i class='fa fa-bar-chart-o'></i><h3 class='box-title'>Data Table</h3>";
-        table += "<div class='box-body'>";
+        var table = '<div class="row">';
+        table += '<div class="col-xs-12">';
+        table += '<div class="box">';
+        table += '<div class="box-header with-border>';
+        table += '<i class="fa fa-bar-chart-o"></i><h3 class="box-title">Data Table</h3>';
+        table += '<div class="box-body">';
 
         if (races === undefined) {
             table += constructLoadingIconHtml();
         } else {
-            table += "<table class='dataTable table table-bordered table-striped'>";
-            table += "<thead><tr>";
-            table += "<th class='col-md-1'>Date</th>";
-            table += "<th class='col-md-4'>Activity</th>";
-            table += "<th class='col-md-1'>Time</th>";
-            table += "<th class='col-md-2'>Shoes</th>";
-            table += "<th class='col-md-1'>Elevation</th>";
-            table += "<th class='col-md-1'>Cadence</th>";
-            table += "<th class='col-md-1 text-center badge-cell'>Avg. HR</th>";
-            table += "<th class='col-md-1 text-center badge-cell'>Max HR</th>";
-            table += "</tr></thead>";
-            table += "<tbody>";
+            table += '<table class="dataTable table table-bordered table-striped">';
+            table += '<thead><tr>';
+            table += '<th class="col-md-1">Date</th>';
+            table += '<th class="col-md-3">Activity</th>';
+            table += '<th class="col-md-1">Time</th>';
+            table += '<th class="col-md-1">Pace</th>';
+            table += '<th class="col-md-2">Shoes</th>';
+            table += '<th class="col-md-1">Elevation</th>';
+            table += '<th class="col-md-1">Cadence</th>';
+            table += '<th class="col-md-1 text-center badge-cell">Avg. HR</th>';
+            table += '<th class="col-md-1 text-center badge-cell">Max HR</th>';
+            table += '</tr></thead>';
+            table += '<tbody>';
 
             races.forEach(function(item) {
-                table += "<tr>";
-                table += "<td>" + item["start_date"] + "</td>";
-                table += "<td>";
-                table += "<a class='strava-logo-link' href='https://www.strava.com/activities/" + item['activity_id'] +
-                    "' target='_blank'><span></span></a>";
-                table += "<a href='https://www.strava.com/activities/" + item['activity_id'] +
-                    "' target='_blank'>" + item['activity_name'] + "</a>";
-                table += "</td>";
-                table += "<td>" + item['elapsed_time_formatted'] + "</td>";
-                table += "<td>" + item['gear_name'] + "</td>";
-                table += "<td>" + item['elevation'] + "</td>";
-                table += "<td>" + item['cadence'] + "</td>";
-                table += "<td class='text-center badge-cell'>";
-                table += "<span class='badge " + item['average_hr_zone_class'] + "'>" + item['average_heartrate'] + "</span>";
-                table += "</td>";
-                table += "<td class='text-center badge-cell'>";
-                table += "<span class='badge " + item['max_hr_zone_class'] + "'>" + item['max_heartrate'] + "</span>";
-                table += "</td>";
-                table += "</tr>";
+                table += '<tr>';
+                table += '<td>' + item['start_date'] + '</td>';
+                table += '<td>';
+                table += '<a class="strava-logo-link" href="https://www.strava.com/activities/' + item["activity_id"] +
+                    '" target="_blank"><span></span></a>';
+                table += '<a href="https://www.strava.com/activities/' + item["activity_id"] +
+                    '" target="_blank">' + item["activity_name"] + '</a>';
+                table += '</td>';
+                table += '<td>' + item["elapsed_time_formatted"] + '</td>';
+                table += '<td>' + item["pace"] + '<small>' + item["pace_unit"] + '</small></td>';
+                table += '<td>' + item["gear_name"] + '</td>';
+                table += '<td>' + item["elevation"] + '<small> ' + item["elevation_unit"] + '</small></td>';
+                table += '<td>' + item["cadence"] + '</td>';
+                table += '<td class="text-center badge-cell">';
+                table += '<span class="badge ' + item["average_hr_zone_class"] + '">' + item["average_heartrate"] + '</span>';
+                table += '</td>';
+                table += '<td class="text-center badge-cell">';
+                table += '<span class="badge ' + item["max_hr_zone_class"] + '">' + item["max_heartrate"] + '</span>';
+                table += '</td>';
+                table += '</tr>';
             });
-            table += "</tbody>";
-            table += "</table>";
+            table += '</tbody>';
+            table += '</table>';
         }
-        table += "</div></div></div></div></div>";
+        table += '</div></div></div></div></div>';
         return table;
     };
     var constructPieChartsHtml = function (withLoadingIcon) {
-        var chart = "<div class='row'>";
-        chart += "<div class='col-md-6'>";
-        chart += "<div class='box'>";
-        chart += "<div class='box-header with-border>";
-        chart += "<i class='fa fa-bar-chart-o'></i><h3 class='box-title'>Gear Chart</h3>";
-        chart += "<div class='box-body'>";
+        var chart = '<div class="row">';
+        chart += '<div class="col-md-6">';
+        chart += '<div class="box">';
+        chart += '<div class="box-header with-border>';
+        chart += '<i class="fa fa-bar-chart-o"></i><h3 class="box-title">Gear Chart</h3>';
+        chart += '<div class="box-body">';
         if (withLoadingIcon) {
             chart += constructLoadingIconHtml();
         } else {
-            chart += "<div class='chart'>";
-            chart += "<canvas id='gear-chart'></canvas>";
-            chart += "</div>";
+            chart += '<div class="chart">';
+            chart += '<canvas id="gear-chart"></canvas>';
+            chart += '</div>';
         }
-        chart += "</div></div></div></div></div>";
+        chart += '</div></div></div></div></div>';
         return chart;
     };
     var prepareView = function()

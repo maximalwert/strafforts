@@ -6,7 +6,7 @@ class RacesController < ApplicationController
     else
       if params[:distance].blank?
         items = Race.find_all_by_athlete_id(athlete.id)
-        shaped_items = ApplicationHelper::Helper.shape_races(items)
+        shaped_items = ApplicationHelper::Helper.shape_races(items, athlete.measurement_preference)
         @races = RacesDecorator.new(shaped_items)
         @races = @races.to_show_in_overview
         render json: @races
@@ -19,7 +19,7 @@ class RacesController < ApplicationController
           raise ActionController::BadRequest, "Could not find requested best effort type '#{distance}'."
         else
           items = Race.find_all_by_athlete_id_and_race_distance_id(athlete.id, race_distance.id)
-          shaped_items = ApplicationHelper::Helper.shape_races(items)
+          shaped_items = ApplicationHelper::Helper.shape_races(items, athlete.measurement_preference)
           @races = RacesDecorator.new(shaped_items)
           @races = @races.filter_by_distance(race_distance.name)
           render json: @races

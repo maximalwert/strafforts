@@ -64,15 +64,15 @@ $(document).ready(function() {
         loadOverviewPage(false);
     });
 
-    // Publicize profile in settings.
-    $(".form-publicize-profile .submit-form").click(function() {
-        var is_public = $("#is_public").checked;
+    // Save profile in settings.
+    $(".form-save-profile .submit-form").click(function() {
+        var is_public = $("#is_public")[0].checked;
         var data = {
             is_public: is_public
         };
 
         $.ajax({
-            url: $(".form-publicize-profile").attr('action'),
+            url: $(".form-save-profile").attr('action'),
             data: data,
             cache: false,
             type: "post",
