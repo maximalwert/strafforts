@@ -36,7 +36,7 @@ $(document).ready(function() {
     // otherwise bootstrap will still highlight the link.
     $("a").mouseup(function() {
         $(this).blur();
-    })
+    });
 
     // Google Analytics event tracking.
     $('.external').on('click', function() {

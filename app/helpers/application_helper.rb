@@ -7,13 +7,13 @@ module ApplicationHelper
     @@other_races_distances = ['100 miles', '100k', '50 miles', '50k', '20k', '15k', '3000m', '1 mile']
 
     # This shapes BestEffort entities retrieved from DB into best efforts needed in the view.
-    def self.shape_best_efforts(best_effort_entities)
-      shape_entities(best_effort_entities, true)
+    def self.shape_best_efforts(best_effort_entities, measurement_unit)
+      shape_entities(best_effort_entities, measurement_unit, true)
     end
 
     # This shapes Race entities retrieved from DB into races needed in the view.
-    def self.shape_races(race_entities)
-      shape_entities(race_entities, false)
+    def self.shape_races(race_entities, measurement_unit)
+      shape_entities(race_entities, measurement_unit, false)
     end
 
     def self.best_effort_types
@@ -43,12 +43,18 @@ module ApplicationHelper
     end
 
     private
-    def self.format_milisecs(m)
-      secs, milisecs = m.divmod(1000) # divmod returns modulo
-      mins, secs = secs.divmod(60)
-      hours, mins = mins.divmod(60)
+    def self.convert_to_pace(average_speed, measurement_unit)
+      if average_speed.blank?
+        return ''
+      end
 
-      [secs,mins,hours].map { |e| e.to_s.rjust(2,'0') }.join ':'
+      seconds = measurement_unit == 'feet' ? (1609.344 / average_speed) : (1000 / average_speed)
+      mins, secs = seconds.divmod(60)
+      if secs.round < 10
+        "#{mins}:0#{secs.round}"
+      else
+        "#{mins}:#{secs.round}"
+      end
     end
 
     def self.get_heartrate_zone_class(heartrate)
@@ -69,7 +75,7 @@ module ApplicationHelper
       end
     end
 
-    def self.shape_entities(entities, is_type_of_best_efforts)
+    def self.shape_entities(entities, measurement_unit, is_type_of_best_efforts)
       shaped_items = []
 
       return shaped_items if entities.nil?
@@ -79,54 +85,29 @@ module ApplicationHelper
 
         if is_type_of_best_efforts
           item[:best_effort_type] = entity.best_effort_type.name
+          average_speed = entity.distance / entity.elapsed_time
         else
           item[:race_distance] = entity.race_distance.name
+          average_speed = entity.activity.average_speed
         end
 
         item[:activity_id] = entity.activity.id
         item[:activity_name] = entity.activity.name
-        item[:start_date] = entity.activity.start_date_local.to_s.slice(0, 10)
-        item[:workout_type_name] = entity.activity.workout_type.name
-
-        if is_type_of_best_efforts
-          item[:elapsed_time] = entity.elapsed_time
-        else
-          item[:elapsed_time] = entity.activity.elapsed_time
-          item[:elevation] = entity.activity.total_elevation_gain.to_i
-          if entity.activity.average_cadence.nil?
-            item[:cadence] =  ''
-          else
-            item[:cadence] =  (entity.activity.average_cadence * 2).to_i
-          end
-          if entity.activity.suffer_score.nil?
-            item[:suffer_score] =  ''
-          else
-            item[:suffer_score] =  entity.activity.suffer_score.to_i
-          end
-        end
+        item[:start_date] = entity.activity.start_date_local.nil? ? '' : entity.activity.start_date_local.to_s.slice(0, 10)
+        item[:workout_type_name] = entity.activity.workout_type.nil? ? 'n/a' : entity.activity.workout_type.name
+        item[:elapsed_time] = is_type_of_best_efforts ? entity.elapsed_time : entity.activity.elapsed_time
         item[:elapsed_time_formatted] = Time.at(item[:elapsed_time]).utc.strftime('%H:%M:%S')
-
-        if entity.activity.gear.nil?
-          item[:gear_name] = 'Unspecified'
-        else
-          item[:gear_name] = entity.activity.gear.name
-        end
-
-        if entity.activity.average_heartrate.nil?
-          item[:average_heartrate] = 'n/a'
-          item[:average_hr_zone_class] = 'hr-zone-na'
-        else
-          item[:average_heartrate] = entity.activity.average_heartrate.to_i
-          item[:average_hr_zone_class] = get_heartrate_zone_class(item[:average_heartrate])
-        end
-
-        if entity.activity.max_heartrate.nil?
-          item[:max_heartrate] = 'n/a'
-          item[:max_hr_zone_class] = 'hr-zone-na'
-        else
-          item[:max_heartrate] = entity.activity.max_heartrate.to_i
-          item[:max_hr_zone_class] = get_heartrate_zone_class(item[:max_heartrate])
-        end
+        item[:pace] = convert_to_pace(average_speed, measurement_unit)
+        item[:pace_unit] = measurement_unit == 'feet' ? '/mi' : '/km'
+        item[:elevation] = entity.activity.total_elevation_gain.nil? ? '' : entity.activity.total_elevation_gain.to_i
+        item[:elevation_unit] = measurement_unit  == 'feet' ? 'ft' : 'm'
+        item[:cadence] = entity.activity.average_cadence.nil? ? '' : (entity.activity.average_cadence * 2).to_i
+        item[:suffer_score] = entity.activity.suffer_score.nil? ? '' : entity.activity.suffer_score.to_i
+        item[:gear_name] = entity.activity.gear.nil? ? 'Unspecified' : entity.activity.gear.name
+        item[:average_heartrate] = entity.activity.average_heartrate.nil? ? 'n/a' : entity.activity.average_heartrate.to_i
+        item[:average_hr_zone_class] = entity.activity.average_heartrate.nil? ? 'hr-zone-na' : get_heartrate_zone_class(item[:average_heartrate])
+        item[:max_heartrate] = entity.activity.max_heartrate.nil? ? 'n/a' : entity.activity.max_heartrate.to_i
+        item[:max_hr_zone_class] = entity.activity.max_heartrate.nil? ? 'hr-zone-na' : get_heartrate_zone_class(item[:max_heartrate])
 
         shaped_items << item
       end

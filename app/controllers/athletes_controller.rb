@@ -11,10 +11,10 @@ class AthletesController < ApplicationController
         @athlete_profile_url = "#{STRAVA_ATHLETES_URL}/#{athlete.id}"
         @athlete = athlete.decorate
 
-        shaped_best_efforts = ApplicationHelper::Helper.shape_best_efforts(BestEffort.find_all_by_athlete_id(athlete.id))
+        shaped_best_efforts = ApplicationHelper::Helper.shape_best_efforts(BestEffort.find_all_by_athlete_id(athlete.id), athlete.measurement_preference)
         @best_efforts = BestEffortsDecorator.new(shaped_best_efforts)
 
-        shaped_races = ApplicationHelper::Helper.shape_races(Race.find_all_by_athlete_id(athlete.id))
+        shaped_races = ApplicationHelper::Helper.shape_races(Race.find_all_by_athlete_id(athlete.id), athlete.measurement_preference)
         @races = RacesDecorator.new(shaped_races)
       else
         raise ActionController::RoutingError, "Could not access athlete '#{params[:id_or_username]}."
@@ -22,7 +22,7 @@ class AthletesController < ApplicationController
     end
   end
 
-  def publicize_profile
+  def save_profile
     athlete = Athlete.find_by_id_or_username(params[:id_or_username])
     if athlete.nil?
       raise ActionController::BadRequest, "Could not find requested athlete '#{params[:id_or_username]}' by id or username."

@@ -29,7 +29,7 @@ class HomeController < ApplicationController
 
         # Add a delayed_job to fetch data for this athlete.
         fetcher = ::ActivityFetcher.new(access_token)
-        fetcher.delay.fetch_all(mode: 'all')
+        fetcher.delay.fetch_all
 
         # Encrypt and set access_token in cookies.
         cookies.signed[:access_token] = access_token

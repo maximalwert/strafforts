@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'athletes/:id_or_username/races/get_counts_by_year' => 'races#get_counts_by_year'
   get 'athletes/:id_or_username/races/:distance' => 'races#index'
 
-  post 'athletes/:id_or_username/publicize_profile' => 'athletes#publicize_profile'
+  post 'athletes/:id_or_username/save_profile' => 'athletes#save_profile'
   post 'athletes/:id_or_username/reset_last_activity_retrieved' => 'athletes#reset_last_activity_retrieved'
 
   get 'home/index'
