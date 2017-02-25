@@ -7,6 +7,7 @@ app:
   html_meta_keywords: 'strava,bestefforts,running,activity,visualizer,races,strafforts'
   production_url: 'http://strafforts.yizeng.me'
   title: 'Strafforts - A Visualizer for Strava Estimated Best Efforts and Races'
+  version: 'v0.3.0'
 strava:
   api_auth_authorize_url: 'http://www.strava.com/oauth/authorize'
   api_auth_token_url: 'https://www.strava.com/oauth/token'
