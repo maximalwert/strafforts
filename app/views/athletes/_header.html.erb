@@ -21,7 +21,11 @@
       <ul class="nav navbar-nav">
         <li class="dropdown user user-menu">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <img alt="User Image" class="athlete-image user-image" data-failover="<%= asset_path('strava-profile.png') %>" src="<%= @athlete.profile_medium %>">
+            <% if @athlete.profile_image_url.nil? %>
+                <img alt="User Image" class="athlete-image user-image" src="<%= asset_path('strava-profile.png') %>">
+            <% else %>
+                <img alt="User Image" class="athlete-image user-image" src="<%= @athlete.profile_image_url %>">
+            <% end %>
             <span class="hidden-xs athlete-name"><%= @athlete.fullname %></span>
           </a>
 
@@ -29,7 +33,11 @@
             <!-- User image -->
             <li class="user-header">
               <a class="athlete-link" href="<%= @athlete_profile_url %>" target="_blank">
-                <img alt="User Image" class="athlete-image img-circle" data-failover="<%= asset_path('strava-profile.png') %>" src="<%= @athlete.profile %>">
+                <% if @athlete.profile_image_url.nil? %>
+                    <img alt="User Image" class="athlete-image img-circle" src="<%= asset_path('strava-profile.png') %>">
+                <% else %>
+                    <img alt="User Image" class="athlete-image img-circle" src="<%= @athlete.profile_image_url %>">
+                <% end %>
               </a>
               <p>
                 <span class="athlete-name"><%= @athlete.fullname %></span>

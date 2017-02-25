@@ -51,14 +51,6 @@ $(document).ready(function() {
     loadOverviewPage();
     bindDetailViewLoadingEvents();
 
-    // Load alternative image src when fail over.
-    $('img[data-failover]').error(function() {
-        var failover = $(this).data('failover');
-        if (this.src != failover) {
-            this.src = failover;
-        }
-    });
-
     // Reload Overview page.
     $(document).on("click",".show-overview", function() {
         loadOverviewPage(false);
