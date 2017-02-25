@@ -11,6 +11,14 @@ class AthleteDecorator < Draper::Decorator
     end
   end
 
+  def profile_image_url
+    if is_valid_url(object.profile)
+      object.profile
+    else
+      nil
+    end
+  end
+
   def following_url
     if object.id.blank?
       STRAVA_URL
@@ -71,5 +79,15 @@ class AthleteDecorator < Draper::Decorator
     else
       object.follower_count.to_s
     end
+  end
+
+  private
+  def is_valid_url(string)
+    uri = URI.parse(string)
+    %w(http https ftp).include?(uri.scheme)
+  rescue URI::BadURIError
+    false
+  rescue URI::InvalidURIError
+    false
   end
 end
