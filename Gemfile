@@ -77,3 +77,6 @@ gem 'delayed_job_active_record'
 
 # Add daemons gem to show delayed_job status.
 gem 'daemons'
+
+# Enable gzip compression on heroku, but don't compress images.
+gem 'heroku-deflater', :group => :production
