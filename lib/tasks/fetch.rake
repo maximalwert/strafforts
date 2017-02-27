@@ -31,7 +31,7 @@ namespace :fetch do
   end
 
   def fetch(mode = nil, type = nil)
-    athletes = Athlete.all
+    athletes = Athlete.find_all_by_is_active(true)
     athletes.each_with_index do |athlete, index|
       fetcher = ActivityFetcher.new(athlete.access_token)
       fetcher.delay(run_at: (index * 3).minutes.from_now, priority: 1).fetch_all(mode: mode, type: type)

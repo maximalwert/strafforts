@@ -2,6 +2,7 @@ require 'test_helper'
 
 class AthleteTest < ActiveSupport::TestCase
   should validate_presence_of(:access_token)
+  should validate_presence_of(:is_active)
 
   should belong_to(:city)
   should belong_to(:state)
@@ -52,5 +53,24 @@ class AthleteTest < ActiveSupport::TestCase
     # Assert.
     assert(item.is_a?(Athlete))
     assert_equal('tonystark', item.username)
+  end
+
+  test 'should get nil when Athlete.find_all_by_athlete_id_and_race_distance_id finds nothing' do
+    # Act.
+    item = Athlete.find_all_by_is_active(false)
+
+    # Assert.
+    assert_nil(item)
+  end
+
+  test 'should get all matching items when Race.find_all_by_athlete_id_and_race_distance_id finds few items' do
+    # Act.
+    items = Athlete.find_all_by_is_active(true)
+
+    # Assert.
+    assert_not(items.empty?)
+    items.each do |item|
+      assert_equal(true, item.is_active)
+    end
   end
 end
