@@ -36,6 +36,13 @@ class ActivityFetcher
       end
     rescue Exception => e
       Rails.logger.error("ActivityFetcher - Error fetching athlete information with access_token '#{@access_token}'.\n\tMessage: #{e.message}\nBacktrace:\n\t#{e.backtrace.join("\n\t")}")
+      if e.message.include?('Authorization Error')
+        athlete = Athlete.find_by_access_token(@access_token)
+        unless athlete.nil?
+          athlete.is_active = false
+          athlete.save!
+        end
+      end
     end
   end
 

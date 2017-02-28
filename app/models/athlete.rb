@@ -1,5 +1,5 @@
 class Athlete < ApplicationRecord
-  validates :access_token, presence: true
+  validates :access_token, :is_active, presence: true
   validates :is_public, inclusion: { in: [true, false] }
 
   belongs_to :city, foreign_key: 'city_id', optional: true
@@ -26,6 +26,15 @@ class Athlete < ApplicationRecord
       return nil
     else
       return results.take
+    end
+  end
+
+  def self.find_all_by_is_active(is_active = true)
+    results = where('is_active = ?', is_active)
+    if results.empty?
+      return nil
+    else
+      return results
     end
   end
 end

@@ -19,7 +19,7 @@ so that athletes can connect Strafforts with their Strava accounts and see visua
 
 ### Demo
 
-http://strafforts.yizeng.me/
+http://www.strafforts.com/
 
 ![Strafforts Homepage Screenshot](public/screenshots/strafforts-home.jpg)
 ![Strafforts Overview Page Screenshot](public/screenshots/strafforts-overview.png)
@@ -42,7 +42,7 @@ Quoting from [Strava Support][Strava Support]:
 
 ## Installation & Development
 
-Strafforts should just work fine at http://strafforts.yizeng.me/,
+Strafforts should just work fine at http://www.strafforts.com/,
 that you can connect with your Strava account and view your best efforts data once they have been retrieved.
 
 However, if you want to create your own Strafforts instance or setup it on your machine,
