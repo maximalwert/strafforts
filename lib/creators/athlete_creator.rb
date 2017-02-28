@@ -34,6 +34,7 @@ module Creators
       athlete.measurement_preference = athlete_json['measurement_preference']
       athlete.email = athlete_json['email']
       athlete.weight = athlete_json['weight']
+      athlete.is_active = true
 
       country_id = Creators::LocationCreator.create_country(athlete_json['country'])
       state_id = Creators::LocationCreator.create_state(country_id, athlete_json['state'])
