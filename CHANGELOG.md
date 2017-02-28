@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.4.1] - 2017-02-28
+Issue #15: Use heroku-deflater gem to enable gzip compression
+Issue #17: Setup new domain www.strafforts.com
+Issue #18: Set athletes with outdated access token to inactive
+
 ## [0.3.0] - 2017-02-25
 Issue #3: Update wordings on user-facing messages.
 Issue #4: Fix relative athlete profile image causing 404.
