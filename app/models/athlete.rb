@@ -1,6 +1,6 @@
 class Athlete < ApplicationRecord
-  validates :access_token, :is_active, presence: true
-  validates :is_public, inclusion: { in: [true, false] }
+  validates :access_token, presence: true
+  validates :is_active, :is_public, inclusion: { in: [true, false] }
 
   belongs_to :city, foreign_key: 'city_id', optional: true
   belongs_to :state, foreign_key: 'state_id', optional: true
