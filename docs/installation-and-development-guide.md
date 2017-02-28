@@ -163,7 +163,7 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 [Strava API]: https://strava.github.io/api/
 [Strava API settings page]: https://www.strava.com/settings/api
 [estimated best efforts]: https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running
-[Strafforts]: http:/strafforts.yizeng.me
+[Strafforts]: http:/strafforts.com
 [strava-best-efforts]: https://github.com/yizeng/strava-best-efforts
 [yizeng.me]: http://yizeng.me
 [License]: https://raw.github.com/yizeng/strafforts/master/LICENSE

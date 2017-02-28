@@ -108,6 +108,8 @@ GEM
     gherkin (4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    heroku-deflater (0.6.3)
+      rack (>= 1.4.5)
     httmultiparty (0.3.16)
       httparty (>= 0.7.3)
       mimemagic
@@ -243,6 +245,7 @@ DEPENDENCIES
   delayed_job_active_record
   draper!
   font-awesome-rails
+  heroku-deflater
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
