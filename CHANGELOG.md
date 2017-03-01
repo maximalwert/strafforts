@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.4.2] - 2017-03-01
+Issue #18: Hotfix to make athlete.is_active a boolean type but optional in model
+  and set to true when creating new athlete.
+
 ## [0.4.1] - 2017-02-28
 Issue #15: Use heroku-deflater gem to enable gzip compression
 Issue #17: Setup new domain www.strafforts.com
