@@ -2,7 +2,6 @@ require 'test_helper'
 
 class AthleteTest < ActiveSupport::TestCase
   should validate_presence_of(:access_token)
-  should validate_presence_of(:is_active)
 
   should belong_to(:city)
   should belong_to(:state)
