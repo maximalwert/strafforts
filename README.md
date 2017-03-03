@@ -1,9 +1,12 @@
 # Strafforts <img alt="Powered by Strava" src="vendor/assets/strava/api_logo_pwrdBy_strava_horiz_light.png" height="24">
 
-[![Build Status](https://travis-ci.org/yizeng/strafforts.svg?branch=master)](https://travis-ci.org/yizeng/strafforts)
-[![Code Climate](https://codeclimate.com/github/yizeng/strafforts.svg?style=flat)](https://codeclimate.com/github/yizeng/strafforts)
-[![Coverage Status](https://coveralls.io/repos/yizeng/strafforts/badge.svg?style=flat)](https://coveralls.io/r/yizeng/strafforts)
-[![Dependency Status](https://gemnasium.com/yizeng/strafforts.svg)](https://gemnasium.com/yizeng/strafforts)
+[![GitHub release](https://img.shields.io/github/release/yizeng/strafforts.svg?style=flat-square)][GitHub Tags]
+[![license](https://img.shields.io/github/license/yizeng/strafforts.svg?style=flat-square)](LICENSE)
+
+[![Travis](https://img.shields.io/travis/yizeng/strafforts.svg?style=flat-square)][Strafforts Travis]
+[![Coveralls](https://img.shields.io/coveralls/yizeng/strafforts.svg?style=flat-square)][Strafforts Coverall]
+[![Code Climate](https://img.shields.io/codeclimate/github/yizeng/strafforts.svg?style=flat-square)][Strafforts Code Climate]
+[![Gemnasium](https://img.shields.io/gemnasium/yizeng/strafforts.svg?style=flat-square)][Strafforts Gemnasium]
 
 ### A Visualizer for Strava Estimated Best Efforts
 
@@ -19,7 +22,7 @@ so that athletes can connect Strafforts with their Strava accounts and see visua
 
 ### Demo
 
-http://www.strafforts.com/
+http://www.strafforts.com
 
 ![Strafforts Homepage Screenshot](public/screenshots/strafforts-home.jpg)
 ![Strafforts Overview Page Screenshot](public/screenshots/strafforts-overview.png)
@@ -42,7 +45,7 @@ Quoting from [Strava Support][Strava Support]:
 
 ## Installation & Development
 
-Strafforts should just work fine at http://www.strafforts.com/,
+Strafforts should just work fine at http://www.strafforts.com,
 that you can connect with your Strava account and view your best efforts data once they have been retrieved.
 
 However, if you want to create your own Strafforts instance or setup it on your machine,
@@ -54,7 +57,8 @@ See [Acknowledgements](docs/acknowledgements.md) page for a comprehensive list.
 
 ## Contributing
 
-Contribution are always **welcome and recommended**!
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)][Strafforts Issues]
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 As I'm actually a .NET developer by day,
 Strafforts is my first Ruby on Rails app that helps me learning the framework and creates something useful for analyze my running.
@@ -68,10 +72,16 @@ If you want to make code changes, feel free to create PRs.
 ## License
 Strafforts is a project developed and maintained by [Yi Zeng][yizeng.me], licensed under [MIT License](LICENSE).
 
+[GitHub Tags]: https://github.com/yizeng/strafforts/tags
+[Strafforts Travis]: https://travis-ci.org/yizeng/strafforts
+[Strafforts Coverall]: https://coveralls.io/r/yizeng/strafforts
+[Strafforts Code Climate]: https://codeclimate.com/github/yizeng/strafforts
+[Strafforts Gemnasium]: https://gemnasium.com/yizeng/strafforts
 [Strava API]: https://strava.github.io/api/
 [Strava Support]: https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running
 [Side by side Best Efforts Image]: https://support.strava.com/attachments/token/B2NpmmMYGEVEzCJn7ZjoMFtsk/?name=Side+by+Side-+Best+Effort.png
 [Strava Best Efforts Image]: https://support.strava.com/attachments/token/UJw9NjMB5AZSqRm8sst8kUqUy/?name=activity+-+Best+Effort.png
 [strava-best-efforts]: https://github.com/yizeng/strava-best-efforts
 [Ruby on Rails]: http://rubyonrails.org/
+[Strafforts Issues]: https://github.com/yizeng/strafforts/issues
 [yizeng.me]: http://yizeng.me
