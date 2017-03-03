@@ -243,7 +243,7 @@ function loadBestEffortsView(distanceText) {
                     $(".dataTable").each(function() {
                         $(this).DataTable({
                             "columnDefs": [{
-                                "targets": [1, 3, 5, 6], // Disable searching for WorkoutType, Time and HRs.
+                                "targets": [1, 3, 4, 6, 7], // Disable searching for WorkoutType, Time, Pace and HRs.
                                 "searchable": false
                             }],
                             "iDisplayLength": 10,

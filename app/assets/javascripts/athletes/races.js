@@ -230,7 +230,7 @@ function loadRacesView(distanceText) {
                     $(".dataTable").each(function() {
                         $(this).DataTable({
                             "columnDefs": [{
-                                "targets": [2, 3, 4, 5, 6], // Disable searching for WorkoutType, Time, Elevation, Cadence and HRs.
+                                "targets": [2, 3, 5, 6, 7, 8], // Disable searching for Time, Pace, Elevation, Cadence and HRs.
                                 "searchable": false
                             }],
                             "iDisplayLength": 10,
