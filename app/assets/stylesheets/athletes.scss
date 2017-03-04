@@ -252,13 +252,30 @@ input[type='submit'] {
   }
 
   @media (max-width: 768px) {
-    .datatable .badge-cell {
+    .dataTable .hide-in-small-screen {
+      display: none !important;
+    }
+
+    div.dataTables_wrapper > div.row > div,
+    div.dataTables_length,
+    div.dataTables_filter,
+    div.dataTables_info,
+    div.dataTables_paginate {
+      text-align: left;
+    }
+  }
+  @media (max-width: 992px) {
+    .dataTable .badge-cell {
       display: none !important;
     }
   }
-  @media (max-width: 1200px) {
-    #main-content {
+  @media (max-width: 1280px) {
+    .dataTable td {
       font-size: .9em !important;
+    }
+    .strava-logo-link span {
+      content: none !important;
+      margin-right: 0 !important;
     }
   }
 }
