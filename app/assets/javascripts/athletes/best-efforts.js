@@ -1,20 +1,4 @@
 function loadBestEffortsView(distanceText) {
-    var constructProgressionChartHtml = function (withLoadingIcon) {
-        var chart = '<div class="row"><div class="col-xs-12">';
-        chart += '<div class="box">';
-        chart += '<div class="box-header with-border>';
-        chart += '<i class="fa fa-bar-chart-o"></i><h3 class="box-title">Progression Chart</h3>';
-        chart += '<div class="box-body">';
-        if (withLoadingIcon) {
-            chart += constructLoadingIconHtml();
-        } else {
-            chart += '<div class="chart">';
-            chart += '<canvas id="progression-chart"></canvas>';
-            chart += '</div>';
-        }
-        chart += '</div></div></div></div>';
-        return chart;
-    };
     var constructDataTableHtml = function (bestEfforts) {
         var table = '<div class="row">';
         table += '<div class="col-xs-12">';
@@ -65,42 +49,10 @@ function loadBestEffortsView(distanceText) {
         table += '</div></div></div></div></div>';
         return table;
     };
-    var constructPieChartsHtml = function (withLoadingIcon) {
-        var chart = '<div class="row">';
-
-        chart += '<div class="col-md-6">';
-        chart += '<div class="box">';
-        chart += '<div class="box-header with-border>';
-        chart += '<i class="fa fa-bar-chart-o"></i><h3 class="box-title">Workout Type Chart</h3>';
-        chart += '<div class="box-body">';
-        if (withLoadingIcon) {
-            chart += constructLoadingIconHtml();
-        } else {
-            chart += '<div class="chart text-center">';
-            chart += '<canvas id="workout-type-chart"></canvas>';
-            chart += '</div>';
-        }
-        chart += '</div></div></div></div>';
-
-        chart += '<div class="col-md-6">';
-        chart += '<div class="box">';
-        chart += '<div class="box-header with-border>';
-        chart += '<i class="fa fa-bar-chart-o"></i><h3 class="box-title">Gear Chart</h3>';
-        chart += '<div class="box-body">';
-        if (withLoadingIcon) {
-            chart += constructLoadingIconHtml();
-        } else {
-            chart += '<div class="chart">';
-            chart += '<canvas id="gear-chart"></canvas>';
-            chart += '</div>';
-        }
-        chart += '</div></div></div></div></div>';
-        return chart;
-    };
     var prepareView = function()
     {
         setContentHeader("Estimated Best Efforts - " + distanceText);
-        setPageTitle('Strafforts - A Visualizer for Strava Estimated Best Efforts and Races |  Best Efforts - '+ distanceText);
+        setPageTitle('Strafforts |  Best Efforts - '+ distanceText);
 
         resetNavigationItems();
         var navigationAnchor = $("a[id^='best-efforts-for-" + distanceText.toLowerCase().replace(/ /g, '-').replace(/\//g, '-') + "']");
@@ -111,7 +63,7 @@ function loadBestEffortsView(distanceText) {
 
         // Create empty progression chart with loading icon.
         var showLoadingIcon = true;
-        var progressionChart = constructProgressionChartHtml(showLoadingIcon);
+        var progressionChart = constructChartHtml('progression-chart', 'Progression Chart', 12, showLoadingIcon);
         mainContent.append(progressionChart);
 
         // Create empty data table with loading icon.
@@ -119,7 +71,10 @@ function loadBestEffortsView(distanceText) {
         mainContent.append(table);
 
         // Create empty pie charts with loading icon.
-        var pieCharts = constructPieChartsHtml(showLoadingIcon);
+        var pieCharts = '<div class="row">';
+        pieCharts += constructChartHtml('workout-type-chart', 'Workout Type Chart', 6, showLoadingIcon);
+        pieCharts += constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon);
+        pieCharts += '</div>';
         mainContent.append(pieCharts);
     };
 
@@ -131,22 +86,20 @@ function loadBestEffortsView(distanceText) {
             async: false,
             success: function(data) {
 
-                var best_efforts = [];
+                var bestEfforts = [];
                 $.each(data, function(key, value) {
-                    best_efforts.push(value);
+                    bestEfforts.push(value);
                 });
 
                 var mainContent = $('#main-content');
                 mainContent.empty();
 
-                // Create progression chart.
-                var progressionChart = constructProgressionChartHtml(false);
-                var createProgressionChart = function (bestEfforts) {
+                var createProgressionChart = function (items) {
                     var activityNames = [];
                     var dates = [];
                     var runTimes = [];
 
-                    bestEfforts.forEach(function(bestEffort) {
+                    items.forEach(function(bestEffort) {
                         var activityName = bestEffort["activity_name"];
                         var date = bestEffort["start_date"];
                         var runTime = bestEffort['elapsed_time'];
@@ -210,7 +163,7 @@ function loadBestEffortsView(distanceText) {
                                         offsetGridLines: true
                                     },
                                     ticks: {
-                                        callback: function(value, index, values) {
+                                        callback: function(value) {
                                             return value.toString().toHHMMSS();
                                         }
                                     }
@@ -223,7 +176,7 @@ function loadBestEffortsView(distanceText) {
                                     title: function(tooltipItem, data) {
                                         return data.datasets[0].label[tooltipItem[0].index];
                                     },
-                                    label: function(tooltipItem, data) {
+                                    label: function(tooltipItem) {
                                         var text = "Ran " + tooltipItem.yLabel.toString().toHHMMSS();
                                         text += " on " + tooltipItem.xLabel;
                                         return text;
@@ -233,11 +186,12 @@ function loadBestEffortsView(distanceText) {
                         }
                     });
                 };
+                var progressionChart = constructChartHtml('progression-chart', 'Progression Chart', 12, false);
                 mainContent.append(progressionChart);
-                createProgressionChart(best_efforts);
+                createProgressionChart(bestEfforts);
 
                 // Create data table.
-                var table = constructDataTableHtml(best_efforts);
+                var table = constructDataTableHtml(bestEfforts);
                 mainContent.append(table);
                 var setupDataTable = function () {
                     $(".dataTable").each(function() {
@@ -255,11 +209,9 @@ function loadBestEffortsView(distanceText) {
                 };
                 setupDataTable();
 
-                // Create pie charts.
-                var pieCharts = constructPieChartsHtml(false);
-                var createWorkoutTypeChart = function (bestEfforts) {
+                var createWorkoutTypeChart = function (items) {
                     var workoutTypes = {}; // Holds Workout Type and its count.
-                    bestEfforts.forEach(function(bestEffort) {
+                    items.forEach(function(bestEffort) {
                         var workoutType = bestEffort["workout_type_name"];
 
                         // No workout type is a normal run.
@@ -311,68 +263,19 @@ function loadBestEffortsView(distanceText) {
                                     e.stopPropagation();
                                 }
                             },
-                            responsive: true,
-                            maintainAspectRatio: false
+                            maintainAspectRatio: false,
+                            responsive: true
                         }
                     });
                 };
-                var createGearChart = function (bestEfforts) {
-                    var gears = {}; // Holds Workout Type and its count.
-                    bestEfforts.forEach(function(bestEffort) {
-                        var gearName = bestEffort['gear_name'];
-                        if (gearName in gears) {
-                            gears[gearName] += 1;
-                        } else {
-                            gears[gearName] = 1;
-                        }
-                    });
-
-                    var ctx = $("#gear-chart").get(0).getContext("2d");
-                    ctx.canvas.height = 300;
-
-                    var gearLabels = Object.keys(gears);
-                    var gearCount = [];
-                    for (var key in gears) {
-                        var value = gears[key];
-                        gearCount.push(value);
-                    }
-                    var data = {
-                        labels: gearLabels,
-                        datasets: [{
-                            data: gearCount,
-                            backgroundColor: [
-                                "rgba(189, 214, 186, 0.7)",
-                                "rgba(245, 105, 84, 0.7)",
-                                "rgba(0, 166, 90, 0.7)",
-                                "rgba(243, 156, 18, 0.7)"
-                            ],
-                            hoverBackgroundColor: [
-                                "rgba(189, 214, 186, 1)",
-                                "rgba(245, 105, 84, 1)",
-                                "rgba(0, 166, 90, 1)",
-                                "rgba(243, 156, 18, 1)"
-                            ]
-                        }]
-                    };
-
-                    var chart = new Chart(ctx, {
-                        type: 'pie',
-                        data: data,
-                        options: {
-                            legend: {
-                                position: 'bottom',
-                                onClick: function(e) {
-                                    e.stopPropagation();
-                                }
-                            },
-                            responsive: true,
-                            maintainAspectRatio: false
-                        }
-                    });
-                };
+                var showLoadingIcon = false;
+                var pieCharts = '<div class="row">';
+                pieCharts += constructChartHtml('workout-type-chart', 'Workout Type Chart', 6, showLoadingIcon);
+                pieCharts += constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon);
+                pieCharts += '</div>';
                 mainContent.append(pieCharts);
-                createWorkoutTypeChart(best_efforts);
-                createGearChart(best_efforts);
+                createWorkoutTypeChart(bestEfforts);
+                createGearCountChart('gear-count-chart', bestEfforts);
             }
         });
     };

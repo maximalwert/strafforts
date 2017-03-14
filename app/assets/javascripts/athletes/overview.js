@@ -3,7 +3,8 @@ function loadOverviewPage(createNavigation) {
 
     if (createNavigation || createNavigation === undefined) {
         createNavigationItems('/best-efforts/get_counts', 'best_effort_type', 'best-efforts-for');
-        createNavigationItems('/races/get_counts_by_distance', 'race_distance', 'races-for') ;
+        createNavigationItems('/races/get_counts_by_distance', 'race_distance', 'races-for-distance') ;
+        createNavigationItems('/races/get_counts_by_year', 'race_year', 'races-for-year') ;
     }
 
     createOverviewDatatable('best-efforts');
@@ -44,15 +45,15 @@ function createNavigationItems(url, itemName, elementIdPrefix) {
         async: false,
         success: function(data) {
             $.each(data, function(key, value) {
-                var distanceText = value[itemName];
-                var distanceId = value[itemName].replace(/\s/g, "-").replace(/\//g, "-").toLowerCase();
+                var itemText = value[itemName];
+                var itemId = value[itemName].replace(/\s/g, "-").replace(/\//g, "-").toLowerCase();
                 var count = value['count'];
                 var isMajor = value['is_major'];
                 var menuItem = '<li>';
-                menuItem += '<a id="' + elementIdPrefix + '-' + distanceId + '-navigation" data-turbolinks="false" href="#">';
+                menuItem += '<a id="' + elementIdPrefix + '-' + itemId + '-navigation" data-turbolinks="false" href="#">';
                 menuItem += '<i class="fa fa-circle-o"></i>';
-                menuItem += '<span class="distance-text">';
-                menuItem += distanceText;
+                menuItem += '<span class="item-text">';
+                menuItem += itemText;
                 menuItem += '</span>';
                 menuItem += '<span class="pull-right-container">';
                 menuItem += '<small class="pull-right">' + count + '</small>';
@@ -96,9 +97,9 @@ function createOverviewDatatable(type) {
                     var table = '<div class="box">';
                     table += '<div class="box-header">';
                     table += '<h3 class="box-title">' + model['distance'] + '</h3>';
-                    table += '<a class="pull-right" id="' + type + '-for-' + model['distance'].toLowerCase().replace(/\s/g, '-').replace(/\//g, '-') + '" data-turbolinks="false" href="#">';
+                    table += '<a class="pull-right" id="' + type + '-for-distance-' + model['distance'].toLowerCase().replace(/\s/g, '-').replace(/\//g, '-') + '" data-turbolinks="false" href="#">';
                     table += '<small> View Details</small>';
-                    table += '<span class="distance-text hidden">' + model['distance'] + '</span>';
+                    table += '<span class="item-text hidden">' + model['distance'] + '</span>';
                     table += '</a>';
                     table += '</div>';
                     table += '<div class="box-body">';

@@ -11,10 +11,6 @@ class BestEffortsDecorator < Draper::CollectionDecorator
     results
   end
 
-  def filter_by_type(best_effort_type)
-    find_best_efforts_by_type(best_effort_type)
-  end
-
   private
 
   def find_best_efforts_by_type(best_effort_type, max_item_allowed = nil)

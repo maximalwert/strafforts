@@ -11,10 +11,6 @@ class RacesDecorator < Draper::CollectionDecorator
     results
   end
 
-  def filter_by_distance(race_distance)
-    find_race_by_distance(race_distance)
-  end
-
   private
 
   def find_race_by_distance(race_distance, max_item_allowed = nil)

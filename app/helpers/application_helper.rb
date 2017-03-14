@@ -85,9 +85,12 @@ module ApplicationHelper
 
         if is_type_of_best_efforts
           item[:best_effort_type] = entity.best_effort_type.name
+          item[:elapsed_time] = entity.elapsed_time
           average_speed = entity.distance / entity.elapsed_time
         else
           item[:race_distance] = entity.race_distance.name
+          item[:elapsed_time] = entity.activity.elapsed_time
+          item[:distance] = entity.activity.distance
           average_speed = entity.activity.average_speed
         end
 
@@ -95,7 +98,6 @@ module ApplicationHelper
         item[:activity_name] = entity.activity.name
         item[:start_date] = entity.activity.start_date_local.nil? ? '' : entity.activity.start_date_local.to_s.slice(0, 10)
         item[:workout_type_name] = entity.activity.workout_type.nil? ? 'n/a' : entity.activity.workout_type.name
-        item[:elapsed_time] = is_type_of_best_efforts ? entity.elapsed_time : entity.activity.elapsed_time
         item[:elapsed_time_formatted] = Time.at(item[:elapsed_time]).utc.strftime('%H:%M:%S')
         item[:pace] = convert_to_pace(average_speed, measurement_unit)
         item[:pace_unit] = measurement_unit == 'feet' ? '/mi' : '/km'
