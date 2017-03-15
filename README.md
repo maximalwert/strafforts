@@ -25,9 +25,8 @@ so that athletes can connect Strafforts with their Strava accounts and see visua
 http://www.strafforts.com
 
 ![Strafforts Homepage Screenshot](public/screenshots/strafforts-home.jpg)
-![Strafforts Overview Page Screenshot](public/screenshots/strafforts-overview.png)
 ![Strafforts Best Efforts View Screenshot](public/screenshots/strafforts-best-efforts-view.png)
-![Strafforts Races View Screenshot](public/screenshots/strafforts-races-view.png)
+![Strafforts Races View Screenshot](public/screenshots/strafforts-races-by-year-view.png)
 
 
 ### What are 'Estimated Best Efforts'?
