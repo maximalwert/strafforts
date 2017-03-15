@@ -97,103 +97,107 @@ function loadRacesByDistanceView(distance) {
                 var mainContent = $('#main-content');
                 mainContent.empty();
 
-                var createProgressionChart = function (items) {
-                    var activityNames = [];
-                    var dates = [];
-                    var runTimes = [];
+                var createProgressionChart = function (id, items) {
+                    if (items.length > 1) {
+                        var activityNames = [];
+                        var dates = [];
+                        var runTimes = [];
 
-                    items.forEach(function(race) {
-                        var activityName = race["activity_name"];
-                        var date = race["start_date"];
-                        var runTime = race['elapsed_time'];
-                        activityNames.push(activityName);
-                        dates.push(date);
-                        runTimes.push(runTime);
-                    });
+                        items.forEach(function(race) {
+                            var activityName = race["activity_name"];
+                            var date = race["start_date"];
+                            var runTime = race['elapsed_time'];
+                            activityNames.push(activityName);
+                            dates.push(date);
+                            runTimes.push(runTime);
+                        });
 
-                    var ctx = $("#progression-chart").get(0).getContext("2d");
-                    ctx.canvas.height = 300;
+                        var ctx = $("#" + id).get(0).getContext("2d");
+                        ctx.canvas.height = 300;
 
-                    var data = {
-                        yLabels: runTimes,
-                        labels: dates,
-                        datasets: [{
-                            label: activityNames,
-                            fill: false,
-                            lineTension: 0.2,
-                            backgroundColor: "rgba(75,192,192,0.4)",
-                            borderColor: "#FC4C02",
-                            borderCapStyle: 'butt',
-                            borderDash: [],
-                            borderDashOffset: 0.0,
-                            borderJoinStyle: 'miter',
-                            pointBorderColor: "#FC4C02",
-                            pointBackgroundColor: "#fff",
-                            pointBorderWidth: 1,
-                            pointHoverRadius: 5,
-                            pointHoverBackgroundColor: "#FC4C02",
-                            pointHoverBorderColor: "#E34402",
-                            pointHoverBorderWidth: 2,
-                            pointRadius: 4,
-                            pointHitRadius: 10,
-                            pointStyle: 'circle',
-                            data: runTimes,
-                            spanGaps: false
-                        }]
-                    };
-                    var myLineChart = new Chart(ctx, {
-                        type: 'line',
-                        data: data,
-                        options: {
-                            legend: {
-                                display: false
-                            },
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            scales: {
-                                xAxes: [{
-                                    gridLines: {
-                                        display: false
-                                    },
-                                    type: 'time',
-                                    time: {
-                                        unit: 'month'
-                                    }
-                                }],
-                                yAxes: [{
-                                    gridLines: {
-                                        display: true,
-                                        offsetGridLines: true
-                                    },
-                                    ticks: {
-                                        callback: function(value, index, values) {
-                                            return value.toString().toHHMMSS();
+                        var data = {
+                            yLabels: runTimes,
+                            labels: dates,
+                            datasets: [{
+                                label: activityNames,
+                                fill: false,
+                                lineTension: 0.2,
+                                backgroundColor: "rgba(75,192,192,0.4)",
+                                borderColor: "#FC4C02",
+                                borderCapStyle: 'butt',
+                                borderDash: [],
+                                borderDashOffset: 0.0,
+                                borderJoinStyle: 'miter',
+                                pointBorderColor: "#FC4C02",
+                                pointBackgroundColor: "#fff",
+                                pointBorderWidth: 1,
+                                pointHoverRadius: 5,
+                                pointHoverBackgroundColor: "#FC4C02",
+                                pointHoverBorderColor: "#E34402",
+                                pointHoverBorderWidth: 2,
+                                pointRadius: 4,
+                                pointHitRadius: 10,
+                                pointStyle: 'circle',
+                                data: runTimes,
+                                spanGaps: false
+                            }]
+                        };
+                        var myLineChart = new Chart(ctx, {
+                            type: 'line',
+                            data: data,
+                            options: {
+                                legend: {
+                                    display: false
+                                },
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                scales: {
+                                    xAxes: [{
+                                        gridLines: {
+                                            display: false
+                                        },
+                                        type: 'time',
+                                        time: {
+                                            unit: 'month'
                                         }
-                                    }
-                                }]
-                            },
-                            tooltips: {
-                                enabled: true,
-                                mode: 'single',
-                                callbacks: {
-                                    title: function(tooltipItem, data) {
-                                        return data.datasets[0].label[tooltipItem[0].index];
-                                    },
-                                    label: function(tooltipItem) {
-                                        var text = "Ran " + tooltipItem.yLabel.toString().toHHMMSS();
-                                        text += " on " + tooltipItem.xLabel;
-                                        return text;
+                                    }],
+                                    yAxes: [{
+                                        gridLines: {
+                                            display: true,
+                                            offsetGridLines: true
+                                        },
+                                        ticks: {
+                                            callback: function(value, index, values) {
+                                                return value.toString().toHHMMSS();
+                                            }
+                                        }
+                                    }]
+                                },
+                                tooltips: {
+                                    enabled: true,
+                                    mode: 'single',
+                                    callbacks: {
+                                        title: function(tooltipItem, data) {
+                                            return data.datasets[0].label[tooltipItem[0].index];
+                                        },
+                                        label: function(tooltipItem) {
+                                            var text = "Ran " + tooltipItem.yLabel.toString().toHHMMSS();
+                                            text += " on " + tooltipItem.xLabel;
+                                            return text;
+                                        }
                                     }
                                 }
                             }
-                        }
-                    });
+                        });
+                    } else {
+                        createNoEnoughDataMessage(id);
+                    }
                 };
                 var progressionChart = '<div class="row">';
                 progressionChart += constructChartHtml('progression-chart', 'Progression Chart', 12, false);
                 progressionChart += '</div>';
                 mainContent.append(progressionChart);
-                createProgressionChart(races);
+                createProgressionChart('progression-chart', races);
 
                 // Create data table.
                 var table = constructDataTableHtml(races);

@@ -44,29 +44,33 @@ function createNavigationItems(url, itemName, elementIdPrefix) {
         dataType: 'json',
         async: false,
         success: function(data) {
-            $.each(data, function(key, value) {
-                var itemText = value[itemName];
-                var itemId = value[itemName].replace(/\s/g, "-").replace(/\//g, "-").toLowerCase();
-                var count = value['count'];
-                var isMajor = value['is_major'];
-                var menuItem = '<li>';
-                menuItem += '<a id="' + elementIdPrefix + '-' + itemId + '-navigation" data-turbolinks="false" href="#">';
-                menuItem += '<i class="fa fa-circle-o"></i>';
-                menuItem += '<span class="item-text">';
-                menuItem += itemText;
-                menuItem += '</span>';
-                menuItem += '<span class="pull-right-container">';
-                menuItem += '<small class="pull-right">' + count + '</small>';
-                menuItem += '</span>';
-                menuItem += '</a>';
-                menuItem += '</li>';
+            if (data.length === 0) {
+                $('#treeview-menu-' + elementIdPrefix).closest('.treeview').empty();
+            } else {
+                $.each(data, function(key, value) {
+                    var itemText = value[itemName];
+                    var itemId = value[itemName].replace(/\s/g, "-").replace(/\//g, "-").toLowerCase();
+                    var count = value['count'];
+                    var isMajor = value['is_major'];
+                    var menuItem = '<li>';
+                    menuItem += '<a id="' + elementIdPrefix + '-' + itemId + '-navigation" data-turbolinks="false" href="#">';
+                    menuItem += '<i class="fa fa-circle-o"></i>';
+                    menuItem += '<span class="item-text">';
+                    menuItem += itemText;
+                    menuItem += '</span>';
+                    menuItem += '<span class="pull-right-container">';
+                    menuItem += '<small class="pull-right">' + count + '</small>';
+                    menuItem += '</span>';
+                    menuItem += '</a>';
+                    menuItem += '</li>';
 
-                if (isMajor) {
-                    $('#treeview-menu-' + elementIdPrefix).before(menuItem);
-                } else {
-                    $('#treeview-menu-' + elementIdPrefix + ' .treeview-menu').append(menuItem);
-                }
-            });
+                    if (isMajor) {
+                        $('#treeview-menu-' + elementIdPrefix).before(menuItem);
+                    } else {
+                        $('#treeview-menu-' + elementIdPrefix + ' .treeview-menu').append(menuItem);
+                    }
+                });
+            }
         }
     });
 }
