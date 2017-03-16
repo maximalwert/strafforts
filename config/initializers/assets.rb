@@ -30,7 +30,7 @@ Rails.application.config.assets.precompile += %w(
   dist/js/app.min.js
   athletes.css
   athletes/main.js
-  athletes/bestEfforts.js
+  athletes/best-efforts.js
   athletes/overview.js
   athletes/races.js
   errors.css

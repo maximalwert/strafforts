@@ -7,7 +7,7 @@
 //= require plugins/pace/pace.min
 //= require plugins/slimScroll/jquery.slimscroll.min
 //= require dist/js/app.min
-//= require athletes/bestEfforts
+//= require athletes/best-efforts
 //= require athletes/overview
 //= require athletes/races
 
@@ -108,7 +108,7 @@ function bindGoogleAnalyticsEventTracking() {
         sendGaEvent('Athletes', 'Toggle Navigation Sidebar');
     });
     $(document).on("click", ".sidebar-menu a[id^='best-efforts-for-'], .sidebar-menu a[id^='races-for-']", function() {
-        var distance = $(this).find('.distance-text')[0].textContent;
+        var distance = $(this).find('.item-text')[0].textContent;
         sendGaEvent('Athletes', 'Show Details', distance);
     });
     $(document).on("click", ".sidebar-menu .treeview-header", function() {
@@ -176,6 +176,18 @@ function constructLoadingIconHtml() {
     return loadingIcon;
 }
 
+function createNoEnoughDataMessage(id) {
+    var loadingIcon = "<div class='text-center'>";
+    loadingIcon += "<p>";
+    loadingIcon += "Not Enough Data to Generate Charts";
+    loadingIcon += "</p>";
+    loadingIcon += "</div>";
+
+    var container = $("#" + id).parent();
+    container.empty();
+    container.append(loadingIcon);
+}
+
 function constructNoDataInfoBox() {
     var infoBox = '<div class="notification-alert">';
     infoBox += '<div class="modal">';
@@ -190,18 +202,39 @@ function constructNoDataInfoBox() {
     return infoBox;
 }
 
+function constructChartHtml(id, title, width, withLoadingIcon) {
+    var chart = '<div class="col-md-' + width + '">';
+    chart += '<div class="box">';
+    chart += '<div class="box-header with-border>';
+    chart += '<i class="fa fa-pie-chart"></i><h3 class="box-title">' + title + '</h3>';
+    chart += '<div class="box-body">';
+    if (withLoadingIcon) {
+        chart += constructLoadingIconHtml();
+    } else {
+        chart += '<div class="chart">';
+        chart += '<canvas id="' + id + '"></canvas>';
+        chart += '</div>';
+    }
+    chart += '</div></div></div></div>';
+    return chart;
+}
+
 function bindDetailViewLoadingEvents() {
     // Navigation sidebar click and double click handling.
     $(document).on("dblclick",".main-header .logo, a[id^='best-effort-type-'], a[id^='race-distance-']", function() {
         e.preventDefault();
     });
     $(document).on("click","a[id^='best-efforts-for-']", function() {
-        var distanceText = $(this).find(".distance-text").text();
-        loadBestEffortsView(distanceText);
+        var distance = $(this).find(".item-text").text();
+        loadBestEffortsView(distance);
     });
-    $(document).on("click","a[id^='races-for-']", function() {
-        var distanceText = $(this).find(".distance-text").text();
-        loadRacesView(distanceText);
+    $(document).on("click","a[id^='races-for-distance']", function() {
+        var distance = $(this).find(".item-text").text();
+        loadRacesByDistanceView(distance);
+    });
+    $(document).on("click","a[id^='races-for-year']", function() {
+        var year = $(this).find(".item-text").text();
+        loadRacesByYearView(year);
     });
 }
 
@@ -226,4 +259,267 @@ function setContentHeader(headerText) {
 
 function setPageTitle(title) {
     $(document).prop('title', title);
+}
+
+function createGearCountChart(id, items) {
+    if (items.length > 2) {
+        var gears = {}; // Holds Gear and its count.
+        items.forEach(function(item) {
+            var gearName = item['gear_name'];
+            if (gearName in gears) {
+                gears[gearName] += 1;
+            } else {
+                gears[gearName] = 1;
+            }
+        });
+
+        var gearLabels = Object.keys(gears);
+        var gearCounts = [];
+        for (var key in gears) {
+            var value = gears[key];
+            gearCounts.push(value);
+        }
+
+        var ctx = $("#" + id).get(0).getContext("2d");
+        ctx.canvas.height = 300;
+
+        var colors = getRgbColors();
+        var data = {
+            labels: gearLabels,
+            datasets: [{
+                data: gearCounts,
+                backgroundColor: convertToRgbaColors(colors, 0.6),
+                hoverBackgroundColor: convertToRgbaColors(colors, 1)
+            }]
+        };
+
+        var chart = new Chart(ctx, {
+            type: 'pie',
+            data: data,
+            options: {
+                legend: {
+                    position: 'bottom',
+                    onClick: function(e) {
+                        e.stopPropagation();
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    } else {
+        createNoEnoughDataMessage(id);
+    }
+}
+
+function createGearMileageChart(id, items) {
+    if (items.length > 2) {
+        var gears = {}; // Holds Gear and its count.
+        items.forEach(function(item) {
+            var gearName = item['gear_name'];
+            if (gearName in gears) {
+                gears[gearName] += item['distance'];
+            } else {
+                gears[gearName] = item['distance'];
+            }
+        });
+
+        var gearLabels = Object.keys(gears);
+        var gearMileages = [];
+        for (var key in gears) {
+            var mileage = gears[key] / 1000;
+            gearMileages.push(mileage);
+        }
+
+        var ctx = $("#" + id).get(0).getContext("2d");
+        ctx.canvas.height = 300;
+
+        var colors = getRgbColors();
+        var data = {
+            labels: gearLabels,
+            datasets: [{
+                data: gearMileages,
+                backgroundColor: convertToRgbaColors(colors, 0.6),
+                hoverBackgroundColor: convertToRgbaColors(colors, 1)
+            }]
+        };
+
+        var chart = new Chart(ctx, {
+            type: 'horizontalBar',
+            data: data,
+            options: {
+                legend: {
+                    display: false
+                },
+                maintainAspectRatio: false,
+                responsive: true,
+                tooltips: {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function(tooltipItem, data) {
+                            return tooltipItem[0].yLabel + ' - ' + tooltipItem[0].xLabel.toFixed(1) + "km";
+                        },
+                        label: function() {
+                            return '';
+                        }
+                    }
+                }
+            }
+        });
+    } else {
+        createNoEnoughDataMessage(id);
+    }
+}
+
+function createMonthDistributionChart(id, items) {
+    if (items.length > 2) {
+        var months = {}; // Holds month and its count.
+        items.forEach(function(item) {
+            var startDate = item['start_date'];
+            var dateParts = startDate.split("-");
+            var monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            var month = new Date(dateParts[0], (dateParts[1] - 1), dateParts[2]).getMonth();
+            var monthName = monthNames[month];
+            if (monthName in months) {
+                months[monthName] += 1;
+            } else {
+                months[monthName] = 1;
+            }
+        });
+
+        var monthNames = [];
+        var xLabels = [];
+        var counts = [];
+        for (var key in months) {
+            var value = parseInt(months[key]);
+            xLabels.push(key + ' (' + value + ')');
+            counts.push(value);
+            monthNames.push(key);
+        }
+
+        var ctx = $("#" + id).get(0).getContext("2d");
+        ctx.canvas.height = 300;
+
+        var colors = getRgbColors();
+        var data = {
+            yLabels: counts,
+            labels:  xLabels.reverse(),
+            datasets: [{
+                data: counts.reverse(),
+                label: monthNames.reverse(),
+                backgroundColor: convertToRgbaColors(colors, 0.6),
+                hoverBackgroundColor: convertToRgbaColors(colors, 1)
+            }]
+        };
+
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+                legend: {
+                    display: false
+                },
+                maintainAspectRatio: false,
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 1
+                        }
+                    }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function(tooltipItem, data) {
+                            return data.datasets[0].label[tooltipItem[0].index];
+                        },
+                        label: function(tooltipItem) {
+                            return 'Race Count: ' + tooltipItem.yLabel.toString();
+                        }
+                    }
+                }
+            }
+        });
+    } else {
+        createNoEnoughDataMessage(id);
+    }
+}
+
+function createRaceDistancesChart(id, items) {
+    if (items.length > 2) {
+        var raceDistances = {}; // Holds race distance and its count.
+        items.forEach(function(item) {
+            var raceDistance = item['race_distance'];
+            if (raceDistance in raceDistances) {
+                raceDistances[raceDistance] += 1;
+            } else {
+                raceDistances[raceDistance] = 1;
+            }
+        });
+
+        var distances = [];
+        var xLabels = [];
+        var counts = [];
+        for (var key in raceDistances) {
+            var value = parseInt(raceDistances[key]);
+            xLabels.push(key + ' (' + value + ')');
+            counts.push(value);
+            distances.push(key);
+        }
+
+        var ctx = $("#" + id).get(0).getContext("2d");
+        ctx.canvas.height = 300;
+
+        var colors = getRgbColors();
+        var data = {
+            yLabels: counts,
+            labels:  xLabels.reverse(),
+            datasets: [{
+                data: counts.reverse(),
+                label: distances.reverse(),
+                backgroundColor: convertToRgbaColors(colors, 0.6),
+                hoverBackgroundColor: convertToRgbaColors(colors, 1)
+            }]
+        };
+
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+                legend: {
+                    display: false
+                },
+                maintainAspectRatio: false,
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 1
+                        }
+                    }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function(tooltipItem, data) {
+                            return data.datasets[0].label[tooltipItem[0].index];
+                        },
+                        label: function(tooltipItem) {
+                            return 'Race Count: ' + tooltipItem.yLabel.toString();
+                        }
+                    }
+                }
+            }
+        });
+    } else {
+        createNoEnoughDataMessage(id);
+    }
 }

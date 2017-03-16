@@ -30,8 +30,8 @@ function sendGaEvent(category, action, label) {
             eventAction: action,
             eventLabel: label.trim()
         });
-    };
-};
+    }
+}
 
 function handleOutboundLinkClicks(href) {
     ga('send', 'event', {
@@ -63,12 +63,31 @@ String.prototype.toHHMMSS = function() {
     return time;
 }
 
-// Get a random colour.
-function getRandomColor() {
-    var letters = '0123456789ABCDEF'.split('');
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+function getRgbColors() {
+    var colors = [];
+    colors.push([189, 214, 186]);
+    colors.push([245, 105, 84]);
+    colors.push([0, 166, 90]);
+    colors.push([243, 156, 18]);
+    colors.push([64, 127, 127]);
+    colors.push([212, 154, 106]);
+    colors.push([78, 156, 104]);
+    colors.push([212, 166, 106]);
+    colors.push([189, 214, 186]);
+    colors.push([245, 105, 84]);
+    colors.push([0, 166, 90]);
+    colors.push([243, 156, 18]);
+    colors.push([64, 127, 127]);
+    colors.push([212, 154, 106]);
+    colors.push([78, 156, 104]);
+    return colors;
 }
+
+function convertToRgbaColors(rgbColors, alpha) {
+    var colors = [];
+    for (var index = 0; index < rgbColors.length; ++index) {
+        colors.push('rgba('+rgbColors[index][0] + ', ' + rgbColors[index][1] + ', ' + rgbColors[index][2] + ', ' + alpha + ')');
+    }
+    return colors;
+}
+

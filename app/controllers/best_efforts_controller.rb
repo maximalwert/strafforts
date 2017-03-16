@@ -11,8 +11,8 @@ class BestEffortsController < ApplicationController
         @best_efforts = @best_efforts.to_show_in_overview
         render json: @best_efforts
       else
-        # Get best_effort_type from best_effort_type parameter.
-        # 1/2 mile is passed as 1|2 mile (defined in createBestEffortsView method in athletes/bestEfforts.js)
+        # Get best_effort_type from distance parameter.
+        # 1/2 mile is passed as 1|2 mile (defined in createView method in athletes/best-efforts.js)
         distance = params[:distance].tr('|', '/')
         best_effort_type = BestEffortType.find_by_name(distance)
         if best_effort_type.nil?
@@ -20,9 +20,7 @@ class BestEffortsController < ApplicationController
         else
           items = BestEffort.find_all_by_athlete_id_and_best_effort_type_id(athlete.id, best_effort_type.id)
           shaped_items = ApplicationHelper::Helper.shape_best_efforts(items, athlete.measurement_preference)
-          @best_efforts = BestEffortsDecorator.new(shaped_items)
-          @best_efforts = @best_efforts.filter_by_type(best_effort_type.name)
-          render json: @best_efforts
+          render json: shaped_items
         end
       end
     end

@@ -6,10 +6,6 @@ class BestEffortType < ApplicationRecord
 
   def self.find_by_name(distance_name)
     results = where('lower(name) = ?', distance_name.downcase)
-    if results.empty?
-      return nil
-    else
-      return results.take
-    end
+    return results.empty? ? nil : results.take
   end
 end
