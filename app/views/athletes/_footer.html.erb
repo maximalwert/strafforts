@@ -1,12 +1,19 @@
 <footer class="main-footer">
-  <div class="pull-right hidden-xs">
-    <strong>GitHub'ed at
-      <a class="external" href="https://github.com/yizeng/strafforts" target="_blank">yizeng/strafforts</a>.
-      <small><%= Settings.app.version %></small>
+  <div>
+    <div class="pull-right">
+      <strong class="hidden-xs">
+        GitHub'ed at
+        <a class="external" href="https://github.com/yizeng/strafforts" target="_blank">yizeng/strafforts</a>.
+      </strong>
+      <% unless Settings.app.version.blank? %>
+          <strong><small><%=  Settings.app.version %></small></strong>
+      <% else %>
+          <strong><small>v.0.5.1</small></strong>
+      <% end %>
+    </div>
+    <strong>
+      Developed by
+      <a class="external" href="http://yizeng.me" target="_blank">Yi Zeng</a>.
     </strong>
   </div>
-  <strong>
-    Designed and developed by
-    <a class="external" href="http://yizeng.me" target="_blank">Yi Zeng</a>.
-  </strong>
 </footer>
