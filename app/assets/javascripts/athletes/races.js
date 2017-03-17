@@ -1,5 +1,5 @@
 function loadRacesByDistanceView(distance) {
-    var constructDataTableHtml = function (races) {
+    var constructDataTableHtml = function(races) {
         var table = '<div class="row">';
         table += '<div class="col-xs-12">';
         table += '<div class="box">';
@@ -52,10 +52,9 @@ function loadRacesByDistanceView(distance) {
         table += '</div></div></div></div></div>';
         return table;
     };
-    var prepareView = function()
-    {
+    var prepareView = function() {
         setContentHeader("Races - " + distance);
-        appendToPageTitle(' |  Races  - '+ distance);
+        appendToPageTitle(' |  Races  - ' + distance);
 
         resetNavigationItems();
         var navigationAnchor = $("a[id^='races-for-distance-" + distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-') + "']");
@@ -82,7 +81,7 @@ function loadRacesByDistanceView(distance) {
         pieCharts += '</div>';
         mainContent.append(pieCharts);
     };
-    var createView = function () {
+    var createView = function() {
         $.ajax({
             url: window.location.pathname + '/races/' + distance.trim().replace(/\//g, '|'),
             dataType: 'json',
@@ -97,7 +96,7 @@ function loadRacesByDistanceView(distance) {
                 var mainContent = $('#main-content');
                 mainContent.empty();
 
-                var createProgressionChart = function (id, items) {
+                var createProgressionChart = function(id, items) {
                     if (items.length > 1) {
                         var activityNames = [];
                         var dates = [];
@@ -202,7 +201,7 @@ function loadRacesByDistanceView(distance) {
                 // Create data table.
                 var table = constructDataTableHtml(races);
                 mainContent.append(table);
-                var setupDataTable = function () {
+                var setupDataTable = function() {
                     $(".dataTable").each(function() {
                         $(this).DataTable({
                             "columnDefs": [{
@@ -234,7 +233,7 @@ function loadRacesByDistanceView(distance) {
 }
 
 function loadRacesByYearView(year) {
-    var constructDataTableHtml = function (races) {
+    var constructDataTableHtml = function(races) {
         var table = '<div class="row">';
         table += '<div class="col-xs-12">';
         table += '<div class="box">';
@@ -305,10 +304,9 @@ function loadRacesByYearView(year) {
         table += '</div></div></div></div></div>';
         return table;
     };
-    var prepareView = function()
-    {
+    var prepareView = function() {
         setContentHeader("Races - " + year);
-        appendToPageTitle(' |  Races  - '+ year);
+        appendToPageTitle(' |  Races  - ' + year);
 
         resetNavigationItems();
         var navigationAnchor = $("a[id^='races-for-year-" + year + "']");
@@ -336,7 +334,7 @@ function loadRacesByYearView(year) {
         pieCharts += '</div>';
         mainContent.append(pieCharts);
     };
-    var createView = function () {
+    var createView = function() {
         $.ajax({
             url: window.location.pathname + '/races/' + year,
             dataType: 'json',
@@ -361,7 +359,7 @@ function loadRacesByYearView(year) {
                 // Create data table.
                 var table = constructDataTableHtml(races);
                 mainContent.append(table);
-                var setupDataTable = function () {
+                var setupDataTable = function() {
                     $(".dataTable").each(function() {
                         $(this).DataTable({
                             "bFilter": false,

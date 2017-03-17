@@ -34,12 +34,10 @@ class BestEffortsController < ApplicationController
       results = []
       ApplicationHelper::Helper.best_effort_types.each do |best_effort_type|
         model = BestEffortType.find_by_name(best_effort_type[:name])
-        if model.nil?
-          next
-        end
+        next if model.nil?
         items = BestEffort.find_all_by_athlete_id_and_best_effort_type_id(athlete.id, model.id)
 
-        result = { :best_effort_type => best_effort_type[:name], :count => items.nil? ? 0 : items.size, :is_major => best_effort_type[:is_major] }
+        result = { best_effort_type: best_effort_type[:name], count: items.nil? ? 0 : items.size, is_major: best_effort_type[:is_major] }
         results << result
       end
       render json: results

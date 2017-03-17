@@ -52,7 +52,7 @@ $(document).ready(function() {
     bindDetailViewLoadingEvents();
 
     // Reload Overview page.
-    $(document).on("click",".show-overview", function() {
+    $(document).on("click", ".show-overview", function() {
         loadOverviewPage(false);
     });
 
@@ -221,18 +221,18 @@ function constructChartHtml(id, title, width, withLoadingIcon) {
 
 function bindDetailViewLoadingEvents() {
     // Navigation sidebar click and double click handling.
-    $(document).on("dblclick",".main-header .logo, a[id^='best-effort-type-'], a[id^='race-distance-']", function() {
+    $(document).on("dblclick", ".main-header .logo, a[id^='best-effort-type-'], a[id^='race-distance-']", function() {
         e.preventDefault();
     });
-    $(document).on("click","a[id^='best-efforts-for-']", function() {
+    $(document).on("click", "a[id^='best-efforts-for-']", function() {
         var distance = $(this).find(".item-text").text();
         loadBestEffortsView(distance);
     });
-    $(document).on("click","a[id^='races-for-distance']", function() {
+    $(document).on("click", "a[id^='races-for-distance']", function() {
         var distance = $(this).find(".item-text").text();
         loadRacesByDistanceView(distance);
     });
-    $(document).on("click","a[id^='races-for-year']", function() {
+    $(document).on("click", "a[id^='races-for-year']", function() {
         var year = $(this).find(".item-text").text();
         loadRacesByYearView(year);
     });
@@ -408,7 +408,7 @@ function createMonthDistributionChart(id, items) {
         var colors = getRgbColors();
         var data = {
             yLabels: counts,
-            labels:  xLabels.reverse(),
+            labels: xLabels.reverse(),
             datasets: [{
                 data: counts.reverse(),
                 label: monthNames.reverse(),
@@ -481,7 +481,7 @@ function createRaceDistancesChart(id, items) {
         var colors = getRgbColors();
         var data = {
             yLabels: counts,
-            labels:  xLabels.reverse(),
+            labels: xLabels.reverse(),
             datasets: [{
                 data: counts.reverse(),
                 label: distances.reverse(),

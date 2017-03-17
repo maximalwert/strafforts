@@ -61,10 +61,10 @@ class ActivityFetcher
       page.each do |activity|
         activity_json = JSON.parse(activity.to_json)
         next unless activity_json['type'] == 'Run'
-        if type.include?('best-efforts') and activity_json['achievement_count'] > 0
+        if type.include?('best-efforts') && activity_json['achievement_count'] > 0
           activity_ids << activity_json['id']
         end
-        if type.include?('races') and activity_json['workout_type'] == 1
+        if type.include?('races') && (activity_json['workout_type'] == 1)
           activity_ids << activity_json['id']
         end
       end

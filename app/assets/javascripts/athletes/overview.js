@@ -3,8 +3,8 @@ function loadOverviewPage(createNavigation) {
 
     if (createNavigation || createNavigation === undefined) {
         createNavigationItems('/best-efforts/get_counts', 'best_effort_type', 'best-efforts-for');
-        createNavigationItems('/races/get_counts_by_distance', 'race_distance', 'races-for-distance') ;
-        createNavigationItems('/races/get_counts_by_year', 'race_year', 'races-for-year') ;
+        createNavigationItems('/races/get_counts_by_distance', 'race_distance', 'races-for-distance');
+        createNavigationItems('/races/get_counts_by_year', 'race_year', 'races-for-year');
     }
 
     createOverviewDatatable('best-efforts');
@@ -74,6 +74,7 @@ function createNavigationItems(url, itemName, elementIdPrefix) {
         }
     });
 }
+
 function createOverviewDatatable(type) {
     $.ajax({
         url: window.location.pathname + '/' + type,
@@ -95,9 +96,8 @@ function createOverviewDatatable(type) {
             if (distances.length === 0) {
                 var infoBox = constructNoDataInfoBox();
                 pane.append(infoBox);
-            }
-            else {
-                distances.forEach(function (model) {
+            } else {
+                distances.forEach(function(model) {
                     var table = '<div class="box">';
                     table += '<div class="box-header">';
                     table += '<h3 class="box-title">' + model['distance'] + '</h3>';
@@ -121,7 +121,7 @@ function createOverviewDatatable(type) {
                     table += '</tr>';
                     table += '</thead>';
                     table += '<tbody>';
-                    model['items'].forEach(function (item) {
+                    model['items'].forEach(function(item) {
                         table += '<tr>';
                         table += '<td>' + item['start_date'] + '</td>';
                         table += '<td class="text-center badge-cell">';

@@ -1,6 +1,5 @@
 module ApplicationHelper
   class Helper
-
     @@major_best_effort_types = ['Marathon', 'Half Marathon', '10k', '5k']
     @@other_best_effort_types = ['50k', '30k', '20k', '10 mile', '15k', '2 mile', '1 mile', '1k', '1/2 mile', '400m']
     @@major_race_distances = ['Marathon', 'Half Marathon', '10k', '5k']
@@ -19,11 +18,11 @@ module ApplicationHelper
     def self.best_effort_types
       best_effort_types = []
       @@major_best_effort_types.each do |name|
-        best_effort_type = { :name => name, :is_major => true }
+        best_effort_type = { name: name, is_major: true }
         best_effort_types << best_effort_type
       end
       @@other_best_effort_types.each do |name|
-        best_effort_type = { :name => name, :is_major => false }
+        best_effort_type = { name: name, is_major: false }
         best_effort_types << best_effort_type
       end
       best_effort_types
@@ -32,21 +31,20 @@ module ApplicationHelper
     def self.race_distances
       race_distances = []
       @@major_race_distances.each do |name|
-        race_distance = { :name => name, :is_major => true }
+        race_distance = { name: name, is_major: true }
         race_distances << race_distance
       end
       @@other_races_distances.each do |name|
-        race_distance = { :name => name, :is_major => false }
+        race_distance = { name: name, is_major: false }
         race_distances << race_distance
       end
       race_distances
     end
 
     private
+
     def self.convert_to_pace(average_speed, measurement_unit)
-      if average_speed.blank?
-        return ''
-      end
+      return '' if average_speed.blank?
 
       seconds = measurement_unit == 'feet' ? (1609.344 / average_speed) : (1000 / average_speed)
       mins, secs = seconds.divmod(60)
@@ -59,19 +57,19 @@ module ApplicationHelper
 
     def self.get_heartrate_zone_class(heartrate)
       if heartrate < 143 # HRR 60%
-        return 'hr-zone-1'
-      elsif heartrate > 143 and heartrate <= 163 # HRR 60% - 75%
-        return 'hr-zone-2'
-      elsif heartrate > 163 and heartrate <= 169 # HRR 75% - 80%
-        return 'hr-zone-3'
-      elsif heartrate > 169 and heartrate <= 176 # HRR 80% - 85%
-        return 'hr-zone-4'
-      elsif heartrate > 176 and heartrate <= 182 # HRR 85% - 90%
-        return 'hr-zone-5'
-      elsif heartrate > 182 and heartrate <= 189 # HRR 90% - 95%
-        return 'hr-zone-6'
+        'hr-zone-1'
+      elsif heartrate > 143 && (heartrate <= 163) # HRR 60% - 75%
+        'hr-zone-2'
+      elsif heartrate > 163 && (heartrate <= 169) # HRR 75% - 80%
+        'hr-zone-3'
+      elsif heartrate > 169 && (heartrate <= 176) # HRR 80% - 85%
+        'hr-zone-4'
+      elsif heartrate > 176 && (heartrate <= 182) # HRR 85% - 90%
+        'hr-zone-5'
+      elsif heartrate > 182 && (heartrate <= 189) # HRR 90% - 95%
+        'hr-zone-6'
       elsif heartrate > 189 # HRR 95%
-        return 'hr-zone-7'
+        'hr-zone-7'
       end
     end
 
@@ -102,7 +100,7 @@ module ApplicationHelper
         item[:pace] = convert_to_pace(average_speed, measurement_unit)
         item[:pace_unit] = measurement_unit == 'feet' ? '/mi' : '/km'
         item[:elevation] = entity.activity.total_elevation_gain.nil? ? '' : entity.activity.total_elevation_gain.to_i
-        item[:elevation_unit] = measurement_unit  == 'feet' ? 'ft' : 'm'
+        item[:elevation_unit] = measurement_unit == 'feet' ? 'ft' : 'm'
         item[:cadence] = entity.activity.average_cadence.nil? ? '' : (entity.activity.average_cadence * 2).to_i
         item[:suffer_score] = entity.activity.suffer_score.nil? ? '' : entity.activity.suffer_score.to_i
         item[:gear_name] = entity.activity.gear.nil? ? 'Unspecified' : entity.activity.gear.name

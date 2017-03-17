@@ -8,11 +8,11 @@ class BestEffort < ApplicationRecord
 
   def self.find_all_by_athlete_id(athlete_id)
     results = where(athlete_id: athlete_id, pr_rank: 1)
-    return results.empty? ? nil : results
+    results.empty? ? nil : results
   end
 
   def self.find_all_by_athlete_id_and_best_effort_type_id(athlete_id, best_effort_type_id)
     results = where(athlete_id: athlete_id, best_effort_type_id: best_effort_type_id, pr_rank: 1)
-    return results.empty? ? nil : results
+    results.empty? ? nil : results
   end
 end
