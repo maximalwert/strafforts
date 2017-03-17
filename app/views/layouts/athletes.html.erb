@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= Settings.app.title %></title>
+    <% if !@athlete.nil? && !@athlete.fullname.blank? %>
+        <title><%= Settings.app.name %> | <%= @athlete.fullname %> | Overview</title>
+    <% else %>
+        <title><%= Settings.app.title %></title>
+    <% end %>
 
     <meta charset="utf-8">
 

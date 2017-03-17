@@ -178,9 +178,9 @@ function constructLoadingIconHtml() {
 
 function createNoEnoughDataMessage(id) {
     var loadingIcon = "<div class='text-center'>";
-    loadingIcon += "<p>";
-    loadingIcon += "Not Enough Data to Generate Charts";
-    loadingIcon += "</p>";
+    loadingIcon += "<h4>";
+    loadingIcon += "Not Enough Data to Generate Chart";
+    loadingIcon += "</h4>";
     loadingIcon += "</div>";
 
     var container = $("#" + id).parent();
@@ -257,12 +257,14 @@ function setContentHeader(headerText) {
     $(".content-header .breadcrumb li.active").text(headerText);
 }
 
-function setPageTitle(title) {
-    $(document).prop('title', title);
+function appendToPageTitle(content) {
+    var pageTitle = document.title;
+    var newTitle = pageTitle.substr(0, pageTitle.lastIndexOf(" | ")) + content;
+    $(document).prop('title', newTitle);
 }
 
 function createGearCountChart(id, items) {
-    if (items.length > 2) {
+    if (items.length > 1) {
         var gears = {}; // Holds Gear and its count.
         items.forEach(function(item) {
             var gearName = item['gear_name'];
@@ -313,7 +315,7 @@ function createGearCountChart(id, items) {
 }
 
 function createGearMileageChart(id, items) {
-    if (items.length > 2) {
+    if (items.length > 1) {
         var gears = {}; // Holds Gear and its count.
         items.forEach(function(item) {
             var gearName = item['gear_name'];
@@ -373,7 +375,7 @@ function createGearMileageChart(id, items) {
 }
 
 function createMonthDistributionChart(id, items) {
-    if (items.length > 2) {
+    if (items.length > 1) {
         var months = {}; // Holds month and its count.
         items.forEach(function(item) {
             var startDate = item['start_date'];
@@ -452,7 +454,7 @@ function createMonthDistributionChart(id, items) {
 }
 
 function createRaceDistancesChart(id, items) {
-    if (items.length > 2) {
+    if (items.length > 1) {
         var raceDistances = {}; // Holds race distance and its count.
         items.forEach(function(item) {
             var raceDistance = item['race_distance'];

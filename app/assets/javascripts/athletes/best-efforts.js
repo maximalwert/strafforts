@@ -52,7 +52,7 @@ function loadBestEffortsView(distanceText) {
     var prepareView = function()
     {
         setContentHeader("Estimated Best Efforts - " + distanceText);
-        setPageTitle('Strafforts |  Best Efforts - '+ distanceText);
+        appendToPageTitle(' |  Best Efforts - '+ distanceText);
 
         resetNavigationItems();
         var navigationAnchor = $("a[id^='best-efforts-for-" + distanceText.toLowerCase().replace(/ /g, '-').replace(/\//g, '-') + "']");
@@ -214,7 +214,7 @@ function loadBestEffortsView(distanceText) {
                 setupDataTable();
 
                 var createWorkoutTypeChart = function (id, items) {
-                    if (items.length > 2) {
+                    if (items.length > 1) {
                         var workoutTypes = {}; // Holds Workout Type and its count.
                         items.forEach(function(bestEffort) {
                             var workoutType = bestEffort["workout_type_name"];

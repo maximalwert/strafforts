@@ -55,7 +55,7 @@ function loadRacesByDistanceView(distance) {
     var prepareView = function()
     {
         setContentHeader("Races - " + distance);
-        setPageTitle('Strafforts |  Races  - '+ distance);
+        appendToPageTitle(' |  Races  - '+ distance);
 
         resetNavigationItems();
         var navigationAnchor = $("a[id^='races-for-distance-" + distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-') + "']");
@@ -308,7 +308,7 @@ function loadRacesByYearView(year) {
     var prepareView = function()
     {
         setContentHeader("Races - " + year);
-        setPageTitle('Strafforts |  Races  - '+ year);
+        appendToPageTitle(' |  Races  - '+ year);
 
         resetNavigationItems();
         var navigationAnchor = $("a[id^='races-for-year-" + year + "']");
