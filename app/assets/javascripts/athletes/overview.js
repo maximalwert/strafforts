@@ -14,7 +14,7 @@ function loadOverviewPage(createNavigation) {
 function prepareOverview() {
     resetNavigationItems();
     setContentHeader('Overview');
-    setPageTitle('Strafforts - A Visualizer for Strava Estimated Best Efforts and Races');
+    appendToPageTitle(' | Overview');
 
     var mainContent = $('#main-content');
     mainContent.empty(); // Empty main content.

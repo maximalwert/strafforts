@@ -52,7 +52,7 @@ function loadBestEffortsView(distanceText) {
     var prepareView = function()
     {
         setContentHeader("Estimated Best Efforts - " + distanceText);
-        setPageTitle('Strafforts |  Best Efforts - '+ distanceText);
+        appendToPageTitle(' |  Best Efforts - '+ distanceText);
 
         resetNavigationItems();
         var navigationAnchor = $("a[id^='best-efforts-for-" + distanceText.toLowerCase().replace(/ /g, '-').replace(/\//g, '-') + "']");

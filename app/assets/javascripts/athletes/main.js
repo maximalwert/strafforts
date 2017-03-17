@@ -257,8 +257,10 @@ function setContentHeader(headerText) {
     $(".content-header .breadcrumb li.active").text(headerText);
 }
 
-function setPageTitle(title) {
-    $(document).prop('title', title);
+function appendToPageTitle(content) {
+    var pageTitle = document.title;
+    var newTitle = pageTitle.substr(0, pageTitle.lastIndexOf(" | ")) + content;
+    $(document).prop('title', newTitle);
 }
 
 function createGearCountChart(id, items) {
