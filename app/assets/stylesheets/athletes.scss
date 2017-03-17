@@ -252,10 +252,6 @@ input[type='submit'] {
   }
 
   @media (max-width: 768px) {
-    .dataTable .hide-in-small-screen {
-      display: none !important;
-    }
-
     div.dataTables_wrapper > div.row > div,
     div.dataTables_length,
     div.dataTables_filter,

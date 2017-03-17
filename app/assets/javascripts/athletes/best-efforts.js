@@ -17,7 +17,7 @@ function loadBestEffortsView(distanceText) {
             table += '<th class="col-md-4">Activity</th>';
             table += '<th class="col-md-1">Time</th>';
             table += '<th class="col-md-1">Pace</th>';
-            table += '<th class="col-md-2 hide-in-small-screen">Shoes</th>';
+            table += '<th class="col-md-2 hidden-sm">Shoes</th>';
             table += '<th class="col-md-1 text-center badge-cell">Avg. HR</th>';
             table += '<th class="col-md-1 text-center badge-cell">Max HR</th>';
             table += '</tr></thead>';
@@ -34,7 +34,7 @@ function loadBestEffortsView(distanceText) {
                     '" target="_blank">' + item["activity_name"] + '</a>' + '</td>';
                 table += '<td>' + item["elapsed_time_formatted"] + '</td>';
                 table += '<td>' + item["pace"] + '<small>' + item["pace_unit"] + '</small></td>';
-                table += '<td class="hide-in-small-screen">' + item["gear_name"] + '</td>';
+                table += '<td class="hidden-sm">' + item["gear_name"] + '</td>';
                 table += '<td class="text-center badge-cell">';
                 table += '<span class="badge ' + item["average_hr_zone_class"] + '">' + item["average_heartrate"] + '</span>';
                 table += '</td>';
