@@ -214,7 +214,7 @@ function loadBestEffortsView(distanceText) {
                 setupDataTable();
 
                 var createWorkoutTypeChart = function (id, items) {
-                    if (items.length > 2) {
+                    if (items.length > 1) {
                         var workoutTypes = {}; // Holds Workout Type and its count.
                         items.forEach(function(bestEffort) {
                             var workoutType = bestEffort["workout_type_name"];
