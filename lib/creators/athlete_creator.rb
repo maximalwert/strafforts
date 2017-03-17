@@ -26,7 +26,6 @@ module Creators
       athlete.profile_medium = athlete_json['profile_medium']
       athlete.profile = athlete_json['profile']
       athlete.sex = athlete_json['sex']
-      athlete.created_at = DateTime.parse(athlete_json['created_at'])
       athlete.follower_count = athlete_json['follower_count']
       athlete.friend_count = athlete_json['friend_count']
       athlete.athlete_type = athlete_json['athlete_type']
