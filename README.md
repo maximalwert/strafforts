@@ -41,15 +41,6 @@ Quoting from [Strava Support][Strava Support]:
 ![Side by side Best Efforts][Side by side Best Efforts Image]
 ![Strava Best Efforts][Strava Best Efforts Image]
 
-
-## Installation & Development
-
-Strafforts should just work fine at http://www.strafforts.com,
-that you can connect with your Strava account and view your best efforts data once they have been retrieved.
-
-However, if you want to create your own Strafforts instance or setup it on your machine,
-please follow the [installation and development guide](docs/installation-and-development-guide.md).
-
 ## Acknowledgements
 
 See [Acknowledgements](docs/acknowledgements.md) page for a comprehensive list.
@@ -65,8 +56,9 @@ Since it's so amateur, surely there are so much can be improved from a Ruby deve
 I will try my best to improve this and make it more useful for everyone.
 
 Got any questions? Check out the [Q&A page](docs/q-and-a.md) first to see if it's been asked before.
-If you any feature idea, or are running into problems, please raise an issue on GitHub.
+If you have any feature idea, or are running into problems, please raise an issue on GitHub.
 If you want to make code changes, feel free to create PRs.
+Development guide can be found [here](docs/installation-and-development-guide.md) if needed.
 
 ## License
 Strafforts is a project developed and maintained by [Yi Zeng][yizeng.me], licensed under [MIT License](LICENSE).
