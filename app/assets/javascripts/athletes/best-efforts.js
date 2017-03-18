@@ -30,8 +30,8 @@ function loadBestEffortsView(distanceText) {
                 table += '<span class="label workout-type-' + item['workout_type_name'].replace(/ /g, "-") + '">' +
                     item['workout_type_name'] + "</span>";
                 table += '</td>';
-                table += '<td>' + '<a class="strava-activity-link" href="https://www.strava.com/activities/' + item["activity_id"] +
-                    '" target="_blank">' + item["activity_name"] + '</a>' + '</td>';
+                table += '<td><a class="strava-activity-link" href="https://www.strava.com/activities/' + item["activity_id"] +
+                    '" target="_blank">' + item["activity_name"] + '</a></td>';
                 table += '<td>' + item["elapsed_time_formatted"] + '</td>';
                 table += '<td>' + item["pace"] + '<small>' + item["pace_unit"] + '</small></td>';
                 table += '<td class="hidden-sm">' + item["gear_name"] + '</td>';

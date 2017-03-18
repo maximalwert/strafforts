@@ -21,7 +21,7 @@ module Creators
       end
     end
 
-    private
+    private_class_method
 
     def self.get_best_effort_type_id(best_effort_name)
       best_effort_name.tr!('-', ' ')

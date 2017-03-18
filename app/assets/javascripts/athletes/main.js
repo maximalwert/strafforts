@@ -277,10 +277,10 @@ function createGearCountChart(id, items) {
 
         var gearLabels = Object.keys(gears);
         var gearCounts = [];
-        for (var key in gears) {
+        $.each(gears, function(key) {
             var value = gears[key];
             gearCounts.push(value);
-        }
+        });
 
         var ctx = $("#" + id).get(0).getContext("2d");
         ctx.canvas.height = 300;
@@ -328,10 +328,10 @@ function createGearMileageChart(id, items) {
 
         var gearLabels = Object.keys(gears);
         var gearMileages = [];
-        for (var key in gears) {
+        $.each(gears, function(key) {
             var mileage = gears[key] / 1000;
             gearMileages.push(mileage);
-        }
+        });
 
         var ctx = $("#" + id).get(0).getContext("2d");
         ctx.canvas.height = 300;
@@ -395,12 +395,12 @@ function createMonthDistributionChart(id, items) {
         var monthNames = [];
         var xLabels = [];
         var counts = [];
-        for (var key in months) {
-            var value = parseInt(months[key]);
+        $.each(months, function(key) {
+            var value = parseInt(months[key], 10);
             xLabels.push(key + ' (' + value + ')');
             counts.push(value);
             monthNames.push(key);
-        }
+        });
 
         var ctx = $("#" + id).get(0).getContext("2d");
         ctx.canvas.height = 300;
@@ -468,12 +468,12 @@ function createRaceDistancesChart(id, items) {
         var distances = [];
         var xLabels = [];
         var counts = [];
-        for (var key in raceDistances) {
-            var value = parseInt(raceDistances[key]);
+        $.each(raceDistances, function(key) {
+            var value = parseInt(raceDistances[key], 10);
             xLabels.push(key + ' (' + value + ')');
             counts.push(value);
             distances.push(key);
-        }
+        });
 
         var ctx = $("#" + id).get(0).getContext("2d");
         ctx.canvas.height = 300;

@@ -41,7 +41,7 @@ module ApplicationHelper
       race_distances
     end
 
-    private
+    private_class_method
 
     def self.convert_to_pace(average_speed, measurement_unit)
       return '' if average_speed.blank?
