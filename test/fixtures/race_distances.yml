@@ -6,3 +6,7 @@ two:
   id: 2
   distance: 10000
   name: '10k'
+three:
+  id: 0
+  distance: 0
+  name: 'Other'

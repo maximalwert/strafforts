@@ -6,20 +6,24 @@ class RaceDistanceTest < ActiveSupport::TestCase
 
   should have_many(:races)
 
-  test 'should get nil when actual distance is outside of defined lower margin' do
+  test 'should get default distance when actual distance is outside of defined lower margin' do
     # Act.
     item = RaceDistance.find_by_actual_distance(4800)
 
     # Assert.
-    assert_nil(item)
+    assert(item.is_a?(RaceDistance))
+    assert_equal(0, item.distance)
+    assert_equal('Other', item.name)
   end
 
-  test 'should get nil when actual distance is outside of defined upper margin' do
+  test 'should get default distance when actual distance is outside of defined upper margin' do
     # Act.
     item = RaceDistance.find_by_actual_distance(5400)
 
     # Assert.
-    assert_nil(item)
+    assert(item.is_a?(RaceDistance))
+    assert_equal(0, item.distance)
+    assert_equal('Other', item.name)
   end
 
   test 'should get the item when actual distance is within defined lower margin' do
@@ -40,7 +44,7 @@ class RaceDistanceTest < ActiveSupport::TestCase
     assert_equal('5k', item.name)
   end
 
-  test 'should get nil when RaceDistance.find_by_name finds nothing' do
+  test 'should get default distance when RaceDistance.find_by_name finds nothing' do
     # Act.
     item = RaceDistance.find_by_name('500 km')
 

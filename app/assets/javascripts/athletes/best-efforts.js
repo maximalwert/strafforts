@@ -186,7 +186,7 @@ function loadBestEffortsView(distanceText) {
                             }
                         });
                     } else {
-                        createNoEnoughDataMessage(id);
+                        createChartMessage(id);
                     }
                 };
                 var progressionChart = constructChartHtml('progression-chart', 'Progression Chart', 12, false);
@@ -272,7 +272,7 @@ function loadBestEffortsView(distanceText) {
                             }
                         });
                     } else {
-                        createNoEnoughDataMessage(id);
+                        createChartMessage(id);
                     }
                 };
                 var showLoadingIcon = false;

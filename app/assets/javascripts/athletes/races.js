@@ -159,14 +159,21 @@ function loadRacesByDistanceView(distanceText) {
                             }
                         });
                     } else {
-                        createNoEnoughDataMessage(id);
+                        createChartMessage(id);
                     }
                 };
+
+                // Create a progression chart when distance is not 'Other'.
+                var progressionChartId = 'progression-chart';
                 var progressionChart = '<div class="row">';
-                progressionChart += constructChartHtml('progression-chart', 'Progression Chart', 12, false);
+                progressionChart += constructChartHtml(progressionChartId, 'Progression Chart', 12, false);
                 progressionChart += '</div>';
                 mainContent.append(progressionChart);
-                createProgressionChart('progression-chart', races);
+                if (distanceText === 'Other') {
+                    createChartMessage(progressionChartId, "Not Applicable");
+                } else {
+                    createProgressionChart(progressionChartId, races);
+                }
 
                 // Create data table.
                 var table = constructDataTableHtml(races);
@@ -216,7 +223,7 @@ function loadRacesByYearView(year) {
         } else {
             var allDistances = [
                 '100 miles', '100k', '50 miles', '50k', 'Marathon', 'Half Marathon',
-                '20k', '15k', '10k', '5k', '3000m', '1 mile'
+                '20k', '15k', '10k', '5k', '3000m', '1 mile', 'Other'
             ]; // Just hard code race distances here. No need to get from server side for now.
             var distancesToDisplay = [];
             allDistances.forEach(function(distance) {
