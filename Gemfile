@@ -81,5 +81,5 @@ gem 'daemons'
 # Enable gzip compression on heroku, but don't compress images.
 gem 'heroku-deflater', :group => :production
 
-# Coveralls.
-gem 'coveralls', require: false
+# Code coverage tool.
+gem 'codecov', :require => false, :group => :test

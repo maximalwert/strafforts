@@ -4,7 +4,7 @@
 [![license](https://img.shields.io/github/license/yizeng/strafforts.svg?style=flat-square)](LICENSE)
 
 [![Travis](https://img.shields.io/travis/yizeng/strafforts.svg?style=flat-square)][Strafforts Travis]
-[![Coveralls](https://img.shields.io/coveralls/yizeng/strafforts.svg?style=flat-square)][Strafforts Coverall]
+[![Codecov](https://img.shields.io/codecov/c/github/yizeng/strafforts.svg?style=flat-square)][Strafforts Codecov]
 [![Code Climate](https://img.shields.io/codeclimate/github/yizeng/strafforts.svg?style=flat-square)][Strafforts Code Climate]
 [![Gemnasium](https://img.shields.io/gemnasium/yizeng/strafforts.svg?style=flat-square)][Strafforts Gemnasium]
 
@@ -65,7 +65,7 @@ Strafforts is a project developed and maintained by [Yi Zeng][yizeng.me], licens
 
 [GitHub Tags]: https://github.com/yizeng/strafforts/tags
 [Strafforts Travis]: https://travis-ci.org/yizeng/strafforts
-[Strafforts Coverall]: https://coveralls.io/r/yizeng/strafforts
+[Strafforts Codecov]: https://codecov.io/gh/yizeng/strafforts
 [Strafforts Code Climate]: https://codeclimate.com/github/yizeng/strafforts
 [Strafforts Gemnasium]: https://gemnasium.com/yizeng/strafforts
 [Strava API]: https://strava.github.io/api/
