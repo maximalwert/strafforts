@@ -52,7 +52,7 @@ $(document).ready(function() {
     bindDetailViewLoadingEvents();
 
     // Reload Overview page.
-    $(document).on("click",".show-overview", function() {
+    $(document).on("click", ".show-overview", function() {
         loadOverviewPage(false);
     });
 
@@ -221,18 +221,18 @@ function constructChartHtml(id, title, width, withLoadingIcon) {
 
 function bindDetailViewLoadingEvents() {
     // Navigation sidebar click and double click handling.
-    $(document).on("dblclick",".main-header .logo, a[id^='best-effort-type-'], a[id^='race-distance-']", function() {
+    $(document).on("dblclick", ".main-header .logo, a[id^='best-effort-type-'], a[id^='race-distance-']", function() {
         e.preventDefault();
     });
-    $(document).on("click","a[id^='best-efforts-for-']", function() {
+    $(document).on("click", "a[id^='best-efforts-for-']", function() {
         var distance = $(this).find(".item-text").text();
         loadBestEffortsView(distance);
     });
-    $(document).on("click","a[id^='races-for-distance']", function() {
+    $(document).on("click", "a[id^='races-for-distance']", function() {
         var distance = $(this).find(".item-text").text();
         loadRacesByDistanceView(distance);
     });
-    $(document).on("click","a[id^='races-for-year']", function() {
+    $(document).on("click", "a[id^='races-for-year']", function() {
         var year = $(this).find(".item-text").text();
         loadRacesByYearView(year);
     });
@@ -277,10 +277,10 @@ function createGearCountChart(id, items) {
 
         var gearLabels = Object.keys(gears);
         var gearCounts = [];
-        for (var key in gears) {
+        $.each(gears, function(key) {
             var value = gears[key];
             gearCounts.push(value);
-        }
+        });
 
         var ctx = $("#" + id).get(0).getContext("2d");
         ctx.canvas.height = 300;
@@ -328,10 +328,10 @@ function createGearMileageChart(id, items) {
 
         var gearLabels = Object.keys(gears);
         var gearMileages = [];
-        for (var key in gears) {
+        $.each(gears, function(key) {
             var mileage = gears[key] / 1000;
             gearMileages.push(mileage);
-        }
+        });
 
         var ctx = $("#" + id).get(0).getContext("2d");
         ctx.canvas.height = 300;
@@ -395,12 +395,12 @@ function createMonthDistributionChart(id, items) {
         var monthNames = [];
         var xLabels = [];
         var counts = [];
-        for (var key in months) {
-            var value = parseInt(months[key]);
+        $.each(months, function(key) {
+            var value = parseInt(months[key], 10);
             xLabels.push(key + ' (' + value + ')');
             counts.push(value);
             monthNames.push(key);
-        }
+        });
 
         var ctx = $("#" + id).get(0).getContext("2d");
         ctx.canvas.height = 300;
@@ -408,7 +408,7 @@ function createMonthDistributionChart(id, items) {
         var colors = getRgbColors();
         var data = {
             yLabels: counts,
-            labels:  xLabels.reverse(),
+            labels: xLabels.reverse(),
             datasets: [{
                 data: counts.reverse(),
                 label: monthNames.reverse(),
@@ -468,12 +468,12 @@ function createRaceDistancesChart(id, items) {
         var distances = [];
         var xLabels = [];
         var counts = [];
-        for (var key in raceDistances) {
-            var value = parseInt(raceDistances[key]);
+        $.each(raceDistances, function(key) {
+            var value = parseInt(raceDistances[key], 10);
             xLabels.push(key + ' (' + value + ')');
             counts.push(value);
             distances.push(key);
-        }
+        });
 
         var ctx = $("#" + id).get(0).getContext("2d");
         ctx.canvas.height = 300;
@@ -481,7 +481,7 @@ function createRaceDistancesChart(id, items) {
         var colors = getRgbColors();
         var data = {
             yLabels: counts,
-            labels:  xLabels.reverse(),
+            labels: xLabels.reverse(),
             datasets: [{
                 data: counts.reverse(),
                 label: distances.reverse(),

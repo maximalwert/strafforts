@@ -12,11 +12,7 @@ class AthleteDecorator < Draper::Decorator
   end
 
   def profile_image_url
-    if is_valid_url(object.profile)
-      object.profile
-    else
-      nil
-    end
+    object.profile if is_valid_url(object.profile)
   end
 
   def following_url
@@ -62,7 +58,7 @@ class AthleteDecorator < Draper::Decorator
     return '' if object.city.name.blank? && object.country.name.blank?
     return object.country.name if object.city.name.blank? && !object.country.name.blank?
     return object.city.name if !object.city.name.blank? && object.country.name.blank?
-    return "#{object.city.name}, #{object.country.name}"
+    "#{object.city.name}, #{object.country.name}"
   end
 
   def friend_count
@@ -82,6 +78,7 @@ class AthleteDecorator < Draper::Decorator
   end
 
   private
+
   def is_valid_url(string)
     uri = URI.parse(string)
     %w(http https ftp).include?(uri.scheme)

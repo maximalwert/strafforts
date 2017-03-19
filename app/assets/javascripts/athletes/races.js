@@ -1,5 +1,5 @@
-function loadRacesByDistanceView(distance) {
-    var constructDataTableHtml = function (races) {
+function loadRacesByDistanceView(distanceText) {
+    var constructDataTableHtml = function(races) {
         var table = '<div class="row">';
         table += '<div class="col-xs-12">';
         table += '<div class="box">';
@@ -11,40 +11,10 @@ function loadRacesByDistanceView(distance) {
             table += constructLoadingIconHtml();
         } else {
             table += '<table class="dataTable table table-bordered table-striped">';
-            table += '<thead><tr>';
-            table += '<th class="col-md-1">Date</th>';
-            table += '<th class="col-md-3">Activity</th>';
-            table += '<th class="col-md-1">Time</th>';
-            table += '<th class="col-md-1">Pace</th>';
-            table += '<th class="col-md-2 hidden-sm">Shoes</th>';
-            table += '<th class="col-md-1 hidden-sm">Elevation</th>';
-            table += '<th class="col-md-1 hidden-sm">Cadence</th>';
-            table += '<th class="col-md-1 text-center badge-cell">Avg. HR</th>';
-            table += '<th class="col-md-1 text-center badge-cell">Max HR</th>';
-            table += '</tr></thead>';
+            table += createRaceDatatableHeader();
             table += '<tbody>';
-
             races.forEach(function(item) {
-                table += '<tr>';
-                table += '<td>' + item['start_date'] + '</td>';
-                table += '<td>';
-                table += '<a class="strava-logo-link" href="https://www.strava.com/activities/' + item["activity_id"] +
-                    '" target="_blank"><span></span></a>';
-                table += '<a href="https://www.strava.com/activities/' + item["activity_id"] +
-                    '" target="_blank">' + item["activity_name"] + '</a>';
-                table += '</td>';
-                table += '<td>' + item["elapsed_time_formatted"] + '</td>';
-                table += '<td>' + item["pace"] + '<small>' + item["pace_unit"] + '</small></td>';
-                table += '<td class="hidden-sm">' + item["gear_name"] + '</td>';
-                table += '<td class="hidden-sm">' + item["elevation"] + '<small> ' + item["elevation_unit"] + '</small></td>';
-                table += '<td class="hidden-sm">' + item["cadence"] + '</td>';
-                table += '<td class="text-center badge-cell">';
-                table += '<span class="badge ' + item["average_hr_zone_class"] + '">' + item["average_heartrate"] + '</span>';
-                table += '</td>';
-                table += '<td class="text-center badge-cell">';
-                table += '<span class="badge ' + item["max_hr_zone_class"] + '">' + item["max_heartrate"] + '</span>';
-                table += '</td>';
-                table += '</tr>';
+                table += createRaceDatatableRow(item);
             });
             table += '</tbody>';
             table += '</table>';
@@ -52,13 +22,12 @@ function loadRacesByDistanceView(distance) {
         table += '</div></div></div></div></div>';
         return table;
     };
-    var prepareView = function()
-    {
-        setContentHeader("Races - " + distance);
-        appendToPageTitle(' |  Races  - '+ distance);
+    var prepareView = function() {
+        setContentHeader("Races - " + distanceText);
+        appendToPageTitle(' |  Races  - ' + distanceText);
 
         resetNavigationItems();
-        var navigationAnchor = $("a[id^='races-for-distance-" + distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-') + "']");
+        var navigationAnchor = $("a[id^='races-for-distance-" + distanceText.toLowerCase().replace(/ /g, '-').replace(/\//g, '-') + "']");
         setNavigationItem(navigationAnchor);
 
         var mainContent = $('#main-content');
@@ -82,9 +51,9 @@ function loadRacesByDistanceView(distance) {
         pieCharts += '</div>';
         mainContent.append(pieCharts);
     };
-    var createView = function () {
+    var createView = function() {
         $.ajax({
-            url: window.location.pathname + '/races/' + distance.trim().replace(/\//g, '|'),
+            url: window.location.pathname + '/races/' + distanceText.trim().replace(/\//g, '|'),
             dataType: 'json',
             async: false,
             success: function(data) {
@@ -97,7 +66,7 @@ function loadRacesByDistanceView(distance) {
                 var mainContent = $('#main-content');
                 mainContent.empty();
 
-                var createProgressionChart = function (id, items) {
+                var createProgressionChart = function(id, items) {
                     if (items.length > 1) {
                         var activityNames = [];
                         var dates = [];
@@ -202,7 +171,7 @@ function loadRacesByDistanceView(distance) {
                 // Create data table.
                 var table = constructDataTableHtml(races);
                 mainContent.append(table);
-                var setupDataTable = function () {
+                var setupDataTable = function() {
                     $(".dataTable").each(function() {
                         $(this).DataTable({
                             "columnDefs": [{
@@ -234,7 +203,7 @@ function loadRacesByDistanceView(distance) {
 }
 
 function loadRacesByYearView(year) {
-    var constructDataTableHtml = function (races) {
+    var constructDataTableHtml = function(races) {
         var table = '<div class="row">';
         table += '<div class="col-xs-12">';
         table += '<div class="box">';
@@ -262,40 +231,11 @@ function loadRacesByYearView(year) {
             distancesToDisplay.forEach(function(distance) {
                 table += '<h4>' + distance + '</h4>';
                 table += '<table class="dataTable table table-bordered table-striped">';
-                table += '<thead><tr>';
-                table += '<th class="col-md-1">Date</th>';
-                table += '<th class="col-md-3">Activity</th>';
-                table += '<th class="col-md-1">Time</th>';
-                table += '<th class="col-md-1">Pace</th>';
-                table += '<th class="col-md-2 hidden-sm">Shoes</th>';
-                table += '<th class="col-md-1 hidden-sm">Elevation</th>';
-                table += '<th class="col-md-1 hidden-sm">Cadence</th>';
-                table += '<th class="col-md-1 text-center badge-cell">Avg. HR</th>';
-                table += '<th class="col-md-1 text-center badge-cell">Max HR</th>';
-                table += '</tr></thead>';
+                table += createRaceDatatableHeader();
                 table += '<tbody>';
                 races.forEach(function(item) {
                     if (distance === item['race_distance']) {
-                        table += '<tr>';
-                        table += '<td>' + item['start_date'] + '</td>';
-                        table += '<td>';
-                        table += '<a class="strava-logo-link" href="https://www.strava.com/activities/' + item["activity_id"] +
-                            '" target="_blank"><span></span></a>';
-                        table += '<a href="https://www.strava.com/activities/' + item["activity_id"] +
-                            '" target="_blank">' + item["activity_name"] + '</a>';
-                        table += '</td>';
-                        table += '<td>' + item["elapsed_time_formatted"] + '</td>';
-                        table += '<td>' + item["pace"] + '<small>' + item["pace_unit"] + '</small></td>';
-                        table += '<td class="hidden-sm">' + item["gear_name"] + '</td>';
-                        table += '<td class="hidden-sm">' + item["elevation"] + '<small> ' + item["elevation_unit"] + '</small></td>';
-                        table += '<td class="hidden-sm">' + item["cadence"] + '</td>';
-                        table += '<td class="text-center badge-cell">';
-                        table += '<span class="badge ' + item["average_hr_zone_class"] + '">' + item["average_heartrate"] + '</span>';
-                        table += '</td>';
-                        table += '<td class="text-center badge-cell">';
-                        table += '<span class="badge ' + item["max_hr_zone_class"] + '">' + item["max_heartrate"] + '</span>';
-                        table += '</td>';
-                        table += '</tr>';
+                        table += createRaceDatatableRow(item);
                     }
                 });
                 table += '</tbody>';
@@ -305,10 +245,9 @@ function loadRacesByYearView(year) {
         table += '</div></div></div></div></div>';
         return table;
     };
-    var prepareView = function()
-    {
+    var prepareView = function() {
         setContentHeader("Races - " + year);
-        appendToPageTitle(' |  Races  - '+ year);
+        appendToPageTitle(' |  Races  - ' + year);
 
         resetNavigationItems();
         var navigationAnchor = $("a[id^='races-for-year-" + year + "']");
@@ -329,14 +268,13 @@ function loadRacesByYearView(year) {
         mainContent.append(table);
 
         // Create empty pie charts with loading icon.
-        var showLoadingIcon = true;
         var pieCharts = '<div class="row">';
         pieCharts += constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon);
         pieCharts += constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon);
         pieCharts += '</div>';
         mainContent.append(pieCharts);
     };
-    var createView = function () {
+    var createView = function() {
         $.ajax({
             url: window.location.pathname + '/races/' + year,
             dataType: 'json',
@@ -361,7 +299,7 @@ function loadRacesByYearView(year) {
                 // Create data table.
                 var table = constructDataTableHtml(races);
                 mainContent.append(table);
-                var setupDataTable = function () {
+                var setupDataTable = function() {
                     $(".dataTable").each(function() {
                         $(this).DataTable({
                             "bFilter": false,
@@ -389,4 +327,43 @@ function loadRacesByYearView(year) {
 
     prepareView();
     createView();
+}
+
+function createRaceDatatableHeader() {
+    var header = '<thead><tr>';
+    header += '<th class="col-md-1">Date</th>';
+    header += '<th class="col-md-3">Activity</th>';
+    header += '<th class="col-md-1">Time</th>';
+    header += '<th class="col-md-1">Pace</th>';
+    header += '<th class="col-md-2 hidden-sm">Shoes</th>';
+    header += '<th class="col-md-1 hidden-sm">Elevation</th>';
+    header += '<th class="col-md-1 hidden-sm">Cadence</th>';
+    header += '<th class="col-md-1 text-center badge-cell">Avg. HR</th>';
+    header += '<th class="col-md-1 text-center badge-cell">Max HR</th>';
+    header += '</tr></thead>';
+    return header;
+}
+
+function createRaceDatatableRow(item) {
+    var row = '<tr>';
+    row += '<td>' + item['start_date'] + '</td>';
+    row += '<td>';
+    row += '<a class="strava-logo-link" href="https://www.strava.com/activities/' + item["activity_id"] +
+        '" target="_blank"><span></span></a>';
+    row += '<a href="https://www.strava.com/activities/' + item["activity_id"] +
+        '" target="_blank">' + item["activity_name"] + '</a>';
+    row += '</td>';
+    row += '<td>' + item["elapsed_time_formatted"] + '</td>';
+    row += '<td>' + item["pace"] + '<small>' + item["pace_unit"] + '</small></td>';
+    row += '<td class="hidden-sm">' + item["gear_name"] + '</td>';
+    row += '<td class="hidden-sm">' + item["elevation"] + '<small> ' + item["elevation_unit"] + '</small></td>';
+    row += '<td class="hidden-sm">' + item["cadence"] + '</td>';
+    row += '<td class="text-center badge-cell">';
+    row += '<span class="badge ' + item["average_hr_zone_class"] + '">' + item["average_heartrate"] + '</span>';
+    row += '</td>';
+    row += '<td class="text-center badge-cell">';
+    row += '<span class="badge ' + item["max_hr_zone_class"] + '">' + item["max_heartrate"] + '</span>';
+    row += '</td>';
+    row += '</tr>';
+    return row;
 }

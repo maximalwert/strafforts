@@ -1,4 +1,4 @@
-# Strafforts - Installation and Development Guide
+# Strafforts - Development Guide
 
 Built on [Ruby on Rails 5][Ruby on Rails] framework,
 [Strafforts][Strafforts] uses [PostgreSQL][PostgreSQL] as the database engine and [AdminLTE][AdminLTE] as front-end UI template.

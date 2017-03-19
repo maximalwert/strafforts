@@ -34,7 +34,7 @@ class ActivityFetcher
         athlete.last_activity_retrieved = activity_id
         athlete.save!
       end
-    rescue Exception => e
+    rescue StandardError => e
       Rails.logger.error("ActivityFetcher - Error fetching athlete information with access_token '#{@access_token}'.\n\tMessage: #{e.message}\nBacktrace:\n\t#{e.backtrace.join("\n\t")}")
       if e.message.include?('Authorization Error')
         athlete = Athlete.find_by_access_token(@access_token)
@@ -61,10 +61,10 @@ class ActivityFetcher
       page.each do |activity|
         activity_json = JSON.parse(activity.to_json)
         next unless activity_json['type'] == 'Run'
-        if type.include?('best-efforts') and activity_json['achievement_count'] > 0
+        if type.include?('best-efforts') && activity_json['achievement_count'] > 0
           activity_ids << activity_json['id']
         end
-        if type.include?('races') and activity_json['workout_type'] == 1
+        if type.include?('races') && (activity_json['workout_type'] == 1)
           activity_ids << activity_json['id']
         end
       end

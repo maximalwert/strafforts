@@ -6,11 +6,11 @@
       <!-- Sidebar user panel -->
       <div class="pull-left image">
         <span class="athlete-link">
-        <% if @athlete.profile_image_url.nil? %>
-            <img alt="User Image" class="athlete-image img-circle" src="<%= asset_path('strava-profile.png') %>">
+          <% if @athlete.profile_image_url.nil? %>
+          <img alt="User Image" class="athlete-image img-circle" src="<%= asset_path('strava-profile.png') %>">
         <% else %>
-            <img alt="User Image" class="athlete-image img-circle" src="<%= @athlete.profile_image_url %>">
-        <% end %>
+          <img alt="User Image" class="athlete-image img-circle" src="<%= @athlete.profile_image_url %>">
+          <% end %>
         </span>
       </div>
 
@@ -25,7 +25,8 @@
     <ul class="sidebar-menu">
       <li>
         <a class="show-overview treeview-header" href="#" data-turbolinks="false">
-          <i class="fa fa-home"></i> <span>Overview</span>
+          <i class="fa fa-home"></i>
+          <span>Overview</span>
         </a>
       </li>
       <li class="active treeview">
@@ -43,8 +44,7 @@
               </span>
             </a>
 
-            <ul class="treeview-menu">
-            </ul>
+            <ul class="treeview-menu"></ul>
           </li>
         </ul>
       </li>
@@ -65,8 +65,7 @@
               </span>
             </a>
 
-            <ul class="treeview-menu">
-            </ul>
+            <ul class="treeview-menu"></ul>
           </li>
         </ul>
       </li>
@@ -87,8 +86,7 @@
               </span>
             </a>
 
-            <ul class="treeview-menu">
-            </ul>
+            <ul class="treeview-menu"></ul>
           </li>
         </ul>
       </li>

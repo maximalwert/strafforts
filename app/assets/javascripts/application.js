@@ -86,8 +86,7 @@ function getRgbColors() {
 function convertToRgbaColors(rgbColors, alpha) {
     var colors = [];
     for (var index = 0; index < rgbColors.length; ++index) {
-        colors.push('rgba('+rgbColors[index][0] + ', ' + rgbColors[index][1] + ', ' + rgbColors[index][2] + ', ' + alpha + ')');
+        colors.push('rgba(' + rgbColors[index][0] + ', ' + rgbColors[index][1] + ', ' + rgbColors[index][2] + ', ' + alpha + ')');
     }
     return colors;
 }
-

@@ -13,16 +13,16 @@ class Athlete < ApplicationRecord
 
   def self.find_by_access_token(access_token)
     results = where(access_token: access_token)
-    return results.empty? ? nil : results.take
+    results.empty? ? nil : results.take
   end
 
   def self.find_by_id_or_username(id_or_username)
     results = where('id = ? OR lower(username) = ?', id_or_username.to_i, id_or_username.to_s.downcase)
-    return results.empty? ? nil : results.take
+    results.empty? ? nil : results.take
   end
 
   def self.find_all_by_is_active(is_active = true)
     results = where('is_active = ?', is_active)
-    return results.empty? ? nil : results
+    results.empty? ? nil : results
   end
 end

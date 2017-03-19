@@ -15,6 +15,6 @@ class RaceDistance < ApplicationRecord
 
   def self.find_by_name(distance_name)
     results = where('lower(name) = ?', distance_name.downcase)
-    return results.empty? ? nil : results.take
+    results.empty? ? nil : results.take
   end
 end

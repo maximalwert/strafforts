@@ -1,5 +1,5 @@
 function loadBestEffortsView(distanceText) {
-    var constructDataTableHtml = function (bestEfforts) {
+    var constructDataTableHtml = function(bestEfforts) {
         var table = '<div class="row">';
         table += '<div class="col-xs-12">';
         table += '<div class="box">';
@@ -30,8 +30,8 @@ function loadBestEffortsView(distanceText) {
                 table += '<span class="label workout-type-' + item['workout_type_name'].replace(/ /g, "-") + '">' +
                     item['workout_type_name'] + "</span>";
                 table += '</td>';
-                table += '<td>' + '<a class="strava-activity-link" href="https://www.strava.com/activities/' + item["activity_id"] +
-                    '" target="_blank">' + item["activity_name"] + '</a>' + '</td>';
+                table += '<td><a class="strava-activity-link" href="https://www.strava.com/activities/' + item["activity_id"] +
+                    '" target="_blank">' + item["activity_name"] + '</a></td>';
                 table += '<td>' + item["elapsed_time_formatted"] + '</td>';
                 table += '<td>' + item["pace"] + '<small>' + item["pace_unit"] + '</small></td>';
                 table += '<td class="hidden-sm">' + item["gear_name"] + '</td>';
@@ -49,10 +49,9 @@ function loadBestEffortsView(distanceText) {
         table += '</div></div></div></div></div>';
         return table;
     };
-    var prepareView = function()
-    {
+    var prepareView = function() {
         setContentHeader("Estimated Best Efforts - " + distanceText);
-        appendToPageTitle(' |  Best Efforts - '+ distanceText);
+        appendToPageTitle(' |  Best Efforts - ' + distanceText);
 
         resetNavigationItems();
         var navigationAnchor = $("a[id^='best-efforts-for-" + distanceText.toLowerCase().replace(/ /g, '-').replace(/\//g, '-') + "']");
@@ -78,7 +77,7 @@ function loadBestEffortsView(distanceText) {
         mainContent.append(pieCharts);
     };
 
-    var createView = function () {
+    var createView = function() {
         var distance = distanceText.trim().replace(/\//g, '|');
         $.ajax({
             url: window.location.pathname + '/best-efforts/' + distance,
@@ -94,7 +93,7 @@ function loadBestEffortsView(distanceText) {
                 var mainContent = $('#main-content');
                 mainContent.empty();
 
-                var createProgressionChart = function (id, items) {
+                var createProgressionChart = function(id, items) {
                     if (items.length > 1) {
                         var activityNames = [];
                         var dates = [];
@@ -197,7 +196,7 @@ function loadBestEffortsView(distanceText) {
                 // Create data table.
                 var table = constructDataTableHtml(bestEfforts);
                 mainContent.append(table);
-                var setupDataTable = function () {
+                var setupDataTable = function() {
                     $(".dataTable").each(function() {
                         $(this).DataTable({
                             "columnDefs": [{
@@ -213,14 +212,14 @@ function loadBestEffortsView(distanceText) {
                 };
                 setupDataTable();
 
-                var createWorkoutTypeChart = function (id, items) {
+                var createWorkoutTypeChart = function(id, items) {
                     if (items.length > 1) {
                         var workoutTypes = {}; // Holds Workout Type and its count.
                         items.forEach(function(bestEffort) {
                             var workoutType = bestEffort["workout_type_name"];
 
                             // No workout type is a normal run.
-                            if (workoutType == null) {
+                            if (workoutType === null) {
                                 workoutType = 0;
                             }
 

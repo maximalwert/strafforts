@@ -11,7 +11,7 @@ class RacesController < ApplicationController
         @races = @races.to_show_in_overview
         render json: @races
       else
-        if !!(params[:distance_or_year] =~ /^20\d\d$/ )
+        if !!(params[:distance_or_year] =~ /^20\d\d$/)
           year = params[:distance_or_year]
           items = Race.find_all_by_athlete_id_and_year(athlete.id, year)
           shaped_items = ApplicationHelper::Helper.shape_races(items, athlete.measurement_preference)
@@ -44,7 +44,7 @@ class RacesController < ApplicationController
         next if model.nil?
         items = Race.find_all_by_athlete_id_and_race_distance_id(athlete.id, model.id)
 
-        result = { :race_distance => race_distance[:name], :count => items.nil? ? 0 : items.size, :is_major => race_distance[:is_major] }
+        result = { race_distance: race_distance[:name], count: items.nil? ? 0 : items.size, is_major: race_distance[:is_major] }
         results << result
       end
       render json: results
@@ -59,7 +59,7 @@ class RacesController < ApplicationController
       results = []
       year_count_pairs = Race.find_years_and_counts_by_athlete_id(athlete.id)
       year_count_pairs.each do |pair|
-        result = { :race_year => pair[0].to_i.to_s, :count => pair[1], :is_major => true }
+        result = { race_year: pair[0].to_i.to_s, count: pair[1], is_major: true }
         results << result
       end
       render json: results
