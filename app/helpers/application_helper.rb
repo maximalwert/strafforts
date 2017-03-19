@@ -56,7 +56,9 @@ module ApplicationHelper
     end
 
     def self.get_heartrate_zone_class(heartrate)
-      if heartrate < 143 # HRR 60%
+      if heartrate.blank? || heartrate == 'n/a'
+        'hr-zone-na'
+      elsif heartrate < 143 # HRR 60%
         'hr-zone-1'
       elsif heartrate > 143 && (heartrate <= 163) # HRR 60% - 75%
         'hr-zone-2'
@@ -105,9 +107,9 @@ module ApplicationHelper
         item[:suffer_score] = entity.activity.suffer_score.nil? ? '' : entity.activity.suffer_score.to_i
         item[:gear_name] = entity.activity.gear.nil? ? 'Unspecified' : entity.activity.gear.name
         item[:average_heartrate] = entity.activity.average_heartrate.nil? ? 'n/a' : entity.activity.average_heartrate.to_i
-        item[:average_hr_zone_class] = entity.activity.average_heartrate.nil? ? 'hr-zone-na' : get_heartrate_zone_class(item[:average_heartrate])
+        item[:average_hr_zone_class] = get_heartrate_zone_class(item[:average_heartrate])
         item[:max_heartrate] = entity.activity.max_heartrate.nil? ? 'n/a' : entity.activity.max_heartrate.to_i
-        item[:max_hr_zone_class] = entity.activity.max_heartrate.nil? ? 'hr-zone-na' : get_heartrate_zone_class(item[:max_heartrate])
+        item[:max_hr_zone_class] = get_heartrate_zone_class(item[:max_heartrate])
 
         shaped_items << item
       end

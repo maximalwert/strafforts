@@ -219,7 +219,7 @@ function loadBestEffortsView(distanceText) {
                             var workoutType = bestEffort["workout_type_name"];
 
                             // No workout type is a normal run.
-                            if (workoutType == null) {
+                            if (workoutType === null) {
                                 workoutType = 0;
                             }
 
