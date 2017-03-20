@@ -25,6 +25,7 @@ BestEffortType.find_or_create_by(name: '1k')
 BestEffortType.find_or_create_by(name: '1/2 mile')
 BestEffortType.find_or_create_by(name: '400m')
 
+RaceDistance.find_or_create_by(id: 0, distance: 0, name: 'Other')
 RaceDistance.find_or_create_by(distance: 1609, name: '1 mile')
 RaceDistance.find_or_create_by(distance: 3000, name: '3000m')
 RaceDistance.find_or_create_by(distance: 5000, name: '5k')

@@ -176,10 +176,14 @@ function constructLoadingIconHtml() {
     return loadingIcon;
 }
 
-function createNoEnoughDataMessage(id) {
+function createChartMessage(id, message) {
+    if (message === undefined) {
+        message = "Not Enough Data to Generate Chart";
+    }
+
     var loadingIcon = "<div class='text-center'>";
     loadingIcon += "<h4>";
-    loadingIcon += "Not Enough Data to Generate Chart";
+    loadingIcon += message;
     loadingIcon += "</h4>";
     loadingIcon += "</div>";
 
@@ -310,7 +314,7 @@ function createGearCountChart(id, items) {
             }
         });
     } else {
-        createNoEnoughDataMessage(id);
+        createChartMessage(id);
     }
 }
 
@@ -370,7 +374,7 @@ function createGearMileageChart(id, items) {
             }
         });
     } else {
-        createNoEnoughDataMessage(id);
+        createChartMessage(id);
     }
 }
 
@@ -449,7 +453,7 @@ function createMonthDistributionChart(id, items) {
             }
         });
     } else {
-        createNoEnoughDataMessage(id);
+        createChartMessage(id);
     }
 }
 
@@ -522,6 +526,6 @@ function createRaceDistancesChart(id, items) {
             }
         });
     } else {
-        createNoEnoughDataMessage(id);
+        createChartMessage(id);
     }
 }
