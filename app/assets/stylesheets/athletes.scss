@@ -277,10 +277,10 @@ input[type='submit'] {
 }
 
 .main-footer {
-  .label-strava {
+  .label {
     background-color: $primary-color;
     color: #fff;
-    padding-bottom: 2.1px;
+    font-size: 85%;
     &:hover {
       color: #fff;
     }
