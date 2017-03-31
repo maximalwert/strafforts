@@ -276,6 +276,17 @@ input[type='submit'] {
   }
 }
 
+.main-footer {
+  .label {
+    background-color: $primary-color;
+    color: #fff;
+    font-size: 85%;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
 /* Pace loading progress bar style */
 body > :not(.pace),
 body:after,

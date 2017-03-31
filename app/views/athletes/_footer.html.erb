@@ -1,19 +1,19 @@
 <footer class="main-footer">
-  <div>
-    <div class="pull-right">
+    <div>
       <strong class="hidden-xs">
-        GitHub'ed at
+        Created by <a class="external" href="http://yizeng.me" target="_blank">Yi Zeng</a> and GitHub'ed at
         <a class="external" href="https://github.com/yizeng/strafforts" target="_blank">yizeng/strafforts</a>.
       </strong>
-      <% unless Settings.app.version.blank? %>
-          <strong><small><%=  Settings.app.version %></small></strong>
-      <% else %>
-          <strong><small>v.0.5.1</small></strong>
-      <% end %>
+      <div class="pull-right">
+        <strong>
+          <a class="external label" href="https://www.strava.com/athletes/9123806" target="_blank">Follow me on Strava</a>
+          <a class="external label" href="http://yizeng.me/#contact" target="_blank">Contact Me</a>
+          <% unless Settings.app.version.blank? %>
+              <small><%=  Settings.app.version %></small>
+          <% else %>
+              <small>v.0.6.2</small>
+          <% end %>
+        </strong>
+      </div>
     </div>
-    <strong>
-      Developed by
-      <a class="external" href="http://yizeng.me" target="_blank">Yi Zeng</a>.
-    </strong>
-  </div>
 </footer>
