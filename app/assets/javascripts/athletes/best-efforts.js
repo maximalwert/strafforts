@@ -108,9 +108,6 @@ function loadBestEffortsView(distanceText) {
                             runTimes.push(runTime);
                         });
 
-                        var ctx = $("#" + id).get(0).getContext("2d");
-                        ctx.canvas.height = 300;
-
                         var data = {
                             yLabels: runTimes,
                             labels: dates,
@@ -138,6 +135,10 @@ function loadBestEffortsView(distanceText) {
                                 spanGaps: false
                             }]
                         };
+
+                        var ctx = $("#" + id).get(0).getContext("2d");
+                        ctx.canvas.height = 300;
+
                         var myLineChart = new Chart(ctx, {
                             type: 'line',
                             data: data,
@@ -230,9 +231,6 @@ function loadBestEffortsView(distanceText) {
                             }
                         });
 
-                        var ctx = $("#" + id).get(0).getContext("2d");
-                        ctx.canvas.height = 300;
-
                         var data = {
                             labels: [
                                 "Run",
@@ -256,6 +254,9 @@ function loadBestEffortsView(distanceText) {
                                 ]
                             }]
                         };
+
+                        var ctx = $("#" + id).get(0).getContext("2d");
+                        ctx.canvas.height = 300;
 
                         var chart = new Chart(ctx, {
                             type: 'pie',

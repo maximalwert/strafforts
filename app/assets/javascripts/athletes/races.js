@@ -81,9 +81,6 @@ function loadRacesByDistanceView(distanceText) {
                             runTimes.push(runTime);
                         });
 
-                        var ctx = $("#" + id).get(0).getContext("2d");
-                        ctx.canvas.height = 300;
-
                         var data = {
                             yLabels: runTimes,
                             labels: dates,
@@ -111,6 +108,10 @@ function loadRacesByDistanceView(distanceText) {
                                 spanGaps: false
                             }]
                         };
+
+                        var ctx = $("#" + id).get(0).getContext("2d");
+                        ctx.canvas.height = 300;
+
                         var myLineChart = new Chart(ctx, {
                             type: 'line',
                             data: data,
@@ -193,6 +194,12 @@ function loadRacesByDistanceView(distanceText) {
                     });
                 };
                 setupDataTable();
+
+                var yearDistributionCharts = '<div class="row">';
+                yearDistributionCharts += constructChartHtml('year-distribution-chart', 'Year Distribution Chart', 12, false);
+                yearDistributionCharts += '</div>';
+                mainContent.append(yearDistributionCharts);
+                createYearDistributionChart('year-distribution-chart', races);
 
                 var pieCharts = '<div class="row">';
                 pieCharts += constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, false);

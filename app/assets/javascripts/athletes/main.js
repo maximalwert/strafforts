@@ -280,24 +280,25 @@ function createGearCountChart(id, items) {
         });
 
         var gearLabels = Object.keys(gears);
-        var gearCounts = [];
+        var counts = [];
         $.each(gears, function(key) {
             var value = gears[key];
-            gearCounts.push(value);
+            counts.push(value);
         });
-
-        var ctx = $("#" + id).get(0).getContext("2d");
-        ctx.canvas.height = 300;
 
         var colors = getRgbColors();
         var data = {
             labels: gearLabels,
             datasets: [{
-                data: gearCounts,
+                data: counts,
+                label: gearLabels,
                 backgroundColor: convertToRgbaColors(colors, 0.6),
                 hoverBackgroundColor: convertToRgbaColors(colors, 1)
             }]
         };
+
+        var ctx = $("#" + id).get(0).getContext("2d");
+        ctx.canvas.height = 300;
 
         var chart = new Chart(ctx, {
             type: 'pie',
@@ -310,7 +311,19 @@ function createGearCountChart(id, items) {
                     }
                 },
                 responsive: true,
-                maintainAspectRatio: false
+                maintainAspectRatio: false,
+                tooltips: {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function(tooltipItem, data) {
+                            return data.datasets[0].label[tooltipItem[0].index];
+                        },
+                        label: function(tooltipItem, data) {
+                            return "Count: " + data.datasets[0].data[tooltipItem.index];
+                        }
+                    }
+                }
             }
         });
     } else {
@@ -337,9 +350,6 @@ function createGearMileageChart(id, items) {
             gearMileages.push(mileage);
         });
 
-        var ctx = $("#" + id).get(0).getContext("2d");
-        ctx.canvas.height = 300;
-
         var colors = getRgbColors();
         var data = {
             labels: gearLabels,
@@ -349,6 +359,9 @@ function createGearMileageChart(id, items) {
                 hoverBackgroundColor: convertToRgbaColors(colors, 1)
             }]
         };
+
+        var ctx = $("#" + id).get(0).getContext("2d");
+        ctx.canvas.height = 300;
 
         var chart = new Chart(ctx, {
             type: 'horizontalBar',
@@ -368,6 +381,74 @@ function createGearMileageChart(id, items) {
                         },
                         label: function() {
                             return '';
+                        }
+                    }
+                }
+            }
+        });
+    } else {
+        createChartMessage(id);
+    }
+}
+
+function createYearDistributionChart(id, items) {
+    if (items.length > 1) {
+        var years = {}; // Holds year and its count.
+        items.forEach(function(item) {
+            var startDate = item['start_date'];
+            var dateParts = startDate.split("-");
+            var year = new Date(dateParts[0], dateParts[1], dateParts[2]).getFullYear();
+            if (year in years) {
+                years[year] += 1;
+            } else {
+                years[year] = 1;
+            }
+        });
+
+        var yearLabels = Object.keys(years);
+        var legendLabels = [];
+        var counts = [];
+        $.each(years, function(key) {
+            var value = years[key];
+            counts.push(value);
+            legendLabels.push(key + " (" + value + ")");
+        });
+
+        var colors = getRgbColors();
+        var data = {
+            labels: legendLabels,
+            datasets: [{
+                data: counts,
+                label: yearLabels,
+                backgroundColor: convertToRgbaColors(colors, 0.6),
+                hoverBackgroundColor: convertToRgbaColors(colors, 1)
+            }]
+        };
+
+        var ctx = $("#" + id).get(0).getContext("2d");
+        ctx.canvas.height = 300;
+
+        var chart = new Chart(ctx, {
+            type: 'pie',
+            data: data,
+            options: {
+                legend: {
+                    position: 'bottom',
+                    onClick: function(e) {
+                        e.stopPropagation();
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                tooltips: {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function(tooltipItem, data) {
+                            return data.datasets[0].label[tooltipItem[0].index];
+                        },
+                        label: function(tooltipItem, data) {
+                            return "Count: " + data.datasets[0].data[tooltipItem.index];
                         }
                     }
                 }
@@ -406,9 +487,6 @@ function createMonthDistributionChart(id, items) {
             monthNames.push(key);
         });
 
-        var ctx = $("#" + id).get(0).getContext("2d");
-        ctx.canvas.height = 300;
-
         var colors = getRgbColors();
         var data = {
             yLabels: counts,
@@ -420,6 +498,9 @@ function createMonthDistributionChart(id, items) {
                 hoverBackgroundColor: convertToRgbaColors(colors, 1)
             }]
         };
+
+        var ctx = $("#" + id).get(0).getContext("2d");
+        ctx.canvas.height = 300;
 
         var chart = new Chart(ctx, {
             type: 'bar',
@@ -446,7 +527,7 @@ function createMonthDistributionChart(id, items) {
                             return data.datasets[0].label[tooltipItem[0].index];
                         },
                         label: function(tooltipItem) {
-                            return 'Race Count: ' + tooltipItem.yLabel.toString();
+                            return 'Count: ' + tooltipItem.yLabel.toString();
                         }
                     }
                 }
@@ -470,22 +551,19 @@ function createRaceDistancesChart(id, items) {
         });
 
         var distances = [];
-        var xLabels = [];
+        var legendLabels = [];
         var counts = [];
         $.each(raceDistances, function(key) {
             var value = parseInt(raceDistances[key], 10);
-            xLabels.push(key + ' (' + value + ')');
+            legendLabels.push(key + ' (' + value + ')');
             counts.push(value);
             distances.push(key);
         });
 
-        var ctx = $("#" + id).get(0).getContext("2d");
-        ctx.canvas.height = 300;
-
         var colors = getRgbColors();
         var data = {
             yLabels: counts,
-            labels: xLabels.reverse(),
+            labels: legendLabels.reverse(),
             datasets: [{
                 data: counts.reverse(),
                 label: distances.reverse(),
@@ -493,6 +571,9 @@ function createRaceDistancesChart(id, items) {
                 hoverBackgroundColor: convertToRgbaColors(colors, 1)
             }]
         };
+
+        var ctx = $("#" + id).get(0).getContext("2d");
+        ctx.canvas.height = 300;
 
         var chart = new Chart(ctx, {
             type: 'bar',
@@ -519,7 +600,7 @@ function createRaceDistancesChart(id, items) {
                             return data.datasets[0].label[tooltipItem[0].index];
                         },
                         label: function(tooltipItem) {
-                            return 'Race Count: ' + tooltipItem.yLabel.toString();
+                            return 'Count: ' + tooltipItem.yLabel.toString();
                         }
                     }
                 }
