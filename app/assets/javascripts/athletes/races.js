@@ -175,10 +175,11 @@ function loadRacesByYearView(year) {
 
         // Create an empty monthly distribution chart with loading icon.
         var showLoadingIcon = true;
-        var monthlyDistributionCharts = '<div class="row">';
-        monthlyDistributionCharts += constructChartHtml('monthly-distribution-chart', 'Monthly Distribution Chart', 6, showLoadingIcon);
-        monthlyDistributionCharts += '</div>';
-        mainContent.append(monthlyDistributionCharts);
+        var barCharts = '<div class="row">';
+        barCharts += constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6, showLoadingIcon);
+        barCharts += constructChartHtml('monthly-distribution-chart', 'Monthly Distribution Chart', 6, showLoadingIcon);
+        barCharts += '</div>';
+        mainContent.append(barCharts);
 
         // Create empty data table with loading icon.
         var table = constructDataTableHtml();
