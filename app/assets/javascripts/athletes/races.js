@@ -252,11 +252,11 @@ function createRaceDatatableHeader() {
     header += '<th class="col-md-3">Activity</th>';
     header += '<th class="col-md-1">Time</th>';
     header += '<th class="col-md-1">Pace</th>';
-    header += '<th class="col-md-2 hidden-sm">Shoes</th>';
-    header += '<th class="col-md-1 hidden-sm">Elevation</th>';
-    header += '<th class="col-md-1 hidden-sm">Cadence</th>';
-    header += '<th class="col-md-1 text-center badge-cell">Avg. HR</th>';
-    header += '<th class="col-md-1 text-center badge-cell">Max HR</th>';
+    header += '<th class="col-md-2 hidden-xs-sm-md">Shoes</th>';
+    header += '<th class="col-md-1 hidden-xs-sm-md">Elevation</th>';
+    header += '<th class="col-md-1 hidden-xs-sm-md">Cadence</th>';
+    header += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Avg. HR</th>';
+    header += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Max HR</th>';
     header += '</tr></thead>';
     return header;
 }
@@ -272,13 +272,13 @@ function createRaceDatatableRow(item) {
     row += '</td>';
     row += '<td>' + item["elapsed_time_formatted"] + '</td>';
     row += '<td>' + item["pace"] + '<small>' + item["pace_unit"] + '</small></td>';
-    row += '<td class="hidden-sm">' + item["gear_name"] + '</td>';
-    row += '<td class="hidden-sm">' + item["elevation"] + '<small> ' + item["elevation_unit"] + '</small></td>';
-    row += '<td class="hidden-sm">' + item["cadence"] + '</td>';
-    row += '<td class="text-center badge-cell">';
+    row += '<td class="hidden-xs-sm-md">' + item["gear_name"] + '</td>';
+    row += '<td class=" hidden-xs-sm-md">' + item["elevation"] + '<small> ' + item["elevation_unit"] + '</small></td>';
+    row += '<td class=" hidden-xs-sm-md">' + item["cadence"] + '</td>';
+    row += '<td class="text-center badge-cell hidden-xs-sm-md">';
     row += '<span class="badge ' + item["average_hr_zone_class"] + '">' + item["average_heartrate"] + '</span>';
     row += '</td>';
-    row += '<td class="text-center badge-cell">';
+    row += '<td class="text-center badge-cell hidden-xs-sm-md">';
     row += '<span class="badge ' + item["max_hr_zone_class"] + '">' + item["max_heartrate"] + '</span>';
     row += '</td>';
     row += '</tr>';

@@ -123,9 +123,9 @@ function createBestEffortsDatatableHeader() {
     header += '<th class="col-md-4">Activity</th>';
     header += '<th class="col-md-1">Time</th>';
     header += '<th class="col-md-1">Pace</th>';
-    header += '<th class="col-md-2 hidden-sm">Shoes</th>';
-    header += '<th class="col-md-1 text-center badge-cell">Avg. HR</th>';
-    header += '<th class="col-md-1 text-center badge-cell">Max HR</th>';
+    header += '<th class="col-md-2 hidden-xs-sm-md">Shoes</th>';
+    header += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Avg. HR</th>';
+    header += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Max HR</th>';
     header += '</tr></thead>';
     return header;
 }
@@ -141,11 +141,11 @@ function createBestEffortsDatatableRow(item) {
         '" target="_blank">' + item["activity_name"] + '</a></td>';
     table += '<td>' + item["elapsed_time_formatted"] + '</td>';
     table += '<td>' + item["pace"] + '<small>' + item["pace_unit"] + '</small></td>';
-    table += '<td class="hidden-sm">' + item["gear_name"] + '</td>';
-    table += '<td class="text-center badge-cell">';
+    table += '<td class="hidden-xs-sm-md">' + item["gear_name"] + '</td>';
+    table += '<td class="text-center badge-cell hidden-xs-sm-md">';
     table += '<span class="badge ' + item["average_hr_zone_class"] + '">' + item["average_heartrate"] + '</span>';
     table += '</td>';
-    table += '<td class="text-center badge-cell">';
+    table += '<td class="text-center badge-cell hidden-xs-sm-md">';
     table += '<span class="badge ' + item["max_hr_zone_class"] + '">' + item["max_heartrate"] + '</span>';
     table += '</td>';
     table += '</tr>';
