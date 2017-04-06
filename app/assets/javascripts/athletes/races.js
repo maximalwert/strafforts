@@ -13,15 +13,18 @@ function loadRacesByDistanceView(distanceText) {
             table += '<table class="dataTable table table-bordered table-striped">';
             table += createRaceDatatableHeader();
             table += '<tbody>';
+
             races.forEach(function(item) {
                 table += createRaceDatatableRow(item);
             });
+
             table += '</tbody>';
             table += '</table>';
         }
         table += '</div></div></div></div></div>';
         return table;
     };
+
     var prepareView = function() {
         setContentHeader("Races - " + distanceText);
         appendToPageTitle(' |  Races  - ' + distanceText);
@@ -35,10 +38,11 @@ function loadRacesByDistanceView(distanceText) {
 
         // Create empty progression chart with loading icon.
         var showLoadingIcon = true;
-        var progressionChart = '<div class="row">';
-        progressionChart += constructChartHtml('progression-chart', 'Progression Chart', 12, showLoadingIcon);
-        progressionChart += '</div>';
-        mainContent.append(progressionChart);
+        var topRow = '<div class="row">';
+        topRow += constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon);
+        topRow += constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon);
+        topRow += '</div>';
+        mainContent.append(topRow);
 
         // Create empty data table with loading icon.
         var table = constructDataTableHtml();
@@ -51,6 +55,7 @@ function loadRacesByDistanceView(distanceText) {
         pieCharts += '</div>';
         mainContent.append(pieCharts);
     };
+
     var createView = function() {
         $.ajax({
             url: window.location.pathname + '/races/' + distanceText.trim().replace(/\//g, '|'),
@@ -66,114 +71,19 @@ function loadRacesByDistanceView(distanceText) {
                 var mainContent = $('#main-content');
                 mainContent.empty();
 
-                var createProgressionChart = function(id, items) {
-                    if (items.length > 1) {
-                        var activityNames = [];
-                        var dates = [];
-                        var runTimes = [];
-
-                        items.forEach(function(race) {
-                            var activityName = race["activity_name"];
-                            var date = race["start_date"];
-                            var runTime = race['elapsed_time'];
-                            activityNames.push(activityName);
-                            dates.push(date);
-                            runTimes.push(runTime);
-                        });
-
-                        var ctx = $("#" + id).get(0).getContext("2d");
-                        ctx.canvas.height = 300;
-
-                        var data = {
-                            yLabels: runTimes,
-                            labels: dates,
-                            datasets: [{
-                                label: activityNames,
-                                fill: false,
-                                lineTension: 0.2,
-                                backgroundColor: "rgba(75,192,192,0.4)",
-                                borderColor: "#FC4C02",
-                                borderCapStyle: 'butt',
-                                borderDash: [],
-                                borderDashOffset: 0.0,
-                                borderJoinStyle: 'miter',
-                                pointBorderColor: "#FC4C02",
-                                pointBackgroundColor: "#fff",
-                                pointBorderWidth: 1,
-                                pointHoverRadius: 5,
-                                pointHoverBackgroundColor: "#FC4C02",
-                                pointHoverBorderColor: "#E34402",
-                                pointHoverBorderWidth: 2,
-                                pointRadius: 4,
-                                pointHitRadius: 10,
-                                pointStyle: 'circle',
-                                data: runTimes,
-                                spanGaps: false
-                            }]
-                        };
-                        var myLineChart = new Chart(ctx, {
-                            type: 'line',
-                            data: data,
-                            options: {
-                                legend: {
-                                    display: false
-                                },
-                                responsive: true,
-                                maintainAspectRatio: false,
-                                scales: {
-                                    xAxes: [{
-                                        gridLines: {
-                                            display: false
-                                        },
-                                        type: 'time',
-                                        time: {
-                                            unit: 'month'
-                                        }
-                                    }],
-                                    yAxes: [{
-                                        gridLines: {
-                                            display: true,
-                                            offsetGridLines: true
-                                        },
-                                        ticks: {
-                                            callback: function(value, index, values) {
-                                                return value.toString().toHHMMSS();
-                                            }
-                                        }
-                                    }]
-                                },
-                                tooltips: {
-                                    enabled: true,
-                                    mode: 'single',
-                                    callbacks: {
-                                        title: function(tooltipItem, data) {
-                                            return data.datasets[0].label[tooltipItem[0].index];
-                                        },
-                                        label: function(tooltipItem) {
-                                            var text = "Ran " + tooltipItem.yLabel.toString().toHHMMSS();
-                                            text += " on " + tooltipItem.xLabel;
-                                            return text;
-                                        }
-                                    }
-                                }
-                            }
-                        });
-                    } else {
-                        createChartMessage(id);
-                    }
-                };
-
                 // Create a progression chart when distance is not 'Other'.
                 var progressionChartId = 'progression-chart';
-                var progressionChart = '<div class="row">';
-                progressionChart += constructChartHtml(progressionChartId, 'Progression Chart', 12, false);
-                progressionChart += '</div>';
-                mainContent.append(progressionChart);
+                var topRow = '<div class="row">';
+                topRow += constructChartHtml(progressionChartId, 'Progression Chart', 8, false);
+                topRow += constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, false);
+                topRow += '</div>';
+                mainContent.append(topRow);
                 if (distanceText === 'Other') {
                     createChartMessage(progressionChartId, "Not Applicable");
                 } else {
                     createProgressionChart(progressionChartId, races);
                 }
+                createYearDistributionChart('year-distribution-pie-chart', races);
 
                 // Create data table.
                 var table = constructDataTableHtml(races);
@@ -265,10 +175,11 @@ function loadRacesByYearView(year) {
 
         // Create an empty monthly distribution chart with loading icon.
         var showLoadingIcon = true;
-        var monthlyDistributionCharts = '<div class="row">';
-        monthlyDistributionCharts += constructChartHtml('monthly-distribution-chart', 'Monthly Distribution Chart', 6, showLoadingIcon);
-        monthlyDistributionCharts += '</div>';
-        mainContent.append(monthlyDistributionCharts);
+        var barCharts = '<div class="row">';
+        barCharts += constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6, showLoadingIcon);
+        barCharts += constructChartHtml('monthly-distribution-chart', 'Monthly Distribution Chart', 6, showLoadingIcon);
+        barCharts += '</div>';
+        mainContent.append(barCharts);
 
         // Create empty data table with loading icon.
         var table = constructDataTableHtml();
@@ -342,11 +253,11 @@ function createRaceDatatableHeader() {
     header += '<th class="col-md-3">Activity</th>';
     header += '<th class="col-md-1">Time</th>';
     header += '<th class="col-md-1">Pace</th>';
-    header += '<th class="col-md-2 hidden-sm">Shoes</th>';
-    header += '<th class="col-md-1 hidden-sm">Elevation</th>';
-    header += '<th class="col-md-1 hidden-sm">Cadence</th>';
-    header += '<th class="col-md-1 text-center badge-cell">Avg. HR</th>';
-    header += '<th class="col-md-1 text-center badge-cell">Max HR</th>';
+    header += '<th class="col-md-2 hidden-xs-sm-md">Shoes</th>';
+    header += '<th class="col-md-1 hidden-xs-sm-md">Elevation</th>';
+    header += '<th class="col-md-1 hidden-xs-sm-md">Cadence</th>';
+    header += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Avg. HR</th>';
+    header += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Max HR</th>';
     header += '</tr></thead>';
     return header;
 }
@@ -362,13 +273,13 @@ function createRaceDatatableRow(item) {
     row += '</td>';
     row += '<td>' + item["elapsed_time_formatted"] + '</td>';
     row += '<td>' + item["pace"] + '<small>' + item["pace_unit"] + '</small></td>';
-    row += '<td class="hidden-sm">' + item["gear_name"] + '</td>';
-    row += '<td class="hidden-sm">' + item["elevation"] + '<small> ' + item["elevation_unit"] + '</small></td>';
-    row += '<td class="hidden-sm">' + item["cadence"] + '</td>';
-    row += '<td class="text-center badge-cell">';
+    row += '<td class="hidden-xs-sm-md">' + item["gear_name"] + '</td>';
+    row += '<td class=" hidden-xs-sm-md">' + item["elevation"] + '<small> ' + item["elevation_unit"] + '</small></td>';
+    row += '<td class=" hidden-xs-sm-md">' + item["cadence"] + '</td>';
+    row += '<td class="text-center badge-cell hidden-xs-sm-md">';
     row += '<span class="badge ' + item["average_hr_zone_class"] + '">' + item["average_heartrate"] + '</span>';
     row += '</td>';
-    row += '<td class="text-center badge-cell">';
+    row += '<td class="text-center badge-cell hidden-xs-sm-md">';
     row += '<span class="badge ' + item["max_hr_zone_class"] + '">' + item["max_heartrate"] + '</span>';
     row += '</td>';
     row += '</tr>';
