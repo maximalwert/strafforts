@@ -31,6 +31,7 @@ Rails.application.config.assets.precompile += %w(
   athletes.css
   athletes/main.js
   athletes/best-efforts.js
+  athletes/charts.js
   athletes/overview.js
   athletes/races.js
   errors.css
