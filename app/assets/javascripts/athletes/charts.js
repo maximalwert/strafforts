@@ -50,7 +50,7 @@ function createBarChart(id, counts, dataLabels, legendLabels) {
     var colors = getRgbColors();
     var data = {
         yLabels: counts,
-        labels: (typeof legendLabels != 'undefined') ? legendLabels.reverse() : dataLabels.reverse(),
+        labels: (typeof legendLabels !== 'undefined') ? legendLabels.reverse() : dataLabels.reverse(),
         datasets: [{
             data: counts.reverse(),
             label: dataLabels.reverse(),
@@ -98,7 +98,7 @@ function createBarChart(id, counts, dataLabels, legendLabels) {
 function createPieChart(id, counts, dataLabels, legendLabels) {
     var colors = getRgbColors();
     var data = {
-        labels: (typeof legendLabels != 'undefined') ? legendLabels : dataLabels,
+        labels: (typeof legendLabels !== 'undefined') ? legendLabels : dataLabels,
         datasets: [{
             data: counts,
             label: dataLabels,

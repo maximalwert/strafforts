@@ -11,11 +11,11 @@ function loadBestEffortsView(distanceText) {
             table += constructLoadingIconHtml();
         } else {
             table += '<table class="dataTable table table-bordered table-striped">';
-            table += createRaceDatatableHeader();
+            table += createBestEffortsDatatableHeader();
             table += '<tbody>';
 
             bestEfforts.forEach(function(item) {
-                table += createRaceDatatableRow(item);
+                table += createBestEffortsDatatableRow(item);
             });
 
             table += '</tbody>';
@@ -132,22 +132,22 @@ function createBestEffortsDatatableHeader() {
 
 function createBestEffortsDatatableRow(item) {
     var row = '<tr>';
-    table += '<td>' + item['start_date'] + '</td>';
-    table += '<td class="text-center badge-cell">';
-    table += '<span class="label workout-type-' + item['workout_type_name'].replace(/ /g, "-") + '">' +
+    row += '<td>' + item['start_date'] + '</td>';
+    row += '<td class="text-center badge-cell">';
+    row += '<span class="label workout-type-' + item['workout_type_name'].replace(/ /g, "-") + '">' +
         item['workout_type_name'] + "</span>";
-    table += '</td>';
-    table += '<td><a class="strava-activity-link" href="https://www.strava.com/activities/' + item["activity_id"] +
+    row += '</td>';
+    row += '<td><a class="strava-activity-link" href="https://www.strava.com/activities/' + item["activity_id"] +
         '" target="_blank">' + item["activity_name"] + '</a></td>';
-    table += '<td>' + item["elapsed_time_formatted"] + '</td>';
-    table += '<td>' + item["pace"] + '<small>' + item["pace_unit"] + '</small></td>';
-    table += '<td class="hidden-xs-sm-md">' + item["gear_name"] + '</td>';
-    table += '<td class="text-center badge-cell hidden-xs-sm-md">';
-    table += '<span class="badge ' + item["average_hr_zone_class"] + '">' + item["average_heartrate"] + '</span>';
-    table += '</td>';
-    table += '<td class="text-center badge-cell hidden-xs-sm-md">';
-    table += '<span class="badge ' + item["max_hr_zone_class"] + '">' + item["max_heartrate"] + '</span>';
-    table += '</td>';
-    table += '</tr>';
+    row += '<td>' + item["elapsed_time_formatted"] + '</td>';
+    row += '<td>' + item["pace"] + '<small>' + item["pace_unit"] + '</small></td>';
+    row += '<td class="hidden-xs-sm-md">' + item["gear_name"] + '</td>';
+    row += '<td class="text-center badge-cell hidden-xs-sm-md">';
+    row += '<span class="badge ' + item["average_hr_zone_class"] + '">' + item["average_heartrate"] + '</span>';
+    row += '</td>';
+    row += '<td class="text-center badge-cell hidden-xs-sm-md">';
+    row += '<span class="badge ' + item["max_hr_zone_class"] + '">' + item["max_heartrate"] + '</span>';
+    row += '</td>';
+    row += '</tr>';
     return row;
 }
