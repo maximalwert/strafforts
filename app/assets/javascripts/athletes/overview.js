@@ -12,6 +12,7 @@ function loadOverviewPage(createNavigation) {
 }
 
 function prepareOverview() {
+    pushStateToWindow(getBaseUrl());
     resetNavigationItems();
     setContentHeader('Overview');
     appendToPageTitle(' | Overview');
@@ -40,7 +41,7 @@ function prepareOverview() {
 
 function createNavigationItems(url, itemName, elementIdPrefix) {
     $.ajax({
-        url: window.location.pathname + url,
+        url: getApiBaseUrl() + url,
         dataType: 'json',
         async: false,
         success: function(data) {
@@ -77,7 +78,7 @@ function createNavigationItems(url, itemName, elementIdPrefix) {
 
 function createOverviewDatatable(type) {
     $.ajax({
-        url: window.location.pathname + '/' + type,
+        url: getApiBaseUrl() +  '/' + type,
         dataType: 'json',
         async: false,
         success: function(data) {

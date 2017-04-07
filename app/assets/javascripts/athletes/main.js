@@ -12,6 +12,10 @@
 //= require athletes/overview
 //= require athletes/races
 
+Pace.on('hide', function () {
+    $('body').removeClass('page-loading').addClass('page-loaded');
+});
+
 $(document).ready(function() {
     var AdminLTEOptions = {
         //Bootstrap.js tooltip
@@ -94,6 +98,20 @@ $(document).ready(function() {
         });
     });
 });
+
+function getBaseUrl(isApiCall) {
+    var athleteId = $("#athlete-id").text().trim();
+    var urlPrefix = window.location.protocol + "//" + window.location.host + (isApiCall ? "/api" : "") + "/athletes/" + athleteId;
+    return urlPrefix;
+}
+
+function getApiBaseUrl() {
+    return getBaseUrl(true);
+}
+
+function pushStateToWindow(url) {
+    window.history.pushState({}, "", url);
+}
 
 function bindGoogleAnalyticsEventTracking() {
     $(document).on("click", ".external", function() {

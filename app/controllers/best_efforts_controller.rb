@@ -12,8 +12,9 @@ class BestEffortsController < ApplicationController
         render json: @best_efforts
       else
         # Get best_effort_type from distance parameter.
-        # 1/2 mile is passed as 1|2 mile (defined in createView method in athletes/best-efforts.js)
-        distance = params[:distance].tr('|', '/')
+        # '1/2 mile' is passed in as 1|2 mile, 'Half Marathon' is passed in as half-marathon
+        # as defined in createView method in athletes/best-efforts.js, revert back when before searching here.
+        distance = params[:distance].tr('|', '/').tr('-', ' ')
         best_effort_type = BestEffortType.find_by_name(distance)
         if best_effort_type.nil?
           raise ActionController::BadRequest, "Could not find requested best effort type '#{distance}'."

@@ -57,9 +57,10 @@ function loadBestEffortsView(distanceText) {
     };
 
     var createView = function() {
-        var distance = distanceText.trim().replace(/\//g, '|');
+        var distance = distanceText.trim().replace(/\//g, '|').replace(/\s/g, '-').toLowerCase();
+        pushStateToWindow(getBaseUrl() + '/best-efforts/' + distance);
         $.ajax({
-            url: window.location.pathname + '/best-efforts/' + distance,
+            url: getApiBaseUrl() + '/best-efforts/' + distance,
             dataType: 'json',
             async: false,
             success: function(data) {

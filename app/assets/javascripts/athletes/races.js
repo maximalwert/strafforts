@@ -57,8 +57,10 @@ function loadRacesByDistanceView(distanceText) {
     };
 
     var createView = function() {
+        var distance = distanceText.trim().replace(/\//g, '|').replace(/\s/g, '-').toLowerCase();
+        pushStateToWindow(getBaseUrl() + '/races/' + distance);
         $.ajax({
-            url: window.location.pathname + '/races/' + distanceText.trim().replace(/\//g, '|'),
+            url: getApiBaseUrl() + '/races/' + distance,
             dataType: 'json',
             async: false,
             success: function(data) {
@@ -193,8 +195,9 @@ function loadRacesByYearView(year) {
         mainContent.append(pieCharts);
     };
     var createView = function() {
+        pushStateToWindow(getBaseUrl() + '/races/' + year);
         $.ajax({
-            url: window.location.pathname + '/races/' + year,
+            url: getApiBaseUrl() + '/races/' + year,
             dataType: 'json',
             async: false,
             success: function(data) {
