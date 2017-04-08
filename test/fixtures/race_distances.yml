@@ -7,6 +7,10 @@ two:
   distance: 10000
   name: '10k'
 three:
+  id: 3
+  distance: 21097
+  name: 'Half Marathon'
+four:
   id: 0
   distance: 0
   name: 'Other'
