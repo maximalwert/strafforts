@@ -84,6 +84,8 @@ $(document).ready(function() {
 
     // Reset last activity retrieved in settings.
     $(".form-reset-last-activity-retrieved .submit-form").click(function() {
+        $('.last-activity-na').show();
+        $('.last-activity-retrieved').show();
         $.ajax({
             url: $(".form-reset-last-activity-retrieved").attr('action'),
             data: '',
@@ -166,7 +168,7 @@ function bindGoogleAnalyticsEventTracking() {
     $(document).on("click", ".control-sidebar button", function() {
         sendGaEvent('Athletes', 'Click Button in Control Sidebar', this.textContent);
     });
-    $(document).on("click", ".control-sidebar .last_activity_retrieved", function() {
+    $(document).on("click", ".control-sidebar .last-activity-retrieved", function() {
         sendGaEvent('Athletes', 'View Last Activity Retrieved');
     });
     $('#main-content').delegate('.dataTables_wrapper .dataTables_filter input', 'click', function() {

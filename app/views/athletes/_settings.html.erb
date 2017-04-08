@@ -80,19 +80,18 @@
             title="Last activity that contains achievements, not necessarily the latest activity returned from Strava API."></i>
         </label>
         <label></label>
-        <% if @athlete.last_activity_retrieved.blank? %>
-          <span class="pull-right">N/A</span>
-        <% else %>
-          <a class="pull-right last_activity_retrieved" href="https://www.strava.com/activities/<%= @athlete.last_activity_retrieved %>" target="_blank">
-            <%= @athlete.last_activity_retrieved %>
-          </a>
+        <span class="pull-right last-activity-na <%= @athlete.last_activity_retrieved.blank? ? '' : 'hidden' %>">N/A</span>
+        <a class="pull-right last-activity-retrieved <%= @athlete.last_activity_retrieved.blank? ? 'hidden' : '' %>" href="https://www.strava.com/activities/<%= @athlete.last_activity_retrieved %>" target="_blank">
+          <%= @athlete.last_activity_retrieved %>
+        </a>
+        <div>
           <p>
-            Worker process will only fetch activities with IDs greater than this. Reset if you'd like to have your older activities updated.
+            Worker process will only fetch the latest activities. Reset if you'd like to have your older activities updated.
           </p>
           <%= form_tag({controller: 'athletes', action: 'reset_last_activity_retrieved'}, class: 'form-reset-last-activity-retrieved') do %>
           <button type="button" class="btn btn-block btn-danger btn-flat submit-form">Reset</button>
           <% end %>
-        <% end %>
+        </div>
       </div>
 
       <div class="form-group">
