@@ -24,7 +24,6 @@ function loadRacesByDistanceView(distanceText) {
         table += '</div></div></div></div></div>';
         return table;
     };
-
     var prepareView = function() {
         setContentHeader("Races - " + distanceText);
         appendToPageTitle(' |  Races  - ' + distanceText);
@@ -55,7 +54,6 @@ function loadRacesByDistanceView(distanceText) {
         pieCharts += '</div>';
         mainContent.append(pieCharts);
     };
-
     var createView = function() {
         var distance = distanceText.trim().replace(/\//g, '|').replace(/\s/g, '-').toLowerCase();
         pushStateToWindow(getBaseUrl() + '/races/' + distance);
@@ -244,6 +242,93 @@ function loadRacesByYearView(year) {
                 createGearMileageChart('gear-mileage-chart', races);
             }
         });
+    };
+
+    prepareView();
+    createView();
+}
+
+function loadRacesTimeline() {
+    var getRaceYears = function () {
+        var years = [];
+        $.ajax({
+            url: getApiBaseUrl() + '/races/get_counts_by_year',
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+                $.each(data, function(key, value) {
+                    var year = value['race_year'];
+                    if ($.inArray(year, years) === -1) {
+                        years.push(year);
+                    }
+                });
+            }
+        });
+        return years;
+    };
+    var createRacesTimelineForYear = function (year) {
+        var content = '';
+        $.ajax({
+            url: getApiBaseUrl() + '/races/' + year,
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+                var races = [];
+                $.each(data, function(key, value) {
+                    races.push(value);
+                });
+                races.forEach(function(item) {
+                    content += '<li>';
+                    content += '<i class="fa fa-trophy bg-green"></i>';
+                    content += '<div class="timeline-item">';
+                    content += '<span class="time"><i class="fa fa-clock-o"></i> ' + item['start_date'] + '</span>';
+                    content += '<h3 class="timeline-header">';
+                    content += '<a href="https://www.strava.com/activities/' + item["activity_id"] +
+                        '" target="_blank">' + item["activity_name"] + '</a>';
+                    content += '</h3>';
+                    content += '<div class="timeline-body">';
+                    content += 'Time: ' + item["elapsed_time_formatted"] + ' at ' + item["pace"] + '<small>' + item["pace_unit"] + '</small>';
+                    content += '</div>';
+                    content += '</div></li>';
+                });
+            }
+        });
+        return content;
+    };
+    var prepareView = function() {
+        resetNavigationItems();
+        setContentHeader('Races Timeline');
+        appendToPageTitle(' | Races Timeline');
+
+        var mainContent = $('#main-content');
+        mainContent.empty(); // Empty main content.
+
+        var content = '<div class="row">';
+        content += '<div class="col-xs-12">';
+        content += constructLoadingIconHtml();
+        content += '</div></div>';
+        mainContent.append(content);
+    };
+    var createView = function() {
+        pushStateToWindow(getBaseUrl() + '/timeline/races');
+
+        var content = '<div class="row">';
+        content += '<div class="col-xs-12">';
+        content += '<ul class="timeline">';
+
+        var years = getRaceYears();
+        years.forEach(function(year) {
+            content += '<li class="time-label">';
+            content += '<span class="bg-red">' + year + '</span>';
+            content += '</li>';
+            content += createRacesTimelineForYear(year);
+        });
+
+        content += '</ul></div></div>';
+
+        var mainContent = $('#main-content');
+        mainContent.empty();
+        mainContent.append(content);
     };
 
     prepareView();

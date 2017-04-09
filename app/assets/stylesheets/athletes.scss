@@ -114,6 +114,13 @@ input[type='submit'] {
     border-top-color: $primary-color;
   }
 
+  .timeline {
+    .time-label {
+      margin-left: 12px;
+      margin-bottom: 20px;
+    }
+  }
+
   /* Style links within best effort table */
   .dataTable {
     a {

@@ -61,8 +61,13 @@ $(document).ready(function() {
         loadOverviewPage(false);
     });
 
+    // Load Races Timeline view.
+    $(document).on("click", ".show-races-timeline", function() {
+        loadRacesTimeline();
+    });
+
     // Save profile in settings.
-    $(".form-save-profile .submit-form").click(function() {
+    $(document).on("click", ".form-save-profile .submit-form", function() {
         var is_public = $("#is_public")[0].checked;
         var data = {
             is_public: is_public
@@ -83,7 +88,7 @@ $(document).ready(function() {
     });
 
     // Reset last activity retrieved in settings.
-    $(".form-reset-last-activity-retrieved .submit-form").click(function() {
+    $(document).on("click", ".form-reset-last-activity-retrieved .submit-form", function() {
         $('.last-activity-na').show();
         $('.last-activity-retrieved').show();
         $.ajax({
