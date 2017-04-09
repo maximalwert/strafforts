@@ -9,6 +9,9 @@ function loadOverviewPage(createNavigation) {
 
     createOverviewDatatable('best-efforts');
     createOverviewDatatable('races');
+
+    // Disable clicking for 'Estimated Best Efforts', 'Race by Distance' and 'Race by Year' treeview headers.
+    $('.sidebar-menu .disabled').click(false);
 }
 
 function prepareOverview() {

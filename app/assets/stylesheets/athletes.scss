@@ -59,10 +59,19 @@ input[type='submit'] {
   -ms-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
-/* Add box shadow to treeview menu items */
-.treeview-menu li a:hover {
-  box-shadow: inset 3px 0 0 $primary-color;
+
+/* Sidebar Treeview Menu */
+.sidebar-menu {
+  .treeview-menu {
+    li a:hover {
+      box-shadow: inset 3px 0 0 $primary-color;
+    }
+  }
+  .disabled {
+    cursor: default;
+  }
 }
+
 
 /* Style Sidebar User Panel as a link */
 .user-panel {
