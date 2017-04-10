@@ -341,7 +341,7 @@ function createRaceDatatableHeader() {
     header += '<th class="col-md-3">Activity</th>';
     header += '<th class="col-md-1">Time</th>';
     header += '<th class="col-md-1">Pace</th>';
-    header += '<th class="col-md-2 hidden-xs-sm-md">Shoes</th>';
+    header += '<th class="col-md-2 hidden-xs-sm-md">Gear</th>';
     header += '<th class="col-md-1 hidden-xs-sm-md">Elevation</th>';
     header += '<th class="col-md-1 hidden-xs-sm-md">Cadence</th>';
     header += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Avg. HR</th>';

@@ -124,7 +124,7 @@ function createBestEffortsDatatableHeader() {
     header += '<th class="col-md-4">Activity</th>';
     header += '<th class="col-md-1">Time</th>';
     header += '<th class="col-md-1">Pace</th>';
-    header += '<th class="col-md-2 hidden-xs-sm-md">Shoes</th>';
+    header += '<th class="col-md-2 hidden-xs-sm-md">Gear</th>';
     header += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Avg. HR</th>';
     header += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Max HR</th>';
     header += '</tr></thead>';

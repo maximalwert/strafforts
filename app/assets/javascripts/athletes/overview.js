@@ -119,7 +119,7 @@ function createOverviewDatatable(type) {
                     table += '<th class="col-md-4">Activity</th>';
                     table += '<th class="col-md-1">Time</th>';
                     table += '<th class="col-md-1">Pace</th>';
-                    table += '<th class="col-md-2 hidden-xs-sm-md">Shoes</th>';
+                    table += '<th class="col-md-2 hidden-xs-sm-md">Gear</th>';
                     table += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Avg. HR</th>';
                     table += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Max HR</th>';
                     table += '</tr>';
