@@ -417,15 +417,19 @@ function createGearMileageChart(id, items) {
                 },
                 maintainAspectRatio: false,
                 responsive: true,
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                },
                 tooltips: {
                     enabled: true,
                     mode: 'single',
                     callbacks: {
-                        title: function(tooltipItem, data) {
-                            return tooltipItem[0].yLabel + ' - ' + tooltipItem[0].xLabel.toFixed(1) + "km";
-                        },
-                        label: function() {
-                            return '';
+                        label: function(tooltipItem, data) {
+                            return 'Mileage: ' + tooltipItem.xLabel.toFixed(1) + "km";
                         }
                     }
                 }
