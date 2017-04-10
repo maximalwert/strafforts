@@ -199,7 +199,7 @@ input[type='submit'] {
   .notification-alert {
     .modal {
       background: transparent !important;
-      color: #FFFFFF;
+      color: #444;
       position: relative;
       top: auto;
       bottom: auto;
@@ -207,16 +207,40 @@ input[type='submit'] {
       left: auto;
       display: block;
       z-index: 1;
-    }
-    .modal-header {
-      background-color: $primary-color !important;
-      border-color: $primary-color !important;
-      padding-bottom: 0;
-    }
-    .modal-body {
-      background-color: $primary-color !important;
-      border-color: $primary-color !important;
-      font-size: 16px;
+
+      a {
+        -webkit-transition: all .2s ease-in-out;
+        -moz-transition: all .2s ease-in-out;
+        -ms-transition: all .2s ease-in-out;
+        -o-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+        text-decoration: none;
+        color: inherit;
+        border-bottom: dotted 1px $color-light-grey;
+        outline: 0;
+
+        &:focus,
+        &:hover {
+          color: $primary-color;
+          border-bottom-color: $primary-color;
+        }
+      }
+
+      .modal-content {
+        border-left: 5px solid $primary-color;
+
+        .modal-header {
+          background-color: rgba(244, 244, 245, .4) !important;
+          border-color: rgba(244, 244, 245, .4) !important;
+          padding-bottom: 0;
+        }
+
+        .modal-body {
+          background-color: rgba(244, 244, 245, .4) !important;
+          border-color: rgba(244, 244, 245, .4) !important;
+          font-size: 16px;
+        }
+      }
     }
   }
 

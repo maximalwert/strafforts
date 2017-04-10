@@ -319,23 +319,27 @@ function loadRacesTimeline() {
     var createView = function() {
         pushStateToWindow(getBaseUrl() + '/timeline/races');
 
+        var mainContent = $('#main-content');
         var content = '<div class="row">';
         content += '<div class="col-xs-12">';
         content += '<ul class="timeline">';
 
         var years = getRaceYears();
-        years.forEach(function(year) {
-            content += '<li class="time-label">';
-            content += '<span class="bg-red">' + year + '</span>';
-            content += '</li>';
-            content += createRacesTimelineForYear(year);
-        });
+        if (years.length === 0) {
+            mainContent.empty();
+            mainContent.append(constructNoDataInfoBox());
+        } else {
+            years.forEach(function(year) {
+                content += '<li class="time-label">';
+                content += '<span class="bg-red">' + year + '</span>';
+                content += '</li>';
+                content += createRacesTimelineForYear(year);
+            });
+            content += '</ul></div></div>';
 
-        content += '</ul></div></div>';
-
-        var mainContent = $('#main-content');
-        mainContent.empty();
-        mainContent.append(content);
+            mainContent.empty();
+            mainContent.append(content);
+        }
     };
 
     prepareView();
