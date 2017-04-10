@@ -9,6 +9,11 @@
 
 $primary-color: #FC4C02;
 $primary-color-hover: #E34402;
+$color-light-green: #00BD65;
+$color-green: #00A65A;
+$color-red: #F56954;
+$color-yellow: #F39C12;
+$color-light-grey: rgba(128, 128, 128, 0.5);
 
 input[type='submit'] {
   font-family: FontAwesome,'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -72,7 +77,6 @@ input[type='submit'] {
   }
 }
 
-
 /* Style Sidebar User Panel as a link */
 .user-panel {
   .image img {
@@ -119,6 +123,42 @@ input[type='submit'] {
       margin-left: 12px;
       margin-bottom: 20px;
     }
+    .timeline-item > .time {
+      font-size: inherit;
+    }
+    .timeline-header {
+      a {
+        color: inherit;
+        border-bottom: dotted 1px $color-light-grey;
+        &:hover {
+          color: #FC4C02;
+          border-bottom-color: #FC4C02;
+        }
+      }
+      .race-distance-label {
+        background-color: $color-light-grey;
+        font-size: 11px;
+        margin: 8px;
+      }
+    }
+    .timeline-body {
+      .activity-data {
+        display: inline;
+        margin-right: 8px;
+      }
+    }
+    .race-distance-marathon .race-distance-label {
+      background-color: $color-red;
+    }
+    .race-distance-half-marathon .race-distance-label {
+      background-color: $color-yellow;
+    }
+    .race-distance-10k .race-distance-label {
+      background-color: $color-green;
+    }
+    .race-distance-5k .race-distance-label {
+      background-color: $color-light-green;
+    }
   }
 
   /* Style links within best effort table */
@@ -131,7 +171,7 @@ input[type='submit'] {
       transition: all .2s ease-in-out;
       text-decoration: none;
       color: inherit;
-      border-bottom: dotted 1px rgba(128, 128, 128, .5);
+      border-bottom: dotted 1px $color-light-grey;
       outline: 0;
 
       &:focus,
@@ -253,19 +293,19 @@ input[type='submit'] {
   }
 
   .workout-type-run {
-    background-color: #00BD65; /* Light Green */
+    background-color: $color-light-green;
   }
 
   .workout-type-race {
-    background-color: #F56954; /* Red */
+    background-color: $color-red;
   }
 
   .workout-type-long-run {
-    background-color: #00A65A; /* Green */
+    background-color: $color-green;
   }
 
   .workout-type-workout {
-    background-color: #F39C12; /* Yellow */
+    background-color: $color-yellow;
   }
 
   @media (max-width: 768px) {

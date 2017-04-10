@@ -279,15 +279,22 @@ function loadRacesTimeline() {
                 });
                 races.forEach(function(item) {
                     content += '<li>';
-                    content += '<i class="fa fa-trophy bg-green"></i>';
-                    content += '<div class="timeline-item">';
+                    content += '<i class="fa fa-trophy"></i>';
+                    content += '<div class="timeline-item race-distance-' + item["race_distance"].toLowerCase().replace(/\s/g, '-') + '">';
                     content += '<span class="time"><i class="fa fa-clock-o"></i> ' + item['start_date'] + '</span>';
                     content += '<h3 class="timeline-header">';
                     content += '<a href="https://www.strava.com/activities/' + item["activity_id"] +
                         '" target="_blank">' + item["activity_name"] + '</a>';
+                    content += '<span class="label race-distance-label">' + item["race_distance"] + '</span>';
                     content += '</h3>';
                     content += '<div class="timeline-body">';
-                    content += 'Time: ' + item["elapsed_time_formatted"] + ' at ' + item["pace"] + '<small>' + item["pace_unit"] + '</small>';
+                    content += '<div class="activity-data"><strong>Time: </strong>' + item["elapsed_time_formatted"] + '</div>';
+                    content += '<div class="activity-data"><strong>Pace: </strong>' + item["pace"] + '<small>' + item["pace_unit"] + '</small></div>';
+                    content += '<br /><div class="activity-data"><strong>Elevation: </strong>' + item["elevation"] + '<small>' + item["elevation_unit"] + '</small></div>';
+                    if (item["cadence"] !== '') {
+                        content += '<div class="activity-data"><strong>Cadence: </strong>' + item["cadence"] + '</div>';
+                    }
+                    content += '<br /><div class="activity-data"><strong>Gear: </strong>' + item["gear_name"] + '</div>';
                     content += '</div>';
                     content += '</div></li>';
                 });
