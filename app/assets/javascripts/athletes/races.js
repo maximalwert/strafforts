@@ -285,7 +285,7 @@ function loadRacesTimeline() {
                     content += '<h3 class="timeline-header">';
                     content += '<a href="https://www.strava.com/activities/' + item["activity_id"] +
                         '" target="_blank">' + item["activity_name"] + '</a>';
-                    content += '<span class="label race-distance-label">' + item["race_distance"] + '</span>';
+                    content += '<span class="btn btn-xs race-distance-label">' + item["race_distance"] + '</span>';
                     content += '</h3>';
                     content += '<div class="timeline-body">';
                     content += '<div class="activity-data"><strong>Time: </strong>' + item["elapsed_time_formatted"] + '</div>';

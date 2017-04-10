@@ -66,6 +66,13 @@ $(document).ready(function() {
         loadRacesTimeline();
     });
 
+    // Bind race distance selection buttons in Races Timeline view.
+    $(document).on("click", ".race-distance-label", function() {
+        var distance = $(this).text().toLowerCase().replace(/\s/g, '-');
+        $('.timeline-item').parent().hide();
+        $('.timeline-item.race-distance-' + distance).parent().fadeIn(800);
+    });
+
     // Save profile in settings.
     $(document).on("click", ".form-save-profile .submit-form", function() {
         var is_public = $("#is_public")[0].checked;
