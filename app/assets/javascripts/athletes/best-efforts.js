@@ -120,13 +120,13 @@ function loadBestEffortsView(distanceText) {
 function createBestEffortsDatatableHeader() {
     var header = '<thead><tr>';
     header += '<th class="col-md-1">Date</th>';
-    header += '<th class="col-md-1 text-center badge-cell">Type</th>';
+    header += '<th class="col-md-1 text-center badge-cell hidden-xs-down">Type</th>';
     header += '<th class="col-md-4">Activity</th>';
     header += '<th class="col-md-1">Time</th>';
-    header += '<th class="col-md-1">Pace</th>';
-    header += '<th class="col-md-2 hidden-xs-sm-md">Gear</th>';
-    header += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Avg. HR</th>';
-    header += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Max HR</th>';
+    header += '<th class="col-md-1 hidden-xs-down">Pace</th>';
+    header += '<th class="col-md-2 hidden-lg-down">Gear</th>';
+    header += '<th class="col-md-1 text-center badge-cell hidden-md-down">Avg. HR</th>';
+    header += '<th class="col-md-1 text-center badge-cell hidden-md-down">Max HR</th>';
     header += '</tr></thead>';
     return header;
 }
@@ -134,19 +134,19 @@ function createBestEffortsDatatableHeader() {
 function createBestEffortsDatatableRow(item) {
     var row = '<tr>';
     row += '<td>' + item['start_date'] + '</td>';
-    row += '<td class="text-center badge-cell">';
+    row += '<td class="text-center badge-cell hidden-xs-down">';
     row += '<span class="label workout-type-' + item['workout_type_name'].replace(/ /g, "-") + '">' +
         item['workout_type_name'] + "</span>";
     row += '</td>';
     row += '<td><a class="strava-activity-link" href="https://www.strava.com/activities/' + item["activity_id"] +
         '" target="_blank">' + item["activity_name"] + '</a></td>';
     row += '<td>' + item["elapsed_time_formatted"] + '</td>';
-    row += '<td>' + item["pace"] + '<small>' + item["pace_unit"] + '</small></td>';
-    row += '<td class="hidden-xs-sm-md">' + item["gear_name"] + '</td>';
-    row += '<td class="text-center badge-cell hidden-xs-sm-md">';
+    row += '<td class="hidden-xs-down">' + item["pace"] + '<small>' + item["pace_unit"] + '</small></td>';
+    row += '<td class="hidden-lg-down">' + item["gear_name"] + '</td>';
+    row += '<td class="text-center badge-cell hidden-md-down">';
     row += '<span class="badge ' + item["average_hr_zone_class"] + '">' + item["average_heartrate"] + '</span>';
     row += '</td>';
-    row += '<td class="text-center badge-cell hidden-xs-sm-md">';
+    row += '<td class="text-center badge-cell hidden-md-down">';
     row += '<span class="badge ' + item["max_hr_zone_class"] + '">' + item["max_heartrate"] + '</span>';
     row += '</td>';
     row += '</tr>';
