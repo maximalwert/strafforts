@@ -61,7 +61,15 @@
       <form method="post">
         <h3 class="control-sidebar-heading">Data Settings</h3>
         <p>
-          Coming soon...
+          Slowly getting implemented...
+        </p>
+        <p>
+          <a href="https://github.com/yizeng/strafforts/blob/master/docs/development-guide.md" target="_blank">
+            <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square" alt="contributions welcome">
+          </a>
+          <a href="https://github.com/yizeng/strafforts/pulls" target="_blank">
+            <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome">
+          </a>
         </p>
       </form>
     </div>
@@ -86,7 +94,7 @@
         </a>
         <div>
           <p>
-            Worker process will only fetch the latest activities. Reset if you'd like to have your older activities updated.
+            Worker process only fetches newer activities. Reset if you'd like update your older activities.
           </p>
           <%= form_tag({controller: 'athletes', action: 'reset_last_activity_retrieved'}, class: 'form-reset-last-activity-retrieved') do %>
           <button type="button" class="btn btn-block btn-danger btn-flat submit-form">Reset</button>
@@ -102,7 +110,7 @@
 
       <div class="form-group">
         <h3 class="control-sidebar-heading">Delete Profile</h3>
-        <p>Revoke access to Strava and delete all best efforts data from our server.</p>
+        <p>Revoke access to Strava and delete all activities from our server.</p>
         <button type="button" class="btn btn-block btn-danger btn-flat" data-toggle="modal" data-target="#confirm-delete-profile">
           Delete All
         </button>
@@ -128,7 +136,7 @@
         <h4 class="modal-title" id="confirm-delete-profile-label">Are you sure?</h4>
       </div>
       <div class="modal-body">
-        By clicking 'Confirm' below, Strafforts will revoke access to your Strava account and delete all best efforts data from our server.
+        By clicking 'Confirm' below, Strafforts will revoke access to your Strava account and delete all activities from our server.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline" data-dismiss="modal">Cancel</button>
