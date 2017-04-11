@@ -8,10 +8,10 @@
 [![Code Climate](https://img.shields.io/codeclimate/github/yizeng/strafforts.svg?style=flat-square)][Strafforts Code Climate]
 [![Gemnasium](https://img.shields.io/gemnasium/yizeng/strafforts.svg?style=flat-square)][Strafforts Gemnasium]
 
-### A Visualizer for Strava Estimated Best Efforts
+### A Visualizer for Strava Estimated Best Efforts and Races
 
 Strafforts is a web app that calls [Strava API][Strava API]
-to fetch athletes' [estimated best efforts][Strava Support] data
+to fetch athletes' [estimated best efforts][Strava Support Best Efforts] and [races][Use Run Type Tags]
 and visualize them in forms of data tables, line charts and pie charts,
 in such way athletes can perform some analysis like half marathon PB progression,
 fastest shoes used for a 10K race, how often 5K PB gets set, etc.
@@ -25,13 +25,14 @@ so that athletes can connect Strafforts with their Strava accounts and see visua
 http://www.strafforts.com
 
 ![Strafforts Homepage Screenshot](public/screenshots/strafforts-home.jpg)
+![Strafforts Races Timeline Screenshot](public/screenshots/strafforts-races-timeline-view.png)
 ![Strafforts Best Efforts View Screenshot](public/screenshots/strafforts-best-efforts-view.png)
 ![Strafforts Races View Screenshot](public/screenshots/strafforts-races-by-year-view.png)
 
 
 ### What are 'Estimated Best Efforts'?
 
-Quoting from [Strava Support][Strava Support]:
+Quoting from [Strava Support][Strava Support Best Efforts]:
 
 > Estimated Best Efforts are automatically calculated using your GPS-based running activity,
   and reflect your fastest times for benchmark distances such as 1 mile, 5km, 10km, and half marathon.
@@ -40,6 +41,17 @@ Quoting from [Strava Support][Strava Support]:
 
 ![Side by side Best Efforts][Side by side Best Efforts Image]
 ![Strava Best Efforts][Strava Best Efforts Image]
+
+### What are Strava races and how to create them?
+
+Quoting from [Strava Support][Use Run Type Tags]:
+
+> Strava offers four different sub-categories within the Running activity type to
+  allow for more detailed and focused analysis of your training.
+  Those four tags are Run, Race, Long Run, and Workout.
+
+![Strava Run Type Tag](public/screenshots/doc-tag-run-as-race.png)
+
 
 ## Acknowledgements
 
@@ -58,7 +70,7 @@ I will try my best to improve this and make it more useful for everyone.
 Got any questions? Check out the [Q&A page](docs/q-and-a.md) first to see if it's been asked before.
 If you have any feature idea, or are running into problems, please raise an issue on GitHub.
 If you want to make code changes, feel free to create PRs.
-Development guide can be found [here](docs/installation-and-development-guide.md) if needed.
+Development guide can be found [here](docs/development-guide.md) if needed.
 
 ## License
 Strafforts is a project developed and maintained by [Yi Zeng][yizeng.me], licensed under [MIT License](LICENSE).
@@ -69,10 +81,11 @@ Strafforts is a project developed and maintained by [Yi Zeng][yizeng.me], licens
 [Strafforts Code Climate]: https://codeclimate.com/github/yizeng/strafforts
 [Strafforts Gemnasium]: https://gemnasium.com/yizeng/strafforts
 [Strava API]: https://strava.github.io/api/
-[Strava Support]: https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running
+[Strava Support Best Efforts]: https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running
 [Side by side Best Efforts Image]: https://support.strava.com/attachments/token/B2NpmmMYGEVEzCJn7ZjoMFtsk/?name=Side+by+Side-+Best+Effort.png
 [Strava Best Efforts Image]: https://support.strava.com/attachments/token/UJw9NjMB5AZSqRm8sst8kUqUy/?name=activity+-+Best+Effort.png
 [strava-best-efforts]: https://github.com/yizeng/strava-best-efforts
 [Ruby on Rails]: http://rubyonrails.org/
 [Strafforts Issues]: https://github.com/yizeng/strafforts/issues
 [yizeng.me]: http://yizeng.me
+[Use Run Type Tags]: https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs

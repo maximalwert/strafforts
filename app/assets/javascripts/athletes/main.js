@@ -149,8 +149,6 @@ $(document).ready(function() {
             $('.timeline-item').parent().hide();
             $('.timeline-item.race-distance-' + distance).parent().fadeIn(800);
             $('#main-content .show-races-timeline').removeClass('hidden').fadeIn(800);
-
-            toastr.success('Showing Races for "' + $(this).text() + '".');
         });
     };
 
