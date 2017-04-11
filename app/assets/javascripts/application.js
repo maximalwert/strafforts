@@ -90,3 +90,24 @@ function convertToRgbaColors(rgbColors, alpha) {
     }
     return colors;
 }
+
+function pushStateToWindow(url) {
+    window.history.pushState({}, "", url);
+}
+
+var AdminLTEOptions = {
+    // Bootstrap.js tooltip.
+    enableBSTooltip: true,
+    BSTooltipSelector: "[data-toggle='tooltip']",
+    enableFastclick: true,
+    // Control Sidebar Options.
+    enableControlSidebar: true,
+    controlSidebarOptions: {
+        // Which button should trigger the open/close event.
+        toggleBtnSelector: "[data-toggle='control-sidebar']",
+        // The sidebar selector.
+        selector: ".control-sidebar",
+        // Enable slide over content.
+        slide: false
+    }
+};

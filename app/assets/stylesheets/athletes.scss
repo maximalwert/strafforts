@@ -7,8 +7,8 @@
 @import 'dist/css/skins/skin-black-light.min';
 @import 'toastr.min';
 
-$primary-color: #FC4C02;
-$primary-color-hover: #E34402;
+$color-strava: #FC4C02;
+$color-strava-hover: #E34402;
 $color-light-green: #00BD65;
 $color-green: #00A65A;
 $color-red: #F56954;
@@ -19,12 +19,17 @@ input[type='submit'] {
   font-family: FontAwesome,'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
+.bg-strava {
+  background-color: $color-strava !important;
+  color: #FFF !important;
+}
+
 .main-footer a,
 .main-header .logo b {
-  color: $primary-color;
+  color: $color-strava;
 
   &:hover {
-    color: $primary-color-hover;
+    color: $color-strava-hover;
   }
 }
 
@@ -33,11 +38,11 @@ input[type='submit'] {
 }
 
 .form-control:focus {
-  border-color: $primary-color;
+  border-color: $color-strava;
 }
 
 .box.box-primary {
-  border-top-color: $primary-color;
+  border-top-color: $color-strava;
 }
 /* Blue follower and following links. */
 .navbar-nav > .user-menu > .dropdown-menu > .user-body a {
@@ -69,7 +74,7 @@ input[type='submit'] {
 .sidebar-menu {
   .treeview-menu {
     li a:hover {
-      box-shadow: inset 3px 0 0 $primary-color;
+      box-shadow: inset 3px 0 0 $color-strava;
     }
   }
   .disabled {
@@ -115,7 +120,7 @@ input[type='submit'] {
 
 #main-content {
   .nav-tabs-custom > .nav-tabs > li.active {
-    border-top-color: $primary-color;
+    border-top-color: $color-strava;
   }
 
   .timeline {
@@ -127,6 +132,8 @@ input[type='submit'] {
       font-size: inherit;
     }
     .timeline-header {
+      border: none;
+      padding-bottom: 0;
       a {
         color: inherit;
         border-bottom: dotted 1px $color-light-grey;
@@ -177,8 +184,8 @@ input[type='submit'] {
 
       &:focus,
       &:hover {
-        color: $primary-color;
-        border-bottom-color: $primary-color;
+        color: $color-strava;
+        border-bottom-color: $color-strava;
       }
     }
 
@@ -222,13 +229,13 @@ input[type='submit'] {
 
         &:focus,
         &:hover {
-          color: $primary-color;
-          border-bottom-color: $primary-color;
+          color: $color-strava;
+          border-bottom-color: $color-strava;
         }
       }
 
       .modal-content {
-        border-left: 5px solid $primary-color;
+        border-left: 5px solid $color-strava;
 
         .modal-header {
           background-color: rgba(244, 244, 245, .4) !important;
@@ -262,8 +269,8 @@ input[type='submit'] {
   .pagination > .active > span:focus,
   .pagination > .active > span:hover,
   .pagination > .active > span:visited {
-    background-color: $primary-color;
-    border-color: $primary-color;
+    background-color: $color-strava;
+    border-color: $color-strava;
     color: #FFFFFF;
   }
 
@@ -359,13 +366,8 @@ input[type='submit'] {
 }
 
 .main-footer {
-  .label {
-    background-color: $primary-color;
-    color: #fff;
+  .btn {
     font-size: 85%;
-    &:hover {
-      color: #fff;
-    }
   }
 }
 
@@ -403,7 +405,7 @@ body.page-loading:not(.pace-done):before {
     height: 5px;
     width: 60%;
     background: #FFFFFF;
-    border: 1px solid $primary-color;
+    border: 1px solid $color-strava;
     overflow: hidden;
 
     .pace-progress {
@@ -425,7 +427,7 @@ body.page-loading:not(.pace-done):before {
       right: 100%;
       height: 100%;
       width: 100%;
-      background: $primary-color;
+      background: $color-strava;
     }
 
     &.pace-inactive {
@@ -448,7 +450,7 @@ body.page-loading:not(.pace-done):before {
   }
 
   .pace .pace-progress {
-    background: $primary-color;
+    background: $color-strava;
     position: fixed;
     z-index: 2000;
     top: 0;
@@ -463,7 +465,7 @@ body.page-loading:not(.pace-done):before {
     right: 0px;
     width: 100px;
     height: 100%;
-    box-shadow: 0 0 10px $primary-color, 0 0 5px $primary-color;
+    box-shadow: 0 0 10px $color-strava, 0 0 5px $color-strava;
     opacity: 1.0;
     -webkit-transform: rotate(3deg) translate(0px, -4px);
     -moz-transform: rotate(3deg) translate(0px, -4px);
@@ -481,8 +483,8 @@ body.page-loading:not(.pace-done):before {
     width: 14px;
     height: 14px;
     border: solid 2px transparent;
-    border-top-color: $primary-color;
-    border-left-color: $primary-color;
+    border-top-color: $color-strava;
+    border-left-color: $color-strava;
     border-radius: 10px;
     -webkit-animation: pace-spinner 400ms linear infinite;
     -moz-animation: pace-spinner 400ms linear infinite;

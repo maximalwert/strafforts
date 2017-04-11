@@ -320,7 +320,10 @@ function loadRacesTimeline() {
         pushStateToWindow(getBaseUrl() + '/timeline/races');
 
         var mainContent = $('#main-content');
-        var content = '<div class="row">';
+        var content = '<div class="col-xs-12 text-center"> ';
+        content += '<button class="btn btn-sm bg-strava hidden show-races-timeline">Show All Distances</button>';
+        content += '</div>';
+        content += '<div class="row">';
         content += '<div class="col-xs-12">';
         content += '<ul class="timeline">';
 
@@ -331,7 +334,7 @@ function loadRacesTimeline() {
         } else {
             years.forEach(function(year) {
                 content += '<li class="time-label">';
-                content += '<span class="bg-red">' + year + '</span>';
+                content += '<span class="bg-strava">' + year + '</span>';
                 content += '</li>';
                 content += createRacesTimelineForYear(year);
             });
