@@ -24,7 +24,6 @@ function loadRacesByDistanceView(distanceText) {
         table += '</div></div></div></div></div>';
         return table;
     };
-
     var prepareView = function() {
         setContentHeader("Races - " + distanceText);
         appendToPageTitle(' |  Races  - ' + distanceText);
@@ -55,10 +54,11 @@ function loadRacesByDistanceView(distanceText) {
         pieCharts += '</div>';
         mainContent.append(pieCharts);
     };
-
     var createView = function() {
+        var distance = distanceText.trim().replace(/\//g, '|').replace(/\s/g, '-').toLowerCase();
+        pushStateToWindow(getBaseUrl() + '/races/' + distance);
         $.ajax({
-            url: window.location.pathname + '/races/' + distanceText.trim().replace(/\//g, '|'),
+            url: getApiBaseUrl() + '/races/' + distance,
             dataType: 'json',
             async: false,
             success: function(data) {
@@ -193,8 +193,9 @@ function loadRacesByYearView(year) {
         mainContent.append(pieCharts);
     };
     var createView = function() {
+        pushStateToWindow(getBaseUrl() + '/races/' + year);
         $.ajax({
-            url: window.location.pathname + '/races/' + year,
+            url: getApiBaseUrl() + '/races/' + year,
             dataType: 'json',
             async: false,
             success: function(data) {
@@ -247,13 +248,114 @@ function loadRacesByYearView(year) {
     createView();
 }
 
+function loadRacesTimeline() {
+    var getRaceYears = function () {
+        var years = [];
+        $.ajax({
+            url: getApiBaseUrl() + '/races/get_counts_by_year',
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+                $.each(data, function(key, value) {
+                    var year = value['race_year'];
+                    if ($.inArray(year, years) === -1) {
+                        years.push(year);
+                    }
+                });
+            }
+        });
+        return years;
+    };
+    var createRacesTimelineForYear = function (year) {
+        var content = '';
+        $.ajax({
+            url: getApiBaseUrl() + '/races/' + year,
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+                var races = [];
+                $.each(data, function(key, value) {
+                    races.push(value);
+                });
+                races.forEach(function(item) {
+                    content += '<li>';
+                    content += '<i class="fa fa-trophy"></i>';
+                    content += '<div class="timeline-item race-distance-' + item["race_distance"].toLowerCase().replace(/\s/g, '-') + '">';
+                    content += '<span class="time"><i class="fa fa-clock-o"></i> ' + item['start_date'] + '</span>';
+                    content += '<h3 class="timeline-header">';
+                    content += '<a href="https://www.strava.com/activities/' + item["activity_id"] +
+                        '" target="_blank">' + item["activity_name"] + '</a>';
+                    content += '<span class="btn btn-xs race-distance-label">' + item["race_distance"] + '</span>';
+                    content += '</h3>';
+                    content += '<div class="timeline-body">';
+                    content += '<div class="activity-data"><strong>Time: </strong>' + item["elapsed_time_formatted"] + '</div>';
+                    content += '<div class="activity-data"><strong>Pace: </strong>' + item["pace"] + '<small>' + item["pace_unit"] + '</small></div>';
+                    content += '<br /><div class="activity-data"><strong>Elevation: </strong>' + item["elevation"] + '<small>' + item["elevation_unit"] + '</small></div>';
+                    if (item["cadence"] !== '') {
+                        content += '<div class="activity-data"><strong>Cadence: </strong>' + item["cadence"] + '</div>';
+                    }
+                    content += '<br /><div class="activity-data"><strong>Gear: </strong>' + item["gear_name"] + '</div>';
+                    content += '</div>';
+                    content += '</div></li>';
+                });
+            }
+        });
+        return content;
+    };
+    var prepareView = function() {
+        resetNavigationItems();
+        setContentHeader('Races Timeline');
+        appendToPageTitle(' | Races Timeline');
+
+        var mainContent = $('#main-content');
+        mainContent.empty(); // Empty main content.
+
+        var content = '<div class="row">';
+        content += '<div class="col-xs-12">';
+        content += constructLoadingIconHtml();
+        content += '</div></div>';
+        mainContent.append(content);
+    };
+    var createView = function() {
+        pushStateToWindow(getBaseUrl() + '/timeline/races');
+
+        var mainContent = $('#main-content');
+        var content = '<div class="col-xs-12 text-center"> ';
+        content += '<button class="btn btn-sm bg-strava hidden show-races-timeline">Show All Distances</button>';
+        content += '</div>';
+        content += '<div class="row">';
+        content += '<div class="col-xs-12">';
+        content += '<ul class="timeline">';
+
+        var years = getRaceYears();
+        if (years.length === 0) {
+            mainContent.empty();
+            mainContent.append(constructNoDataInfoBox());
+        } else {
+            years.forEach(function(year) {
+                content += '<li class="time-label">';
+                content += '<span class="bg-strava">' + year + '</span>';
+                content += '</li>';
+                content += createRacesTimelineForYear(year);
+            });
+            content += '</ul></div></div>';
+
+            mainContent.empty();
+            mainContent.append(content);
+        }
+    };
+
+    prepareView();
+    createView();
+}
+
 function createRaceDatatableHeader() {
     var header = '<thead><tr>';
     header += '<th class="col-md-1">Date</th>';
     header += '<th class="col-md-3">Activity</th>';
     header += '<th class="col-md-1">Time</th>';
     header += '<th class="col-md-1">Pace</th>';
-    header += '<th class="col-md-2 hidden-xs-sm-md">Shoes</th>';
+    header += '<th class="col-md-2 hidden-xs-sm-md">Gear</th>';
     header += '<th class="col-md-1 hidden-xs-sm-md">Elevation</th>';
     header += '<th class="col-md-1 hidden-xs-sm-md">Cadence</th>';
     header += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Avg. HR</th>';

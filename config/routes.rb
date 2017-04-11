@@ -5,13 +5,20 @@ Rails.application.routes.draw do
   match '/500', to: 'errors#internal_server_error', via: :all
 
   get 'athletes/:id_or_username' => 'athletes#index'
-  get 'athletes/:id_or_username/best-efforts' => 'best_efforts#index'
-  get 'athletes/:id_or_username/best-efforts/get_counts' => 'best_efforts#get_counts'
-  get 'athletes/:id_or_username/best-efforts/:distance' => 'best_efforts#index'
-  get 'athletes/:id_or_username/races/' => 'races#index'
-  get 'athletes/:id_or_username/races/get_counts_by_distance' => 'races#get_counts_by_distance'
-  get 'athletes/:id_or_username/races/get_counts_by_year' => 'races#get_counts_by_year'
-  get 'athletes/:id_or_username/races/:distance_or_year' => 'races#index'
+
+  get 'athletes/:id_or_username/best-efforts' => 'athletes#index'
+  get 'athletes/:id_or_username/best-efforts/:distance' => 'athletes#index'
+  get 'athletes/:id_or_username/races' => 'athletes#index'
+  get 'athletes/:id_or_username/races/:distance_or_year' => 'athletes#index'
+  get 'athletes/:id_or_username/timeline/races' => 'athletes#index'
+
+  get 'api/athletes/:id_or_username/best-efforts' => 'best_efforts#index'
+  get 'api/athletes/:id_or_username/best-efforts/get_counts' => 'best_efforts#get_counts'
+  get 'api/athletes/:id_or_username/best-efforts/:distance' => 'best_efforts#index'
+  get 'api/athletes/:id_or_username/races' => 'races#index'
+  get 'api/athletes/:id_or_username/races/get_counts_by_distance' => 'races#get_counts_by_distance'
+  get 'api/athletes/:id_or_username/races/get_counts_by_year' => 'races#get_counts_by_year'
+  get 'api/athletes/:id_or_username/races/:distance_or_year' => 'races#index'
 
   post 'athletes/:id_or_username/save_profile' => 'athletes#save_profile'
   post 'athletes/:id_or_username/reset_last_activity_retrieved' => 'athletes#reset_last_activity_retrieved'

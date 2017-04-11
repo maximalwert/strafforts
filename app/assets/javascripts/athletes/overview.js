@@ -9,9 +9,13 @@ function loadOverviewPage(createNavigation) {
 
     createOverviewDatatable('best-efforts');
     createOverviewDatatable('races');
+
+    // Disable clicking for 'Estimated Best Efforts', 'Race by Distance' and 'Race by Year' treeview headers.
+    $('.sidebar-menu .disabled').click(false);
 }
 
 function prepareOverview() {
+    pushStateToWindow(getBaseUrl());
     resetNavigationItems();
     setContentHeader('Overview');
     appendToPageTitle(' | Overview');
@@ -40,7 +44,7 @@ function prepareOverview() {
 
 function createNavigationItems(url, itemName, elementIdPrefix) {
     $.ajax({
-        url: window.location.pathname + url,
+        url: getApiBaseUrl() + url,
         dataType: 'json',
         async: false,
         success: function(data) {
@@ -77,7 +81,7 @@ function createNavigationItems(url, itemName, elementIdPrefix) {
 
 function createOverviewDatatable(type) {
     $.ajax({
-        url: window.location.pathname + '/' + type,
+        url: getApiBaseUrl() +  '/' + type,
         dataType: 'json',
         async: false,
         success: function(data) {
@@ -115,7 +119,7 @@ function createOverviewDatatable(type) {
                     table += '<th class="col-md-4">Activity</th>';
                     table += '<th class="col-md-1">Time</th>';
                     table += '<th class="col-md-1">Pace</th>';
-                    table += '<th class="col-md-2 hidden-xs-sm-md">Shoes</th>';
+                    table += '<th class="col-md-2 hidden-xs-sm-md">Gear</th>';
                     table += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Avg. HR</th>';
                     table += '<th class="col-md-1 text-center badge-cell hidden-xs-sm-md">Max HR</th>';
                     table += '</tr>';

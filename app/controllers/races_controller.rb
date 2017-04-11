@@ -18,8 +18,9 @@ class RacesController < ApplicationController
           render json: shaped_items
         else
           # Get race distance from distance_or_year parameter.
-          # 1/2 mile is passed as 1|2 mile (defined in createView method in athletes/races.js)
-          distance = params[:distance_or_year].tr('|', '/')
+          # 'Half Marathon' is passed in as half-marathon
+          # as defined in createView method in athletes/races.js, revert back when before searching here.
+          distance = params[:distance_or_year].tr('|', '/').tr('-', ' ')
           race_distance = RaceDistance.find_by_name(distance)
           if race_distance.nil?
             raise ActionController::BadRequest, "Could not find requested distance or year '#{distance}'."

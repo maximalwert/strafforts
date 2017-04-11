@@ -32,16 +32,21 @@ function constructChartHtml(id, title, width, withLoadingIcon) {
 }
 
 function constructNoDataInfoBox() {
+    var title = 'Nothing Yet!';
+    var messageBody = '<p>If you have just connected Strafforts with your Strava account, ' +
+        'please be patient while your data is being processed.</p>';
+    messageBody += '<p>To make your races show up in Strafforts,' +
+        ' you need to tag them as "Race" in Strava. ' +
+        'See <a href="https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs" target="_blank">' +
+        '"Using Strava Run Type Tags to analyze your Runs"</a> for more details.</p>';
+
     var infoBox = '<div class="notification-alert">';
     infoBox += '<div class="modal">';
     infoBox += '<div class="modal-dialog">';
     infoBox += '<div class="modal-content">';
-    infoBox += '<div class="modal-header"><h4 class="modal-title">Nothing Yet!</h4></div>';
-    infoBox += '<div class="modal-body">';
-    infoBox += "<p>If you have just connected Strafforts with your Strava account, " +
-        "please be patient while your data is being processed. " +
-        "For newly connected athletes, our background worker process runs <b>every minute</b> to fetch the data.</p>";
-    infoBox += '</div></div></div></div></div>';
+    infoBox += '<div class="modal-header"><h3 class="modal-title">' + title + '</h3></div>';
+    infoBox += '<div class="modal-body">' + messageBody + '</div>';
+    infoBox += '</div></div></div></div>';
     return infoBox;
 }
 
@@ -50,7 +55,7 @@ function createBarChart(id, counts, dataLabels, legendLabels) {
     var colors = getRgbColors();
     var data = {
         yLabels: counts,
-        labels: (typeof legendLabels != 'undefined') ? legendLabels.reverse() : dataLabels.reverse(),
+        labels: (typeof legendLabels !== 'undefined') ? legendLabels.reverse() : dataLabels.reverse(),
         datasets: [{
             data: counts.reverse(),
             label: dataLabels.reverse(),
@@ -98,7 +103,7 @@ function createBarChart(id, counts, dataLabels, legendLabels) {
 function createPieChart(id, counts, dataLabels, legendLabels) {
     var colors = getRgbColors();
     var data = {
-        labels: (typeof legendLabels != 'undefined') ? legendLabels : dataLabels,
+        labels: (typeof legendLabels !== 'undefined') ? legendLabels : dataLabels,
         datasets: [{
             data: counts,
             label: dataLabels,
@@ -417,15 +422,19 @@ function createGearMileageChart(id, items) {
                 },
                 maintainAspectRatio: false,
                 responsive: true,
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                },
                 tooltips: {
                     enabled: true,
                     mode: 'single',
                     callbacks: {
-                        title: function(tooltipItem, data) {
-                            return tooltipItem[0].yLabel + ' - ' + tooltipItem[0].xLabel.toFixed(1) + "km";
-                        },
-                        label: function() {
-                            return '';
+                        label: function(tooltipItem, data) {
+                            return 'Mileage: ' + tooltipItem.xLabel.toFixed(1) + "km";
                         }
                     }
                 }

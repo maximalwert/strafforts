@@ -6,19 +6,30 @@
 @import 'dist/css/AdminLTE.min';
 @import 'dist/css/skins/skin-black-light.min';
 @import 'toastr.min';
-$primary-color: #FC4C02;
-$primary-color-hover: #E34402;
+
+$color-strava: #FC4C02;
+$color-strava-hover: #E34402;
+$color-light-green: #00BD65;
+$color-green: #00A65A;
+$color-red: #F56954;
+$color-yellow: #F39C12;
+$color-light-grey: rgba(128, 128, 128, 0.5);
 
 input[type='submit'] {
   font-family: FontAwesome,'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
+.bg-strava {
+  background-color: $color-strava !important;
+  color: #FFF !important;
+}
+
 .main-footer a,
 .main-header .logo b {
-  color: $primary-color;
+  color: $color-strava;
 
   &:hover {
-    color: $primary-color-hover;
+    color: $color-strava-hover;
   }
 }
 
@@ -27,11 +38,11 @@ input[type='submit'] {
 }
 
 .form-control:focus {
-  border-color: $primary-color;
+  border-color: $color-strava;
 }
 
 .box.box-primary {
-  border-top-color: $primary-color;
+  border-top-color: $color-strava;
 }
 /* Blue follower and following links. */
 .navbar-nav > .user-menu > .dropdown-menu > .user-body a {
@@ -58,9 +69,17 @@ input[type='submit'] {
   -ms-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
-/* Add box shadow to treeview menu items */
-.treeview-menu li a:hover {
-  box-shadow: inset 3px 0 0 $primary-color;
+
+/* Sidebar Treeview Menu */
+.sidebar-menu {
+  .treeview-menu {
+    li a:hover {
+      box-shadow: inset 3px 0 0 $color-strava;
+    }
+  }
+  .disabled {
+    cursor: default;
+  }
 }
 
 /* Style Sidebar User Panel as a link */
@@ -101,7 +120,53 @@ input[type='submit'] {
 
 #main-content {
   .nav-tabs-custom > .nav-tabs > li.active {
-    border-top-color: $primary-color;
+    border-top-color: $color-strava;
+  }
+
+  .timeline {
+    .time-label {
+      margin-left: 12px;
+      margin-bottom: 20px;
+    }
+    .timeline-item > .time {
+      font-size: inherit;
+    }
+    .timeline-header {
+      border: none;
+      padding-bottom: 0;
+      a {
+        color: inherit;
+        border-bottom: dotted 1px $color-light-grey;
+        &:hover {
+          color: #FC4C02;
+          border-bottom-color: #FC4C02;
+        }
+      }
+      .race-distance-label {
+        background-color: $color-light-grey;
+        color: #FFFFFF;
+        font-size: 11px;
+        margin: 8px;
+      }
+    }
+    .timeline-body {
+      .activity-data {
+        display: inline;
+        margin-right: 8px;
+      }
+    }
+    .race-distance-marathon .race-distance-label {
+      background-color: $color-red;
+    }
+    .race-distance-half-marathon .race-distance-label {
+      background-color: $color-yellow;
+    }
+    .race-distance-10k .race-distance-label {
+      background-color: $color-green;
+    }
+    .race-distance-5k .race-distance-label {
+      background-color: $color-light-green;
+    }
   }
 
   /* Style links within best effort table */
@@ -114,13 +179,13 @@ input[type='submit'] {
       transition: all .2s ease-in-out;
       text-decoration: none;
       color: inherit;
-      border-bottom: dotted 1px rgba(128, 128, 128, .5);
+      border-bottom: dotted 1px $color-light-grey;
       outline: 0;
 
       &:focus,
       &:hover {
-        color: $primary-color;
-        border-bottom-color: $primary-color;
+        color: $color-strava;
+        border-bottom-color: $color-strava;
       }
     }
 
@@ -142,7 +207,7 @@ input[type='submit'] {
   .notification-alert {
     .modal {
       background: transparent !important;
-      color: #FFFFFF;
+      color: #444;
       position: relative;
       top: auto;
       bottom: auto;
@@ -150,16 +215,40 @@ input[type='submit'] {
       left: auto;
       display: block;
       z-index: 1;
-    }
-    .modal-header {
-      background-color: $primary-color !important;
-      border-color: $primary-color !important;
-      padding-bottom: 0;
-    }
-    .modal-body {
-      background-color: $primary-color !important;
-      border-color: $primary-color !important;
-      font-size: 16px;
+
+      a {
+        -webkit-transition: all .2s ease-in-out;
+        -moz-transition: all .2s ease-in-out;
+        -ms-transition: all .2s ease-in-out;
+        -o-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+        text-decoration: none;
+        color: inherit;
+        border-bottom: dotted 1px $color-light-grey;
+        outline: 0;
+
+        &:focus,
+        &:hover {
+          color: $color-strava;
+          border-bottom-color: $color-strava;
+        }
+      }
+
+      .modal-content {
+        border-left: 5px solid $color-strava;
+
+        .modal-header {
+          background-color: rgba(244, 244, 245, .4) !important;
+          border-color: rgba(244, 244, 245, .4) !important;
+          padding-bottom: 0;
+        }
+
+        .modal-body {
+          background-color: rgba(244, 244, 245, .4) !important;
+          border-color: rgba(244, 244, 245, .4) !important;
+          font-size: 16px;
+        }
+      }
     }
   }
 
@@ -180,8 +269,8 @@ input[type='submit'] {
   .pagination > .active > span:focus,
   .pagination > .active > span:hover,
   .pagination > .active > span:visited {
-    background-color: $primary-color;
-    border-color: $primary-color;
+    background-color: $color-strava;
+    border-color: $color-strava;
     color: #FFFFFF;
   }
 
@@ -236,19 +325,19 @@ input[type='submit'] {
   }
 
   .workout-type-run {
-    background-color: #00BD65; /* Light Green */
+    background-color: $color-light-green;
   }
 
   .workout-type-race {
-    background-color: #F56954; /* Red */
+    background-color: $color-red;
   }
 
   .workout-type-long-run {
-    background-color: #00A65A; /* Green */
+    background-color: $color-green;
   }
 
   .workout-type-workout {
-    background-color: #F39C12; /* Yellow */
+    background-color: $color-yellow;
   }
 
   @media (max-width: 768px) {
@@ -277,20 +366,15 @@ input[type='submit'] {
 }
 
 .main-footer {
-  .label {
-    background-color: $primary-color;
-    color: #fff;
+  .btn {
     font-size: 85%;
-    &:hover {
-      color: #fff;
-    }
   }
 }
 
 /* Pace loading progress bar style */
-body > :not(.pace),
-body:after,
-body:before {
+body.page-loading > :not(.pace),
+body.page-loading:after,
+body.page-loading:before {
   -webkit-transition: opacity .4s ease-in-out;
   -moz-transition: opacity .4s ease-in-out;
   -o-transition: opacity .4s ease-in-out;
@@ -298,55 +382,135 @@ body:before {
   transition: opacity .4s ease-in-out;
 }
 
-body:not(.pace-done) > :not(.pace),
-body:not(.pace-done):after,
-body:not(.pace-done):before {
+body.page-loading:not(.pace-done) > :not(.pace),
+body.page-loading:not(.pace-done):after,
+body.page-loading:not(.pace-done):before {
   opacity: 0;
 }
-
-.pace {
-  -webkit-pointer-events: none;
-  pointer-events: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  z-index: 2000;
-  position: fixed;
-  margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 5px;
-  width: 60%;
-  background: #FFFFFF;
-  border: 1px solid $primary-color;
-  overflow: hidden;
-
-  .pace-progress {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    max-width: 200px;
+.page-loading {
+  .pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     z-index: 2000;
-    display: block;
-    position: absolute;
+    position: fixed;
+    margin: auto;
     top: 0;
-    right: 100%;
-    height: 100%;
-    width: 100%;
-    background: $primary-color;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 5px;
+    width: 60%;
+    background: #FFFFFF;
+    border: 1px solid $color-strava;
+    overflow: hidden;
+
+    .pace-progress {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      -o-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      max-width: 200px;
+      z-index: 2000;
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 100%;
+      height: 100%;
+      width: 100%;
+      background: $color-strava;
+    }
+
+    &.pace-inactive {
+      display: none;
+    }
+  }
+}
+
+.page-loaded {
+  .pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
   }
 
-  &.pace-inactive {
+  .pace-inactive {
     display: none;
+  }
+
+  .pace .pace-progress {
+    background: $color-strava;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 2px;
+  }
+
+  .pace .pace-progress-inner {
+    display: block;
+    position: absolute;
+    right: 0px;
+    width: 100px;
+    height: 100%;
+    box-shadow: 0 0 10px $color-strava, 0 0 5px $color-strava;
+    opacity: 1.0;
+    -webkit-transform: rotate(3deg) translate(0px, -4px);
+    -moz-transform: rotate(3deg) translate(0px, -4px);
+    -ms-transform: rotate(3deg) translate(0px, -4px);
+    -o-transform: rotate(3deg) translate(0px, -4px);
+    transform: rotate(3deg) translate(0px, -4px);
+  }
+
+  .pace .pace-activity {
+    display: block;
+    position: fixed;
+    z-index: 2000;
+    top: 15px;
+    right: 15px;
+    width: 14px;
+    height: 14px;
+    border: solid 2px transparent;
+    border-top-color: $color-strava;
+    border-left-color: $color-strava;
+    border-radius: 10px;
+    -webkit-animation: pace-spinner 400ms linear infinite;
+    -moz-animation: pace-spinner 400ms linear infinite;
+    -ms-animation: pace-spinner 400ms linear infinite;
+    -o-animation: pace-spinner 400ms linear infinite;
+    animation: pace-spinner 400ms linear infinite;
+  }
+
+  @-webkit-keyframes pace-spinner {
+    0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+  }
+  @-moz-keyframes pace-spinner {
+    0% { -moz-transform: rotate(0deg); transform: rotate(0deg); }
+    100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+  }
+  @-o-keyframes pace-spinner {
+    0% { -o-transform: rotate(0deg); transform: rotate(0deg); }
+    100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+  }
+  @-ms-keyframes pace-spinner {
+    0% { -ms-transform: rotate(0deg); transform: rotate(0deg); }
+    100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+  }
+  @keyframes pace-spinner {
+    0% { transform: rotate(0deg); transform: rotate(0deg); }
+    100% { transform: rotate(360deg); transform: rotate(360deg); }
   }
 }
