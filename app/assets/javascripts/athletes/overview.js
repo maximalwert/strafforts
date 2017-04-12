@@ -57,7 +57,7 @@ function createNavigationItems(url, itemName, elementIdPrefix) {
                     var count = value['count'];
                     var isMajor = value['is_major'];
                     var menuItem = '<li>';
-                    menuItem += '<a id="' + elementIdPrefix + '-' + itemId + '-navigation" data-turbolinks="false" href="#">';
+                    menuItem += '<a id="' + elementIdPrefix + '-' + itemId + '-navigation" href="#">';
                     menuItem += '<i class="fa fa-circle-o"></i>';
                     menuItem += '<span class="item-text">';
                     menuItem += itemText;
@@ -105,7 +105,7 @@ function createOverviewDatatable(type) {
                     var table = '<div class="box">';
                     table += '<div class="box-header">';
                     table += '<h3 class="box-title">' + model['distance'] + '</h3>';
-                    table += '<a class="pull-right" id="' + type + '-for-distance-' + model['distance'].toLowerCase().replace(/\s/g, '-').replace(/\//g, '-') + '" data-turbolinks="false" href="#">';
+                    table += '<a class="pull-right" id="' + type + '-for-distance-' + model['distance'].toLowerCase().replace(/\s/g, '-').replace(/\//g, '-') + '" href="#">';
                     table += '<small> View Details</small>';
                     table += '<span class="item-text hidden">' + model['distance'] + '</span>';
                     table += '</a>';

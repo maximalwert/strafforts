@@ -12,7 +12,6 @@
 //
 //= require jquery2
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap
 
 // Google Analytics event tracking common functions.
