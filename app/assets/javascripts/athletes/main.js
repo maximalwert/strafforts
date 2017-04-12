@@ -119,22 +119,20 @@ $(document).ready(function() {
         $(document).on("dblclick", ".main-header .logo, a[id^='best-effort-type-'], a[id^='race-distance-']", function() {
             e.preventDefault();
         });
-        $(document).on("click", "a[id^='best-efforts-for-']", function() {
-            var distance = $(this).find(".item-text").text();
-            loadBestEffortsView(distance);
-        });
-        $(document).on("click", "a[id^='races-for-distance']", function() {
-            var distance = $(this).find(".item-text").text();
-            loadRacesByDistanceView(distance);
-        });
-        $(document).on("click", "a[id^='races-for-year']", function() {
-            var year = $(this).find(".item-text").text();
-            loadRacesByYearView(year);
-        });
+
+        // Disable clicking for 'Estimated Best Efforts', 'Race by Distance' and 'Race by Year' treeview headers.
+        $('.sidebar-menu .disabled').click(false);
 
         // Reload Overview page.
         $(document).on("click", ".show-overview", function() {
             loadOverviewPage(false);
+        });
+
+        // Load Races Overview upon clicking "Races" tab button if not yet created.
+        $(document).on("click", "a[href^='#pane-races']", function() {
+            if ($('#pane-races .loading-icon-panel').length) {
+                createOverviewDatatable('races');
+            }
         });
 
         // Load Races Timeline view.
@@ -149,6 +147,34 @@ $(document).ready(function() {
             $('.timeline-item').parent().hide();
             $('.timeline-item.race-distance-' + distance).parent().fadeIn(800);
             $('#main-content .show-races-timeline').removeClass('hidden').fadeIn(800);
+        });
+
+        $(document).on("click", "a[id^='best-efforts-for-']", function() {
+            var distance = $(this).find(".item-text").text();
+            loadBestEffortsView(distance);
+        });
+        $(document).on("click", "a[id^='races-for-distance']", function() {
+            var distance = $(this).find(".item-text").text();
+            loadRacesByDistanceView(distance);
+        });
+        $(document).on("click", "a[id^='races-for-year']", function() {
+            var year = $(this).find(".item-text").text();
+            loadRacesByYearView(year);
+        });
+
+        // Append PR/Contributions welcome badges upon clicking settings toggle button.
+        $(document).on("click", ".control-sidebar-toggle", function() {
+            if (!$('.link-contributions-welcome').length) {
+                var badges = '<p class="link-contributions-welcome">';
+                badges += '<a href="https://github.com/yizeng/strafforts/blob/master/docs/development-guide.md" target="_blank">';
+                badges += '<img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square" alt="Contributions Welcome">';
+                badges += '</a>';
+                badges += '<a href="https://github.com/yizeng/strafforts/pulls" target="_blank">';
+                badges += '<img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome">';
+                badges += '</a>';
+                badges += '</p>';
+                $('#control-sidebar-data-tab form').append(badges);
+            }
         });
     };
 
