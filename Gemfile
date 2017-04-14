@@ -81,3 +81,6 @@ gem 'heroku-deflater', :group => :production
 
 # Code coverage tool.
 gem 'codecov', :require => false, :group => :test
+
+# Monitor, troubleshoot, and tune production web applications.
+gem 'newrelic_rpm'
