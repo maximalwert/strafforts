@@ -12,6 +12,6 @@ class AthletesControllerTest < ActionDispatch::IntegrationTest
     exception = assert_raises(ActionController::BadRequest) do
       post '/athletes/123/reset_last_activity_retrieved'
     end
-    assert(exception.message.include?('Could not find requested athlete'))
+    assert(exception.message.include?('Could not update a user that is not the current user'))
   end
 end
