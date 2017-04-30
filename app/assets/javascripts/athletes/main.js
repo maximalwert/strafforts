@@ -180,7 +180,8 @@ $(document).ready(function() {
 
     var bindSettingsSubmittingEvents = function () {
         // Save profile in settings.
-        $(document).on("click", ".form-save-profile .submit-form", function() {
+        $(document).on("submit", ".form-save-profile", function(event) {
+            event.preventDefault();
             var is_public = $("#is_public")[0].checked;
             var data = {
                 is_public: is_public
@@ -201,9 +202,8 @@ $(document).ready(function() {
         });
 
         // Reset last activity retrieved in settings.
-        $(document).on("click", ".form-reset-last-activity-retrieved .submit-form", function() {
-            $('.last-activity-na').show();
-            $('.last-activity-retrieved').show();
+        $(document).on("submit", ".form-reset-last-activity-retrieved", function(event) {
+            event.preventDefault();
             $.ajax({
                 url: $(".form-reset-last-activity-retrieved").attr('action'),
                 data: '',
@@ -211,6 +211,8 @@ $(document).ready(function() {
                 type: "post",
                 success: function() {
                     toastr.success('Saved Successfully!');
+                    $('.last-activity-retrieved').addClass('hidden');
+                    $('.last-activity-na').removeClass('hidden');
                 },
                 error: function(xhr, ajaxOptions, thrownError) {
                     toastr.error(xhr.status + '\n' + thrownError);

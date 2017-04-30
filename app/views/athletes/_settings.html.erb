@@ -40,7 +40,7 @@
           Anyone with the link can see this page.
         </p>
       </div>
-      <button class="btn btn-block btn-default btn-flat submit-form">
+      <button class="btn btn-block btn-default btn-flat submit-form" type="submit">
         <i class="fa fa-floppy-o"></i>
         Save
       </button>
@@ -89,7 +89,7 @@
             Worker process only fetches newer activities. Reset if you'd like update your older activities.
           </p>
           <%= form_tag({controller: 'athletes', action: 'reset_last_activity_retrieved'}, class: 'form-reset-last-activity-retrieved') do %>
-          <button type="button" class="btn btn-block btn-danger btn-flat submit-form">Reset</button>
+          <button type="submit" class="btn btn-block btn-danger btn-flat submit-form">Reset</button>
           <% end %>
         </div>
       </div>

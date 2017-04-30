@@ -8,23 +8,22 @@ class AthletesControllerTest < ActionDispatch::IntegrationTest
     assert(exception.message.include?('Could not find requested athlete'))
   end
 
+  test 'should be a bad request when POST reset_last_activity_retrieved without a correct access token' do
+    exception = assert_raises(ActionController::BadRequest) do
+      setup_cookie(nil)
+      post '/athletes/123/reset_last_activity_retrieved'
+    end
+    assert(exception.message.include?('Could not update a user that is not the current user'))
+  end
+
   test 'should reset last activity retrieved when POST reset_last_activity_retrieved' do
-    # Scenario 1.
-    # Currently nil, POST should remain nil.
-    athlete1 = Athlete.find_by_id_or_username(123)
-    assert(athlete1.last_activity_retrieved.nil?)
+    setup_cookie('58e42e6f5e496dc5aa0d5ec354da8048')
 
-    post '/athletes/123/reset_last_activity_retrieved'
-    athlete1.reload
-    assert(athlete1.last_activity_retrieved.nil?)
-
-    # Scenario 2.
-    # Currently not nil, POST should set it to nil.
-    athlete2 = Athlete.find_by_id_or_username(456)
-    assert_not(athlete2.last_activity_retrieved.nil?)
+    athlete = Athlete.find_by_id_or_username(456)
+    assert_not(athlete.last_activity_retrieved.nil?)
 
     post '/athletes/456/reset_last_activity_retrieved'
-    athlete2.reload
-    assert(athlete2.last_activity_retrieved.nil?)
+    athlete.reload
+    assert(athlete.last_activity_retrieved.nil?)
   end
 end

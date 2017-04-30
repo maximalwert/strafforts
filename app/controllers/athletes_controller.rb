@@ -27,9 +27,13 @@ class AthletesController < ApplicationController
     if athlete.nil?
       raise ActionController::BadRequest, "Could not find requested athlete '#{params[:id_or_username]}' by id or username."
     else
-      # Set is_public to true as long as params[:is_public] is present.
-      is_public = params[:is_public].blank? == false
-      athlete.update(is_public: is_public)
+      @is_current_user = athlete.access_token == cookies.signed[:access_token]
+      if @is_current_user
+        is_public = params[:is_public].blank? || params[:is_public]
+        athlete.update(is_public: is_public)
+      else
+        raise ActionController::BadRequest, 'Could not update a user that is not the current user.'
+      end
     end
   end
 
@@ -38,11 +42,16 @@ class AthletesController < ApplicationController
     if athlete.nil?
       raise ActionController::BadRequest, "Could not find requested athlete '#{params[:id_or_username]}' by id or username."
     else
-      athlete.update(last_activity_retrieved: nil)
+      @is_current_user = athlete.access_token == cookies.signed[:access_token]
+      if @is_current_user
+        athlete.update(last_activity_retrieved: nil)
 
-      # Add a delayed_job to fetch data for this athlete.
-      fetcher = ::ActivityFetcher.new(athlete.access_token)
-      fetcher.delay.fetch_all
+        # Add a delayed_job to fetch data for this athlete.
+        fetcher = ::ActivityFetcher.new(athlete.access_token)
+        fetcher.delay.fetch_all
+      else
+        raise ActionController::BadRequest, 'Could not update a user that is not the current user.'
+      end
     end
   end
 end
