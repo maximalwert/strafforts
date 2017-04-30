@@ -13,4 +13,9 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def setup_cookie(access_token)
+    my_cookies = ActionDispatch::Request.new(Rails.application.env_config).cookie_jar
+    my_cookies.signed[:access_token] = access_token
+    cookies[:access_token] = my_cookies[:access_token]
+  end
 end

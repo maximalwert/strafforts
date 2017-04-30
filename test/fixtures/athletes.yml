@@ -14,3 +14,11 @@ two:
   username: 'jessicajones'
   is_public: true
   last_activity_retrieved: 9999
+
+three:
+  id: 789
+  access_token: 'ca1a7434ae66ab53c4e4f63ac8665c9d'
+  firstname: 'Zebediah'
+  lastname: 'Killgrave'
+  username: 'zebediah.illgrave'
+  is_public: true

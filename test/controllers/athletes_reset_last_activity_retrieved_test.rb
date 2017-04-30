@@ -10,8 +10,20 @@ class AthletesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should be a bad request when POST reset_last_activity_retrieved without a correct access token' do
     exception = assert_raises(ActionController::BadRequest) do
+      setup_cookie(nil)
       post '/athletes/123/reset_last_activity_retrieved'
     end
     assert(exception.message.include?('Could not update a user that is not the current user'))
+  end
+
+  test 'should reset last activity retrieved when POST reset_last_activity_retrieved' do
+    setup_cookie('58e42e6f5e496dc5aa0d5ec354da8048')
+
+    athlete = Athlete.find_by_id_or_username(456)
+    assert_not(athlete.last_activity_retrieved.nil?)
+
+    post '/athletes/456/reset_last_activity_retrieved'
+    athlete.reload
+    assert(athlete.last_activity_retrieved.nil?)
   end
 end
