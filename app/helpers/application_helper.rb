@@ -83,6 +83,11 @@ module ApplicationHelper
       entities.each do |entity|
         item = {}
 
+        # Must have an activity associated in order to show.
+        if entity.activity.nil?
+          next
+        end
+
         if is_type_of_best_efforts
           item[:best_effort_type] = entity.best_effort_type.name
           item[:elapsed_time] = entity.elapsed_time
