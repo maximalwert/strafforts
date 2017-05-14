@@ -1,4 +1,8 @@
-function createChartMessage(id, message) {
+/// <reference path="./../typings/jquery.d.ts" />
+/// <reference path="./../typings/chart.js.d.ts" />
+/// <reference path="./../common/helpers.ts" />
+
+function createChartMessage(id, message?) {
     if (message === undefined) {
         message = "Not Enough Data to Generate Chart";
     }
@@ -52,21 +56,23 @@ function constructNoDataInfoBox() {
 
 function createBarChart(id, counts, dataLabels, legendLabels) {
 
-    var colors = getRgbColors();
+    var colors = Helpers.getRgbColors();
     var data = {
         yLabels: counts,
         labels: (typeof legendLabels !== 'undefined') ? legendLabels.reverse() : dataLabels.reverse(),
         datasets: [{
             data: counts.reverse(),
             label: dataLabels.reverse(),
-            backgroundColor: convertToRgbaColors(colors, 0.6),
-            hoverBackgroundColor: convertToRgbaColors(colors, 1)
+            backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
+            hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1)
         }]
     };
 
-    var ctx = $("#" + id).get(0).getContext("2d");
+    var canvasElement = <HTMLCanvasElement>$("#" + id).get(0);
+    var ctx = canvasElement.getContext("2d");
     ctx.canvas.height = 300;
 
+    var linearOptions: Chart.LinearTickOptions = { beginAtZero: true };
     var chart = new Chart(ctx, {
         type: 'bar',
         data: data,
@@ -77,11 +83,9 @@ function createBarChart(id, counts, dataLabels, legendLabels) {
             maintainAspectRatio: false,
             responsive: true,
             scales: {
+                type: 'linear',
                 yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        stepSize: 1
-                    }
+                    ticks: linearOptions
                 }]
             },
             tooltips: {
@@ -100,19 +104,20 @@ function createBarChart(id, counts, dataLabels, legendLabels) {
     });
 }
 
-function createPieChart(id, counts, dataLabels, legendLabels) {
-    var colors = getRgbColors();
+function createPieChart(id, counts, dataLabels, legendLabels?) {
+    var colors = Helpers.getRgbColors();
     var data = {
         labels: (typeof legendLabels !== 'undefined') ? legendLabels : dataLabels,
         datasets: [{
             data: counts,
             label: dataLabels,
-            backgroundColor: convertToRgbaColors(colors, 0.6),
-            hoverBackgroundColor: convertToRgbaColors(colors, 1)
+            backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
+            hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1)
         }]
     };
 
-    var ctx = $("#" + id).get(0).getContext("2d");
+    var canvasElement = <HTMLCanvasElement>$("#" + id).get(0);
+    var ctx = canvasElement.getContext("2d");
     ctx.canvas.height = 300;
 
     var chart = new Chart(ctx, {
@@ -186,7 +191,8 @@ function createProgressionChart(id, items) {
             }]
         };
 
-        var ctx = $("#" + id).get(0).getContext("2d");
+        var canvasElement = <HTMLCanvasElement>$("#" + id).get(0);
+        var ctx = canvasElement.getContext("2d");
         ctx.canvas.height = 300;
 
         var myLineChart = new Chart(ctx, {
@@ -228,7 +234,7 @@ function createProgressionChart(id, items) {
                             return data.datasets[0].label[tooltipItem[0].index];
                         },
                         label: function(tooltipItem) {
-                            var text = "Ran " + tooltipItem.yLabel.toString().toHHMMSS();
+                            var text = "Ran " + Helpers.convertDurationToTime(tooltipItem.yLabel.toString());
                             text += " on " + tooltipItem.xLabel;
                             return text;
                         }
@@ -400,19 +406,21 @@ function createGearMileageChart(id, items) {
             gearMileages.push(mileage);
         });
 
-        var colors = getRgbColors();
+        var colors = Helpers.getRgbColors();
         var data = {
             labels: gearLabels,
             datasets: [{
                 data: gearMileages,
-                backgroundColor: convertToRgbaColors(colors, 0.6),
-                hoverBackgroundColor: convertToRgbaColors(colors, 1)
+                backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
+                hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1)
             }]
         };
 
-        var ctx = $("#" + id).get(0).getContext("2d");
+        var canvasElement = <HTMLCanvasElement>$("#" + id).get(0);
+        var ctx = canvasElement.getContext("2d");
         ctx.canvas.height = 300;
 
+        var linearOptions: Chart.LinearTickOptions = { beginAtZero: true };
         var chart = new Chart(ctx, {
             type: 'horizontalBar',
             data: data,
@@ -424,9 +432,7 @@ function createGearMileageChart(id, items) {
                 responsive: true,
                 scales: {
                     xAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
+                        ticks: linearOptions
                     }]
                 },
                 tooltips: {
@@ -434,7 +440,7 @@ function createGearMileageChart(id, items) {
                     mode: 'single',
                     callbacks: {
                         label: function(tooltipItem, data) {
-                            return 'Mileage: ' + tooltipItem.xLabel.toFixed(1) + "km";
+                            return 'Mileage: ' + tooltipItem.xLabel.toString().substring(0, 1) + "km";
                         }
                     }
                 }

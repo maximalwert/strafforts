@@ -1,4 +1,6 @@
-function loadOverviewPage(createNavigation) {
+/// <reference path="./../common/helpers.ts" />
+
+function loadOverviewPage(createNavigation?) {
     prepareOverview();
 
     if (createNavigation || createNavigation === undefined) {
@@ -11,7 +13,7 @@ function loadOverviewPage(createNavigation) {
 }
 
 function prepareOverview() {
-    pushStateToWindow(getBaseUrl());
+    Helpers.pushStateToWindow(getBaseUrl());
     resetNavigationItems();
     setContentHeader('Overview');
     appendToPageTitle(' | Overview');

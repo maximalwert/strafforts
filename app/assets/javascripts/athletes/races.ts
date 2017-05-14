@@ -1,5 +1,7 @@
+/// <reference path="./../common/helpers.ts" />
+
 function loadRacesByDistanceView(distanceText) {
-    var constructDataTableHtml = function(races) {
+    var constructDataTableHtml = function(races?) {
         var table = '<div class="row">';
         table += '<div class="col-xs-12">';
         table += '<div class="box">';
@@ -56,7 +58,7 @@ function loadRacesByDistanceView(distanceText) {
     };
     var createView = function() {
         var distance = distanceText.trim().replace(/\//g, '|').replace(/\s/g, '-').toLowerCase();
-        pushStateToWindow(getBaseUrl() + '/races/' + distance);
+        Helpers.pushStateToWindow(getBaseUrl() + '/races/' + distance);
         $.ajax({
             url: getApiBaseUrl() + '/races/' + distance,
             dataType: 'json',
@@ -120,7 +122,7 @@ function loadRacesByDistanceView(distanceText) {
 }
 
 function loadRacesByYearView(year) {
-    var constructDataTableHtml = function(races) {
+    var constructDataTableHtml = function(races?) {
         var table = '<div class="row">';
         table += '<div class="col-xs-12">';
         table += '<div class="box">';
@@ -193,7 +195,7 @@ function loadRacesByYearView(year) {
         mainContent.append(pieCharts);
     };
     var createView = function() {
-        pushStateToWindow(getBaseUrl() + '/races/' + year);
+        Helpers.pushStateToWindow(getBaseUrl() + '/races/' + year);
         $.ajax({
             url: getApiBaseUrl() + '/races/' + year,
             dataType: 'json',
@@ -317,7 +319,7 @@ function loadRacesTimeline() {
         mainContent.append(content);
     };
     var createView = function() {
-        pushStateToWindow(getBaseUrl() + '/timeline/races');
+        Helpers.pushStateToWindow(getBaseUrl() + '/timeline/races');
 
         var mainContent = $('#main-content');
         var content = '<div class="col-xs-12 text-center"> ';

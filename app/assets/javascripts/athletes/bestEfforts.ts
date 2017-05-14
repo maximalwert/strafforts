@@ -1,5 +1,7 @@
+/// <reference path="./../common/helpers.ts" />
+
 function loadBestEffortsView(distanceText) {
-    var constructDataTableHtml = function(bestEfforts) {
+    var constructDataTableHtml = function(bestEfforts?) {
         var table = '<div class="row">';
         table += '<div class="col-xs-12">';
         table += '<div class="box">';
@@ -58,7 +60,7 @@ function loadBestEffortsView(distanceText) {
 
     var createView = function() {
         var distance = distanceText.trim().replace(/\//g, '|').replace(/\s/g, '-').toLowerCase();
-        pushStateToWindow(getBaseUrl() + '/best-efforts/' + distance);
+        Helpers.pushStateToWindow(getBaseUrl() + '/best-efforts/' + distance);
         $.ajax({
             url: getApiBaseUrl() + '/best-efforts/' + distance,
             dataType: 'json',
