@@ -10,13 +10,13 @@ function loadBestEffortsView(distanceText) {
         table += '<div class="box-body">';
 
         if (bestEfforts === undefined) {
-            table += constructLoadingIconHtml();
+            table += HtmlHelpers.getLoadingIconHtml();
         } else {
             table += '<table class="dataTable table table-bordered table-striped">';
             table += createBestEffortsDatatableHeader();
             table += '<tbody>';
 
-            bestEfforts.forEach(function(item) {
+            bestEfforts.forEach(function (item) {
                 table += createBestEffortsDatatableRow(item);
             });
 
@@ -27,13 +27,13 @@ function loadBestEffortsView(distanceText) {
         return table;
     };
 
-    var prepareView = function() {
-        setContentHeader("Estimated Best Efforts - " + distanceText);
-        appendToPageTitle(' |  Best Efforts - ' + distanceText);
+    var prepareView = function () {
+        AppHelpers.setContentHeader("Estimated Best Efforts - " + distanceText);
+        AppHelpers.appendToPageTitle(' |  Best Efforts - ' + distanceText);
 
-        resetNavigationItems();
+        AppHelpers.resetNavigationItems();
         var navigationAnchor = $("a[id^='best-efforts-for-" + distanceText.toLowerCase().replace(/ /g, '-').replace(/\//g, '-') + "']");
-        setNavigationItem(navigationAnchor);
+        AppHelpers.setNavigationItem(navigationAnchor);
 
         var mainContent = $('#main-content');
         mainContent.empty(); // Empty main content.
@@ -60,9 +60,9 @@ function loadBestEffortsView(distanceText) {
 
     var createView = function() {
         var distance = distanceText.trim().replace(/\//g, '|').replace(/\s/g, '-').toLowerCase();
-        Helpers.pushStateToWindow(getBaseUrl() + '/best-efforts/' + distance);
+        AppHelpers.pushStateToWindow(AppHelpers.getBaseUrl() + '/best-efforts/' + distance);
         $.ajax({
-            url: getApiBaseUrl() + '/best-efforts/' + distance,
+            url: AppHelpers.getApiBaseUrl() + '/best-efforts/' + distance,
             dataType: 'json',
             async: false,
             success: function(data) {

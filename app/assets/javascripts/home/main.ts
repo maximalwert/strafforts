@@ -33,8 +33,7 @@ $(document).ready(() => {
         $('.navbar-toggle:visible').click();
     });
 
-    // Remove the focused state after click,
-    // otherwise bootstrap will still highlight the link.
+    // Remove the focused state after click, otherwise bootstrap will still highlight the link.
     $("a").mouseup(() => {
         $(this).blur();
     });

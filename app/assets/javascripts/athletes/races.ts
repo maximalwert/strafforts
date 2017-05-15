@@ -10,7 +10,7 @@ function loadRacesByDistanceView(distanceText) {
         table += '<div class="box-body">';
 
         if (races === undefined) {
-            table += constructLoadingIconHtml();
+            table += HtmlHelpers.getLoadingIconHtml();
         } else {
             table += '<table class="dataTable table table-bordered table-striped">';
             table += createRaceDatatableHeader();
@@ -26,13 +26,13 @@ function loadRacesByDistanceView(distanceText) {
         table += '</div></div></div></div></div>';
         return table;
     };
-    var prepareView = function() {
-        setContentHeader("Races - " + distanceText);
-        appendToPageTitle(' |  Races  - ' + distanceText);
+    var prepareView = function () {
+        AppHelpers.setContentHeader("Races - " + distanceText);
+        AppHelpers.appendToPageTitle(' |  Races  - ' + distanceText);
 
-        resetNavigationItems();
+        AppHelpers.resetNavigationItems();
         var navigationAnchor = $("a[id^='races-for-distance-" + distanceText.toLowerCase().replace(/ /g, '-').replace(/\//g, '-') + "']");
-        setNavigationItem(navigationAnchor);
+        AppHelpers.setNavigationItem(navigationAnchor);
 
         var mainContent = $('#main-content');
         mainContent.empty(); // Empty main content.
@@ -58,9 +58,9 @@ function loadRacesByDistanceView(distanceText) {
     };
     var createView = function() {
         var distance = distanceText.trim().replace(/\//g, '|').replace(/\s/g, '-').toLowerCase();
-        Helpers.pushStateToWindow(getBaseUrl() + '/races/' + distance);
+        AppHelpers.pushStateToWindow(AppHelpers.getBaseUrl() + '/races/' + distance);
         $.ajax({
-            url: getApiBaseUrl() + '/races/' + distance,
+            url: AppHelpers.getApiBaseUrl() + '/races/' + distance,
             dataType: 'json',
             async: false,
             success: function(data) {
@@ -131,7 +131,7 @@ function loadRacesByYearView(year) {
         table += '<div class="box-body">';
 
         if (races === undefined) {
-            table += constructLoadingIconHtml();
+            table += HtmlHelpers.getLoadingIconHtml();
         } else {
             var allDistances = [
                 '100 miles', '100k', '50 miles', '50k', 'Marathon', 'Half Marathon',
@@ -164,13 +164,13 @@ function loadRacesByYearView(year) {
         table += '</div></div></div></div></div>';
         return table;
     };
-    var prepareView = function() {
-        setContentHeader("Races - " + year);
-        appendToPageTitle(' |  Races  - ' + year);
+    var prepareView = function () {
+        AppHelpers.setContentHeader("Races - " + year);
+        AppHelpers.appendToPageTitle(' |  Races  - ' + year);
 
-        resetNavigationItems();
+        AppHelpers.resetNavigationItems();
         var navigationAnchor = $("a[id^='races-for-year-" + year + "']");
-        setNavigationItem(navigationAnchor);
+        AppHelpers.setNavigationItem(navigationAnchor);
 
         var mainContent = $('#main-content');
         mainContent.empty(); // Empty main content.
@@ -194,10 +194,10 @@ function loadRacesByYearView(year) {
         pieCharts += '</div>';
         mainContent.append(pieCharts);
     };
-    var createView = function() {
-        Helpers.pushStateToWindow(getBaseUrl() + '/races/' + year);
+    var createView = function () {
+        AppHelpers.pushStateToWindow(AppHelpers.getBaseUrl() + '/races/' + year);
         $.ajax({
-            url: getApiBaseUrl() + '/races/' + year,
+            url: AppHelpers.getApiBaseUrl() + '/races/' + year,
             dataType: 'json',
             async: false,
             success: function(data) {
@@ -254,7 +254,7 @@ function loadRacesTimeline() {
     var getRaceYears = function () {
         var years = [];
         $.ajax({
-            url: getApiBaseUrl() + '/races/get_counts_by_year',
+            url: AppHelpers.getApiBaseUrl() + '/races/get_counts_by_year',
             dataType: 'json',
             async: false,
             success: function(data) {
@@ -271,7 +271,7 @@ function loadRacesTimeline() {
     var createRacesTimelineForYear = function (year) {
         var content = '';
         $.ajax({
-            url: getApiBaseUrl() + '/races/' + year,
+            url: AppHelpers.getApiBaseUrl() + '/races/' + year,
             dataType: 'json',
             async: false,
             success: function(data) {
@@ -304,22 +304,22 @@ function loadRacesTimeline() {
         });
         return content;
     };
-    var prepareView = function() {
-        resetNavigationItems();
-        setContentHeader('Races Timeline');
-        appendToPageTitle(' | Races Timeline');
+    var prepareView = function () {
+        AppHelpers.resetNavigationItems();
+        AppHelpers.setContentHeader('Races Timeline');
+        AppHelpers.appendToPageTitle(' | Races Timeline');
 
         var mainContent = $('#main-content');
         mainContent.empty(); // Empty main content.
 
         var content = '<div class="row">';
         content += '<div class="col-xs-12">';
-        content += constructLoadingIconHtml();
+        content += HtmlHelpers.getLoadingIconHtml();
         content += '</div></div>';
         mainContent.append(content);
     };
-    var createView = function() {
-        Helpers.pushStateToWindow(getBaseUrl() + '/timeline/races');
+    var createView = function () {
+        AppHelpers.pushStateToWindow(AppHelpers.getBaseUrl() + '/timeline/races');
 
         var mainContent = $('#main-content');
         var content = '<div class="col-xs-12 text-center"> ';
@@ -332,7 +332,7 @@ function loadRacesTimeline() {
         var years = getRaceYears();
         if (years.length === 0) {
             mainContent.empty();
-            mainContent.append(constructNoDataInfoBox());
+            mainContent.append(HtmlHelpers.getNoDataInfoBox());
         } else {
             years.forEach(function(year) {
                 content += '<li class="time-label">';

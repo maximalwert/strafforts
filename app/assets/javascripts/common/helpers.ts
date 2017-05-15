@@ -50,8 +50,4 @@ namespace Helpers {
         }
         return colors;
     }
-
-    export function pushStateToWindow(url: string) {
-        window.history.pushState({}, '', url);
-    }
 }

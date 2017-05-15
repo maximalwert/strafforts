@@ -25,7 +25,7 @@ function constructChartHtml(id, title, width, withLoadingIcon) {
     chart += '<i class="fa fa-pie-chart"></i><h3 class="box-title">' + title + '</h3>';
     chart += '<div class="box-body">';
     if (withLoadingIcon) {
-        chart += constructLoadingIconHtml();
+        chart += HtmlHelpers.getLoadingIconHtml();
     } else {
         chart += '<div class="chart">';
         chart += '<canvas id="' + id + '"></canvas>';
@@ -33,25 +33,6 @@ function constructChartHtml(id, title, width, withLoadingIcon) {
     }
     chart += '</div></div></div></div>';
     return chart;
-}
-
-function constructNoDataInfoBox() {
-    var title = 'Nothing Yet!';
-    var messageBody = '<p>If you have just connected Strafforts with your Strava account, ' +
-        'please be patient while your data is being processed.</p>';
-    messageBody += '<p>To make your races show up in Strafforts,' +
-        ' you need to tag them as "Race" in Strava. ' +
-        'See <a href="https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs" target="_blank">' +
-        '"Using Strava Run Type Tags to analyze your Runs"</a> for more details.</p>';
-
-    var infoBox = '<div class="notification-alert">';
-    infoBox += '<div class="modal">';
-    infoBox += '<div class="modal-dialog">';
-    infoBox += '<div class="modal-content">';
-    infoBox += '<div class="modal-header"><h3 class="modal-title">' + title + '</h3></div>';
-    infoBox += '<div class="modal-body">' + messageBody + '</div>';
-    infoBox += '</div></div></div></div>';
-    return infoBox;
 }
 
 function createBarChart(id, counts, dataLabels, legendLabels) {
