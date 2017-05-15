@@ -18,13 +18,13 @@ namespace Sidebar {
             // Load Races Overview upon clicking 'Races' tab button if not yet created.
             $(document).on('click', "a[href^='#pane-races']", () => {
                 if ($('#pane-races .loading-icon-panel').length) {
-                    Overview.createOverviewDatatableForRaces();
+                    Overview.loadRaces();
                 }
             });
 
             // Load Races Timeline view.
             $(document).on('click', '.show-races-timeline', () => {
-                loadRacesTimeline();
+                RacesTimeline.load();
             });
 
             // Bind race distance selection buttons in Races Timeline view.
@@ -32,13 +32,13 @@ namespace Sidebar {
                 let distance = $(event.currentTarget).text().toLowerCase().replace(/\s/g, '-');
 
                 $('.timeline-item').parent().hide();
-                $('.timeline-item.race-distance-' + distance).parent().fadeIn(800);
-                $('#main-content .show-races-timeline').removeClass('hidden').fadeIn(800);
+                $('.timeline-item.race-distance-' + distance).parent().fadeIn(500);
+                $('#main-content .show-races-timeline').removeClass('hidden').fadeIn(500);
             });
 
             $(document).on('click', "a[id^='best-efforts-for-']", (event) => {
                 let distance = $(event.currentTarget).find('.item-text').text();
-                loadBestEffortsView(distance);
+                BestEffortsView.load(distance);
             });
             $(document).on('click', "a[id^='races-for-distance']", (event) => {
                 let distance = $(event.currentTarget).find('.item-text').text();

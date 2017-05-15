@@ -1,12 +1,6 @@
 namespace Overview {
     export function load(createNavigation?: boolean) {
-        let baseUrl = AppHelpers.getBaseUrl();
-        AppHelpers.pushStateToWindow(baseUrl);
-        AppHelpers.resetNavigationItems();
-        AppHelpers.setContentHeader('Overview');
-        AppHelpers.appendToPageTitle(' | Overview');
-
-        createEmptyOverviewPanels();
+        prepareView();
 
         if (createNavigation) {
             createNavigationItems('/best-efforts/get_counts', 'best_effort_type', 'best-efforts-for');
@@ -17,12 +11,22 @@ namespace Overview {
         createOverviewDatatable('best-efforts');
     }
 
-    export function createOverviewDatatableForRaces() {
+    export function loadRaces() {
         createOverviewDatatable('races');
     }
 
     export function loadWithNavigation() {
         load(true);
+    }
+
+    function prepareView() {
+        let baseUrl = AppHelpers.getBaseUrl();
+        AppHelpers.pushStateToWindow(baseUrl);
+        AppHelpers.resetNavigationItems();
+        AppHelpers.setContentHeader('Overview');
+        AppHelpers.appendToPageTitle(' | Overview');
+
+        createEmptyOverviewPanels();
     }
 
     function createEmptyOverviewPanels() {
@@ -115,37 +119,10 @@ namespace Overview {
                 } else {
                     distances.forEach((model) => {
                         let linkId = `${type}-for-distance-${model['distance'].toLowerCase().replace(/\s/g, '-').replace(/\//g, '-')}`;
-                        let table = `
-                        <div class="box">
-                            <div class="box-header">
-                                <h3 class="box-title">
-                                    ${model['distance']}
-                                </h3>
-                                <a class="pull-right" id="${linkId}" href="#">
-                                    <small> View Details</small>
-                                    <span class="item-text hidden">
-                                        ${model['distance']}
-                                    </span>
-                                </a>
-                            </div>
-                        <div class="box-body">
-                            <table class="dataTable table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th class="col-md-1">Date</th>
-                                    <th class="col-md-1 text-center badge-cell hidden-md-down">Type</th>
-                                    <th class="col-md-4">Activity</th>
-                                    <th class="col-md-1">Time</th>
-                                    <th class="col-md-1 hidden-xs-down">Pace</th>
-                                    <th class="col-md-2 hidden-lg-down">Gear</th>
-                                    <th class="col-md-1 text-center badge-cell hidden-md-down">Avg. HR</th>
-                                    <th class="col-md-1 text-center badge-cell hidden-md-down">Max HR</th>
-                                </tr>
-                            </thead>
-                            <tbody>`;
 
+                        let rows = '';
                         model['items'].forEach((item) => {
-                            table += `
+                            rows += `
                             <tr>
                                 <td>${item['start_date']}</td>
                                 <td class="text-center badge-cell hidden-md-down">
@@ -171,10 +148,40 @@ namespace Overview {
                                 </td>
                             </tr>`;
                         });
-
-                        table += '</tbody>';
-                        table += '</table>';
-                        table += '</div></div>';
+                        
+                        let table = `
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">
+                                    ${model['distance']}
+                                </h3>
+                                <a class="pull-right" id="${linkId}" href="#">
+                                    <small> View Details</small>
+                                    <span class="item-text hidden">
+                                        ${model['distance']}
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="box-body">
+                                <table class="dataTable table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-1">Date</th>
+                                            <th class="col-md-1 text-center badge-cell hidden-md-down">Type</th>
+                                            <th class="col-md-4">Activity</th>
+                                            <th class="col-md-1">Time</th>
+                                            <th class="col-md-1 hidden-xs-down">Pace</th>
+                                            <th class="col-md-2 hidden-lg-down">Gear</th>
+                                            <th class="col-md-1 text-center badge-cell hidden-md-down">Avg. HR</th>
+                                            <th class="col-md-1 text-center badge-cell hidden-md-down">Max HR</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${rows}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>`;
                         pane.append(table);
                     });
                 }
