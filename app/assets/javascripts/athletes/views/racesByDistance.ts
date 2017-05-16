@@ -15,10 +15,10 @@ namespace Views {
             this.distanceFormattedForUrl = distance.trim().replace(/\//g, '|').replace(/\s/g, '-').toLowerCase();
         }
 
-        load(): void {
-            let viewUrl = `${AppHelpers.getBaseUrl()}/races/${this.distanceFormattedForUrl}`;
-            let distanceId = this.distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-');
-            let navigationAnchor = $(`a[id^="races-for-distance-${distanceId}"]`);
+        public load(): void {
+            const viewUrl = `${AppHelpers.getBaseUrl()}/races/${this.distanceFormattedForUrl}`;
+            const distanceId = this.distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-');
+            const navigationAnchor = $(`a[id^="races-for-distance-${distanceId}"]`);
             super.prepareView(viewUrl, 'Races', this.distance, navigationAnchor);
 
             this.createViewTemplate();
@@ -26,12 +26,12 @@ namespace Views {
         }
 
         protected createViewTemplate(): void {
-            let mainContent = $('#main-content');
+            const mainContent = $('#main-content');
             mainContent.empty();
 
             // Create empty tables and charts with loading icon.
-            let showLoadingIcon = true;
-            let content = `
+            const showLoadingIcon = true;
+            const content = `
                 <div class="row">
                     ${ChartHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
                     ${ChartHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon)}
@@ -52,54 +52,53 @@ namespace Views {
                 async: false,
                 success: (data) => {
 
-                    let items: any[] = [];
+                    const items: any[] = [];
                     $.each(data, (key, value) => {
                         items.push(value);
                     });
 
                     // Create all tables and charts.
-                    let mainContent = $('#main-content');
+                    const mainContent = $('#main-content');
                     mainContent.empty();
 
-                    let showLoadingIcon = false;
-                    let content = `
+                    const content = `
                         <div class="row">
-                            ${ChartHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
-                            ${ChartHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8)}
+                            ${ChartHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4)}
                         </div>
                         ${this.constructDataTableHtml(items)}
                         <div class="row">
-                            ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
-                            ${ChartHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6)}
+                            ${ChartHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6)}
                         </div>
                     `;
                     mainContent.append(content);
 
                     // Create a progression chart when distance is not 'Other'.
-                    var progressionChartId = 'progression-chart';
+                    const progressionChartId = 'progression-chart';
                     if (this.distance === 'Other') {
-                        ChartHelpers.createChartMessage(progressionChartId, "Not Applicable");
+                        ChartHelpers.createChartMessage(progressionChartId, 'Not Applicable');
                     } else {
                         ChartHelpers.createProgressionChart(progressionChartId, items);
                     }
 
                     // Setup all other charts and tables.
                     ChartHelpers.createYearDistributionChart('year-distribution-pie-chart', items);
-                    $(".dataTable").each(function () {
+                    $('.dataTable').each(function() {
                         $(this).DataTable({
-                            'columnDefs': [{
-                                'targets': [2, 3, 5, 6, 7, 8], // Disable searching for Time, Pace, Elevation, Cadence and HRs.
-                                'searchable': false
+                            columnDefs: [{
+                                targets: [2, 3, 5, 6, 7, 8], // Disable searching for Time, Pace, Elevation, Cadence and HRs.
+                                searchable: false,
                             }],
-                            'iDisplayLength': 10,
-                            'order': [
-                                [0, 'desc']
-                            ]
+                            iDisplayLength: 10,
+                            order: [
+                                [0, 'desc'],
+                            ],
                         });
                     });
                     ChartHelpers.createGearCountChart('gear-count-chart', items);
                     ChartHelpers.createGearMileageChart('gear-mileage-chart', items);
-                }
+                },
             });
         }
 
@@ -122,7 +121,7 @@ namespace Views {
                 `;
             }
 
-            let dataTable = `
+            const dataTable = `
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="box">
@@ -137,6 +136,6 @@ namespace Views {
                 </div>
             `;
             return dataTable;
-        };
+        }
     }
 }

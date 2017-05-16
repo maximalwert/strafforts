@@ -12,9 +12,9 @@ namespace Views {
             this.year = year;
         }
 
-        load(): void {
-            let viewUrl = `${AppHelpers.getBaseUrl()}/races/${this.year}`;
-            let navigationAnchor = $(`a[id^="races-for-year-${this.year}"]`);
+        public load(): void {
+            const viewUrl = `${AppHelpers.getBaseUrl()}/races/${this.year}`;
+            const navigationAnchor = $(`a[id^="races-for-year-${this.year}"]`);
             super.prepareView(viewUrl, 'Races', this.year, navigationAnchor);
 
             this.createViewTemplate();
@@ -22,12 +22,12 @@ namespace Views {
         }
 
         protected createViewTemplate(): void {
-            let mainContent = $('#main-content');
+            const mainContent = $('#main-content');
             mainContent.empty();
 
             // Create empty tables and charts with loading icon.
-            let showLoadingIcon = true;
-            let content = `
+            const showLoadingIcon = true;
+            const content = `
                 <div class="row">
                     ${ChartHelpers.constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6, showLoadingIcon)}
                     ${ChartHelpers.constructChartHtml('monthly-distribution-chart', 'Monthly Distribution Chart', 6, showLoadingIcon)}
@@ -48,25 +48,24 @@ namespace Views {
                 async: false,
                 success: (data) => {
 
-                    let items: any[] = [];
+                    const items: any[] = [];
                     $.each(data, (key, value) => {
                         items.push(value);
                     });
 
                     // Create all tables and charts.
-                    let mainContent = $('#main-content');
+                    const mainContent = $('#main-content');
                     mainContent.empty();
 
-                    let showLoadingIcon = false;
-                    let content = `
+                    const content = `
                         <div class="row">
-                            ${ChartHelpers.constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6, showLoadingIcon)}
-                            ${ChartHelpers.constructChartHtml('month-distribution-chart', 'Month Distribution Chart', 6, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6)}
+                            ${ChartHelpers.constructChartHtml('month-distribution-chart', 'Month Distribution Chart', 6)}
                         </div>
                         ${this.constructDataTableHtml(items)}
                         <div class="row">
-                            ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
-                            ${ChartHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6)}
+                            ${ChartHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6)}
                         </div>
                     `;
                     mainContent.append(content);
@@ -74,20 +73,20 @@ namespace Views {
                     // Setup all charts and tables.
                     ChartHelpers.createRaceDistancesChart('distances-distribution-chart', items);
                     ChartHelpers.createMonthDistributionChart('month-distribution-chart', items);
-                    $(".dataTable").each(function () {
+                    $('.dataTable').each(function() {
                         $(this).DataTable({
-                            'bFilter': false,
-                            'bPaginate': false,
-                            'iDisplayLength': 10,
-                            'info': false,
-                            'order': [
-                                [0, 'desc']
-                            ]
+                            bFilter: false,
+                            bPaginate: false,
+                            iDisplayLength: 10,
+                            info: false,
+                            order: [
+                                [0, 'desc'],
+                            ],
                         });
                     });
                     ChartHelpers.createGearCountChart('gear-count-chart', items);
                     ChartHelpers.createGearMileageChart('gear-mileage-chart', items);
-                }
+                },
             });
         }
 
@@ -97,24 +96,23 @@ namespace Views {
             if (items) {
                 table = ''; // Set to empty.
 
-                let distancesToDisplay: string[] = [];
-                let allDistances = [
+                const distancesToDisplay: string[] = [];
+                const allDistances = [
                     '100 miles', '100k', '50 miles', '50k', 'Marathon', 'Half Marathon',
-                    '20k', '15k', '10k', '5k', '3000m', '1 mile', 'Other'
+                    '20k', '15k', '10k', '5k', '3000m', '1 mile', 'Other',
                 ]; // Just hard code race distances here. No need to get from server side for now.
                 allDistances.forEach((distance) => {
-                    for (let index = 0; index < items.length; ++index) {
-                        let raceDistance = items[index]["race_distance"];
+                    items.forEach((item, index) => {
+                        const raceDistance = items[index]['race_distance'];
                         if (distance === raceDistance && distancesToDisplay.indexOf(raceDistance) === -1) {
                             distancesToDisplay.push(raceDistance);
-                            break;
                         }
-                    }
+                    });
                 });
 
-                distancesToDisplay.forEach(function (distance) {
+                distancesToDisplay.forEach((distance) => {
                     let rows = '';
-                    items.forEach(function (item) {
+                    items.forEach((item) => {
                         if (distance === item['race_distance']) {
                             rows += HtmlHelpers.getDatatableRowForRaces(item);
                         }
@@ -130,8 +128,9 @@ namespace Views {
                         </table>
                     `;
                 });
-            };
-            let dataTable = `
+            }
+
+            const dataTable = `
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="box">

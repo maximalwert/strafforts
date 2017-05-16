@@ -6,24 +6,24 @@ namespace ChartHelpers {
             message = 'Not Enough Data to Generate Chart';
         }
 
-        let content = `
+        const content = `
             <div class='text-center'>
                 <h4>${message}</h4>
             </div>
         `;
 
-        let container = $('#' + id).parent();
+        const container = $('#' + id).parent();
         container.empty();
         container.append(content);
     }
 
-    export function constructChartHtml(id: string, title: string, width: number, withLoadingIcon: boolean) {
+    export function constructChartHtml(id: string, title: string, width: number, withLoadingIcon: boolean = false) {
         let loadingIcon = '';
         if (withLoadingIcon) {
             loadingIcon = HtmlHelpers.getLoadingIcon();
         }
 
-        let chart = `
+        const chart = `
             <div class="col-md-${width}">
                 <div class="box">
                     <div class="box-header with-border>
@@ -43,37 +43,37 @@ namespace ChartHelpers {
 
     export function createBarChart(id: string, counts: number[], dataLabels: string[], legendLabels: string[]) {
 
-        let colors = Helpers.getRgbColors();
-        let data = {
+        const colors = Helpers.getRgbColors();
+        const chartData = {
             yLabels: counts,
             labels: legendLabels.reverse(),
             datasets: [{
                 data: counts.reverse(),
                 label: dataLabels.reverse(),
                 backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
-                hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1)
-            }]
+                hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1),
+            }],
         };
 
-        let canvasElement = <HTMLCanvasElement>$('#' + id).get(0);
-        let ctx = canvasElement.getContext('2d');
+        const canvasElement = $('#' + id).get(0) as HTMLCanvasElement;
+        const ctx = canvasElement.getContext('2d');
         ctx.canvas.height = 300;
 
-        let linearOptions: Chart.LinearTickOptions = { beginAtZero: true };
-        let chart = new Chart(ctx, {
+        const linearOptions: Chart.LinearTickOptions = { beginAtZero: true };
+        const chart = new Chart(ctx, {
             type: 'bar',
-            data: data,
+            data: chartData,
             options: {
                 legend: {
-                    display: false
+                    display: false,
                 },
                 maintainAspectRatio: false,
                 responsive: true,
                 scales: {
                     type: 'linear',
                     yAxes: [{
-                        ticks: linearOptions
-                    }]
+                        ticks: linearOptions,
+                    }],
                 },
                 tooltips: {
                     enabled: true,
@@ -84,38 +84,38 @@ namespace ChartHelpers {
                         },
                         label: (tooltipItem: Chart.ChartTooltipItem) => {
                             return `Count: ${tooltipItem.yLabel.toString()}`;
-                        }
-                    }
-                }
-            }
+                        },
+                    },
+                },
+            },
         });
     }
 
     export function createPieChart(id: string, counts: number[], dataLabels: string[], legendLabels?: string[]) {
-        let colors = Helpers.getRgbColors();
-        let data = {
+        const colors = Helpers.getRgbColors();
+        const chartData = {
             labels: (legendLabels) ? legendLabels : dataLabels,
             datasets: [{
                 data: counts,
                 label: dataLabels,
                 backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
-                hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1)
-            }]
+                hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1),
+            }],
         };
 
-        let canvasElement = <HTMLCanvasElement>$('#' + id).get(0);
-        let ctx = canvasElement.getContext('2d');
+        const canvasElement = $('#' + id).get(0) as HTMLCanvasElement;
+        const ctx = canvasElement.getContext('2d');
         ctx.canvas.height = 300;
 
-        let chart = new Chart(ctx, {
+        const chart = new Chart(ctx, {
             type: 'pie',
-            data: data,
+            data: chartData,
             options: {
                 legend: {
                     position: 'bottom',
                     onClick: (event: any) => {
                         event.stopPropagation();
-                    }
+                    },
                 },
                 responsive: true,
                 maintainAspectRatio: false,
@@ -128,29 +128,29 @@ namespace ChartHelpers {
                         },
                         label: (tooltipItem: Chart.ChartTooltipItem, data: any) => {
                             return `Count: ${data.datasets[0].data[tooltipItem.index]}`;
-                        }
-                    }
-                }
-            }
+                        },
+                    },
+                },
+            },
         });
     }
 
     export function createProgressionChart(id: string, items: any[]) {
         if (items.length > 1) {
-            let activityNames: string[] = [];
-            let dates: string[] = [];
-            let runTimes: number[] = [];
+            const activityNames: string[] = [];
+            const dates: string[] = [];
+            const runTimes: number[] = [];
 
             items.forEach((item) => {
-                let activityName = item['activity_name'];
-                let date = item['start_date'];
-                let runTime = item['elapsed_time'];
+                const activityName = item.activity_name;
+                const date = item.start_date;
+                const runTime = item.elapsed_time;
                 activityNames.push(activityName);
                 dates.push(date);
                 runTimes.push(runTime);
             });
 
-            let data = {
+            const chartData = {
                 yLabels: runTimes,
                 labels: dates,
                 datasets: [{
@@ -173,44 +173,44 @@ namespace ChartHelpers {
                     pointHitRadius: 10,
                     pointStyle: 'circle',
                     data: runTimes,
-                    spanGaps: false
-                }]
+                    spanGaps: false,
+                }],
             };
 
-            let canvasElement = <HTMLCanvasElement>$('#' + id).get(0);
-            let ctx = canvasElement.getContext('2d');
+            const canvasElement = $('#' + id).get(0) as HTMLCanvasElement;
+            const ctx = canvasElement.getContext('2d');
             ctx.canvas.height = 300;
 
-            let myLineChart = new Chart(ctx, {
+            const myLineChart = new Chart(ctx, {
                 type: 'line',
-                data: data,
+                data: chartData,
                 options: {
                     legend: {
-                        display: false
+                        display: false,
                     },
                     responsive: true,
                     maintainAspectRatio: false,
                     scales: {
                         xAxes: [{
                             gridLines: {
-                                display: false
+                                display: false,
                             },
                             type: 'time',
                             time: {
-                                unit: 'month'
-                            }
+                                unit: 'month',
+                            },
                         }],
                         yAxes: [{
                             gridLines: {
                                 display: true,
-                                offsetGridLines: true
+                                offsetGridLines: true,
                             },
                             ticks: {
                                 callback: (value: any) => {
                                     return value.toString().toHHMMSS();
-                                }
-                            }
-                        }]
+                                },
+                            },
+                        }],
                     },
                     tooltips: {
                         enabled: true,
@@ -220,13 +220,13 @@ namespace ChartHelpers {
                                 return data.datasets[0].label[tooltipItem[0].index];
                             },
                             label: (tooltipItem: Chart.ChartTooltipItem) => {
-                                let time = Helpers.convertDurationToTime(tooltipItem.yLabel.toString());
-                                let date = tooltipItem.xLabel;
+                                const time = Helpers.convertDurationToTime(tooltipItem.yLabel.toString());
+                                const date = tooltipItem.xLabel;
                                 return `Ran ${time} on ${date}`;
-                            }
-                        }
-                    }
-                }
+                            },
+                        },
+                    },
+                },
             });
         } else {
             createChartMessage(id);
@@ -235,11 +235,11 @@ namespace ChartHelpers {
 
     export function createYearDistributionChart(id: string, items: any[]) {
         if (items.length > 1) {
-            let years: Object = {}; // Holds year and its count.
-            items.forEach(function (item) {
-                let startDate = item['start_date'];
-                let dateParts = startDate.split('-');
-                let year = new Date(dateParts[0], dateParts[1], dateParts[2]).getFullYear();
+            const years: object = {}; // Holds year and its count.
+            items.forEach((item) => {
+                const startDate = item['start_date'];
+                const dateParts = startDate.split('-');
+                const year = new Date(dateParts[0], dateParts[1], dateParts[2]).getFullYear();
                 if (year in years) {
                     years[year] += 1;
                 } else {
@@ -247,11 +247,11 @@ namespace ChartHelpers {
                 }
             });
 
-            let dataLabels: string[] = Object.keys(years);
-            let legendLabels: string[] = [];
-            let counts: number[] = [];
+            const dataLabels: string[] = Object.keys(years);
+            const legendLabels: string[] = [];
+            const counts: number[] = [];
             $.each(years, (key) => {
-                let value = years[key];
+                const value = years[key];
                 counts.push(value);
                 legendLabels.push(`${key} (${value})`);
             });
@@ -263,8 +263,8 @@ namespace ChartHelpers {
 
     export function createWorkoutTypeChart(id: string, items: any[]) {
         if (items.length > 1) {
-            let workoutTypes: Object = {}; // Holds Workout Type and its count.
-            items.forEach(function (bestEffort) {
+            const workoutTypes: any = {}; // Holds Workout Type and its count.
+            items.forEach((bestEffort) => {
                 let workoutType = bestEffort['workout_type_name'];
 
                 // No workout type is a normal run.
@@ -279,8 +279,8 @@ namespace ChartHelpers {
                 }
             });
 
-            let dataLabels = ['Run', 'Race', 'Long Run', 'Workout'];
-            let counts = [workoutTypes['run'], workoutTypes['race'], workoutTypes['long run'], workoutTypes['workout']];
+            const dataLabels = ['Run', 'Race', 'Long Run', 'Workout'];
+            const counts = [workoutTypes.run, workoutTypes.race, workoutTypes['long run'], workoutTypes.workout];
             createPieChart(id, counts, dataLabels);
         } else {
             createChartMessage(id);
@@ -289,15 +289,15 @@ namespace ChartHelpers {
 
     export function createMonthDistributionChart(id: string, items: any[]) {
         if (items.length > 1) {
-            let months: Object = {}; // Holds month and its count.
+            const months: object = {}; // Holds month and its count.
             items.forEach((item) => {
-                let startDate = item['start_date'];
-                let dateParts = startDate.split('-');
-                let monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-                    'July', 'August', 'September', 'October', 'November', 'December'
+                const startDate = item['start_date'];
+                const dateParts = startDate.split('-');
+                const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December',
                 ];
-                let month = new Date(dateParts[0], (dateParts[1] - 1), dateParts[2]).getMonth();
-                let monthName = monthNames[month];
+                const month = new Date(dateParts[0], (dateParts[1] - 1), dateParts[2]).getMonth();
+                const monthName = monthNames[month];
                 if (monthName in months) {
                     months[monthName] += 1;
                 } else {
@@ -305,11 +305,11 @@ namespace ChartHelpers {
                 }
             });
 
-            let dataLabels: string[] = [];
-            let legendLabels: string[] = [];
-            let counts: number[] = [];
+            const dataLabels: string[] = [];
+            const legendLabels: string[] = [];
+            const counts: number[] = [];
             $.each(months, (key) => {
-                let value = parseInt(months[key], 10);
+                const value = parseInt(months[key], 10);
                 legendLabels.push(`${key} (${value})`);
                 counts.push(value);
                 dataLabels.push(key);
@@ -322,9 +322,9 @@ namespace ChartHelpers {
 
     export function createRaceDistancesChart(id: string, items: any[]) {
         if (items.length > 1) {
-            let raceDistances: Object = {}; // Holds race distance and its count.
-            items.forEach(function (item) {
-                let raceDistance = item['race_distance'];
+            const raceDistances: object = {}; // Holds race distance and its count.
+            items.forEach((item) => {
+                const raceDistance = item['race_distance'];
                 if (raceDistance in raceDistances) {
                     raceDistances[raceDistance] += 1;
                 } else {
@@ -332,11 +332,11 @@ namespace ChartHelpers {
                 }
             });
 
-            let dataLabels: string[] = [];
-            let legendLabels: string[] = [];
-            let counts: number[] = [];
+            const dataLabels: string[] = [];
+            const legendLabels: string[] = [];
+            const counts: number[] = [];
             $.each(raceDistances, (key) => {
-                let value = parseInt(raceDistances[key], 10);
+                const value = parseInt(raceDistances[key], 10);
                 legendLabels.push(`${key} (${value})`);
                 counts.push(value);
                 dataLabels.push(key);
@@ -350,9 +350,9 @@ namespace ChartHelpers {
 
     export function createGearCountChart(id: string, items: any[]) {
         if (items.length > 1) {
-            let gears: Object = {}; // Holds Gear and its count.
+            const gears: object = {}; // Holds Gear and its count.
             items.forEach((item) => {
-                let gearName = item['gear_name'];
+                const gearName = item['gear_name'];
                 if (gearName in gears) {
                     gears[gearName] += 1;
                 } else {
@@ -360,10 +360,10 @@ namespace ChartHelpers {
                 }
             });
 
-            let dataLabels = Object.keys(gears);
-            let counts: number[] = [];
+            const dataLabels = Object.keys(gears);
+            const counts: number[] = [];
             $.each(gears, (key) => {
-                let value = gears[key];
+                const value = gears[key];
                 counts.push(value);
             });
 
@@ -375,9 +375,9 @@ namespace ChartHelpers {
 
     export function createGearMileageChart(id: string, items: any[]) {
         if (items.length > 1) {
-            let gears: Object = {}; // Holds Gear and its count.
+            const gears: object = {}; // Holds Gear and its count.
             items.forEach((item) => {
-                let gearName = item['gear_name'];
+                const gearName = item['gear_name'];
                 if (gearName in gears) {
                     gears[gearName] += item['distance'];
                 } else {
@@ -385,53 +385,53 @@ namespace ChartHelpers {
                 }
             });
 
-            let gearLabels = Object.keys(gears);
-            let gearMileages: number[] = [];
+            const gearLabels = Object.keys(gears);
+            const gearMileages: number[] = [];
             $.each(gears, (key) => {
-                let mileage = gears[key] / 1000;
+                const mileage = gears[key] / 1000;
                 gearMileages.push(mileage);
             });
 
-            let colors = Helpers.getRgbColors();
-            let data = {
+            const colors = Helpers.getRgbColors();
+            const data = {
                 labels: gearLabels,
                 datasets: [{
                     data: gearMileages,
                     backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
-                    hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1)
-                }]
+                    hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1),
+                }],
             };
 
-            let canvasElement = <HTMLCanvasElement>$('#' + id).get(0);
-            let ctx = canvasElement.getContext('2d');
+            const canvasElement = $('#' + id).get(0) as HTMLCanvasElement;
+            const ctx = canvasElement.getContext('2d');
             ctx.canvas.height = 300;
 
-            let linearOptions: Chart.LinearTickOptions = { beginAtZero: true };
-            let chart = new Chart(ctx, {
+            const linearOptions: Chart.LinearTickOptions = { beginAtZero: true };
+            const chart = new Chart(ctx, {
                 type: 'horizontalBar',
-                data: data,
+                data,
                 options: {
                     legend: {
-                        display: false
+                        display: false,
                     },
                     maintainAspectRatio: false,
                     responsive: true,
                     scales: {
                         xAxes: [{
-                            ticks: linearOptions
-                        }]
+                            ticks: linearOptions,
+                        }],
                     },
                     tooltips: {
                         enabled: true,
                         mode: 'single',
                         callbacks: {
                             label: (tooltipItem: Chart.ChartTooltipItem) => {
-                                let mileage = tooltipItem.xLabel.toString().substring(0, 1);
-                                return `Mileage: ${mileage}km`;
-                            }
-                        }
-                    }
-                }
+                                const mileage = parseFloat(tooltipItem.xLabel).toFixed(1);
+                                return `Mileage: ${mileage} km`;
+                            },
+                        },
+                    },
+                },
             });
         } else {
             createChartMessage(id);

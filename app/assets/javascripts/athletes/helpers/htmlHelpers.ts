@@ -1,7 +1,7 @@
 namespace HtmlHelpers {
 
     export function getContributionWelcomeBadges() {
-        let html = `
+        const html = `
         <p class="link-contributions-welcome">
             <a href="https://github.com/yizeng/strafforts/blob/master/docs/development-guide.md" target="_blank">
                 <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square" alt="Contributions Welcome">
@@ -14,7 +14,7 @@ namespace HtmlHelpers {
     }
 
     export function getLoadingIcon() {
-        let html = `
+        const html = `
         <div class='loading-icon-panel text-center'>
             <button type='button' class='btn btn-default btn-lrg' title='Loading Data...'>
                 <i class='fa fa-spin fa-refresh'></i>
@@ -24,20 +24,20 @@ namespace HtmlHelpers {
     }
 
     export function getNoDataInfoBox() {
-        let title = 'Nothing Yet!';
-        let messageBody = `
+        const title = 'Nothing Yet!';
+        const link = 'https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs';
+        const messageBody = `
         <p>
             If you have just connected Strafforts with your Strava account,
             please be patient while your data is being processed.
         </p>
         <p>
             To make your races show up in Strafforts, you need to tag them as "Race" in Strava.
-            See <a href="https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs" target="_blank">
-            "Using Strava Run Type Tags to analyze your Runs"</a>
+            See <a href="${link}" target="_blank">"Using Strava Run Type Tags to analyze your Runs"</a>
             for more details.
         </p>`;
 
-        let html = `
+        const html = `
         <div class="notification-alert">
             <div class="modal">
                 <div class="modal-dialog">
@@ -56,7 +56,7 @@ namespace HtmlHelpers {
     }
 
     export function getDatatableHeaderForBestEfforts() {
-        let header = `
+        const header = `
             <thead>
                 <tr>
                     <th class="col-md-1">Date</th>
@@ -74,7 +74,7 @@ namespace HtmlHelpers {
     }
 
     export function getDatatableHeaderForRaces() {
-        var header = `
+        const header = `
             <thead>
                 <tr>
                 <th class="col-md-1">Date</th>
@@ -93,11 +93,11 @@ namespace HtmlHelpers {
     }
 
     export function getDatatableRowForBestEfforts(item: any[]) {
-        let row = `
+        const row = `
             <tr>
                 <td>${item['start_date']}</td>
                 <td class="text-center badge-cell hidden-xs-down">
-                    <span class="label workout-type-${item['workout_type_name'].replace(/ /g, "-")}">${item['workout_type_name']}</span>
+                    <span class="label workout-type-${item['workout_type_name'].replace(/ /g, '-')}">${item['workout_type_name']}</span>
                 </td>
                 <td>
                     <a class="strava-activity-link" href="https://www.strava.com/activities/${item['activity_id']}" target="_blank">
@@ -129,7 +129,7 @@ namespace HtmlHelpers {
     }
 
     export function getDatatableRowForRaces(item: any[]) {
-        var row = `
+        const row = `
             <tr>
                 <td>${item['start_date']}</td>
                 <td>
@@ -159,8 +159,8 @@ namespace HtmlHelpers {
                     </span>
                 </td>
                 <td class="text-center badge-cell hidden-md-down">
-                    <span class="badge ${item["max_hr_zone_class"]}">
-                        ${item["max_heartrate"]}
+                    <span class="badge ${item['max_hr_zone_class']}">
+                        ${item['max_heartrate']}
                     </span>
                 </td>
             </tr>

@@ -1,14 +1,14 @@
 namespace AppHelpers {
 
     export function appendToPageTitle(content: string) {
-        let pageTitle = document.title;
-        let newTitle = pageTitle.substr(0, pageTitle.lastIndexOf(" | ")) + content;
+        const pageTitle = document.title;
+        const newTitle = pageTitle.substr(0, pageTitle.lastIndexOf(' | ')) + content;
         $(document).prop('title', newTitle);
     }
 
     export function getBaseUrl(isApiCall?: boolean) {
-        let athleteId = $("#athlete-id").text().trim();
-        let urlPrefix = `${window.location.protocol}//${window.location.host}${isApiCall ? "/api" : ""}/athletes/${athleteId}`;
+        const athleteId = $('#athlete-id').text().trim();
+        const urlPrefix = `${window.location.protocol}//${window.location.host}${isApiCall ? '/api' : ''}/athletes/${athleteId}`;
         return urlPrefix;
     }
 
@@ -21,21 +21,21 @@ namespace AppHelpers {
     }
 
     export function resetNavigationItems() {
-        $(".treeview-menu a").each(function () {
-            $(this).parent().removeClass("active");
-            $(this).children("i").removeClass("fa-check-circle-o");
-            $(this).children("i").addClass("fa-circle-o");
+        $('.treeview-menu a').each(function() {
+            $(this).parent().removeClass('active');
+            $(this).children('i').removeClass('fa-check-circle-o');
+            $(this).children('i').addClass('fa-circle-o');
         });
     }
 
     export function setContentHeader(headerText: string) {
-        $(".content-header h1").text(headerText);
-        $(".content-header .breadcrumb li.active").text(headerText);
+        $('.content-header h1').text(headerText);
+        $('.content-header .breadcrumb li.active').text(headerText);
     }
 
     export function setNavigationItem(anchor: JQuery) {
-        anchor.parent().addClass("active");
-        anchor.children("i").removeClass("fa-circle-o");
-        anchor.children("i").addClass("fa-check-circle-o");
+        anchor.parent().addClass('active');
+        anchor.children('i').removeClass('fa-circle-o');
+        anchor.children('i').addClass('fa-check-circle-o');
     }
 }

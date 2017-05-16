@@ -1,10 +1,10 @@
 class RgbColor {
 
-    r: number;
+    public r: number;
 
-    g: number;
+    public g: number;
 
-    b: number;
+    public b: number;
 
     constructor(r: number, g: number, b: number) {
         this.r = r;

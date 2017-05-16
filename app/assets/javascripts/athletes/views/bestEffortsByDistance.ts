@@ -15,10 +15,10 @@ namespace Views {
             this.distanceFormattedForUrl = distance.trim().replace(/\//g, '|').replace(/\s/g, '-').toLowerCase();
         }
 
-        load(): void {
-            let viewUrl = `${AppHelpers.getBaseUrl()}/best-efforts/${this.distanceFormattedForUrl}`;
-            let distanceId = this.distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-');
-            let navigationAnchor = $(`a[id^="best-efforts-for-${distanceId}"]`);
+        public load(): void {
+            const viewUrl = `${AppHelpers.getBaseUrl()}/best-efforts/${this.distanceFormattedForUrl}`;
+            const distanceId = this.distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-');
+            const navigationAnchor = $(`a[id^="best-efforts-for-${distanceId}"]`);
             super.prepareView(viewUrl, 'Best Efforts', this.distance, navigationAnchor);
 
             this.createViewTemplate();
@@ -26,12 +26,12 @@ namespace Views {
         }
 
         protected createViewTemplate(): void {
-            let mainContent = $('#main-content');
+            const mainContent = $('#main-content');
             mainContent.empty(); // Empty main content.
 
             // Create empty tables and charts with loading icon.
-            let showLoadingIcon = true;
-            let content = `
+            const showLoadingIcon = true;
+            const content = `
                 <div class="row">
                     ${ChartHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
                     ${ChartHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon)}
@@ -51,26 +51,24 @@ namespace Views {
                 dataType: 'json',
                 async: false,
                 success: (data) => {
-
-                    let items: any[] = [];
+                    const items: any[] = [];
                     $.each(data, (key, value) => {
                         items.push(value);
                     });
 
                     // Create all tables and charts.
-                    let mainContent = $('#main-content');
+                    const mainContent = $('#main-content');
                     mainContent.empty();
 
-                    let showLoadingIcon = false;
-                    let content = `
+                    const content = `
                         <div class="row">
-                            ${ChartHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
-                            ${ChartHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8)}
+                            ${ChartHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4)}
                         </div>
                         ${this.constructDataTableHtml(items)}
                         <div class="row">
-                            ${ChartHelpers.constructChartHtml('workout-type-chart', 'Workout Type Chart', 6, showLoadingIcon)}
-                            ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('workout-type-chart', 'Workout Type Chart', 6)}
+                            ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6)}
                         </div>
                     `;
                     mainContent.append(content);
@@ -80,19 +78,19 @@ namespace Views {
                     ChartHelpers.createYearDistributionChart('year-distribution-pie-chart', items);
                     $('.dataTable').each(function () {
                         $(this).DataTable({
-                            'columnDefs': [{
-                                'targets': [1, 3, 4, 6, 7], // Disable searching for WorkoutType, Time, Pace and HRs.
-                                'searchable': false
+                            columnDefs: [{
+                                targets: [1, 3, 4, 6, 7], // Disable searching for WorkoutType, Time, Pace and HRs.
+                                searchable: false,
                             }],
-                            'iDisplayLength': 10,
-                            'order': [
-                                [0, 'desc']
-                            ]
+                            iDisplayLength: 10,
+                            order: [
+                                [0, 'desc'],
+                            ],
                         });
                     });
                     ChartHelpers.createWorkoutTypeChart('workout-type-chart', items);
                     ChartHelpers.createGearCountChart('gear-count-chart', items);
-                }
+                },
             });
         }
 
@@ -115,7 +113,7 @@ namespace Views {
                 `;
             }
 
-            let dataTable = `
+            const dataTable = `
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="box">
@@ -130,6 +128,6 @@ namespace Views {
                 </div>
             `;
             return dataTable;
-        };
+        }
     }
 }

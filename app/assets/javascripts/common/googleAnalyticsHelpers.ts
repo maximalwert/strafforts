@@ -7,13 +7,13 @@ namespace GoogleAnalyticsHelpers {
                 hitType: 'event',
                 eventCategory: category,
                 eventAction: action,
-                eventLabel: label.trim()
+                eventLabel: label.trim(),
             });
         } else {
             ga('send', {
                 hitType: 'event',
                 eventCategory: category,
-                eventAction: action
+                eventAction: action,
             });
         }
     }
@@ -22,7 +22,7 @@ namespace GoogleAnalyticsHelpers {
             eventCategory: 'Outbound Link',
             eventAction: 'Click',
             eventLabel: href.trim(),
-            transport: 'beacon'
+            transport: 'beacon',
         });
     }
 }

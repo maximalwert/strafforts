@@ -1,7 +1,7 @@
 namespace EventBinders {
 
     export function bindAll() {
-        let eventBinders = () => {
+        const eventBinders = () => {
             // Disable double cliking for logo and navigation items.
             $(document).on('dblclick', ".main-header .logo, a[id^='best-efforts-for-'], a[id^='races-for-']", (event) => {
                 event.preventDefault();
@@ -12,42 +12,42 @@ namespace EventBinders {
 
             // Reload Overview page.
             $(document).on('click', '.show-overview', () => {
-                let overview = new Views.Overview();
+                const overview = new Views.Overview();
                 overview.load();
             });
 
             // Load Races Overview upon clicking 'Races' tab button if not yet created.
             $(document).on('click', "a[href^='#pane-races']", () => {
                 if ($('#pane-races .loading-icon-panel').length) {
-                    let overview = new Views.Overview();
+                    const overview = new Views.Overview();
                     overview.loadRacesPanel();
                 }
             });
 
             // Bind other view loading events.
             $(document).on('click', '.show-races-timeline', () => {
-                let racesTimeline = new Views.RacesTimeline();
+                const racesTimeline = new Views.RacesTimeline();
                 racesTimeline.load();
             });
             $(document).on('click', "a[id^='best-efforts-for-']", (event) => {
-                let distance = $(event.currentTarget).find('.item-text').text().trim();
-                let bestEffortsByDistanceView = new Views.BestEffortsByDistance(distance);
+                const distance = $(event.currentTarget).find('.item-text').text().trim();
+                const bestEffortsByDistanceView = new Views.BestEffortsByDistance(distance);
                 bestEffortsByDistanceView.load();
             });
             $(document).on('click', "a[id^='races-for-distance']", (event) => {
-                let distance = $(event.currentTarget).find('.item-text').text().trim();
-                let racesByDistanceView = new Views.RacesByDistance(distance);
+                const distance = $(event.currentTarget).find('.item-text').text().trim();
+                const racesByDistanceView = new Views.RacesByDistance(distance);
                 racesByDistanceView.load();
             });
             $(document).on('click', "a[id^='races-for-year']", (event) => {
-                let year = $(event.currentTarget).find('.item-text').text().trim();
-                let racesByYearView = new Views.RacesByYear(year);
+                const year = $(event.currentTarget).find('.item-text').text().trim();
+                const racesByYearView = new Views.RacesByYear(year);
                 racesByYearView.load();
             });
 
             // Bind race distance selection buttons in Races Timeline view.
             $(document).on('click', '.race-distance-label', (event) => {
-                let distance = $(event.currentTarget).text().toLowerCase().replace(/\s/g, '-');
+                const distance = $(event.currentTarget).text().toLowerCase().replace(/\s/g, '-');
 
                 $('.timeline-item').parent().hide();
                 $('.timeline-item.race-distance-' + distance).parent().fadeIn(500);
@@ -57,7 +57,7 @@ namespace EventBinders {
             // Append PR/Contributions welcome badges upon clicking settings toggle button.
             $(document).on('click', '.control-sidebar-toggle', () => {
                 if (!$('.link-contributions-welcome').length) {
-                    let badges = HtmlHelpers.getContributionWelcomeBadges();
+                    const badges = HtmlHelpers.getContributionWelcomeBadges();
                     $('#control-sidebar-data-tab form').append(badges);
                 }
             });
@@ -76,15 +76,15 @@ namespace EventBinders {
     function saveProfile(event: JQueryEventObject) {
         event.preventDefault();
 
-        let isPublicCheckbox: HTMLInputElement = <HTMLInputElement>$("#is_public")[0];
-        let isPublic = isPublicCheckbox.checked;
-        let data = {
-            is_public: isPublic
+        const isPublicCheckbox: HTMLInputElement = $('#is_public')[0] as HTMLInputElement;
+        const isPublic = isPublicCheckbox.checked;
+        const profileData = {
+            is_public: isPublic,
         };
 
         $.ajax({
             url: $('.form-save-profile').attr('action'),
-            data: data,
+            data: profileData,
             cache: false,
             type: 'post',
             success: () => {
@@ -92,7 +92,7 @@ namespace EventBinders {
             },
             error: (xhr, ajaxOptions, thrownError) => {
                 toastr.error(xhr.status + '\n' + thrownError);
-            }
+            },
         });
     }
 
@@ -111,7 +111,7 @@ namespace EventBinders {
             },
             error: (xhr, ajaxOptions, thrownError) => {
                 toastr.error(xhr.status + '\n' + thrownError);
-            }
+            },
         });
     }
 }

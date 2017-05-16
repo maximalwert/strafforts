@@ -4,8 +4,8 @@ namespace Views {
 
     export class RacesTimeline extends BaseView {
 
-        load(): void {
-            var viewUrl = AppHelpers.getBaseUrl() + '/timeline/races';
+        public load(): void {
+            const viewUrl = AppHelpers.getBaseUrl() + '/timeline/races';
             super.prepareView(viewUrl, 'Races Timeline');
 
             this.createViewTemplate();
@@ -13,10 +13,10 @@ namespace Views {
         }
 
         protected createViewTemplate(): void {
-            let mainContent = $('#main-content');
+            const mainContent = $('#main-content');
             mainContent.empty(); // Empty main content.
 
-            let content = `
+            const content = `
                 <div class="row">
                     <div class="col-xs-12">${HtmlHelpers.getLoadingIcon()}</div>
                 </div>
@@ -25,7 +25,7 @@ namespace Views {
         }
 
         protected createView(): void {
-            let years = this.getRaceYears();
+            const years = this.getRaceYears();
             if (years.length > 0) {
                 let items = '';
                 years.forEach((year) => {
@@ -37,7 +37,7 @@ namespace Views {
                     `;
                 });
 
-                let content = `
+                const content = `
                     <div class="col-xs-12 text-center">
                         <button class="btn btn-sm bg-strava hidden show-races-timeline"> Show All Distances</button>
                     </div>
@@ -50,44 +50,44 @@ namespace Views {
                     </div>
                 `;
 
-                let mainContent = $('#main-content');
+                const mainContent = $('#main-content');
                 mainContent.empty();
                 mainContent.append(content);
             }
         }
 
         protected getRaceYears(): number[] {
-            let years: number[] = [];
-            let url = AppHelpers.getApiBaseUrl() + '/races/get_counts_by_year';
+            const years: number[] = [];
             $.ajax({
-                url: url,
+                url: AppHelpers.getApiBaseUrl() + '/races/get_counts_by_year',
                 dataType: 'json',
                 async: false,
                 success: (data) => {
                     $.each(data, (key, value) => {
-                        let year = value['race_year'];
+                        const year = value['race_year'];
                         if ($.inArray(year, years) === -1) {
                             years.push(year);
                         }
                     });
-                }
+                },
             });
             return years;
         }
 
         protected createRacesTimelineForYear(year: number): string {
             let content = '';
-            let url = AppHelpers.getApiBaseUrl() + '/races/' + year;
             $.ajax({
-                url: url,
+                url: AppHelpers.getApiBaseUrl() + '/races/' + year,
                 dataType: 'json',
                 async: false,
                 success: (data) => {
-                    let races: any[] = [];
+                    const races: any[] = [];
                     $.each(data, (key, value) => {
                         races.push(value);
                     });
                     races.forEach((item) => {
+                        const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
+
                         let cadence = '';
                         if (item['cadence'] !== '') {
                             cadence = `
@@ -96,13 +96,14 @@ namespace Views {
                             </div>
                         `;
                         }
+
                         content += `
                             <li>
                                 <i class="fa fa-trophy"></i>
                                 <div class="timeline-item race-distance-${item['race_distance'].toLowerCase().replace(/\s/g, '-')}">
                                     <span class="time"><i class="fa fa-clock-o"></i>${item['start_date']}</span>
                                     <h3 class="timeline-header">
-                                        <a href="https://www.strava.com/activities/${item['activity_id']}" target="_blank">${item['activity_name']}</a>
+                                        <a href="${stravaLink}" target="_blank">${item['activity_name']}</a>
                                         <span class="btn btn-xs race-distance-label">${item['race_distance']}</span>
                                     </h3>
                                     <div class="timeline-body">
@@ -128,7 +129,7 @@ namespace Views {
                             </li>
                         `;
                     });
-                }
+                },
             });
             return content;
         }

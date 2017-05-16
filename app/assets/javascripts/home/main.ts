@@ -11,19 +11,19 @@
 
 // jQuery to collapse the navbar on scroll.
 $(window).scroll(() => {
-    if ($(".navbar").offset().top > 50) {
-        $(".navbar-fixed-top").addClass("top-nav-collapse");
+    if ($('.navbar').offset().top > 50) {
+        $('.navbar-fixed-top').addClass('top-nav-collapse');
     } else {
-        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+        $('.navbar-fixed-top').removeClass('top-nav-collapse');
     }
 });
 
 $(document).ready(() => {
     // jQuery for page scrolling feature - requires jQuery Easing plugin.
     $('a.page-scroll').bind('click', (event) => {
-        var anchor = $(this);
+        const anchor = $(this);
         $('html, body').stop().animate({
-            scrollTop: $(anchor.attr('href')).offset().top
+            scrollTop: $(anchor.attr('href')).offset().top,
         }, 500, 'easeInOutExpo');
         event.preventDefault();
     });
@@ -34,7 +34,7 @@ $(document).ready(() => {
     });
 
     // Remove the focused state after click, otherwise bootstrap will still highlight the link.
-    $("a").mouseup(() => {
+    $('a').mouseup(() => {
         $(this).blur();
     });
 

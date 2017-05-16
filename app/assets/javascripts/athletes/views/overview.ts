@@ -3,29 +3,29 @@
 namespace Views {
     export class Overview extends BaseView {
 
-        createNavigationItems(): void {
+        public createNavigationItems(): void {
             this.createNavigationItem('/best-efforts/get_counts', 'best_effort_type', 'best-efforts-for');
             this.createNavigationItem('/races/get_counts_by_distance', 'race_distance', 'races-for-distance');
             this.createNavigationItem('/races/get_counts_by_year', 'race_year', 'races-for-year');
         }
 
-        load(): void {
-            let viewUrl = AppHelpers.getBaseUrl();
+        public load(): void {
+            const viewUrl = AppHelpers.getBaseUrl();
             super.prepareView(viewUrl, 'Overview');
 
             this.createViewTemplate();
             this.createView();
         }
 
-        loadRacesPanel(): void {
+        public loadRacesPanel(): void {
             this.createOverviewDatatable('races');
         }
 
         protected createViewTemplate(): void {
-            let mainContent = $('#main-content');
+            const mainContent = $('#main-content');
             mainContent.empty(); // Empty main content.
 
-            let content = `
+            const content = `
             <div class="row">
                 <div class="col-xs-12">
                     <div class="nav-tabs-custom">
@@ -52,7 +52,7 @@ namespace Views {
         }
 
         private createNavigationItem(url: string, itemName: string, elementIdPrefix: string) {
-            let fullUrl = AppHelpers.getApiBaseUrl() + url;
+            const fullUrl = AppHelpers.getApiBaseUrl() + url;
             $.ajax({
                 url: fullUrl,
                 dataType: 'json',
@@ -62,12 +62,12 @@ namespace Views {
                         $(`#treeview-menu-${elementIdPrefix}`).closest('.treeview').empty();
                     } else {
                         $.each(data, (key, value) => {
-                            let itemText = value[itemName];
-                            let itemId = value[itemName].replace(/\s/g, "-").replace(/\//g, "-").toLowerCase();
-                            let elementId = `${elementIdPrefix}-${itemId}-navigation`
-                            let count = value['count'];
+                            const itemText = value[itemName];
+                            const itemId = value[itemName].replace(/\s/g, '-').replace(/\//g, '-').toLowerCase();
+                            const elementId = `${elementIdPrefix}-${itemId}-navigation`;
+                            const count = value['count'];
 
-                            let menuItem = `
+                            const menuItem = `
                                 <li>
                                     <a id="${elementId}" href="#">
                                         <i class="fa fa-circle-o"></i>
@@ -79,7 +79,7 @@ namespace Views {
                                 </li>
                             `;
 
-                            let isMajor = value['is_major'];
+                            const isMajor = value['is_major'];
                             if (isMajor) {
                                 $(`#treeview-menu-${elementIdPrefix}`).before(menuItem);
                             } else {
@@ -87,38 +87,40 @@ namespace Views {
                             }
                         });
                     }
-                }
+                },
             });
         }
 
         private createOverviewDatatable(type: string) {
-            let fullUrl = AppHelpers.getApiBaseUrl() + '/' + type;
+            const fullUrl = AppHelpers.getApiBaseUrl() + '/' + type;
             $.ajax({
                 url: fullUrl,
                 dataType: 'json',
                 async: false,
                 success: (data) => {
-                    let distances: Object[] = [];
+                    const distances: object[] = [];
                     $.each(data, (key, value) => {
-                        let model: Object = {
-                            'distance': key,
-                            'items': value
+                        const model: object = {
+                            distance: key,
+                            items: value,
                         };
                         distances.push(model);
                     });
 
-                    let pane = $('#pane-' + type);
+                    const pane = $('#pane-' + type);
                     pane.empty();
 
                     if (distances.length === 0) {
-                        let infoBox = HtmlHelpers.getNoDataInfoBox();
+                        const infoBox = HtmlHelpers.getNoDataInfoBox();
                         pane.append(infoBox);
                     } else {
                         distances.forEach((model: any[]) => {
-                            let linkId = `${type}-for-distance-${model['distance'].toLowerCase().replace(/\s/g, '-').replace(/\//g, '-')}`;
+                            const distanceId = model['distance'].toLowerCase().replace(/\s/g, '-').replace(/\//g, '-');
+                            const linkId = `${type}-for-distance-${distanceId}`;
 
                             let rows = '';
                             model['items'].forEach((item: any[]) => {
+                                const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
                                 rows += `
                                 <tr>
                                     <td>${item['start_date']}</td>
@@ -128,13 +130,13 @@ namespace Views {
                                         </span>
                                     </td>
                                     <td>
-                                        <a class="strava-activity-link" href="https://www.strava.com/activities/${item['activity_id']}" target="_blank">
+                                        <a class="strava-activity-link" href="${stravaLink}" target="_blank">
                                             ${item['activity_name']}
                                         </a>
                                     </td>
                                     <td>${item['elapsed_time_formatted']}</td>
                                     <td class="hidden-xs-down">
-                                        ${item["pace"]}<small>${item["pace_unit"]}</small>
+                                        ${item['pace']}<small>${item['pace_unit']}</small>
                                     </td>
                                     <td class="hidden-lg-down">${item['gear_name']}</td>
                                     <td class='text-center badge-cell hidden-md-down'>
@@ -146,7 +148,7 @@ namespace Views {
                                 </tr>`;
                             });
 
-                            let table = `
+                            const table = `
                             <div class="box">
                                 <div class="box-header">
                                     <h3 class="box-title">
@@ -182,7 +184,7 @@ namespace Views {
                             pane.append(table);
                         });
                     }
-                }
+                },
             });
         }
     }

@@ -13,7 +13,7 @@ $(document).ready(() => {
     GoogleAnalytics.bindEvents().apply(null);
     EventBinders.bindAll().apply(null);
 
-    let overview = new Views.Overview();
+    const overview = new Views.Overview();
     overview.createNavigationItems();
     overview.load();
 });
