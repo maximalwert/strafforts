@@ -21,9 +21,9 @@ $(window).scroll(() => {
 $(document).ready(() => {
     // jQuery for page scrolling feature - requires jQuery Easing plugin.
     $('a.page-scroll').bind('click', (event) => {
-        const anchor = $(this);
+        const anchor = $(event.currentTarget).attr('href');
         $('html, body').stop().animate({
-            scrollTop: $(anchor.attr('href')).offset().top,
+            scrollTop: $(anchor).offset().top,
         }, 500, 'easeInOutExpo');
         event.preventDefault();
     });
