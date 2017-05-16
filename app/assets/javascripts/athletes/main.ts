@@ -14,5 +14,8 @@ $(document).ready(() => {
     Sidebar.bindEvents().apply(null);
     Settings.bindEvents().apply(null);
 
-    Overview.loadWithNavigation();
+    
+    let overview = new Views.Overview();
+    overview.createNavigationItems();
+    overview.load();
 });

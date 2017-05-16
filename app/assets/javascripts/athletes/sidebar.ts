@@ -12,19 +12,37 @@ namespace Sidebar {
 
             // Reload Overview page.
             $(document).on('click', '.show-overview', () => {
-                Overview.load();
+                let overview = new Views.Overview();
+                overview.load();
             });
 
             // Load Races Overview upon clicking 'Races' tab button if not yet created.
             $(document).on('click', "a[href^='#pane-races']", () => {
                 if ($('#pane-races .loading-icon-panel').length) {
-                    Overview.loadRaces();
+                    let overview = new Views.Overview();
+                    overview.loadRacesPanel();
                 }
             });
 
-            // Load Races Timeline view.
+            // Bind other view loading events.
             $(document).on('click', '.show-races-timeline', () => {
-                RacesTimeline.load();
+                let racesTimeline = new Views.RacesTimeline();
+                racesTimeline.load();
+            });
+            $(document).on('click', "a[id^='best-efforts-for-']", (event) => {
+                let distance = $(event.currentTarget).find('.item-text').text().trim();
+                let bestEffortsByDistanceView = new Views.BestEffortsByDistance(distance);
+                bestEffortsByDistanceView.load();
+            });
+            $(document).on('click', "a[id^='races-for-distance']", (event) => {
+                let distance = $(event.currentTarget).find('.item-text').text().trim();
+                let racesByDistanceView = new Views.RacesByDistance(distance);
+                racesByDistanceView.load();
+            });
+            $(document).on('click', "a[id^='races-for-year']", (event) => {
+                let year = $(event.currentTarget).find('.item-text').text().trim();
+                let racesByYearView = new Views.RacesByYear(year);
+                racesByYearView.load();
             });
 
             // Bind race distance selection buttons in Races Timeline view.
@@ -34,19 +52,6 @@ namespace Sidebar {
                 $('.timeline-item').parent().hide();
                 $('.timeline-item.race-distance-' + distance).parent().fadeIn(500);
                 $('#main-content .show-races-timeline').removeClass('hidden').fadeIn(500);
-            });
-
-            $(document).on('click', "a[id^='best-efforts-for-']", (event) => {
-                let distance = $(event.currentTarget).find('.item-text').text();
-                BestEffortsView.load(distance);
-            });
-            $(document).on('click', "a[id^='races-for-distance']", (event) => {
-                let distance = $(event.currentTarget).find('.item-text').text();
-                loadRacesByDistanceView(distance);
-            });
-            $(document).on('click', "a[id^='races-for-year']", (event) => {
-                let year = $(event.currentTarget).find('.item-text').text();
-                loadRacesByYearView(year);
             });
 
             // Append PR/Contributions welcome badges upon clicking settings toggle button.
@@ -59,5 +64,4 @@ namespace Sidebar {
         };
         return eventBinders;
     }
-
 }

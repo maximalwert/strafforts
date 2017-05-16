@@ -25,7 +25,7 @@ function constructChartHtml(id, title, width, withLoadingIcon) {
     chart += '<i class="fa fa-pie-chart"></i><h3 class="box-title">' + title + '</h3>';
     chart += '<div class="box-body">';
     if (withLoadingIcon) {
-        chart += HtmlHelpers.getLoadingIconHtml();
+        chart += HtmlHelpers.getLoadingIcon();
     } else {
         chart += '<div class="chart">';
         chart += '<canvas id="' + id + '"></canvas>';
