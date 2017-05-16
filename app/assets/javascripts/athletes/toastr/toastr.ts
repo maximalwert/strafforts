@@ -1,5 +1,5 @@
 namespace Toastr {
-    export function getOptions() {
+    export function getOptions(): ToastrOptions {
         let options = {
             'closeButton': true,
             'debug': false,
@@ -7,7 +7,6 @@ namespace Toastr {
             'progressBar': false,
             'positionClass': 'toast-top-center',
             'preventDuplicates': false,
-            'onclick': null,
             'showDuration': 300,
             'hideDuration': 1000,
             'timeOut': 3000,

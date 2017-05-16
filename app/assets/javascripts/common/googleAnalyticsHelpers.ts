@@ -1,7 +1,7 @@
 /// <reference path="./../typings/google.analytics.d.ts" />
 
 namespace GoogleAnalyticsHelpers {
-    export function sendEvent(category: string, action: string, label?: string) {
+    export function sendEvent(category: string, action: string, label?: string | null) {
         if (label) {
             ga('send', {
                 hitType: 'event',

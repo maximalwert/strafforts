@@ -57,7 +57,7 @@ namespace Views {
         }
 
         protected getRaceYears(): number[] {
-            let years = [];
+            let years: number[] = [];
             let url = AppHelpers.getApiBaseUrl() + '/races/get_counts_by_year';
             $.ajax({
                 url: url,
@@ -83,7 +83,7 @@ namespace Views {
                 dataType: 'json',
                 async: false,
                 success: (data) => {
-                    let races = [];
+                    let races: any[] = [];
                     $.each(data, (key, value) => {
                         races.push(value);
                     });

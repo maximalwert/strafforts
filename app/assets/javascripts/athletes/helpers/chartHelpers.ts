@@ -20,7 +20,7 @@ namespace ChartHelpers {
     export function constructChartHtml(id: string, title: string, width: number, withLoadingIcon: boolean) {
         let loadingIcon = '';
         if (withLoadingIcon) {
-            loadingIcon= HtmlHelpers.getLoadingIcon();
+            loadingIcon = HtmlHelpers.getLoadingIcon();
         }
 
         let chart = `
@@ -79,10 +79,10 @@ namespace ChartHelpers {
                     enabled: true,
                     mode: 'single',
                     callbacks: {
-                        title: (tooltipItem, data) => {
+                        title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
                             return data.datasets[0].label[tooltipItem[0].index];
                         },
-                        label: (tooltipItem) => {
+                        label: (tooltipItem: Chart.ChartTooltipItem) => {
                             return `Count: ${tooltipItem.yLabel.toString()}`;
                         }
                     }
@@ -113,7 +113,7 @@ namespace ChartHelpers {
             options: {
                 legend: {
                     position: 'bottom',
-                    onClick: (event) => {
+                    onClick: (event: any) => {
                         event.stopPropagation();
                     }
                 },
@@ -123,10 +123,10 @@ namespace ChartHelpers {
                     enabled: true,
                     mode: 'single',
                     callbacks: {
-                        title: (tooltipItem, data) => {
+                        title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
                             return data.datasets[0].label[tooltipItem[0].index];
                         },
-                        label: (tooltipItem, data) => {
+                        label: (tooltipItem: Chart.ChartTooltipItem, data: any) => {
                             return `Count: ${data.datasets[0].data[tooltipItem.index]}`;
                         }
                     }
@@ -137,9 +137,9 @@ namespace ChartHelpers {
 
     export function createProgressionChart(id: string, items: any[]) {
         if (items.length > 1) {
-            let activityNames = [];
-            let dates = [];
-            let runTimes = [];
+            let activityNames: string[] = [];
+            let dates: string[] = [];
+            let runTimes: number[] = [];
 
             items.forEach((item) => {
                 let activityName = item['activity_name'];
@@ -160,7 +160,6 @@ namespace ChartHelpers {
                     backgroundColor: 'rgba(75,192,192,0.4)',
                     borderColor: '#FC4C02',
                     borderCapStyle: 'butt',
-                    borderDash: [],
                     borderDashOffset: 0.0,
                     borderJoinStyle: 'miter',
                     pointBorderColor: '#FC4C02',
@@ -207,7 +206,7 @@ namespace ChartHelpers {
                                 offsetGridLines: true
                             },
                             ticks: {
-                                callback: (value) => {
+                                callback: (value: any) => {
                                     return value.toString().toHHMMSS();
                                 }
                             }
@@ -217,10 +216,10 @@ namespace ChartHelpers {
                         enabled: true,
                         mode: 'single',
                         callbacks: {
-                            title: (tooltipItem, data) => {
+                            title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
                                 return data.datasets[0].label[tooltipItem[0].index];
                             },
-                            label: (tooltipItem) => {
+                            label: (tooltipItem: Chart.ChartTooltipItem) => {
                                 let time = Helpers.convertDurationToTime(tooltipItem.yLabel.toString());
                                 let date = tooltipItem.xLabel;
                                 return `Ran ${time} on ${date}`;
@@ -236,7 +235,7 @@ namespace ChartHelpers {
 
     export function createYearDistributionChart(id: string, items: any[]) {
         if (items.length > 1) {
-            let years = {}; // Holds year and its count.
+            let years: Object = {}; // Holds year and its count.
             items.forEach(function (item) {
                 let startDate = item['start_date'];
                 let dateParts = startDate.split('-');
@@ -248,9 +247,9 @@ namespace ChartHelpers {
                 }
             });
 
-            let dataLabels = Object.keys(years);
-            let legendLabels = [];
-            let counts = [];
+            let dataLabels: string[] = Object.keys(years);
+            let legendLabels: string[] = [];
+            let counts: number[] = [];
             $.each(years, (key) => {
                 let value = years[key];
                 counts.push(value);
@@ -264,7 +263,7 @@ namespace ChartHelpers {
 
     export function createWorkoutTypeChart(id: string, items: any[]) {
         if (items.length > 1) {
-            let workoutTypes = {}; // Holds Workout Type and its count.
+            let workoutTypes: Object = {}; // Holds Workout Type and its count.
             items.forEach(function (bestEffort) {
                 let workoutType = bestEffort['workout_type_name'];
 
@@ -290,7 +289,7 @@ namespace ChartHelpers {
 
     export function createMonthDistributionChart(id: string, items: any[]) {
         if (items.length > 1) {
-            let months = {}; // Holds month and its count.
+            let months: Object = {}; // Holds month and its count.
             items.forEach((item) => {
                 let startDate = item['start_date'];
                 let dateParts = startDate.split('-');
@@ -306,9 +305,9 @@ namespace ChartHelpers {
                 }
             });
 
-            let dataLabels = [];
-            let legendLabels = [];
-            let counts = [];
+            let dataLabels: string[] = [];
+            let legendLabels: string[] = [];
+            let counts: number[] = [];
             $.each(months, (key) => {
                 let value = parseInt(months[key], 10);
                 legendLabels.push(`${key} (${value})`);
@@ -323,7 +322,7 @@ namespace ChartHelpers {
 
     export function createRaceDistancesChart(id: string, items: any[]) {
         if (items.length > 1) {
-            let raceDistances = {}; // Holds race distance and its count.
+            let raceDistances: Object = {}; // Holds race distance and its count.
             items.forEach(function (item) {
                 let raceDistance = item['race_distance'];
                 if (raceDistance in raceDistances) {
@@ -333,9 +332,9 @@ namespace ChartHelpers {
                 }
             });
 
-            let dataLabels = [];
-            let legendLabels = [];
-            let counts = [];
+            let dataLabels: string[] = [];
+            let legendLabels: string[] = [];
+            let counts: number[] = [];
             $.each(raceDistances, (key) => {
                 let value = parseInt(raceDistances[key], 10);
                 legendLabels.push(`${key} (${value})`);
@@ -351,7 +350,7 @@ namespace ChartHelpers {
 
     export function createGearCountChart(id: string, items: any[]) {
         if (items.length > 1) {
-            let gears = {}; // Holds Gear and its count.
+            let gears: Object = {}; // Holds Gear and its count.
             items.forEach((item) => {
                 let gearName = item['gear_name'];
                 if (gearName in gears) {
@@ -362,7 +361,7 @@ namespace ChartHelpers {
             });
 
             let dataLabels = Object.keys(gears);
-            let counts = [];
+            let counts: number[] = [];
             $.each(gears, (key) => {
                 let value = gears[key];
                 counts.push(value);
@@ -376,7 +375,7 @@ namespace ChartHelpers {
 
     export function createGearMileageChart(id: string, items: any[]) {
         if (items.length > 1) {
-            let gears = {}; // Holds Gear and its count.
+            let gears: Object = {}; // Holds Gear and its count.
             items.forEach((item) => {
                 let gearName = item['gear_name'];
                 if (gearName in gears) {
@@ -387,7 +386,7 @@ namespace ChartHelpers {
             });
 
             let gearLabels = Object.keys(gears);
-            let gearMileages = [];
+            let gearMileages: number[] = [];
             $.each(gears, (key) => {
                 let mileage = gears[key] / 1000;
                 gearMileages.push(mileage);
@@ -426,7 +425,7 @@ namespace ChartHelpers {
                         enabled: true,
                         mode: 'single',
                         callbacks: {
-                            label: (tooltipItem, data) => {
+                            label: (tooltipItem: Chart.ChartTooltipItem) => {
                                 let mileage = tooltipItem.xLabel.toString().substring(0, 1);
                                 return `Mileage: ${mileage}km`;
                             }

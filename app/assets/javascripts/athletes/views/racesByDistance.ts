@@ -52,7 +52,7 @@ namespace Views {
                 async: false,
                 success: (data) => {
 
-                    let items = [];
+                    let items: any[] = [];
                     $.each(data, (key, value) => {
                         items.push(value);
                     });

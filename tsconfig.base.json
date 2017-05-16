@@ -1,5 +1,11 @@
 {
     "compilerOptions": {
-        "sourceMap": true
-    }
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "suppressImplicitAnyIndexErrors": true
+    },
+    "exclude": [
+        "**/*.d.ts",
+        "**/*.spec.ts"
+    ]
 }

@@ -48,7 +48,7 @@ namespace Views {
                 async: false,
                 success: (data) => {
 
-                    let items = [];
+                    let items: any[] = [];
                     $.each(data, (key, value) => {
                         items.push(value);
                     });
@@ -60,13 +60,13 @@ namespace Views {
                     let showLoadingIcon = false;
                     let content = `
                         <div class="row">
-                            ${ChartHelpers.constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6, false)}
-                            ${ChartHelpers.constructChartHtml('month-distribution-chart', 'Month Distribution Chart', 6, false)}
+                            ${ChartHelpers.constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('month-distribution-chart', 'Month Distribution Chart', 6, showLoadingIcon)}
                         </div>
                         ${this.constructDataTableHtml(items)}
                         <div class="row">
-                            ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, false)}
-                            ${ChartHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, false)}
+                            ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
                         </div>
                     `;
                     mainContent.append(content);
@@ -97,7 +97,7 @@ namespace Views {
             if (items) {
                 table = ''; // Set to empty.
 
-                let distancesToDisplay = [];
+                let distancesToDisplay: string[] = [];
                 let allDistances = [
                     '100 miles', '100k', '50 miles', '50k', 'Marathon', 'Half Marathon',
                     '20k', '15k', '10k', '5k', '3000m', '1 mile', 'Other'
@@ -130,23 +130,22 @@ namespace Views {
                         </table>
                     `;
                 });
-
-                let dataTable = `
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="box">
-                                <div class="box-header with-border>
-                                    <i class="fa fa-bar-chart-o"></i><h3 class="box-title">Data Table</h3>
-                                    <div class="box-body">
-                                        ${table}
-                                    </div>
+            };
+            let dataTable = `
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box">
+                            <div class="box-header with-border>
+                                <i class="fa fa-bar-chart-o"></i><h3 class="box-title">Data Table</h3>
+                                <div class="box-body">
+                                    ${table}
                                 </div>
                             </div>
                         </div>
                     </div>
-                `;
-                return dataTable;
-            };
+                </div>
+            `;
+            return dataTable;
         }
     }
 }

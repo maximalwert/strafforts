@@ -92,7 +92,7 @@ namespace HtmlHelpers {
         return header;
     }
 
-    export function getDatatableRowForBestEfforts(item: any) {
+    export function getDatatableRowForBestEfforts(item: any[]) {
         let row = `
             <tr>
                 <td>${item['start_date']}</td>

@@ -98,9 +98,9 @@ namespace Views {
                 dataType: 'json',
                 async: false,
                 success: (data) => {
-                    let distances = [];
+                    let distances: Object[] = [];
                     $.each(data, (key, value) => {
-                        let model = {
+                        let model: Object = {
                             'distance': key,
                             'items': value
                         };
@@ -114,11 +114,11 @@ namespace Views {
                         let infoBox = HtmlHelpers.getNoDataInfoBox();
                         pane.append(infoBox);
                     } else {
-                        distances.forEach((model) => {
+                        distances.forEach((model: any[]) => {
                             let linkId = `${type}-for-distance-${model['distance'].toLowerCase().replace(/\s/g, '-').replace(/\//g, '-')}`;
 
                             let rows = '';
-                            model['items'].forEach((item) => {
+                            model['items'].forEach((item: any[]) => {
                                 rows += `
                                 <tr>
                                     <td>${item['start_date']}</td>
