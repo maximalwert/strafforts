@@ -33,13 +33,13 @@ namespace Views {
             let showLoadingIcon = true;
             let content = `
                 <div class="row">
-                    ${constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
-                    ${constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon)}
+                    ${ChartHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
+                    ${ChartHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon)}
                 </div>
                 ${this.constructDataTableHtml()}
                 <div class="row">'
-                    ${constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
-                    ${constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
+                    ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
+                    ${ChartHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
                 </div>
             `;
             mainContent.append(content);
@@ -64,13 +64,13 @@ namespace Views {
                     let showLoadingIcon = false;
                     let content = `
                         <div class="row">
-                            ${constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
-                            ${constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon)}
                         </div>
                         ${this.constructDataTableHtml(items)}
                         <div class="row">
-                            ${constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
-                            ${constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
                         </div>
                     `;
                     mainContent.append(content);
@@ -78,13 +78,13 @@ namespace Views {
                     // Create a progression chart when distance is not 'Other'.
                     var progressionChartId = 'progression-chart';
                     if (this.distance === 'Other') {
-                        createChartMessage(progressionChartId, "Not Applicable");
+                        ChartHelpers.createChartMessage(progressionChartId, "Not Applicable");
                     } else {
-                        createProgressionChart(progressionChartId, items);
+                        ChartHelpers.createProgressionChart(progressionChartId, items);
                     }
 
                     // Setup all other charts and tables.
-                    createYearDistributionChart('year-distribution-pie-chart', items);
+                    ChartHelpers.createYearDistributionChart('year-distribution-pie-chart', items);
                     $(".dataTable").each(function () {
                         $(this).DataTable({
                             'columnDefs': [{
@@ -97,8 +97,8 @@ namespace Views {
                             ]
                         });
                     });
-                    createGearCountChart('gear-count-chart', items);
-                    createGearMileageChart('gear-mileage-chart', items);
+                    ChartHelpers.createGearCountChart('gear-count-chart', items);
+                    ChartHelpers.createGearMileageChart('gear-mileage-chart', items);
                 }
             });
         }

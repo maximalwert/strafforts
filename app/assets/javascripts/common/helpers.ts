@@ -3,20 +3,14 @@
 namespace Helpers {
     export function convertDurationToTime(duration: string) {
         let totalSeconds = parseInt(duration, 10); // Don't forget the second param.
+        
         let hours = Math.floor(totalSeconds / 3600);
         let minutes = Math.floor((totalSeconds - (hours * 3600)) / 60);
         let seconds = totalSeconds - (hours * 3600) - (minutes * 60);
-        let hoursText, minutesText, secondsText;
 
-        if (hours < 10) {
-            hoursText = `0${hours}`;
-        }
-        if (minutes < 10) {
-            minutesText = `0${minutes}`;
-        }
-        if (seconds < 10) {
-            secondsText = `0${seconds}`;
-        }
+        let hoursText = hours < 10 ? `0${hours}` : hours.toString();
+        let minutesText = minutes < 10 ? `0${minutes}` : minutes.toString();
+        let secondsText = seconds < 10 ? `0${seconds}` : seconds.toString();
 
         let time = `${hoursText}:${minutesText}:${secondsText}`;
         return time;

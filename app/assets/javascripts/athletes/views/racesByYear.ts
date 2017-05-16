@@ -29,13 +29,13 @@ namespace Views {
             let showLoadingIcon = true;
             let content = `
                 <div class="row">
-                    ${constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6, showLoadingIcon)}
-                    ${constructChartHtml('monthly-distribution-chart', 'Monthly Distribution Chart', 6, showLoadingIcon)}
+                    ${ChartHelpers.constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6, showLoadingIcon)}
+                    ${ChartHelpers.constructChartHtml('monthly-distribution-chart', 'Monthly Distribution Chart', 6, showLoadingIcon)}
                 </div>
                 ${this.constructDataTableHtml()}
                 <div class="row">'
-                    ${constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
-                    ${constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
+                    ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
+                    ${ChartHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
                 </div>
             `;
             mainContent.append(content);
@@ -60,20 +60,20 @@ namespace Views {
                     let showLoadingIcon = false;
                     let content = `
                         <div class="row">
-                            ${constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6, false)}
-                            ${constructChartHtml('month-distribution-chart', 'Month Distribution Chart', 6, false)}
+                            ${ChartHelpers.constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6, false)}
+                            ${ChartHelpers.constructChartHtml('month-distribution-chart', 'Month Distribution Chart', 6, false)}
                         </div>
                         ${this.constructDataTableHtml(items)}
                         <div class="row">
-                            ${constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, false)}
-                            ${constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, false)}
+                            ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, false)}
+                            ${ChartHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, false)}
                         </div>
                     `;
                     mainContent.append(content);
 
                     // Setup all charts and tables.
-                    createRaceDistancesChart('distances-distribution-chart', items);
-                    createMonthDistributionChart('month-distribution-chart', items);
+                    ChartHelpers.createRaceDistancesChart('distances-distribution-chart', items);
+                    ChartHelpers.createMonthDistributionChart('month-distribution-chart', items);
                     $(".dataTable").each(function () {
                         $(this).DataTable({
                             'bFilter': false,
@@ -85,8 +85,8 @@ namespace Views {
                             ]
                         });
                     });
-                    createGearCountChart('gear-count-chart', items);
-                    createGearMileageChart('gear-mileage-chart', items);
+                    ChartHelpers.createGearCountChart('gear-count-chart', items);
+                    ChartHelpers.createGearMileageChart('gear-mileage-chart', items);
                 }
             });
         }

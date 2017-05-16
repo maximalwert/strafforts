@@ -11,10 +11,8 @@ $(document).ready(() => {
     toastr.options = Toastr.getOptions();
 
     GoogleAnalytics.bindEvents().apply(null);
-    Sidebar.bindEvents().apply(null);
-    Settings.bindEvents().apply(null);
+    EventBinders.bindAll().apply(null);
 
-    
     let overview = new Views.Overview();
     overview.createNavigationItems();
     overview.load();

@@ -33,13 +33,13 @@ namespace Views {
             let showLoadingIcon = true;
             let content = `
                 <div class="row">
-                    ${constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
-                    ${constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon)}
+                    ${ChartHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
+                    ${ChartHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon)}
                 </div>
                 ${this.constructDataTableHtml()}
                 <div class="row">'
-                    ${constructChartHtml('workout-type-chart', 'Workout Type Chart', 6, showLoadingIcon)}
-                    ${constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
+                    ${ChartHelpers.constructChartHtml('workout-type-chart', 'Workout Type Chart', 6, showLoadingIcon)}
+                    ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
                 </div>
             `;
             mainContent.append(content);
@@ -64,20 +64,20 @@ namespace Views {
                     let showLoadingIcon = false;
                     let content = `
                         <div class="row">
-                            ${constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
-                            ${constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon)}
                         </div>
                         ${this.constructDataTableHtml(items)}
                         <div class="row">
-                            ${constructChartHtml('workout-type-chart', 'Workout Type Chart', 6, showLoadingIcon)}
-                            ${constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('workout-type-chart', 'Workout Type Chart', 6, showLoadingIcon)}
+                            ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
                         </div>
                     `;
                     mainContent.append(content);
 
                     // Setup all tables and charts.
-                    createProgressionChart('progression-chart', items);
-                    createYearDistributionChart('year-distribution-pie-chart', items);
+                    ChartHelpers.createProgressionChart('progression-chart', items);
+                    ChartHelpers.createYearDistributionChart('year-distribution-pie-chart', items);
                     $('.dataTable').each(function () {
                         $(this).DataTable({
                             'columnDefs': [{
@@ -90,8 +90,8 @@ namespace Views {
                             ]
                         });
                     });
-                    createWorkoutTypeChart('workout-type-chart', items);
-                    createGearCountChart('gear-count-chart', items);
+                    ChartHelpers.createWorkoutTypeChart('workout-type-chart', items);
+                    ChartHelpers.createGearCountChart('gear-count-chart', items);
                 }
             });
         }
