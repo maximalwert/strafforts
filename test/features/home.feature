@@ -3,19 +3,12 @@ Feature: Test home page
   Background:
     Given I visit home page
 
-  Scenario Outline: Page title and url should be correct
-    When I set window width to <width>px
+  Scenario: Page title and url should be correct
     Then I should see page url "/" (with slashes)
     And I should see the correct homepage title
 
-    Examples:
-      | width |
-      | 240   |
-      | 320   |
-      | 640   |
-      | 768   |
-      | 1280  |
-      | 1920  |
+  Scenario: All external links should be opened in a new window
+    Then I should see all external links set to "target='_blank'"
 
   Scenario Outline: Top bar links should work for small screens
     When I set window width to <width>px
@@ -34,7 +27,7 @@ Feature: Test home page
     Then I should see 'connect' section
     When I click navbar brand link
     Then I should see main section
-
+ 
     Examples:
       | width |
       | 240   |
