@@ -80,19 +80,25 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
         rake db:create && rake db:migrate && rake db:seed
 
-7. Fire up web server and worker
+7. Compile TypeScript files to JavaScript
+
+    The app uses [TypeScript][TypeScript] instead of JavaScripts. Compilation is needed before starting the server. A custom rake command has been written for this purpose.
+
+       rake aseets:tsc
+
+8. Fire up web server and worker
 
         foreman start
 
       This should fire up a Rails web server and a process worker using [Foreman][Foreman],
       which can be accessed from <http://localhost:5000> by default.
 
-8. Connect with Strava
+9. Connect with Strava
 
       From <http://localhost:5000>, connect with your Strava account.
       If it succeeds, it should redirect to the athlete overview page.
 
-9. Fetch data manually if needed
+10. Fetch data manually if needed
 
     Foreman's worker process should fetch all estimated best efforts once Strafforts has connected to Strava. Alternatively, the same can be achieved by the following rake tasks:
 
@@ -102,7 +108,7 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
         rake fetch:latest                       # Fetch the latest data for all athletes
         rake fetch:races                        # Fetch races for all athletes. Usage: rake fetch:races [all/latest]
 
-10. Run tests
+11. Run tests
 
       There are few but not a lot of tests written. If you wish to run them, please follow the steps below:
 
@@ -173,3 +179,4 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 [Sqlite]: https://sqlite.org/
 [Heroku]: https://www.heroku.com/
 [Foreman]: https://github.com/ddollar/foreman
+[TypeScript]: https://www.typescriptlang.org/
