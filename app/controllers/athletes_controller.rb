@@ -17,7 +17,7 @@ class AthletesController < ApplicationController
         shaped_races = ApplicationHelper::Helper.shape_races(Race.find_all_by_athlete_id(athlete.id), athlete.measurement_preference)
         @races = RacesDecorator.new(shaped_races)
       else
-        raise ActionController::RoutingError, "Could not access athlete '#{params[:id_or_username]}."
+        raise ActionController::RoutingError, "Could not access athlete '#{params[:id_or_username]}'."
       end
     end
   end

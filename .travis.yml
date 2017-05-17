@@ -21,10 +21,12 @@ before_install:
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
+  - npm install -g typescript
 
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - RAILS_ENV=test bundle exec rake db:seed
+  - bundle exec rake assets:tsc
   - bundle exec rake test
 
 notifications:

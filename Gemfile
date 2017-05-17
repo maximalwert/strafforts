@@ -33,12 +33,30 @@ group :development, :test do
 end
 
 group :development do
+  gem 'listen', '~> 3.0.5'
+
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
-  gem 'listen', '~> 3.0.5'
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'codecov', require: false # Code coverage tool.
+  gem 'cucumber'
+  gem 'selenium-webdriver'
+  gem 'shoulda', '~> 3.5'
+  gem 'shoulda-matchers', '~> 2.0'
+end
+
+group :production do
+  # Enable gzip compression on heroku, but don't compress images.
+  gem 'heroku-deflater'
+
+  # Monitor, troubleshoot, and tune production web applications.
+  gem 'newrelic_rpm'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -63,24 +81,8 @@ gem 'config'
 # Require wdm for Windows.
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
-group :test do
-  gem 'cucumber'
-  gem 'selenium-webdriver'
-  gem 'shoulda', '~> 3.5'
-  gem 'shoulda-matchers', '~> 2.0'
-end
-
 # ActiveRecord backend integration for DelayedJob 3.0+.
 gem 'delayed_job_active_record'
 
 # Add daemons gem to show delayed_job status.
 gem 'daemons'
-
-# Enable gzip compression on heroku, but don't compress images.
-gem 'heroku-deflater', :group => :production
-
-# Code coverage tool.
-gem 'codecov', :require => false, :group => :test
-
-# Monitor, troubleshoot, and tune production web applications.
-gem 'newrelic_rpm'
