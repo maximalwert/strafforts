@@ -43,6 +43,22 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  gem 'codecov', require: false # Code coverage tool.
+  gem 'cucumber'
+  gem 'selenium-webdriver'
+  gem 'shoulda', '~> 3.5'
+  gem 'shoulda-matchers', '~> 2.0'
+end
+
+group :production do
+  # Enable gzip compression on heroku, but don't compress images.
+  gem 'heroku-deflater'
+
+  # Monitor, troubleshoot, and tune production web applications.
+  gem 'newrelic_rpm'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
@@ -70,19 +86,3 @@ gem 'delayed_job_active_record'
 
 # Add daemons gem to show delayed_job status.
 gem 'daemons'
-
-group :test do
-  gem 'codecov', require: false # Code coverage tool.
-  gem 'cucumber'
-  gem 'selenium-webdriver'
-  gem 'shoulda', '~> 3.5'
-  gem 'shoulda-matchers', '~> 2.0'
-end
-
-group :production do
-  # Enable gzip compression on heroku, but don't compress images.
-  gem 'heroku-deflater'
-
-  # Monitor, troubleshoot, and tune production web applications.
-  gem 'newrelic_rpm'
-end
