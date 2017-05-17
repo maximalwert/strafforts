@@ -25,6 +25,8 @@ namespace Views {
         }
 
         protected createView(): void {
+            let content = HtmlHelpers.getNoDataInfoBox();
+
             const years = this.getRaceYears();
             if (years.length > 0) {
                 let items = '';
@@ -37,7 +39,7 @@ namespace Views {
                     `;
                 });
 
-                const content = `
+                content = `
                     <div class="col-xs-12 text-center">
                         <button class="btn btn-sm bg-strava hidden show-races-timeline"> Show All Distances</button>
                     </div>
@@ -49,11 +51,11 @@ namespace Views {
                         </div>
                     </div>
                 `;
-
-                const mainContent = $('#main-content');
-                mainContent.empty();
-                mainContent.append(content);
             }
+
+            const mainContent = $('#main-content');
+            mainContent.empty();
+            mainContent.append(content);
         }
 
         protected getRaceYears(): number[] {
