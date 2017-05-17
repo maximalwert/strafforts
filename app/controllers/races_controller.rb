@@ -40,7 +40,7 @@ class RacesController < ApplicationController
       raise ActionController::RoutingError, "Could not find athlete '#{params[:id_or_username]}' by id or username."
     else
       results = []
-      ApplicationHelper::Helper.race_distances.each do |race_distance|
+      ApplicationHelper::Helper.all_race_distances.each do |race_distance|
         model = RaceDistance.find_by_name(race_distance[:name])
         next if model.nil?
         items = Race.find_all_by_athlete_id_and_race_distance_id(athlete.id, model.id)

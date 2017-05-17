@@ -33,7 +33,7 @@ class BestEffortsController < ApplicationController
       raise ActionController::RoutingError, "Could not find athlete '#{params[:id_or_username]}' by id or username."
     else
       results = []
-      ApplicationHelper::Helper.best_effort_types.each do |best_effort_type|
+      ApplicationHelper::Helper.all_best_effort_types.each do |best_effort_type|
         model = BestEffortType.find_by_name(best_effort_type[:name])
         next if model.nil?
         items = BestEffort.find_all_by_athlete_id_and_best_effort_type_id(athlete.id, model.id)
