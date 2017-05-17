@@ -2,7 +2,7 @@
 
 namespace ChartHelpers {
     export function createChartMessage(id: string, message?: string) {
-        if (message) {
+        if (!message) {
             message = 'Not Enough Data to Generate Chart';
         }
 
