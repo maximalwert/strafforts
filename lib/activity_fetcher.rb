@@ -9,7 +9,7 @@ class ActivityFetcher
 
   def fetch_all(options = {})
     mode = options[:mode] || 'latest'
-    type = options[:type] || %w(best-efforts races)
+    type = options[:type] || %w[best-efforts races]
 
     begin
       # Create or update the current athlete first.

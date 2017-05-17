@@ -11,7 +11,7 @@ class RacesController < ApplicationController
         @races = @races.to_show_in_overview
         render json: @races
       else
-        if !!(params[:distance_or_year] =~ /^20\d\d$/)
+        if params[:distance_or_year] =~ /^20\d\d$/
           year = params[:distance_or_year]
           items = Race.find_all_by_athlete_id_and_year(athlete.id, year)
           shaped_items = ApplicationHelper::Helper.shape_races(items, athlete.measurement_preference)
@@ -40,7 +40,7 @@ class RacesController < ApplicationController
       raise ActionController::RoutingError, "Could not find athlete '#{params[:id_or_username]}' by id or username."
     else
       results = []
-      ApplicationHelper::Helper.race_distances.each do |race_distance|
+      ApplicationHelper::Helper.all_race_distances.each do |race_distance|
         model = RaceDistance.find_by_name(race_distance[:name])
         next if model.nil?
         items = Race.find_all_by_athlete_id_and_race_distance_id(athlete.id, model.id)

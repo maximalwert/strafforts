@@ -12,7 +12,7 @@ class AthleteDecorator < Draper::Decorator
   end
 
   def profile_image_url
-    object.profile if is_valid_url(object.profile)
+    object.profile if valid_url?(object.profile)
   end
 
   def following_url
@@ -79,9 +79,9 @@ class AthleteDecorator < Draper::Decorator
 
   private
 
-  def is_valid_url(string)
+  def valid_url?(string)
     uri = URI.parse(string)
-    %w(http https ftp).include?(uri.scheme)
+    %w[http https ftp].include?(uri.scheme)
   rescue URI::BadURIError
     false
   rescue URI::InvalidURIError
