@@ -3,7 +3,7 @@ module ApplicationHelper
     @@major_best_effort_types = ['Marathon', 'Half Marathon', '10k', '5k']
     @@other_best_effort_types = ['50k', '30k', '20k', '10 mile', '15k', '2 mile', '1 mile', '1k', '1/2 mile', '400m']
     @@major_race_distances = ['Marathon', 'Half Marathon', '10k', '5k']
-    @@other_races_distances = ['100 miles', '100k', '50 miles', '50k', '20k', '15k', '3000m', '1 mile', 'Other']
+    @@other_race_distances = ['100 miles', '100k', '50 miles', '50k', '20k', '15k', '3000m', '1 mile', 'Other']
 
     # This shapes BestEffort entities retrieved from DB into best efforts needed in the view.
     def self.shape_best_efforts(best_effort_entities, measurement_unit)
@@ -15,30 +15,32 @@ module ApplicationHelper
       shape_entities(race_entities, measurement_unit, false)
     end
 
-    def self.best_effort_types
-      best_effort_types = []
-      @@major_best_effort_types.each do |name|
-        best_effort_type = { name: name, is_major: true }
-        best_effort_types << best_effort_type
-      end
-      @@other_best_effort_types.each do |name|
-        best_effort_type = { name: name, is_major: false }
-        best_effort_types << best_effort_type
-      end
+    def self.all_best_effort_types
+      best_effort_types = major_best_effort_types
+      best_effort_types.concat(other_best_effort_types)
       best_effort_types
     end
 
-    def self.race_distances
-      race_distances = []
-      @@major_race_distances.each do |name|
-        race_distance = { name: name, is_major: true }
-        race_distances << race_distance
-      end
-      @@other_races_distances.each do |name|
-        race_distance = { name: name, is_major: false }
-        race_distances << race_distance
-      end
+    def self.all_race_distances
+      race_distances = major_race_distances
+      race_distances.concat(other_race_distances)
       race_distances
+    end
+
+    def self.major_best_effort_types
+      create_item_array(@@major_best_effort_types, true)
+    end
+
+    def self.other_best_effort_types
+      create_item_array(@@other_best_effort_types, false)
+    end
+
+    def self.major_race_distances
+      create_item_array(@@major_race_distances, true)
+    end
+
+    def self.other_race_distances
+      create_item_array(@@other_race_distances, false)
     end
 
     private_class_method
@@ -84,9 +86,7 @@ module ApplicationHelper
         item = {}
 
         # Must have an activity associated in order to show.
-        if entity.activity.nil?
-          next
-        end
+        next if entity.activity.nil?
 
         if is_type_of_best_efforts
           item[:best_effort_type] = entity.best_effort_type.name
@@ -122,6 +122,15 @@ module ApplicationHelper
       # Sort by start_date (not id) with the latest first.
       shaped_items.sort_by! { |shaped_item| shaped_item[:start_date] }.reverse!
       shaped_items
+    end
+
+    def self.create_item_array(types, is_major)
+      results = []
+      types.each do |name|
+        item = { name: name, is_major: is_major }
+        results << item
+      end
+      results
     end
   end
 end

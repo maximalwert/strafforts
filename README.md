@@ -4,7 +4,7 @@
 [![license](https://img.shields.io/github/license/yizeng/strafforts.svg?style=flat-square)](LICENSE)
 
 [![Travis](https://img.shields.io/travis/yizeng/strafforts/master.svg?style=flat-square)][Strafforts Travis]
-[![Codecov](https://img.shields.io/codecov/c/github/yizeng/strafforts.svg?style=flat-square)][Strafforts Codecov]
+[![Codecov](https://img.shields.io/codecov/c/github/yizeng/strafforts/master.svg?style=flat-square)][Strafforts Codecov]
 [![Code Climate](https://img.shields.io/codeclimate/github/yizeng/strafforts.svg?style=flat-square)][Strafforts Code Climate]
 [![Gemnasium](https://img.shields.io/gemnasium/yizeng/strafforts.svg?style=flat-square)][Strafforts Gemnasium]
 
