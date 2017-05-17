@@ -12,7 +12,7 @@ module Creators
 
       unless activity_json['best_efforts'].blank?
         activity_json['best_efforts'].each do |best_effort_json|
-          next if best_effort_json['pr_rank'].blank?
+          next if best_effort_json['pr_rank'] != 1
 
           Rails.logger.info("ActivityCreator - Activity #{activity_json['id']} has best efforts.")
           create_activity(activity_json)
