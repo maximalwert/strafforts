@@ -48,9 +48,5 @@ bower.json
 # Exclude RubyMine files.
 .idea
 
-# Ignore TypeScript generated JS files
-/app/assets/javascripts/generated/**/*.js
-/app/assets/javascripts/generated/**/*.js.map
-
 # Ignore public/assets.
 /public/assets/**/*
