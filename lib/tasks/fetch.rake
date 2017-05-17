@@ -22,12 +22,12 @@ namespace :fetch do
 
   desc 'Fetch best efforts for all athletes. Usage: rake fetch:best_efforts [all/latest]'
   task best_efforts: :environment do
-    fetch(ARGV[1], %w(best-efforts))
+    fetch(ARGV[1], %w[best-efforts])
   end
 
   desc 'Fetch races for all athletes. Usage: rake fetch:races [all/latest]'
   task races: :environment do
-    fetch(ARGV[1], %w(races))
+    fetch(ARGV[1], %w[races])
   end
 
   def fetch(mode = nil, type = nil)
