@@ -11,7 +11,7 @@ class RacesController < ApplicationController
         @races = @races.to_show_in_overview
         render json: @races
       else
-        if !!(params[:distance_or_year] =~ /^20\d\d$/)
+        if params[:distance_or_year] =~ /^20\d\d$/
           year = params[:distance_or_year]
           items = Race.find_all_by_athlete_id_and_year(athlete.id, year)
           shaped_items = ApplicationHelper::Helper.shape_races(items, athlete.measurement_preference)
