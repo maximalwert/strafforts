@@ -18,9 +18,11 @@ namespace ChartHelpers {
     }
 
     export function constructChartHtml(id: string, title: string, width: number, withLoadingIcon: boolean = false) {
-        let loadingIcon = '';
+        let content = '';
         if (withLoadingIcon) {
-            loadingIcon = HtmlHelpers.getLoadingIcon();
+            content = HtmlHelpers.getLoadingIcon();
+        } else {
+            content = `<canvas id="${id}"></canvas>`;
         }
 
         const chart = `
@@ -31,7 +33,7 @@ namespace ChartHelpers {
                         <h3 class="box-title">${title}</h3>
                         <div class="box-body">
                             <div class="chart">
-                                <canvas id="${id}"></canvas>
+                                ${content}
                             </div>
                         </div>
                     </div>
