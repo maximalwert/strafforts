@@ -251,11 +251,14 @@ var ChartHelpers;
     ChartHelpers.createChartMessage = createChartMessage;
     function constructChartHtml(id, title, width, withLoadingIcon) {
         if (withLoadingIcon === void 0) { withLoadingIcon = false; }
-        var loadingIcon = '';
+        var content = '';
         if (withLoadingIcon) {
-            loadingIcon = HtmlHelpers.getLoadingIcon();
+            content = HtmlHelpers.getLoadingIcon();
         }
-        var chart = "\n            <div class=\"col-md-" + width + "\">\n                <div class=\"box\">\n                    <div class=\"box-header with-border>\n                        <i class=\"fa fa-pie-chart\"></i>\n                        <h3 class=\"box-title\">" + title + "</h3>\n                        <div class=\"box-body\">\n                            <div class=\"chart\">\n                                <canvas id=\"" + id + "\"></canvas>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        ";
+        else {
+            content = "<canvas id=\"" + id + "\"></canvas>";
+        }
+        var chart = "\n            <div class=\"col-md-" + width + "\">\n                <div class=\"box\">\n                    <div class=\"box-header with-border>\n                        <i class=\"fa fa-pie-chart\"></i>\n                        <h3 class=\"box-title\">" + title + "</h3>\n                        <div class=\"box-body\">\n                            <div class=\"chart\">\n                                " + content + "\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        ";
         return chart;
     }
     ChartHelpers.constructChartHtml = constructChartHtml;
