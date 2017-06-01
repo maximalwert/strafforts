@@ -5,3 +5,5 @@ namespace :assets do
     system('node_modules/.bin/tsc --project app/assets/javascripts/home/')
   end
 end
+
+Rake::Task['assets:precompile'].enhance ['assets:tsc']
