@@ -1,14 +1,14 @@
-//= require dist/js/app.min
+//= require admin-lte/dist/js/app.min
 
-//= require plugins/datatables/jquery.dataTables.min
-//= require plugins/datatables/dataTables.bootstrap.min
-//= require plugins/fastclick/fastclick.min
-//= require plugins/pace/pace.min
-//= require plugins/slimScroll/jquery.slimscroll.min
+//= require admin-lte/plugins/datatables/jquery.dataTables.min
+//= require admin-lte/plugins/datatables/dataTables.bootstrap.min
+//= require admin-lte/plugins/fastclick/fastclick.min
+//= require admin-lte/plugins/pace/pace.min
+//= require admin-lte/plugins/slimScroll/jquery.slimscroll.min
 
-//= require moment.min
-//= require Chart.min
-//= require toastr/toastr.min
+//= require moment/min/moment.min
+//= require chart.js/dist/Chart.min
+//= require toastr/build/toastr.min
 
 //= require generated/athletes.js
 

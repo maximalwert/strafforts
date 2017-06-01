@@ -13,8 +13,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w(
-  html5shiv.min.js
-  respond.min.js
+  html5shiv/dist/html5shiv.min.js
+  respond.js/dest/respond.min.js
   athletes.css
   athletes.js
   errors.css

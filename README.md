@@ -1,4 +1,4 @@
-# Strafforts <img alt="Powered by Strava" src="vendor/assets/strava/api_logo_pwrdBy_strava_horiz_light.png" height="24">
+# Strafforts <img alt="Powered by Strava" src="public/strava-api-logo.png" height="24">
 
 [![GitHub release](https://img.shields.io/github/release/yizeng/strafforts.svg?style=flat-square)][GitHub Tags]
 [![license](https://img.shields.io/github/license/yizeng/strafforts.svg?style=flat-square)](LICENSE)
