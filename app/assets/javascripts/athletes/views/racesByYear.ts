@@ -33,7 +33,7 @@ namespace Views {
                     ${ChartHelpers.constructChartHtml('monthly-distribution-chart', 'Monthly Distribution Chart', 6, showLoadingIcon)}
                 </div>
                 ${this.constructDataTableHtml()}
-                <div class="row">'
+                <div class="row">
                     ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
                     ${ChartHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
                 </div>
