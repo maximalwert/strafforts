@@ -1,14 +1,23 @@
 language: ruby
 sudo: false
-cache: bundler
 
 branches:
   except:
     - gh-pages
 
+cache:
+  - bundler
+  - yarn
+
 rvm:
-  - 2.3.3
-  - 2.4.0
+  - 2.2.7
+  - 2.3.4
+  - 2.4.1
+  - ruby-head
+
+matrix:
+  allow_failures:
+    - rvm: ruby-head
 
 services:
   - postgresql
@@ -17,16 +26,18 @@ bundler_args: --without production
 
 before_install:
   - rm ${BUNDLE_GEMFILE}.lock
+  - nvm install node
+  - npm install -g yarn
 
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
-  - npm install -g typescript
-
-script:
+  - bundle exec rake yarn:install
+  - bundle exec rake assets:tsc
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - RAILS_ENV=test bundle exec rake db:seed
-  - bundle exec rake assets:tsc
+
+script:
   - bundle exec rake test
 
 notifications:
