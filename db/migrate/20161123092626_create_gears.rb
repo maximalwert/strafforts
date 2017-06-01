@@ -1,4 +1,4 @@
-class CreateGears < ActiveRecord::Migration[5.0]
+class CreateGears < ActiveRecord::Migration[5.1]
   def change
     create_table :gears, id: false do |t|
       t.belongs_to :athlete
