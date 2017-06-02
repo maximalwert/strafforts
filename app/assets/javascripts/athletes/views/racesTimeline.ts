@@ -4,6 +4,8 @@ namespace Views {
 
     export class RacesTimeline extends BaseView {
 
+        static distances: string[] = [];
+
         public load(): void {
             const viewUrl = AppHelpers.getBaseUrl() + '/timeline/races';
             super.prepareView(viewUrl, 'Races Timeline');
@@ -39,15 +41,24 @@ namespace Views {
                     `;
                 });
 
+                let distanceFilterButtons = '<button class="btn btn-md hidden show-races-timeline">Show All Distances</button>';
+                RacesTimeline.distances.forEach((distanceText) => {
+                    distanceFilterButtons += `
+                        <button class="btn btn-md race-distance-label">${distanceText}</button>
+                    `;
+                });
+
                 content = `
-                    <div class="col-xs-12 text-center">
-                        <button class="btn btn-sm bg-strava hidden show-races-timeline"> Show All Distances</button>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <ul class="timeline">
-                                ${items}
-                            </ul>
+                    <div class="timeline-wrapper">
+                        <div class="col-xs-12 text-center timeline-filters">
+                            ${distanceFilterButtons}
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <ul class="timeline">
+                                    ${items}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -90,6 +101,11 @@ namespace Views {
                     races.forEach((item) => {
                         const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
 
+                        let distanceId = item['race_distance'].toLowerCase().replace(/\s/g, '-');
+                        if (RacesTimeline.distances.indexOf(item['race_distance']) == -1) {
+                            RacesTimeline.distances.push(item['race_distance']);
+                        }
+
                         let cadence = '';
                         if (item['cadence'] !== '') {
                             cadence = `
@@ -102,11 +118,11 @@ namespace Views {
                         content += `
                             <li>
                                 <i class="fa fa-trophy"></i>
-                                <div class="timeline-item race-distance-${item['race_distance'].toLowerCase().replace(/\s/g, '-')}">
+                                <div class="timeline-item race-distance-${distanceId}">
                                     <span class="time"><i class="fa fa-clock-o"></i>${item['start_date']}</span>
                                     <h3 class="timeline-header">
                                         <a href="${stravaLink}" target="_blank">${item['activity_name']}</a>
-                                        <span class="btn btn-xs race-distance-label">${item['race_distance']}</span>
+                                        <span class="btn btn-xs bg-${distanceId} race-distance-label">${item['race_distance']}</span>
                                     </h3>
                                     <div class="timeline-body">
                                         <div class="activity-data">

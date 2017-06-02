@@ -123,53 +123,56 @@ input[type='submit'] {
         border-top-color: $color-strava;
     }
 
-    .timeline {
-        .time-label {
-            margin-bottom: 20px;
-            margin-left: 12px;
-        }
-        .timeline-item > .time {
-            font-size: inherit;
-        }
-        .timeline-header {
-            padding-bottom: 0;
+    .timeline-wrapper {
+        .timeline {
+            .time-label {
+                margin-bottom: 20px;
+                margin-left: 12px;
+            }
+            .timeline-item > .time {
+                font-size: inherit;
+            }
+            .timeline-header {
+                padding-bottom: 0;
 
-            border: none;
-            a {
-                color: inherit;
-                border-bottom: dotted 1px $color-light-grey;
-                &:hover {
-                    color: #FC4C02;
-                    border-bottom-color: #FC4C02;
+                border: none;
+                a {
+                    color: inherit;
+                    border-bottom: dotted 1px $color-light-grey;
+                    &:hover {
+                        color: #FC4C02;
+                        border-bottom-color: #FC4C02;
+                    }
+                }
+                .race-distance-label {
+                    font-size: 11px;
+
+                    margin: 8px;
+
+                    color: #FFFFFF;
+                    background-color: $color-light-grey;
+
+                    &.bg-marathon {
+                        background-color: $color-red;
+                    }
+                    &.bg-half-marathon {
+                        background-color: $color-yellow;
+                    }
+                    &.bg-10k {
+                        background-color: $color-green;
+                    }
+                    &.bg-5k {
+                        background-color: $color-light-green;
+                    }
                 }
             }
-            .race-distance-label {
-                font-size: 11px;
+            .timeline-body {
+                .activity-data {
+                    display: inline;
 
-                margin: 8px;
-
-                color: #FFFFFF;
-                background-color: $color-light-grey;
+                    margin-right: 8px;
+                }
             }
-        }
-        .timeline-body {
-            .activity-data {
-                display: inline;
-
-                margin-right: 8px;
-            }
-        }
-        .race-distance-marathon .race-distance-label {
-            background-color: $color-red;
-        }
-        .race-distance-half-marathon .race-distance-label {
-            background-color: $color-yellow;
-        }
-        .race-distance-10k .race-distance-label {
-            background-color: $color-green;
-        }
-        .race-distance-5k .race-distance-label {
-            background-color: $color-light-green;
         }
     }
 
