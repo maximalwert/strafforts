@@ -60,7 +60,7 @@ namespace ChartHelpers {
         const canvasElement = $('#' + id).get(0) as HTMLCanvasElement;
         const ctx = canvasElement.getContext('2d');
 
-        const linearOptions: Chart.LinearTickOptions = { beginAtZero: true, stepSize: 1 };
+        const linearOptions: Chart.LinearTickOptions = { autoSkip: false, beginAtZero: true, stepSize: 1 };
         const chart = new Chart(ctx, {
             type: 'bar',
             data: chartData,
@@ -404,7 +404,7 @@ namespace ChartHelpers {
             const canvasElement = $('#' + id).get(0) as HTMLCanvasElement;
             const ctx = canvasElement.getContext('2d');
 
-            const linearOptions: Chart.LinearTickOptions = { beginAtZero: true };
+            const linearOptions: Chart.LinearTickOptions = { autoSkip: false, beginAtZero: true };
             const chart = new Chart(ctx, {
                 type: 'horizontalBar',
                 data,
