@@ -25,7 +25,6 @@ services:
 bundler_args: --without production
 
 before_install:
-  - rm ${BUNDLE_GEMFILE}.lock
   - nvm install node
   - npm install -g yarn
 
