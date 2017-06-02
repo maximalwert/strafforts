@@ -262,6 +262,10 @@ input[type='submit'] {
         }
     }
 
+    canvas {
+        height: 300px;
+    }
+
     /* DataTable styles */
     .dataTables_filter input {
         width: 170px !important;
@@ -356,8 +360,7 @@ input[type='submit'] {
             display: none !important;
         }
     }
-    @media (max-width:768px) {
-    }
+
     @media (max-width: 768px) {
         .hidden-sm-down {
             display: none !important;
