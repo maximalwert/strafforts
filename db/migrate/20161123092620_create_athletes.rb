@@ -1,4 +1,4 @@
-class CreateAthletes < ActiveRecord::Migration[5.0]
+class CreateAthletes < ActiveRecord::Migration[5.1]
   def change
     create_table :athletes do |t|
       t.string :username, index: true

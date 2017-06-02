@@ -1,4 +1,4 @@
-class CreateRaces < ActiveRecord::Migration[5.0]
+class CreateRaces < ActiveRecord::Migration[5.1]
   def change
     create_table :races do |t|
       t.belongs_to :activity

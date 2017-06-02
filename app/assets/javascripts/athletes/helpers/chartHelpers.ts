@@ -22,7 +22,7 @@ namespace ChartHelpers {
         if (withLoadingIcon) {
             content = HtmlHelpers.getLoadingIcon();
         } else {
-            content = `<canvas id="${id}"></canvas>`;
+            content = `<canvas id="${id}" height="300"></canvas>`;
         }
 
         const chart = `
@@ -59,9 +59,8 @@ namespace ChartHelpers {
 
         const canvasElement = $('#' + id).get(0) as HTMLCanvasElement;
         const ctx = canvasElement.getContext('2d');
-        ctx.canvas.height = 300;
 
-        const linearOptions: Chart.LinearTickOptions = { beginAtZero: true };
+        const linearOptions: Chart.LinearTickOptions = { autoSkip: false, beginAtZero: true, stepSize: 1 };
         const chart = new Chart(ctx, {
             type: 'bar',
             data: chartData,
@@ -107,7 +106,6 @@ namespace ChartHelpers {
 
         const canvasElement = $('#' + id).get(0) as HTMLCanvasElement;
         const ctx = canvasElement.getContext('2d');
-        ctx.canvas.height = 300;
 
         const chart = new Chart(ctx, {
             type: 'pie',
@@ -181,7 +179,6 @@ namespace ChartHelpers {
 
             const canvasElement = $('#' + id).get(0) as HTMLCanvasElement;
             const ctx = canvasElement.getContext('2d');
-            ctx.canvas.height = 300;
 
             const myLineChart = new Chart(ctx, {
                 type: 'line',
@@ -198,6 +195,9 @@ namespace ChartHelpers {
                                 display: false,
                             },
                             type: 'time',
+                            ticks: {
+                                autoSkip: true,
+                            },
                             time: {
                                 unit: 'month',
                             },
@@ -406,9 +406,8 @@ namespace ChartHelpers {
 
             const canvasElement = $('#' + id).get(0) as HTMLCanvasElement;
             const ctx = canvasElement.getContext('2d');
-            ctx.canvas.height = 300;
 
-            const linearOptions: Chart.LinearTickOptions = { beginAtZero: true };
+            const linearOptions: Chart.LinearTickOptions = { autoSkip: false, beginAtZero: true };
             const chart = new Chart(ctx, {
                 type: 'horizontalBar',
                 data,

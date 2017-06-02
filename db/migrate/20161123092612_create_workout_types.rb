@@ -1,4 +1,4 @@
-class CreateWorkoutTypes < ActiveRecord::Migration[5.0]
+class CreateWorkoutTypes < ActiveRecord::Migration[5.1]
   def change
     create_table :workout_types do |t|
       t.string :name, index: true

@@ -1,4 +1,4 @@
-class CreateRaceDistances < ActiveRecord::Migration[5.0]
+class CreateRaceDistances < ActiveRecord::Migration[5.1]
   def change
     create_table :race_distances do |t|
       t.float :distance

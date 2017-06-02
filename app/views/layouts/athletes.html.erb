@@ -21,7 +21,10 @@
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]> <%= javascript_include_tag 'html5shiv.min' %> <%= javascript_include_tag 'respond.min' %> <![endif]-->
+    <!--[if lt IE 9]>
+      <%= javascript_include_tag 'html5shiv/dist/html5shiv.min' %>
+      <%= javascript_include_tag 'respond.js/dest/respond.min' %>
+    <![endif]-->
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_link_tag 'athletes', media: 'all' %>

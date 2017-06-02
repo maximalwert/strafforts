@@ -21,7 +21,7 @@ WINDOW_HEIGHT = 800
 # timeout
 TIMEOUT = 5 # seconds
 
-# Determine browser.
+# Determine browser. Example: cucumber BROWSER=chrome
 if ENV['BROWSER'].nil?
   driver = Selenium::WebDriver.for :phantomjs
 else
