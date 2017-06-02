@@ -195,6 +195,9 @@ namespace ChartHelpers {
                                 display: false,
                             },
                             type: 'time',
+                            ticks: {
+                                autoSkip: true,
+                            },
                             time: {
                                 unit: 'month',
                             },
