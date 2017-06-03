@@ -4,7 +4,7 @@ namespace Views {
 
     export class RacesTimeline extends BaseView {
 
-        static distances: string[] = [];
+        private static distances: string[] = [];
 
         public load(): void {
             const viewUrl = AppHelpers.getBaseUrl() + '/timeline/races';
@@ -31,27 +31,33 @@ namespace Views {
 
             const years = this.getRaceYears();
             if (years.length > 0) {
+                let yearsFilterButtons = '';
                 let items = '';
                 years.forEach((year) => {
+                    yearsFilterButtons += `
+                        <button class="btn btn-md btn-race-year" data-race-year="${year}">${year}</button>
+                    `;
                     items += `
-                        <li class="time-label">
+                        <li class="time-label" data-race-year="${year}">
                             <span class="bg-strava">${year}</span>
                         </li>
                         ${this.createRacesTimelineForYear(year)}
                     `;
                 });
 
-                let distanceFilterButtons = '<button class="btn btn-md hidden show-races-timeline">Show All Distances</button>';
+                let distancesFilterButtons = '';
                 RacesTimeline.distances.forEach((distanceText) => {
-                    distanceFilterButtons += `
-                        <button class="btn btn-md race-distance-label">${distanceText}</button>
+                    distancesFilterButtons += `
+                        <button class="btn btn-md btn-race-distance" data-race-distance="${distanceText}">${distanceText}</button>
                     `;
                 });
 
                 content = `
                     <div class="timeline-wrapper">
-                        <div class="col-xs-12 text-center timeline-filters">
-                            ${distanceFilterButtons}
+                        <div class="col-xs-12 text-center filter-buttons">
+                            <button class="btn btn-md hidden show-races-timeline show-all">Show All</button>
+                            ${yearsFilterButtons}
+                            ${distancesFilterButtons}
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
@@ -100,10 +106,10 @@ namespace Views {
                     });
                     races.forEach((item) => {
                         const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
+                        const distance = item['race_distance'];
 
-                        let distanceId = item['race_distance'].toLowerCase().replace(/\s/g, '-');
-                        if (RacesTimeline.distances.indexOf(item['race_distance']) == -1) {
-                            RacesTimeline.distances.push(item['race_distance']);
+                        if (RacesTimeline.distances.indexOf(distance) === -1) {
+                            RacesTimeline.distances.push(distance);
                         }
 
                         let cadence = '';
@@ -118,11 +124,11 @@ namespace Views {
                         content += `
                             <li>
                                 <i class="fa fa-trophy"></i>
-                                <div class="timeline-item race-distance-${distanceId}">
+                                <div class="timeline-item" data-race-distance="${distance}" data-race-year="${year}">
                                     <span class="time"><i class="fa fa-clock-o"></i>${item['start_date']}</span>
                                     <h3 class="timeline-header">
                                         <a href="${stravaLink}" target="_blank">${item['activity_name']}</a>
-                                        <span class="btn btn-xs bg-${distanceId} race-distance-label">${item['race_distance']}</span>
+                                        <span class="btn btn-xs" data-race-distance="${distance}">${distance}</span>
                                     </h3>
                                     <div class="timeline-body">
                                         <div class="activity-data">

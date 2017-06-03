@@ -45,13 +45,41 @@ namespace EventBinders {
                 racesByYearView.load();
             });
 
-            // Bind race distance selection buttons in Races Timeline view.
-            $(document).on('click', '.race-distance-label', (event) => {
-                const distance = $(event.currentTarget).text().toLowerCase().replace(/\s/g, '-');
+            // Bind race filter buttons in Races Timeline view.
+            $(document).on('click', '.filter-buttons .btn', (event) => {
+                // Set the filter button to active upon clicking.
+                $('.filter-buttons .btn').removeClass('active');
+                $('.filter-buttons .show-all').removeClass('hidden').fadeIn(500);
+                $(event.currentTarget).addClass('active');
+            });
 
+            $(document).on('click', '.filter-buttons .btn-race-distance, .timeline-header .btn', (event) => {
+                const distance = $(event.currentTarget).attr('data-race-distance');
+
+                // Show all year labels.
+                $('.time-label').fadeIn(500);
+
+                // Show only timeline items of this distance.
                 $('.timeline-item').parent().hide();
-                $('.timeline-item.race-distance-' + distance).parent().fadeIn(500);
-                $('#main-content .show-races-timeline').removeClass('hidden').fadeIn(500);
+                $(`.timeline-item[data-race-distance='${distance}'`).parent().fadeIn(500);
+            });
+
+            $(document).on('click', '.timeline-header .btn', (event) => {
+                const distance = $(event.currentTarget).attr('data-race-distance');
+
+                // Update the state of filter buttons.
+                $('.filter-buttons .btn').removeClass('active');
+                $(`.filter-buttons [data-race-distance='${distance}'`).addClass('active');
+            });
+
+            $(document).on('click', '.filter-buttons .btn-race-year', (event) => {
+                const year = $(event.currentTarget).attr('data-race-year');
+
+                // Show only time labels, items of this year.
+                $('.time-label').hide();
+                $(`.time-label[data-race-year='${year}'`).fadeIn(500);
+                $('.timeline-item').parent().hide();
+                $(`.timeline-item[data-race-year='${year}'`).parent().fadeIn(500);
             });
 
             // Append PR/Contributions welcome badges upon clicking settings toggle button.
