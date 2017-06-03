@@ -123,53 +123,99 @@ input[type='submit'] {
         border-top-color: $color-strava;
     }
 
-    .timeline {
-        .time-label {
-            margin-bottom: 20px;
-            margin-left: 12px;
-        }
-        .timeline-item > .time {
-            font-size: inherit;
-        }
-        .timeline-header {
-            padding-bottom: 0;
+    .timeline-wrapper {
+        .btn {
+            color: #FFFFFF;
+            background-color: $color-light-grey;
 
-            border: none;
-            a {
-                color: inherit;
-                border-bottom: dotted 1px $color-light-grey;
+            &.active,
+            &:hover {
+                border-color: rgba(0, 0, 0, .2);
+                -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
+                        box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
+            }
+        }
+
+        .filter-buttons {
+            margin: 12px;
+
+            .btn {
+                margin: 2px;
+
+                &.active,
                 &:hover {
-                    color: #FC4C02;
-                    border-bottom-color: #FC4C02;
+                    background-color: $color-strava;
+                    -webkit-box-shadow: none;
+                            box-shadow: none;
                 }
             }
-            .race-distance-label {
-                font-size: 11px;
-
-                margin: 8px;
-
-                color: #FFFFFF;
-                background-color: $color-light-grey;
+            .show-all {
+                background-color: gray;
+                &:hover {
+                    border-color: rgba(0, 0, 0, .2);
+                    -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
+                            box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
+                }
             }
         }
-        .timeline-body {
-            .activity-data {
-                display: inline;
 
-                margin-right: 8px;
+        .timeline {
+            .time-label {
+                margin-bottom: 20px;
+                margin-left: 12px;
             }
-        }
-        .race-distance-marathon .race-distance-label {
-            background-color: $color-red;
-        }
-        .race-distance-half-marathon .race-distance-label {
-            background-color: $color-yellow;
-        }
-        .race-distance-10k .race-distance-label {
-            background-color: $color-green;
-        }
-        .race-distance-5k .race-distance-label {
-            background-color: $color-light-green;
+            .timeline-item > .time {
+                font-size: inherit;
+            }
+            .timeline-header {
+                padding-bottom: 0;
+
+                border: none;
+                a {
+                    color: inherit;
+                    border-bottom: dotted 1px $color-light-grey;
+                    &:hover {
+                        color: #FC4C02;
+                        border-bottom-color: #FC4C02;
+                    }
+                }
+                .btn {
+                    font-size: 11px;
+
+                    margin: 8px;
+                    &[data-race-distance='Marathon'] {
+                        background-color: $color-red;
+                        &:hover {
+                            border-color: rgba(0, 0, 0, .2);
+                        }
+                    }
+                    &[data-race-distance='Half Marathon'] {
+                        background-color: $color-yellow;
+                        &:hover {
+                            border-color: rgba(0, 0, 0, .2);
+                        }
+                    }
+                    &[data-race-distance='10k'] {
+                        background-color: $color-green;
+                        &:hover {
+                            border-color: rgba(0, 0, 0, .2);
+                        }
+                    }
+                    &[data-race-distance='5k'] {
+                        background-color: $color-light-green;
+                        &:hover {
+                            border-color: rgba(0, 0, 0, .2);
+                        }
+                    }
+                }
+            }
+            .timeline-body {
+                .activity-data {
+                    display: inline;
+
+                    margin-right: 8px;
+                }
+            }
         }
     }
 

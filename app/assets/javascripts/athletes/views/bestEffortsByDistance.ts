@@ -76,7 +76,7 @@ namespace Views {
                     // Setup all tables and charts.
                     ChartHelpers.createProgressionChart('progression-chart', items);
                     ChartHelpers.createYearDistributionChart('year-distribution-pie-chart', items);
-                    $('.dataTable').each(function () {
+                    $('.dataTable').each(function() {
                         $(this).DataTable({
                             columnDefs: [{
                                 targets: [1, 3, 4, 6, 7], // Disable searching for WorkoutType, Time, Pace and HRs.
