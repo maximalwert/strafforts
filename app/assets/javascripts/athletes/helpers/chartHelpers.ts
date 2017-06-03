@@ -18,13 +18,7 @@ namespace ChartHelpers {
     }
 
     export function constructChartHtml(id: string, title: string, width: number, withLoadingIcon: boolean = false) {
-        let content = '';
-        if (withLoadingIcon) {
-            content = HtmlHelpers.getLoadingIcon();
-        } else {
-            content = `<canvas id="${id}" height="300"></canvas>`;
-        }
-
+        const content = withLoadingIcon ? HtmlHelpers.getLoadingIcon() : `<canvas id="${id}" height="300"></canvas>`;
         const chart = `
             <div class="col-md-${width}">
                 <div class="box">
@@ -60,7 +54,7 @@ namespace ChartHelpers {
         const canvasElement = $('#' + id).get(0) as HTMLCanvasElement;
         const ctx = canvasElement.getContext('2d');
 
-        const linearOptions: Chart.LinearTickOptions = { autoSkip: false, beginAtZero: true, stepSize: 1 };
+        const linearOptions: Chart.LinearTickOptions = { beginAtZero: true, stepSize: 1 };
         const chart = new Chart(ctx, {
             type: 'bar',
             data: chartData,
@@ -72,6 +66,11 @@ namespace ChartHelpers {
                 responsive: true,
                 scales: {
                     type: 'linear',
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false,
+                        },
+                    }],
                     yAxes: [{
                         ticks: linearOptions,
                     }],
