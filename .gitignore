@@ -62,6 +62,9 @@ bower.json
 
 # Ignore public/assets.
 /public/assets/**/*
+/public/packs/**/*
 
 # Ignore generated JS files.
 /app/assets/javascripts/generated/**
+/app/assets/javascripts/generated/**/public/packs
+/node_modules

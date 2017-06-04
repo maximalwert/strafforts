@@ -65,9 +65,6 @@ group :production do
 
   # Monitor, troubleshoot, and tune production web applications.
   gem 'newrelic_rpm'
-
-  # Heroku needs this gem for Yarn.
-  gem 'webpacker', '~> 2.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -97,3 +94,6 @@ gem 'delayed_job_active_record'
 
 # Add daemons gem to show delayed_job status.
 gem 'daemons'
+
+# Heroku needs this gem for Yarn. Also needed to debug deployment locally.
+gem 'webpacker', '~> 2.0'
