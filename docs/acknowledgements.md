@@ -11,13 +11,15 @@
 - [config](https://github.com/railsconfig/config) - Easiest way to add multi-environment yaml settings to Rails, Sinatra, Pandrino and other Ruby projects.
 - [draper](https://github.com/drapergem/draper) -  Decorators/View-Models for Rails Applications
 - [foreman](https://github.com/ddollar/foreman) - Manage Procfile-based applications
-- ~~[figaro](https://github.com/laserlemon/figaro) - Simple Rails app configuration~~ ***Removed as foreman was used instead.***
+- ~~[figaro](https://github.com/laserlemon/figaro) - Simple Rails app configuration~~ ***Removed as config was used instead.***
 - [strava-api-v3](https://github.com/jaredholdcroft/strava-api-v3) - Strava API V3
+- [delayed_job_active_record](https://github.com/collectiveidea/delayed_job_active_record) - ActiveRecord backend integration for DelayedJob 3.0+
+- [webpacker](https://github.com/rails/webpacker) - Use Webpack to manage app-like JavaScript modules in Rails
 
+### JavaScript
 
-
-### Additional Plugins
-
+- [TypeScript](https://www.typescriptlang.org/) - TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
+- [Yarn](https://yarnpkg.com/en/) - Fast, reliable, and secure dependency management.
 - [Chart.js](http://www.chartjs.org/) - Simple yet flexible JavaScript charting for designers & developers
 - [HTML5 Shiv](https://github.com/aFarkas/html5shiv) - This script is the defacto way to enable use of HTML5 sectioning elements in legacy Internet Explorer.
 - [jQuery Easing](http://gsgd.co.uk/sandbox/jquery/easing/) -  Uses the built in easing capabilities added In jQuery 1.1 to offer multiple easing options
@@ -32,9 +34,11 @@
 ### Add-ons
 
 - [PaperTrail](https://papertrailapp.com) - The log management service we always wanted. Papertrail makes logs fun. Ish.
+- [Trevor.io](https://trevor.io/) - Postgres Data Explorer your whole team can use.
 
 ## Testing
 
+- [Travis CI](https://travis-ci.org/) - A hosted, distributed continuous integration service used to build and test software projects hosted at GitHub.
 - [Cucumber](https://cucumber.io/) - Runs automated acceptance tests written in a behavior-driven development (BDD) style
 - [Selenium WebDriver](https://github.com/SeleniumHQ/selenium) - A browser automation framework and ecosystem.
 
