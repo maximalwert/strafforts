@@ -22,3 +22,12 @@ three:
   lastname: 'Killgrave'
   username: 'zebediah.illgrave'
   is_public: true
+
+four:
+  id: 1111
+  access_token: 'e7fc9730074ef18d97e49c660ba4ca29'
+  username: 'bruce.banner'
+  city_id: 1
+  country_id: 1
+  friend_count: 20
+  follower_count: 500
