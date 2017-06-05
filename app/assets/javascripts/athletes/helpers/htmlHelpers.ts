@@ -93,6 +93,7 @@ namespace HtmlHelpers {
     }
 
     export function getDatatableRowForBestEfforts(item: any[]) {
+        const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
         const row = `
             <tr>
                 <td>${item['start_date']}</td>
@@ -100,7 +101,7 @@ namespace HtmlHelpers {
                     <span class="label workout-type-${item['workout_type_name'].replace(/ /g, '-')}">${item['workout_type_name']}</span>
                 </td>
                 <td>
-                    <a class="strava-activity-link" href="https://www.strava.com/activities/${item['activity_id']}" target="_blank">
+                    <a class="strava-activity-link" href="${stravaLink}" target="_blank">
                         ${item['activity_name']}
                     </a>
                 </td>
@@ -129,14 +130,17 @@ namespace HtmlHelpers {
     }
 
     export function getDatatableRowForRaces(item: any[]) {
+        const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
         const row = `
             <tr>
                 <td>${item['start_date']}</td>
                 <td>
-                    <a class="strava-logo-link" href="https://www.strava.com/activities/${item['activity_id']}" target="_blank">
+                    <a class="strava-logo-link" href="${stravaLink}" target="_blank">
                         <span></span>
                     </a>
-                    <a href="https://www.strava.com/activities/${item['activity_id']}" target="_blank">${item['activity_name']}</a>
+                    <a class="strava-activity-link" href="${stravaLink}" target="_blank">
+                        ${item['activity_name']}
+                    </a>
                 </td>
                 <td>
                     ${item['elapsed_time_formatted']}

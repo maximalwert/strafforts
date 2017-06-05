@@ -119,9 +119,9 @@ namespace Views {
                         <div class="box">
                             <div class="box-header with-border>
                                 <i class="fa fa-bar-chart-o"></i><h3 class="box-title">Data Table</h3>
-                                <div class="box-body">
-                                    ${table}
-                                </div>
+                            </div>
+                            <div class="box-body">
+                                ${table}
                             </div>
                         </div>
                     </div>
