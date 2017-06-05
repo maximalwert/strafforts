@@ -33,7 +33,7 @@ class AthleteDecorator < Draper::Decorator
 
   def fullname
     if object.firstname.blank? && object.lastname.blank?
-      'John Smith'
+      'Strava User'
     else
       "#{object.firstname} #{object.lastname}"
     end

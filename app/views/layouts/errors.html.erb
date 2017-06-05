@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title><%= @error_page_title %></title>
 
@@ -10,8 +10,13 @@
 
     <!-- SEO meta tags -->
     <meta name="author" content="Yi Zeng">
-    <meta name="description" content="<%= Settings.app.html_meta_description %>"/>
+    <meta property="og:title" content="<%= Settings.app.title %>" />
+    <meta property="og:locale" content="en" />
+    <meta name="description" content="<%= Settings.app.html_meta_description %>" />
+    <meta property="og:description" content="<%= Settings.app.html_meta_description %>" />
+    <meta property="og:url" content="<%= Settings.app.production_url %>" />
     <meta name="keywords" content="<%= Settings.app.html_meta_keywords %>"/>
+    <script type="application/ld+json">{"@context": "http://schema.org","@type": "WebSite","name": "Straffrots","author":"Yi Zeng","description":"<%= Settings.app.html_meta_description %>","url": "<%= Settings.app.production_url %>"}</script>
 
     <%= csrf_meta_tags %>
 
