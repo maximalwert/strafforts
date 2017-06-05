@@ -69,18 +69,24 @@
         <h2>About</h2>
         <p>
           Strafforts is a web app that calls
-          <a class="external" href="https://strava.github.io/api/" target="_blank">Strava API</a>
+          <%= link_to "Strava API", "https://strava.github.io/api/", target: "_blank", class: "external" %>
           to fetch athlete's
-          <a class="external" href="https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running" target="_blank">estimated best efforts</a>
-          and races data, then visualize them in forms of data tables, line charts and pie charts, in such way athletes can perform some analysis, like half marathon PB
+          <%= link_to "estimated best efforts", "https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running", target: "_blank", class: "external" %>
+          and <%= link_to "races", "https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs", target: "_blank", class: "external" %> data,
+          then visualize them in forms of data tables, line charts and pie charts, in such way athletes can perform some analysis, like half marathon PB
           progression, fastest shoes used for a 10K race, how often 5K PB gets set, etc.
         </p>
         <p>
-          Originally developed as a personal open source
-          <a class="external" href="https://github.com/yizeng/strava-best-efforts" target="_blank">Ruby console app</a>
-          just for fun, Strafforts has now been rewritten in
-          <a class="external" href="http://rubyonrails.org/" target="_blank">Ruby on Rails</a>, so that athletes can connect Strafforts with their Strava accounts and see visualized best efforts automatically.
+          This app is absolutely free and <%= link_to "open source", "https://github.com/yizeng/strafforts", target: "_blank", class: "external" %>.
+          It doesn't modify any of your data on <%= link_to "Strava", "https://www.strava.com/", target: "_blank", class: "external" %> or store your Strava password.
+          All you need to do is to connect this app with your Strava account by clicking "<%= link_to "Connect with Strava", "#connect" %>" button
+          and wait for our background worker to fetch and visualize your data.
         </p>
+      <h3>FAQ</h3>
+      <p>
+        <%= link_to "What are 'Estimated Best Efforts'?", "https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running", target: "_blank", class: "external" %><br />
+        <%= link_to "What are Strava races and how to create them?", "https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs", target: "_blank", class: "external" %>
+      </p>
       </div>
     </div>
   </section>
@@ -92,7 +98,7 @@
         <div class="col-lg-8 col-lg-offset-2">
           <div class="heading-text">
             <h2>Demo</h2>
-            <p>Have a look at how my Strava estimated best efforts and races are visualized.</p>
+            <p>See how my Strava estimated best efforts and races are visualized.</p>
             <ul class="list-inline banner-social-buttons">
               <li>
                 <a href="<%= @demo_path %>" class="btn btn-default btn-lg view-demo">
@@ -127,8 +133,7 @@
 <!-- Footer -->
 <footer>
   <div class="container text-center">
-    <p>App designed and developed by
-      <a class="external" href="http://yizeng.me" target="_blank">Yi Zeng</a>.</p>
+    <p>App designed and developed by <%= link_to "Yi Zeng", "http://yizeng.me", target: "_blank", class: "external" %>.</p>
   </div>
 </footer>
 
