@@ -39,16 +39,16 @@ $(document).ready(() => {
     });
 
     // Google Analytics event tracking.
-    $('.external').on('click', () => {
-        GoogleAnalyticsHelpers.sendOutboundLinkClickingEvent($(this).attr('href'));
+    $('.external').on('click', (event) => {
+        GoogleAnalyticsHelpers.sendOutboundLinkClickingEvent($(event.currentTarget).attr('href'));
     });
-    $('.navbar-brand, .navbar-nav a').on('click', () => {
-        GoogleAnalyticsHelpers.sendEvent('Home', 'Navigate', this.textContent);
+    $('.navbar-brand, .navbar-nav a').on('click', (event) => {
+        GoogleAnalyticsHelpers.sendEvent('Home', 'Navigate', event.currentTarget.textContent);
     });
-    $('.view-demo').on('click', () => {
-        GoogleAnalyticsHelpers.sendEvent('Home', 'View Demo', this.textContent);
+    $(':not(.error-section) .btn').on('click', (event) => {
+        GoogleAnalyticsHelpers.sendEvent('Home', event.currentTarget.textContent, event.currentTarget.textContent);
     });
-    $('.connect-strava').on('click', () => {
-        GoogleAnalyticsHelpers.sendEvent('Home', 'Connect Strava', this.textContent);
+    $('.error-section .btn').on('click', (event) => {
+        GoogleAnalyticsHelpers.sendEvent('Error', event.currentTarget.textContent, event.currentTarget.textContent);
     });
 });

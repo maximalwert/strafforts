@@ -33,39 +33,28 @@ class AthleteDecorator < Draper::Decorator
 
   def fullname
     if object.firstname.blank? && object.lastname.blank?
-      'John Smith'
+      'Strava User'
     else
-      "#{object.firstname} #{object.lastname}"
+      "#{object.firstname} #{object.lastname}".to_s.strip
     end
   end
 
   def location
     return '' if object.city.nil? && object.country.nil?
-    if object.city.nil?
-      if object.country.name.blank?
-        return ''
-      else
-        return object.country.name
-      end
-    end
-    if object.country.nil?
-      if object.city.name.blank?
-        return ''
-      else
-        return object.city.name
-      end
-    end
+    return object.country.name.to_s.strip if object.city.nil?
+    return object.city.name.to_s.strip if object.country.nil?
+
     return '' if object.city.name.blank? && object.country.name.blank?
-    return object.country.name if object.city.name.blank? && !object.country.name.blank?
-    return object.city.name if !object.city.name.blank? && object.country.name.blank?
-    "#{object.city.name}, #{object.country.name}"
+    return object.country.name.to_s.strip if object.city.name.blank?
+    return object.city.name.to_s.strip if object.country.name.blank?
+    "#{object.city.name.to_s.strip}, #{object.country.name.to_s.strip}"
   end
 
   def friend_count
     if object.friend_count.blank?
       '0'
     else
-      object.friend_count.to_s
+      object.friend_count.to_s.strip
     end
   end
 
@@ -73,7 +62,7 @@ class AthleteDecorator < Draper::Decorator
     if object.follower_count.blank?
       '0'
     else
-      object.follower_count.to_s
+      object.follower_count.to_s.strip
     end
   end
 

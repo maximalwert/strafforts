@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <% if !@athlete.nil? && !@athlete.fullname.blank? %>
+    <% if !@athlete.nil? %>
         <title><%= Settings.app.name %> | <%= @athlete.fullname %> | Overview</title>
     <% else %>
         <title><%= Settings.app.title %></title>
@@ -14,8 +14,17 @@
 
     <!-- SEO meta tags -->
     <meta name="author" content="Yi Zeng">
-    <meta name="description" content="<%= Settings.app.html_meta_description %>"/>
-    <meta name="keywords" content="<%= Settings.app.html_meta_keywords %>"/>
+    <% if !@athlete.nil? && !@athlete.fullname.blank? %>
+        <meta property="og:title" content="<%= Settings.app.name %> | <%= @athlete.fullname %> | Overview" />
+    <% else %>
+        <meta property="og:title" content="<%= Settings.app.title %>" />
+    <% end %>
+    <meta property="og:locale" content="en" />
+    <meta name="description" content="<%= Settings.app.html_meta_description_for_athletes %><%= (@athlete.nil?) ? "Strava User" : @athlete.fullname %>." />
+    <meta property="og:description" content="<%= Settings.app.html_meta_description_for_athletes %><%= (@athlete.nil?) ? "Strava User" : @athlete.fullname %>." />
+    <meta property="og:url" content="<%= Settings.app.production_url %>" />
+    <meta name="keywords" content="<%= Settings.app.html_meta_keywords %><%= (@athlete.nil?) ? "Strava User" : @athlete.fullname %>"/>
+    <script type="application/ld+json">{"@context": "http://schema.org","@type": "WebSite","name": "Straffrots","author":"Yi Zeng","description":"<%= Settings.app.html_meta_description_for_athletes %><%= (@athlete.nil?) ? "Strava User" : @athlete.fullname %>.","url": "<%= Settings.app.production_url %>/athletes/<%= @athlete.id %>"}</script>
 
     <%= csrf_meta_tags %>
 

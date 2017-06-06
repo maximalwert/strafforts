@@ -24,22 +24,22 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
 1. Clone and config repository
 
-        git clone https://github.com/yizeng/strafforts.git
+       git clone https://github.com/yizeng/strafforts.git
 
 2. Install required gems
 
-        gem install bundler foreman
+       gem install bundler foreman
 
 3. Bundle install
 
-        cd strafforts
-        bundle install
+       cd strafforts
+       bundle install
 
 4. Generate secret tokens and create `secrets.yml`
 
     Use the command below to generate to two secret tokens, one for development and one for test:
 
-        bundle exec rake secret
+       bundle exec rake secret
 
     Create a file called `config/secrets.yml` file like the following:
 
@@ -72,33 +72,40 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
     Then add the following configurations items in:
 
-        GOOGLE_ANALYTICS_TRACKING_CODE=add_this_line_if_you_have_one_setup
-        STRAVA_API_CLIENT_ID=replace_with_client_id_of_your_strava_api_application
-        STRAVA_API_CLIENT_SECRET=replace_with_client_secret_of_your_strava_api_application
+       GOOGLE_ANALYTICS_TRACKING_CODE=add_this_line_if_you_have_one_setup
+       STRAVA_API_CLIENT_ID=replace_with_client_id_of_your_strava_api_application
+       STRAVA_API_CLIENT_SECRET=replace_with_client_secret_of_your_strava_api_application
 
 6. Create, migrate and seed database
 
-        rake db:create && rake db:migrate && rake db:seed
+       rake db:create && rake db:migrate && rake db:seed
 
-7. Compile TypeScript files to JavaScript
+7. Install JS dependencies
+
+    The app uses [Yarn][Yarn] to manage JS dependencies. Please first make sure it's properly installed. Then use the following command to install:
+
+       yarn install
+
+8. Compile TypeScript files to JavaScript
 
     The app uses [TypeScript][TypeScript] instead of JavaScripts. Compilation is needed before starting the server. A custom rake command has been written for this purpose.
+    You will need to run this command everytime any TypeScript file is changed, until a native webpack way is implemented in this app.
 
        rake aseets:tsc
 
-8. Fire up web server and worker
+9. Fire up web server and worker
 
-        foreman start
+       foreman start
 
       This should fire up a Rails web server and a process worker using [Foreman][Foreman],
       which can be accessed from <http://localhost:5000> by default.
 
-9. Connect with Strava
+10. Connect with Strava
 
       From <http://localhost:5000>, connect with your Strava account.
       If it succeeds, it should redirect to the athlete overview page.
 
-10. Fetch data manually if needed
+11. Fetch data manually if needed
 
     Foreman's worker process should fetch all estimated best efforts once Strafforts has connected to Strava. Alternatively, the same can be achieved by the following rake tasks:
 
@@ -108,7 +115,7 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
         rake fetch:latest                       # Fetch the latest data for all athletes
         rake fetch:races                        # Fetch races for all athletes. Usage: rake fetch:races [all/latest]
 
-11. Run tests
+12. Run tests
 
       There are few but not a lot of tests written. If you wish to run them, please follow the steps below:
 
@@ -179,4 +186,5 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 [Sqlite]: https://sqlite.org/
 [Heroku]: https://www.heroku.com/
 [Foreman]: https://github.com/ddollar/foreman
+[Yarn]: https://yarnpkg.com/en/
 [TypeScript]: https://www.typescriptlang.org/

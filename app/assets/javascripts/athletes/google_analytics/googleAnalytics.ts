@@ -69,17 +69,17 @@ namespace GoogleAnalytics {
                 const value = (event.currentTarget as HTMLSelectElement).value;
                 GoogleAnalyticsHelpers.sendEvent('Athletes', 'Select DataTable number of entries', value);
             });
-            $('#main-content').delegate('.dataTables_wrapper .datatable thead th', 'click', (event) => {
+            $('#main-content').delegate('.dataTables_wrapper .dataTable thead th', 'click', (event) => {
                 GoogleAnalyticsHelpers.sendEvent('Athletes', 'Sort DataTable Column', event.currentTarget.textContent);
             });
-            $('#main-content').delegate('.strava-activity-link', 'click', () => {
-                GoogleAnalyticsHelpers.sendEvent('Athletes', 'View Activity on Strava');
+            $('#main-content').delegate('.strava-activity-link', 'click', (event) => {
+                GoogleAnalyticsHelpers.sendEvent('Athletes', 'View Activity on Strava', $(event.currentTarget).attr('href'));
             });
-            $('#main-content').delegate('.timeline .race-distance-label', 'click', (event) => {
-                GoogleAnalyticsHelpers.sendEvent('Athletes', 'Filter Distance in Timeline', event.currentTarget.textContent);
+            $('#main-content').delegate('.timeline .btn', 'click', (event) => {
+                GoogleAnalyticsHelpers.sendEvent('Athletes', 'Filter timeline by header', event.currentTarget.textContent);
             });
-            $('#main-content').delegate('.show-races-timeline', 'click', () => {
-                GoogleAnalyticsHelpers.sendEvent('Athletes', 'Show All Distances');
+            $('#main-content').delegate('.filter-buttons .btn', 'click', (event) => {
+                GoogleAnalyticsHelpers.sendEvent('Athletes', 'Filter Timeline', event.currentTarget.textContent);
             });
         };
         return eventBinders;

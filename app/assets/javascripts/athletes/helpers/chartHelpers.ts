@@ -25,10 +25,10 @@ namespace ChartHelpers {
                     <div class="box-header with-border>
                         <i class="fa fa-pie-chart"></i>
                         <h3 class="box-title">${title}</h3>
-                        <div class="box-body">
-                            <div class="chart">
-                                ${content}
-                            </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="chart">
+                            ${content}
                         </div>
                     </div>
                 </div>
