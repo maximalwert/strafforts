@@ -339,6 +339,15 @@ ul.banner-social-buttons {
             margin-bottom: 0;
         }
     }
+
+    .btn-connect-with-strava img {
+        width: auto;
+        height: 40px;
+    }
+    .btn-powered-by-strava img {
+        width: auto;
+        height: 50px;
+    }
 }
 @media(max-width:1199px) {
     ul.banner-social-buttons {
