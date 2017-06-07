@@ -204,7 +204,7 @@ a:hover {
             }
 
             .intro-text {
-                font-size: 25px;
+                font-size: 24px;
             }
         }
     }
@@ -338,6 +338,15 @@ ul.banner-social-buttons {
         &:last-child {
             margin-bottom: 0;
         }
+    }
+
+    .btn-connect-with-strava img {
+        width: auto;
+        height: 40px;
+    }
+    .btn-powered-by-strava img {
+        width: auto;
+        height: 50px;
     }
 }
 @media(max-width:1199px) {
