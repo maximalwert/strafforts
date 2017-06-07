@@ -12,7 +12,7 @@ end
 
 # navigation
 SITE_URL = 'http://localhost:5000'.freeze # Port 5000 when using 'foreman start'
-SITE_TITLE = 'Strafforts - A Visualizer for Strava Estimated Best Efforts and Races'.freeze
+SITE_TITLE = 'Strafforts - An Analytics App for Strava Estimated Best Efforts and Races'.freeze
 
 # window
 WINDOW_WIDTH = 1200
