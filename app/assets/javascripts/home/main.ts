@@ -48,7 +48,7 @@ $(document).ready(() => {
     $(':not(.error-section) .btn').on('click', (event) => {
         GoogleAnalyticsHelpers.sendEvent('Home', event.currentTarget.textContent, event.currentTarget.textContent);
     });
-    $('.btn-connect-strava').on('click', (event) => {
+    $('.btn-connect-with-strava').on('click', (event) => {
         GoogleAnalyticsHelpers.sendEvent('Home', 'Connect with Strava', 'Connect with Strava');
     });
     $('.error-section .btn').on('click', (event) => {
