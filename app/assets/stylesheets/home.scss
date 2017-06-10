@@ -226,8 +226,6 @@ img::-moz-selection {
 
     .intro-body {
         .brand-heading {
-            font-size: 40px;
-
             padding-top: 20px;
         }
 
@@ -313,6 +311,10 @@ img::-moz-selection {
 }
 
 @media(max-width:767px) {
+    .navbar-brand {
+        padding-top: 20px;
+    }
+
     .heading-text {
         padding-bottom: 15px;
     }
