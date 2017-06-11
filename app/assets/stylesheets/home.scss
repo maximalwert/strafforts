@@ -315,8 +315,16 @@ img::-moz-selection {
         padding-top: 20px;
     }
 
-    .heading-text {
-        padding-bottom: 15px;
+    .intro {
+        .intro-body {
+            .brand-heading {
+                font-size: 32px;
+            }
+        }
+    }
+
+    p {
+        font-size: 16px;
     }
 
     ul.banner-social-buttons li {
