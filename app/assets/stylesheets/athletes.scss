@@ -118,6 +118,20 @@ input[type='submit'] {
     }
 }
 
+.content-wrapper {
+    .global-message {
+        font-size: 16px;
+        font-weight: 600;
+
+        z-index: 999999;
+
+        padding: 20px 30px;
+
+        color: #FFFFFF;
+        background: #F39C12;
+    }
+}
+
 #main-content {
     .nav-tabs-custom > .nav-tabs > li.active {
         border-top-color: $color-strava;
@@ -400,45 +414,6 @@ input[type='submit'] {
     .workout-type-workout {
         background-color: $color-yellow;
     }
-
-    @media (max-width: 544px) {
-        .hidden-xs-down {
-            display: none !important;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .hidden-sm-down {
-            display: none !important;
-        }
-        div.dataTables_wrapper > div.row > div,
-        div.dataTables_length,
-        div.dataTables_filter,
-        div.dataTables_info,
-        div.dataTables_paginate {
-            text-align: left;
-        }
-    }
-    @media (max-width: 992px) {
-        .hidden-md-down {
-            display: none !important;
-        }
-    }
-    @media (max-width: 1200px) {
-        .hidden-lg-down {
-            display: none !important;
-        }
-    }
-    @media (max-width: 1440px) {
-        .dataTable td {
-            font-size: .9em !important;
-        }
-        .strava-logo-link span {
-            margin-right: 0 !important;
-
-            content: none !important;
-        }
-    }
 }
 
 .main-footer {
@@ -546,5 +521,59 @@ body.page-loading:not(.pace-done):before {
         height: 2px;
 
         background: $color-strava;
+    }
+}
+
+/* Responsive */
+@media (max-width: 544px) {
+    .hidden-xs-down {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hidden-sm-down {
+        display: none !important;
+    }
+    #main-conent {
+        div.dataTables_wrapper > div.row > div,
+        div.dataTables_length,
+        div.dataTables_filter,
+        div.dataTables_info,
+        div.dataTables_paginate {
+            text-align: left;
+        }
+    }
+}
+@media (min-width: 768px) {
+    .hidden-sm-up {
+        display: none !important;
+    }
+}
+@media (max-width: 992px) {
+    .hidden-md-down {
+        display: none !important;
+    }
+}
+@media (min-width: 992px) {
+    .hidden-md-up {
+        display: none !important;
+    }
+}
+@media (max-width: 1200px) {
+    .hidden-lg-down {
+        display: none !important;
+    }
+}
+@media (max-width: 1440px) {
+    #main-conent {
+        .dataTable td {
+            font-size: .9em !important;
+        }
+        .strava-logo-link span {
+            margin-right: 0 !important;
+
+            content: none !important;
+        }
     }
 }
