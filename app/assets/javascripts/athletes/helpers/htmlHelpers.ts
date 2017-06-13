@@ -115,13 +115,13 @@ namespace HtmlHelpers {
                     ${item['gear_name']}
                 </td>
                 <td class="text-center badge-cell hidden-md-down">
-                    <span class="badge ${item['average_hr_zone_class']}">
-                        ${item['average_heartrate']}
+                    <span class="badge hr-zone-${item['average_hr_zone']}">
+                        ${item['average_heartrate'] === -1 ? 'n/a' : item['average_heartrate']}
                     </span>
                 </td>
                 <td class="text-center badge-cell hidden-md-down">
-                    <span class="badge ${item['max_hr_zone_class']}">
-                        ${item['max_heartrate']}
+                    <span class="badge hr-zone-${item['max_hr_zone']}">
+                        ${item['max_heartrate'] === -1 ? 'n/a' : item['max_heartrate']}
                     </span>
                 </td>
             </tr>
@@ -158,13 +158,13 @@ namespace HtmlHelpers {
                     ${item['cadence']}
                 </td>
                 <td class="text-center badge-cell hidden-md-down">
-                    <span class="badge ${item['average_hr_zone_class']}">
-                        ${item['average_heartrate']}
+                    <span class="badge hr-zone-${item['average_hr_zone']}">
+                        ${item['average_heartrate'] === -1 ? 'n/a' : item['average_heartrate']}
                     </span>
                 </td>
                 <td class="text-center badge-cell hidden-md-down">
-                    <span class="badge ${item['max_hr_zone_class']}">
-                        ${item['max_heartrate']}
+                    <span class="badge hr-zone-${item['max_hr_zone']}">
+                        ${item['max_heartrate'] === -1 ? 'n/a' : item['max_heartrate']}
                     </span>
                 </td>
             </tr>

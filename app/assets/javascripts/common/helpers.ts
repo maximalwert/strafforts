@@ -16,7 +16,7 @@ namespace Helpers {
         return time;
     }
 
-    export function getRgbColors() {
+    export function getRgbColors(limit?: number) {
         const colors: RgbColor[] = [
             new RgbColor(189, 214, 186),
             new RgbColor(245, 105, 84),
@@ -33,7 +33,7 @@ namespace Helpers {
             new RgbColor(212, 154, 106),
             new RgbColor(78, 156, 104),
         ];
-        return colors;
+        return limit ? colors.slice(0, limit) : colors;
     }
 
     export function convertToRgbaColors(rgbColors: RgbColor[], alpha: number) {

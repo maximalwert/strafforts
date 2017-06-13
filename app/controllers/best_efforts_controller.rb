@@ -4,9 +4,11 @@ class BestEffortsController < ApplicationController
     if athlete.nil?
       raise ActionController::RoutingError, "Could not find athlete '#{params[:id_or_username]}' by id or username."
     else
+
+      heart_rate_zones = ApplicationHelper::Helper.get_heart_rate_zones(athlete.id)
       if params[:distance].blank?
         items = BestEffort.find_all_by_athlete_id(athlete.id)
-        shaped_items = ApplicationHelper::Helper.shape_best_efforts(items, athlete.measurement_preference)
+        shaped_items = ApplicationHelper::Helper.shape_best_efforts(items, heart_rate_zones, athlete.measurement_preference)
         @best_efforts = BestEffortsDecorator.new(shaped_items)
         @best_efforts = @best_efforts.to_show_in_overview
         render json: @best_efforts
@@ -20,7 +22,7 @@ class BestEffortsController < ApplicationController
           raise ActionController::BadRequest, "Could not find requested best effort type '#{distance}'."
         else
           items = BestEffort.find_all_by_athlete_id_and_best_effort_type_id(athlete.id, best_effort_type.id)
-          shaped_items = ApplicationHelper::Helper.shape_best_efforts(items, athlete.measurement_preference)
+          shaped_items = ApplicationHelper::Helper.shape_best_efforts(items, heart_rate_zones, athlete.measurement_preference)
           render json: shaped_items
         end
       end
