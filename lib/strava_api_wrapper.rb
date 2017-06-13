@@ -5,14 +5,20 @@ class StravaApiWrapper
 
   def retrieve_current_athlete
     Rails.logger.info('StravaApiWrapper - Retrieving current athlete information.')
-    athlete_json = @api_client.retrieve_current_athlete
-    athlete_json
+    athlete = @api_client.retrieve_current_athlete
+    athlete
+  end
+
+  def retrieve_current_athlete_zones
+    Rails.logger.info('StravaApiWrapper - Retrieving current athlete zones.')
+    zones = @api_client.retrieve_current_athlete_zones
+    zones
   end
 
   def retrieve_an_activity(activity_id)
     Rails.logger.info("StravaApiWrapper - Retrieving activity #{activity_id}.")
-    activity_json = @api_client.retrieve_an_activity(activity_id)
-    activity_json
+    activity = @api_client.retrieve_an_activity(activity_id)
+    activity
   end
 
   def list_all_athlete_activities

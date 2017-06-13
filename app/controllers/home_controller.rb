@@ -26,6 +26,7 @@ class HomeController < ApplicationController
         result = JSON.parse(response.body)
         access_token = result['access_token']
         ::Creators::AthleteCreator.create_or_update(result['athlete'], access_token)
+        ::Creators::HeartRateZonesCreator.create_or_update(result['athlete']['id']) # Create default heart rate zones first.
 
         # Add a delayed_job to fetch data for this athlete.
         fetcher = ::ActivityFetcher.new(access_token)
@@ -55,6 +56,7 @@ class HomeController < ApplicationController
         Athlete.where(id: athlete.id).destroy_all
         BestEffort.where(athlete_id: athlete.id).destroy_all
         Gear.where(athlete_id: athlete.id).destroy_all
+        HeartRateZones.where(athlete_id: athlete.id).destroy_all
       end
 
       # Revoke Strava access.

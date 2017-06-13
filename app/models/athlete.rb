@@ -9,6 +9,7 @@ class Athlete < ApplicationRecord
   has_many :activities
   has_many :best_efforts
   has_many :gears
+  has_many :heart_rate_zones
   has_many :races
 
   def self.find_by_access_token(access_token)

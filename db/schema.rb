@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227095758) do
+ActiveRecord::Schema.define(version: 20170610095813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,6 +144,23 @@ ActiveRecord::Schema.define(version: 20170227095758) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["athlete_id"], name: "index_gears_on_athlete_id"
+  end
+
+  create_table "heart_rate_zones", force: :cascade do |t|
+    t.integer "athlete_id"
+    t.boolean "custom_zones"
+    t.integer "zone_1_min"
+    t.integer "zone_1_max"
+    t.integer "zone_2_min"
+    t.integer "zone_2_max"
+    t.integer "zone_3_min"
+    t.integer "zone_3_max"
+    t.integer "zone_4_min"
+    t.integer "zone_4_max"
+    t.integer "zone_5_min"
+    t.integer "zone_5_max"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "race_distances", id: :serial, force: :cascade do |t|

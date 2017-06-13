@@ -1,7 +1,7 @@
 module Creators
   class ActivityCreator
-    def self.create_or_update(activity_raw)
-      activity_json = JSON.parse(activity_raw.to_json)
+    def self.create_or_update(activity_hash)
+      activity_json = JSON.parse(activity_hash.to_json)
       Rails.logger.debug("ActivityCreator - Activity JSON: #{activity_json}")
 
       if activity_json['workout_type'].to_i == 1

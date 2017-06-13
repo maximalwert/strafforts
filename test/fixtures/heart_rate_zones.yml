@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  athlete_id: 123
+  custom_zones: false
+  zone_1_min: 0
+  zone_1_max: 123
+  zone_2_min: 123
+  zone_2_max: 153
+  zone_3_min: 153
+  zone_3_max: 169
+  zone_4_min: 169
+  zone_4_max: 184
+  zone_5_min: 184
+  zone_5_max: -1
