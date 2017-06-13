@@ -48,7 +48,7 @@ module ApplicationHelper
     def self.get_heart_rate_zones(athlete_id)
       heart_rate_zones = HeartRateZones.find_by_athlete_id(athlete_id)
       if heart_rate_zones.nil?
-        create_default_heart_rate_zones
+        return create_default_heart_rate_zones
       end
       heart_rate_zones
     end
