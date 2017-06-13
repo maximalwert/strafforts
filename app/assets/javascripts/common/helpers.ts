@@ -36,6 +36,30 @@ namespace Helpers {
         return limit ? colors.slice(0, limit) : colors;
     }
 
+    export function getRgbColorBasedOnHrZone(heartRateZone: string) {
+        // Defined in app/assets/stylesheets/athletes.scss.
+        const colorHrZone1 = new RgbColor(189, 214, 186);
+        const colorHrZone2 = new RgbColor(0, 166, 90);
+        const colorHrZone3 = new RgbColor(243, 156, 18);
+        const colorHrZone4 = new RgbColor(200, 35, 0);
+        const colorHrZone5 = new RgbColor(17, 17, 17);
+
+        switch (heartRateZone) {
+            case'1':
+                return colorHrZone1;
+            case'2':
+                return colorHrZone2;
+            case'3':
+                return colorHrZone3;
+            case'4':
+                return colorHrZone4;
+            case'5':
+                return colorHrZone5;
+            default:
+                return colorHrZone1;
+        }
+    }
+
     export function convertToRgbaColors(rgbColors: RgbColor[], alpha: number) {
         const colors: string[] = [];
         rgbColors.forEach((item, index) => {

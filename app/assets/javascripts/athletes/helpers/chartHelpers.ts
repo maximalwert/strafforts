@@ -73,6 +73,23 @@ namespace ChartHelpers {
         createChart(id, 'bar', chartData, chartOptions);
     }
 
+    function createBubbleChart(
+        id: string,
+        chartData: Chart.ChartData,
+        customChartOptions?: Chart.ChartOptions) {
+
+        const defaultChartOptions = {
+            legend: {
+                display: false,
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+        };
+
+        const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
+        createChart(id, 'bubble', chartData, chartOptions);
+    }
+
     function createHorizontalBarChart(
         id: string,
         data: number[],
@@ -483,6 +500,100 @@ namespace ChartHelpers {
             };
 
             createHorizontalBarChart(id, gearMileages, gearLabels, customChartOptions);
+        } else {
+            createChartMessage(id);
+        }
+    }
+
+    export function createHeartRatesChart(id: string, items: any[]) {
+        if (items.length > 1) {
+
+            const maxColors = 4;
+            const boundaryOffset = 5;
+            const radius = 10;
+
+            const activityNames: string[] = [];
+            const averageHeartRates: number[] = [];
+            const bubbleColors: RgbColor[] = [];
+            const dates: string[] = [];
+            const maxHeartRates: number[] = [];
+            const points: object[] = [];
+
+            items.forEach((item) => {
+                const averageHeartRate = item['average_heartrate'];
+                const maxHeartRate = item['max_heartrate'];
+
+                if (averageHeartRate > 0 && maxHeartRate > 0) {
+                    const activityName = item['activity_name'];
+                    const date = item['start_date'];
+                    activityNames.push(activityName);
+                    dates.push(date);
+
+                    const point = {
+                        x: averageHeartRate,
+                        y: maxHeartRate,
+                        r: radius,
+                    };
+                    averageHeartRates.push(averageHeartRate);
+                    maxHeartRates.push(maxHeartRate);
+                    points.push(point);
+
+                    const bubbleColor = Helpers.getRgbColorBasedOnHrZone(item['average_hr_zone']);
+                    bubbleColors.push(bubbleColor);
+                }
+            });
+
+            const chartData = {
+                datasets: [{
+                    data: points,
+                    label: activityNames,
+                    backgroundColor: Helpers.convertToRgbaColors(bubbleColors, 0.6),
+                    hoverBackgroundColor: Helpers.convertToRgbaColors(bubbleColors, 1),
+                }],
+            };
+
+            const xAxesLinearTickOptions: Chart.LinearTickOptions = {
+                 min: Math.min(...averageHeartRates) - boundaryOffset,
+                 max: Math.max(...averageHeartRates) + boundaryOffset,
+            };
+            const yAxesLinearTickOptions: Chart.LinearTickOptions = {
+                min: Math.min(...maxHeartRates) - boundaryOffset,
+                max: Math.max(...maxHeartRates) + boundaryOffset,
+            };
+            const customChartOptions: Chart.ChartOptions = {
+                scales: {
+                    type: 'linear',
+                    xAxes: [{
+                        ticks: xAxesLinearTickOptions,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Average Heart Rate',
+                        },
+                    }],
+                    yAxes: [{
+                        ticks: yAxesLinearTickOptions,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Max Heart Rate',
+                        },
+                    }],
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
+                            return data.datasets[0].label[tooltipItem[0].index];
+                        },
+                        label: (tooltipItem: Chart.ChartTooltipItem) => {
+                            const averageHeartRate = tooltipItem.xLabel.toString();
+                            const maxHeartRate = tooltipItem.yLabel.toString();
+                            return `Avg. HR: ${averageHeartRate} - Max. HR: ${maxHeartRate}`;
+                        },
+                    },
+                },
+            };
+            createBubbleChart(id, chartData, customChartOptions);
         } else {
             createChartMessage(id);
         }
