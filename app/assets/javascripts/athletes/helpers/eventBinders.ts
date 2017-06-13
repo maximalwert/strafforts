@@ -46,7 +46,7 @@ namespace EventBinders {
             });
 
             // Bind race filter buttons in Races Timeline view.
-            $(document).on('click', '.filter-buttons .btn', (event) => {
+            $(document).on('click', '.filter-buttons .btn:not(.show-all)', (event) => {
                 // Set the filter button to active upon clicking.
                 $('.filter-buttons .btn').removeClass('active');
                 $('.filter-buttons .show-all').removeClass('hidden').fadeIn(500);
@@ -69,6 +69,7 @@ namespace EventBinders {
 
                 // Update the state of filter buttons.
                 $('.filter-buttons .btn').removeClass('active');
+                $('.filter-buttons .show-all').removeClass('hidden').fadeIn(500);
                 $(`.filter-buttons [data-race-distance='${distance}'`).addClass('active');
             });
 
