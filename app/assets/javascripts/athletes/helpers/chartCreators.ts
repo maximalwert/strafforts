@@ -540,6 +540,11 @@ namespace Helpers {
                         ticks: {
                             autoSkip: false,
                             beginAtZero: true,
+                            callback: (value: any) => {
+                                if (value % 1 === 0) {
+                                    return value;
+                                }
+                            },
                         },
                     }],
                 },
@@ -594,6 +599,11 @@ namespace Helpers {
                         ticks: {
                             autoSkip: false,
                             beginAtZero: true,
+                            callback: (value: any) => {
+                                if (value % 1 === 0) {
+                                    return value;
+                                }
+                            },
                         },
                     }],
                 },
