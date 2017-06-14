@@ -43,6 +43,7 @@ namespace Views {
                 </div>
                 <div class="row">
                     ${ChartHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6, showLoadingIcon)}
+                    ${ChartHelpers.constructChartHtml('average-hr-zones-chart', 'Average HR Zones Distribution Chart', 6, showLoadingIcon)}
                 </div>
             `;
             mainContent.append(content);
@@ -76,6 +77,7 @@ namespace Views {
                         </div>
                         <div class="row">
                             ${ChartHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6)}
+                            ${ChartHelpers.constructChartHtml('average-hr-zones-chart', 'Average HR Zones Distribution Chart', 6)}
                         </div>
                     `;
                     mainContent.append(content);
@@ -105,6 +107,7 @@ namespace Views {
                     ChartHelpers.createGearCountChart('gear-count-chart', items);
                     ChartHelpers.createGearMileageChart('gear-mileage-chart', items);
                     ChartHelpers.createHeartRatesChart('heart-rates-chart', items);
+                    ChartHelpers.createAverageHrZonesChart('average-hr-zones-chart', items);
                 },
             });
         }

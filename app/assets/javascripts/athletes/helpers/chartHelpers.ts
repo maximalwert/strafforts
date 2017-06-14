@@ -92,19 +92,9 @@ namespace ChartHelpers {
 
     function createHorizontalBarChart(
         id: string,
-        data: number[],
-        dataLabels: string[],
+        chartData: Chart.ChartData,
         customChartOptions?: Chart.ChartOptions) {
 
-        const colors = Helpers.getRgbColors();
-        const chartData = {
-            labels: dataLabels,
-            datasets: [{
-                data,
-                backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
-                hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1),
-            }],
-        };
         const defaultChartOptions = {
             legend: {
                 display: false,
@@ -499,7 +489,16 @@ namespace ChartHelpers {
                 },
             };
 
-            createHorizontalBarChart(id, gearMileages, gearLabels, customChartOptions);
+            const colors = Helpers.getRgbColors();
+            const chartData = {
+                labels: gearLabels,
+                datasets: [{
+                    data: gearMileages,
+                    backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
+                    hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1),
+                }],
+            };
+            createHorizontalBarChart(id, chartData, customChartOptions);
         } else {
             createChartMessage(id);
         }
@@ -594,6 +593,77 @@ namespace ChartHelpers {
                 },
             };
             createBubbleChart(id, chartData, customChartOptions);
+        } else {
+            createChartMessage(id);
+        }
+    }
+
+    export function createAverageHrZonesChart(id: string, items: any[]) {
+        if (items.length > 1) {
+
+            const averageHrZoneNames: string[] = [
+                'Zone 1',
+                'Zone 2',
+                'Zone 3',
+                'Zone 4',
+                'Zone 5',
+                'Zone N/A',
+            ];
+            const averageHrZones: object = {
+                'Zone 1': 0,
+                'Zone 2': 0,
+                'Zone 3': 0,
+                'Zone 4': 0,
+                'Zone 5': 0,
+                'Zone N/A': 0,
+            };
+            const barColors: RgbColor[] = [
+                Helpers.getRgbColorBasedOnHrZone('1'),
+                Helpers.getRgbColorBasedOnHrZone('2'),
+                Helpers.getRgbColorBasedOnHrZone('3'),
+                Helpers.getRgbColorBasedOnHrZone('4'),
+                Helpers.getRgbColorBasedOnHrZone('5'),
+                Helpers.getRgbColorBasedOnHrZone('na'),
+            ];
+
+            // Get counts of each zone.
+            const counts: number[] = [];
+            items.forEach((item) => {
+                switch (item['average_hr_zone']) {
+                    case '1':
+                        averageHrZones['Zone 1'] += 1;
+                        break;
+                    case '2':
+                        averageHrZones['Zone 2'] += 1;
+                        break;
+                    case '3':
+                        averageHrZones['Zone 3'] += 1;
+                        break;
+                    case '4':
+                        averageHrZones['Zone 4'] += 1;
+                        break;
+                    case '5':
+                        averageHrZones['Zone 5'] += 1;
+                        break;
+                    default:
+                        averageHrZones['Zone N/A'] += 1;
+                        break;
+                }
+            });
+            $.each(averageHrZones, (name) => {
+                const value = averageHrZones[name];
+                counts.push(value);
+            });
+
+            const chartData = {
+                labels: averageHrZoneNames,
+                datasets: [{
+                    data: counts,
+                    backgroundColor: Helpers.convertToRgbaColors(barColors, 0.6),
+                    hoverBackgroundColor: Helpers.convertToRgbaColors(barColors, 1),
+                }],
+            };
+            createHorizontalBarChart(id, chartData);
         } else {
             createChartMessage(id);
         }

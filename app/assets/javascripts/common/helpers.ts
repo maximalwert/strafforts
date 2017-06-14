@@ -43,6 +43,7 @@ namespace Helpers {
         const colorHrZone3 = new RgbColor(243, 156, 18);
         const colorHrZone4 = new RgbColor(200, 35, 0);
         const colorHrZone5 = new RgbColor(17, 17, 17);
+        const colorHrZoneNa = new RgbColor(210, 214, 222);
 
         switch (heartRateZone) {
             case'1':
@@ -56,7 +57,7 @@ namespace Helpers {
             case'5':
                 return colorHrZone5;
             default:
-                return colorHrZone1;
+                return colorHrZoneNa;
         }
     }
 
