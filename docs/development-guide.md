@@ -86,26 +86,25 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
        yarn install
 
-8. Compile TypeScript files to JavaScript
+    The app uses [TypeScript][TypeScript] instead of JavaScripts. A post-install step has been configured to compile TypeScript files after `yarn install`.
 
-    The app uses [TypeScript][TypeScript] instead of JavaScripts. Compilation is needed before starting the server. A custom rake command has been written for this purpose.
-    You will need to run this command everytime any TypeScript file is changed, until a native webpack way is implemented in this app.
+8. Fire up web server, worker and watcher.
 
-       rake aseets:tsc
+       rake foreman:start
 
-9. Fire up web server and worker
+      This Rake task is designed to provide that one command for all development needs using [Foreman][Foreman]:
+      - fire up a Rails web server
 
-       foreman start
+        It can be accessed from <http://localhost:5000> by default.
+      - start a process worker to fetch data
+      - start a watcher process that compiles TypeScript and watch for changes.
 
-      This should fire up a Rails web server and a process worker using [Foreman][Foreman],
-      which can be accessed from <http://localhost:5000> by default.
-
-10. Connect with Strava
+9. Connect with Strava
 
       From <http://localhost:5000>, connect with your Strava account.
       If it succeeds, it should redirect to the athlete overview page.
 
-11. Fetch data manually if needed
+10. Fetch data manually if needed
 
     Foreman's worker process should fetch all estimated best efforts once Strafforts has connected to Strava. Alternatively, the same can be achieved by the following rake tasks:
 
@@ -115,7 +114,7 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
         rake fetch:latest                       # Fetch the latest data for all athletes
         rake fetch:races                        # Fetch races for all athletes. Usage: rake fetch:races [all/latest]
 
-12. Run tests
+11. Run tests
 
       There are few but not a lot of tests written. If you wish to run them, please follow the steps below:
 
