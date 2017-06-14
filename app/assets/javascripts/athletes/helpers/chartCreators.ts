@@ -7,10 +7,10 @@ namespace Helpers {
             this.items = items;
         }
 
-        public createChartMessage(id: string, message?: string) {
+        public createChartWithMessage(id: string, message: string) {
             const content = `
                 <div class='text-center'>
-                    <h4>${message ? message : 'Not Enough Data to Generate Chart'}</h4>
+                    <h4>${message}</h4>
                 </div>
             `;
 
@@ -21,7 +21,7 @@ namespace Helpers {
 
         public createProgressionChart(id: string) {
             if (this.items.length <= 1) {
-                this.createChartMessage(id);
+                this.createChartWithNotEnoughDataMessage(id);
                 return;
             }
 
@@ -111,7 +111,7 @@ namespace Helpers {
 
         public createYearDistributionChart(id: string) {
             if (this.items.length <= 1) {
-                this.createChartMessage(id);
+                this.createChartWithNotEnoughDataMessage(id);
                 return;
             }
 
@@ -141,7 +141,7 @@ namespace Helpers {
 
         public createWorkoutTypeChart(id: string) {
             if (this.items.length <= 1) {
-                this.createChartMessage(id);
+                this.createChartWithNotEnoughDataMessage(id);
                 return;
             }
 
@@ -169,7 +169,7 @@ namespace Helpers {
 
         public createMonthDistributionChart(id: string) {
             if (this.items.length <= 1) {
-                this.createChartMessage(id);
+                this.createChartWithNotEnoughDataMessage(id);
                 return;
             }
 
@@ -204,7 +204,7 @@ namespace Helpers {
 
         public createRaceDistancesChart(id: string) {
             if (this.items.length <= 1) {
-                this.createChartMessage(id);
+                this.createChartWithNotEnoughDataMessage(id);
                 return;
             }
 
@@ -233,7 +233,7 @@ namespace Helpers {
 
         public createGearCountChart(id: string) {
             if (this.items.length <= 1) {
-                this.createChartMessage(id);
+                this.createChartWithNotEnoughDataMessage(id);
                 return;
             }
 
@@ -259,7 +259,7 @@ namespace Helpers {
 
         public createGearMileageChart(id: string) {
             if (this.items.length <= 1) {
-                this.createChartMessage(id);
+                this.createChartWithNotEnoughDataMessage(id);
                 return;
             }
 
@@ -307,7 +307,7 @@ namespace Helpers {
 
         public createHeartRatesChart(id: string) {
             if (this.items.length <= 1) {
-                this.createChartMessage(id);
+                this.createChartWithNotEnoughDataMessage(id);
                 return;
             }
 
@@ -345,6 +345,12 @@ namespace Helpers {
                     bubbleColors.push(bubbleColor);
                 }
             });
+
+            // Not enough items with HR data to generate chart.
+            if (points.length < 1) {
+                this.createChartWithNotEnoughDataMessage(id);
+                return;
+            }
 
             const chartData = {
                 datasets: [{
@@ -401,7 +407,7 @@ namespace Helpers {
 
         public createAverageHrZonesChart(id: string) {
             if (this.items.length <= 1) {
-                this.createChartMessage(id);
+                this.createChartWithNotEnoughDataMessage(id);
                 return;
             }
 
@@ -432,6 +438,7 @@ namespace Helpers {
 
             // Get counts of each zone.
             const counts: number[] = [];
+            let totalNaCount: number = 0;
             this.items.forEach((item) => {
                 switch (item['average_hr_zone']) {
                     case '1':
@@ -451,13 +458,22 @@ namespace Helpers {
                         break;
                     default:
                         averageHrZones['Zone N/A'] += 1;
+                        totalNaCount += 1;
                         break;
                 }
             });
+            let totalCount: number = 0;
             $.each(averageHrZones, (name) => {
                 const value = averageHrZones[name];
                 counts.push(value);
+                totalCount += value;
             });
+
+            // Not enough items with HR data to generate chart.
+            if (totalCount === totalNaCount) {
+                this.createChartWithNotEnoughDataMessage(id);
+                return;
+            }
 
             const chartData = {
                 labels: averageHrZoneNames,
@@ -468,6 +484,10 @@ namespace Helpers {
                 }],
             };
             this.createHorizontalBarChart(id, chartData);
+        }
+
+        private createChartWithNotEnoughDataMessage(id: string) {
+            this.createChartWithMessage(id, 'Not Enough Data to Generate Chart');
         }
 
         private createChart(

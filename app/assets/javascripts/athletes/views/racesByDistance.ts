@@ -86,7 +86,7 @@ namespace Views {
                     const chartCreator = new Helpers.ChartCreator(items);
                     const progressionChartId = 'progression-chart';
                     if (this.distance === 'Other') {
-                        chartCreator.createChartMessage(progressionChartId, 'Not Applicable');
+                        chartCreator.createChartWithMessage(progressionChartId, 'Not Applicable');
                     } else {
                         chartCreator.createProgressionChart(progressionChartId);
                     }
