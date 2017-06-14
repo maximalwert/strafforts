@@ -135,7 +135,7 @@ namespace HtmlHelpers {
             <tr>
                 <td>${item['start_date']}</td>
                 <td>
-                    <a class="strava-logo-link" href="${stravaLink}" target="_blank">
+                    <a class="strava-logo-link hidden-lg-down" href="${stravaLink}" target="_blank">
                         <span></span>
                     </a>
                     <a class="strava-activity-link" href="${stravaLink}" target="_blank">

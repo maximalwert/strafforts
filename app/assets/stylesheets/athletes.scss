@@ -566,6 +566,11 @@ body.page-loading:not(.pace-done):before {
         display: none !important;
     }
 }
+@media (max-width: 1600px) {
+    .hidden-xl-down {
+        display: none !important;
+    }
+}
 @media (max-width: 1440px) {
     #main-conent {
         .dataTable td {
