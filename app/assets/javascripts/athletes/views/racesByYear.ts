@@ -29,17 +29,17 @@ namespace Views {
             const showLoadingIcon = true;
             const content = `
                 <div class="row">
-                    ${ChartHelpers.constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6, showLoadingIcon)}
-                    ${ChartHelpers.constructChartHtml('monthly-distribution-chart', 'Monthly Distribution Chart', 6, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml('monthly-distribution-chart', 'Monthly Distribution Chart', 6, showLoadingIcon)}
                 </div>
                 ${this.constructDataTableHtml()}
                 <div class="row">
-                    ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
-                    ${ChartHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
                 </div>
                 <div class="row">
-                    ${ChartHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6, showLoadingIcon)}
-                    ${ChartHelpers.constructChartHtml('average-hr-zones-chart', 'Average HR Zones Distribution Chart', 6, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml('average-hr-zones-chart', 'Average HR Zones Distribution Chart', 6, showLoadingIcon)}
                 </div>
             `;
             mainContent.append(content);
@@ -63,24 +63,25 @@ namespace Views {
 
                     const content = `
                         <div class="row">
-                            ${ChartHelpers.constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6)}
-                            ${ChartHelpers.constructChartHtml('month-distribution-chart', 'Month Distribution Chart', 6)}
+                            ${HtmlHelpers.constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6)}
+                            ${HtmlHelpers.constructChartHtml('month-distribution-chart', 'Month Distribution Chart', 6)}
                         </div>
                         ${this.constructDataTableHtml(items)}
                         <div class="row">
-                            ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6)}
-                            ${ChartHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6)}
+                            ${HtmlHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6)}
+                            ${HtmlHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6)}
                         </div>
                         <div class="row">
-                            ${ChartHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6)}
-                            ${ChartHelpers.constructChartHtml('average-hr-zones-chart', 'Average HR Zones Distribution Chart', 6)}
+                            ${HtmlHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6)}
+                            ${HtmlHelpers.constructChartHtml('average-hr-zones-chart', 'Average HR Zones Distribution Chart', 6)}
                         </div>
                     `;
                     mainContent.append(content);
 
                     // Setup all charts and tables.
-                    ChartHelpers.createRaceDistancesChart('distances-distribution-chart', items);
-                    ChartHelpers.createMonthDistributionChart('month-distribution-chart', items);
+                    const chartCreator = new Helpers.ChartCreator(items);
+                    chartCreator.createRaceDistancesChart('distances-distribution-chart');
+                    chartCreator.createMonthDistributionChart('month-distribution-chart');
                     $('.dataTable').each(function() {
                         $(this).DataTable({
                             bFilter: false,
@@ -92,10 +93,10 @@ namespace Views {
                             ],
                         });
                     });
-                    ChartHelpers.createGearCountChart('gear-count-chart', items);
-                    ChartHelpers.createGearMileageChart('gear-mileage-chart', items);
-                    ChartHelpers.createHeartRatesChart('heart-rates-chart', items);
-                    ChartHelpers.createAverageHrZonesChart('average-hr-zones-chart', items);
+                    chartCreator.createGearCountChart('gear-count-chart');
+                    chartCreator.createGearMileageChart('gear-mileage-chart');
+                    chartCreator.createHeartRatesChart('heart-rates-chart');
+                    chartCreator.createAverageHrZonesChart('average-hr-zones-chart');
                 },
             });
         }

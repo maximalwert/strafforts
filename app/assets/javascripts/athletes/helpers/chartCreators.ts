@@ -1,239 +1,38 @@
-/// <reference path="./../../typings/chart.js.d.ts" />
+namespace Helpers {
+    export class ChartCreator {
 
-namespace ChartHelpers {
+        private items: object[];
 
-    function createChart(
-        id: string,
-        chartType: string,
-        chartData: Chart.ChartData,
-        chartOptions: Chart.ChartOptions) {
-
-        const canvasElement = $('#' + id).get(0) as HTMLCanvasElement;
-        const context = canvasElement.getContext('2d');
-        const chart = new Chart(context, {
-            type: chartType,
-            data: chartData,
-            options: chartOptions,
-        });
-    }
-
-    function createBarChart(
-        id: string,
-        counts: number[],
-        dataLabels: string[],
-        legendLabels: string[],
-        customChartOptions?: Chart.ChartOptions) {
-
-        const colors = Helpers.getRgbColors();
-        const chartData = {
-            yLabels: counts,
-            labels: legendLabels.reverse(),
-            datasets: [{
-                data: counts.reverse(),
-                label: dataLabels.reverse(),
-                backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
-                hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1),
-            }],
-        };
-        const defaultChartOptions = {
-            legend: {
-                display: false,
-            },
-            maintainAspectRatio: false,
-            responsive: true,
-            scales: {
-                type: 'linear',
-                xAxes: [{
-                    ticks: {
-                        autoSkip: false,
-                    },
-                }],
-                yAxes: [{
-                    ticks: {
-                        autoSkip: false,
-                        beginAtZero: true,
-                    },
-                }],
-            },
-            tooltips: {
-                enabled: true,
-                mode: 'single',
-                callbacks: {
-                    title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
-                        return data.datasets[0].label[tooltipItem[0].index];
-                    },
-                    label: (tooltipItem: Chart.ChartTooltipItem) => {
-                        return `Count: ${tooltipItem.yLabel.toString()}`;
-                    },
-                },
-            },
-        };
-
-        const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
-        createChart(id, 'bar', chartData, chartOptions);
-    }
-
-    function createBubbleChart(
-        id: string,
-        chartData: Chart.ChartData,
-        customChartOptions?: Chart.ChartOptions) {
-
-        const defaultChartOptions = {
-            legend: {
-                display: false,
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-        };
-
-        const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
-        createChart(id, 'bubble', chartData, chartOptions);
-    }
-
-    function createHorizontalBarChart(
-        id: string,
-        chartData: Chart.ChartData,
-        customChartOptions?: Chart.ChartOptions) {
-
-        const defaultChartOptions = {
-            legend: {
-                display: false,
-            },
-            maintainAspectRatio: false,
-            responsive: true,
-            scales: {
-                xAxes: [{
-                    ticks: {
-                        autoSkip: false,
-                        beginAtZero: true,
-                    },
-                }],
-            },
-            tooltips: {
-                enabled: true,
-                mode: 'single',
-                callbacks: {
-                    label: (tooltipItem: Chart.ChartTooltipItem) => {
-                        return `Count: ${tooltipItem.xLabel.toString()}`;
-                    },
-                },
-            },
-        };
-
-        const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
-        createChart(id, 'horizontalBar', chartData, chartOptions);
-    }
-
-    function createPieChart(
-        id: string,
-        counts: number[],
-        dataLabels: string[],
-        legendLabels?: string[],
-        customChartOptions?: Chart.ChartOptions) {
-
-        const colors = Helpers.getRgbColors();
-        const chartData = {
-            labels: (legendLabels) ? legendLabels : dataLabels,
-            datasets: [{
-                data: counts,
-                label: dataLabels,
-                backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
-                hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1),
-            }],
-        };
-        const defaultChartOptions = {
-            legend: {
-                position: 'bottom',
-                onClick: (event: any) => {
-                    event.stopPropagation();
-                },
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            tooltips: {
-                enabled: true,
-                mode: 'single',
-                callbacks: {
-                    title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
-                        return data.datasets[0].label[tooltipItem[0].index];
-                    },
-                    label: (tooltipItem: Chart.ChartTooltipItem, data: any) => {
-                        return `Count: ${data.datasets[0].data[tooltipItem.index]}`;
-                    },
-                },
-            },
-        };
-
-        const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
-        createChart(id, 'pie', chartData, chartOptions);
-    }
-
-    function createLineChart(
-        id: string,
-        chartData: Chart.ChartData,
-        customChartOptions?: Chart.ChartOptions) {
-
-        const defaultChartOptions = {
-            legend: {
-                display: false,
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            tooltips: {
-                enabled: false,
-            },
-        };
-
-        const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
-        createChart(id, 'line', chartData, chartOptions);
-    }
-
-    export function createChartMessage(id: string, message?: string) {
-        if (!message) {
-            message = 'Not Enough Data to Generate Chart';
+        constructor(items: object[]) {
+            this.items = items;
         }
 
-        const content = `
-            <div class='text-center'>
-                <h4>${message}</h4>
-            </div>
-        `;
-
-        const container = $('#' + id).parent();
-        container.empty();
-        container.append(content);
-    }
-
-    export function constructChartHtml(id: string, title: string, width: number, withLoadingIcon: boolean = false) {
-        const content = withLoadingIcon ? HtmlHelpers.getLoadingIcon() : `<canvas id="${id}" height="300"></canvas>`;
-        const chart = `
-            <div class="col-md-${width}">
-                <div class="box">
-                    <div class="box-header with-border>
-                        <i class="fa fa-pie-chart"></i>
-                        <h3 class="box-title">${title}</h3>
-                    </div>
-                    <div class="box-body">
-                        <div class="chart">
-                            ${content}
-                        </div>
-                    </div>
+        public createChartMessage(id: string, message?: string) {
+            const content = `
+                <div class='text-center'>
+                    <h4>${message ? message : 'Not Enough Data to Generate Chart'}</h4>
                 </div>
-            </div>
-        `;
-        return chart;
-    }
+            `;
 
-    export function createProgressionChart(id: string, items: any[]) {
-        if (items.length > 1) {
+            const container = $('#' + id).parent();
+            container.empty();
+            container.append(content);
+        }
+
+        public createProgressionChart(id: string) {
+            if (this.items.length <= 1) {
+                this.createChartMessage(id);
+                return;
+            }
+
             const activityNames: string[] = [];
             const dates: string[] = [];
             const runTimes: number[] = [];
 
-            items.forEach((item) => {
-                const activityName = item.activity_name;
-                const date = item.start_date;
-                const runTime = item.elapsed_time;
+            this.items.forEach((item) => {
+                const activityName = item['activity_name'];
+                const date = item['start_date'];
+                const runTime = item['elapsed_time'];
                 activityNames.push(activityName);
                 dates.push(date);
                 runTimes.push(runTime);
@@ -307,16 +106,17 @@ namespace ChartHelpers {
                 },
             };
 
-            createLineChart(id, chartData, customChartOptions);
-        } else {
-            createChartMessage(id);
+            this.createLineChart(id, chartData, customChartOptions);
         }
-    }
 
-    export function createYearDistributionChart(id: string, items: any[]) {
-        if (items.length > 1) {
+        public createYearDistributionChart(id: string) {
+            if (this.items.length <= 1) {
+                this.createChartMessage(id);
+                return;
+            }
+
             const years: object = {}; // Holds year and its count.
-            items.forEach((item) => {
+            this.items.forEach((item) => {
                 const startDate = item['start_date'];
                 const dateParts = startDate.split('-');
                 const year = new Date(dateParts[0], dateParts[1], dateParts[2]).getFullYear();
@@ -336,16 +136,17 @@ namespace ChartHelpers {
                 legendLabels.push(`${key} (${value})`);
             });
 
-            createPieChart(id, counts, dataLabels, legendLabels);
-        } else {
-            createChartMessage(id);
+            this.createPieChart(id, counts, dataLabels, legendLabels);
         }
-    }
 
-    export function createWorkoutTypeChart(id: string, items: any[]) {
-        if (items.length > 1) {
+        public createWorkoutTypeChart(id: string) {
+            if (this.items.length <= 1) {
+                this.createChartMessage(id);
+                return;
+            }
+
             const workoutTypes: any = {}; // Holds Workout Type and its count.
-            items.forEach((item) => {
+            this.items.forEach((item) => {
                 let workoutType = item['workout_type_name'];
 
                 // No workout type is a normal run.
@@ -363,16 +164,17 @@ namespace ChartHelpers {
             const dataLabels = ['Run', 'Race', 'Long Run', 'Workout'];
             const counts = [workoutTypes.run, workoutTypes.race, workoutTypes['long run'], workoutTypes.workout];
 
-            createPieChart(id, counts, dataLabels);
-        } else {
-            createChartMessage(id);
+            this.createPieChart(id, counts, dataLabels);
         }
-    }
 
-    export function createMonthDistributionChart(id: string, items: any[]) {
-        if (items.length > 1) {
+        public createMonthDistributionChart(id: string) {
+            if (this.items.length <= 1) {
+                this.createChartMessage(id);
+                return;
+            }
+
             const months: object = {}; // Holds month and its count.
-            items.forEach((item) => {
+            this.items.forEach((item) => {
                 const startDate = item['start_date'];
                 const dateParts = startDate.split('-');
                 const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -397,16 +199,17 @@ namespace ChartHelpers {
                 dataLabels.push(key);
             });
 
-            createBarChart(id, counts, dataLabels, legendLabels);
-        } else {
-            createChartMessage(id);
+            this.createBarChart(id, counts, dataLabels, legendLabels);
         }
-    }
 
-    export function createRaceDistancesChart(id: string, items: any[]) {
-        if (items.length > 1) {
+        public createRaceDistancesChart(id: string) {
+            if (this.items.length <= 1) {
+                this.createChartMessage(id);
+                return;
+            }
+
             const raceDistances: object = {}; // Holds race distance and its count.
-            items.forEach((item) => {
+            this.items.forEach((item) => {
                 const raceDistance = item['race_distance'];
                 if (raceDistance in raceDistances) {
                     raceDistances[raceDistance] += 1;
@@ -425,16 +228,17 @@ namespace ChartHelpers {
                 dataLabels.push(key);
             });
 
-            createBarChart(id, counts, dataLabels, legendLabels);
-        } else {
-            createChartMessage(id);
+            this.createBarChart(id, counts, dataLabels, legendLabels);
         }
-    }
 
-    export function createGearCountChart(id: string, items: any[]) {
-        if (items.length > 1) {
+        public createGearCountChart(id: string) {
+            if (this.items.length <= 1) {
+                this.createChartMessage(id);
+                return;
+            }
+
             const gears: object = {}; // Holds Gear and its count.
-            items.forEach((item) => {
+            this.items.forEach((item) => {
                 const gearName = item['gear_name'];
                 if (gearName in gears) {
                     gears[gearName] += 1;
@@ -450,17 +254,17 @@ namespace ChartHelpers {
                 counts.push(value);
             });
 
-            createPieChart(id, counts, dataLabels);
-        } else {
-            createChartMessage(id);
+            this.createPieChart(id, counts, dataLabels);
         }
-    }
 
-    export function createGearMileageChart(id: string, items: any[]) {
-        if (items.length > 1) {
+        public createGearMileageChart(id: string) {
+            if (this.items.length <= 1) {
+                this.createChartMessage(id);
+                return;
+            }
 
             const gears: object = {}; // Holds Gear and its mileage.
-            items.forEach((item) => {
+            this.items.forEach((item) => {
                 const gearName = item['gear_name'];
                 if (gearName in gears) {
                     gears[gearName] += item['distance'];
@@ -498,14 +302,14 @@ namespace ChartHelpers {
                     hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1),
                 }],
             };
-            createHorizontalBarChart(id, chartData, customChartOptions);
-        } else {
-            createChartMessage(id);
+            this.createHorizontalBarChart(id, chartData, customChartOptions);
         }
-    }
 
-    export function createHeartRatesChart(id: string, items: any[]) {
-        if (items.length > 1) {
+        public createHeartRatesChart(id: string) {
+            if (this.items.length <= 1) {
+                this.createChartMessage(id);
+                return;
+            }
 
             const maxColors = 4;
             const boundaryOffset = 5;
@@ -518,7 +322,7 @@ namespace ChartHelpers {
             const maxHeartRates: number[] = [];
             const points: object[] = [];
 
-            items.forEach((item) => {
+            this.items.forEach((item) => {
                 const averageHeartRate = item['average_heartrate'];
                 const maxHeartRate = item['max_heartrate'];
 
@@ -552,8 +356,8 @@ namespace ChartHelpers {
             };
 
             const xAxesLinearTickOptions: Chart.LinearTickOptions = {
-                 min: Math.min(...averageHeartRates) - boundaryOffset,
-                 max: Math.max(...averageHeartRates) + boundaryOffset,
+                min: Math.min(...averageHeartRates) - boundaryOffset,
+                max: Math.max(...averageHeartRates) + boundaryOffset,
             };
             const yAxesLinearTickOptions: Chart.LinearTickOptions = {
                 min: Math.min(...maxHeartRates) - boundaryOffset,
@@ -592,14 +396,14 @@ namespace ChartHelpers {
                     },
                 },
             };
-            createBubbleChart(id, chartData, customChartOptions);
-        } else {
-            createChartMessage(id);
+            this.createBubbleChart(id, chartData, customChartOptions);
         }
-    }
 
-    export function createAverageHrZonesChart(id: string, items: any[]) {
-        if (items.length > 1) {
+        public createAverageHrZonesChart(id: string) {
+            if (this.items.length <= 1) {
+                this.createChartMessage(id);
+                return;
+            }
 
             const averageHrZoneNames: string[] = [
                 'Zone 1',
@@ -628,7 +432,7 @@ namespace ChartHelpers {
 
             // Get counts of each zone.
             const counts: number[] = [];
-            items.forEach((item) => {
+            this.items.forEach((item) => {
                 switch (item['average_hr_zone']) {
                     case '1':
                         averageHrZones['Zone 1'] += 1;
@@ -663,9 +467,193 @@ namespace ChartHelpers {
                     hoverBackgroundColor: Helpers.convertToRgbaColors(barColors, 1),
                 }],
             };
-            createHorizontalBarChart(id, chartData);
-        } else {
-            createChartMessage(id);
+            this.createHorizontalBarChart(id, chartData);
+        }
+
+        private createChart(
+            id: string,
+            chartType: string,
+            chartData: Chart.ChartData,
+            chartOptions: Chart.ChartOptions) {
+
+            const canvasElement = $('#' + id).get(0) as HTMLCanvasElement;
+            const context = canvasElement.getContext('2d');
+            const chart = new Chart(context, {
+                type: chartType,
+                data: chartData,
+                options: chartOptions,
+            });
+        }
+
+        private createBarChart(
+            id: string,
+            counts: number[],
+            dataLabels: string[],
+            legendLabels: string[],
+            customChartOptions?: Chart.ChartOptions) {
+
+            const colors = Helpers.getRgbColors();
+            const chartData = {
+                yLabels: counts,
+                labels: legendLabels.reverse(),
+                datasets: [{
+                    data: counts.reverse(),
+                    label: dataLabels.reverse(),
+                    backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
+                    hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1),
+                }],
+            };
+            const defaultChartOptions = {
+                legend: {
+                    display: false,
+                },
+                maintainAspectRatio: false,
+                responsive: true,
+                scales: {
+                    type: 'linear',
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false,
+                        },
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            autoSkip: false,
+                            beginAtZero: true,
+                        },
+                    }],
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
+                            return data.datasets[0].label[tooltipItem[0].index];
+                        },
+                        label: (tooltipItem: Chart.ChartTooltipItem) => {
+                            return `Count: ${tooltipItem.yLabel.toString()}`;
+                        },
+                    },
+                },
+            };
+
+            const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
+            this.createChart(id, 'bar', chartData, chartOptions);
+        }
+
+        private createBubbleChart(
+            id: string,
+            chartData: Chart.ChartData,
+            customChartOptions?: Chart.ChartOptions) {
+
+            const defaultChartOptions = {
+                legend: {
+                    display: false,
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+            };
+
+            const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
+            this.createChart(id, 'bubble', chartData, chartOptions);
+        }
+
+        private createHorizontalBarChart(
+            id: string,
+            chartData: Chart.ChartData,
+            customChartOptions?: Chart.ChartOptions) {
+
+            const defaultChartOptions = {
+                legend: {
+                    display: false,
+                },
+                maintainAspectRatio: false,
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false,
+                            beginAtZero: true,
+                        },
+                    }],
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: (tooltipItem: Chart.ChartTooltipItem) => {
+                            return `Count: ${tooltipItem.xLabel.toString()}`;
+                        },
+                    },
+                },
+            };
+
+            const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
+            this.createChart(id, 'horizontalBar', chartData, chartOptions);
+        }
+
+        private createLineChart(
+            id: string,
+            chartData: Chart.ChartData,
+            customChartOptions?: Chart.ChartOptions) {
+
+            const defaultChartOptions = {
+                legend: {
+                    display: false,
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                tooltips: {
+                    enabled: false,
+                },
+            };
+
+            const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
+            this.createChart(id, 'line', chartData, chartOptions);
+        }
+
+        private createPieChart(
+            id: string,
+            counts: number[],
+            dataLabels: string[],
+            legendLabels?: string[],
+            customChartOptions?: Chart.ChartOptions) {
+
+            const colors = Helpers.getRgbColors();
+            const chartData = {
+                labels: (legendLabels) ? legendLabels : dataLabels,
+                datasets: [{
+                    data: counts,
+                    label: dataLabels,
+                    backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
+                    hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1),
+                }],
+            };
+            const defaultChartOptions = {
+                legend: {
+                    position: 'bottom',
+                    onClick: (event: any) => {
+                        event.stopPropagation();
+                    },
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                tooltips: {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
+                            return data.datasets[0].label[tooltipItem[0].index];
+                        },
+                        label: (tooltipItem: Chart.ChartTooltipItem, data: any) => {
+                            return `Count: ${data.datasets[0].data[tooltipItem.index]}`;
+                        },
+                    },
+                },
+            };
+
+            const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
+            this.createChart(id, 'pie', chartData, chartOptions);
         }
     }
 }

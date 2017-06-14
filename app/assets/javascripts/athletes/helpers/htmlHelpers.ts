@@ -1,4 +1,25 @@
+/// <reference path="./../../typings/chart.js.d.ts" />
+
 namespace HtmlHelpers {
+    export function constructChartHtml(id: string, title: string, width: number, withLoadingIcon: boolean = false) {
+        const content = withLoadingIcon ? HtmlHelpers.getLoadingIcon() : `<canvas id="${id}" height="300"></canvas>`;
+        const chart = `
+            <div class="col-md-${width}">
+                <div class="box">
+                    <div class="box-header with-border>
+                        <i class="fa fa-pie-chart"></i>
+                        <h3 class="box-title">${title}</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="chart">
+                            ${content}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        return chart;
+    }
 
     export function getContributionWelcomeBadges() {
         const html = `

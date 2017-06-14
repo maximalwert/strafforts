@@ -33,17 +33,17 @@ namespace Views {
             const showLoadingIcon = true;
             const content = `
                 <div class="row">
-                    ${ChartHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
-                    ${ChartHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon)}
                 </div>
                 ${this.constructDataTableHtml()}
                 <div class="row">
-                    ${ChartHelpers.constructChartHtml('workout-type-chart', 'Workout Type Chart', 6, showLoadingIcon)}
-                    ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml('workout-type-chart', 'Workout Type Chart', 6, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
                 </div>
                 <div class="row">
-                    ${ChartHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6, showLoadingIcon)}
-                    ${ChartHelpers.constructChartHtml('average-hr-zones-chart', 'Average HR Zones Distribution Chart', 6, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml('average-hr-zones-chart', 'Average HR Zones Distribution Chart', 6, showLoadingIcon)}
                 </div>
             `;
             mainContent.append(content);
@@ -66,24 +66,25 @@ namespace Views {
 
                     const content = `
                         <div class="row">
-                            ${ChartHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8)}
-                            ${ChartHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4)}
+                            ${HtmlHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8)}
+                            ${HtmlHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4)}
                         </div>
                         ${this.constructDataTableHtml(items)}
                         <div class="row">
-                            ${ChartHelpers.constructChartHtml('workout-type-chart', 'Workout Type Chart', 6)}
-                            ${ChartHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6)}
+                            ${HtmlHelpers.constructChartHtml('workout-type-chart', 'Workout Type Chart', 6)}
+                            ${HtmlHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6)}
                         </div>
                         <div class="row">
-                            ${ChartHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6)}
-                            ${ChartHelpers.constructChartHtml('average-hr-zones-chart', 'Average HR Zones Distribution Chart', 6)}
+                            ${HtmlHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6)}
+                            ${HtmlHelpers.constructChartHtml('average-hr-zones-chart', 'Average HR Zones Distribution Chart', 6)}
                         </div>
                     `;
                     mainContent.append(content);
 
                     // Setup all tables and charts.
-                    ChartHelpers.createProgressionChart('progression-chart', items);
-                    ChartHelpers.createYearDistributionChart('year-distribution-pie-chart', items);
+                    const chartCreator = new Helpers.ChartCreator(items);
+                    chartCreator.createProgressionChart('progression-chart');
+                    chartCreator.createYearDistributionChart('year-distribution-pie-chart');
                     $('.dataTable').each(function() {
                         $(this).DataTable({
                             columnDefs: [{
@@ -96,10 +97,10 @@ namespace Views {
                             ],
                         });
                     });
-                    ChartHelpers.createWorkoutTypeChart('workout-type-chart', items);
-                    ChartHelpers.createGearCountChart('gear-count-chart', items);
-                    ChartHelpers.createHeartRatesChart('heart-rates-chart', items);
-                    ChartHelpers.createAverageHrZonesChart('average-hr-zones-chart', items);
+                    chartCreator.createWorkoutTypeChart('workout-type-chart');
+                    chartCreator.createGearCountChart('gear-count-chart');
+                    chartCreator.createHeartRatesChart('heart-rates-chart');
+                    chartCreator.createAverageHrZonesChart('average-hr-zones-chart');
                 },
             });
         }
