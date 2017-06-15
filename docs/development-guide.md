@@ -99,6 +99,8 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
       - start a process worker to fetch data
       - start a watcher process that compiles TypeScript and watch for changes.
 
+      It might not work properly on Windows machines, then web server and workers process can be started by `foreman start`, while the watcher process needs to be started manually.
+
 9. Connect with Strava
 
       From <http://localhost:5000>, connect with your Strava account.

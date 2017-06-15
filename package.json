@@ -45,7 +45,7 @@
     "webpack-merge": "^4.1.0"
   },
   "scripts": {
-    "start": "concurrently \"node_modules/.bin/tsc --project app/assets/javascripts/athletes/ --watch\" \"node_modules/.bin/tsc --project app/assets/javascripts/athletes/ --watch\"",
+    "dev": "concurrently \"node_modules/.bin/tsc --project app/assets/javascripts/athletes/ --watch\" \"node_modules/.bin/tsc --project app/assets/javascripts/athletes/ --watch\"",
     "postinstall": "node_modules/.bin/tsc --project app/assets/javascripts/athletes/ && node_modules/.bin/tsc --project app/assets/javascripts/home/"
   },
   "devDependencies": {
