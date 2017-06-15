@@ -68,3 +68,6 @@ bower.json
 /app/assets/javascripts/generated/**
 /app/assets/javascripts/generated/**/public/packs
 /node_modules
+
+# Ignore generated Procfile.dev
+Procfile.dev

@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "alexkrechik.cucumberautocomplete",
+        "donjayamanne.githistory",
+        "eg2.tslint",
+        "groksrc.ruby",
+        "misogi.ruby-rubocop",
+        "mrmlnc.vscode-csscomb",
+        "rebornix.ruby",
+        "robinbentley.sass-indented",
+        "Tyriar.sort-lines",
+        "xabikos.javascriptsnippets"
+    ]
+}

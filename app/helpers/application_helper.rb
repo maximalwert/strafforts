@@ -1,3 +1,5 @@
+require 'ostruct'
+
 module ApplicationHelper
   class Helper
     @@major_best_effort_types = ['Marathon', 'Half Marathon', '10k', '5k']
@@ -6,13 +8,13 @@ module ApplicationHelper
     @@other_race_distances = ['100 miles', '100k', '50 miles', '50k', '20k', '15k', '3000m', '1 mile', 'Other']
 
     # This shapes BestEffort entities retrieved from DB into best efforts needed in the view.
-    def self.shape_best_efforts(best_effort_entities, measurement_unit)
-      shape_entities(best_effort_entities, measurement_unit, true)
+    def self.shape_best_efforts(best_effort_entities, heart_rate_zones, measurement_unit)
+      shape_entities(best_effort_entities, heart_rate_zones, measurement_unit, true)
     end
 
     # This shapes Race entities retrieved from DB into races needed in the view.
-    def self.shape_races(race_entities, measurement_unit)
-      shape_entities(race_entities, measurement_unit, false)
+    def self.shape_races(race_entities, heart_rate_zones, measurement_unit)
+      shape_entities(race_entities, heart_rate_zones, measurement_unit, false)
     end
 
     def self.all_best_effort_types
@@ -43,6 +45,14 @@ module ApplicationHelper
       create_item_array(@@other_race_distances, false)
     end
 
+    def self.get_heart_rate_zones(athlete_id)
+      heart_rate_zones = HeartRateZones.find_by_athlete_id(athlete_id)
+      if heart_rate_zones.nil?
+        return create_default_heart_rate_zones
+      end
+      heart_rate_zones
+    end
+
     private_class_method
 
     def self.convert_to_pace(average_speed, measurement_unit)
@@ -57,27 +67,47 @@ module ApplicationHelper
       end
     end
 
-    def self.get_heartrate_zone_class(heartrate)
-      if heartrate.blank? || heartrate == 'n/a'
-        'hr-zone-na'
-      elsif heartrate < 143 # HRR 60%
-        'hr-zone-1'
-      elsif heartrate > 143 && (heartrate <= 163) # HRR 60% - 75%
-        'hr-zone-2'
-      elsif heartrate > 163 && (heartrate <= 169) # HRR 75% - 80%
-        'hr-zone-3'
-      elsif heartrate > 169 && (heartrate <= 176) # HRR 80% - 85%
-        'hr-zone-4'
-      elsif heartrate > 176 && (heartrate <= 182) # HRR 85% - 90%
-        'hr-zone-5'
-      elsif heartrate > 182 && (heartrate <= 189) # HRR 90% - 95%
-        'hr-zone-6'
-      elsif heartrate > 189 # HRR 95%
-        'hr-zone-7'
+    def self.create_default_heart_rate_zones
+      heart_rate_zones = OpenStruct.new(:custom_zones => false)
+      heart_rate_zones.zone_1_min = 0
+      heart_rate_zones.zone_1_max = 123
+      heart_rate_zones.zone_2_min = 123
+      heart_rate_zones.zone_2_max = 153
+      heart_rate_zones.zone_3_min = 153
+      heart_rate_zones.zone_3_max = 169
+      heart_rate_zones.zone_4_min = 169
+      heart_rate_zones.zone_4_max = 184
+      heart_rate_zones.zone_5_min = 184
+      heart_rate_zones.zone_5_max = -1
+      heart_rate_zones
+    end
+
+    def self.get_heart_rate_zone(heart_rate_zones, heart_rate)
+      if heart_rate_zones.nil? ||
+        heart_rate_zones.zone_1_min.blank? || heart_rate_zones.zone_1_max.blank? ||
+        heart_rate_zones.zone_2_min.blank? || heart_rate_zones.zone_2_max.blank? ||
+        heart_rate_zones.zone_3_min.blank? || heart_rate_zones.zone_3_max.blank? ||
+        heart_rate_zones.zone_4_min.blank? || heart_rate_zones.zone_4_max.blank? ||
+        heart_rate_zones.zone_5_min.blank? || heart_rate_zones.zone_5_max.blank?
+        heart_rate_zones = create_default_heart_rate_zones
+      end
+
+      if heart_rate.blank? || heart_rate == -1
+        'na'
+      elsif heart_rate < heart_rate_zones.zone_1_max
+        '1'
+      elsif heart_rate.between?(heart_rate_zones.zone_1_max, heart_rate_zones.zone_2_max)
+        '2'
+      elsif heart_rate.between?(heart_rate_zones.zone_2_max, heart_rate_zones.zone_3_max)
+        '3'
+      elsif heart_rate.between?(heart_rate_zones.zone_3_max, heart_rate_zones.zone_4_max)
+        '4'
+      elsif heart_rate > heart_rate_zones.zone_4_max
+        '5'
       end
     end
 
-    def self.shape_entities(entities, measurement_unit, is_type_of_best_efforts)
+    def self.shape_entities(entities, heart_rate_zones, measurement_unit, is_type_of_best_efforts)
       shaped_items = []
 
       return shaped_items if entities.nil?
@@ -111,10 +141,10 @@ module ApplicationHelper
         item[:cadence] = entity.activity.average_cadence.nil? ? '' : (entity.activity.average_cadence * 2).to_i
         item[:suffer_score] = entity.activity.suffer_score.nil? ? '' : entity.activity.suffer_score.to_i
         item[:gear_name] = entity.activity.gear.nil? ? 'Unspecified' : entity.activity.gear.name
-        item[:average_heartrate] = entity.activity.average_heartrate.nil? ? 'n/a' : entity.activity.average_heartrate.to_i
-        item[:average_hr_zone_class] = get_heartrate_zone_class(item[:average_heartrate])
-        item[:max_heartrate] = entity.activity.max_heartrate.nil? ? 'n/a' : entity.activity.max_heartrate.to_i
-        item[:max_hr_zone_class] = get_heartrate_zone_class(item[:max_heartrate])
+        item[:average_heartrate] = entity.activity.average_heartrate.nil? ? -1 : entity.activity.average_heartrate.to_i
+        item[:average_hr_zone] = get_heart_rate_zone(heart_rate_zones, item[:average_heartrate])
+        item[:max_heartrate] = entity.activity.max_heartrate.nil? ? -1 : entity.activity.max_heartrate.to_i
+        item[:max_hr_zone] = get_heart_rate_zone(heart_rate_zones, item[:max_heartrate])
 
         shaped_items << item
       end

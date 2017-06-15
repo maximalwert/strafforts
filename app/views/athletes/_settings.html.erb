@@ -34,6 +34,15 @@
         </p>
       </div>
       <div class="form-group">
+        <label class="control-sidebar-subheading">
+          Heart Rate Zones:
+          <span class="pull-right underline" data-toggle="modal" data-target="#modal-heart-rate-zones">show details</span>
+        </label>
+        <p>
+          Synced from your Strava account.
+        </p>
+      </div>
+      <div class="form-group">
         <%= label_tag(:is_public, 'Public Profile:', class: 'control-sidebar-subheading checkbox inline') %>
         <%= check_box_tag(:is_public, @athlete.is_public, @athlete.is_public, class: 'pull-right') %>
         <p>
@@ -133,6 +142,72 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-outline" data-dismiss="modal">Cancel</button>
         <a href="/auth/deauthorize" class="btn btn-outline">Confirm</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal - Heart Rate Zones -->
+<div class="modal" id="modal-heart-rate-zones" tabindex="-1" role="dialog" aria-labelledby="modal-heart-rate-zones-label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="modal-heart-rate-zones-label">Heart Rate Zones</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          <strong>
+            Strava creates heart rate zones by default.
+            For Strava users on a premium plan, custom HR zones can be created at
+            <a href="https://www.strava.com/settings/performance" target="_blank">Settings - My Performance</a>
+            and will be synced here periodically.
+          </strong>
+        </p>
+        <p>
+          <strong>
+            HR zones synced from your Strava account: (<%= @athlete.heart_rate_zones.custom_zones ? 'custom' : 'default' %>)
+          </strong>
+        </p>
+        <table class="table table-striped">
+          <tbody>
+          <tr>
+            <td>Zone #</td>
+            <td>Minimum</td>
+            <td>Maximum</td>
+          </tr>
+          <tr>
+            <td>Zone 1</td>
+            <td class="badge-cell"><span class="badge hr-zone-1"><%= @athlete.heart_rate_zones.zone_1_min %></span></td>
+            <td class="badge-cell"><span class="badge hr-zone-1"><%= @athlete.heart_rate_zones.zone_1_max %></span></td>
+          </tr>
+          <tr>
+            <td>Zone 2</td>
+            <td class="badge-cell"><span class="badge hr-zone-2"><%= @athlete.heart_rate_zones.zone_2_min + 1 %></span></td>
+            <td class="badge-cell"><span class="badge hr-zone-2"><%= @athlete.heart_rate_zones.zone_2_max %></span></td>
+          </tr>
+          <tr>
+            <td>Zone 3</td>
+            <td class="badge-cell"><span class="badge hr-zone-3"><%= @athlete.heart_rate_zones.zone_3_min + 1 %></span></td>
+            <td class="badge-cell"><span class="badge hr-zone-3"><%= @athlete.heart_rate_zones.zone_3_max %></span></td>
+          </tr>
+          <tr>
+            <td>Zone 4</td>
+            <td class="badge-cell"><span class="badge hr-zone-4"><%= @athlete.heart_rate_zones.zone_4_min + 1 %></span></td>
+            <td class="badge-cell"><span class="badge hr-zone-4"><%= @athlete.heart_rate_zones.zone_4_max %></span></td>
+          </tr>
+          <tr>
+            <td>Zone 5</td>
+            <td class="badge-cell"><span class="badge hr-zone-5"><%= @athlete.heart_rate_zones.zone_5_min + 1 %></span></td>
+            <td class="badge-cell"><span class="badge hr-zone-5"><%= @athlete.heart_rate_zones.zone_5_max %></span></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

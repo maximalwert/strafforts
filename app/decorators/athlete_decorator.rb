@@ -66,6 +66,10 @@ class AthleteDecorator < Draper::Decorator
     end
   end
 
+  def heart_rate_zones
+    ApplicationHelper::Helper.get_heart_rate_zones(object.id)
+  end
+
   private
 
   def valid_url?(string)

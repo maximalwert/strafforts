@@ -23,6 +23,64 @@ input[type='submit'] {
     background-color: $color-strava !important;
 }
 
+.underline {
+  text-decoration: underline;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+/* Badge and label styles */
+.badge,
+.label {
+  font-size: 12px;
+
+  margin: 4px;
+}
+
+// Also used in app/assets/javascripts/common/helpers.ts.
+// Update there if any color is changed here.
+.hr-zone-na {
+  background-color: #D2D6DE;
+}
+
+.hr-zone-1 {
+  background-color: #BDD6BA;
+}
+
+.hr-zone-2 {
+  background-color: #00A65A;
+}
+
+.hr-zone-3 {
+  background-color: #F39C12;
+}
+
+.hr-zone-4 {
+  background-color: #C82300;
+}
+
+.hr-zone-5 {
+  background-color: #111111;
+}
+
+.workout-type-run {
+  background-color: $color-light-green;
+}
+
+.workout-type-race {
+  background-color: $color-red;
+}
+
+.workout-type-long-run {
+  background-color: $color-green;
+}
+
+.workout-type-workout {
+  background-color: $color-yellow;
+}
+
 .main-footer a,
 .main-header .logo b {
     color: $color-strava;
@@ -128,7 +186,6 @@ input[type='submit'] {
         padding: 20px 30px;
 
         color: #FFFFFF;
-        background: #F39C12;
     }
 }
 
@@ -233,7 +290,7 @@ input[type='submit'] {
         }
     }
 
-    /* Style links within best effort table */
+    /* Style links within data tables */
     .dataTable {
         a {
             -webkit-transition: all .2s ease-in-out;
@@ -357,62 +414,6 @@ input[type='submit'] {
     .pagination > li > span:hover,
     .pagination > li > span:visited {
         color: #000000;
-    }
-
-    /* Badge and label styles */
-    .badge,
-    .label {
-        font-size: 12px;
-
-        margin: 4px;
-    }
-
-    .hr-zone-na {
-        background-color: #D2D6DE;
-    }
-
-    .hr-zone-1 {
-        background-color: #BDD6BA;
-    }
-
-    .hr-zone-2 {
-        background-color: #00A65A;
-    }
-
-    .hr-zone-3 {
-        background-color: #F39C12;
-    }
-
-    .hr-zone-4 {
-        background-color: #FA6500;
-    }
-
-    .hr-zone-5 {
-        background-color: #C82300;
-    }
-
-    .hr-zone-6 {
-        background-color: #555555;
-    }
-
-    .hr-zone-7 {
-        background-color: #111111;
-    }
-
-    .workout-type-run {
-        background-color: $color-light-green;
-    }
-
-    .workout-type-race {
-        background-color: $color-red;
-    }
-
-    .workout-type-long-run {
-        background-color: $color-green;
-    }
-
-    .workout-type-workout {
-        background-color: $color-yellow;
     }
 }
 
@@ -562,6 +563,11 @@ body.page-loading:not(.pace-done):before {
 }
 @media (max-width: 1200px) {
     .hidden-lg-down {
+        display: none !important;
+    }
+}
+@media (max-width: 1600px) {
+    .hidden-xl-down {
         display: none !important;
     }
 }

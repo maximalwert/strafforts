@@ -6,9 +6,15 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-      
-      <div class="global-message hidden-md-up">
-        <span>To get more data displayed and better Strafforts user experience, please consider using desktops or devices with larger screens.</span>
+
+      <% unless Settings.app.global_message.blank? %>
+      <div class="global-message bg-aqua">
+        <span><%= Settings.app.global_message %></span>
+      </div>
+      <% end %>
+
+      <div class="global-message bg-yellow hidden-md-up">
+        <span>For better Strafforts user experience with more data displayed, please consider using devices with larger screens.</span>
       </div>
 
       <!-- Content Header (Page header) -->

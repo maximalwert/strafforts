@@ -1,4 +1,25 @@
+/// <reference path="./../../typings/chart.js.d.ts" />
+
 namespace HtmlHelpers {
+    export function constructChartHtml(id: string, title: string, width: number, withLoadingIcon: boolean = false) {
+        const content = withLoadingIcon ? HtmlHelpers.getLoadingIcon() : `<canvas id="${id}" height="300"></canvas>`;
+        const chart = `
+            <div class="col-md-${width}">
+                <div class="box">
+                    <div class="box-header with-border>
+                        <i class="fa fa-pie-chart"></i>
+                        <h3 class="box-title">${title}</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="chart">
+                            ${content}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        return chart;
+    }
 
     export function getContributionWelcomeBadges() {
         const html = `
@@ -115,13 +136,13 @@ namespace HtmlHelpers {
                     ${item['gear_name']}
                 </td>
                 <td class="text-center badge-cell hidden-md-down">
-                    <span class="badge ${item['average_hr_zone_class']}">
-                        ${item['average_heartrate']}
+                    <span class="badge hr-zone-${item['average_hr_zone']}">
+                        ${item['average_heartrate'] === -1 ? 'n/a' : item['average_heartrate']}
                     </span>
                 </td>
                 <td class="text-center badge-cell hidden-md-down">
-                    <span class="badge ${item['max_hr_zone_class']}">
-                        ${item['max_heartrate']}
+                    <span class="badge hr-zone-${item['max_hr_zone']}">
+                        ${item['max_heartrate'] === -1 ? 'n/a' : item['max_heartrate']}
                     </span>
                 </td>
             </tr>
@@ -135,7 +156,7 @@ namespace HtmlHelpers {
             <tr>
                 <td>${item['start_date']}</td>
                 <td>
-                    <a class="strava-logo-link" href="${stravaLink}" target="_blank">
+                    <a class="strava-logo-link hidden-lg-down" href="${stravaLink}" target="_blank">
                         <span></span>
                     </a>
                     <a class="strava-activity-link" href="${stravaLink}" target="_blank">
@@ -158,13 +179,13 @@ namespace HtmlHelpers {
                     ${item['cadence']}
                 </td>
                 <td class="text-center badge-cell hidden-md-down">
-                    <span class="badge ${item['average_hr_zone_class']}">
-                        ${item['average_heartrate']}
+                    <span class="badge hr-zone-${item['average_hr_zone']}">
+                        ${item['average_heartrate'] === -1 ? 'n/a' : item['average_heartrate']}
                     </span>
                 </td>
                 <td class="text-center badge-cell hidden-md-down">
-                    <span class="badge ${item['max_hr_zone_class']}">
-                        ${item['max_heartrate']}
+                    <span class="badge hr-zone-${item['max_hr_zone']}">
+                        ${item['max_heartrate'] === -1 ? 'n/a' : item['max_heartrate']}
                     </span>
                 </td>
             </tr>
