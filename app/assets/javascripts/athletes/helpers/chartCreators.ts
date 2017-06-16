@@ -438,6 +438,7 @@ namespace Helpers {
 
             // Get counts of each zone.
             const counts: number[] = [];
+            const legendLabels: string[] = [];
             let totalNaCount: number = 0;
             this.items.forEach((item) => {
                 switch (item['average_hr_zone']) {
@@ -462,10 +463,12 @@ namespace Helpers {
                         break;
                 }
             });
+
             let totalCount: number = 0;
             $.each(averageHrZones, (name) => {
                 const value = averageHrZones[name];
                 counts.push(value);
+                legendLabels.push(`${name} - (${value})`);
                 totalCount += value;
             });
 
@@ -476,14 +479,27 @@ namespace Helpers {
             }
 
             const chartData = {
-                labels: averageHrZoneNames,
+                labels: legendLabels,
                 datasets: [{
                     data: counts,
+                    label: averageHrZoneNames,
                     backgroundColor: Helpers.convertToRgbaColors(barColors, 0.6),
                     hoverBackgroundColor: Helpers.convertToRgbaColors(barColors, 1),
                 }],
             };
-            this.createHorizontalBarChart(id, chartData);
+            const customChartOptions: Chart.ChartOptions = {
+                tooltips: {
+                    callbacks: {
+                        title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
+                            return data.datasets[0].label[tooltipItem[0].index];
+                        },
+                        label: (tooltipItem: Chart.ChartTooltipItem) => {
+                            return `Count: ${tooltipItem.xLabel.toString()}`;
+                        },
+                    },
+                },
+            };
+            this.createHorizontalBarChart(id, chartData, customChartOptions);
         }
 
         private createChartWithNotEnoughDataMessage(id: string) {
