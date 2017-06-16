@@ -145,7 +145,7 @@ namespace Helpers {
                 return;
             }
 
-            const workoutTypes: any = {}; // Holds Workout Type and its count.
+            const workoutTypes: object = {}; // Holds Workout Type and its count.
             this.items.forEach((item) => {
                 let workoutType = item['workout_type_name'];
 
@@ -161,10 +161,36 @@ namespace Helpers {
                 }
             });
 
-            const dataLabels = ['Run', 'Race', 'Long Run', 'Workout'];
-            const counts = [workoutTypes.run, workoutTypes.race, workoutTypes['long run'], workoutTypes.workout];
+            const colors: RgbColor[] = [];
+            const counts: number[] = [];
+            const dataLabels: string[] = [];
+            const legendLabels: string[] = [];
+            for (const key in workoutTypes) {
+                if (workoutTypes.hasOwnProperty(key)) {
+                    const name = Helpers.convertToTitleCase(key);
+                    const value = workoutTypes[key];
 
-            this.createPieChart(id, counts, dataLabels);
+                    switch (name) {
+                        case 'Race':
+                            colors.push(new RgbColor(245, 105, 84));
+                            break;
+                        case 'Workout':
+                            colors.push(new RgbColor(243, 156, 18));
+                            break;
+                        case 'Long Run':
+                            colors.push(new RgbColor(0, 166, 90));
+                            break;
+                        default:
+                            colors.push(new RgbColor(189, 214, 186));
+                            break;
+                    }
+                    counts.push(value);
+                    dataLabels.push(name);
+                    legendLabels.push(`${name}: (${value})`);
+                }
+            }
+
+            this.createPieChart(id, counts, dataLabels, legendLabels, colors);
         }
 
         public createMonthDistributionChart(id: string) {
@@ -663,9 +689,10 @@ namespace Helpers {
             counts: number[],
             dataLabels: string[],
             legendLabels?: string[],
+            colors?: RgbColor[],
             customChartOptions?: Chart.ChartOptions) {
 
-            const colors = Helpers.getRgbColors();
+            colors = colors ? colors : Helpers.getRgbColors();
             const chartData = {
                 labels: (legendLabels) ? legendLabels : dataLabels,
                 datasets: [{
