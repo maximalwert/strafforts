@@ -14,9 +14,8 @@ namespace Helpers {
                 </div>
             `;
 
-            const container = $('#' + id).parent();
-            container.empty();
-            container.append(content);
+            const container = document.getElementById(id).parentElement as HTMLElement;
+            container.innerHTML = content;
         }
 
         public createProgressionChart(id: string) {
@@ -128,13 +127,16 @@ namespace Helpers {
             });
 
             const counts: number[] = [];
-            const dataLabels: string[] = Object.keys(years);
+            const dataLabels = Object.keys(years);
             const legendLabels: string[] = [];
-            $.each(years, (key) => {
-                const value = years[key];
-                counts.push(value);
-                legendLabels.push(`${key} (${value})`);
-            });
+            for (const key in years) {
+                if (years.hasOwnProperty(key)) {
+                    const value = years[key];
+
+                    counts.push(value);
+                    legendLabels.push(`${key}: (${value})`);
+                }
+            }
 
             this.createPieChart(id, counts, dataLabels, legendLabels);
         }
@@ -145,7 +147,7 @@ namespace Helpers {
                 return;
             }
 
-            const workoutTypes: any = {}; // Holds Workout Type and its count.
+            const workoutTypes: object = {}; // Holds Workout Type and its count.
             this.items.forEach((item) => {
                 let workoutType = item['workout_type_name'];
 
@@ -161,10 +163,36 @@ namespace Helpers {
                 }
             });
 
-            const dataLabels = ['Run', 'Race', 'Long Run', 'Workout'];
-            const counts = [workoutTypes.run, workoutTypes.race, workoutTypes['long run'], workoutTypes.workout];
+            const colors: RgbColor[] = [];
+            const counts: number[] = [];
+            const dataLabels: string[] = [];
+            const legendLabels: string[] = [];
+            for (const key in workoutTypes) {
+                if (workoutTypes.hasOwnProperty(key)) {
+                    const name = Helpers.convertToTitleCase(key);
+                    const value = workoutTypes[key];
 
-            this.createPieChart(id, counts, dataLabels);
+                    switch (name) {
+                        case 'Race':
+                            colors.push(new RgbColor(245, 105, 84));
+                            break;
+                        case 'Workout':
+                            colors.push(new RgbColor(243, 156, 18));
+                            break;
+                        case 'Long Run':
+                            colors.push(new RgbColor(0, 166, 90));
+                            break;
+                        default:
+                            colors.push(new RgbColor(189, 214, 186));
+                            break;
+                    }
+                    counts.push(value);
+                    dataLabels.push(name);
+                    legendLabels.push(`${name}: (${value})`);
+                }
+            }
+
+            this.createPieChart(id, counts, dataLabels, legendLabels, colors);
         }
 
         public createMonthDistributionChart(id: string) {
@@ -190,14 +218,16 @@ namespace Helpers {
             });
 
             const counts: number[] = [];
-            const dataLabels: string[] = [];
+            const dataLabels = Object.keys(months);
             const legendLabels: string[] = [];
-            $.each(months, (key) => {
-                const value = parseInt(months[key], 10);
-                legendLabels.push(`${key} (${value})`);
-                counts.push(value);
-                dataLabels.push(key);
-            });
+            for (const key in months) {
+                if (months.hasOwnProperty(key)) {
+                    const value = parseInt(months[key], 10);
+
+                    counts.push(value);
+                    legendLabels.push(`${key}: (${value})`);
+                }
+            }
 
             this.createBarChart(id, counts, dataLabels, legendLabels);
         }
@@ -219,14 +249,16 @@ namespace Helpers {
             });
 
             const counts: number[] = [];
-            const dataLabels: string[] = [];
+            const dataLabels = Object.keys(raceDistances);
             const legendLabels: string[] = [];
-            $.each(raceDistances, (key) => {
-                const value = parseInt(raceDistances[key], 10);
-                legendLabels.push(`${key} (${value})`);
-                counts.push(value);
-                dataLabels.push(key);
-            });
+            for (const key in raceDistances) {
+                if (raceDistances.hasOwnProperty(key)) {
+                    const value = parseInt(raceDistances[key], 10);
+
+                    counts.push(value);
+                    legendLabels.push(`${key}: (${value})`);
+                }
+            }
 
             this.createBarChart(id, counts, dataLabels, legendLabels);
         }
@@ -247,14 +279,19 @@ namespace Helpers {
                 }
             });
 
-            const dataLabels = Object.keys(gears);
             const counts: number[] = [];
-            $.each(gears, (key) => {
-                const value = gears[key];
-                counts.push(value);
-            });
+            const dataLabels = Object.keys(gears);
+            const legendLabels: string[] = [];
+            for (const key in gears) {
+                if (gears.hasOwnProperty(key)) {
+                    const value = gears[key];
 
-            this.createPieChart(id, counts, dataLabels);
+                    counts.push(value);
+                    legendLabels.push(`${key}: (${value})`);
+                }
+            }
+
+            this.createPieChart(id, counts, dataLabels, legendLabels);
         }
 
         public createGearMileageChart(id: string) {
@@ -275,10 +312,12 @@ namespace Helpers {
 
             const gearLabels = Object.keys(gears);
             const gearMileages: number[] = [];
-            $.each(gears, (key) => {
-                const mileage = gears[key] / 1000;
-                gearMileages.push(mileage);
-            });
+            for (const key in gears) {
+                if (gears.hasOwnProperty(key)) {
+                    const mileage = gears[key] / 1000;
+                    gearMileages.push(mileage);
+                }
+            }
 
             const customChartOptions: Chart.ChartOptions = {
                 tooltips: {
@@ -302,6 +341,7 @@ namespace Helpers {
                     hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1),
                 }],
             };
+
             this.createHorizontalBarChart(id, chartData, customChartOptions);
         }
 
@@ -402,6 +442,7 @@ namespace Helpers {
                     },
                 },
             };
+
             this.createBubbleChart(id, chartData, customChartOptions);
         }
 
@@ -437,8 +478,6 @@ namespace Helpers {
             ];
 
             // Get counts of each zone.
-            const counts: number[] = [];
-            const legendLabels: string[] = [];
             let totalNaCount: number = 0;
             this.items.forEach((item) => {
                 switch (item['average_hr_zone']) {
@@ -464,13 +503,18 @@ namespace Helpers {
                 }
             });
 
+            const counts: number[] = [];
+            const legendLabels: string[] = [];
             let totalCount: number = 0;
-            $.each(averageHrZones, (name) => {
-                const value = averageHrZones[name];
-                counts.push(value);
-                legendLabels.push(`${name} - (${value})`);
-                totalCount += value;
-            });
+            for (const key in averageHrZones) {
+                if (averageHrZones.hasOwnProperty(key)) {
+                    const value = averageHrZones[key];
+
+                    counts.push(value);
+                    legendLabels.push(`${key}: (${value})`);
+                    totalCount += value;
+                }
+            }
 
             // Not enough items with HR data to generate chart.
             if (totalCount === totalNaCount) {
@@ -512,7 +556,7 @@ namespace Helpers {
             chartData: Chart.ChartData,
             chartOptions: Chart.ChartOptions) {
 
-            const canvasElement = $('#' + id).get(0) as HTMLCanvasElement;
+            const canvasElement = document.getElementById(id) as HTMLCanvasElement;
             const context = canvasElement.getContext('2d');
             const chart = new Chart(context, {
                 type: chartType,
@@ -663,9 +707,10 @@ namespace Helpers {
             counts: number[],
             dataLabels: string[],
             legendLabels?: string[],
+            colors?: RgbColor[],
             customChartOptions?: Chart.ChartOptions) {
 
-            const colors = Helpers.getRgbColors();
+            colors = colors ? colors : Helpers.getRgbColors();
             const chartData = {
                 labels: (legendLabels) ? legendLabels : dataLabels,
                 datasets: [{

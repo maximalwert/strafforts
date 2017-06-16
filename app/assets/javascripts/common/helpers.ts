@@ -16,6 +16,13 @@ namespace Helpers {
         return time;
     }
 
+    export function convertToTitleCase(sourceText: string) {
+        return sourceText.replace(/\w\S*/g,
+            (text) => {
+                return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
+            });
+    }
+
     export function getRgbColors(limit?: number) {
         const colors: RgbColor[] = [
             new RgbColor(189, 214, 186),
