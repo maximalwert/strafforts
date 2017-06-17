@@ -301,12 +301,15 @@ namespace Helpers {
             }
 
             const gears: object = {}; // Holds Gear and its mileage.
+            let distanceUnit: string;
             this.items.forEach((item) => {
+                distanceUnit = item['distance_unit'];
+                const distance = item['distance'];
                 const gearName = item['gear_name'];
                 if (gearName in gears) {
-                    gears[gearName] += item['distance'];
+                    gears[gearName] += distance;
                 } else {
-                    gears[gearName] = item['distance'];
+                    gears[gearName] = distance;
                 }
             });
 
@@ -314,7 +317,7 @@ namespace Helpers {
             const gearMileages: number[] = [];
             for (const key in gears) {
                 if (gears.hasOwnProperty(key)) {
-                    const mileage = gears[key] / 1000;
+                    const mileage = gears[key];
                     gearMileages.push(mileage);
                 }
             }
@@ -326,7 +329,7 @@ namespace Helpers {
                     callbacks: {
                         label: (tooltipItem: Chart.ChartTooltipItem) => {
                             const mileage = parseFloat(tooltipItem.xLabel).toFixed(1);
-                            return `Mileage: ${mileage} km`;
+                            return `Mileage: ${mileage} ${distanceUnit}`;
                         },
                     },
                 },

@@ -47,24 +47,25 @@ module ApplicationHelper
 
     def self.get_heart_rate_zones(athlete_id)
       heart_rate_zones = HeartRateZones.find_by_athlete_id(athlete_id)
-      if heart_rate_zones.nil?
-        return create_default_heart_rate_zones
-      end
+      return create_default_heart_rate_zones if heart_rate_zones.nil?
       heart_rate_zones
     end
 
     private_class_method
 
-    def self.convert_to_pace(average_speed, measurement_unit)
+    def self.calculate_total_elevation_gain(total_elevation_gain, is_imperial_unit)
+      return '' if total_elevation_gain.blank?
+      return (total_elevation_gain * 3.28084).to_i if is_imperial_unit # Convert to feet from meters.
+      total_elevation_gain.to_i
+    end
+
+    def self.convert_to_pace(average_speed, is_imperial_unit)
       return '' if average_speed.blank?
 
-      seconds = measurement_unit == 'feet' ? (1609.344 / average_speed) : (1000 / average_speed)
+      seconds = is_imperial_unit ? (1609.344 / average_speed) : (1000 / average_speed)
       mins, secs = seconds.divmod(60)
-      if secs.round < 10
-        "#{mins}:0#{secs.round}"
-      else
-        "#{mins}:#{secs.round}"
-      end
+      return "#{mins}:0#{secs.round}" if secs.round < 10
+      "#{mins}:#{secs.round}"
     end
 
     def self.create_default_heart_rate_zones
@@ -118,6 +119,7 @@ module ApplicationHelper
         # Must have an activity associated in order to show.
         next if entity.activity.nil?
 
+        item[:is_imperial_unit] = measurement_unit == 'feet'
         if is_type_of_best_efforts
           item[:best_effort_type] = entity.best_effort_type.name
           item[:elapsed_time] = entity.elapsed_time
@@ -125,7 +127,10 @@ module ApplicationHelper
         else
           item[:race_distance] = entity.race_distance.name
           item[:elapsed_time] = entity.activity.elapsed_time
-          item[:distance] = entity.activity.distance
+
+          # Convert distance from meters to miles/km.
+          item[:distance] = item[:is_imperial_unit] ? entity.activity.distance * 0.000621371 : entity.activity.distance * 0.001
+          item[:distance_unit] = item[:is_imperial_unit] ? 'miles' : 'km'
           average_speed = entity.activity.average_speed
         end
 
@@ -134,10 +139,10 @@ module ApplicationHelper
         item[:start_date] = entity.activity.start_date_local.nil? ? '' : entity.activity.start_date_local.to_s.slice(0, 10)
         item[:workout_type_name] = entity.activity.workout_type.nil? ? 'n/a' : entity.activity.workout_type.name
         item[:elapsed_time_formatted] = Time.at(item[:elapsed_time]).utc.strftime('%H:%M:%S')
-        item[:pace] = convert_to_pace(average_speed, measurement_unit)
-        item[:pace_unit] = measurement_unit == 'feet' ? '/mi' : '/km'
-        item[:elevation] = entity.activity.total_elevation_gain.nil? ? '' : entity.activity.total_elevation_gain.to_i
-        item[:elevation_unit] = measurement_unit == 'feet' ? 'ft' : 'm'
+        item[:pace] = convert_to_pace(average_speed, item[:is_imperial_unit])
+        item[:pace_unit] = item[:is_imperial_unit] ? '/mi' : '/km'
+        item[:elevation] = calculate_total_elevation_gain(entity.activity.total_elevation_gain, item[:is_imperial_unit])
+        item[:elevation_unit] = item[:is_imperial_unit] ? 'ft' : 'm'
         item[:cadence] = entity.activity.average_cadence.nil? ? '' : (entity.activity.average_cadence * 2).to_i
         item[:suffer_score] = entity.activity.suffer_score.nil? ? '' : entity.activity.suffer_score.to_i
         item[:gear_name] = entity.activity.gear.nil? ? 'Unspecified' : entity.activity.gear.name
