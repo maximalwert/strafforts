@@ -301,10 +301,9 @@ namespace Helpers {
             }
 
             const gears: object = {}; // Holds Gear and its mileage.
-            let isImperialUnit: boolean = false;
+            let distanceUnit: string;
             this.items.forEach((item) => {
-                // Make sure everything is in meters first.
-                isImperialUnit = item['is_imperial_unit'];
+                distanceUnit = item['distance_unit'];
                 const distance = item['distance'];
                 const gearName = item['gear_name'];
                 if (gearName in gears) {
@@ -318,7 +317,6 @@ namespace Helpers {
             const gearMileages: number[] = [];
             for (const key in gears) {
                 if (gears.hasOwnProperty(key)) {
-                    // Convert distance to miles or kilometers.
                     const mileage = gears[key];
                     gearMileages.push(mileage);
                 }
@@ -331,7 +329,7 @@ namespace Helpers {
                     callbacks: {
                         label: (tooltipItem: Chart.ChartTooltipItem) => {
                             const mileage = parseFloat(tooltipItem.xLabel).toFixed(1);
-                            return `Mileage: ${mileage} ${isImperialUnit ? 'miles' : 'km'}`;
+                            return `Mileage: ${mileage} ${distanceUnit}`;
                         },
                     },
                 },
