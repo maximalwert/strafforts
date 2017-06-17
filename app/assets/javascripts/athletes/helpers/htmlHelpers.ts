@@ -94,15 +94,18 @@ namespace HtmlHelpers {
         return header;
     }
 
-    export function getDatatableHeaderForRaces() {
+    export function getDatatableHeaderForRaces(showDistanceColumn?: boolean) {
+        const distanceColumn = showDistanceColumn ? `<th class="col-md-1">Distance</th>` : '';
+        const gearColumnWidth = showDistanceColumn ? '1' : '2';
         const header = `
             <thead>
                 <tr>
                 <th class="col-md-1">Date</th>
                 <th class="col-md-3">Activity</th>
+                ${distanceColumn}
                 <th class="col-md-1">Time</th>
                 <th class="col-md-1 hidden-xs-down">Pace</th>
-                <th class="col-md-2 hidden-lg-down">Gear</th>
+                <th class="col-md-${gearColumnWidth} hidden-lg-down">Gear</th>
                 <th class="col-md-1 hidden-md-down">Elevation</th>
                 <th class="col-md-1 hidden-md-down">Cadence</th>
                 <th class="col-md-1 text-center badge-cell hidden-md-down">Avg. HR</th>
@@ -150,8 +153,9 @@ namespace HtmlHelpers {
         return row;
     }
 
-    export function getDatatableRowForRaces(item: any[]) {
+    export function getDatatableRowForRaces(item: any[], showDistanceColumn?: boolean) {
         const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
+        const distanceColumn = showDistanceColumn ? `<td>${(item['distance']).toFixed(1)} ${item['distance_unit']}</td>` : '';
         const row = `
             <tr>
                 <td>${item['start_date']}</td>
@@ -163,6 +167,7 @@ namespace HtmlHelpers {
                         ${item['activity_name']}
                     </a>
                 </td>
+                ${distanceColumn}
                 <td>
                     ${item['elapsed_time_formatted']}
                 </td>
