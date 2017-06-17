@@ -305,7 +305,7 @@ namespace Helpers {
             this.items.forEach((item) => {
                 // Make sure everything is in meters first.
                 isImperialUnit = item['is_imperial_unit'];
-                const distance = isImperialUnit ? item['distance'] * 0.3048 : item['distance'];
+                const distance = item['distance'];
                 const gearName = item['gear_name'];
                 if (gearName in gears) {
                     gears[gearName] += distance;
@@ -319,7 +319,7 @@ namespace Helpers {
             for (const key in gears) {
                 if (gears.hasOwnProperty(key)) {
                     // Convert distance to miles or kilometers.
-                    const mileage = isImperialUnit ? gears[key] * 0.000621371 : gears[key] / 1000;
+                    const mileage = gears[key];
                     gearMileages.push(mileage);
                 }
             }

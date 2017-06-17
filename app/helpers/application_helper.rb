@@ -127,7 +127,10 @@ module ApplicationHelper
         else
           item[:race_distance] = entity.race_distance.name
           item[:elapsed_time] = entity.activity.elapsed_time
-          item[:distance] = item[:is_imperial_unit] ? entity.activity.distance * 3.28084 : entity.activity.distance
+
+          # Convert distance from meters to miles/km.
+          item[:distance] = item[:is_imperial_unit] ? entity.activity.distance * 0.000621371 : entity.activity.distance * 0.001
+          item[:distance_unit] = item[:is_imperial_unit] ? 'miles' : 'km'
           average_speed = entity.activity.average_speed
         end
 
