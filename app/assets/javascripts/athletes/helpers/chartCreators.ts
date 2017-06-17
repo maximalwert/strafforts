@@ -301,12 +301,16 @@ namespace Helpers {
             }
 
             const gears: object = {}; // Holds Gear and its mileage.
+            let isImperialUnit: boolean = false;
             this.items.forEach((item) => {
+                // Make sure everything is in meters first.
+                isImperialUnit = item['is_imperial_unit'];
+                const distance = isImperialUnit ? item['distance'] * 0.3048 : item['distance'];
                 const gearName = item['gear_name'];
                 if (gearName in gears) {
-                    gears[gearName] += item['distance'];
+                    gears[gearName] += distance;
                 } else {
-                    gears[gearName] = item['distance'];
+                    gears[gearName] = distance;
                 }
             });
 
@@ -314,7 +318,8 @@ namespace Helpers {
             const gearMileages: number[] = [];
             for (const key in gears) {
                 if (gears.hasOwnProperty(key)) {
-                    const mileage = gears[key] / 1000;
+                    // Convert distance to miles or kilometers.
+                    const mileage = isImperialUnit ? gears[key] * 0.000621371 : gears[key] / 1000;
                     gearMileages.push(mileage);
                 }
             }
@@ -326,7 +331,7 @@ namespace Helpers {
                     callbacks: {
                         label: (tooltipItem: Chart.ChartTooltipItem) => {
                             const mileage = parseFloat(tooltipItem.xLabel).toFixed(1);
-                            return `Mileage: ${mileage} km`;
+                            return `Mileage: ${mileage} ${isImperialUnit ? 'miles' : 'km'}`;
                         },
                     },
                 },
