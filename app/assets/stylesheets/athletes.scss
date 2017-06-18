@@ -24,61 +24,69 @@ input[type='submit'] {
 }
 
 .underline {
-  text-decoration: underline;
+    text-decoration: underline;
 
-  &:hover {
-    cursor: pointer;
-  }
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 /* Badge and label styles */
 .badge,
 .label {
-  font-size: 12px;
+    font-size: 12px;
 
-  margin: 4px;
+    margin: 4px;
 }
 
 // Also used in app/assets/javascripts/common/helpers.ts.
 // Update there if any color is changed here.
 .hr-zone-na {
-  background-color: #D2D6DE;
+    background-color: #D2D6DE;
 }
 
 .hr-zone-1 {
-  background-color: #BDD6BA;
+    background-color: #BDD6BA;
 }
 
 .hr-zone-2 {
-  background-color: #00A65A;
+    background-color: #00A65A;
 }
 
 .hr-zone-3 {
-  background-color: #F39C12;
+    background-color: #F39C12;
 }
 
 .hr-zone-4 {
-  background-color: #C82300;
+    background-color: #C82300;
 }
 
 .hr-zone-5 {
-  background-color: #111111;
+    background-color: #111111;
 }
 
 .workout-type-run {
-  background-color: $color-light-green;
+    background-color: $color-light-green;
 }
 
 .workout-type-race {
-  background-color: $color-red;
+    background-color: $color-red;
 }
 
 .workout-type-long-run {
-  background-color: $color-green;
+    background-color: $color-green;
 }
 
 .workout-type-workout {
-  background-color: $color-yellow;
+    background-color: $color-yellow;
+}
+
+.form-control:focus {
+    border-color: $color-strava;
+}
+
+.box.box-primary {
+    border-top-color: $color-strava;
 }
 
 .main-footer a,
@@ -90,89 +98,87 @@ input[type='submit'] {
     }
 }
 
-.main-header li.user-header {
-    background-color: #555555 !important;
-}
-
-.form-control:focus {
-    border-color: $color-strava;
-}
-
-.box.box-primary {
-    border-top-color: $color-strava;
-}
-/* Blue follower and following links. */
-.navbar-nav > .user-menu > .dropdown-menu > .user-body a {
-    color: #007FB6 !important;
-}
-.navbar-nav > .notifications-menu > .dropdown-menu,
-.navbar-nav > .messages-menu > .dropdown-menu,
-.navbar-nav > .tasks-menu > .dropdown-menu {
-    width: 380px;
-}
-.dropdown-menu > li > a {
-    &:focus {
-        background-color: inherit;
-    }
-}
-
-/* Add some transition effects */
-.main-header .logo,
-.main-header .navbar .sidebar-toggle,
-.treeview-menu > li > a {
-    -webkit-transition: all .2s ease-in-out;
-       -moz-transition: all .2s ease-in-out;
-        -ms-transition: all .2s ease-in-out;
-         -o-transition: all .2s ease-in-out;
-            transition: all .2s ease-in-out;
-}
-
-/* Sidebar Treeview Menu */
-.sidebar-menu {
-    .treeview-menu {
-        li a:hover {
-            box-shadow: inset 3px 0 0 $color-strava;
-        }
-    }
-    .disabled {
-        cursor: default;
-    }
-}
-
-/* Style Sidebar User Panel as a link */
-.user-panel {
-    .image img {
-        width: 45px;
-        height: 45px;
+.main-header {
+    li.user-header {
+        background-color: #555555 !important;
     }
 
-    .info {
-        font-weight: bold;
+    /* Blue follower and following links. */
+    .navbar-nav > .user-menu > .dropdown-menu > .user-body a {
+        color: #007FB6 !important;
+    }
 
-        p {
-            margin-top: 10px;
-            margin-bottom: 10px;
+    .navbar-nav > .notifications-menu > .dropdown-menu,
+    .navbar-nav > .messages-menu > .dropdown-menu,
+    .navbar-nav > .tasks-menu > .dropdown-menu {
+        width: 380px;
+    }
+
+    .logo,
+    .navbar .sidebar-toggle {
+        -webkit-transition: all .2s ease-in-out;
+           -moz-transition: all .2s ease-in-out;
+            -ms-transition: all .2s ease-in-out;
+             -o-transition: all .2s ease-in-out;
+                transition: all .2s ease-in-out;
+    }
+
+    /* Style User Menu Dropdown */
+    .navbar-nav .user-menu .dropdown-menu li.user-header {
+        img {
+            width: 90px;
+            height: 90px;
         }
 
-        a {
-            font-size: inherit;
-            font-weight: 600;
-
-            margin-top: inherit;
-            margin-bottom: 9px;
-            padding-right: inherit;
+        a:hover,
+        a:focus {
+            background-color: inherit;
         }
     }
 }
-/* Style User Menu Dropdown */
-.navbar-nav .user-menu .dropdown-menu li.user-header {
-    img {
-        width: 90px;
-        height: 90px;
+
+.main-sidebar {
+    .user-panel {
+        .image img {
+            width: 45px;
+            height: 45px;
+        }
+
+        .info {
+            font-weight: bold;
+
+            p {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            a {
+                font-size: inherit;
+                font-weight: 600;
+
+                margin-top: inherit;
+                margin-bottom: 9px;
+                padding-right: inherit;
+            }
+        }
     }
 
-    a:hover {
-        background-color: inherit;
+    .sidebar-menu {
+        .treeview-menu {
+            li a {
+                -webkit-transition: all .2s ease-in-out;
+                   -moz-transition: all .2s ease-in-out;
+                    -ms-transition: all .2s ease-in-out;
+                     -o-transition: all .2s ease-in-out;
+                        transition: all .2s ease-in-out;
+                &:hover {
+                    box-shadow: inset 3px 0 0 $color-strava;
+                }
+            }
+        }
+        .disabled {
+            cursor: default;
+        }
     }
 }
 
