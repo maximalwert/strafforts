@@ -430,8 +430,14 @@ input[type='submit'] {
 }
 
 .main-footer {
+    font-weight: bold;
+
     .btn {
         font-size: 85%;
+    }
+
+    .pull-right {
+        padding-bottom: 15px;
     }
 }
 

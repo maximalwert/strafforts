@@ -1,19 +1,15 @@
 <footer class="main-footer">
-    <div>
-      <strong class="hidden-xs">
-        Created by <a class="external" href="http://yizeng.me" target="_blank">Yi Zeng</a> and GitHub'ed at
-        <a class="external" href="https://github.com/yizeng/strafforts" target="_blank">yizeng/strafforts</a>.
-      </strong>
-      <div class="pull-right">
-        <strong>
-          <a class="bg-strava btn external label" href="https://www.strava.com/athletes/9123806" target="_blank">Follow me on Strava</a>
-          <a class="bg-strava btn external label" href="http://yizeng.me/#contact" target="_blank">Contact Me</a>
-          <% unless Settings.app.version.blank? %>
-              <small><%=  Settings.app.version %></small>
-          <% else %>
-              <small>v.0.8.2</small>
-          <% end %>
-        </strong>
-      </div>
-    </div>
+  <span class="hidden-xs">
+    Created by <a class="external" href="http://yizeng.me" target="_blank">Yi Zeng</a> and GitHub'ed at
+    <a class="external" href="https://github.com/yizeng/strafforts" target="_blank">yizeng/strafforts</a>.
+  </span>
+  <span class="pull-right">
+      <a class="bg-strava btn external label" href="https://www.strava.com/athletes/9123806" target="_blank">Follow me on Strava</a>
+      <a class="bg-strava btn external label" href="http://yizeng.me/#contact" target="_blank">Contact Me</a>
+      <% unless Settings.app.version.blank? %>
+          <small><%=  Settings.app.version %></small>
+      <% else %>
+          <small>v.0.8.2</small>
+      <% end %>
+  </span>
 </footer>
