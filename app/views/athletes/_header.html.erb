@@ -30,7 +30,6 @@
           </a>
 
           <ul class="dropdown-menu">
-            <!-- User image -->
             <li class="user-header">
               <a class="athlete-link" href="<%= @athlete_profile_url %>" target="_blank">
                 <% if @athlete.profile_image_url.nil? %>
@@ -71,15 +70,47 @@
             </li>
           </ul>
         </li>
-        <% if @is_current_user %>
         <li>
-          <a href="#" class="control-sidebar-toggle" data-toggle="control-sidebar">
-            <i class="fa fa-gears"></i>
+          <a href="#" data-toggle="modal" data-target="#modal-social-sharing" title="Share <% if @is_current_user %>Your<% else %>This<% end %> Profile">
+            <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        <% if @is_current_user %>
+          <li>
+            <a href="#" class="control-sidebar-toggle" data-toggle="control-sidebar" title="Show Settings">
+              <i class="fa fa-gears"></i>
+            </a>
+          </li>
         <% end %>
       </ul>
   </ul>
 </div>
 </nav>
 </header>
+
+<!-- Modal - Heart Rate Zones -->
+<div class="modal" id="modal-social-sharing" tabindex="-1" role="dialog" aria-labelledby="modal-social-sharing-label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="modal-social-sharing-label">
+          Share <% if @is_current_user %>Your<% else %>This<% end %> Profile
+        </h4>
+      </div>
+      <div class="modal-body">
+        <% if @is_current_user %>
+          <p class="text-center"><strong>Remember to set your profile to public before sharing your profile.</strong></p>
+        <% end %>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox text-center"></div>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5945b04103f9ff79"></script> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default text-center" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,7 +18,7 @@
       </a>
     </li>
   </ul>
-  <!-- Tab panes -->
+
   <div class="tab-content">
     <!-- Profile tab content -->
     <div class="tab-pane active" id="control-sidebar-profile-tab">
@@ -48,6 +48,9 @@
         <p>
           Anyone with the link can see this page.
         </p>
+        <p id="publicize-profile-warning" class="alert alert-warning hidden">
+          <small>If your profile was previously shared to anyone, they can no longer access this page.</small>
+        </p>
       </div>
       <button class="btn btn-block btn-default btn-flat submit-form" type="submit">
         <i class="fa fa-floppy-o"></i>
@@ -63,7 +66,6 @@
         </a>
       </div>
     </div>
-    <!-- /.tab-pane -->
 
     <!-- Data tab content -->
     <div class="tab-pane" id="control-sidebar-data-tab">
@@ -74,7 +76,6 @@
         </p>
       </form>
     </div>
-    <!-- /.tab-pane -->
 
     <!-- Diagnostics tab content -->
     <div class="tab-pane" id="control-sidebar-diagnostics-tab">
@@ -117,10 +118,8 @@
         </button>
       </div>
     </div>
-    <!-- /.tab-pane -->
   </div>
 </aside>
-<!-- /.control-sidebar -->
 
 <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
