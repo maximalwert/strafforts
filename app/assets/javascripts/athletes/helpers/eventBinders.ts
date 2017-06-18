@@ -95,6 +95,14 @@ namespace EventBinders {
             $(document).on('submit', '.form-save-profile', (event) => {
                 saveProfile(event);
             });
+            $(document).on('change', '#is_public', (event) => {
+                const element = event.currentTarget as HTMLInputElement;
+                if (element.checked) {
+                    $('#publicize-profile-warning').addClass('hidden');
+                } else {
+                    $('#publicize-profile-warning').removeClass('hidden');
+                }
+            });
             $(document).on('submit', '.form-reset-last-activity-retrieved', (event) => {
                 resetLastRetrieveActivity(event);
             });
