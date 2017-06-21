@@ -126,6 +126,7 @@ namespace EventBinders {
             type: 'post',
             success: () => {
                 toastr.success('Saved Successfully!');
+                $('#publicize-profile-warning').addClass('hidden');
             },
             error: (xhr, ajaxOptions, thrownError) => {
                 toastr.error(xhr.status + '\n' + thrownError);
