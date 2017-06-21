@@ -329,5 +329,6 @@
             "text-shadow"
         ]
     ]
-  }
+  },
+  "tslint.configFile": "./tslint.json"
 }
