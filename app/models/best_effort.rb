@@ -1,6 +1,6 @@
 class BestEffort < ApplicationRecord
   validates :activity_id, :athlete_id, :best_effort_type_id, :pr_rank, presence: true
-  validates :distance, :moving_time, :elapsed_time, :start_date, presence: true
+  validates :distance, :moving_time, :elapsed_time, presence: true
 
   belongs_to :activity, foreign_key: 'activity_id'
   belongs_to :athlete, foreign_key: 'athlete_id'
