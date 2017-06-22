@@ -11,9 +11,9 @@ module Creators
       athlete_id = athlete_hash['id']
       begin
         athlete = Athlete.find(athlete_id)
-        Rails.logger.info("AthleteCreator - Updating athlete #{athlete_id}")
+        Rails.logger.info("AthleteCreator - Updating athlete #{athlete_id}.")
       rescue ActiveRecord::RecordNotFound
-        Rails.logger.info("AthleteCreator - Creating athlete #{athlete_id}")
+        Rails.logger.info("AthleteCreator - Creating athlete #{athlete_id}.")
         athlete = Athlete.new
         athlete.id = athlete_id
         athlete.is_public = true # Set profile to true by default when it's a new athlete.

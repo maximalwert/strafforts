@@ -12,7 +12,7 @@ module Creators
         return
       end
 
-      Rails.logger.info("HeartRateZonesCreator - Creating or updating heart rate zones for athlete #{athlete_id}")
+      Rails.logger.info("HeartRateZonesCreator - Creating or updating heart rate zones for athlete #{athlete_id}.")
       heart_rate_zones = HeartRateZones.where(athlete_id: athlete_id).first_or_create
       heart_rate_zones.custom_zones = true
       heart_rate_zones.zone_1_min = 0

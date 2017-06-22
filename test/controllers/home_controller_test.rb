@@ -31,11 +31,11 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
-  test 'should get an exception when GET exchange_token without specifying Strava API Client secret' do
+  test 'should get Bad Request when GET exchange_token without specifying Strava API Client secret' do
     exception = assert_raises(Exception) do
       get '/auth/exchange_token'
     end
-    assert(exception.message.include?('Exchanging token failed. HTTP Status Code:'))
+    assert(exception.message.include?('Bad request while exchanging token with Strava'))
   end
 
   test 'should logout after GET deauthorize with a correct access token' do
