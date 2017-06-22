@@ -2,9 +2,9 @@ class ErrorsController < ApplicationController
   def bad_request
     @error_heading = '400 Bad Request'
     @error_page_title = "#{Settings.app.name} - #{@error_heading}"
-    @error_text = 'Strava has rejected this request.
-This is most likely that Strava returned a corrupted authorization code.
-Please try go back to homepage and re-authorize or contact us if problem persists.'
+    @error_text = 'Strava rejected request due to a corrupted authorization code.
+Please try go to "My Apps" in your Strava Settings and revoke access of Strafforts.
+Then come back and re-authorize. If problem persists, please contact us.'
     render(status: 400)
   end
 
