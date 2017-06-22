@@ -8,7 +8,6 @@ class BestEffortTest < ActiveSupport::TestCase
   should validate_presence_of(:distance)
   should validate_presence_of(:moving_time)
   should validate_presence_of(:elapsed_time)
-  should validate_presence_of(:start_date)
 
   should belong_to(:activity)
   should belong_to(:athlete)

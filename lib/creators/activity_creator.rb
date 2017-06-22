@@ -76,8 +76,8 @@ module Creators
       best_effort.distance = best_effort_json['distance']
       best_effort.moving_time = best_effort_json['moving_time']
       best_effort.elapsed_time = best_effort_json['elapsed_time']
-      best_effort.start_date = DateTime.parse(best_effort_json['start_date'])
-      best_effort.start_date_local = DateTime.parse(best_effort_json['start_date_local'])
+      best_effort.start_date = DateTime.parse(best_effort_json['start_date']) unless best_effort_json['start_date'].blank?
+      best_effort.start_date_local = DateTime.parse(best_effort_json['start_date_local']) unless best_effort_json['start_date_local'].blank?
       best_effort.save!
     end
 

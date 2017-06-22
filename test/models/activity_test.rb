@@ -7,6 +7,7 @@ class ActivityTest < ActiveSupport::TestCase
   should validate_presence_of(:moving_time)
   should validate_presence_of(:elapsed_time)
   should validate_presence_of(:start_date)
+  should validate_presence_of(:start_date_local)
   should validate_presence_of(:workout_type_id)
 
   should belong_to(:athlete)
