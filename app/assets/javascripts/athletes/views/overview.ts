@@ -69,7 +69,7 @@ namespace Views {
 
                             const menuItem = `
                                 <li>
-                                    <a id="${elementId}" href="#">
+                                    <a id="${elementId}" title="${itemText}" href="#">
                                         <i class="fa fa-circle-o"></i>
                                         <span class="item-text">${itemText}</span>
                                         <span class="pull-right-container">
@@ -130,7 +130,7 @@ namespace Views {
                                         </span>
                                     </td>
                                     <td>
-                                        <a class="strava-activity-link" href="${stravaLink}" target="_blank">
+                                        <a class="strava-activity-link external" href="${stravaLink}" target="_blank">
                                             ${item['activity_name']}
                                         </a>
                                     </td>
@@ -158,7 +158,7 @@ namespace Views {
                                     <h3 class="box-title">
                                         ${model['distance']}
                                     </h3>
-                                    <a class="pull-right" id="${linkId}" href="#">
+                                    <a class="pull-right" id="${linkId}" href="#" title="${model['distance']}">
                                         <small> View Details</small>
                                         <span class="item-text hidden">
                                             ${model['distance']}
