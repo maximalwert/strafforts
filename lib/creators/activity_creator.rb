@@ -84,7 +84,7 @@ module Creators
     def self.create_race(activity_json)
       race_distance = RaceDistance.find_by_actual_distance(activity_json['distance'].to_f)
       unless race_distance.nil?
-        Rails.logger.info("ActivityCreator - Creating or updating #{race_distance.distance} race for activity #{activity_json['id']} - '#{activity_json['name']}'.")
+        Rails.logger.info("ActivityCreator - Creating or updating race of distance '#{race_distance.name}' for activity #{activity_json['id']} - '#{activity_json['name']}'.")
         race = Race.where(activity_id: activity_json['id']).first_or_create
         race.athlete_id = activity_json['athlete']['id']
         race.race_distance = race_distance
