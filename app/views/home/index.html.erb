@@ -1,13 +1,13 @@
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="page-top" class="homepage" data-spy="scroll" data-target=".navbar-fixed-top">
 
   <!-- Navigation -->
   <nav class="navbar navbar-custom navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+        <button type="button" class="navbar-toggle" title="Toggle Navigation Menu" data-toggle="collapse" data-target=".navbar-main-collapse">
           <i class="fa fa-bars"></i>
         </button>
-        <a class="navbar-brand page-scroll" href="#page-top">
+        <a class="navbar-brand page-scroll" title="Page Top" href="#page-top">
           <span class="light">Stra</span>fforts
         </a>
       </div>
@@ -51,7 +51,7 @@
                 </a>
               </li>
               <li>
-                <a href="<%= @auth_url %>" class="btn-connect-with-strava">
+                <a href="<%= @auth_url %>" class="btn-connect-with-strava" title="Connect With Strava">
                   <%= image_tag("btn_strava_connectwith_orange.png", :alt => "Connect With Strava") %>
                 </a>
               </li>
@@ -118,7 +118,7 @@
         </p>
         <ul class="list-inline banner-social-buttons">
           <li>
-            <a href="<%= @auth_url %>" class="btn-connect-with-strava">
+            <a href="<%= @auth_url %>" class="btn-connect-with-strava" title="Connect With Strava">
               <%= image_tag("btn_strava_connectwith_orange.png", :alt => "Connect With Strava") %>
             </a>
           </li>
@@ -132,7 +132,7 @@
       <p>App designed and developed by
         <%= link_to "Yi Zeng", "http://yizeng.me", target: "_blank", class: "external" %>.</p>
       <p>
-        <a href="https://www.strava.com" class="btn-powered-by-strava" target="_blank">
+        <a href="https://www.strava.com" class="btn-powered-by-strava external" title="Powered by Strava" target="_blank">
           <%= image_tag("api_logo_pwrdBy_strava_stack_light.png", :alt => "Powered by Strava") %>
         </a>
       </p>

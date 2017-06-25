@@ -24,7 +24,7 @@
     <%= stylesheet_link_tag 'errors', media: 'all' %>
   </head>
 
-  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <body id="page-top" class="error-page" data-error-code="<%= @error_code %>" data-spy="scroll" data-target=".navbar-fixed-top">
 
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -41,11 +41,11 @@
     <!-- Intro Header -->
     <header class="intro">
       <div class="intro-body">
-        <div class="container error-section">
+        <div class="container">
           <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
               <div class="heading-text">
-                <h1 class="brand-heading"><%= @error_heading %></h1>
+                <h1 class="brand-heading"><%= @error_code %> <%= @error_title %></h1>
                 <p class="intro-text"><%= @error_text %></p>
                 <ul class="list-inline banner-social-buttons">
                   <li>
