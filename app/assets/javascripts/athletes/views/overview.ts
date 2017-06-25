@@ -130,7 +130,7 @@ namespace Views {
                                         </span>
                                     </td>
                                     <td>
-                                        <a class="strava-activity-link external" href="${stravaLink}" target="_blank">
+                                        <a class="strava-activity-link" href="${stravaLink}" target="_blank">
                                             ${item['activity_name']}
                                         </a>
                                     </td>

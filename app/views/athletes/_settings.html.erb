@@ -93,7 +93,7 @@
         </label>
         <label></label>
         <span class="pull-right last-activity-na <%= @athlete.last_activity_retrieved.blank? ? '' : 'hidden' %>">N/A</span>
-        <a class="external pull-right last-activity-retrieved <%= @athlete.last_activity_retrieved.blank? ? 'hidden' : '' %>" href="https://www.strava.com/activities/<%= @athlete.last_activity_retrieved %>" target="_blank">
+        <a class="pull-right last-activity-retrieved <%= @athlete.last_activity_retrieved.blank? ? 'hidden' : '' %>" href="https://www.strava.com/activities/<%= @athlete.last_activity_retrieved %>" target="_blank">
           <%= @athlete.last_activity_retrieved %>
         </a>
         <div>

@@ -39,9 +39,6 @@ $(document).ready(() => {
     });
 
     // Google Analytics event tracking.
-    $('a.external').on('click', (event) => {
-        GoogleAnalyticsHelpers.sendOutboundLinkClickingEvent('Home', event.currentTarget as HTMLAnchorElement);
-    });
     $('.homepage').on('click', '.btn', (event) => {
         GoogleAnalyticsHelpers.sendEvent('Home', event.currentTarget.textContent, event.currentTarget);
     });

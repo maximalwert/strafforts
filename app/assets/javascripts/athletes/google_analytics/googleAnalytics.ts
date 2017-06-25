@@ -3,10 +3,6 @@
 namespace GoogleAnalytics {
     export function bindEvents() {
         const eventBinders = () => {
-            $(document).on('click', 'a.external', (event) => {
-                GoogleAnalyticsHelpers.sendOutboundLinkClickingEvent('App - Outbound Links', event.currentTarget as HTMLAnchorElement);
-            });
-
             // App - Header.
             $('.main-header').on('click', '.logo', (event) => {
                 GoogleAnalyticsHelpers.sendEvent('App - Header', 'Click Logo', event.currentTarget);

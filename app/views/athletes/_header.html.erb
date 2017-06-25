@@ -31,7 +31,7 @@
 
           <ul class="dropdown-menu">
             <li class="user-header">
-              <a class="athlete-link external" href="<%= @athlete_profile_url %>" target="_blank">
+              <a class="athlete-link" href="<%= @athlete_profile_url %>" target="_blank">
                 <% if @athlete.profile_image_url.nil? %>
                     <img alt="User Image" class="athlete-image img-circle" src="<%= asset_path('strava-profile.png') %>">
                 <% else %>
@@ -51,7 +51,7 @@
               <div class="row">
                 <div class="col-xs-4 text-center">
                   Following<br/>
-                  <a class="athlete-following external" title="Following" href="<%= @athlete.following_url %>" target="_blank">
+                  <a class="athlete-following" title="Following" href="<%= @athlete.following_url %>" target="_blank">
                     <%= @athlete.friend_count %>
                   </a>
                 </div>
@@ -62,7 +62,7 @@
 
                 <div class="col-xs-4 text-center">
                   Follower<br/>
-                  <a class="athlete-follower external" title="Follower" href="<%= @athlete.follower_url %>" target="_blank">
+                  <a class="athlete-follower" title="Follower" href="<%= @athlete.follower_url %>" target="_blank">
                     <%= @athlete.follower_count %>
                   </a>
                 </div>

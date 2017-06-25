@@ -125,7 +125,7 @@ namespace HtmlHelpers {
                     <span class="label workout-type-${item['workout_type_name'].replace(/ /g, '-')}">${item['workout_type_name']}</span>
                 </td>
                 <td>
-                    <a class="strava-activity-link external" href="${stravaLink}" target="_blank">
+                    <a class="strava-activity-link" href="${stravaLink}" target="_blank">
                         ${item['activity_name']}
                     </a>
                 </td>
@@ -163,7 +163,7 @@ namespace HtmlHelpers {
                     <a class="strava-logo-link hidden-lg-down" href="${stravaLink}" target="_blank">
                         <span></span>
                     </a>
-                    <a class="strava-activity-link external" href="${stravaLink}" target="_blank">
+                    <a class="strava-activity-link" href="${stravaLink}" target="_blank">
                         ${item['activity_name']}
                     </a>
                 </td>

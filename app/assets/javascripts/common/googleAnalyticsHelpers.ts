@@ -12,14 +12,4 @@ namespace GoogleAnalyticsHelpers {
             eventValue: value ? value : null,
         });
     }
-
-    export function sendOutboundLinkClickingEvent(category: string, link: HTMLAnchorElement) {
-        const label = link.getAttribute('href') ? link.getAttribute('href') : link.textContent;
-        ga('send', 'event', {
-            eventCategory: category,
-            eventAction: 'Click Outbound Link',
-            eventLabel: label,
-            transport: 'beacon',
-        });
-    }
 }
