@@ -1,13 +1,13 @@
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="page-top" class="homepage" data-ga-tracking-id="<%= ENV['GOOGLE_ANALYTICS_TRACKING_CODE'] %>" data-spy="scroll" data-target=".navbar-fixed-top">
 
   <!-- Navigation -->
-  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-custom navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+        <button type="button" class="navbar-toggle" title="Toggle Navigation Menu" data-toggle="collapse" data-target=".navbar-main-collapse">
           <i class="fa fa-bars"></i>
         </button>
-        <a class="navbar-brand page-scroll" href="#page-top">
+        <a class="navbar-brand page-scroll" title="Page Top" href="#page-top">
           <span class="light">Stra</span>fforts
         </a>
       </div>
@@ -51,7 +51,7 @@
                 </a>
               </li>
               <li>
-                <a href="<%= @auth_url %>" class="btn-connect-with-strava">
+                <a href="<%= @auth_url %>" class="btn-connect-with-strava" title="Connect With Strava">
                   <%= image_tag("btn_strava_connectwith_orange.png", :alt => "Connect With Strava") %>
                 </a>
               </li>
@@ -68,23 +68,23 @@
         <h2>About</h2>
         <p>
           Strafforts is a web app that calls
-          <%= link_to "Strava API", "https://strava.github.io/api/", target: "_blank", class: "external" %>
+          <%= link_to "Strava API", "https://strava.github.io/api/", target: "_blank" %>
           to fetch athlete's
-          <%= link_to "estimated best efforts", "https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running", target: "_blank", class: "external" %>
-          and <%= link_to "races", "https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs", target: "_blank", class: "external" %> data,
+          <%= link_to "estimated best efforts", "https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running", target: "_blank" %>
+          and <%= link_to "races", "https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs", target: "_blank" %> data,
           then visualize them in forms of data tables, line charts and pie charts, in such way athletes can perform some analysis, like half marathon PB
           progression, fastest shoes used for a 10K race, how often 5K PB gets set, etc.
         </p>
         <p>
-          This app is absolutely free and <%= link_to "open source", "https://github.com/yizeng/strafforts", target: "_blank", class: "external" %>.
-          It doesn't modify any of your data on <%= link_to "Strava", "https://www.strava.com/", target: "_blank", class: "external" %> or store your Strava password.
+          This app is absolutely free and <%= link_to "open source", "https://github.com/yizeng/strafforts", target: "_blank" %>.
+          It doesn't modify any of your data on <%= link_to "Strava", "https://www.strava.com/", target: "_blank" %> or store your Strava password.
           All you need to do is to connect this app with your Strava account by clicking "<%= link_to "Connect with Strava", "#connect" %>" button
           and wait for our background worker to fetch and visualize your data.
         </p>
       <h3>FAQ</h3>
       <p>
-        <%= link_to "What are 'Estimated Best Efforts'?", "https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running", target: "_blank", class: "external" %><br />
-        <%= link_to "What are Strava races and how to create them?", "https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs", target: "_blank", class: "external" %>
+        <%= link_to "What are 'Estimated Best Efforts'?", "https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running", target: "_blank" %><br />
+        <%= link_to "What are Strava races and how to create them?", "https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs", target: "_blank" %>
       </p>
       </div>
     </div>
@@ -118,7 +118,7 @@
         </p>
         <ul class="list-inline banner-social-buttons">
           <li>
-            <a href="<%= @auth_url %>" class="btn-connect-with-strava">
+            <a href="<%= @auth_url %>" class="btn-connect-with-strava" title="Connect With Strava">
               <%= image_tag("btn_strava_connectwith_orange.png", :alt => "Connect With Strava") %>
             </a>
           </li>
@@ -130,33 +130,14 @@
   <footer>
     <div class="container text-center">
       <p>App designed and developed by
-        <%= link_to "Yi Zeng", "http://yizeng.me", target: "_blank", class: "external" %>.</p>
+        <%= link_to "Yi Zeng", "http://yizeng.me", target: "_blank" %>.</p>
       <p>
-        <a href="https://www.strava.com" class="btn-powered-by-strava" target="_blank">
+        <a href="https://www.strava.com" class="btn-powered-by-strava" title="Powered by Strava" target="_blank">
           <%= image_tag("api_logo_pwrdBy_strava_stack_light.png", :alt => "Powered by Strava") %>
         </a>
       </p>
     </div>
   </footer>
-
-<script>
-  // Google Analytics tracking code.
-  (function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function () {
-      (i[r].q = i[r].q || []).push(arguments)
-    },
-    i[r].l = 1 * new Date();
-    a = s.createElement(o),
-    m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-  ga('create', '<%= ENV['GOOGLE_ANALYTICS_TRACKING_CODE'] %>', 'auto');
-  ga('send', 'pageview');
-</script>
 
 <%= javascript_include_tag 'application' %>
 <%= javascript_include_tag 'home' %>

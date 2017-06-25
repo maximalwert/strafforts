@@ -1,6 +1,6 @@
 {
   "name": "strafforts",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "private": true,
   "description": "An Analytics App for Strava Estimated Best Efforts and Races",
   "repository": "https://github.com/yizeng/strafforts.git",
@@ -9,6 +9,7 @@
   "dependencies": {
     "admin-lte": "^2.3.11",
     "autoprefixer": "^7.1.1",
+    "autotrack": "^2.4.1",
     "babel-core": "^6.24.1",
     "babel-loader": "7.x",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -45,7 +46,7 @@
     "webpack-merge": "^4.1.0"
   },
   "scripts": {
-    "dev": "concurrently \"node_modules/.bin/tsc --project app/assets/javascripts/athletes/ --watch\" \"node_modules/.bin/tsc --project app/assets/javascripts/athletes/ --watch\"",
+    "dev": "concurrently \"node_modules/.bin/tsc --project app/assets/javascripts/home/ --watch\" \"node_modules/.bin/tsc --project app/assets/javascripts/athletes/ --watch\"",
     "postinstall": "node_modules/.bin/tsc --project app/assets/javascripts/athletes/ && node_modules/.bin/tsc --project app/assets/javascripts/home/"
   },
   "devDependencies": {

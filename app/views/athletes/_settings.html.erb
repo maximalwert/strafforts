@@ -3,17 +3,17 @@
   <!-- Create the tabs -->
   <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
     <li class="active">
-      <a href="#control-sidebar-profile-tab" data-toggle="tab">
+      <a href="#control-sidebar-profile-tab" data-toggle="tab" title="Show Profile Tab">
         <i class="fa fa-gears"></i>
       </a>
     </li>
     <li>
-      <a href="#control-sidebar-data-tab" data-toggle="tab">
+      <a href="#control-sidebar-data-tab" data-toggle="tab" title="Show Data Tab">
         <i class="fa fa-bar-chart"></i>
       </a>
     </li>
     <li>
-      <a href="#control-sidebar-diagnostics-tab" data-toggle="tab">
+      <a href="#control-sidebar-diagnostics-tab" data-toggle="tab" title="Show Diagnostics Tab">
         <i class="fa fa-wrench"></i>
       </a>
     </li>
@@ -36,7 +36,9 @@
       <div class="form-group">
         <label class="control-sidebar-subheading">
           Heart Rate Zones:
-          <span class="pull-right underline" data-toggle="modal" data-target="#modal-heart-rate-zones">show details</span>
+          <span class="pull-right underline show-hear-rate-zones" data-toggle="modal" data-target="#modal-heart-rate-zones" title="Show Heart Rate Zones">
+            show details
+          </span>
         </label>
         <p>
           Synced from your Strava account.

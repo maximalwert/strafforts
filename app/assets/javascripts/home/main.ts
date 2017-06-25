@@ -39,19 +39,20 @@ $(document).ready(() => {
     });
 
     // Google Analytics event tracking.
-    $('.external').on('click', (event) => {
-        GoogleAnalyticsHelpers.sendOutboundLinkClickingEvent($(event.currentTarget).attr('href'));
+    $('.homepage').on('click', '.btn', (event) => {
+        GoogleAnalyticsHelpers.sendEvent('Home', event.currentTarget.textContent, event.currentTarget);
     });
-    $('.navbar-brand, .navbar-nav a').on('click', (event) => {
-        GoogleAnalyticsHelpers.sendEvent('Home', 'Navigate', event.currentTarget.textContent);
+    $('.homepage').on('click', '.btn-connect-with-strava', (event) => {
+        GoogleAnalyticsHelpers.sendEvent('Home', 'Connect with Strava', event.currentTarget);
     });
-    $(':not(.error-section) .btn').on('click', (event) => {
-        GoogleAnalyticsHelpers.sendEvent('Home', event.currentTarget.textContent, event.currentTarget.textContent);
+    $('.navbar').on('click', '.navbar-toggle', (event) => {
+        GoogleAnalyticsHelpers.sendEvent('Home', 'Toggle Navigation Menu', event.currentTarget);
     });
-    $('.btn-connect-with-strava').on('click', (event) => {
-        GoogleAnalyticsHelpers.sendEvent('Home', 'Connect with Strava', 'Connect with Strava');
+    $('.navbar').on('click', '.navbar-brand, .navbar-nav a', (event) => {
+        GoogleAnalyticsHelpers.sendEvent('Home', 'Navigate', event.currentTarget);
     });
-    $('.error-section .btn').on('click', (event) => {
-        GoogleAnalyticsHelpers.sendEvent('Error', event.currentTarget.textContent, event.currentTarget.textContent);
+    $('.error-page').on('click', '.btn', (event) => {
+        const errorCode = parseInt($('body').attr('data-error-code'), 10);
+        GoogleAnalyticsHelpers.sendEvent('Error', event.currentTarget.textContent, event.currentTarget, errorCode);
     });
 });
