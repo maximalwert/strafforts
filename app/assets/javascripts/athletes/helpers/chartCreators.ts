@@ -354,7 +354,6 @@ namespace Helpers {
                 return;
             }
 
-            const maxColors = 4;
             const boundaryOffset = 5;
             const radius = 10;
 
@@ -561,7 +560,7 @@ namespace Helpers {
 
             const canvasElement = document.getElementById(id) as HTMLCanvasElement;
             const context = canvasElement.getContext('2d');
-            const chart = new Chart(context, {
+            new Chart(context, {
                 type: chartType,
                 data: chartData,
                 options: chartOptions,

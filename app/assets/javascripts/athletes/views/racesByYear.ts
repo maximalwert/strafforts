@@ -13,7 +13,7 @@ namespace Views {
         }
 
         public load(): void {
-            const viewUrl = `${AppHelpers.getBaseUrl()}/races/${this.year}`;
+            const viewUrl = `${AppHelpers.getBaseUrl()}?view=races&year=${this.year}`;
             const navigationAnchor = $(`a[id^="races-for-year-${this.year}"]`);
             super.prepareView(viewUrl, 'Races', this.year, navigationAnchor);
 

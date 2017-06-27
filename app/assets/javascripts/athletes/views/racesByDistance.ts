@@ -16,7 +16,7 @@ namespace Views {
         }
 
         public load(): void {
-            const viewUrl = `${AppHelpers.getBaseUrl()}/races/${this.distanceFormattedForUrl}`;
+            const viewUrl = `${AppHelpers.getBaseUrl()}?view=races&distance=${this.distanceFormattedForUrl}`;
             const distanceId = this.distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-');
             const navigationAnchor = $(`a[id^="races-for-distance-${distanceId}"]`);
             super.prepareView(viewUrl, 'Races', this.distance, navigationAnchor);

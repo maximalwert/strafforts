@@ -7,7 +7,7 @@ namespace Views {
         private static distances: string[] = [];
 
         public load(): void {
-            const viewUrl = AppHelpers.getBaseUrl() + '/timeline/races';
+            const viewUrl = `${AppHelpers.getBaseUrl()}?view=timeline&type=races`;
             super.prepareView(viewUrl, 'Races Timeline');
 
             this.createViewTemplate();

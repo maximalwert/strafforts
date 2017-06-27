@@ -13,7 +13,22 @@ $(document).ready(() => {
     GoogleAnalytics.bindEvents().apply(null);
     EventBinders.bindAll().apply(null);
 
-    const overview = new Views.Overview();
-    overview.createNavigationItems();
-    overview.load();
+    new Views.NavigationSidebar().load();
+
+    const view = Helpers.getUrlParameter('view');
+    const distance = Helpers.getUrlParameter('distance');
+    const distanceText = distance ? distance.replace('-', ' ').replace('|', '/') : '';
+    const year = Helpers.getUrlParameter('year');
+
+    if (view === 'timeline') {
+        new Views.RacesTimeline().load();
+    } else if (view === 'best-efforts' && distance) {
+        new Views.BestEffortsByDistance(distanceText).load();
+    } else if (view === 'races' && year && /^20\d\d$/g.test(year)) {
+        new Views.RacesByYear(year).load();
+    } else if (view === 'races' && distance) {
+        new Views.RacesByDistance(distanceText).load();
+    } else {
+        new Views.Overview().load();
+    }
 });
