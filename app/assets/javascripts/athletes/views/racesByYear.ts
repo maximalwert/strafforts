@@ -123,7 +123,7 @@ namespace Views {
 
                 distancesToDisplay.forEach((distance) => {
                     let rows = '';
-                    const showDistanceColumn: boolean = distance === 'Other';
+                    const showDistanceColumn: boolean = distance.toLocaleLowerCase() === 'other';
                     items.forEach((item) => {
                         if (distance === item['race_distance']) {
                             rows += HtmlHelpers.getDatatableRowForRaces(item, showDistanceColumn);
