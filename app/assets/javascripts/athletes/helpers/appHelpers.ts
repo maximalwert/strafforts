@@ -21,7 +21,7 @@ namespace AppHelpers {
     }
 
     export function resetNavigationItems() {
-        $('.treeview-menu a').each(function() {
+        $('.treeview-menu li:not(.treeview-expander) a').each(function() {
             $(this).parent().removeClass('active');
             $(this).children('i').removeClass('fa-check-circle-o');
             $(this).children('i').addClass('fa-circle-o');
@@ -34,6 +34,7 @@ namespace AppHelpers {
     }
 
     export function setNavigationItem(anchor: JQuery) {
+        anchor.parent().closest('.treeview-expander').addClass('active');
         anchor.parent().addClass('active');
         anchor.children('i').removeClass('fa-circle-o');
         anchor.children('i').addClass('fa-check-circle-o');
