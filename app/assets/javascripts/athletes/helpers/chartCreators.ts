@@ -14,8 +14,11 @@ namespace Helpers {
                 </div>
             `;
 
-            const container = document.getElementById(id).parentElement as HTMLElement;
-            container.innerHTML = content;
+            const element = document.getElementById(id);
+            if (element) {
+                const container = element.parentElement as HTMLElement;
+                container.innerHTML = content;
+            }
         }
 
         public createProgressionChart(id: string) {
@@ -94,12 +97,17 @@ namespace Helpers {
                     mode: 'single',
                     callbacks: {
                         title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
-                            return data.datasets[0].label[tooltipItem[0].index];
+                            const index = tooltipItem[0].index;
+                            if (typeof index !== 'undefined') {
+                                return data.datasets[0].label[index];
+                            }
                         },
                         label: (tooltipItem: Chart.ChartTooltipItem) => {
-                            const time = Helpers.convertDurationToTime(tooltipItem.yLabel.toString());
-                            const date = tooltipItem.xLabel;
-                            return `Ran ${time} on ${date}`;
+                            if (tooltipItem.yLabel) {
+                                const time = Helpers.convertDurationToTime(tooltipItem.yLabel.toString());
+                                const date = tooltipItem.xLabel;
+                                return `Ran ${time} on ${date}`;
+                            }
                         },
                     },
                 },
@@ -328,8 +336,10 @@ namespace Helpers {
                     mode: 'single',
                     callbacks: {
                         label: (tooltipItem: Chart.ChartTooltipItem) => {
-                            const mileage = parseFloat(tooltipItem.xLabel).toFixed(1);
-                            return `Mileage: ${mileage} ${distanceUnit}`;
+                            if (tooltipItem.xLabel) {
+                                const mileage = parseFloat(tooltipItem.xLabel).toFixed(1);
+                                return `Mileage: ${mileage} ${distanceUnit}`;
+                            }
                         },
                     },
                 },
@@ -434,12 +444,17 @@ namespace Helpers {
                     mode: 'single',
                     callbacks: {
                         title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
-                            return data.datasets[0].label[tooltipItem[0].index];
+                            const index = tooltipItem[0].index;
+                            if (typeof index !== 'undefined') {
+                                return data.datasets[0].label[index];
+                            }
                         },
                         label: (tooltipItem: Chart.ChartTooltipItem) => {
-                            const averageHeartRate = tooltipItem.xLabel.toString();
-                            const maxHeartRate = tooltipItem.yLabel.toString();
-                            return `Avg. HR: ${averageHeartRate} - Max. HR: ${maxHeartRate}`;
+                            if (tooltipItem.xLabel && tooltipItem.yLabel) {
+                                const averageHeartRate = tooltipItem.xLabel.toString();
+                                const maxHeartRate = tooltipItem.yLabel.toString();
+                                return `Avg. HR: ${averageHeartRate} - Max. HR: ${maxHeartRate}`;
+                            }
                         },
                     },
                 },
@@ -537,10 +552,15 @@ namespace Helpers {
                 tooltips: {
                     callbacks: {
                         title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
-                            return data.datasets[0].label[tooltipItem[0].index];
+                            const index = tooltipItem[0].index;
+                            if (typeof index !== 'undefined') {
+                                return data.datasets[0].label[index];
+                            }
                         },
                         label: (tooltipItem: Chart.ChartTooltipItem) => {
-                            return `Count: ${tooltipItem.xLabel.toString()}`;
+                            if (tooltipItem.xLabel) {
+                                return `Count: ${tooltipItem.xLabel.toString()}`;
+                            }
                         },
                     },
                 },
@@ -560,11 +580,13 @@ namespace Helpers {
 
             const canvasElement = document.getElementById(id) as HTMLCanvasElement;
             const context = canvasElement.getContext('2d');
-            new Chart(context, {
-                type: chartType,
-                data: chartData,
-                options: chartOptions,
-            });
+            if (context) {
+                const chart = new Chart(context, {
+                    type: chartType,
+                    data: chartData,
+                    options: chartOptions,
+                });
+            }
         }
 
         private createBarChart(
@@ -615,10 +637,15 @@ namespace Helpers {
                     mode: 'single',
                     callbacks: {
                         title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
-                            return data.datasets[0].label[tooltipItem[0].index];
+                            const index = tooltipItem[0].index;
+                            if (typeof index !== 'undefined') {
+                                return data.datasets[0].label[index];
+                            }
                         },
                         label: (tooltipItem: Chart.ChartTooltipItem) => {
-                            return `Count: ${tooltipItem.yLabel.toString()}`;
+                            if (tooltipItem.yLabel) {
+                                return `Count: ${tooltipItem.yLabel.toString()}`;
+                            }
                         },
                     },
                 },
@@ -674,7 +701,9 @@ namespace Helpers {
                     mode: 'single',
                     callbacks: {
                         label: (tooltipItem: Chart.ChartTooltipItem) => {
-                            return `Count: ${tooltipItem.xLabel.toString()}`;
+                            if (tooltipItem.xLabel) {
+                                return `Count: ${tooltipItem.xLabel.toString()}`;
+                            }
                         },
                     },
                 },
@@ -736,10 +765,16 @@ namespace Helpers {
                     mode: 'single',
                     callbacks: {
                         title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
-                            return data.datasets[0].label[tooltipItem[0].index];
+                            const index = tooltipItem[0].index;
+                            if (typeof index !== 'undefined') {
+                                return data.datasets[0].label[index];
+                            }
                         },
                         label: (tooltipItem: Chart.ChartTooltipItem, data: any) => {
-                            return `Count: ${data.datasets[0].data[tooltipItem.index]}`;
+                            const index = tooltipItem.index;
+                            if (typeof index !== 'undefined') {
+                                return `Count: ${data.datasets[0].data[index]}`;
+                            }
                         },
                     },
                 },
