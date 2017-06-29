@@ -97,7 +97,7 @@ namespace Views {
                     // Setup all other charts and tables.
                     chartCreator.createYearDistributionChart('year-distribution-pie-chart');
                     $('.dataTable').each(function() {
-                        $(this).DataTable({
+                        ($(this) as any).DataTable({
                             columnDefs: [{
                                 targets: [2, 3, 5, 6, 7, 8], // Disable searching for Time, Pace, Elevation, Cadence and HRs.
                                 searchable: false,

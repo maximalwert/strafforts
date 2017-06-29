@@ -1,4 +1,4 @@
-/// <reference path="./../typings/jquery.d.ts" />
+/// <reference path="./../../../../node_modules/@types/jquery/index.d.ts" />
 /// <reference path="./../common/googleAnalyticsHelpers.ts" />
 /// <reference path="./../common/helpers.ts" />
 /// <reference path="./../common/jQueryHelpers.ts" />

@@ -2,6 +2,28 @@
 # yarn lockfile v1
 
 
+"@types/chart.js@2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@types/chart.js/-/chart.js-2.4.0.tgz#2c83de5df9153422a562636e189627afe7e1c2ba"
+
+"@types/google.analytics@^0.0.33":
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/@types/google.analytics/-/google.analytics-0.0.33.tgz#98e704ed6052214ea0b5fd30958d4c3d70ea0479"
+
+"@types/hubspot-pace@^0.7.27":
+  version "0.7.27"
+  resolved "https://registry.yarnpkg.com/@types/hubspot-pace/-/hubspot-pace-0.7.27.tgz#62ea7342ddd43b75fc806b1ff65a39228462e904"
+
+"@types/jquery@*", "@types/jquery@2.0.48":
+  version "2.0.48"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-2.0.48.tgz#3e90d8cde2d29015e5583017f7830cb3975b2eef"
+
+"@types/toastr@^2.1.34":
+  version "2.1.34"
+  resolved "https://registry.yarnpkg.com/@types/toastr/-/toastr-2.1.34.tgz#349c360c6e0e315debbe55214eb804be00e219f4"
+  dependencies:
+    "@types/jquery" "*"
+
 abbrev@1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.0.tgz#d0554c2256636e2f56e7c2e5ad183f859428d81f"
@@ -415,8 +437,8 @@ babel-helpers@^6.24.1:
     babel-template "^6.24.1"
 
 babel-loader@7.x:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-7.1.0.tgz#3fbf2581f085774bd9642dca9990e6d6c1491144"
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-7.1.1.tgz#b87134c8b12e3e4c2a94e0546085bc680a2b8488"
   dependencies:
     find-cache-dir "^1.0.0"
     loader-utils "^1.0.2"
@@ -1610,8 +1632,8 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
 electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.14:
-  version "1.3.14"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.14.tgz#64af0f9efd3c3c6acd57d71f83b49ca7ee9c4b43"
+  version "1.3.15"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.15.tgz#08397934891cbcfaebbd18b82a95b5a481138369"
 
 elliptic@^6.0.0:
   version "6.4.0"
@@ -2484,8 +2506,8 @@ js-base64@^2.1.8, js-base64@^2.1.9:
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.1.9.tgz#f0e80ae039a4bd654b5f281fc93f04a914a7fcce"
 
 js-tokens@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.1.tgz#08e9f132484a2c45a30907e9dc4d5567b7f114d7"
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
 js-yaml@^3.4.3, js-yaml@^3.8.4:
   version "3.8.4"
@@ -4664,8 +4686,8 @@ typed-function@0.10.5:
   resolved "https://registry.yarnpkg.com/typed-function/-/typed-function-0.10.5.tgz#2e0f18abd065219fab694a446a65c6d1981832c0"
 
 typescript@^2.3.2:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.4.0.tgz#aef5a8d404beba36ad339abf079ddddfffba86dd"
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.4.1.tgz#c3ccb16ddaa0b2314de031e7e6fee89e5ba346bc"
 
 uglify-js@^2.8.27:
   version "2.8.29"

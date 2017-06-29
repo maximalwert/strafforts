@@ -1,4 +1,4 @@
-/// <reference path="./../typings/google.analytics.d.ts" />
+/// <reference path="./../../../../node_modules/@types/google.analytics/index.d.ts" />
 
 namespace GoogleAnalyticsHelpers {
     export function sendEvent(category: string, action: string, element: Element, value?: number) {

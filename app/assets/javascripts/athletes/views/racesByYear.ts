@@ -83,7 +83,7 @@ namespace Views {
                     chartCreator.createRaceDistancesChart('distances-distribution-chart');
                     chartCreator.createMonthDistributionChart('month-distribution-chart');
                     $('.dataTable').each(function() {
-                        $(this).DataTable({
+                        ($(this) as any).DataTable({
                             bFilter: false,
                             bPaginate: false,
                             iDisplayLength: 10,

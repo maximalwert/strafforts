@@ -1,8 +1,9 @@
-/// <reference path="./../typings/hubspot-pace.d.ts" />
-/// <reference path="./../typings/jquery.d.ts" />
-/// <reference path="./../typings/toastr.d.ts" />
+/// <reference path="./../../../../node_modules/@types/hubspot-pace/index.d.ts" />
+/// <reference path="./../../../../node_modules/@types/jquery/index.d.ts" />
+/// <reference path="./../../../../node_modules/@types/toastr/index.d.ts" />
 /// <reference path="./../common/helpers.ts" />
 
+declare var Pace: HubSpotPaceInterfaces.Pace;
 Pace.on('hide', () => {
     $('body').removeClass('page-loading').addClass('page-loaded');
 });

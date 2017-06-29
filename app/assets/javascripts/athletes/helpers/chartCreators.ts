@@ -1,3 +1,5 @@
+/// <reference path="./../../../../../node_modules/@types/chart.js/index.d.ts" />
+
 namespace Helpers {
     export class ChartCreator {
 
