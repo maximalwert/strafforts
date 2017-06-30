@@ -60,7 +60,7 @@ module ApplicationHelper
     end
 
     def self.convert_to_pace(average_speed, is_imperial_unit)
-      return '' if average_speed.blank?
+      return '' if (average_speed.blank? || average_speed.to_i == 0)
 
       seconds = is_imperial_unit ? (1609.344 / average_speed) : (1000 / average_speed)
       mins, secs = seconds.divmod(60)
