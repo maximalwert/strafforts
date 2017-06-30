@@ -1,4 +1,4 @@
-/// <reference path="./../typings/jquery.d.ts" />
+/// <reference path="./../../../../node_modules/@types/jquery/index.d.ts" />
 /// <reference path="./../common/googleAnalyticsHelpers.ts" />
 /// <reference path="./../common/helpers.ts" />
 /// <reference path="./../common/jQueryHelpers.ts" />
@@ -40,7 +40,8 @@ $(document).ready(() => {
 
     // Google Analytics event tracking.
     $('.homepage').on('click', '.btn', (event) => {
-        GoogleAnalyticsHelpers.sendEvent('Home', event.currentTarget.textContent, event.currentTarget);
+        const actionName = event.currentTarget.textContent ? event.currentTarget.textContent : 'Click Button';
+        GoogleAnalyticsHelpers.sendEvent('Home', actionName, event.currentTarget);
     });
     $('.homepage').on('click', '.btn-connect-with-strava', (event) => {
         GoogleAnalyticsHelpers.sendEvent('Home', 'Connect with Strava', event.currentTarget);
@@ -52,7 +53,8 @@ $(document).ready(() => {
         GoogleAnalyticsHelpers.sendEvent('Home', 'Navigate', event.currentTarget);
     });
     $('.error-page').on('click', '.btn', (event) => {
+        const actionName = event.currentTarget.textContent ? event.currentTarget.textContent : 'Click Button';
         const errorCode = parseInt($('body').attr('data-error-code'), 10);
-        GoogleAnalyticsHelpers.sendEvent('Error', event.currentTarget.textContent, event.currentTarget, errorCode);
+        GoogleAnalyticsHelpers.sendEvent('Error', actionName, event.currentTarget, errorCode);
     });
 });

@@ -12,6 +12,8 @@ class ActivityFetcher
     type = options[:type] || %w[best-efforts races]
 
     begin
+      Rails.logger.info("ActivityFetcher - Start fetching MODE='#{mode.to_s}' TYPE='#{type.to_s}'.")
+
       # Create or update the current athlete first.
       current_athlete = @api_wrapper.retrieve_current_athlete
       athlete = Creators::AthleteCreator.create_or_update(current_athlete, @access_token)

@@ -13,7 +13,7 @@ namespace Views {
         }
 
         public load(): void {
-            const viewUrl = `${AppHelpers.getBaseUrl()}/races/${this.year}`;
+            const viewUrl = `${AppHelpers.getBaseUrl()}?view=races&year=${this.year}`;
             const navigationAnchor = $(`a[id^="races-for-year-${this.year}"]`);
             super.prepareView(viewUrl, 'Races', this.year, navigationAnchor);
 
@@ -83,7 +83,7 @@ namespace Views {
                     chartCreator.createRaceDistancesChart('distances-distribution-chart');
                     chartCreator.createMonthDistributionChart('month-distribution-chart');
                     $('.dataTable').each(function() {
-                        $(this).DataTable({
+                        ($(this) as any).DataTable({
                             bFilter: false,
                             bPaginate: false,
                             iDisplayLength: 10,
@@ -123,7 +123,7 @@ namespace Views {
 
                 distancesToDisplay.forEach((distance) => {
                     let rows = '';
-                    const showDistanceColumn: boolean = distance === 'Other';
+                    const showDistanceColumn: boolean = distance.toLocaleLowerCase() === 'other';
                     items.forEach((item) => {
                         if (distance === item['race_distance']) {
                             rows += HtmlHelpers.getDatatableRowForRaces(item, showDistanceColumn);

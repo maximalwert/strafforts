@@ -8,7 +8,6 @@
         "mrmlnc.vscode-csscomb",
         "rebornix.ruby",
         "robinbentley.sass-indented",
-        "Tyriar.sort-lines",
-        "xabikos.javascriptsnippets"
+        "Tyriar.sort-lines"
     ]
 }

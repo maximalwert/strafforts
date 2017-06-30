@@ -201,6 +201,12 @@ input[type='submit'] {
     }
 }
 
+.content-header {
+    h1 {
+        text-transform: capitalize;
+    }
+}
+
 #main-content {
     .nav-tabs-custom > .nav-tabs > li.active {
         border-top-color: $color-strava;

@@ -16,7 +16,7 @@ namespace Views {
         }
 
         public load(): void {
-            const viewUrl = `${AppHelpers.getBaseUrl()}/best-efforts/${this.distanceFormattedForUrl}`;
+            const viewUrl = `${AppHelpers.getBaseUrl()}?view=best-efforts&distance=${this.distanceFormattedForUrl}`;
             const distanceId = this.distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-');
             const navigationAnchor = $(`a[id^="best-efforts-for-${distanceId}"]`);
             super.prepareView(viewUrl, 'Best Efforts', this.distance, navigationAnchor);
@@ -86,7 +86,7 @@ namespace Views {
                     chartCreator.createProgressionChart('progression-chart');
                     chartCreator.createYearDistributionChart('year-distribution-pie-chart');
                     $('.dataTable').each(function() {
-                        $(this).DataTable({
+                        ($(this) as any).DataTable({
                             columnDefs: [{
                                 targets: [1, 3, 4, 6, 7], // Disable searching for WorkoutType, Time, Pace and HRs.
                                 searchable: false,

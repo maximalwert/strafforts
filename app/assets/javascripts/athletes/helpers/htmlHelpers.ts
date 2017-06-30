@@ -1,5 +1,3 @@
-/// <reference path="./../../typings/chart.js.d.ts" />
-
 namespace HtmlHelpers {
     export function constructChartHtml(id: string, title: string, width: number, withLoadingIcon: boolean = false) {
         const content = withLoadingIcon ? HtmlHelpers.getLoadingIcon() : `<canvas id="${id}" height="300"></canvas>`;

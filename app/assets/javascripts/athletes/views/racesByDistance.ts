@@ -8,15 +8,18 @@ namespace Views {
 
         private distanceFormattedForUrl: string;
 
+        private isOtherDistance: boolean;
+
         constructor(distance: string) {
             super();
 
             this.distance = distance;
+            this.isOtherDistance = distance.toLocaleLowerCase() === 'other';
             this.distanceFormattedForUrl = distance.trim().replace(/\//g, '|').replace(/\s/g, '-').toLowerCase();
         }
 
         public load(): void {
-            const viewUrl = `${AppHelpers.getBaseUrl()}/races/${this.distanceFormattedForUrl}`;
+            const viewUrl = `${AppHelpers.getBaseUrl()}?view=races&distance=${this.distanceFormattedForUrl}`;
             const distanceId = this.distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-');
             const navigationAnchor = $(`a[id^="races-for-distance-${distanceId}"]`);
             super.prepareView(viewUrl, 'Races', this.distance, navigationAnchor);
@@ -85,7 +88,7 @@ namespace Views {
                     // Create a progression chart when distance is not 'Other'.
                     const chartCreator = new Helpers.ChartCreator(items);
                     const progressionChartId = 'progression-chart';
-                    if (this.distance === 'Other') {
+                    if (this.isOtherDistance) {
                         chartCreator.createChartWithMessage(progressionChartId, 'Not Applicable');
                     } else {
                         chartCreator.createProgressionChart(progressionChartId);
@@ -94,7 +97,7 @@ namespace Views {
                     // Setup all other charts and tables.
                     chartCreator.createYearDistributionChart('year-distribution-pie-chart');
                     $('.dataTable').each(function() {
-                        $(this).DataTable({
+                        ($(this) as any).DataTable({
                             columnDefs: [{
                                 targets: [2, 3, 5, 6, 7, 8], // Disable searching for Time, Pace, Elevation, Cadence and HRs.
                                 searchable: false,
@@ -119,12 +122,12 @@ namespace Views {
             if (items) {
                 let rows = '';
                 items.forEach((item) => {
-                    rows += HtmlHelpers.getDatatableRowForRaces(item);
+                    rows += HtmlHelpers.getDatatableRowForRaces(item, this.isOtherDistance);
                 });
 
                 table = `
                     <table class="dataTable table table-bordered table-striped">
-                        ${HtmlHelpers.getDatatableHeaderForRaces()}
+                        ${HtmlHelpers.getDatatableHeaderForRaces(this.isOtherDistance)}
                         <tbody>
                             ${rows}
                         </tbody>

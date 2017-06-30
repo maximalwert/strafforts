@@ -8,12 +8,6 @@ Rails.application.routes.draw do
 
   get 'athletes/:id_or_username' => 'athletes#index'
 
-  get 'athletes/:id_or_username/best-efforts' => 'athletes#index'
-  get 'athletes/:id_or_username/best-efforts/:distance' => 'athletes#index'
-  get 'athletes/:id_or_username/races' => 'athletes#index'
-  get 'athletes/:id_or_username/races/:distance_or_year' => 'athletes#index'
-  get 'athletes/:id_or_username/timeline/races' => 'athletes#index'
-
   get 'api/athletes/:id_or_username/best-efforts' => 'best_efforts#index'
   get 'api/athletes/:id_or_username/best-efforts/get_counts' => 'best_efforts#get_counts'
   get 'api/athletes/:id_or_username/best-efforts/:distance' => 'best_efforts#index'
