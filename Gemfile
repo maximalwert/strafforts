@@ -69,9 +69,6 @@ end
 group :production do
   # Enable gzip compression on heroku, but don't compress images.
   gem 'heroku-deflater'
-
-  # Monitor, troubleshoot, and tune production web applications.
-  gem 'newrelic_rpm'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
