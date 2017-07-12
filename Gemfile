@@ -40,6 +40,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
+  gem 'poltergeist'
   gem 'selenium-webdriver'
 end
 
@@ -53,11 +55,13 @@ group :development do
 
   # Manager Procfile.dev under develpoment environment.
   gem 'foreman'
+
+  # Require wdm for Windows.
+  gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 end
 
 group :test do
   gem 'codecov', require: false # Code coverage tool.
-  gem 'cucumber'
   gem 'shoulda', '~> 3.5'
   gem 'shoulda-matchers', '~> 2.0'
 end
@@ -88,9 +92,6 @@ gem 'draper'
 
 # Config.
 gem 'config'
-
-# Require wdm for Windows.
-gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 # ActiveRecord backend integration for DelayedJob 3.0+.
 gem 'delayed_job_active_record'
