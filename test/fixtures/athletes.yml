@@ -1,12 +1,12 @@
-one:
+---
+dummy_one:
   id: 123
   access_token: '3f2a45886980ebec9f4a689371e95860'
   firstname: 'Tony'
   lastname: 'Stark'
   username: 'tonystark'
   is_public: false
-
-two:
+dummy_two:
   id: 456
   access_token: '58e42e6f5e496dc5aa0d5ec354da8048'
   firstname: 'Jessica'
@@ -14,20 +14,34 @@ two:
   username: 'jessicajones'
   is_public: true
   last_activity_retrieved: 9999
-
-three:
+dummy_three:
   id: 789
-  access_token: 'ca1a7434ae66ab53c4e4f63ac8665c9d'
-  firstname: 'Zebediah'
-  lastname: 'Killgrave'
-  username: 'zebediah.illgrave'
-  is_public: true
-
-four:
-  id: 1111
-  access_token: 'e7fc9730074ef18d97e49c660ba4ca29'
+  access_token: '4e4711b645307480587dd52523e2d5e5'
   username: 'bruce.banner'
+  is_public: false
   city_id: 1
   country_id: 1
-  friend_count: 20
-  follower_count: 500
+  is_public: false
+athletes_9123806:
+  id: 9123806
+  username: yizeng
+  access_token: 4d5cf2bbc714a4e22e309cf5fcf15e40
+  firstname: Yi
+  lastname: Zeng
+  is_public: true
+  last_activity_retrieved: 1037331392
+  profile_medium: https://dgalywyr863hv.cloudfront.net/pictures/athletes/9123806/2937558/10/medium.jpg
+  profile: https://dgalywyr863hv.cloudfront.net/pictures/athletes/9123806/2937558/10/large.jpg
+  city_id: 1
+  state_id: 1
+  country_id: 1
+  sex: M
+  follower_count: 49
+  friend_count: 44
+  athlete_type: 1
+  date_preference: "%m/%d/%Y"
+  measurement_preference: meters
+  weight: 63.0
+  created_at: '2017-01-01 00:00:00'
+  updated_at: '2017-07-01 06:39:55.48844'
+  is_active: true

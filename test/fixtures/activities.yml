@@ -1,10 +1,4087 @@
-one:
-  id: 9999
-  athlete_id: 123
-  name: 'Jog to find Pepper'
-  distance: 4955.2
-  moving_time: 1227
-  elapsed_time: 1227
-  start_date: '2013-01-06 15:16:02'
-  start_date_local: '2013-01-07 06:16:02'
+---
+activities_690180328:
+  id: 690180328
+  athlete_id: 9123806
+  gear_id: g1313288
   workout_type_id: 0
+  name: Second run to Avonhead Park and back
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4219.6
+  moving_time: 1734
+  elapsed_time: 1742
+  total_elevation_gain: 10.8
+  elev_high: 38.2
+  elev_low: 26.0
+  start_date: '2014-01-04 04:58:00'
+  start_date_local: '2014-01-04 17:58:00'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.433
+  max_speed: 3.6
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 328.5
+  suffer_score: 
+  created_at: '2017-02-20 08:58:29.622566'
+  updated_at: '2017-02-20 08:58:29.622566'
+activities_690180438:
+  id: 690180438
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Three days in a row
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4843.0
+  moving_time: 1894
+  elapsed_time: 1894
+  total_elevation_gain: 0.0
+  elev_high: 38.6
+  elev_low: 25.9
+  start_date: '2014-01-05 09:13:42'
+  start_date_local: '2014-01-05 22:13:42'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.557
+  max_speed: 12.6
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 376.6
+  suffer_score: 
+  created_at: '2017-02-20 08:58:30.395275'
+  updated_at: '2017-02-20 08:58:30.395275'
+activities_690180546:
+  id: 690180546
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Tuesday afternoon run towards Avonhead Road
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4107.1
+  moving_time: 1573
+  elapsed_time: 1616
+  total_elevation_gain: 0.0
+  elev_high: 32.2
+  elev_low: 23.3
+  start_date: '2014-01-07 04:18:00'
+  start_date_local: '2014-01-07 17:18:00'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.611
+  max_speed: 4.2
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 318.5
+  suffer_score: 
+  created_at: '2017-02-20 08:58:31.087757'
+  updated_at: '2017-02-20 08:58:31.087757'
+activities_690180641:
+  id: 690180641
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Short 3km run along Withells Road
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 3367.0
+  moving_time: 1245
+  elapsed_time: 1253
+  total_elevation_gain: 0.0
+  elev_high: 31.9
+  elev_low: 23.2
+  start_date: '2014-01-09 04:42:00'
+  start_date_local: '2014-01-09 17:42:00'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.704
+  max_speed: 4.6
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 261.1
+  suffer_score: 
+  created_at: '2017-02-20 08:58:31.779241'
+  updated_at: '2017-02-20 08:58:31.779241'
+activities_690180747:
+  id: 690180747
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Almost done my first 5km run
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4730.4
+  moving_time: 1782
+  elapsed_time: 1799
+  total_elevation_gain: 0.0
+  elev_high: 33.6
+  elev_low: 23.2
+  start_date: '2014-01-10 03:54:00'
+  start_date_local: '2014-01-10 16:54:00'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.655
+  max_speed: 4.1
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 367.4
+  suffer_score: 
+  created_at: '2017-02-20 08:58:32.484802'
+  updated_at: '2017-02-20 08:58:32.484802'
+activities_690180838:
+  id: 690180838
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Monday night run to Avonhead park and back
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4518.3
+  moving_time: 1792
+  elapsed_time: 1805
+  total_elevation_gain: 11.8
+  elev_high: 38.6
+  elev_low: 26.0
+  start_date: '2014-01-13 04:10:00'
+  start_date_local: '2014-01-13 17:10:00'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.521
+  max_speed: 4.7
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 351.6
+  suffer_score: 
+  created_at: '2017-02-20 08:58:33.211821'
+  updated_at: '2017-02-20 08:58:33.211821'
+activities_690181070:
+  id: 690181070
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: First ever 5km Run
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5021.8
+  moving_time: 1899
+  elapsed_time: 1911
+  total_elevation_gain: 12.8
+  elev_high: 38.2
+  elev_low: 24.5
+  start_date: '2014-01-18 04:45:18'
+  start_date_local: '2014-01-18 17:45:18'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.644
+  max_speed: 4.9
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 390.4
+  suffer_score: 
+  created_at: '2017-02-20 08:58:34.381798'
+  updated_at: '2017-02-20 08:58:34.381798'
+activities_690181250:
+  id: 690181250
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Avonhead, Christchurch, New Zealand
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4163.9
+  moving_time: 1488
+  elapsed_time: 1488
+  total_elevation_gain: 0.0
+  elev_high: 32.1
+  elev_low: 25.1
+  start_date: '2014-01-21 04:42:56'
+  start_date_local: '2014-01-21 17:42:56'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.798
+  max_speed: 4.7
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 323.4
+  suffer_score: 
+  created_at: '2017-02-20 08:58:34.963376'
+  updated_at: '2017-02-20 08:58:34.963376'
+activities_690181397:
+  id: 690181397
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Avonhead, Christchurch, New Zealand
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4821.5
+  moving_time: 1997
+  elapsed_time: 2005
+  total_elevation_gain: 0.0
+  elev_high: 33.7
+  elev_low: 23.3
+  start_date: '2014-01-27 05:11:37'
+  start_date_local: '2014-01-27 18:11:37'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.414
+  max_speed: 4.8
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 374.5
+  suffer_score: 
+  created_at: '2017-02-20 08:58:35.879237'
+  updated_at: '2017-02-20 08:58:35.879237'
+activities_690181991:
+  id: 690181991
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Avonhead, Christchurch, New Zealand
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4009.2
+  moving_time: 1468
+  elapsed_time: 1479
+  total_elevation_gain: 0.0
+  elev_high: 32.1
+  elev_low: 23.2
+  start_date: '2014-02-04 04:23:08'
+  start_date_local: '2014-02-04 17:23:08'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.731
+  max_speed: 4.5
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 311.0
+  suffer_score: 
+  created_at: '2017-02-20 08:58:36.530915'
+  updated_at: '2017-02-20 08:58:36.530915'
+activities_690182162:
+  id: 690182162
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Avonhead, Christchurch, New Zealand
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4720.5
+  moving_time: 1669
+  elapsed_time: 1669
+  total_elevation_gain: 14.1
+  elev_high: 38.4
+  elev_low: 23.4
+  start_date: '2014-02-06 04:58:30'
+  start_date_local: '2014-02-06 17:58:30'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.828
+  max_speed: 4.3
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 366.2
+  suffer_score: 
+  created_at: '2017-02-20 08:58:37.241849'
+  updated_at: '2017-02-20 08:58:37.241849'
+activities_690182547:
+  id: 690182547
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Saturday night 30 min run to Avonhead Park
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4717.4
+  moving_time: 1740
+  elapsed_time: 1745
+  total_elevation_gain: 14.4
+  elev_high: 38.6
+  elev_low: 23.3
+  start_date: '2014-02-15 05:47:26'
+  start_date_local: '2014-02-15 18:47:26'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.711
+  max_speed: 5.2
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 366.8
+  suffer_score: 
+  created_at: '2017-02-20 08:58:38.024031'
+  updated_at: '2017-02-20 08:58:38.024031'
+activities_690182704:
+  id: 690182704
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Avonhead, Christchurch, New Zealand
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4692.1
+  moving_time: 1707
+  elapsed_time: 1714
+  total_elevation_gain: 13.9
+  elev_high: 38.1
+  elev_low: 23.2
+  start_date: '2014-02-17 05:03:29'
+  start_date_local: '2014-02-17 18:03:29'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.749
+  max_speed: 4.4
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 364.5
+  suffer_score: 
+  created_at: '2017-02-20 08:58:38.612301'
+  updated_at: '2017-02-20 08:58:38.612301'
+activities_690183311:
+  id: 690183311
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Avonhead, Christchurch, New Zealand
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4211.7
+  moving_time: 1522
+  elapsed_time: 1522
+  total_elevation_gain: 0.0
+  elev_high: 33.6
+  elev_low: 23.3
+  start_date: '2014-03-01 05:04:02'
+  start_date_local: '2014-03-01 18:04:02'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.767
+  max_speed: 4.2
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 326.8
+  suffer_score: 
+  created_at: '2017-02-20 08:58:39.183588'
+  updated_at: '2017-02-20 08:58:39.183588'
+activities_690183592:
+  id: 690183592
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: First 5k under 30 minutes
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5020.9
+  moving_time: 1797
+  elapsed_time: 1797
+  total_elevation_gain: 11.1
+  elev_high: 38.5
+  elev_low: 23.3
+  start_date: '2014-03-06 04:33:04'
+  start_date_local: '2014-03-06 17:33:04'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.794
+  max_speed: 4.1
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 390.4
+  suffer_score: 
+  created_at: '2017-02-20 08:58:39.688986'
+  updated_at: '2017-02-20 08:58:39.688986'
+activities_690184071:
+  id: 690184071
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Another 5km under 30 minutes
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5020.8
+  moving_time: 1790
+  elapsed_time: 1790
+  total_elevation_gain: 0.0
+  elev_high: 33.5
+  elev_low: 23.3
+  start_date: '2014-03-11 05:13:40'
+  start_date_local: '2014-03-11 18:13:40'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.805
+  max_speed: 4.3
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 389.9
+  suffer_score: 
+  created_at: '2017-02-20 08:58:40.6765'
+  updated_at: '2017-02-20 08:58:40.6765'
+activities_690184333:
+  id: 690184333
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Yet another 5km under 30 minutes
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5017.8
+  moving_time: 1789
+  elapsed_time: 1794
+  total_elevation_gain: 0.0
+  elev_high: 33.6
+  elev_low: 23.2
+  start_date: '2014-03-17 05:37:06'
+  start_date_local: '2014-03-17 18:37:06'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.805
+  max_speed: 4.1
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 389.8
+  suffer_score: 
+  created_at: '2017-02-20 08:58:41.190892'
+  updated_at: '2017-02-20 08:58:41.190892'
+activities_690184462:
+  id: 690184462
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: 5km under 30 minutes is ordinary now
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5019.5
+  moving_time: 1785
+  elapsed_time: 1785
+  total_elevation_gain: 0.0
+  elev_high: 32.0
+  elev_low: 23.3
+  start_date: '2014-03-19 05:39:30'
+  start_date_local: '2014-03-19 18:39:30'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.812
+  max_speed: 4.0
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 389.8
+  suffer_score: 
+  created_at: '2017-02-20 08:58:42.591923'
+  updated_at: '2017-02-20 08:58:42.591923'
+activities_690184729:
+  id: 690184729
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Saturday night run to Avonhead Park along Withells Road
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4964.4
+  moving_time: 1722
+  elapsed_time: 1729
+  total_elevation_gain: 14.0
+  elev_high: 38.2
+  elev_low: 23.3
+  start_date: '2014-03-22 06:03:48'
+  start_date_local: '2014-03-22 19:03:48'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.883
+  max_speed: 4.5
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 385.4
+  suffer_score: 
+  created_at: '2017-02-20 08:58:43.144315'
+  updated_at: '2017-02-20 08:58:43.144315'
+activities_690184908:
+  id: 690184908
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Avonhead, Christchurch, New Zealand
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5016.4
+  moving_time: 1797
+  elapsed_time: 1797
+  total_elevation_gain: 14.1
+  elev_high: 38.5
+  elev_low: 23.3
+  start_date: '2014-03-24 05:09:47'
+  start_date_local: '2014-03-24 18:09:47'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.792
+  max_speed: 5.5
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 389.6
+  suffer_score: 
+  created_at: '2017-02-20 08:58:43.875873'
+  updated_at: '2017-02-20 08:58:43.875873'
+activities_690185037:
+  id: 690185037
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Thursday night 30 minutes run
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4998.7
+  moving_time: 1802
+  elapsed_time: 1802
+  total_elevation_gain: 14.2
+  elev_high: 38.5
+  elev_low: 23.4
+  start_date: '2014-03-27 05:33:08'
+  start_date_local: '2014-03-27 18:33:08'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.774
+  max_speed: 5.5
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 388.0
+  suffer_score: 
+  created_at: '2017-02-20 08:58:44.369605'
+  updated_at: '2017-02-20 08:58:44.369605'
+activities_690185443:
+  id: 690185443
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Avonhead, Christchurch, New Zealand
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5001.9
+  moving_time: 1793
+  elapsed_time: 1793
+  total_elevation_gain: 0.0
+  elev_high: 33.4
+  elev_low: 23.3
+  start_date: '2014-03-31 05:32:52'
+  start_date_local: '2014-03-31 18:32:52'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.79
+  max_speed: 4.1
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 388.1
+  suffer_score: 
+  created_at: '2017-02-20 08:58:46.79599'
+  updated_at: '2017-02-20 08:58:46.79599'
+activities_690185709:
+  id: 690185709
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Cutts and Delaware loop run on a rainy night
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5012.7
+  moving_time: 1737
+  elapsed_time: 1737
+  total_elevation_gain: 0.0
+  elev_high: 32.9
+  elev_low: 30.1
+  start_date: '2014-04-14 06:34:10'
+  start_date_local: '2014-04-14 18:34:10'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.886
+  max_speed: 6.2
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 388.5
+  suffer_score: 
+  created_at: '2017-02-20 08:58:48.045485'
+  updated_at: '2017-02-20 08:58:48.045485'
+activities_690185830:
+  id: 690185830
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Wet Tuesday night laps around the block
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5016.2
+  moving_time: 1618
+  elapsed_time: 1629
+  total_elevation_gain: 0.0
+  elev_high: 35.4
+  elev_low: 30.2
+  start_date: '2014-04-15 06:05:43'
+  start_date_local: '2014-04-15 18:05:43'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.1
+  max_speed: 4.8
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 389.2
+  suffer_score: 
+  created_at: '2017-02-20 08:58:49.76593'
+  updated_at: '2017-02-20 08:58:49.76593'
+activities_690186159:
+  id: 690186159
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Avonhead, Christchurch, New Zealand
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5017.1
+  moving_time: 1678
+  elapsed_time: 1678
+  total_elevation_gain: 0.0
+  elev_high: 33.6
+  elev_low: 23.3
+  start_date: '2014-04-19 05:43:47'
+  start_date_local: '2014-04-19 17:43:47'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.99
+  max_speed: 4.0
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 389.7
+  suffer_score: 
+  created_at: '2017-02-20 08:58:50.958189'
+  updated_at: '2017-02-20 08:58:50.958189'
+activities_690186399:
+  id: 690186399
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Monday arvo 5km run at a near sub-5 pace
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5017.8
+  moving_time: 1543
+  elapsed_time: 1546
+  total_elevation_gain: 0.0
+  elev_high: 33.8
+  elev_low: 23.2
+  start_date: '2014-04-21 05:49:42'
+  start_date_local: '2014-04-21 17:49:42'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.252
+  max_speed: 4.5
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 389.8
+  suffer_score: 
+  created_at: '2017-02-20 08:58:52.15933'
+  updated_at: '2017-02-20 08:58:52.15933'
+activities_690186549:
+  id: 690186549
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Tuesday afternoon 5km run
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4999.3
+  moving_time: 1588
+  elapsed_time: 1594
+  total_elevation_gain: 0.0
+  elev_high: 31.5
+  elev_low: 22.0
+  start_date: '2014-04-22 05:40:50'
+  start_date_local: '2014-04-22 17:40:50'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.148
+  max_speed: 6.6
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 385.5
+  suffer_score: 
+  created_at: '2017-02-20 08:58:53.100236'
+  updated_at: '2017-02-20 08:58:53.100236'
+activities_690186672:
+  id: 690186672
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Thursday afternoon run with a sub-5 first kilometer
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5003.6
+  moving_time: 1755
+  elapsed_time: 1755
+  total_elevation_gain: 0.0
+  elev_high: 33.5
+  elev_low: 23.3
+  start_date: '2014-04-24 03:46:20'
+  start_date_local: '2014-04-24 15:46:20'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.851
+  max_speed: 7.1
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 388.6
+  suffer_score: 
+  created_at: '2017-02-20 08:58:53.84802'
+  updated_at: '2017-02-20 08:58:53.84802'
+activities_690186804:
+  id: 690186804
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Anzac day 5km run
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5011.8
+  moving_time: 1656
+  elapsed_time: 1663
+  total_elevation_gain: 0.0
+  elev_high: 32.1
+  elev_low: 23.3
+  start_date: '2014-04-25 05:46:04'
+  start_date_local: '2014-04-25 17:46:04'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.026
+  max_speed: 5.6
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 389.4
+  suffer_score: 
+  created_at: '2017-02-20 08:58:54.504607'
+  updated_at: '2017-02-20 08:58:54.504607'
+activities_690187025:
+  id: 690187025
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 2
+  name: Second 10k run on Anzac weekend Saturday
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 9995.7
+  moving_time: 3243
+  elapsed_time: 3260
+  total_elevation_gain: 15.4
+  elev_high: 33.7
+  elev_low: 18.0
+  start_date: '2014-04-26 04:31:54'
+  start_date_local: '2014-04-26 16:31:54'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.082
+  max_speed: 4.8
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 775.4
+  suffer_score: 
+  created_at: '2017-02-20 08:58:55.308086'
+  updated_at: '2017-02-20 08:58:55.308086'
+activities_690187156:
+  id: 690187156
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Anzac weekend 5km Sunday run
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5024.1
+  moving_time: 1704
+  elapsed_time: 1707
+  total_elevation_gain: 11.6
+  elev_high: 35.4
+  elev_low: 23.3
+  start_date: '2014-04-27 05:27:50'
+  start_date_local: '2014-04-27 17:27:50'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.948
+  max_speed: 4.3
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 389.9
+  suffer_score: 
+  created_at: '2017-02-20 08:58:55.903913'
+  updated_at: '2017-02-20 08:58:55.903913'
+activities_690187319:
+  id: 690187319
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Looping around Cutts and Russley Road
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5012.0
+  moving_time: 1615
+  elapsed_time: 1615
+  total_elevation_gain: 0.0
+  elev_high: 35.4
+  elev_low: 30.2
+  start_date: '2014-04-28 06:14:20'
+  start_date_local: '2014-04-28 18:14:20'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.103
+  max_speed: 4.4
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 388.5
+  suffer_score: 
+  created_at: '2017-02-20 08:58:56.600278'
+  updated_at: '2017-02-20 08:58:56.600278'
+activities_690187439:
+  id: 690187439
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: A steady Wednesday arvo 5km run
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5019.3
+  moving_time: 1549
+  elapsed_time: 1552
+  total_elevation_gain: 11.4
+  elev_high: 35.2
+  elev_low: 23.2
+  start_date: '2014-04-30 05:55:52'
+  start_date_local: '2014-04-30 17:55:52'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.24
+  max_speed: 4.6
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 389.3
+  suffer_score: 
+  created_at: '2017-02-20 08:58:58.157969'
+  updated_at: '2017-02-20 08:58:58.157969'
+activities_690187626:
+  id: 690187626
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 2
+  name: Third 10km run done on a Saturday arvo
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 10032.8
+  moving_time: 3224
+  elapsed_time: 3249
+  total_elevation_gain: 12.6
+  elev_high: 31.9
+  elev_low: 17.3
+  start_date: '2014-05-03 05:00:40'
+  start_date_local: '2014-05-03 17:00:40'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.112
+  max_speed: 4.7
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 778.1
+  suffer_score: 
+  created_at: '2017-02-20 08:58:59.037074'
+  updated_at: '2017-02-20 08:58:59.037074'
+activities_690187767:
+  id: 690187767
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: 4 Weeks til Christchurch Marathon
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5021.0
+  moving_time: 1523
+  elapsed_time: 1529
+  total_elevation_gain: 11.2
+  elev_high: 35.0
+  elev_low: 23.3
+  start_date: '2014-05-04 05:05:44'
+  start_date_local: '2014-05-04 17:05:44'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.297
+  max_speed: 4.8
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 390.0
+  suffer_score: 
+  created_at: '2017-02-20 08:58:59.782895'
+  updated_at: '2017-02-20 08:58:59.782895'
+activities_690188007:
+  id: 690188007
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Run back home from Telogis office
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 7020.9
+  moving_time: 2309
+  elapsed_time: 2349
+  total_elevation_gain: 15.9
+  elev_high: 33.0
+  elev_low: 16.9
+  start_date: '2014-05-06 05:36:27'
+  start_date_local: '2014-05-06 17:36:27'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.041
+  max_speed: 5.4
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 548.7
+  suffer_score: 
+  created_at: '2017-02-20 08:59:00.704293'
+  updated_at: '2017-02-20 08:59:00.704293'
+activities_690188255:
+  id: 690188255
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Cold wet Friday night 5km run in Russley
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4981.5
+  moving_time: 1543
+  elapsed_time: 1547
+  total_elevation_gain: 0.0
+  elev_high: 35.4
+  elev_low: 29.1
+  start_date: '2014-05-09 06:26:12'
+  start_date_local: '2014-05-09 18:26:12'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.228
+  max_speed: 5.2
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 386.6
+  suffer_score: 
+  created_at: '2017-02-20 08:59:01.258217'
+  updated_at: '2017-02-20 08:59:01.258217'
+activities_690188361:
+  id: 690188361
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Avonhead, Christchurch, New Zealand
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 5012.8
+  moving_time: 1585
+  elapsed_time: 1596
+  total_elevation_gain: 11.5
+  elev_high: 35.3
+  elev_low: 23.3
+  start_date: '2014-05-10 04:05:04'
+  start_date_local: '2014-05-10 16:05:04'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.163
+  max_speed: 4.8
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 389.7
+  suffer_score: 
+  created_at: '2017-02-20 08:59:01.968772'
+  updated_at: '2017-02-20 08:59:01.968772'
+activities_690189101:
+  id: 690189101
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 2
+  name: Another 10km run preparing for the race
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 10036.0
+  moving_time: 3220
+  elapsed_time: 3262
+  total_elevation_gain: 16.0
+  elev_high: 33.7
+  elev_low: 17.3
+  start_date: '2014-05-17 02:46:26'
+  start_date_local: '2014-05-17 14:46:26'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.117
+  max_speed: 5.5
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 780.2
+  suffer_score: 
+  created_at: '2017-02-20 08:59:03.475571'
+  updated_at: '2017-02-20 08:59:03.475571'
+activities_690189445:
+  id: 690189445
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 2
+  name: 10km run 10 days prior to Christchurch Marathon
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 10034.6
+  moving_time: 3148
+  elapsed_time: 3162
+  total_elevation_gain: 24.7
+  elev_high: 38.6
+  elev_low: 21.0
+  start_date: '2014-05-21 05:02:09'
+  start_date_local: '2014-05-21 17:02:09'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.188
+  max_speed: 4.8
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 779.9
+  suffer_score: 
+  created_at: '2017-02-20 08:59:04.867308'
+  updated_at: '2017-02-20 08:59:04.867308'
+activities_690190153:
+  id: 690190153
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 1
+  name: Christchurch Marathon 2014
+  description: 'Christchurch Airport Marathon 2014 (Uploaded via API. Gear name: Fila
+    Facilitator. Device name: null. Workout Type: 1)'
+  distance: 10086.1
+  moving_time: 2937
+  elapsed_time: 2937
+  total_elevation_gain: 13.6
+  elev_high: 37.8
+  elev_low: 24.0
+  start_date: '2014-05-31 20:31:05'
+  start_date_local: '2014-06-01 08:31:05'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 22
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.434
+  max_speed: 4.8
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 782.8
+  suffer_score: 
+  created_at: '2017-02-20 08:59:08.057056'
+  updated_at: '2017-02-20 08:59:08.057056'
+activities_690192383:
+  id: 690192383
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Avonhead, Christchurch, New Zealand
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: Fila Facilitator.
+    Device name: GPX.)'
+  distance: 5012.7
+  moving_time: 1508
+  elapsed_time: 1523
+  total_elevation_gain: 11.2
+  elev_high: 35.3
+  elev_low: 23.3
+  start_date: '2014-08-25 05:53:24'
+  start_date_local: '2014-08-25 17:53:24'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.324
+  max_speed: 4.1
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 389.2
+  suffer_score: 
+  created_at: '2017-02-20 08:59:10.706181'
+  updated_at: '2017-02-20 08:59:10.706181'
+activities_690192454:
+  id: 690192454
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: Steady 10km in Avonhead
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: Fila Facilitator.
+    Device name: GPX.)'
+  distance: 10010.3
+  moving_time: 3211
+  elapsed_time: 3225
+  total_elevation_gain: 13.7
+  elev_high: 35.3
+  elev_low: 20.8
+  start_date: '2014-08-28 05:32:27'
+  start_date_local: '2014-08-28 17:32:27'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.118
+  max_speed: 3.8
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 776.6
+  suffer_score: 
+  created_at: '2017-02-20 08:59:11.29033'
+  updated_at: '2017-02-20 08:59:11.29033'
+activities_690192800:
+  id: 690192800
+  athlete_id: 9123806
+  gear_id: g1313288
+  workout_type_id: 0
+  name: 30 minutes run in Avonhead the day before birthday
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: Fila Facilitator.
+    Device name: GPX.)'
+  distance: 6009.4
+  moving_time: 1800
+  elapsed_time: 1800
+  total_elevation_gain: 11.3
+  elev_high: 35.2
+  elev_low: 23.3
+  start_date: '2014-09-09 05:57:10'
+  start_date_local: '2014-09-09 17:57:10'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.339
+  max_speed: 4.5
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 466.2
+  suffer_score: 
+  created_at: '2017-02-20 08:59:12.171805'
+  updated_at: '2017-02-20 08:59:12.171805'
+activities_690193053:
+  id: 690193053
+  athlete_id: 9123806
+  gear_id: g1642211
+  workout_type_id: 0
+  name: First run from Telogis' new office
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: ASICS GT-2000 2.
+    Device name: GPX.)'
+  distance: 5110.3
+  moving_time: 1495
+  elapsed_time: 1506
+  total_elevation_gain: 13.3
+  elev_high: 24.2
+  elev_low: 8.5
+  start_date: '2014-09-15 05:20:49'
+  start_date_local: '2014-09-15 17:20:49'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.418
+  max_speed: 4.6
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 396.8
+  suffer_score: 
+  created_at: '2017-02-20 08:59:13.163207'
+  updated_at: '2017-02-20 08:59:13.163207'
+activities_690193138:
+  id: 690193138
+  athlete_id: 9123806
+  gear_id: g1642211
+  workout_type_id: 0
+  name: First 10km from the new office
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: ASICS GT-2000 2.
+    Device name: GPX.)'
+  distance: 10060.5
+  moving_time: 3094
+  elapsed_time: 3145
+  total_elevation_gain: 32.5
+  elev_high: 24.7
+  elev_low: 4.0
+  start_date: '2014-09-16 05:20:10'
+  start_date_local: '2014-09-16 17:20:10'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.252
+  max_speed: 4.0
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 788.7
+  suffer_score: 
+  created_at: '2017-02-20 08:59:13.708279'
+  updated_at: '2017-02-20 08:59:13.708279'
+activities_690193754:
+  id: 690193754
+  athlete_id: 9123806
+  gear_id: g1642211
+  workout_type_id: 0
+  name: North Hagley Park, Christchurch, New Zealand
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: ASICS GT-2000 2.
+    Device name: GPX.)'
+  distance: 5059.1
+  moving_time: 1486
+  elapsed_time: 1490
+  total_elevation_gain: 31.1
+  elev_high: 24.7
+  elev_low: 4.0
+  start_date: '2014-10-06 04:20:58'
+  start_date_local: '2014-10-06 17:20:58'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.405
+  max_speed: 4.5
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 397.2
+  suffer_score: 
+  created_at: '2017-02-20 08:59:17.73213'
+  updated_at: '2017-02-20 08:59:17.73213'
+activities_690194476:
+  id: 690194476
+  athlete_id: 9123806
+  gear_id: g1642211
+  workout_type_id: 2
+  name: Hagley Park, Christchurch, New Zealand
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: ASICS GT-2000 2.
+    Device name: GPX. Workout Type: 2)'
+  distance: 11018.1
+  moving_time: 3376
+  elapsed_time: 3432
+  total_elevation_gain: 57.5
+  elev_high: 24.1
+  elev_low: 4.0
+  start_date: '2014-10-30 04:13:05'
+  start_date_local: '2014-10-30 17:13:05'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.264
+  max_speed: 4.4
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 863.9
+  suffer_score: 
+  created_at: '2017-02-20 08:59:23.100295'
+  updated_at: '2017-02-20 08:59:23.100295'
+activities_690196016:
+  id: 690196016
+  athlete_id: 9123806
+  gear_id: g1642211
+  workout_type_id: 1
+  name: 'Shoe Clinic ASICS 5K Series 2015 Race #1'
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: ASICS GT-2000 2.
+    Device name: GPX. Workout Type: 1)'
+  distance: 4955.2
+  moving_time: 1427
+  elapsed_time: 1427
+  total_elevation_gain: 23.7
+  elev_high: 22.5
+  elev_low: 8.8
+  start_date: '2015-01-06 05:16:02'
+  start_date_local: '2015-01-06 18:16:02'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 7
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.472
+  max_speed: 5.2
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 389.4
+  suffer_score: 
+  created_at: '2017-02-20 08:59:29.072846'
+  updated_at: '2017-02-20 08:59:29.072846'
+activities_690196182:
+  id: 690196182
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: 'Shoe Clinic ASICS 5K Series 2015 Race #2'
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: ASICS DS Racer 9.
+    Device name: GPX. Workout Type: 1)'
+  distance: 4838.0
+  moving_time: 1360
+  elapsed_time: 1363
+  total_elevation_gain: 24.4
+  elev_high: 22.9
+  elev_low: 8.9
+  start_date: '2015-01-13 05:16:04'
+  start_date_local: '2015-01-13 18:16:04'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 7
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.55
+  max_speed: 5.3
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 380.7
+  suffer_score: 
+  created_at: '2017-02-20 08:59:30.13125'
+  updated_at: '2017-02-20 08:59:30.13125'
+activities_690196381:
+  id: 690196381
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: 'Shoe Clinic ASICS 5K Series 2015 Race #3'
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: ASICS DS Racer 9.
+    Device name: GPX. Workout Type: 1)'
+  distance: 4929.4
+  moving_time: 1347
+  elapsed_time: 1350
+  total_elevation_gain: 23.4
+  elev_high: 22.6
+  elev_low: 8.9
+  start_date: '2015-01-20 05:16:56'
+  start_date_local: '2015-01-20 18:16:56'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 9
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.651
+  max_speed: 5.1
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 387.8
+  suffer_score: 
+  created_at: '2017-02-20 08:59:31.040438'
+  updated_at: '2017-02-20 08:59:31.040438'
+activities_690196667:
+  id: 690196667
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: 'Shoe Clinic ASICS 5K Series 2015 Race #4'
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: ASICS DS Racer 9.
+    Device name: GPX. Workout Type: 1)'
+  distance: 4919.2
+  moving_time: 1385
+  elapsed_time: 1385
+  total_elevation_gain: 23.7
+  elev_high: 22.6
+  elev_low: 9.0
+  start_date: '2015-01-27 05:15:58'
+  start_date_local: '2015-01-27 18:15:58'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 11
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.552
+  max_speed: 5.1
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 386.9
+  suffer_score: 
+  created_at: '2017-02-20 08:59:33.477183'
+  updated_at: '2017-02-20 08:59:33.477183'
+activities_690197197:
+  id: 690197197
+  athlete_id: 9123806
+  gear_id: g1642211
+  workout_type_id: 0
+  name: First run back in Wuhan, China
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: ASICS GT-2000 2.
+    Device name: GPX.)'
+  distance: 5054.8
+  moving_time: 1356
+  elapsed_time: 1359
+  total_elevation_gain: 0.0
+  elev_high: 25.9
+  elev_low: 22.9
+  start_date: '2015-02-12 10:01:17'
+  start_date_local: '2015-02-12 18:01:17'
+  timezone: "(GMT+08:00) Asia/Shanghai"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.728
+  max_speed: 4.6
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 392.3
+  suffer_score: 
+  created_at: '2017-02-20 08:59:38.006362'
+  updated_at: '2017-02-20 08:59:38.006362'
+activities_690197270:
+  id: 690197270
+  athlete_id: 9123806
+  gear_id: g1642211
+  workout_type_id: 0
+  name: Wuhan, Hubei, China
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: ASICS GT-2000 2.
+    Device name: GPX.)'
+  distance: 10057.1
+  moving_time: 3084
+  elapsed_time: 3126
+  total_elevation_gain: 0.0
+  elev_high: 25.9
+  elev_low: 22.4
+  start_date: '2015-02-13 08:57:34'
+  start_date_local: '2015-02-13 16:57:34'
+  timezone: "(GMT+08:00) Asia/Shanghai"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.261
+  max_speed: 4.1
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 780.5
+  suffer_score: 
+  created_at: '2017-02-20 08:59:38.895655'
+  updated_at: '2017-02-20 08:59:38.895655'
+activities_690197836:
+  id: 690197836
+  athlete_id: 9123806
+  gear_id: g1642211
+  workout_type_id: 0
+  name: Hagley Park, Christchurch, New Zealand
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: ASICS GT-2000 2.
+    Device name: GPX.)'
+  distance: 10008.1
+  moving_time: 3030
+  elapsed_time: 3047
+  total_elevation_gain: 48.4
+  elev_high: 23.6
+  elev_low: 4.0
+  start_date: '2015-03-19 04:44:57'
+  start_date_local: '2015-03-19 17:44:57'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.303
+  max_speed: 4.1
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 786.8
+  suffer_score: 
+  created_at: '2017-02-20 08:59:41.625436'
+  updated_at: '2017-02-20 08:59:41.625436'
+activities_690198763:
+  id: 690198763
+  athlete_id: 9123806
+  gear_id: g1642211
+  workout_type_id: 0
+  name: North Hagley Park, Christchurch, New Zealand
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: ASICS GT-2000 2.
+    Device name: GPX.)'
+  distance: 10052.1
+  moving_time: 2942
+  elapsed_time: 2950
+  total_elevation_gain: 54.8
+  elev_high: 24.5
+  elev_low: 4.0
+  start_date: '2015-04-14 05:17:56'
+  start_date_local: '2015-04-14 17:17:56'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.417
+  max_speed: 8.4
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 790.2
+  suffer_score: 
+  created_at: '2017-02-20 08:59:46.004978'
+  updated_at: '2017-02-20 08:59:46.004978'
+activities_690200263:
+  id: 690200263
+  athlete_id: 9123806
+  gear_id: g1642211
+  workout_type_id: 2
+  name: Second Half Marathon Done
+  description: 'Uploaded from Nike+ (Uploaded via API. Gear name: ASICS GT-2000 2.
+    Device name: GPX. Workout Type: 2)'
+  distance: 21201.4
+  moving_time: 6891
+  elapsed_time: 6958
+  total_elevation_gain: 56.0
+  elev_high: 31.6
+  elev_low: 4.0
+  start_date: '2015-05-17 04:07:41'
+  start_date_local: '2015-05-17 16:07:41'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.077
+  max_speed: 4.5
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 1652.9
+  suffer_score: 
+  created_at: '2017-02-20 08:59:54.870041'
+  updated_at: '2017-02-20 08:59:54.870041'
+activities_690200434:
+  id: 690200434
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: 'Hagley parkrun #33'
+  description: "(Uploaded via API. Gear name: ASICS DS Racer 9. Device name: GPX File.
+    Workout Type: 1)"
+  distance: 4918.1
+  moving_time: 1334
+  elapsed_time: 1334
+  total_elevation_gain: 45.9
+  elev_high: 22.5
+  elev_low: 4.0
+  start_date: '2015-05-22 20:00:58'
+  start_date_local: '2015-05-23 08:00:58'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 4
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.687
+  max_speed: 5.2
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 391.4
+  suffer_score: 
+  created_at: '2017-02-20 08:59:55.841646'
+  updated_at: '2017-02-20 08:59:55.841646'
+activities_690200527:
+  id: 690200527
+  athlete_id: 9123806
+  gear_id: g1642213
+  workout_type_id: 0
+  name: Saturday Arvo Run Up to Cashmere Hills
+  description: 'Started using Strava app. (Uploaded via API. Gear name: ASICS DS Trainer
+    18 (Blue). Device name: Strava iPhone App.)'
+  distance: 5101.3
+  moving_time: 1722
+  elapsed_time: 1750
+  total_elevation_gain: 176.2
+  elev_high: 193.7
+  elev_low: 11.0
+  start_date: '2015-05-23 03:03:10'
+  start_date_local: '2015-05-23 15:03:10'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.962
+  max_speed: 5.9
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 424.1
+  suffer_score: 
+  created_at: '2017-02-20 08:59:56.568213'
+  updated_at: '2017-02-20 08:59:56.568213'
+activities_690200907:
+  id: 690200907
+  athlete_id: 9123806
+  gear_id: g1642213
+  workout_type_id: 0
+  name: North Hagley Park 6.5K-4.5K@4:40
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 18 (Blue). Device name:
+    TomTom GPS Sport Watch.)"
+  distance: 6537.6
+  moving_time: 1891
+  elapsed_time: 1897
+  total_elevation_gain: 31.0
+  elev_high: 24.4
+  elev_low: 4.0
+  start_date: '2015-05-28 04:58:09'
+  start_date_local: '2015-05-28 16:58:09'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.457
+  max_speed: 4.9
+  average_cadence: 
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 162.9
+  max_heartrate: 172
+  calories: 513.8
+  suffer_score: 69
+  created_at: '2017-02-20 08:59:59.055067'
+  updated_at: '2017-02-20 08:59:59.055067'
+activities_690201430:
+  id: 690201430
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 0
+  name: Sydney Harbour Bridge, Australia
+  description: 'With Jichao chilling on the bridge (Uploaded via API. Gear name: ASICS
+    DS Trainer 19 (Blue). Device name: TomTom GPS Sport Watch.)'
+  distance: 3042.0
+  moving_time: 883
+  elapsed_time: 883
+  total_elevation_gain: 77.9
+  elev_high: 40.2
+  elev_low: 0.0
+  start_date: '2015-06-01 09:22:22'
+  start_date_local: '2015-06-01 19:22:22'
+  timezone: "(GMT+10:00) Australia/Sydney"
+  athlete_count: 3
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.445
+  max_speed: 6.1
+  average_cadence: 
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 163.4
+  max_heartrate: 174
+  calories: 254.8
+  suffer_score: 38
+  created_at: '2017-02-20 09:00:01.781824'
+  updated_at: '2017-02-20 09:00:01.781824'
+activities_690201985:
+  id: 690201985
+  athlete_id: 9123806
+  gear_id: g852509
+  workout_type_id: 0
+  name: First run with ASICS GT-2000 3 Lite-Show
+  description: "(Uploaded via API. Gear name: ASICS GT-2000 3 Lite-Show. Device name:
+    TomTom GPS Sport Watch. Workout Type: 2)"
+  distance: 11073.6
+  moving_time: 3309
+  elapsed_time: 3309
+  total_elevation_gain: 17.3
+  elev_high: 35.3
+  elev_low: 17.3
+  start_date: '2015-06-07 08:47:21'
+  start_date_local: '2015-06-07 20:47:21'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.347
+  max_speed: 4.2
+  average_cadence: 
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 161.4
+  max_heartrate: 170
+  calories: 861.0
+  suffer_score: 102
+  created_at: '2017-02-20 09:00:05.52623'
+  updated_at: '2017-02-20 09:00:05.52623'
+activities_690202807:
+  id: 690202807
+  athlete_id: 9123806
+  gear_id: g1642213
+  workout_type_id: 3
+  name: Try out interval workout
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 18 (Blue). Device name:
+    TomTom GPS Sport Watch. Workout Type: 3)"
+  distance: 5004.0
+  moving_time: 1505
+  elapsed_time: 1505
+  total_elevation_gain: 25.9
+  elev_high: 20.0
+  elev_low: 5.5
+  start_date: '2015-06-11 23:55:25'
+  start_date_local: '2015-06-12 11:55:25'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.325
+  max_speed: 5.8
+  average_cadence: 
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 158.3
+  max_heartrate: 175
+  calories: 400.3
+  suffer_score: 46
+  created_at: '2017-02-20 09:00:11.995866'
+  updated_at: '2017-02-20 09:00:11.995866'
+activities_690202921:
+  id: 690202921
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: 'Hagley parkrun #36'
+  description: '2nd Hagley Parkrun (Uploaded via API. Gear name: ASICS DS Racer 9.
+    Device name: TomTom GPS Sport Watch. Workout Type: 1)'
+  distance: 4891.5
+  moving_time: 1280
+  elapsed_time: 1280
+  total_elevation_gain: 46.8
+  elev_high: 22.7
+  elev_low: 4.0
+  start_date: '2015-06-12 20:00:14'
+  start_date_local: '2015-06-13 08:00:14'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 4
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.821
+  max_speed: 4.8
+  average_cadence: 
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 167.9
+  max_heartrate: 172
+  calories: 392.2
+  suffer_score: 54
+  created_at: '2017-02-20 09:00:12.731163'
+  updated_at: '2017-02-20 09:00:12.731163'
+activities_690204092:
+  id: 690204092
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: 'Hagley parkrun #37'
+  description: '3rd Hagley Parkrun (Uploaded via API. Gear name: ASICS DS Racer 9.
+    Device name: TomTom GPS Sport Watch. Workout Type: 1)'
+  distance: 4875.0
+  moving_time: 1286
+  elapsed_time: 1286
+  total_elevation_gain: 47.5
+  elev_high: 22.9
+  elev_low: 4.0
+  start_date: '2015-06-19 20:00:43'
+  start_date_local: '2015-06-20 08:00:43'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 4
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.791
+  max_speed: 5.1
+  average_cadence: 
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 169.2
+  max_heartrate: 174
+  calories: 390.6
+  suffer_score: 66
+  created_at: '2017-02-20 09:00:19.070413'
+  updated_at: '2017-02-20 09:00:19.070413'
+activities_690205494:
+  id: 690205494
+  athlete_id: 9123806
+  gear_id: g1642213
+  workout_type_id: 0
+  name: Saturday afternoon South Hagley tempo 5K@4:40
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 18 (Blue). Device name:
+    null.)"
+  distance: 5054.9
+  moving_time: 1414
+  elapsed_time: 1414
+  total_elevation_gain: 15.5
+  elev_high: 22.3
+  elev_low: 6.0
+  start_date: '2015-07-11 04:41:57'
+  start_date_local: '2015-07-11 16:41:57'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.575
+  max_speed: 4.4
+  average_cadence: 87.1
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 156.2
+  max_heartrate: 164
+  calories: 396.7
+  suffer_score: 41
+  created_at: '2017-02-20 09:00:26.45446'
+  updated_at: '2017-02-20 09:00:26.45446'
+activities_690205831:
+  id: 690205831
+  athlete_id: 9123806
+  gear_id: g1642213
+  workout_type_id: 2
+  name: Half Marathon run to Shane's house
+  description: "Windy + Hangover = Not a good day for 21k\r\n\r\n\r\n\r\nPicking up
+    the car at Shane's house (Uploaded via API. Gear name: ASICS DS Trainer 18 (Blue).
+    Device name: null. Workout Type: 2)"
+  distance: 21107.2
+  moving_time: 7599
+  elapsed_time: 7895
+  total_elevation_gain: 30.1
+  elev_high: 31.0
+  elev_low: 10.7
+  start_date: '2015-07-19 00:59:50'
+  start_date_local: '2015-07-19 12:59:50'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.778
+  max_speed: 5.5
+  average_cadence: 83.7
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 145.0
+  max_heartrate: 159
+  calories: 1634.7
+  suffer_score: 137
+  created_at: '2017-02-20 09:00:30.226904'
+  updated_at: '2017-02-20 09:00:30.226904'
+activities_690206108:
+  id: 690206108
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: 'Sri Chinmoy Sumner 2015 Race #3'
+  description: "(Uploaded via API. Gear name: ASICS DS Racer 9. Device name: Garmin
+    Forerunner 225. Workout Type: 1)"
+  distance: 5002.7
+  moving_time: 1321
+  elapsed_time: 1326
+  total_elevation_gain: 45.1
+  elev_high: 23.4
+  elev_low: 3.8
+  start_date: '2015-07-25 20:59:30'
+  start_date_local: '2015-07-26 08:59:30'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 7
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.773
+  max_speed: 5.2
+  average_cadence: 87.9
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 172.7
+  max_heartrate: 178
+  calories: 401.7
+  suffer_score: 90
+  created_at: '2017-02-20 09:00:33.069068'
+  updated_at: '2017-02-20 09:00:33.069068'
+activities_690206616:
+  id: 690206616
+  athlete_id: 9123806
+  gear_id: g1642213
+  workout_type_id: 2
+  name: Hagley Park, Christchurch, New Zealand
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 18 (Blue). Device name:
+    Garmin Forerunner 225. Workout Type: 2)"
+  distance: 13515.5
+  moving_time: 4063
+  elapsed_time: 4063
+  total_elevation_gain: 44.4
+  elev_high: 24.4
+  elev_low: 4.0
+  start_date: '2015-08-03 04:49:20'
+  start_date_local: '2015-08-03 16:49:20'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.326
+  max_speed: 4.5
+  average_cadence: 87.1
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 159.7
+  max_heartrate: 178
+  calories: 1054.5
+  suffer_score: 124
+  created_at: '2017-02-20 09:00:38.085278'
+  updated_at: '2017-02-20 09:00:38.085278'
+activities_690207042:
+  id: 690207042
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: 'Hagley parkrun #45'
+  description: "(Uploaded via API. Gear name: ASICS DS Racer 9. Device name: Garmin
+    Forerunner 225. Workout Type: 1)"
+  distance: 4885.0
+  moving_time: 1300
+  elapsed_time: 1307
+  total_elevation_gain: 44.4
+  elev_high: 22.8
+  elev_low: 4.0
+  start_date: '2015-08-14 20:01:48'
+  start_date_local: '2015-08-15 08:01:48'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 4
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.738
+  max_speed: 5.1
+  average_cadence: 88.1
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 171.9
+  max_heartrate: 180
+  calories: 386.9
+  suffer_score: 84
+  created_at: '2017-02-20 09:00:41.145559'
+  updated_at: '2017-02-20 09:00:41.145559'
+activities_690207362:
+  id: 690207362
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 1
+  name: 'Hagley parkrun #46'
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 19 (Blue). Device name:
+    Garmin Forerunner 225. Workout Type: 1)"
+  distance: 4906.1
+  moving_time: 1266
+  elapsed_time: 1266
+  total_elevation_gain: 43.8
+  elev_high: 22.6
+  elev_low: 4.0
+  start_date: '2015-08-21 20:01:29'
+  start_date_local: '2015-08-22 08:01:29'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 4
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.875
+  max_speed: 5.2
+  average_cadence: 90.4
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 168.7
+  max_heartrate: 174
+  calories: 387.8
+  suffer_score: 65
+  created_at: '2017-02-20 09:00:44.108792'
+  updated_at: '2017-02-20 09:00:44.108792'
+activities_690207421:
+  id: 690207421
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 0
+  name: Rapaki Track, Christchurch, New Zealand
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 19 (Blue). Device name:
+    Garmin Forerunner 225.)"
+  distance: 10004.9
+  moving_time: 3774
+  elapsed_time: 3774
+  total_elevation_gain: 316.6
+  elev_high: 333.9
+  elev_low: 5.3
+  start_date: '2015-08-21 20:56:39'
+  start_date_local: '2015-08-22 08:56:39'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.651
+  max_speed: 5.6
+  average_cadence: 83.2
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 147.7
+  max_heartrate: 157
+  calories: 838.2
+  suffer_score: 65
+  created_at: '2017-02-20 09:00:44.933474'
+  updated_at: '2017-02-20 09:00:44.933474'
+activities_690207642:
+  id: 690207642
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 1
+  name: 'Hagley parkrun #47'
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 19 (Blue). Device name:
+    Garmin Forerunner 225. Workout Type: 1)"
+  distance: 4931.1
+  moving_time: 1275
+  elapsed_time: 1275
+  total_elevation_gain: 43.3
+  elev_high: 22.7
+  elev_low: 4.0
+  start_date: '2015-08-28 20:01:10'
+  start_date_local: '2015-08-29 08:01:10'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 6
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.868
+  max_speed: 5.2
+  average_cadence: 90.6
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 175.1
+  max_heartrate: 182
+  calories: 390.1
+  suffer_score: 85
+  created_at: '2017-02-20 09:00:47.898676'
+  updated_at: '2017-02-20 09:00:47.898676'
+activities_690207717:
+  id: 690207717
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 3
+  name: Run down Rapaki with Zoe after hill repeats
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 19 (Blue). Device name:
+    Garmin Forerunner 225. Workout Type: 2)"
+  distance: 12001.6
+  moving_time: 4584
+  elapsed_time: 4767
+  total_elevation_gain: 523.1
+  elev_high: 333.9
+  elev_low: 14.6
+  start_date: '2015-08-28 21:00:00'
+  start_date_local: '2015-08-29 09:00:00'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.618
+  max_speed: 5.3
+  average_cadence: 82.6
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 159.6
+  max_heartrate: 177
+  calories: 1035.4
+  suffer_score: 160
+  created_at: '2017-02-20 09:00:48.613212'
+  updated_at: '2017-02-20 09:00:48.613212'
+activities_690207902:
+  id: 690207902
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 0
+  name: Morning run in Auckland during Microsoft Ignite week
+  description: 'GPS played a bit. (Uploaded via API. Gear name: ASICS DS Trainer 19
+    (Blue). Device name: Garmin Forerunner 225.)'
+  distance: 4586.3
+  moving_time: 1410
+  elapsed_time: 1665
+  total_elevation_gain: 89.3
+  elev_high: 50.3
+  elev_low: 5.9
+  start_date: '2015-09-02 18:50:52'
+  start_date_local: '2015-09-03 06:50:52'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.253
+  max_speed: 11.0
+  average_cadence: 87.0
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 155.0
+  max_heartrate: 167
+  calories: 373.5
+  suffer_score: 36
+  created_at: '2017-02-20 09:00:50.596962'
+  updated_at: '2017-02-20 09:00:50.596962'
+activities_690208078:
+  id: 690208078
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: North Shore Marathon 2015
+  description: 'Hilly course, rainy day... (Uploaded via API. Gear name: ASICS DS
+    Racer 9. Device name: Garmin Forerunner 225. Workout Type: 1)'
+  distance: 10045.3
+  moving_time: 2736
+  elapsed_time: 2736
+  total_elevation_gain: 63.7
+  elev_high: 38.2
+  elev_low: 5.7
+  start_date: '2015-09-05 22:02:09'
+  start_date_local: '2015-09-06 10:02:09'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 3
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.672
+  max_speed: 5.1
+  average_cadence: 90.3
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 170.5
+  max_heartrate: 179
+  calories: 787.3
+  suffer_score: 160
+  created_at: '2017-02-20 09:00:51.778814'
+  updated_at: '2017-02-20 09:00:51.778814'
+activities_690208434:
+  id: 690208434
+  athlete_id: 9123806
+  gear_id: g1642213
+  workout_type_id: 3
+  name: 'RaceTeam Week #1 - Track Session'
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 18 (Blue). Device name:
+    Garmin Forerunner 225. Workout Type: 3)"
+  distance: 9705.7
+  moving_time: 2624
+  elapsed_time: 2624
+  total_elevation_gain: 0.0
+  elev_high: 19.3
+  elev_low: 9.6
+  start_date: '2015-09-15 05:56:27'
+  start_date_local: '2015-09-15 17:56:27'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 6
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.699
+  max_speed: 5.3
+  average_cadence: 89.4
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 167.1
+  max_heartrate: 180
+  calories: 785.8
+  suffer_score: 105
+  created_at: '2017-02-20 09:01:00.876255'
+  updated_at: '2017-02-20 09:01:00.876255'
+activities_690208523:
+  id: 690208523
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 1
+  name: 'RaceTeam Week #1 - 5km Time Trial'
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 19 (Blue). Device name:
+    Garmin Forerunner 225. Workout Type: 1)"
+  distance: 5003.0
+  moving_time: 1328
+  elapsed_time: 1328
+  total_elevation_gain: 0.0
+  elev_high: 23.2
+  elev_low: 12.1
+  start_date: '2015-09-17 05:49:23'
+  start_date_local: '2015-09-17 17:49:23'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.767
+  max_speed: 5.1
+  average_cadence: 90.1
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 174.1
+  max_heartrate: 182
+  calories: 389.5
+  suffer_score: 90
+  created_at: '2017-02-20 09:01:02.491397'
+  updated_at: '2017-02-20 09:01:02.491397'
+activities_690208774:
+  id: 690208774
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 3
+  name: 'RaceTeam Week #2 - Track Session'
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 19 (Blue). Device name:
+    Garmin Forerunner 225. Workout Type: 3)"
+  distance: 10043.7
+  moving_time: 2731
+  elapsed_time: 2731
+  total_elevation_gain: 0.0
+  elev_high: 19.3
+  elev_low: 9.6
+  start_date: '2015-09-22 05:49:12'
+  start_date_local: '2015-09-22 17:49:12'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 5
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.678
+  max_speed: 5.3
+  average_cadence: 90.0
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 160.6
+  max_heartrate: 172
+  calories: 815.9
+  suffer_score: 87
+  created_at: '2017-02-20 09:01:06.98506'
+  updated_at: '2017-02-20 09:01:06.98506'
+activities_690208846:
+  id: 690208846
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 3
+  name: 'RaceTeam Week #2 - K Repeat Session'
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 19 (Blue). Device name:
+    Garmin Forerunner 225. Workout Type: 3)"
+  distance: 10513.4
+  moving_time: 3018
+  elapsed_time: 3018
+  total_elevation_gain: 0.0
+  elev_high: 13.9
+  elev_low: 5.5
+  start_date: '2015-09-24 05:44:24'
+  start_date_local: '2015-09-24 17:44:24'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.484
+  max_speed: 4.7
+  average_cadence: 89.9
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 160.9
+  max_heartrate: 170
+  calories: 825.5
+  suffer_score: 93
+  created_at: '2017-02-20 09:01:07.855384'
+  updated_at: '2017-02-20 09:01:07.855384'
+activities_690208949:
+  id: 690208949
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 2
+  name: 'RaceTeam Week #2 - Bottle Lake Forrest Park'
+  description: 'Got lost on my way back. (Uploaded via API. Gear name: ASICS DS Trainer
+    19 (Blue). Device name: Garmin Forerunner 225. Workout Type: 2)'
+  distance: 21109.3
+  moving_time: 6997
+  elapsed_time: 7380
+  total_elevation_gain: 134.1
+  elev_high: 29.6
+  elev_low: 3.2
+  start_date: '2015-09-25 19:36:48'
+  start_date_local: '2015-09-26 07:36:48'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 4
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.017
+  max_speed: 6.4
+  average_cadence: 87.5
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 155.4
+  max_heartrate: 171
+  calories: 1651.1
+  suffer_score: 195
+  created_at: '2017-02-20 09:01:08.623055'
+  updated_at: '2017-02-20 09:01:08.623055'
+activities_690209158:
+  id: 690209158
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 3
+  name: 'RaceTeam Week #3 - Track Session'
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 19 (Blue). Device name:
+    Strava iPhone App. Workout Type: 3)"
+  distance: 10107.5
+  moving_time: 2764
+  elapsed_time: 2764
+  total_elevation_gain: 0.0
+  elev_high: 19.4
+  elev_low: 9.3
+  start_date: '2015-09-29 04:49:22'
+  start_date_local: '2015-09-29 17:49:22'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 3
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.657
+  max_speed: 5.8
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 835.8
+  suffer_score: 
+  created_at: '2017-02-20 09:01:10.254683'
+  updated_at: '2017-02-20 09:01:10.254683'
+activities_690209577:
+  id: 690209577
+  athlete_id: 9123806
+  gear_id: g852509
+  workout_type_id: 2
+  name: 'RaceTeam Week #3 - Harry Ell & Summit Road'
+  description: "(Uploaded via API. Gear name: ASICS GT-2000 3 Lite-Show. Device name:
+    Garmin Forerunner 225. Workout Type: 2)"
+  distance: 18000.8
+  moving_time: 6057
+  elapsed_time: 6060
+  total_elevation_gain: 668.0
+  elev_high: 438.9
+  elev_low: 192.7
+  start_date: '2015-10-02 18:34:14'
+  start_date_local: '2015-10-03 07:34:14'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 3
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.972
+  max_speed: 4.9
+  average_cadence: 86.0
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 153.9
+  max_heartrate: 167
+  calories: 1548.2
+  suffer_score: 155
+  created_at: '2017-02-20 09:01:13.951516'
+  updated_at: '2017-02-20 09:01:13.951516'
+activities_690210040:
+  id: 690210040
+  athlete_id: 9123806
+  gear_id: g852509
+  workout_type_id: 2
+  name: 'RaceTeam Week #4 - McCormacks Bay Reserve'
+  description: "(Uploaded via API. Gear name: ASICS GT-2000 3 Lite-Show. Device name:
+    Garmin Forerunner 225. Workout Type: 2)"
+  distance: 19911.0
+  moving_time: 5945
+  elapsed_time: 5945
+  total_elevation_gain: 281.1
+  elev_high: 55.9
+  elev_low: 0.0
+  start_date: '2015-10-09 18:05:40'
+  start_date_local: '2015-10-10 07:05:40'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.349
+  max_speed: 5.2
+  average_cadence: 88.1
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 159.6
+  max_heartrate: 170
+  calories: 1594.9
+  suffer_score: 175
+  created_at: '2017-02-20 09:01:14.790068'
+  updated_at: '2017-02-20 09:01:14.790068'
+activities_690210467:
+  id: 690210467
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 1
+  name: 'RaceTeam Week #6 - 5km Time Trial'
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 19 (Blue). Device name:
+    Garmin Forerunner 225. Workout Type: 1)"
+  distance: 5002.3
+  moving_time: 1295
+  elapsed_time: 1298
+  total_elevation_gain: 12.9
+  elev_high: 22.2
+  elev_low: 8.5
+  start_date: '2015-10-20 04:56:57'
+  start_date_local: '2015-10-20 17:56:57'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.854
+  max_speed: 5.4
+  average_cadence: 88.1
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 178.3
+  max_heartrate: 186
+  calories: 389.5
+  suffer_score: 88
+  created_at: '2017-02-20 09:01:17.264031'
+  updated_at: '2017-02-20 09:01:17.264031'
+activities_690210668:
+  id: 690210668
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 1
+  name: 'RaceTeam Week #6 - 10km Race'
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 19 (Blue). Device name:
+    Garmin Forerunner 225. Workout Type: 1)"
+  distance: 9944.6
+  moving_time: 2736
+  elapsed_time: 2736
+  total_elevation_gain: 0.0
+  elev_high: 23.5
+  elev_low: 15.6
+  start_date: '2015-10-23 18:34:07'
+  start_date_local: '2015-10-24 07:34:07'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.635
+  max_speed: 5.2
+  average_cadence: 88.3
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 166.9
+  max_heartrate: 173
+  calories: 770.8
+  suffer_score: 103
+  created_at: '2017-02-20 09:01:18.561123'
+  updated_at: '2017-02-20 09:01:18.561123'
+activities_690212023:
+  id: 690212023
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: 'Hagley parkrun #60'
+  description: "(Uploaded via API. Gear name: ASICS DS Racer 9. Device name: Garmin
+    Forerunner 225. Workout Type: 1)"
+  distance: 4943.9
+  moving_time: 1285
+  elapsed_time: 1285
+  total_elevation_gain: 43.6
+  elev_high: 22.0
+  elev_low: 4.0
+  start_date: '2015-11-27 19:02:31'
+  start_date_local: '2015-11-28 08:02:31'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 12
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.847
+  max_speed: 5.2
+  average_cadence: 90.7
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 178.4
+  max_heartrate: 190
+  calories: 390.9
+  suffer_score: 87
+  created_at: '2017-02-20 09:01:28.925333'
+  updated_at: '2017-02-20 09:01:28.925333'
+activities_690213152:
+  id: 690213152
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: Sri Chinmoy 10km Christmas Dash 2015
+  description: 'Had a good chat with Nick Carpenter. (Uploaded via API. Gear name:
+    ASICS DS Racer 9. Device name: Garmin Forerunner 225. Workout Type: 1)'
+  distance: 10010.8
+  moving_time: 2699
+  elapsed_time: 2699
+  total_elevation_gain: 44.7
+  elev_high: 22.2
+  elev_low: 5.9
+  start_date: '2015-12-12 20:00:24'
+  start_date_local: '2015-12-13 09:00:24'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.709
+  max_speed: 5.3
+  average_cadence: 88.9
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 173.8
+  max_heartrate: 180
+  calories: 785.3
+  suffer_score: 184
+  created_at: '2017-02-20 09:01:33.810772'
+  updated_at: '2017-02-20 09:01:33.810772'
+activities_690214045:
+  id: 690214045
+  athlete_id: 9123806
+  gear_id: g852509
+  workout_type_id: 2
+  name: A long run to Hagley Park and back
+  description: "(Uploaded via API. Gear name: ASICS GT-2000 3 Lite-Show. Device name:
+    Garmin Forerunner 225. Workout Type: 2)"
+  distance: 22002.7
+  moving_time: 7240
+  elapsed_time: 7325
+  total_elevation_gain: 36.6
+  elev_high: 35.4
+  elev_low: 8.7
+  start_date: '2015-12-28 06:13:37'
+  start_date_local: '2015-12-28 19:13:37'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.039
+  max_speed: 4.2
+  average_cadence: 86.9
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 150.6
+  max_heartrate: 158
+  calories: 1708.5
+  suffer_score: 142
+  created_at: '2017-02-20 09:01:40.978342'
+  updated_at: '2017-02-20 09:01:40.978342'
+activities_690214219:
+  id: 690214219
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: 'Hagley parkrun #66'
+  description: "(Uploaded via API. Gear name: ASICS DS Racer 9. Device name: Garmin
+    Forerunner 225. Workout Type: 1)"
+  distance: 4926.0
+  moving_time: 1270
+  elapsed_time: 1270
+  total_elevation_gain: 42.6
+  elev_high: 22.6
+  elev_low: 4.0
+  start_date: '2016-01-01 19:02:58'
+  start_date_local: '2016-01-02 08:02:58'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 5
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.879
+  max_speed: 5.6
+  average_cadence: 92.2
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 176.0
+  max_heartrate: 183
+  calories: 390.2
+  suffer_score: 86
+  created_at: '2017-02-20 09:01:42.230053'
+  updated_at: '2017-02-20 09:01:42.230053'
+activities_690214327:
+  id: 690214327
+  athlete_id: 9123806
+  gear_id: g1126883
+  workout_type_id: 2
+  name: New home - St Bede's - Little Hagley - New home
+  description: "(Uploaded via API. Gear name: ASICS Noosa Tri 10 (Orange). Device
+    name: Garmin Forerunner 225. Workout Type: 2)"
+  distance: 17002.3
+  moving_time: 5411
+  elapsed_time: 5464
+  total_elevation_gain: 23.9
+  elev_high: 24.9
+  elev_low: 10.8
+  start_date: '2016-01-04 06:55:12'
+  start_date_local: '2016-01-04 19:55:12'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.142
+  max_speed: 4.1
+  average_cadence: 86.8
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 151.3
+  max_heartrate: 158
+  calories: 1318.7
+  suffer_score: 107
+  created_at: '2017-02-20 09:01:43.385599'
+  updated_at: '2017-02-20 09:01:43.385599'
+activities_690214538:
+  id: 690214538
+  athlete_id: 9123806
+  gear_id: g1126883
+  workout_type_id: 1
+  name: 'Hagley parkrun #67'
+  description: "(Uploaded via API. Gear name: ASICS Noosa Tri 10 (Orange). Device
+    name: Garmin Forerunner 225. Workout Type: 1)"
+  distance: 5009.9
+  moving_time: 1300
+  elapsed_time: 1304
+  total_elevation_gain: 43.4
+  elev_high: 22.1
+  elev_low: 4.0
+  start_date: '2016-01-08 19:01:19'
+  start_date_local: '2016-01-09 08:01:19'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 11
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.842
+  max_speed: 5.6
+  average_cadence: 90.0
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 175.0
+  max_heartrate: 183
+  calories: 396.5
+  suffer_score: 86
+  created_at: '2017-02-20 09:01:45.31442'
+  updated_at: '2017-02-20 09:01:45.31442'
+activities_690215227:
+  id: 690215227
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: Sri Chinmoy 10km North Hagley Park
+  description: 'Too humid (Uploaded via API. Gear name: ASICS DS Racer 9. Device name:
+    Garmin Forerunner 225. Workout Type: 1)'
+  distance: 9912.9
+  moving_time: 2709
+  elapsed_time: 2709
+  total_elevation_gain: 68.6
+  elev_high: 22.9
+  elev_low: 4.0
+  start_date: '2016-01-23 20:02:03'
+  start_date_local: '2016-01-24 09:02:03'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 4
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.659
+  max_speed: 5.2
+  average_cadence: 90.4
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 171.7
+  max_heartrate: 176
+  calories: 785.3
+  suffer_score: 179
+  created_at: '2017-02-20 09:01:52.748892'
+  updated_at: '2017-02-20 09:01:52.748892'
+activities_690216114:
+  id: 690216114
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 1
+  name: Buller Gorge Marathon 2016
+  description: "69th overall, 36 in M2039 division\r\n\r\nhttps://www.bgm.nz/you/2016/1747
+    (Uploaded via API. Gear name: ASICS DS Trainer 19 (Blue). Device name: Garmin
+    Forerunner 225. Workout Type: 1)"
+  distance: 21144.5
+  moving_time: 5891
+  elapsed_time: 5891
+  total_elevation_gain: 351.5
+  elev_high: 90.2
+  elev_low: 0.0
+  start_date: '2016-02-12 19:30:23'
+  start_date_local: '2016-02-13 08:30:23'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 12
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.589
+  max_speed: 5.2
+  average_cadence: 88.5
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 169.4
+  max_heartrate: 176
+  calories: 1697.3
+  suffer_score: 299
+  created_at: '2017-02-20 09:01:59.494248'
+  updated_at: '2017-02-20 09:01:59.494248'
+activities_690216325:
+  id: 690216325
+  athlete_id: 9123806
+  gear_id: g1126883
+  workout_type_id: 1
+  name: 'Hagley parkrun #73'
+  description: "(Uploaded via API. Gear name: ASICS Noosa Tri 10 (Orange). Device
+    name: Garmin Forerunner 225. Workout Type: 1)"
+  distance: 4930.1
+  moving_time: 1270
+  elapsed_time: 1270
+  total_elevation_gain: 44.8
+  elev_high: 22.5
+  elev_low: 4.0
+  start_date: '2016-02-19 19:00:21'
+  start_date_local: '2016-02-20 08:00:21'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 9
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.882
+  max_speed: 4.9
+  average_cadence: 91.7
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 174.5
+  max_heartrate: 188
+  calories: 390.5
+  suffer_score: 80
+  created_at: '2017-02-20 09:02:00.560269'
+  updated_at: '2017-02-20 09:02:00.560269'
+activities_690216722:
+  id: 690216722
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: 'Sri Chinmoy Sumner 2016 Race #1'
+  description: 'Pretty warm day, 19 °C. (Uploaded via API. Gear name: ASICS DS Racer
+    9. Device name: Garmin Forerunner 225. Workout Type: 1)'
+  distance: 5008.1
+  moving_time: 1264
+  elapsed_time: 1264
+  total_elevation_gain: 65.5
+  elev_high: 24.2
+  elev_low: 3.9
+  start_date: '2016-02-27 19:59:40'
+  start_date_local: '2016-02-28 08:59:40'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 5
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.962
+  max_speed: 5.7
+  average_cadence: 91.8
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 176.9
+  max_heartrate: 185
+  calories: 402.7
+  suffer_score: 84
+  created_at: '2017-02-20 09:02:04.514951'
+  updated_at: '2017-02-20 09:02:04.514951'
+activities_690217795:
+  id: 690217795
+  athlete_id: 9123806
+  gear_id: g1126883
+  workout_type_id: 1
+  name: Run Canterbury - 3km Time Trial
+  description: '30 °C, windy, dry, too hard (Uploaded via API. Gear name: ASICS Noosa
+    Tri 10 (Orange). Device name: Garmin Forerunner 225.)'
+  distance: 3076.1
+  moving_time: 787
+  elapsed_time: 787
+  total_elevation_gain: 0.0
+  elev_high: 24.0
+  elev_low: 20.6
+  start_date: '2016-03-10 04:32:54'
+  start_date_local: '2016-03-10 17:32:54'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 8
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.909
+  max_speed: 5.2
+  average_cadence: 89.5
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 175.8
+  max_heartrate: 183
+  calories: 239.6
+  suffer_score: 53
+  created_at: '2017-02-20 09:02:09.301365'
+  updated_at: '2017-02-20 09:02:09.301365'
+activities_690217893:
+  id: 690217893
+  athlete_id: 9123806
+  gear_id: g852509
+  workout_type_id: 2
+  name: EMR Saturday Runners - Hansen Park
+  description: 'Getting colder in the morning now, 4 °C. (Uploaded via API. Gear name:
+    ASICS GT-2000 3 Lite-Show. Device name: Garmin Forerunner 225. Workout Type: 2)'
+  distance: 26444.3
+  moving_time: 8556
+  elapsed_time: 8773
+  total_elevation_gain: 0.0
+  elev_high: 13.4
+  elev_low: 5.6
+  start_date: '2016-03-11 18:08:58'
+  start_date_local: '2016-03-12 07:08:58'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.091
+  max_speed: 4.0
+  average_cadence: 86.4
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 147.9
+  max_heartrate: 162
+  calories: 2050.0
+  suffer_score: 158
+  created_at: '2017-02-20 09:02:10.362127'
+  updated_at: '2017-02-20 09:02:10.362127'
+activities_690232764:
+  id: 690232764
+  athlete_id: 9123806
+  gear_id: g1126883
+  workout_type_id: 1
+  name: 'Hagley Parkrun #99'
+  description: "(Uploaded via API. Gear name: ASICS Noosa Tri 10 (Orange). Device
+    name: Garmin Forerunner 235. Workout Type: 1)"
+  distance: 4937.2
+  moving_time: 1306
+  elapsed_time: 1306
+  total_elevation_gain: 47.5
+  elev_high: 22.8
+  elev_low: 4.0
+  start_date: '2016-08-19 20:00:21'
+  start_date_local: '2016-08-20 08:00:21'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 10
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.78
+  max_speed: 5.8
+  average_cadence: 91.1
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 170.7
+  max_heartrate: 185
+  calories: 395.2
+  suffer_score: 78
+  created_at: '2017-02-20 09:02:42.467612'
+  updated_at: '2017-02-20 09:02:42.467612'
+activities_690235515:
+  id: 690235515
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 1
+  name: Southern Lakes Half Marathon 2016
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 19 (Blue). Device name:
+    Garmin Forerunner 235. Workout Type: 1)"
+  distance: 21138.8
+  moving_time: 5645
+  elapsed_time: 5645
+  total_elevation_gain: 16.0
+  elev_high: 500.0
+  elev_low: 282.2
+  start_date: '2016-04-01 19:59:50'
+  start_date_local: '2016-04-02 08:59:50'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 8
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.745
+  max_speed: 5.2
+  average_cadence: 89.5
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 169.2
+  max_heartrate: 180
+  calories: 1590.9
+  suffer_score: 271
+  created_at: '2017-02-20 09:02:44.993259'
+  updated_at: '2017-02-20 09:02:44.993259'
+activities_842318610:
+  id: 842318610
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 1
+  name: 'Shoe Clinic ASICS 5K Series 2017 Race #3'
+  description: ''
+  distance: 4901.0
+  moving_time: 1289
+  elapsed_time: 1293
+  total_elevation_gain: 23.7
+  elev_high: 23.5
+  elev_low: 10.0
+  start_date: '2017-01-24 05:16:23'
+  start_date_local: '2017-01-24 18:16:23'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 18
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: Garmin Forerunner 235
+  flagged: false
+  average_speed: 3.79
+  max_speed: 5.4
+  average_cadence: 90.3
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 172.9
+  max_heartrate: 184
+  calories: 386.3
+  suffer_score: 84
+  created_at: '2017-02-20 09:03:13.184285'
+  updated_at: '2017-02-20 09:03:13.184285'
+activities_716148966:
+  id: 716148966
+  athlete_id: 9123806
+  gear_id: g1126882
+  workout_type_id: 1
+  name: EHM 10K Road Race 2016
+  description: 11°
+  distance: 9838.5
+  moving_time: 2721
+  elapsed_time: 2724
+  total_elevation_gain: 12.8
+  elev_high: 21.3
+  elev_low: 8.2
+  start_date: '2016-09-18 08:02:53'
+  start_date_local: '2016-09-18 09:02:53'
+  timezone: "(GMT+00:00) Europe/London"
+  athlete_count: 9
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: Garmin Forerunner 235
+  flagged: false
+  average_speed: 3.612
+  max_speed: 8.3
+  average_cadence: 88.0
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 179.7
+  max_heartrate: 192
+  calories: 764.4
+  suffer_score: 191
+  created_at: '2017-02-20 09:02:46.964722'
+  updated_at: '2017-06-25 06:49:37.195216'
+activities_1019790623:
+  id: 1019790623
+  athlete_id: 9123806
+  gear_id: g2240938
+  workout_type_id: 1
+  name: Christchurch Marathon 2017
+  description: 6° Rainy Windy. Blown out after 14km. Cramps in both calves. Was just
+    a matter of keep the pace then pull out, or finish the race.
+  distance: 21282.1
+  moving_time: 5874
+  elapsed_time: 5874
+  total_elevation_gain: 217.2
+  elev_high: 23.0
+  elev_low: -0.3
+  start_date: '2017-06-03 20:02:04'
+  start_date_local: '2017-06-04 08:02:04'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 89
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: Garmin Forerunner 235
+  flagged: false
+  average_speed: 3.623
+  max_speed: 5.8
+  average_cadence: 88.9
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 146.3
+  max_heartrate: 184
+  calories: 1678.6
+  suffer_score: 126
+  created_at: '2017-06-04 01:24:59.761904'
+  updated_at: '2017-06-25 06:51:07.432104'
+activities_690213876:
+  id: 690213876
+  athlete_id: 9123806
+  gear_id: g1126883
+  workout_type_id: 1
+  name: 'Hagley parkrun #64 - Christmas Special'
+  description: "(Uploaded via API. Gear name: ASICS Noosa Tri 10 (Orange). Device
+    name: Garmin Forerunner 225. Workout Type: 1)"
+  distance: 4887.8
+  moving_time: 1269
+  elapsed_time: 1269
+  total_elevation_gain: 42.9
+  elev_high: 22.2
+  elev_low: 4.0
+  start_date: '2015-12-24 19:02:39'
+  start_date_local: '2015-12-25 08:02:39'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 7
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.852
+  max_speed: 5.3
+  average_cadence: 90.1
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 169.9
+  max_heartrate: 179
+  calories: 387.0
+  suffer_score: 77
+  created_at: '2017-02-20 09:01:40.212714'
+  updated_at: '2017-03-21 00:19:06.130369'
+activities_690214708:
+  id: 690214708
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: 'Shoe Clinic ASICS 5K Series 2016 Race #1'
+  description: "(Uploaded via API. Gear name: ASICS DS Racer 9. Device name: GPX.
+    Workout Type: 1)"
+  distance: 4945.9
+  moving_time: 1255
+  elapsed_time: 1255
+  total_elevation_gain: 21.3
+  elev_high: 22.4
+  elev_low: 8.9
+  start_date: '2016-01-12 05:13:53'
+  start_date_local: '2016-01-12 18:13:53'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 11
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.941
+  max_speed: 6.0
+  average_cadence: 
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 173.1
+  max_heartrate: 177
+  calories: 387.1
+  suffer_score: 85
+  created_at: '2017-02-20 09:01:47.413757'
+  updated_at: '2017-03-21 00:19:15.310234'
+activities_690215044:
+  id: 690215044
+  athlete_id: 9123806
+  gear_id: g1126883
+  workout_type_id: 1
+  name: 'Shoe Clinic ASICS 5K Series 2016 Race #2'
+  description: "(Uploaded via API. Gear name: ASICS Noosa Tri 10 (Orange). Device
+    name: Garmin Forerunner 225. Workout Type: 1)"
+  distance: 4916.8
+  moving_time: 1259
+  elapsed_time: 1259
+  total_elevation_gain: 21.6
+  elev_high: 22.5
+  elev_low: 8.9
+  start_date: '2016-01-19 05:15:35'
+  start_date_local: '2016-01-19 18:15:35'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 14
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.905
+  max_speed: 6.2
+  average_cadence: 90.7
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 170.7
+  max_heartrate: 176
+  calories: 384.7
+  suffer_score: 83
+  created_at: '2017-02-20 09:01:50.743306'
+  updated_at: '2017-03-21 00:19:17.962747'
+activities_690215385:
+  id: 690215385
+  athlete_id: 9123806
+  gear_id: g1126883
+  workout_type_id: 1
+  name: 'Shoe Clinic ASICS 5K Series 2016 Race #3'
+  description: "(Uploaded via API. Gear name: ASICS Noosa Tri 10 (Orange). Device
+    name: Garmin Forerunner 225. Workout Type: 1)"
+  distance: 4846.5
+  moving_time: 1249
+  elapsed_time: 1249
+  total_elevation_gain: 20.2
+  elev_high: 22.3
+  elev_low: 9.2
+  start_date: '2016-01-26 05:14:39'
+  start_date_local: '2016-01-26 18:14:39'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 15
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.88
+  max_speed: 6.6
+  average_cadence: 91.3
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 169.1
+  max_heartrate: 174
+  calories: 379.2
+  suffer_score: 73
+  created_at: '2017-02-20 09:01:53.623645'
+  updated_at: '2017-03-21 00:19:20.757826'
+activities_690215985:
+  id: 690215985
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 1
+  name: 'Shoe Clinic ASICS 5K Series 2016 Race #5'
+  description: "(Uploaded via API. Gear name: ASICS DS Trainer 19 (Blue). Device name:
+    Garmin Forerunner 225. Workout Type: 1)"
+  distance: 4936.8
+  moving_time: 1272
+  elapsed_time: 1272
+  total_elevation_gain: 22.1
+  elev_high: 22.6
+  elev_low: 8.8
+  start_date: '2016-02-09 05:14:32'
+  start_date_local: '2016-02-09 18:14:32'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 13
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.881
+  max_speed: 5.3
+  average_cadence: 90.4
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 172.5
+  max_heartrate: 180
+  calories: 386.3
+  suffer_score: 82
+  created_at: '2017-02-20 09:01:58.131058'
+  updated_at: '2017-03-21 00:19:26.493511'
+activities_690225037:
+  id: 690225037
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 1
+  name: Tai Tapu 15km Road Race 2016
+  description: "Warm, a bit hilly, windy at times. Felt absolutely rubbish. http://www.taitapurunfestival.co.nz/#!results/aud7l\r\n\r\n(Uploaded
+    via API. Gear name: ASICS DS Trainer 19 (Blue). Device name: Garmin Forerunner
+    235. Workout Type: 1)"
+  distance: 14921.4
+  moving_time: 4132
+  elapsed_time: 4143
+  total_elevation_gain: 82.6
+  elev_high: 43.9
+  elev_low: 6.6
+  start_date: '2016-04-08 22:05:10'
+  start_date_local: '2016-04-09 10:05:10'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 7
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.602
+  max_speed: 5.0
+  average_cadence: 89.1
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 171.8
+  max_heartrate: 183
+  calories: 1168.9
+  suffer_score: 263
+  created_at: '2017-02-20 09:02:19.963561'
+  updated_at: '2017-04-08 02:18:05.318335'
+activities_746513888:
+  id: 746513888
+  athlete_id: 9123806
+  gear_id: g1126882
+  workout_type_id: 1
+  name: Amsterdam Marathon 2016
+  description: 16°
+  distance: 21239.3
+  moving_time: 6295
+  elapsed_time: 6298
+  total_elevation_gain: 14.6
+  elev_high: 11.7
+  elev_low: -3.1
+  start_date: '2016-10-16 11:21:57'
+  start_date_local: '2016-10-16 13:21:57'
+  timezone: "(GMT+01:00) Europe/Amsterdam"
+  athlete_count: 113
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: Garmin Forerunner 235
+  flagged: false
+  average_speed: 3.372
+  max_speed: 5.8
+  average_cadence: 88.0
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 167.3
+  max_heartrate: 191
+  calories: 1647.4
+  suffer_score: 269
+  created_at: '2017-02-20 09:02:50.91778'
+  updated_at: '2017-06-25 06:49:41.765618'
+activities_861862237:
+  id: 861862237
+  athlete_id: 9123806
+  gear_id: g1126883
+  workout_type_id: 1
+  name: Buller Gorge Marathon 2017
+  description: "84th overall, 34 in M2039 division\r\nhttps://www.bgm.nz/you/2017/1431"
+  distance: 21151.3
+  moving_time: 5929
+  elapsed_time: 5932
+  total_elevation_gain: 109.7
+  elev_high: 60.3
+  elev_low: 4.0
+  start_date: '2017-02-10 19:35:13'
+  start_date_local: '2017-02-11 08:35:13'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 17
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: Garmin Forerunner 235
+  flagged: false
+  average_speed: 3.566
+  max_speed: 5.6
+  average_cadence: 89.6
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 170.4
+  max_heartrate: 186
+  calories: 1642.5
+  suffer_score: 394
+  created_at: '2017-02-20 09:03:20.272343'
+  updated_at: '2017-06-25 06:50:15.236736'
+activities_690211873:
+  id: 690211873
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 1
+  name: Queenstown Marathon 2015
+  description: 'Cramp big time...352th overall, 93 in M2029 division (Uploaded via
+    API. Gear name: ASICS DS Trainer 19 (Blue). Device name: Garmin Forerunner 225.
+    Workout Type: 1)'
+  distance: 21144.5
+  moving_time: 6203
+  elapsed_time: 6203
+  total_elevation_gain: 206.2
+  elev_high: 394.9
+  elev_low: 310.0
+  start_date: '2015-11-20 19:01:15'
+  start_date_local: '2015-11-21 08:01:15'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 32
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.409
+  max_speed: 5.0
+  average_cadence: 87.0
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 167.5
+  max_heartrate: 184
+  calories: 1660.1
+  suffer_score: 285
+  created_at: '2017-02-20 09:01:26.720735'
+  updated_at: '2017-04-08 02:17:08.616115'
+activities_905343871:
+  id: 905343871
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: City2Surf 2017
+  description: ''
+  distance: 13922.5
+  moving_time: 3771
+  elapsed_time: 3771
+  total_elevation_gain: 61.9
+  elev_high: 37.0
+  elev_low: -2.2
+  start_date: '2017-03-18 20:02:39'
+  start_date_local: '2017-03-19 09:02:39'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 46
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: Garmin Forerunner 235
+  flagged: false
+  average_speed: 3.692
+  max_speed: 5.5
+  average_cadence: 89.5
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 169.0
+  max_heartrate: 182
+  calories: 1094.7
+  suffer_score: 235
+  created_at: '2017-03-19 02:10:11.622432'
+  updated_at: '2017-06-25 06:50:29.077561'
+activities_922387515:
+  id: 922387515
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: 'Hagley Parkrun #132'
+  description: 14°
+  distance: 4915.3
+  moving_time: 1286
+  elapsed_time: 1286
+  total_elevation_gain: 33.9
+  elev_high: 23.0
+  elev_low: 4.0
+  start_date: '2017-03-31 18:59:29'
+  start_date_local: '2017-04-01 07:59:29'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 10
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: Garmin Forerunner 235
+  flagged: false
+  average_speed: 3.822
+  max_speed: 6.4
+  average_cadence: 90.8
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 174.8
+  max_heartrate: 185
+  calories: 385.6
+  suffer_score: 92
+  created_at: '2017-04-01 00:48:41.346298'
+  updated_at: '2017-06-25 06:50:33.471828'
+activities_932298832:
+  id: 932298832
+  athlete_id: 9123806
+  gear_id: g1642212
+  workout_type_id: 1
+  name: Tai Tapu 15km Road Race 2017
+  description: 13°
+  distance: 14746.3
+  moving_time: 4043
+  elapsed_time: 4043
+  total_elevation_gain: 39.8
+  elev_high: 27.9
+  elev_low: 6.9
+  start_date: '2017-04-07 22:02:08'
+  start_date_local: '2017-04-08 10:02:08'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 9
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: Garmin Forerunner 235
+  flagged: false
+  average_speed: 3.647
+  max_speed: 5.6
+  average_cadence: 88.8
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 172.7
+  max_heartrate: 183
+  calories: 1143.2
+  suffer_score: 275
+  created_at: '2017-04-08 01:22:31.021464'
+  updated_at: '2017-06-25 06:50:38.46072'
+activities_952328683:
+  id: 952328683
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: Hagley Memorial Relays 2017
+  description: 18° 60% humidity. Pretty hard run. Sore throat afterwards.
+  distance: 4025.7
+  moving_time: 1037
+  elapsed_time: 1037
+  total_elevation_gain: 53.9
+  elev_high: 26.7
+  elev_low: 2.5
+  start_date: '2017-04-22 03:05:01'
+  start_date_local: '2017-04-22 15:05:01'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 1
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: Garmin Forerunner 235
+  flagged: false
+  average_speed: 3.882
+  max_speed: 6.3
+  average_cadence: 90.8
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 179.1
+  max_heartrate: 186
+  calories: 332.4
+  suffer_score: 82
+  created_at: '2017-04-22 12:52:04.408357'
+  updated_at: '2017-06-25 06:50:44.404191'
+activities_690201353:
+  id: 690201353
+  athlete_id: 9123806
+  gear_id: g798788
+  workout_type_id: 1
+  name: Christchurch Marathon 2015
+  description: "(Uploaded via API. Gear name: ASICS DS Racer 9. Device name: GPX.
+    Workout Type: 1)"
+  distance: 9830.0
+  moving_time: 2588
+  elapsed_time: 2598
+  total_elevation_gain: 28.6
+  elev_high: 23.1
+  elev_low: 5.5
+  start_date: '2015-05-30 20:38:02'
+  start_date_local: '2015-05-31 08:38:02'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 37
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 3.784
+  max_speed: 5.3
+  average_cadence: 
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 170.5
+  max_heartrate: 181
+  calories: 767.5
+  suffer_score: 162
+  created_at: '2017-02-20 09:00:00.834789'
+  updated_at: '2017-06-25 06:46:31.748364'
+activities_731800152:
+  id: 731800152
+  athlete_id: 9123806
+  gear_id: g1126882
+  workout_type_id: 1
+  name: Lisbon Rock N' Roll Half Marathon 2016
+  description: Terrible fitness after travelling for weeks, but pretty happy with
+    the result! 18°
+  distance: 21235.9
+  moving_time: 6487
+  elapsed_time: 6487
+  total_elevation_gain: 126.3
+  elev_high: 34.4
+  elev_low: 0.0
+  start_date: '2016-10-02 09:32:29'
+  start_date_local: '2016-10-02 10:32:29'
+  timezone: "(GMT+00:00) Europe/Lisbon"
+  athlete_count: 175
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: Garmin Forerunner 235
+  flagged: false
+  average_speed: 3.274
+  max_speed: 5.5
+  average_cadence: 87.9
+  average_temp: 
+  has_heartrate: true
+  average_heartrate: 172.0
+  max_heartrate: 188
+  calories: 1702.6
+  suffer_score: 371
+  created_at: '2017-02-20 09:02:49.137824'
+  updated_at: '2017-06-25 06:49:40.181795'

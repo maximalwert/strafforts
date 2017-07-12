@@ -1,30 +1,1756 @@
-one:
-  id: 100001
-  activity_id: 9999
-  athlete_id: 123
+---
+best_efforts_1587424799:
+  id: 1587424799
+  activity_id: 690180546
+  athlete_id: 9123806
   best_effort_type_id: 14
   pr_rank: 1
-  distance: 400
-  moving_time: 92
-  elapsed_time: 90
-  start_date: '2013-01-06 15:16:02'
-two:
-  id: 100002
-  activity_id: 9999
-  athlete_id: 123
+  distance: 400.0
+  moving_time: 135
+  elapsed_time: 134
+  start_date: '2014-01-07 04:40:21'
+  start_date_local: '2014-01-07 17:40:21'
+  created_at: '2017-02-20 08:58:31.118729'
+  updated_at: '2017-02-20 08:58:31.118729'
+best_efforts_1587424933:
+  id: 1587424933
+  activity_id: 690180641
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 127
+  elapsed_time: 126
+  start_date: '2014-01-09 04:46:25'
+  start_date_local: '2014-01-09 17:46:25'
+  created_at: '2017-02-20 08:58:31.799575'
+  updated_at: '2017-02-20 08:58:31.799575'
+best_efforts_1587424934:
+  id: 1587424934
+  activity_id: 690180641
+  athlete_id: 9123806
   best_effort_type_id: 13
   pr_rank: 1
-  distance: 805
-  moving_time: 205
-  elapsed_time: 200
-  start_date: '2013-01-06 15:16:02'
-three:
-  id: 100003
-  activity_id: 9999
-  athlete_id: 123
+  distance: 805.0
+  moving_time: 277
+  elapsed_time: 276
+  start_date: '2014-01-09 04:43:56'
+  start_date_local: '2014-01-09 17:43:56'
+  created_at: '2017-02-20 08:58:31.824802'
+  updated_at: '2017-02-20 08:58:31.824802'
+best_efforts_1587424935:
+  id: 1587424935
+  activity_id: 690180641
+  athlete_id: 9123806
   best_effort_type_id: 12
   pr_rank: 1
-  distance: 1000
-  moving_time: 249
+  distance: 1000.0
+  moving_time: 340
+  elapsed_time: 339
+  start_date: '2014-01-09 04:42:02'
+  start_date_local: '2014-01-09 17:42:02'
+  created_at: '2017-02-20 08:58:31.850375'
+  updated_at: '2017-02-20 08:58:31.850375'
+best_efforts_1587424937:
+  id: 1587424937
+  activity_id: 690180641
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 1191
+  elapsed_time: 1198
+  start_date: '2014-01-09 04:42:28'
+  start_date_local: '2014-01-09 17:42:28'
+  created_at: '2017-02-20 08:58:31.9022'
+  updated_at: '2017-02-20 08:58:31.9022'
+best_efforts_1587425082:
+  id: 1587425082
+  activity_id: 690180747
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 276
+  elapsed_time: 275
+  start_date: '2014-01-10 03:57:14'
+  start_date_local: '2014-01-10 16:57:14'
+  created_at: '2017-02-20 08:58:32.536116'
+  updated_at: '2017-02-20 08:58:32.536116'
+best_efforts_1587425232:
+  id: 1587425232
+  activity_id: 690180838
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 125
+  elapsed_time: 125
+  start_date: '2014-01-13 04:10:03'
+  start_date_local: '2014-01-13 17:10:03'
+  created_at: '2017-02-20 08:58:33.31014'
+  updated_at: '2017-02-20 08:58:33.31014'
+best_efforts_1587425233:
+  id: 1587425233
+  activity_id: 690180838
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 265
+  elapsed_time: 265
+  start_date: '2014-01-13 04:10:11'
+  start_date_local: '2014-01-13 17:10:11'
+  created_at: '2017-02-20 08:58:33.335877'
+  updated_at: '2017-02-20 08:58:33.335877'
+best_efforts_1587425889:
+  id: 1587425889
+  activity_id: 690181250
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 124
+  elapsed_time: 123
+  start_date: '2014-01-21 04:42:57'
+  start_date_local: '2014-01-21 17:42:57'
+  created_at: '2017-02-20 08:58:34.983436'
+  updated_at: '2017-02-20 08:58:34.983436'
+best_efforts_1587425890:
+  id: 1587425890
+  activity_id: 690181250
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 264
+  elapsed_time: 264
+  start_date: '2014-01-21 04:43:13'
+  start_date_local: '2014-01-21 17:43:13'
+  created_at: '2017-02-20 08:58:35.009024'
+  updated_at: '2017-02-20 08:58:35.009024'
+best_efforts_1587425891:
+  id: 1587425891
+  activity_id: 690181250
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 326
+  elapsed_time: 326
+  start_date: '2014-01-21 04:42:57'
+  start_date_local: '2014-01-21 17:42:57'
+  created_at: '2017-02-20 08:58:35.034056'
+  updated_at: '2017-02-20 08:58:35.034056'
+best_efforts_1587425892:
+  id: 1587425892
+  activity_id: 690181250
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 545
+  elapsed_time: 544
+  start_date: '2014-01-21 04:43:29'
+  start_date_local: '2014-01-21 17:43:29'
+  created_at: '2017-02-20 08:58:35.05926'
+  updated_at: '2017-02-20 08:58:35.05926'
+best_efforts_1587425893:
+  id: 1587425893
+  activity_id: 690181250
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 1122
+  elapsed_time: 1121
+  start_date: '2014-01-21 04:42:59'
+  start_date_local: '2014-01-21 17:42:59'
+  created_at: '2017-02-20 08:58:35.088335'
+  updated_at: '2017-02-20 08:58:35.088335'
+best_efforts_1587426147:
+  id: 1587426147
+  activity_id: 690181397
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 122
+  elapsed_time: 121
+  start_date: '2014-01-27 05:11:40'
+  start_date_local: '2014-01-27 18:11:40'
+  created_at: '2017-02-20 08:58:35.898981'
+  updated_at: '2017-02-20 08:58:35.898981'
+best_efforts_1587427107:
+  id: 1587427107
+  activity_id: 690181991
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 259
+  elapsed_time: 259
+  start_date: '2014-02-04 04:42:22'
+  start_date_local: '2014-02-04 17:42:22'
+  created_at: '2017-02-20 08:58:36.576375'
+  updated_at: '2017-02-20 08:58:36.576375'
+best_efforts_1587427108:
+  id: 1587427108
+  activity_id: 690181991
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 324
+  elapsed_time: 323
+  start_date: '2014-02-04 04:41:21'
+  start_date_local: '2014-02-04 17:41:21'
+  created_at: '2017-02-20 08:58:36.607704'
+  updated_at: '2017-02-20 08:58:36.607704'
+best_efforts_1587427382:
+  id: 1587427382
+  activity_id: 690182162
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 253
+  elapsed_time: 253
+  start_date: '2014-02-06 05:16:15'
+  start_date_local: '2014-02-06 18:16:15'
+  created_at: '2017-02-20 08:58:37.293847'
+  updated_at: '2017-02-20 08:58:37.293847'
+best_efforts_1587427383:
+  id: 1587427383
+  activity_id: 690182162
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 320
+  elapsed_time: 319
+  start_date: '2014-02-06 05:15:31'
+  start_date_local: '2014-02-06 18:15:31'
+  created_at: '2017-02-20 08:58:37.322344'
+  updated_at: '2017-02-20 08:58:37.322344'
+best_efforts_1587428001:
+  id: 1587428001
+  activity_id: 690182547
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 543
+  elapsed_time: 542
+  start_date: '2014-02-15 06:05:08'
+  start_date_local: '2014-02-15 19:05:08'
+  created_at: '2017-02-20 08:58:38.045533'
+  updated_at: '2017-02-20 08:58:38.045533'
+best_efforts_1587429660:
+  id: 1587429660
+  activity_id: 690183592
+  athlete_id: 9123806
+  best_effort_type_id: 9
+  pr_rank: 1
+  distance: 5000.0
+  moving_time: 1790
+  elapsed_time: 1789
+  start_date: '2014-03-06 04:33:11'
+  start_date_local: '2014-03-06 17:33:11'
+  created_at: '2017-02-20 08:58:39.712114'
+  updated_at: '2017-02-20 08:58:39.712114'
+best_efforts_1587430563:
+  id: 1587430563
+  activity_id: 690184071
+  athlete_id: 9123806
+  best_effort_type_id: 9
+  pr_rank: 1
+  distance: 5000.0
+  moving_time: 1781
+  elapsed_time: 1780
+  start_date: '2014-03-11 05:13:43'
+  start_date_local: '2014-03-11 18:13:43'
+  created_at: '2017-02-20 08:58:40.707169'
+  updated_at: '2017-02-20 08:58:40.707169'
+best_efforts_1587431288:
+  id: 1587431288
+  activity_id: 690184462
+  athlete_id: 9123806
+  best_effort_type_id: 9
+  pr_rank: 1
+  distance: 5000.0
+  moving_time: 1776
+  elapsed_time: 1776
+  start_date: '2014-03-19 05:39:38'
+  start_date_local: '2014-03-19 18:39:38'
+  created_at: '2017-02-20 08:58:42.613541'
+  updated_at: '2017-02-20 08:58:42.613541'
+best_efforts_1587431705:
+  id: 1587431705
+  activity_id: 690184729
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 119
+  elapsed_time: 118
+  start_date: '2014-03-22 06:03:55'
+  start_date_local: '2014-03-22 19:03:55'
+  created_at: '2017-02-20 08:58:43.164571'
+  updated_at: '2017-02-20 08:58:43.164571'
+best_efforts_1587431708:
+  id: 1587431708
+  activity_id: 690184729
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 539
+  elapsed_time: 538
+  start_date: '2014-03-22 06:03:55'
+  start_date_local: '2014-03-22 19:03:55'
+  created_at: '2017-02-20 08:58:43.214262'
+  updated_at: '2017-02-20 08:58:43.214262'
+best_efforts_1587431709:
+  id: 1587431709
+  activity_id: 690184729
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 1119
+  elapsed_time: 1118
+  start_date: '2014-03-22 06:03:55'
+  start_date_local: '2014-03-22 19:03:55'
+  created_at: '2017-02-20 08:58:43.25481'
+  updated_at: '2017-02-20 08:58:43.25481'
+best_efforts_1587432306:
+  id: 1587432306
+  activity_id: 690185037
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 116
+  elapsed_time: 115
+  start_date: '2014-03-27 05:59:28'
+  start_date_local: '2014-03-27 18:59:28'
+  created_at: '2017-02-20 08:58:44.389465'
+  updated_at: '2017-02-20 08:58:44.389465'
+best_efforts_1587433642:
+  id: 1587433642
+  activity_id: 690185709
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 115
+  elapsed_time: 114
+  start_date: '2014-04-14 06:58:19'
+  start_date_local: '2014-04-14 18:58:19'
+  created_at: '2017-02-20 08:58:48.065692'
+  updated_at: '2017-02-20 08:58:48.065692'
+best_efforts_1587433643:
+  id: 1587433643
+  activity_id: 690185709
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 247
+  elapsed_time: 246
+  start_date: '2014-04-14 06:57:54'
+  start_date_local: '2014-04-14 18:57:54'
+  created_at: '2017-02-20 08:58:48.091262'
+  updated_at: '2017-02-20 08:58:48.091262'
+best_efforts_1587433644:
+  id: 1587433644
+  activity_id: 690185709
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 317
+  elapsed_time: 316
+  start_date: '2014-04-14 06:57:50'
+  start_date_local: '2014-04-14 18:57:50'
+  created_at: '2017-02-20 08:58:48.118266'
+  updated_at: '2017-02-20 08:58:48.118266'
+best_efforts_1587433646:
+  id: 1587433646
+  activity_id: 690185709
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 1098
+  elapsed_time: 1097
+  start_date: '2014-04-14 06:44:42'
+  start_date_local: '2014-04-14 18:44:42'
+  created_at: '2017-02-20 08:58:48.17142'
+  updated_at: '2017-02-20 08:58:48.17142'
+best_efforts_1587433647:
+  id: 1587433647
+  activity_id: 690185709
+  athlete_id: 9123806
+  best_effort_type_id: 9
+  pr_rank: 1
+  distance: 5000.0
+  moving_time: 1731
+  elapsed_time: 1730
+  start_date: '2014-04-14 06:34:13'
+  start_date_local: '2014-04-14 18:34:13'
+  created_at: '2017-02-20 08:58:48.196746'
+  updated_at: '2017-02-20 08:58:48.196746'
+best_efforts_1587433926:
+  id: 1587433926
+  activity_id: 690185830
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 245
+  elapsed_time: 244
+  start_date: '2014-04-15 06:05:43'
+  start_date_local: '2014-04-15 18:05:43'
+  created_at: '2017-02-20 08:58:49.789522'
+  updated_at: '2017-02-20 08:58:49.789522'
+best_efforts_1587433927:
+  id: 1587433927
+  activity_id: 690185830
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 311
+  elapsed_time: 310
+  start_date: '2014-04-15 06:05:43'
+  start_date_local: '2014-04-15 18:05:43'
+  created_at: '2017-02-20 08:58:49.816935'
+  updated_at: '2017-02-20 08:58:49.816935'
+best_efforts_1587433928:
+  id: 1587433928
+  activity_id: 690185830
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 508
+  elapsed_time: 507
+  start_date: '2014-04-15 06:05:45'
+  start_date_local: '2014-04-15 18:05:45'
+  created_at: '2017-02-20 08:58:49.845172'
+  updated_at: '2017-02-20 08:58:49.845172'
+best_efforts_1587433929:
+  id: 1587433929
+  activity_id: 690185830
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 1037
+  elapsed_time: 1042
+  start_date: '2014-04-15 06:05:44'
+  start_date_local: '2014-04-15 18:05:44'
+  created_at: '2017-02-20 08:58:49.87254'
+  updated_at: '2017-02-20 08:58:49.87254'
+best_efforts_1587433930:
+  id: 1587433930
+  activity_id: 690185830
+  athlete_id: 9123806
+  best_effort_type_id: 9
+  pr_rank: 1
+  distance: 5000.0
+  moving_time: 1614
+  elapsed_time: 1624
+  start_date: '2014-04-15 06:05:45'
+  start_date_local: '2014-04-15 18:05:45'
+  created_at: '2017-02-20 08:58:49.898986'
+  updated_at: '2017-02-20 08:58:49.898986'
+best_efforts_1587435046:
+  id: 1587435046
+  activity_id: 690186399
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 112
+  elapsed_time: 111
+  start_date: '2014-04-21 05:49:43'
+  start_date_local: '2014-04-21 17:49:43'
+  created_at: '2017-02-20 08:58:52.184558'
+  updated_at: '2017-02-20 08:58:52.184558'
+best_efforts_1587435047:
+  id: 1587435047
+  activity_id: 690186399
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 239
   elapsed_time: 238
-  start_date: '2013-01-06 15:16:11'
+  start_date: '2014-04-21 06:03:10'
+  start_date_local: '2014-04-21 18:03:10'
+  created_at: '2017-02-20 08:58:52.214527'
+  updated_at: '2017-02-20 08:58:52.214527'
+best_efforts_1587435048:
+  id: 1587435048
+  activity_id: 690186399
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 299
+  elapsed_time: 298
+  start_date: '2014-04-21 05:49:43'
+  start_date_local: '2014-04-21 17:49:43'
+  created_at: '2017-02-20 08:58:52.240841'
+  updated_at: '2017-02-20 08:58:52.240841'
+best_efforts_1587435049:
+  id: 1587435049
+  activity_id: 690186399
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 487
+  elapsed_time: 486
+  start_date: '2014-04-21 05:49:56'
+  start_date_local: '2014-04-21 17:49:56'
+  created_at: '2017-02-20 08:58:52.268809'
+  updated_at: '2017-02-20 08:58:52.268809'
+best_efforts_1587435050:
+  id: 1587435050
+  activity_id: 690186399
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 984
+  elapsed_time: 983
+  start_date: '2014-04-21 05:49:43'
+  start_date_local: '2014-04-21 17:49:43'
+  created_at: '2017-02-20 08:58:52.298178'
+  updated_at: '2017-02-20 08:58:52.298178'
+best_efforts_1587435051:
+  id: 1587435051
+  activity_id: 690186399
+  athlete_id: 9123806
+  best_effort_type_id: 9
+  pr_rank: 1
+  distance: 5000.0
+  moving_time: 1538
+  elapsed_time: 1540
+  start_date: '2014-04-21 05:49:43'
+  start_date_local: '2014-04-21 17:49:43'
+  created_at: '2017-02-20 08:58:52.32682'
+  updated_at: '2017-02-20 08:58:52.32682'
+best_efforts_1587435340:
+  id: 1587435340
+  activity_id: 690186549
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 106
+  elapsed_time: 105
+  start_date: '2014-04-22 05:40:52'
+  start_date_local: '2014-04-22 17:40:52'
+  created_at: '2017-02-20 08:58:53.122607'
+  updated_at: '2017-02-20 08:58:53.122607'
+best_efforts_1587435341:
+  id: 1587435341
+  activity_id: 690186549
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 237
+  elapsed_time: 236
+  start_date: '2014-04-22 05:40:52'
+  start_date_local: '2014-04-22 17:40:52'
+  created_at: '2017-02-20 08:58:53.148152'
+  updated_at: '2017-02-20 08:58:53.148152'
+best_efforts_1587435342:
+  id: 1587435342
+  activity_id: 690186549
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 298
+  elapsed_time: 297
+  start_date: '2014-04-22 05:40:54'
+  start_date_local: '2014-04-22 17:40:54'
+  created_at: '2017-02-20 08:58:53.174434'
+  updated_at: '2017-02-20 08:58:53.174434'
+best_efforts_1587435343:
+  id: 1587435343
+  activity_id: 690186549
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 485
+  elapsed_time: 484
+  start_date: '2014-04-22 05:40:53'
+  start_date_local: '2014-04-22 17:40:53'
+  created_at: '2017-02-20 08:58:53.201504'
+  updated_at: '2017-02-20 08:58:53.201504'
+best_efforts_1587435590:
+  id: 1587435590
+  activity_id: 690186672
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 296
+  elapsed_time: 295
+  start_date: '2014-04-24 03:46:21'
+  start_date_local: '2014-04-24 15:46:21'
+  created_at: '2017-02-20 08:58:53.919344'
+  updated_at: '2017-02-20 08:58:53.919344'
+best_efforts_1587435814:
+  id: 1587435814
+  activity_id: 690186804
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 237
+  elapsed_time: 236
+  start_date: '2014-04-25 05:46:04'
+  start_date_local: '2014-04-25 17:46:04'
+  created_at: '2017-02-20 08:58:54.549048'
+  updated_at: '2017-02-20 08:58:54.549048'
+best_efforts_1587436887:
+  id: 1587436887
+  activity_id: 690187439
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 229
+  elapsed_time: 228
+  start_date: '2014-04-30 05:55:55'
+  start_date_local: '2014-04-30 17:55:55'
+  created_at: '2017-02-20 08:58:58.219793'
+  updated_at: '2017-02-20 08:58:58.219793'
+best_efforts_1587436889:
+  id: 1587436889
+  activity_id: 690187439
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 480
+  elapsed_time: 479
+  start_date: '2014-04-30 05:55:55'
+  start_date_local: '2014-04-30 17:55:55'
+  created_at: '2017-02-20 08:58:58.279069'
+  updated_at: '2017-02-20 08:58:58.279069'
+best_efforts_1587437257:
+  id: 1587437257
+  activity_id: 690187626
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 291
+  elapsed_time: 291
+  start_date: '2014-05-03 05:00:45'
+  start_date_local: '2014-05-03 17:00:45'
+  created_at: '2017-02-20 08:58:59.084351'
+  updated_at: '2017-02-20 08:58:59.084351'
+best_efforts_1587437258:
+  id: 1587437258
+  activity_id: 690187626
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 475
+  elapsed_time: 474
+  start_date: '2014-05-03 05:00:47'
+  start_date_local: '2014-05-03 17:00:47'
+  created_at: '2017-02-20 08:58:59.110881'
+  updated_at: '2017-02-20 08:58:59.110881'
+best_efforts_1587437261:
+  id: 1587437261
+  activity_id: 690187626
+  athlete_id: 9123806
+  best_effort_type_id: 8
+  pr_rank: 1
+  distance: 10000.0
+  moving_time: 3212
+  elapsed_time: 3236
+  start_date: '2014-05-03 05:00:47'
+  start_date_local: '2014-05-03 17:00:47'
+  created_at: '2017-02-20 08:58:59.165368'
+  updated_at: '2017-02-20 08:58:59.165368'
+best_efforts_1587437501:
+  id: 1587437501
+  activity_id: 690187767
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 289
+  elapsed_time: 288
+  start_date: '2014-05-04 05:09:44'
+  start_date_local: '2014-05-04 17:09:44'
+  created_at: '2017-02-20 08:58:59.841172'
+  updated_at: '2017-02-20 08:58:59.841172'
+best_efforts_1587437502:
+  id: 1587437502
+  activity_id: 690187767
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 470
+  elapsed_time: 469
+  start_date: '2014-05-04 05:05:49'
+  start_date_local: '2014-05-04 17:05:49'
+  created_at: '2017-02-20 08:58:59.866766'
+  updated_at: '2017-02-20 08:58:59.866766'
+best_efforts_1587437503:
+  id: 1587437503
+  activity_id: 690187767
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 952
+  elapsed_time: 958
+  start_date: '2014-05-04 05:05:51'
+  start_date_local: '2014-05-04 17:05:51'
+  created_at: '2017-02-20 08:58:59.891518'
+  updated_at: '2017-02-20 08:58:59.891518'
+best_efforts_1587437504:
+  id: 1587437504
+  activity_id: 690187767
+  athlete_id: 9123806
+  best_effort_type_id: 9
+  pr_rank: 1
+  distance: 5000.0
+  moving_time: 1514
+  elapsed_time: 1519
+  start_date: '2014-05-04 05:05:50'
+  start_date_local: '2014-05-04 17:05:50'
+  created_at: '2017-02-20 08:58:59.916556'
+  updated_at: '2017-02-20 08:58:59.916556'
+best_efforts_1587437976:
+  id: 1587437976
+  activity_id: 690188007
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 105
+  elapsed_time: 104
+  start_date: '2014-05-06 05:36:40'
+  start_date_local: '2014-05-06 17:36:40'
+  created_at: '2017-02-20 08:59:00.725904'
+  updated_at: '2017-02-20 08:59:00.725904'
+best_efforts_1587437977:
+  id: 1587437977
+  activity_id: 690188007
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 225
+  elapsed_time: 224
+  start_date: '2014-05-06 05:36:29'
+  start_date_local: '2014-05-06 17:36:29'
+  created_at: '2017-02-20 08:59:00.752028'
+  updated_at: '2017-02-20 08:59:00.752028'
+best_efforts_1587438497:
+  id: 1587438497
+  activity_id: 690188255
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 284
+  elapsed_time: 283
+  start_date: '2014-05-09 06:26:19'
+  start_date_local: '2014-05-09 18:26:19'
+  created_at: '2017-02-20 08:59:01.304883'
+  updated_at: '2017-02-20 08:59:01.304883'
+best_efforts_1587438498:
+  id: 1587438498
+  activity_id: 690188255
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 460
+  elapsed_time: 459
+  start_date: '2014-05-09 06:26:19'
+  start_date_local: '2014-05-09 18:26:19'
+  created_at: '2017-02-20 08:59:01.329862'
+  updated_at: '2017-02-20 08:59:01.329862'
+best_efforts_1587438673:
+  id: 1587438673
+  activity_id: 690188361
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 283
+  elapsed_time: 283
+  start_date: '2014-05-10 04:10:40'
+  start_date_local: '2014-05-10 16:10:40'
+  created_at: '2017-02-20 08:59:02.014643'
+  updated_at: '2017-02-20 08:59:02.014643'
+best_efforts_1587440737:
+  id: 1587440737
+  activity_id: 690189445
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 943
+  elapsed_time: 942
+  start_date: '2014-05-21 05:03:58'
+  start_date_local: '2014-05-21 17:03:58'
+  created_at: '2017-02-20 08:59:04.976683'
+  updated_at: '2017-02-20 08:59:04.976683'
+best_efforts_1587440738:
+  id: 1587440738
+  activity_id: 690189445
+  athlete_id: 9123806
+  best_effort_type_id: 9
+  pr_rank: 1
+  distance: 5000.0
+  moving_time: 1490
+  elapsed_time: 1489
+  start_date: '2014-05-21 05:02:16'
+  start_date_local: '2014-05-21 17:02:16'
+  created_at: '2017-02-20 08:59:05.001624'
+  updated_at: '2017-02-20 08:59:05.001624'
+best_efforts_1587440739:
+  id: 1587440739
+  activity_id: 690189445
+  athlete_id: 9123806
+  best_effort_type_id: 8
+  pr_rank: 1
+  distance: 10000.0
+  moving_time: 3137
+  elapsed_time: 3150
+  start_date: '2014-05-21 05:02:09'
+  start_date_local: '2014-05-21 17:02:09'
+  created_at: '2017-02-20 08:59:05.026473'
+  updated_at: '2017-02-20 08:59:05.026473'
+best_efforts_1587441799:
+  id: 1587441799
+  activity_id: 690190153
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 221
+  elapsed_time: 221
+  start_date: '2014-05-31 20:55:47'
+  start_date_local: '2014-06-01 08:55:47'
+  created_at: '2017-02-20 08:59:08.161436'
+  updated_at: '2017-02-20 08:59:08.161436'
+best_efforts_1587441800:
+  id: 1587441800
+  activity_id: 690190153
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 278
+  elapsed_time: 277
+  start_date: '2014-05-31 20:54:51'
+  start_date_local: '2014-06-01 08:54:51'
+  created_at: '2017-02-20 08:59:08.190483'
+  updated_at: '2017-02-20 08:59:08.190483'
+best_efforts_1587441801:
+  id: 1587441801
+  activity_id: 690190153
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 450
+  elapsed_time: 449
+  start_date: '2014-05-31 20:56:12'
+  start_date_local: '2014-06-01 08:56:12'
+  created_at: '2017-02-20 08:59:08.224754'
+  updated_at: '2017-02-20 08:59:08.224754'
+best_efforts_1587441802:
+  id: 1587441802
+  activity_id: 690190153
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 916
+  elapsed_time: 915
+  start_date: '2014-05-31 20:56:11'
+  start_date_local: '2014-06-01 08:56:11'
+  created_at: '2017-02-20 08:59:08.253397'
+  updated_at: '2017-02-20 08:59:08.253397'
+best_efforts_1587441803:
+  id: 1587441803
+  activity_id: 690190153
+  athlete_id: 9123806
+  best_effort_type_id: 9
+  pr_rank: 1
+  distance: 5000.0
+  moving_time: 1421
+  elapsed_time: 1421
+  start_date: '2014-05-31 20:56:02'
+  start_date_local: '2014-06-01 08:56:02'
+  created_at: '2017-02-20 08:59:08.280447'
+  updated_at: '2017-02-20 08:59:08.280447'
+best_efforts_1587441804:
+  id: 1587441804
+  activity_id: 690190153
+  athlete_id: 9123806
+  best_effort_type_id: 8
+  pr_rank: 1
+  distance: 10000.0
+  moving_time: 2902
+  elapsed_time: 2902
+  start_date: '2014-05-31 20:31:27'
+  start_date_local: '2014-06-01 08:31:27'
+  created_at: '2017-02-20 08:59:08.30696'
+  updated_at: '2017-02-20 08:59:08.30696'
+best_efforts_1587450851:
+  id: 1587450851
+  activity_id: 690196016
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 105
+  elapsed_time: 103
+  start_date: '2015-01-06 05:16:16'
+  start_date_local: '2015-01-06 18:16:16'
+  created_at: '2017-02-20 08:59:29.119163'
+  updated_at: '2017-02-20 08:59:29.119163'
+best_efforts_1587451136:
+  id: 1587451136
+  activity_id: 690196182
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 102
+  elapsed_time: 101
+  start_date: '2015-01-13 05:16:11'
+  start_date_local: '2015-01-13 18:16:11'
+  created_at: '2017-02-20 08:59:30.162472'
+  updated_at: '2017-02-20 08:59:30.162472'
+best_efforts_1587451137:
+  id: 1587451137
+  activity_id: 690196182
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 215
+  elapsed_time: 212
+  start_date: '2015-01-13 05:16:11'
+  start_date_local: '2015-01-13 18:16:11'
+  created_at: '2017-02-20 08:59:30.189839'
+  updated_at: '2017-02-20 08:59:30.189839'
+best_efforts_1587451138:
+  id: 1587451138
+  activity_id: 690196182
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 269
+  elapsed_time: 268
+  start_date: '2015-01-13 05:16:14'
+  start_date_local: '2015-01-13 18:16:14'
+  created_at: '2017-02-20 08:59:30.216931'
+  updated_at: '2017-02-20 08:59:30.216931'
+best_efforts_1587451139:
+  id: 1587451139
+  activity_id: 690196182
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 441
+  elapsed_time: 440
+  start_date: '2015-01-13 05:16:04'
+  start_date_local: '2015-01-13 18:16:04'
+  created_at: '2017-02-20 08:59:30.244518'
+  updated_at: '2017-02-20 08:59:30.244518'
+best_efforts_1587451140:
+  id: 1587451140
+  activity_id: 690196182
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 898
+  elapsed_time: 896
+  start_date: '2015-01-13 05:16:11'
+  start_date_local: '2015-01-13 18:16:11'
+  created_at: '2017-02-20 08:59:30.269951'
+  updated_at: '2017-02-20 08:59:30.269951'
+best_efforts_1587451427:
+  id: 1587451427
+  activity_id: 690196381
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 268
+  elapsed_time: 267
+  start_date: '2015-01-20 05:17:06'
+  start_date_local: '2015-01-20 18:17:06'
+  created_at: '2017-02-20 08:59:31.150079'
+  updated_at: '2017-02-20 08:59:31.150079'
+best_efforts_1587451428:
+  id: 1587451428
+  activity_id: 690196381
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 431
+  elapsed_time: 429
+  start_date: '2015-01-20 05:17:42'
+  start_date_local: '2015-01-20 18:17:42'
+  created_at: '2017-02-20 08:59:31.176503'
+  updated_at: '2017-02-20 08:59:31.176503'
+best_efforts_1587451429:
+  id: 1587451429
+  activity_id: 690196381
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 869
+  elapsed_time: 868
+  start_date: '2015-01-20 05:17:42'
+  start_date_local: '2015-01-20 18:17:42'
+  created_at: '2017-02-20 08:59:31.203464'
+  updated_at: '2017-02-20 08:59:31.203464'
+best_efforts_1587452694:
+  id: 1587452694
+  activity_id: 690197197
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 101
+  elapsed_time: 100
+  start_date: '2015-02-12 10:01:17'
+  start_date_local: '2015-02-12 18:01:17'
+  created_at: '2017-02-20 08:59:38.032235'
+  updated_at: '2017-02-20 08:59:38.032235'
+best_efforts_1587452695:
+  id: 1587452695
+  activity_id: 690197197
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 209
+  elapsed_time: 208
+  start_date: '2015-02-12 10:01:17'
+  start_date_local: '2015-02-12 18:01:17'
+  created_at: '2017-02-20 08:59:38.061759'
+  updated_at: '2017-02-20 08:59:38.061759'
+best_efforts_1587452696:
+  id: 1587452696
+  activity_id: 690197197
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 261
+  elapsed_time: 259
+  start_date: '2015-02-12 10:01:20'
+  start_date_local: '2015-02-12 18:01:20'
+  created_at: '2017-02-20 08:59:38.088523'
+  updated_at: '2017-02-20 08:59:38.088523'
+best_efforts_1587452697:
+  id: 1587452697
+  activity_id: 690197197
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 427
+  elapsed_time: 426
+  start_date: '2015-02-12 10:01:17'
+  start_date_local: '2015-02-12 18:01:17'
+  created_at: '2017-02-20 08:59:38.117641'
+  updated_at: '2017-02-20 08:59:38.117641'
+best_efforts_1587452698:
+  id: 1587452698
+  activity_id: 690197197
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 862
+  elapsed_time: 861
+  start_date: '2015-02-12 10:01:17'
+  start_date_local: '2015-02-12 18:01:17'
+  created_at: '2017-02-20 08:59:38.144413'
+  updated_at: '2017-02-20 08:59:38.144413'
+best_efforts_1587452699:
+  id: 1587452699
+  activity_id: 690197197
+  athlete_id: 9123806
+  best_effort_type_id: 9
+  pr_rank: 1
+  distance: 5000.0
+  moving_time: 1341
+  elapsed_time: 1339
+  start_date: '2015-02-12 10:01:20'
+  start_date_local: '2015-02-12 18:01:20'
+  created_at: '2017-02-20 08:59:38.17212'
+  updated_at: '2017-02-20 08:59:38.17212'
+best_efforts_1587457465:
+  id: 1587457465
+  activity_id: 690200263
+  athlete_id: 9123806
+  best_effort_type_id: 7
+  pr_rank: 1
+  distance: 15000.0
+  moving_time: 4869
+  elapsed_time: 4882
+  start_date: '2015-05-17 04:11:47'
+  start_date_local: '2015-05-17 16:11:47'
+  created_at: '2017-02-20 08:59:54.896243'
+  updated_at: '2017-02-20 08:59:54.896243'
+best_efforts_1587457466:
+  id: 1587457466
+  activity_id: 690200263
+  athlete_id: 9123806
+  best_effort_type_id: 6
+  pr_rank: 1
+  distance: 16090.0
+  moving_time: 5224
+  elapsed_time: 5241
+  start_date: '2015-05-17 04:08:49'
+  start_date_local: '2015-05-17 16:08:49'
+  created_at: '2017-02-20 08:59:54.929606'
+  updated_at: '2017-02-20 08:59:54.929606'
+best_efforts_1587457467:
+  id: 1587457467
+  activity_id: 690200263
+  athlete_id: 9123806
+  best_effort_type_id: 5
+  pr_rank: 1
+  distance: 20000.0
+  moving_time: 6490
+  elapsed_time: 6552
+  start_date: '2015-05-17 04:08:38'
+  start_date_local: '2015-05-17 16:08:38'
+  created_at: '2017-02-20 08:59:54.96114'
+  updated_at: '2017-02-20 08:59:54.96114'
+best_efforts_1587457468:
+  id: 1587457468
+  activity_id: 690200263
+  athlete_id: 9123806
+  best_effort_type_id: 3
+  pr_rank: 1
+  distance: 21097.0
+  moving_time: 6857
+  elapsed_time: 6918
+  start_date: '2015-05-17 04:07:41'
+  start_date_local: '2015-05-17 16:07:41'
+  created_at: '2017-02-20 08:59:54.992795'
+  updated_at: '2017-02-20 08:59:54.992795'
+best_efforts_1587457675:
+  id: 1587457675
+  activity_id: 690200434
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 97
+  elapsed_time: 96
+  start_date: '2015-05-22 20:01:11'
+  start_date_local: '2015-05-23 08:01:11'
+  created_at: '2017-02-20 08:59:55.880727'
+  updated_at: '2017-02-20 08:59:55.880727'
+best_efforts_1587457676:
+  id: 1587457676
+  activity_id: 690200434
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 206
+  elapsed_time: 203
+  start_date: '2015-05-22 20:00:58'
+  start_date_local: '2015-05-23 08:00:58'
+  created_at: '2017-02-20 08:59:55.905434'
+  updated_at: '2017-02-20 08:59:55.905434'
+best_efforts_1587457677:
+  id: 1587457677
+  activity_id: 690200434
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 257
+  elapsed_time: 255
+  start_date: '2015-05-22 20:01:08'
+  start_date_local: '2015-05-23 08:01:08'
+  created_at: '2017-02-20 08:59:55.931509'
+  updated_at: '2017-02-20 08:59:55.931509'
+best_efforts_1587457678:
+  id: 1587457678
+  activity_id: 690200434
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 422
+  elapsed_time: 421
+  start_date: '2015-05-22 20:00:58'
+  start_date_local: '2015-05-23 08:00:58'
+  created_at: '2017-02-20 08:59:55.960269'
+  updated_at: '2017-02-20 08:59:55.960269'
+best_efforts_1587457854:
+  id: 1587457854
+  activity_id: 690200527
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 85
+  elapsed_time: 84
+  start_date: '2015-05-23 03:27:13'
+  start_date_local: '2015-05-23 15:27:13'
+  created_at: '2017-02-20 08:59:56.592021'
+  updated_at: '2017-02-20 08:59:56.592021'
+best_efforts_1587457855:
+  id: 1587457855
+  activity_id: 690200527
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 186
+  elapsed_time: 185
+  start_date: '2015-05-23 03:25:42'
+  start_date_local: '2015-05-23 15:25:42'
+  created_at: '2017-02-20 08:59:56.62235'
+  updated_at: '2017-02-20 08:59:56.62235'
+best_efforts_1587457856:
+  id: 1587457856
+  activity_id: 690200527
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 234
+  elapsed_time: 233
+  start_date: '2015-05-23 03:20:22'
+  start_date_local: '2015-05-23 15:20:22'
+  created_at: '2017-02-20 08:59:56.648675'
+  updated_at: '2017-02-20 08:59:56.648675'
+best_efforts_1587457857:
+  id: 1587457857
+  activity_id: 690200527
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 389
+  elapsed_time: 388
+  start_date: '2015-05-23 03:22:01'
+  start_date_local: '2015-05-23 15:22:01'
+  created_at: '2017-02-20 08:59:56.675212'
+  updated_at: '2017-02-20 08:59:56.675212'
+best_efforts_1587459219:
+  id: 1587459219
+  activity_id: 690201353
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 822
+  elapsed_time: 822
+  start_date: '2015-05-30 20:39:47'
+  start_date_local: '2015-05-31 08:39:47'
+  created_at: '2017-02-20 09:00:00.9832'
+  updated_at: '2017-02-20 09:00:00.9832'
+best_efforts_1587459220:
+  id: 1587459220
+  activity_id: 690201353
+  athlete_id: 9123806
+  best_effort_type_id: 9
+  pr_rank: 1
+  distance: 5000.0
+  moving_time: 1289
+  elapsed_time: 1289
+  start_date: '2015-05-30 20:39:56'
+  start_date_local: '2015-05-31 08:39:56'
+  created_at: '2017-02-20 09:00:01.00841'
+  updated_at: '2017-02-20 09:00:01.00841'
+best_efforts_1587467473:
+  id: 1587467473
+  activity_id: 690206108
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 85
+  elapsed_time: 83
+  start_date: '2015-07-25 20:59:35'
+  start_date_local: '2015-07-26 08:59:35'
+  created_at: '2017-02-20 09:00:33.11108'
+  updated_at: '2017-02-20 09:00:33.11108'
+best_efforts_1587467474:
+  id: 1587467474
+  activity_id: 690206108
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 184
+  elapsed_time: 182
+  start_date: '2015-07-25 20:59:35'
+  start_date_local: '2015-07-26 08:59:35'
+  created_at: '2017-02-20 09:00:33.136799'
+  updated_at: '2017-02-20 09:00:33.136799'
+best_efforts_1587467475:
+  id: 1587467475
+  activity_id: 690206108
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 236
+  elapsed_time: 232
+  start_date: '2015-07-25 20:59:35'
+  start_date_local: '2015-07-26 08:59:35'
+  created_at: '2017-02-20 09:00:33.163377'
+  updated_at: '2017-02-20 09:00:33.163377'
+best_efforts_1587469945:
+  id: 1587469945
+  activity_id: 690207717
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 84
+  elapsed_time: 83
+  start_date: '2015-08-28 22:02:19'
+  start_date_local: '2015-08-29 10:02:19'
+  created_at: '2017-02-20 09:00:48.634366'
+  updated_at: '2017-02-20 09:00:48.634366'
+best_efforts_1587469946:
+  id: 1587469946
+  activity_id: 690207717
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 176
+  elapsed_time: 175
+  start_date: '2015-08-28 22:01:38'
+  start_date_local: '2015-08-29 10:01:38'
+  created_at: '2017-02-20 09:00:48.663201'
+  updated_at: '2017-02-20 09:00:48.663201'
+best_efforts_1587469947:
+  id: 1587469947
+  activity_id: 690207717
+  athlete_id: 9123806
+  best_effort_type_id: 12
+  pr_rank: 1
+  distance: 1000.0
+  moving_time: 224
+  elapsed_time: 222
+  start_date: '2015-08-28 22:01:17'
+  start_date_local: '2015-08-29 10:01:17'
+  created_at: '2017-02-20 09:00:48.69039'
+  updated_at: '2017-02-20 09:00:48.69039'
+best_efforts_1587470252:
+  id: 1587470252
+  activity_id: 690207902
+  athlete_id: 9123806
+  best_effort_type_id: 14
+  pr_rank: 1
+  distance: 400.0
+  moving_time: 68
+  elapsed_time: 66
+  start_date: '2015-09-02 18:54:56'
+  start_date_local: '2015-09-03 06:54:56'
+  created_at: '2017-02-20 09:00:50.618069'
+  updated_at: '2017-02-20 09:00:50.618069'
+best_efforts_1587470253:
+  id: 1587470253
+  activity_id: 690207902
+  athlete_id: 9123806
+  best_effort_type_id: 13
+  pr_rank: 1
+  distance: 805.0
+  moving_time: 176
+  elapsed_time: 173
+  start_date: '2015-09-02 18:54:56'
+  start_date_local: '2015-09-03 06:54:56'
+  created_at: '2017-02-20 09:00:50.644178'
+  updated_at: '2017-02-20 09:00:50.644178'
+best_efforts_1587470488:
+  id: 1587470488
+  activity_id: 690208078
+  athlete_id: 9123806
+  best_effort_type_id: 8
+  pr_rank: 1
+  distance: 10000.0
+  moving_time: 2722
+  elapsed_time: 2721
+  start_date: '2015-09-05 22:02:17'
+  start_date_local: '2015-09-06 10:02:17'
+  created_at: '2017-02-20 09:00:51.819117'
+  updated_at: '2017-02-20 09:00:51.819117'
+best_efforts_1587471408:
+  id: 1587471408
+  activity_id: 690208774
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 387
+  elapsed_time: 386
+  start_date: '2015-09-22 06:28:16'
+  start_date_local: '2015-09-22 18:28:16'
+  created_at: '2017-02-20 09:01:07.049008'
+  updated_at: '2017-02-20 09:01:07.049008'
+best_efforts_1587471409:
+  id: 1587471409
+  activity_id: 690208774
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 813
+  elapsed_time: 812
+  start_date: '2015-09-22 06:20:56'
+  start_date_local: '2015-09-22 18:20:56'
+  created_at: '2017-02-20 09:01:07.077784'
+  updated_at: '2017-02-20 09:01:07.077784'
+best_efforts_1587471411:
+  id: 1587471411
+  activity_id: 690208774
+  athlete_id: 9123806
+  best_effort_type_id: 8
+  pr_rank: 1
+  distance: 10000.0
+  moving_time: 2717
+  elapsed_time: 2715
+  start_date: '2015-09-22 05:49:26'
+  start_date_local: '2015-09-22 17:49:26'
+  created_at: '2017-02-20 09:01:07.141418'
+  updated_at: '2017-02-20 09:01:07.141418'
+best_efforts_1587472601:
+  id: 1587472601
+  activity_id: 690209577
+  athlete_id: 9123806
+  best_effort_type_id: 7
+  pr_rank: 1
+  distance: 15000.0
+  moving_time: 4872
+  elapsed_time: 4874
+  start_date: '2015-10-02 18:46:28'
+  start_date_local: '2015-10-03 07:46:28'
+  created_at: '2017-02-20 09:01:13.974285'
+  updated_at: '2017-02-20 09:01:13.974285'
+best_efforts_1587473344:
+  id: 1587473344
+  activity_id: 690210040
+  athlete_id: 9123806
+  best_effort_type_id: 7
+  pr_rank: 1
+  distance: 15000.0
+  moving_time: 4373
+  elapsed_time: 4372
+  start_date: '2015-10-09 18:11:00'
+  start_date_local: '2015-10-10 07:11:00'
+  created_at: '2017-02-20 09:01:14.810719'
+  updated_at: '2017-02-20 09:01:14.810719'
+best_efforts_1587473345:
+  id: 1587473345
+  activity_id: 690210040
+  athlete_id: 9123806
+  best_effort_type_id: 6
+  pr_rank: 1
+  distance: 16090.0
+  moving_time: 4707
+  elapsed_time: 4706
+  start_date: '2015-10-09 18:06:00'
+  start_date_local: '2015-10-10 07:06:00'
+  created_at: '2017-02-20 09:01:14.83726'
+  updated_at: '2017-02-20 09:01:14.83726'
+best_efforts_1587473961:
+  id: 1587473961
+  activity_id: 690210467
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 387
+  elapsed_time: 385
+  start_date: '2015-10-20 04:56:57'
+  start_date_local: '2015-10-20 17:56:57'
+  created_at: '2017-02-20 09:01:17.304348'
+  updated_at: '2017-02-20 09:01:17.304348'
+best_efforts_1587476201:
+  id: 1587476201
+  activity_id: 690211873
+  athlete_id: 9123806
+  best_effort_type_id: 7
+  pr_rank: 1
+  distance: 15000.0
+  moving_time: 4303
+  elapsed_time: 4302
+  start_date: '2015-11-20 19:01:40'
+  start_date_local: '2015-11-21 08:01:40'
+  created_at: '2017-02-20 09:01:26.767882'
+  updated_at: '2017-02-20 09:01:26.767882'
+best_efforts_1587476202:
+  id: 1587476202
+  activity_id: 690211873
+  athlete_id: 9123806
+  best_effort_type_id: 6
+  pr_rank: 1
+  distance: 16090.0
+  moving_time: 4642
+  elapsed_time: 4641
+  start_date: '2015-11-20 19:01:25'
+  start_date_local: '2015-11-21 08:01:25'
+  created_at: '2017-02-20 09:01:26.796031'
+  updated_at: '2017-02-20 09:01:26.796031'
+best_efforts_1587476203:
+  id: 1587476203
+  activity_id: 690211873
+  athlete_id: 9123806
+  best_effort_type_id: 5
+  pr_rank: 1
+  distance: 20000.0
+  moving_time: 5861
+  elapsed_time: 5860
+  start_date: '2015-11-20 19:01:28'
+  start_date_local: '2015-11-21 08:01:28'
+  created_at: '2017-02-20 09:01:26.826721'
+  updated_at: '2017-02-20 09:01:26.826721'
+best_efforts_1587476204:
+  id: 1587476204
+  activity_id: 690211873
+  athlete_id: 9123806
+  best_effort_type_id: 3
+  pr_rank: 1
+  distance: 21097.0
+  moving_time: 6184
+  elapsed_time: 6183
+  start_date: '2015-11-20 19:01:31'
+  start_date_local: '2015-11-21 08:01:31'
+  created_at: '2017-02-20 09:01:26.859501'
+  updated_at: '2017-02-20 09:01:26.859501'
+best_efforts_1587477863:
+  id: 1587477863
+  activity_id: 690213152
+  athlete_id: 9123806
+  best_effort_type_id: 11
+  pr_rank: 1
+  distance: 1609.0
+  moving_time: 385
+  elapsed_time: 384
+  start_date: '2015-12-12 20:00:32'
+  start_date_local: '2015-12-13 09:00:32'
+  created_at: '2017-02-20 09:01:33.861418'
+  updated_at: '2017-02-20 09:01:33.861418'
+best_efforts_1587477864:
+  id: 1587477864
+  activity_id: 690213152
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 807
+  elapsed_time: 805
+  start_date: '2015-12-12 20:00:32'
+  start_date_local: '2015-12-13 09:00:32'
+  created_at: '2017-02-20 09:01:33.889983'
+  updated_at: '2017-02-20 09:01:33.889983'
+best_efforts_1587477865:
+  id: 1587477865
+  activity_id: 690213152
+  athlete_id: 9123806
+  best_effort_type_id: 9
+  pr_rank: 1
+  distance: 5000.0
+  moving_time: 1287
+  elapsed_time: 1286
+  start_date: '2015-12-12 20:00:32'
+  start_date_local: '2015-12-13 09:00:32'
+  created_at: '2017-02-20 09:01:33.921414'
+  updated_at: '2017-02-20 09:01:33.921414'
+best_efforts_1587477866:
+  id: 1587477866
+  activity_id: 690213152
+  athlete_id: 9123806
+  best_effort_type_id: 8
+  pr_rank: 1
+  distance: 10000.0
+  moving_time: 2696
+  elapsed_time: 2694
+  start_date: '2015-12-12 20:00:25'
+  start_date_local: '2015-12-13 09:00:25'
+  created_at: '2017-02-20 09:01:33.950269'
+  updated_at: '2017-02-20 09:01:33.950269'
+best_efforts_1587482654:
+  id: 1587482654
+  activity_id: 690216114
+  athlete_id: 9123806
+  best_effort_type_id: 7
+  pr_rank: 1
+  distance: 15000.0
+  moving_time: 4188
+  elapsed_time: 4187
+  start_date: '2016-02-12 19:30:40'
+  start_date_local: '2016-02-13 08:30:40'
+  created_at: '2017-02-20 09:01:59.535244'
+  updated_at: '2017-02-20 09:01:59.535244'
+best_efforts_1587482655:
+  id: 1587482655
+  activity_id: 690216114
+  athlete_id: 9123806
+  best_effort_type_id: 6
+  pr_rank: 1
+  distance: 16090.0
+  moving_time: 4492
+  elapsed_time: 4490
+  start_date: '2016-02-12 19:30:45'
+  start_date_local: '2016-02-13 08:30:45'
+  created_at: '2017-02-20 09:01:59.56188'
+  updated_at: '2017-02-20 09:01:59.56188'
+best_efforts_1587482656:
+  id: 1587482656
+  activity_id: 690216114
+  athlete_id: 9123806
+  best_effort_type_id: 5
+  pr_rank: 1
+  distance: 20000.0
+  moving_time: 5565
+  elapsed_time: 5564
+  start_date: '2016-02-12 19:30:40'
+  start_date_local: '2016-02-13 08:30:40'
+  created_at: '2017-02-20 09:01:59.588844'
+  updated_at: '2017-02-20 09:01:59.588844'
+best_efforts_1587482657:
+  id: 1587482657
+  activity_id: 690216114
+  athlete_id: 9123806
+  best_effort_type_id: 3
+  pr_rank: 1
+  distance: 21097.0
+  moving_time: 5863
+  elapsed_time: 5861
+  start_date: '2016-02-12 19:30:44'
+  start_date_local: '2016-02-13 08:30:44'
+  created_at: '2017-02-20 09:01:59.614188'
+  updated_at: '2017-02-20 09:01:59.614188'
+best_efforts_1587483716:
+  id: 1587483716
+  activity_id: 690216722
+  athlete_id: 9123806
+  best_effort_type_id: 10
+  pr_rank: 1
+  distance: 3219.0
+  moving_time: 803
+  elapsed_time: 801
+  start_date: '2016-02-27 19:59:47'
+  start_date_local: '2016-02-28 08:59:47'
+  created_at: '2017-02-20 09:02:04.554957'
+  updated_at: '2017-02-20 09:02:04.554957'
+best_efforts_1587483717:
+  id: 1587483717
+  activity_id: 690216722
+  athlete_id: 9123806
+  best_effort_type_id: 9
+  pr_rank: 1
+  distance: 5000.0
+  moving_time: 1261
+  elapsed_time: 1260
+  start_date: '2016-02-27 19:59:43'
+  start_date_local: '2016-02-28 08:59:43'
+  created_at: '2017-02-20 09:02:04.581597'
+  updated_at: '2017-02-20 09:02:04.581597'
+best_efforts_1587513938:
+  id: 1587513938
+  activity_id: 690235515
+  athlete_id: 9123806
+  best_effort_type_id: 8
+  pr_rank: 1
+  distance: 10000.0
+  moving_time: 2654
+  elapsed_time: 2653
+  start_date: '2016-04-01 20:49:41'
+  start_date_local: '2016-04-02 09:49:41'
+  created_at: '2017-02-20 09:02:45.035066'
+  updated_at: '2017-02-20 09:02:45.035066'
+best_efforts_1587513939:
+  id: 1587513939
+  activity_id: 690235515
+  athlete_id: 9123806
+  best_effort_type_id: 7
+  pr_rank: 1
+  distance: 15000.0
+  moving_time: 4003
+  elapsed_time: 4002
+  start_date: '2016-04-01 20:27:12'
+  start_date_local: '2016-04-02 09:27:12'
+  created_at: '2017-02-20 09:02:45.063458'
+  updated_at: '2017-02-20 09:02:45.063458'
+best_efforts_1587513940:
+  id: 1587513940
+  activity_id: 690235515
+  athlete_id: 9123806
+  best_effort_type_id: 6
+  pr_rank: 1
+  distance: 16090.0
+  moving_time: 4296
+  elapsed_time: 4295
+  start_date: '2016-04-01 20:22:16'
+  start_date_local: '2016-04-02 09:22:16'
+  created_at: '2017-02-20 09:02:45.090199'
+  updated_at: '2017-02-20 09:02:45.090199'
+best_efforts_1587513941:
+  id: 1587513941
+  activity_id: 690235515
+  athlete_id: 9123806
+  best_effort_type_id: 5
+  pr_rank: 1
+  distance: 20000.0
+  moving_time: 5351
+  elapsed_time: 5350
+  start_date: '2016-04-01 20:04:41'
+  start_date_local: '2016-04-02 09:04:41'
+  created_at: '2017-02-20 09:02:45.126203'
+  updated_at: '2017-02-20 09:02:45.126203'
+best_efforts_1587513942:
+  id: 1587513942
+  activity_id: 690235515
+  athlete_id: 9123806
+  best_effort_type_id: 3
+  pr_rank: 1
+  distance: 21097.0
+  moving_time: 5632
+  elapsed_time: 5631
+  start_date: '2016-04-01 19:59:58'
+  start_date_local: '2016-04-02 08:59:58'
+  created_at: '2017-02-20 09:02:45.152854'
+  updated_at: '2017-02-20 09:02:45.152854'
