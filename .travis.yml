@@ -37,7 +37,8 @@ before_script:
   - RAILS_ENV=test bundle exec rake db:seed
 
 script:
-  - bundle exec rake test
+  - RAILS_ENV=test bundle exec rake test
+  - RAILS_ENV=test bundle exec rake test:system
 
 notifications:
   email: false

@@ -4,6 +4,8 @@ namespace AppHelpers {
         const pageTitle = document.title;
         const newTitle = pageTitle.substr(0, pageTitle.lastIndexOf(' | ')) + content;
         $(document).prop('title', newTitle);
+
+        $('meta[property="og:title"]').attr('content', newTitle);
     }
 
     export function getBaseUrl(isApiCall?: boolean) {

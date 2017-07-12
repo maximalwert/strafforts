@@ -15,7 +15,7 @@ class BestEffortTest < ActiveSupport::TestCase
 
   test 'should get nil when BestEffort.find_all_by_athlete_id finds nothing' do
     # Act.
-    item = BestEffort.find_all_by_athlete_id(999)
+    item = BestEffort.find_all_by_athlete_id(12345678)
 
     # Assert.
     assert_nil(item)
@@ -23,18 +23,18 @@ class BestEffortTest < ActiveSupport::TestCase
 
   test 'should get all matching items when BestEffort.find_all_by_athlete_id finds few items' do
     # Act.
-    items = BestEffort.find_all_by_athlete_id(123)
+    items = BestEffort.find_all_by_athlete_id(9123806)
 
     # Assert.
-    assert_not(items.empty?)
+    assert_not_empty(items)
     items.each do |item|
-      assert_equal(123, item.athlete_id)
+      assert_equal(9123806, item.athlete_id)
     end
   end
 
   test 'should get nil when BestEffort.find_all_by_athlete_id_and_best_effort_type_id finds nothing' do
     # Act.
-    item = BestEffort.find_all_by_athlete_id_and_best_effort_type_id(123, 1)
+    item = BestEffort.find_all_by_athlete_id_and_best_effort_type_id(9123806, 1)
 
     # Assert.
     assert_nil(item)
@@ -42,12 +42,12 @@ class BestEffortTest < ActiveSupport::TestCase
 
   test 'should get all matching items when BestEffort.find_all_by_athlete_id_and_best_effort_type_id finds few items' do
     # Act.
-    items = BestEffort.find_all_by_athlete_id_and_best_effort_type_id(123, 12)
+    items = BestEffort.find_all_by_athlete_id_and_best_effort_type_id(9123806, 12)
 
     # Assert.
-    assert_not(items.empty?)
+    assert_not_empty(items)
     items.each do |item|
-      assert_equal(123, item.athlete_id)
+      assert_equal(9123806, item.athlete_id)
       assert_equal(12, item.best_effort_type_id)
     end
   end

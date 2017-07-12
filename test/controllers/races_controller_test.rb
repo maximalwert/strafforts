@@ -9,41 +9,41 @@ class RacesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should GET index without distance' do
-    get '/api/athletes/123/races'
+    get '/api/athletes/9123806/races'
     assert_response :success
   end
 
   test 'should GET index for Half Marathon' do
-    get URI.encode('/api/athletes/123/races/half-marathon')
+    get URI.encode('/api/athletes/9123806/races/half-marathon')
     assert_response :success
   end
 
   test 'should GET index wit valid year' do
-    get '/api/athletes/123/races/2016'
+    get '/api/athletes/9123806/races/2016'
     assert_response :success
   end
 
   test 'should be a bad request when GET index with an invalid distance' do
     exception = assert_raises(ActionController::BadRequest) do
-      get '/api/athletes/123/races/100m'
+      get '/api/athletes/9123806/races/100m'
     end
     assert(exception.message.include?("Could not find requested distance or year '100m'"))
   end
 
   test 'should be a bad request when GET index with an invalid year' do
     exception = assert_raises(ActionController::BadRequest) do
-      get '/api/athletes/123/races/1999'
+      get '/api/athletes/9123806/races/1999'
     end
     assert(exception.message.include?("Could not find requested distance or year '1999'"))
   end
 
-  test 'should GET get_counts_by_distance for athlete 123' do
-    get '/api/athletes/123/races/get_counts_by_distance'
+  test 'should GET get_counts_by_distance for athlete 9123806' do
+    get '/api/athletes/9123806/races/get_counts_by_distance'
     assert_response :success
   end
 
-  test 'should GET get_counts_by_year for athlete 123' do
-    get '/api/athletes/123/races/get_counts_by_year'
+  test 'should GET get_counts_by_year for athlete 9123806' do
+    get '/api/athletes/9123806/races/get_counts_by_year'
     assert_response :success
   end
 

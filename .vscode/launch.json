@@ -24,11 +24,14 @@
             ]
         },
         {
-            "name": "Cucumber",
+            "name": "Rake Test",
             "type": "Ruby",
             "request": "launch",
-            "cwd": "${workspaceRoot}/test/",
-            "program": "${workspaceRoot}/bin/cucumber"
+            "cwd": "${workspaceRoot}",
+            "program": "${workspaceRoot}/bin/rake",
+            "args": [
+                "test"
+            ]
         }
     ]
 }

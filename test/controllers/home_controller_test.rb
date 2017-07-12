@@ -18,11 +18,11 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should redirect to athlete page for current user' do
-    setup_cookie('3f2a45886980ebec9f4a689371e95860')
+    setup_cookie('4d5cf2bbc714a4e22e309cf5fcf15e40')
 
     get root_path
 
-    assert_redirected_to '/athletes/123'
+    assert_redirected_to '/athletes/9123806'
   end
 
   test 'should redirect to root when GET exchange_token with errors in params' do
@@ -39,11 +39,11 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should logout after GET deauthorize with a correct access token' do
-    setup_cookie('ca1a7434ae66ab53c4e4f63ac8665c9d') # Athlete 789.
+    setup_cookie('4d5cf2bbc714a4e22e309cf5fcf15e40')
 
     get '/auth/deauthorize'
 
-    athlete = Athlete.find_by_id_or_username(789)
+    athlete = Athlete.find_by_id_or_username(9123806)
     assert(athlete.nil?)
     assert(cookies[:access_token].nil?)
     assert_redirected_to root_path

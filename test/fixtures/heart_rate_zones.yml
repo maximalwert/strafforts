@@ -1,19 +1,17 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one:
-  athlete_id: 123
-  custom_zones: false
+---
+heart_rate_zones_157:
+  id: 157
+  athlete_id: 9123806
+  custom_zones: true
   zone_1_min: 0
-  zone_1_max: 123
-  zone_2_min: 123
-  zone_2_max: 153
-  zone_3_min: 153
-  zone_3_max: 169
-  zone_4_min: 169
-  zone_4_max: 184
-  zone_5_min: 184
+  zone_1_max: 152
+  zone_2_min: 152
+  zone_2_max: 162
+  zone_3_min: 162
+  zone_3_max: 171
+  zone_4_min: 171
+  zone_4_max: 183
+  zone_5_min: 183
   zone_5_max: -1
+  created_at: '2017-06-15 21:20:15.489362'
+  updated_at: '2017-06-30 21:46:12.990703'

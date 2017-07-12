@@ -84,4 +84,10 @@ namespace Helpers {
         const results = regex.exec(location.search);
         return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
+
+    export function toTitleCase(str: string) {
+        return str.replace(/\w\S*/g, (txt) => {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        });
+    }
 }

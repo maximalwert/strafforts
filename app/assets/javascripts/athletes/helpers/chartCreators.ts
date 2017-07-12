@@ -18,8 +18,7 @@ namespace Helpers {
 
             const element = document.getElementById(id);
             if (element) {
-                const container = element.parentElement as HTMLElement;
-                container.innerHTML = content;
+                element.innerHTML = content;
             }
         }
 
@@ -580,7 +579,7 @@ namespace Helpers {
             chartData: Chart.ChartData,
             chartOptions: Chart.ChartOptions) {
 
-            const canvasElement = document.getElementById(id) as HTMLCanvasElement;
+            const canvasElement = document.getElementById(id + '-canvas') as HTMLCanvasElement;
             const context = canvasElement.getContext('2d');
             if (context) {
                 const chart = new Chart(context, {

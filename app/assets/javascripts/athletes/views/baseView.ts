@@ -6,6 +6,7 @@ namespace Views {
             if (itemName) {
                 viewName = `${viewType} - ${itemName}`;
             }
+            viewName = Helpers.toTitleCase(viewName);
 
             AppHelpers.pushStateToWindow(viewUrl);
             AppHelpers.setContentHeader(viewName);

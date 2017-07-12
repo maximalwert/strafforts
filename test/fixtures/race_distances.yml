@@ -1,16 +1,79 @@
-one:
+---
+race_distances_1:
   id: 1
-  distance: 5000
-  name: '5k'
-two:
+  distance: 1609.0
+  name: 1 mile
+  created_at: '2017-02-20 08:54:05.650431'
+  updated_at: '2017-02-20 08:54:05.650431'
+race_distances_2:
   id: 2
-  distance: 10000
-  name: '10k'
-three:
+  distance: 3000.0
+  name: 3000m
+  created_at: '2017-02-20 08:54:05.663451'
+  updated_at: '2017-02-20 08:54:05.663451'
+race_distances_3:
   id: 3
-  distance: 21097
-  name: 'Half Marathon'
-four:
+  distance: 5000.0
+  name: 5k
+  created_at: '2017-02-20 08:54:05.675792'
+  updated_at: '2017-02-20 08:54:05.675792'
+race_distances_4:
+  id: 4
+  distance: 10000.0
+  name: 10k
+  created_at: '2017-02-20 08:54:05.6885'
+  updated_at: '2017-02-20 08:54:05.6885'
+race_distances_5:
+  id: 5
+  distance: 15000.0
+  name: 15k
+  created_at: '2017-02-20 08:54:05.709457'
+  updated_at: '2017-02-20 08:54:05.709457'
+race_distances_6:
+  id: 6
+  distance: 20000.0
+  name: 20k
+  created_at: '2017-02-20 08:54:05.721215'
+  updated_at: '2017-02-20 08:54:05.721215'
+race_distances_7:
+  id: 7
+  distance: 21097.0
+  name: Half Marathon
+  created_at: '2017-02-20 08:54:05.732829'
+  updated_at: '2017-02-20 08:54:05.732829'
+race_distances_8:
+  id: 8
+  distance: 42195.0
+  name: Marathon
+  created_at: '2017-02-20 08:54:05.74428'
+  updated_at: '2017-02-20 08:54:05.74428'
+race_distances_9:
+  id: 9
+  distance: 50000.0
+  name: 50k
+  created_at: '2017-02-20 08:54:05.757039'
+  updated_at: '2017-02-20 08:54:05.757039'
+race_distances_10:
+  id: 10
+  distance: 80467.0
+  name: 50 miles
+  created_at: '2017-02-20 08:54:05.769309'
+  updated_at: '2017-02-20 08:54:05.769309'
+race_distances_11:
+  id: 11
+  distance: 100000.0
+  name: 100k
+  created_at: '2017-02-20 08:54:05.78122'
+  updated_at: '2017-02-20 08:54:05.78122'
+race_distances_12:
+  id: 12
+  distance: 160934.0
+  name: 100 miles
+  created_at: '2017-02-20 08:54:05.793899'
+  updated_at: '2017-02-20 08:54:05.793899'
+race_distances_0:
   id: 0
-  distance: 0
-  name: 'Other'
+  distance: 0.0
+  name: Other
+  created_at: '2017-03-21 07:39:55.069748'
+  updated_at: '2017-03-21 07:39:55.069748'

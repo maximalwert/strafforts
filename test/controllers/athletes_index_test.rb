@@ -8,7 +8,7 @@ class AthletesControllerTest < ActionDispatch::IntegrationTest
     assert(exception.message.include?('Could not find athlete'))
   end
 
-  test 'should not access athlete when GET index by id or username of an athlete who has not publicized profile' do
+  test 'should not access athlete when GET index by id of an athlete who has not publicized profile' do
     exception = assert_raises(ActionController::RoutingError) do
       setup_cookie(nil)
       get '/athletes/123'
@@ -19,7 +19,7 @@ class AthletesControllerTest < ActionDispatch::IntegrationTest
   test 'should get athlete when GET index by username of an athlete who has publicized profile' do
     setup_cookie(nil)
 
-    get '/athletes/jessicajones'
+    get '/athletes/yizeng'
 
     assert_response :success
   end
@@ -27,15 +27,15 @@ class AthletesControllerTest < ActionDispatch::IntegrationTest
   test 'should get athlete when GET index by id of an athlete who has publicized profile' do
     setup_cookie(nil)
 
-    get '/athletes/456'
+    get '/athletes/9123806'
 
     assert_response :success
   end
 
   test 'should get athlete when GET index for current user' do
-    setup_cookie('3f2a45886980ebec9f4a689371e95860')
+    setup_cookie('4d5cf2bbc714a4e22e309cf5fcf15e40')
 
-    get '/athletes/123'
+    get '/athletes/9123806'
 
     assert_response :success
   end

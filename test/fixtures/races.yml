@@ -1,10 +1,316 @@
-one:
-  id: 100001
-  activity_id: 9999
-  athlete_id: 123
-  race_distance_id: 1
-two:
-  id: 100002
-  activity_id: 9999
-  athlete_id: 123
-  race_distance_id: 1
+---
+races_1:
+  id: 1
+  activity_id: 690190153
+  athlete_id: 9123806
+  race_distance_id: 4
+  created_at: '2017-02-20 08:59:08.103831'
+  updated_at: '2017-02-20 08:59:08.103831'
+races_2:
+  id: 2
+  activity_id: 690196016
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 08:59:29.089093'
+  updated_at: '2017-02-20 08:59:29.089093'
+races_3:
+  id: 3
+  activity_id: 690196381
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 08:59:31.057306'
+  updated_at: '2017-02-20 08:59:31.057306'
+races_4:
+  id: 4
+  activity_id: 690196667
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 08:59:33.493125'
+  updated_at: '2017-02-20 08:59:33.493125'
+races_5:
+  id: 5
+  activity_id: 690200434
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 08:59:55.854809'
+  updated_at: '2017-02-20 08:59:55.854809'
+races_6:
+  id: 6
+  activity_id: 690201353
+  athlete_id: 9123806
+  race_distance_id: 4
+  created_at: '2017-02-20 09:00:00.849372'
+  updated_at: '2017-02-20 09:00:00.849372'
+races_7:
+  id: 7
+  activity_id: 690202921
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:00:12.745533'
+  updated_at: '2017-02-20 09:00:12.745533'
+races_8:
+  id: 8
+  activity_id: 690204092
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:00:19.083502'
+  updated_at: '2017-02-20 09:00:19.083502'
+races_9:
+  id: 9
+  activity_id: 690206108
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:00:33.082763'
+  updated_at: '2017-02-20 09:00:33.082763'
+races_10:
+  id: 10
+  activity_id: 690207042
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:00:41.158964'
+  updated_at: '2017-02-20 09:00:41.158964'
+races_11:
+  id: 11
+  activity_id: 690207362
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:00:44.124872'
+  updated_at: '2017-02-20 09:00:44.124872'
+races_12:
+  id: 12
+  activity_id: 690207642
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:00:47.912794'
+  updated_at: '2017-02-20 09:00:47.912794'
+races_13:
+  id: 13
+  activity_id: 690208078
+  athlete_id: 9123806
+  race_distance_id: 4
+  created_at: '2017-02-20 09:00:51.792295'
+  updated_at: '2017-02-20 09:00:51.792295'
+races_14:
+  id: 14
+  activity_id: 690208523
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:01:02.509718'
+  updated_at: '2017-02-20 09:01:02.509718'
+races_15:
+  id: 15
+  activity_id: 690210467
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:01:17.278925'
+  updated_at: '2017-02-20 09:01:17.278925'
+races_16:
+  id: 16
+  activity_id: 690210668
+  athlete_id: 9123806
+  race_distance_id: 4
+  created_at: '2017-02-20 09:01:18.577963'
+  updated_at: '2017-02-20 09:01:18.577963'
+races_17:
+  id: 17
+  activity_id: 690211873
+  athlete_id: 9123806
+  race_distance_id: 7
+  created_at: '2017-02-20 09:01:26.738173'
+  updated_at: '2017-02-20 09:01:26.738173'
+races_18:
+  id: 18
+  activity_id: 690212023
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:01:28.93925'
+  updated_at: '2017-02-20 09:01:28.93925'
+races_19:
+  id: 19
+  activity_id: 690213152
+  athlete_id: 9123806
+  race_distance_id: 4
+  created_at: '2017-02-20 09:01:33.830161'
+  updated_at: '2017-02-20 09:01:33.830161'
+races_20:
+  id: 20
+  activity_id: 690213876
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:01:40.22774'
+  updated_at: '2017-02-20 09:01:40.22774'
+races_21:
+  id: 21
+  activity_id: 690214219
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:01:42.244629'
+  updated_at: '2017-02-20 09:01:42.244629'
+races_22:
+  id: 22
+  activity_id: 690214538
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:01:45.328022'
+  updated_at: '2017-02-20 09:01:45.328022'
+races_23:
+  id: 23
+  activity_id: 690214708
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:01:47.427361'
+  updated_at: '2017-02-20 09:01:47.427361'
+races_24:
+  id: 24
+  activity_id: 690215044
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:01:50.756759'
+  updated_at: '2017-02-20 09:01:50.756759'
+races_25:
+  id: 25
+  activity_id: 690215227
+  athlete_id: 9123806
+  race_distance_id: 4
+  created_at: '2017-02-20 09:01:52.763541'
+  updated_at: '2017-02-20 09:01:52.763541'
+races_26:
+  id: 26
+  activity_id: 690215985
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:01:58.144101'
+  updated_at: '2017-02-20 09:01:58.144101'
+races_27:
+  id: 27
+  activity_id: 690216114
+  athlete_id: 9123806
+  race_distance_id: 7
+  created_at: '2017-02-20 09:01:59.508037'
+  updated_at: '2017-02-20 09:01:59.508037'
+races_28:
+  id: 28
+  activity_id: 690216325
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:02:00.575486'
+  updated_at: '2017-02-20 09:02:00.575486'
+races_29:
+  id: 29
+  activity_id: 690216722
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:02:04.528314'
+  updated_at: '2017-02-20 09:02:04.528314'
+races_30:
+  id: 30
+  activity_id: 690217795
+  athlete_id: 9123806
+  race_distance_id: 2
+  created_at: '2017-02-20 09:02:09.31568'
+  updated_at: '2017-02-20 09:02:09.31568'
+races_31:
+  id: 31
+  activity_id: 690225037
+  athlete_id: 9123806
+  race_distance_id: 5
+  created_at: '2017-02-20 09:02:19.977197'
+  updated_at: '2017-02-20 09:02:19.977197'
+races_32:
+  id: 32
+  activity_id: 690232764
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:02:42.481317'
+  updated_at: '2017-02-20 09:02:42.481317'
+races_33:
+  id: 33
+  activity_id: 690235515
+  athlete_id: 9123806
+  race_distance_id: 7
+  created_at: '2017-02-20 09:02:45.007579'
+  updated_at: '2017-02-20 09:02:45.007579'
+races_34:
+  id: 34
+  activity_id: 716148966
+  athlete_id: 9123806
+  race_distance_id: 4
+  created_at: '2017-02-20 09:02:46.987589'
+  updated_at: '2017-02-20 09:02:46.987589'
+races_35:
+  id: 35
+  activity_id: 731800152
+  athlete_id: 9123806
+  race_distance_id: 7
+  created_at: '2017-02-20 09:02:49.152214'
+  updated_at: '2017-02-20 09:02:49.152214'
+races_36:
+  id: 36
+  activity_id: 746513888
+  athlete_id: 9123806
+  race_distance_id: 7
+  created_at: '2017-02-20 09:02:50.932047'
+  updated_at: '2017-02-20 09:02:50.932047'
+races_37:
+  id: 37
+  activity_id: 842318610
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-02-20 09:03:13.205049'
+  updated_at: '2017-02-20 09:03:13.205049'
+races_38:
+  id: 38
+  activity_id: 861862237
+  athlete_id: 9123806
+  race_distance_id: 7
+  created_at: '2017-02-20 09:03:20.290759'
+  updated_at: '2017-02-20 09:03:20.290759'
+races_116:
+  id: 116
+  activity_id: 690196182
+  athlete_id: 9123806
+  race_distance_id: 0
+  created_at: '2017-03-22 01:00:11.778749'
+  updated_at: '2017-03-22 01:00:11.778749'
+races_117:
+  id: 117
+  activity_id: 690215385
+  athlete_id: 9123806
+  race_distance_id: 0
+  created_at: '2017-03-22 01:02:33.744621'
+  updated_at: '2017-03-22 01:02:33.744621'
+races_118:
+  id: 118
+  activity_id: 905343871
+  athlete_id: 9123806
+  race_distance_id: 0
+  created_at: '2017-03-22 01:04:22.087786'
+  updated_at: '2017-03-22 01:04:22.087786'
+races_132:
+  id: 132
+  activity_id: 922387515
+  athlete_id: 9123806
+  race_distance_id: 3
+  created_at: '2017-04-01 00:48:41.428916'
+  updated_at: '2017-04-01 00:48:41.428916'
+races_134:
+  id: 134
+  activity_id: 932298832
+  athlete_id: 9123806
+  race_distance_id: 5
+  created_at: '2017-04-08 01:22:31.266602'
+  updated_at: '2017-04-08 01:22:31.266602'
+races_136:
+  id: 136
+  activity_id: 952328683
+  athlete_id: 9123806
+  race_distance_id: 0
+  created_at: '2017-04-22 12:52:04.536193'
+  updated_at: '2017-04-22 12:52:04.536193'
+races_567:
+  id: 567
+  activity_id: 1019790623
+  athlete_id: 9123806
+  race_distance_id: 7
+  created_at: '2017-06-04 01:24:59.814849'
+  updated_at: '2017-06-04 01:24:59.814849'

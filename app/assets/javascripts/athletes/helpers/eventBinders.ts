@@ -55,7 +55,7 @@ namespace EventBinders {
 
                 // Show only timeline items of this distance.
                 $('.timeline-item').parent().hide();
-                $(`.timeline-item[data-race-distance='${distance}'`).parent().fadeIn(500);
+                $(`.timeline-item[data-race-distance='${distance}']`).parent().fadeIn(500);
             });
 
             $(document).on('click', '.timeline-header .btn', (event) => {
@@ -64,7 +64,7 @@ namespace EventBinders {
                 // Update the state of filter buttons.
                 $('.filter-buttons .btn').removeClass('active');
                 $('.filter-buttons .show-all').removeClass('hidden').fadeIn(500);
-                $(`.filter-buttons [data-race-distance='${distance}'`).addClass('active');
+                $(`.filter-buttons [data-race-distance='${distance}']`).addClass('active');
             });
 
             $(document).on('click', '.filter-buttons .btn-race-year', (event) => {
@@ -72,9 +72,9 @@ namespace EventBinders {
 
                 // Show only time labels, items of this year.
                 $('.time-label').hide();
-                $(`.time-label[data-race-year='${year}'`).fadeIn(500);
+                $(`.time-label[data-race-year='${year}']`).fadeIn(500);
                 $('.timeline-item').parent().hide();
-                $(`.timeline-item[data-race-year='${year}'`).parent().fadeIn(500);
+                $(`.timeline-item[data-race-year='${year}']`).parent().fadeIn(500);
             });
 
             // Append PR/Contributions welcome badges upon clicking settings toggle button.

@@ -1,15 +1,14 @@
 namespace HtmlHelpers {
     export function constructChartHtml(id: string, title: string, width: number, withLoadingIcon: boolean = false) {
-        const content = withLoadingIcon ? HtmlHelpers.getLoadingIcon() : `<canvas id="${id}" height="300"></canvas>`;
+        const content = withLoadingIcon ? HtmlHelpers.getLoadingIcon() : `<canvas id="${id}-canvas" height="300"></canvas>`;
         const chart = `
             <div class="col-md-${width}">
                 <div class="box">
-                    <div class="box-header with-border>
-                        <i class="fa fa-pie-chart"></i>
+                    <div class="box-header with-border">
                         <h3 class="box-title">${title}</h3>
                     </div>
                     <div class="box-body">
-                        <div class="chart">
+                        <div id=${id} class="chart">
                             ${content}
                         </div>
                     </div>
