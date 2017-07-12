@@ -71,3 +71,7 @@ bower.json
 
 # Ignore generated Procfile.dev
 Procfile.dev
+
+# Ignore Yard Doc
+/doc
+.yardoc/
