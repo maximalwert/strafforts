@@ -4,7 +4,7 @@ app:
   demo_path: '/athletes/9123806'
   description: 'An Analytics App for Strava Estimated Best Efforts and Races'
   html_meta_description: 'An analytics app that allow athletes to analyze their visualized Strava estimated best efforts and races data in tables and charts.'
-  html_meta_description_for_athletes: 'An overview of visualized Strava estimated best efforts and races data for '
+  html_meta_description_for_athletes: 'Visualized Strava estimated best efforts and races data for '
   html_meta_keywords: 'strava,strafforts,bestefforts,races,running,data,visualizer,analytics'
   production_url: 'http://www.strafforts.com'
   title: 'Strafforts - An Analytics App for Strava Estimated Best Efforts and Races'

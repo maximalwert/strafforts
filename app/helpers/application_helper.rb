@@ -123,7 +123,7 @@ module ApplicationHelper
         if is_type_of_best_efforts
           item[:best_effort_type] = entity.best_effort_type.name
           item[:elapsed_time] = entity.elapsed_time
-          average_speed = entity.distance / entity.elapsed_time
+          average_speed = entity.distance.nil? || entity.elapsed_time.nil? ? 0 : entity.distance / entity.elapsed_time
         else
           item[:race_distance] = entity.race_distance.name
           item[:elapsed_time] = entity.activity.elapsed_time
