@@ -8,7 +8,7 @@ class RacesTimelineTest < AppTestBase
     visit URL
 
     # assert.
-    assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | Races Timeline")
+    assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | #{RCAES_TIMELINE_TITLE}")
   end
 
   test 'races timeline view should have the correct header and breadcrumb' do
@@ -20,7 +20,7 @@ class RacesTimelineTest < AppTestBase
       resize_window_to(screen_size)
 
       # assert.
-      assert_content_header_loads_successfully('Races Timeline')
+      assert_content_header_loads_successfully(RCAES_TIMELINE_TITLE)
     end
   end
 

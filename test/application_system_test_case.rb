@@ -16,10 +16,16 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   DEMO_ATHLETE_LOCATION = 'Christchurch, New Zealand'.freeze
   DEMO_ATHLETE_NAME = 'Yi Zeng'.freeze
   DEMO_URL = "/athletes/#{DEMO_ATHLETE_ID}".freeze
+  OVERVIEW_TITLE = 'Overview'.freeze
+  RCAES_TIMELINE_TITLE = 'Races Timeline'.freeze
   STRAVA_URL = 'https://www.strava.com'.freeze
 
   SOCIAL_SHARING_BUTTONS = [
     'Facebook', 'LinkedIn', 'Twitter', 'Email', 'Reddit', 'More'
+  ].freeze
+
+  MAJOR_DISTANCES = [
+    'Marathon', 'Half Marathon', '10k', '5k'
   ].freeze
 
   ALL_BEST_EFFORTS_TYPES = [
@@ -117,10 +123,10 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   ALL_SCREENS = SMALL_SCREENS + MEDIUM_SCREENS + LARGE_SCREENS
   MAJOR_SCREENS = SMALL_SCREENS[0] + MEDIUM_SCREENS[0] + LARGE_SCREENS[0]
 
-  def format_distance_for_url(distance)
+  def format_text_for_url(distance)
     result = distance
-    result = distance.tr(' ', '-') if distance.include?(' ')
-    result = distance.tr('/', '|') if distance.include?('/')
+    result = result.tr(' ', '-') if distance.include?(' ')
+    result = result.tr('/', '|') if distance.include?('/')
     result.downcase
   end
 

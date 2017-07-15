@@ -6,7 +6,7 @@ class RacesByDistanceViewTest < AppTestBase
   test 'races by distance view should load with the correct title' do
     ALL_RACE_DISTANCES.each do |distance|
       # arrange & act.
-      visit URL + format_distance_for_url(distance)
+      visit URL + format_text_for_url(distance)
 
       # assert.
       assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | Races - #{distance}")
@@ -16,7 +16,7 @@ class RacesByDistanceViewTest < AppTestBase
   test 'races by distances view should have the correct header and breadcrumb' do
     ALL_RACE_DISTANCES.each do |distance|
       # arrange.
-      visit URL + format_distance_for_url(distance)
+      visit URL + format_text_for_url(distance)
 
       ALL_SCREENS.each do |screen_size|
         # act.
@@ -32,7 +32,7 @@ class RacesByDistanceViewTest < AppTestBase
   test 'races by distances view should load charts correctly' do
     ALL_RACE_DISTANCES.each do |distance|
       # arrange.
-      visit URL + format_distance_for_url(distance)
+      visit URL + format_text_for_url(distance)
 
       ALL_SCREENS.each do |screen_size|
         # act.

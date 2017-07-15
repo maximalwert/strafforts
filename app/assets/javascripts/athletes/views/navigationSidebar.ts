@@ -2,7 +2,7 @@ namespace Views {
     export class NavigationSidebar {
 
         public load(): void {
-            this.createNavigationItem('/best-efforts/get_counts', 'best_effort_type', 'best-efforts-for');
+            this.createNavigationItem('/best-efforts/get_counts', 'best_effort_type', 'best-efforts-for-distance');
             this.createNavigationItem('/races/get_counts_by_distance', 'race_distance', 'races-for-distance');
             this.createNavigationItem('/races/get_counts_by_year', 'race_year', 'races-for-year');
         }
