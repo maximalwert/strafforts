@@ -1,5 +1,5 @@
 ---
-best_efforts_1587424799:
+best_effort_1587424799:
   id: 1587424799
   activity_id: 690180546
   athlete_id: 9123806
@@ -12,7 +12,7 @@ best_efforts_1587424799:
   start_date_local: '2014-01-07 17:40:21'
   created_at: '2017-02-20 08:58:31.118729'
   updated_at: '2017-02-20 08:58:31.118729'
-best_efforts_1587424933:
+best_effort_1587424933:
   id: 1587424933
   activity_id: 690180641
   athlete_id: 9123806
@@ -25,7 +25,7 @@ best_efforts_1587424933:
   start_date_local: '2014-01-09 17:46:25'
   created_at: '2017-02-20 08:58:31.799575'
   updated_at: '2017-02-20 08:58:31.799575'
-best_efforts_1587424934:
+best_effort_1587424934:
   id: 1587424934
   activity_id: 690180641
   athlete_id: 9123806
@@ -38,7 +38,7 @@ best_efforts_1587424934:
   start_date_local: '2014-01-09 17:43:56'
   created_at: '2017-02-20 08:58:31.824802'
   updated_at: '2017-02-20 08:58:31.824802'
-best_efforts_1587424935:
+best_effort_1587424935:
   id: 1587424935
   activity_id: 690180641
   athlete_id: 9123806
@@ -51,7 +51,7 @@ best_efforts_1587424935:
   start_date_local: '2014-01-09 17:42:02'
   created_at: '2017-02-20 08:58:31.850375'
   updated_at: '2017-02-20 08:58:31.850375'
-best_efforts_1587424937:
+best_effort_1587424937:
   id: 1587424937
   activity_id: 690180641
   athlete_id: 9123806
@@ -64,7 +64,7 @@ best_efforts_1587424937:
   start_date_local: '2014-01-09 17:42:28'
   created_at: '2017-02-20 08:58:31.9022'
   updated_at: '2017-02-20 08:58:31.9022'
-best_efforts_1587425082:
+best_effort_1587425082:
   id: 1587425082
   activity_id: 690180747
   athlete_id: 9123806
@@ -77,7 +77,7 @@ best_efforts_1587425082:
   start_date_local: '2014-01-10 16:57:14'
   created_at: '2017-02-20 08:58:32.536116'
   updated_at: '2017-02-20 08:58:32.536116'
-best_efforts_1587425232:
+best_effort_1587425232:
   id: 1587425232
   activity_id: 690180838
   athlete_id: 9123806
@@ -90,7 +90,7 @@ best_efforts_1587425232:
   start_date_local: '2014-01-13 17:10:03'
   created_at: '2017-02-20 08:58:33.31014'
   updated_at: '2017-02-20 08:58:33.31014'
-best_efforts_1587425233:
+best_effort_1587425233:
   id: 1587425233
   activity_id: 690180838
   athlete_id: 9123806
@@ -103,7 +103,7 @@ best_efforts_1587425233:
   start_date_local: '2014-01-13 17:10:11'
   created_at: '2017-02-20 08:58:33.335877'
   updated_at: '2017-02-20 08:58:33.335877'
-best_efforts_1587425889:
+best_effort_1587425889:
   id: 1587425889
   activity_id: 690181250
   athlete_id: 9123806
@@ -116,7 +116,7 @@ best_efforts_1587425889:
   start_date_local: '2014-01-21 17:42:57'
   created_at: '2017-02-20 08:58:34.983436'
   updated_at: '2017-02-20 08:58:34.983436'
-best_efforts_1587425890:
+best_effort_1587425890:
   id: 1587425890
   activity_id: 690181250
   athlete_id: 9123806
@@ -129,7 +129,7 @@ best_efforts_1587425890:
   start_date_local: '2014-01-21 17:43:13'
   created_at: '2017-02-20 08:58:35.009024'
   updated_at: '2017-02-20 08:58:35.009024'
-best_efforts_1587425891:
+best_effort_1587425891:
   id: 1587425891
   activity_id: 690181250
   athlete_id: 9123806
@@ -142,7 +142,7 @@ best_efforts_1587425891:
   start_date_local: '2014-01-21 17:42:57'
   created_at: '2017-02-20 08:58:35.034056'
   updated_at: '2017-02-20 08:58:35.034056'
-best_efforts_1587425892:
+best_effort_1587425892:
   id: 1587425892
   activity_id: 690181250
   athlete_id: 9123806
@@ -155,7 +155,7 @@ best_efforts_1587425892:
   start_date_local: '2014-01-21 17:43:29'
   created_at: '2017-02-20 08:58:35.05926'
   updated_at: '2017-02-20 08:58:35.05926'
-best_efforts_1587425893:
+best_effort_1587425893:
   id: 1587425893
   activity_id: 690181250
   athlete_id: 9123806
@@ -168,7 +168,7 @@ best_efforts_1587425893:
   start_date_local: '2014-01-21 17:42:59'
   created_at: '2017-02-20 08:58:35.088335'
   updated_at: '2017-02-20 08:58:35.088335'
-best_efforts_1587426147:
+best_effort_1587426147:
   id: 1587426147
   activity_id: 690181397
   athlete_id: 9123806
@@ -181,7 +181,7 @@ best_efforts_1587426147:
   start_date_local: '2014-01-27 18:11:40'
   created_at: '2017-02-20 08:58:35.898981'
   updated_at: '2017-02-20 08:58:35.898981'
-best_efforts_1587427107:
+best_effort_1587427107:
   id: 1587427107
   activity_id: 690181991
   athlete_id: 9123806
@@ -194,7 +194,7 @@ best_efforts_1587427107:
   start_date_local: '2014-02-04 17:42:22'
   created_at: '2017-02-20 08:58:36.576375'
   updated_at: '2017-02-20 08:58:36.576375'
-best_efforts_1587427108:
+best_effort_1587427108:
   id: 1587427108
   activity_id: 690181991
   athlete_id: 9123806
@@ -207,7 +207,7 @@ best_efforts_1587427108:
   start_date_local: '2014-02-04 17:41:21'
   created_at: '2017-02-20 08:58:36.607704'
   updated_at: '2017-02-20 08:58:36.607704'
-best_efforts_1587427382:
+best_effort_1587427382:
   id: 1587427382
   activity_id: 690182162
   athlete_id: 9123806
@@ -220,7 +220,7 @@ best_efforts_1587427382:
   start_date_local: '2014-02-06 18:16:15'
   created_at: '2017-02-20 08:58:37.293847'
   updated_at: '2017-02-20 08:58:37.293847'
-best_efforts_1587427383:
+best_effort_1587427383:
   id: 1587427383
   activity_id: 690182162
   athlete_id: 9123806
@@ -233,7 +233,7 @@ best_efforts_1587427383:
   start_date_local: '2014-02-06 18:15:31'
   created_at: '2017-02-20 08:58:37.322344'
   updated_at: '2017-02-20 08:58:37.322344'
-best_efforts_1587428001:
+best_effort_1587428001:
   id: 1587428001
   activity_id: 690182547
   athlete_id: 9123806
@@ -246,7 +246,7 @@ best_efforts_1587428001:
   start_date_local: '2014-02-15 19:05:08'
   created_at: '2017-02-20 08:58:38.045533'
   updated_at: '2017-02-20 08:58:38.045533'
-best_efforts_1587429660:
+best_effort_1587429660:
   id: 1587429660
   activity_id: 690183592
   athlete_id: 9123806
@@ -259,7 +259,7 @@ best_efforts_1587429660:
   start_date_local: '2014-03-06 17:33:11'
   created_at: '2017-02-20 08:58:39.712114'
   updated_at: '2017-02-20 08:58:39.712114'
-best_efforts_1587430563:
+best_effort_1587430563:
   id: 1587430563
   activity_id: 690184071
   athlete_id: 9123806
@@ -272,7 +272,7 @@ best_efforts_1587430563:
   start_date_local: '2014-03-11 18:13:43'
   created_at: '2017-02-20 08:58:40.707169'
   updated_at: '2017-02-20 08:58:40.707169'
-best_efforts_1587431288:
+best_effort_1587431288:
   id: 1587431288
   activity_id: 690184462
   athlete_id: 9123806
@@ -285,7 +285,7 @@ best_efforts_1587431288:
   start_date_local: '2014-03-19 18:39:38'
   created_at: '2017-02-20 08:58:42.613541'
   updated_at: '2017-02-20 08:58:42.613541'
-best_efforts_1587431705:
+best_effort_1587431705:
   id: 1587431705
   activity_id: 690184729
   athlete_id: 9123806
@@ -298,7 +298,7 @@ best_efforts_1587431705:
   start_date_local: '2014-03-22 19:03:55'
   created_at: '2017-02-20 08:58:43.164571'
   updated_at: '2017-02-20 08:58:43.164571'
-best_efforts_1587431708:
+best_effort_1587431708:
   id: 1587431708
   activity_id: 690184729
   athlete_id: 9123806
@@ -311,7 +311,7 @@ best_efforts_1587431708:
   start_date_local: '2014-03-22 19:03:55'
   created_at: '2017-02-20 08:58:43.214262'
   updated_at: '2017-02-20 08:58:43.214262'
-best_efforts_1587431709:
+best_effort_1587431709:
   id: 1587431709
   activity_id: 690184729
   athlete_id: 9123806
@@ -324,7 +324,7 @@ best_efforts_1587431709:
   start_date_local: '2014-03-22 19:03:55'
   created_at: '2017-02-20 08:58:43.25481'
   updated_at: '2017-02-20 08:58:43.25481'
-best_efforts_1587432306:
+best_effort_1587432306:
   id: 1587432306
   activity_id: 690185037
   athlete_id: 9123806
@@ -337,7 +337,7 @@ best_efforts_1587432306:
   start_date_local: '2014-03-27 18:59:28'
   created_at: '2017-02-20 08:58:44.389465'
   updated_at: '2017-02-20 08:58:44.389465'
-best_efforts_1587433642:
+best_effort_1587433642:
   id: 1587433642
   activity_id: 690185709
   athlete_id: 9123806
@@ -350,7 +350,7 @@ best_efforts_1587433642:
   start_date_local: '2014-04-14 18:58:19'
   created_at: '2017-02-20 08:58:48.065692'
   updated_at: '2017-02-20 08:58:48.065692'
-best_efforts_1587433643:
+best_effort_1587433643:
   id: 1587433643
   activity_id: 690185709
   athlete_id: 9123806
@@ -363,7 +363,7 @@ best_efforts_1587433643:
   start_date_local: '2014-04-14 18:57:54'
   created_at: '2017-02-20 08:58:48.091262'
   updated_at: '2017-02-20 08:58:48.091262'
-best_efforts_1587433644:
+best_effort_1587433644:
   id: 1587433644
   activity_id: 690185709
   athlete_id: 9123806
@@ -376,7 +376,7 @@ best_efforts_1587433644:
   start_date_local: '2014-04-14 18:57:50'
   created_at: '2017-02-20 08:58:48.118266'
   updated_at: '2017-02-20 08:58:48.118266'
-best_efforts_1587433646:
+best_effort_1587433646:
   id: 1587433646
   activity_id: 690185709
   athlete_id: 9123806
@@ -389,7 +389,7 @@ best_efforts_1587433646:
   start_date_local: '2014-04-14 18:44:42'
   created_at: '2017-02-20 08:58:48.17142'
   updated_at: '2017-02-20 08:58:48.17142'
-best_efforts_1587433647:
+best_effort_1587433647:
   id: 1587433647
   activity_id: 690185709
   athlete_id: 9123806
@@ -402,7 +402,7 @@ best_efforts_1587433647:
   start_date_local: '2014-04-14 18:34:13'
   created_at: '2017-02-20 08:58:48.196746'
   updated_at: '2017-02-20 08:58:48.196746'
-best_efforts_1587433926:
+best_effort_1587433926:
   id: 1587433926
   activity_id: 690185830
   athlete_id: 9123806
@@ -415,7 +415,7 @@ best_efforts_1587433926:
   start_date_local: '2014-04-15 18:05:43'
   created_at: '2017-02-20 08:58:49.789522'
   updated_at: '2017-02-20 08:58:49.789522'
-best_efforts_1587433927:
+best_effort_1587433927:
   id: 1587433927
   activity_id: 690185830
   athlete_id: 9123806
@@ -428,7 +428,7 @@ best_efforts_1587433927:
   start_date_local: '2014-04-15 18:05:43'
   created_at: '2017-02-20 08:58:49.816935'
   updated_at: '2017-02-20 08:58:49.816935'
-best_efforts_1587433928:
+best_effort_1587433928:
   id: 1587433928
   activity_id: 690185830
   athlete_id: 9123806
@@ -441,7 +441,7 @@ best_efforts_1587433928:
   start_date_local: '2014-04-15 18:05:45'
   created_at: '2017-02-20 08:58:49.845172'
   updated_at: '2017-02-20 08:58:49.845172'
-best_efforts_1587433929:
+best_effort_1587433929:
   id: 1587433929
   activity_id: 690185830
   athlete_id: 9123806
@@ -454,7 +454,7 @@ best_efforts_1587433929:
   start_date_local: '2014-04-15 18:05:44'
   created_at: '2017-02-20 08:58:49.87254'
   updated_at: '2017-02-20 08:58:49.87254'
-best_efforts_1587433930:
+best_effort_1587433930:
   id: 1587433930
   activity_id: 690185830
   athlete_id: 9123806
@@ -467,7 +467,7 @@ best_efforts_1587433930:
   start_date_local: '2014-04-15 18:05:45'
   created_at: '2017-02-20 08:58:49.898986'
   updated_at: '2017-02-20 08:58:49.898986'
-best_efforts_1587435046:
+best_effort_1587435046:
   id: 1587435046
   activity_id: 690186399
   athlete_id: 9123806
@@ -480,7 +480,7 @@ best_efforts_1587435046:
   start_date_local: '2014-04-21 17:49:43'
   created_at: '2017-02-20 08:58:52.184558'
   updated_at: '2017-02-20 08:58:52.184558'
-best_efforts_1587435047:
+best_effort_1587435047:
   id: 1587435047
   activity_id: 690186399
   athlete_id: 9123806
@@ -493,7 +493,7 @@ best_efforts_1587435047:
   start_date_local: '2014-04-21 18:03:10'
   created_at: '2017-02-20 08:58:52.214527'
   updated_at: '2017-02-20 08:58:52.214527'
-best_efforts_1587435048:
+best_effort_1587435048:
   id: 1587435048
   activity_id: 690186399
   athlete_id: 9123806
@@ -506,7 +506,7 @@ best_efforts_1587435048:
   start_date_local: '2014-04-21 17:49:43'
   created_at: '2017-02-20 08:58:52.240841'
   updated_at: '2017-02-20 08:58:52.240841'
-best_efforts_1587435049:
+best_effort_1587435049:
   id: 1587435049
   activity_id: 690186399
   athlete_id: 9123806
@@ -519,7 +519,7 @@ best_efforts_1587435049:
   start_date_local: '2014-04-21 17:49:56'
   created_at: '2017-02-20 08:58:52.268809'
   updated_at: '2017-02-20 08:58:52.268809'
-best_efforts_1587435050:
+best_effort_1587435050:
   id: 1587435050
   activity_id: 690186399
   athlete_id: 9123806
@@ -532,7 +532,7 @@ best_efforts_1587435050:
   start_date_local: '2014-04-21 17:49:43'
   created_at: '2017-02-20 08:58:52.298178'
   updated_at: '2017-02-20 08:58:52.298178'
-best_efforts_1587435051:
+best_effort_1587435051:
   id: 1587435051
   activity_id: 690186399
   athlete_id: 9123806
@@ -545,7 +545,7 @@ best_efforts_1587435051:
   start_date_local: '2014-04-21 17:49:43'
   created_at: '2017-02-20 08:58:52.32682'
   updated_at: '2017-02-20 08:58:52.32682'
-best_efforts_1587435340:
+best_effort_1587435340:
   id: 1587435340
   activity_id: 690186549
   athlete_id: 9123806
@@ -558,7 +558,7 @@ best_efforts_1587435340:
   start_date_local: '2014-04-22 17:40:52'
   created_at: '2017-02-20 08:58:53.122607'
   updated_at: '2017-02-20 08:58:53.122607'
-best_efforts_1587435341:
+best_effort_1587435341:
   id: 1587435341
   activity_id: 690186549
   athlete_id: 9123806
@@ -571,7 +571,7 @@ best_efforts_1587435341:
   start_date_local: '2014-04-22 17:40:52'
   created_at: '2017-02-20 08:58:53.148152'
   updated_at: '2017-02-20 08:58:53.148152'
-best_efforts_1587435342:
+best_effort_1587435342:
   id: 1587435342
   activity_id: 690186549
   athlete_id: 9123806
@@ -584,7 +584,7 @@ best_efforts_1587435342:
   start_date_local: '2014-04-22 17:40:54'
   created_at: '2017-02-20 08:58:53.174434'
   updated_at: '2017-02-20 08:58:53.174434'
-best_efforts_1587435343:
+best_effort_1587435343:
   id: 1587435343
   activity_id: 690186549
   athlete_id: 9123806
@@ -597,7 +597,7 @@ best_efforts_1587435343:
   start_date_local: '2014-04-22 17:40:53'
   created_at: '2017-02-20 08:58:53.201504'
   updated_at: '2017-02-20 08:58:53.201504'
-best_efforts_1587435590:
+best_effort_1587435590:
   id: 1587435590
   activity_id: 690186672
   athlete_id: 9123806
@@ -610,7 +610,7 @@ best_efforts_1587435590:
   start_date_local: '2014-04-24 15:46:21'
   created_at: '2017-02-20 08:58:53.919344'
   updated_at: '2017-02-20 08:58:53.919344'
-best_efforts_1587435814:
+best_effort_1587435814:
   id: 1587435814
   activity_id: 690186804
   athlete_id: 9123806
@@ -623,7 +623,7 @@ best_efforts_1587435814:
   start_date_local: '2014-04-25 17:46:04'
   created_at: '2017-02-20 08:58:54.549048'
   updated_at: '2017-02-20 08:58:54.549048'
-best_efforts_1587436887:
+best_effort_1587436887:
   id: 1587436887
   activity_id: 690187439
   athlete_id: 9123806
@@ -636,7 +636,7 @@ best_efforts_1587436887:
   start_date_local: '2014-04-30 17:55:55'
   created_at: '2017-02-20 08:58:58.219793'
   updated_at: '2017-02-20 08:58:58.219793'
-best_efforts_1587436889:
+best_effort_1587436889:
   id: 1587436889
   activity_id: 690187439
   athlete_id: 9123806
@@ -649,7 +649,7 @@ best_efforts_1587436889:
   start_date_local: '2014-04-30 17:55:55'
   created_at: '2017-02-20 08:58:58.279069'
   updated_at: '2017-02-20 08:58:58.279069'
-best_efforts_1587437257:
+best_effort_1587437257:
   id: 1587437257
   activity_id: 690187626
   athlete_id: 9123806
@@ -662,7 +662,7 @@ best_efforts_1587437257:
   start_date_local: '2014-05-03 17:00:45'
   created_at: '2017-02-20 08:58:59.084351'
   updated_at: '2017-02-20 08:58:59.084351'
-best_efforts_1587437258:
+best_effort_1587437258:
   id: 1587437258
   activity_id: 690187626
   athlete_id: 9123806
@@ -675,7 +675,7 @@ best_efforts_1587437258:
   start_date_local: '2014-05-03 17:00:47'
   created_at: '2017-02-20 08:58:59.110881'
   updated_at: '2017-02-20 08:58:59.110881'
-best_efforts_1587437261:
+best_effort_1587437261:
   id: 1587437261
   activity_id: 690187626
   athlete_id: 9123806
@@ -688,7 +688,7 @@ best_efforts_1587437261:
   start_date_local: '2014-05-03 17:00:47'
   created_at: '2017-02-20 08:58:59.165368'
   updated_at: '2017-02-20 08:58:59.165368'
-best_efforts_1587437501:
+best_effort_1587437501:
   id: 1587437501
   activity_id: 690187767
   athlete_id: 9123806
@@ -701,7 +701,7 @@ best_efforts_1587437501:
   start_date_local: '2014-05-04 17:09:44'
   created_at: '2017-02-20 08:58:59.841172'
   updated_at: '2017-02-20 08:58:59.841172'
-best_efforts_1587437502:
+best_effort_1587437502:
   id: 1587437502
   activity_id: 690187767
   athlete_id: 9123806
@@ -714,7 +714,7 @@ best_efforts_1587437502:
   start_date_local: '2014-05-04 17:05:49'
   created_at: '2017-02-20 08:58:59.866766'
   updated_at: '2017-02-20 08:58:59.866766'
-best_efforts_1587437503:
+best_effort_1587437503:
   id: 1587437503
   activity_id: 690187767
   athlete_id: 9123806
@@ -727,7 +727,7 @@ best_efforts_1587437503:
   start_date_local: '2014-05-04 17:05:51'
   created_at: '2017-02-20 08:58:59.891518'
   updated_at: '2017-02-20 08:58:59.891518'
-best_efforts_1587437504:
+best_effort_1587437504:
   id: 1587437504
   activity_id: 690187767
   athlete_id: 9123806
@@ -740,7 +740,7 @@ best_efforts_1587437504:
   start_date_local: '2014-05-04 17:05:50'
   created_at: '2017-02-20 08:58:59.916556'
   updated_at: '2017-02-20 08:58:59.916556'
-best_efforts_1587437976:
+best_effort_1587437976:
   id: 1587437976
   activity_id: 690188007
   athlete_id: 9123806
@@ -753,7 +753,7 @@ best_efforts_1587437976:
   start_date_local: '2014-05-06 17:36:40'
   created_at: '2017-02-20 08:59:00.725904'
   updated_at: '2017-02-20 08:59:00.725904'
-best_efforts_1587437977:
+best_effort_1587437977:
   id: 1587437977
   activity_id: 690188007
   athlete_id: 9123806
@@ -766,7 +766,7 @@ best_efforts_1587437977:
   start_date_local: '2014-05-06 17:36:29'
   created_at: '2017-02-20 08:59:00.752028'
   updated_at: '2017-02-20 08:59:00.752028'
-best_efforts_1587438497:
+best_effort_1587438497:
   id: 1587438497
   activity_id: 690188255
   athlete_id: 9123806
@@ -779,7 +779,7 @@ best_efforts_1587438497:
   start_date_local: '2014-05-09 18:26:19'
   created_at: '2017-02-20 08:59:01.304883'
   updated_at: '2017-02-20 08:59:01.304883'
-best_efforts_1587438498:
+best_effort_1587438498:
   id: 1587438498
   activity_id: 690188255
   athlete_id: 9123806
@@ -792,7 +792,7 @@ best_efforts_1587438498:
   start_date_local: '2014-05-09 18:26:19'
   created_at: '2017-02-20 08:59:01.329862'
   updated_at: '2017-02-20 08:59:01.329862'
-best_efforts_1587438673:
+best_effort_1587438673:
   id: 1587438673
   activity_id: 690188361
   athlete_id: 9123806
@@ -805,7 +805,7 @@ best_efforts_1587438673:
   start_date_local: '2014-05-10 16:10:40'
   created_at: '2017-02-20 08:59:02.014643'
   updated_at: '2017-02-20 08:59:02.014643'
-best_efforts_1587440737:
+best_effort_1587440737:
   id: 1587440737
   activity_id: 690189445
   athlete_id: 9123806
@@ -818,7 +818,7 @@ best_efforts_1587440737:
   start_date_local: '2014-05-21 17:03:58'
   created_at: '2017-02-20 08:59:04.976683'
   updated_at: '2017-02-20 08:59:04.976683'
-best_efforts_1587440738:
+best_effort_1587440738:
   id: 1587440738
   activity_id: 690189445
   athlete_id: 9123806
@@ -831,7 +831,7 @@ best_efforts_1587440738:
   start_date_local: '2014-05-21 17:02:16'
   created_at: '2017-02-20 08:59:05.001624'
   updated_at: '2017-02-20 08:59:05.001624'
-best_efforts_1587440739:
+best_effort_1587440739:
   id: 1587440739
   activity_id: 690189445
   athlete_id: 9123806
@@ -844,7 +844,7 @@ best_efforts_1587440739:
   start_date_local: '2014-05-21 17:02:09'
   created_at: '2017-02-20 08:59:05.026473'
   updated_at: '2017-02-20 08:59:05.026473'
-best_efforts_1587441799:
+best_effort_1587441799:
   id: 1587441799
   activity_id: 690190153
   athlete_id: 9123806
@@ -857,7 +857,7 @@ best_efforts_1587441799:
   start_date_local: '2014-06-01 08:55:47'
   created_at: '2017-02-20 08:59:08.161436'
   updated_at: '2017-02-20 08:59:08.161436'
-best_efforts_1587441800:
+best_effort_1587441800:
   id: 1587441800
   activity_id: 690190153
   athlete_id: 9123806
@@ -870,7 +870,7 @@ best_efforts_1587441800:
   start_date_local: '2014-06-01 08:54:51'
   created_at: '2017-02-20 08:59:08.190483'
   updated_at: '2017-02-20 08:59:08.190483'
-best_efforts_1587441801:
+best_effort_1587441801:
   id: 1587441801
   activity_id: 690190153
   athlete_id: 9123806
@@ -883,7 +883,7 @@ best_efforts_1587441801:
   start_date_local: '2014-06-01 08:56:12'
   created_at: '2017-02-20 08:59:08.224754'
   updated_at: '2017-02-20 08:59:08.224754'
-best_efforts_1587441802:
+best_effort_1587441802:
   id: 1587441802
   activity_id: 690190153
   athlete_id: 9123806
@@ -896,7 +896,7 @@ best_efforts_1587441802:
   start_date_local: '2014-06-01 08:56:11'
   created_at: '2017-02-20 08:59:08.253397'
   updated_at: '2017-02-20 08:59:08.253397'
-best_efforts_1587441803:
+best_effort_1587441803:
   id: 1587441803
   activity_id: 690190153
   athlete_id: 9123806
@@ -909,7 +909,7 @@ best_efforts_1587441803:
   start_date_local: '2014-06-01 08:56:02'
   created_at: '2017-02-20 08:59:08.280447'
   updated_at: '2017-02-20 08:59:08.280447'
-best_efforts_1587441804:
+best_effort_1587441804:
   id: 1587441804
   activity_id: 690190153
   athlete_id: 9123806
@@ -922,7 +922,7 @@ best_efforts_1587441804:
   start_date_local: '2014-06-01 08:31:27'
   created_at: '2017-02-20 08:59:08.30696'
   updated_at: '2017-02-20 08:59:08.30696'
-best_efforts_1587450851:
+best_effort_1587450851:
   id: 1587450851
   activity_id: 690196016
   athlete_id: 9123806
@@ -935,7 +935,7 @@ best_efforts_1587450851:
   start_date_local: '2015-01-06 18:16:16'
   created_at: '2017-02-20 08:59:29.119163'
   updated_at: '2017-02-20 08:59:29.119163'
-best_efforts_1587451136:
+best_effort_1587451136:
   id: 1587451136
   activity_id: 690196182
   athlete_id: 9123806
@@ -948,7 +948,7 @@ best_efforts_1587451136:
   start_date_local: '2015-01-13 18:16:11'
   created_at: '2017-02-20 08:59:30.162472'
   updated_at: '2017-02-20 08:59:30.162472'
-best_efforts_1587451137:
+best_effort_1587451137:
   id: 1587451137
   activity_id: 690196182
   athlete_id: 9123806
@@ -961,7 +961,7 @@ best_efforts_1587451137:
   start_date_local: '2015-01-13 18:16:11'
   created_at: '2017-02-20 08:59:30.189839'
   updated_at: '2017-02-20 08:59:30.189839'
-best_efforts_1587451138:
+best_effort_1587451138:
   id: 1587451138
   activity_id: 690196182
   athlete_id: 9123806
@@ -974,7 +974,7 @@ best_efforts_1587451138:
   start_date_local: '2015-01-13 18:16:14'
   created_at: '2017-02-20 08:59:30.216931'
   updated_at: '2017-02-20 08:59:30.216931'
-best_efforts_1587451139:
+best_effort_1587451139:
   id: 1587451139
   activity_id: 690196182
   athlete_id: 9123806
@@ -987,7 +987,7 @@ best_efforts_1587451139:
   start_date_local: '2015-01-13 18:16:04'
   created_at: '2017-02-20 08:59:30.244518'
   updated_at: '2017-02-20 08:59:30.244518'
-best_efforts_1587451140:
+best_effort_1587451140:
   id: 1587451140
   activity_id: 690196182
   athlete_id: 9123806
@@ -1000,7 +1000,7 @@ best_efforts_1587451140:
   start_date_local: '2015-01-13 18:16:11'
   created_at: '2017-02-20 08:59:30.269951'
   updated_at: '2017-02-20 08:59:30.269951'
-best_efforts_1587451427:
+best_effort_1587451427:
   id: 1587451427
   activity_id: 690196381
   athlete_id: 9123806
@@ -1013,7 +1013,7 @@ best_efforts_1587451427:
   start_date_local: '2015-01-20 18:17:06'
   created_at: '2017-02-20 08:59:31.150079'
   updated_at: '2017-02-20 08:59:31.150079'
-best_efforts_1587451428:
+best_effort_1587451428:
   id: 1587451428
   activity_id: 690196381
   athlete_id: 9123806
@@ -1026,7 +1026,7 @@ best_efforts_1587451428:
   start_date_local: '2015-01-20 18:17:42'
   created_at: '2017-02-20 08:59:31.176503'
   updated_at: '2017-02-20 08:59:31.176503'
-best_efforts_1587451429:
+best_effort_1587451429:
   id: 1587451429
   activity_id: 690196381
   athlete_id: 9123806
@@ -1039,7 +1039,7 @@ best_efforts_1587451429:
   start_date_local: '2015-01-20 18:17:42'
   created_at: '2017-02-20 08:59:31.203464'
   updated_at: '2017-02-20 08:59:31.203464'
-best_efforts_1587452694:
+best_effort_1587452694:
   id: 1587452694
   activity_id: 690197197
   athlete_id: 9123806
@@ -1052,7 +1052,7 @@ best_efforts_1587452694:
   start_date_local: '2015-02-12 18:01:17'
   created_at: '2017-02-20 08:59:38.032235'
   updated_at: '2017-02-20 08:59:38.032235'
-best_efforts_1587452695:
+best_effort_1587452695:
   id: 1587452695
   activity_id: 690197197
   athlete_id: 9123806
@@ -1065,7 +1065,7 @@ best_efforts_1587452695:
   start_date_local: '2015-02-12 18:01:17'
   created_at: '2017-02-20 08:59:38.061759'
   updated_at: '2017-02-20 08:59:38.061759'
-best_efforts_1587452696:
+best_effort_1587452696:
   id: 1587452696
   activity_id: 690197197
   athlete_id: 9123806
@@ -1078,7 +1078,7 @@ best_efforts_1587452696:
   start_date_local: '2015-02-12 18:01:20'
   created_at: '2017-02-20 08:59:38.088523'
   updated_at: '2017-02-20 08:59:38.088523'
-best_efforts_1587452697:
+best_effort_1587452697:
   id: 1587452697
   activity_id: 690197197
   athlete_id: 9123806
@@ -1091,7 +1091,7 @@ best_efforts_1587452697:
   start_date_local: '2015-02-12 18:01:17'
   created_at: '2017-02-20 08:59:38.117641'
   updated_at: '2017-02-20 08:59:38.117641'
-best_efforts_1587452698:
+best_effort_1587452698:
   id: 1587452698
   activity_id: 690197197
   athlete_id: 9123806
@@ -1104,7 +1104,7 @@ best_efforts_1587452698:
   start_date_local: '2015-02-12 18:01:17'
   created_at: '2017-02-20 08:59:38.144413'
   updated_at: '2017-02-20 08:59:38.144413'
-best_efforts_1587452699:
+best_effort_1587452699:
   id: 1587452699
   activity_id: 690197197
   athlete_id: 9123806
@@ -1117,7 +1117,7 @@ best_efforts_1587452699:
   start_date_local: '2015-02-12 18:01:20'
   created_at: '2017-02-20 08:59:38.17212'
   updated_at: '2017-02-20 08:59:38.17212'
-best_efforts_1587457465:
+best_effort_1587457465:
   id: 1587457465
   activity_id: 690200263
   athlete_id: 9123806
@@ -1130,7 +1130,7 @@ best_efforts_1587457465:
   start_date_local: '2015-05-17 16:11:47'
   created_at: '2017-02-20 08:59:54.896243'
   updated_at: '2017-02-20 08:59:54.896243'
-best_efforts_1587457466:
+best_effort_1587457466:
   id: 1587457466
   activity_id: 690200263
   athlete_id: 9123806
@@ -1143,7 +1143,7 @@ best_efforts_1587457466:
   start_date_local: '2015-05-17 16:08:49'
   created_at: '2017-02-20 08:59:54.929606'
   updated_at: '2017-02-20 08:59:54.929606'
-best_efforts_1587457467:
+best_effort_1587457467:
   id: 1587457467
   activity_id: 690200263
   athlete_id: 9123806
@@ -1156,7 +1156,7 @@ best_efforts_1587457467:
   start_date_local: '2015-05-17 16:08:38'
   created_at: '2017-02-20 08:59:54.96114'
   updated_at: '2017-02-20 08:59:54.96114'
-best_efforts_1587457468:
+best_effort_1587457468:
   id: 1587457468
   activity_id: 690200263
   athlete_id: 9123806
@@ -1169,7 +1169,7 @@ best_efforts_1587457468:
   start_date_local: '2015-05-17 16:07:41'
   created_at: '2017-02-20 08:59:54.992795'
   updated_at: '2017-02-20 08:59:54.992795'
-best_efforts_1587457675:
+best_effort_1587457675:
   id: 1587457675
   activity_id: 690200434
   athlete_id: 9123806
@@ -1182,7 +1182,7 @@ best_efforts_1587457675:
   start_date_local: '2015-05-23 08:01:11'
   created_at: '2017-02-20 08:59:55.880727'
   updated_at: '2017-02-20 08:59:55.880727'
-best_efforts_1587457676:
+best_effort_1587457676:
   id: 1587457676
   activity_id: 690200434
   athlete_id: 9123806
@@ -1195,7 +1195,7 @@ best_efforts_1587457676:
   start_date_local: '2015-05-23 08:00:58'
   created_at: '2017-02-20 08:59:55.905434'
   updated_at: '2017-02-20 08:59:55.905434'
-best_efforts_1587457677:
+best_effort_1587457677:
   id: 1587457677
   activity_id: 690200434
   athlete_id: 9123806
@@ -1208,7 +1208,7 @@ best_efforts_1587457677:
   start_date_local: '2015-05-23 08:01:08'
   created_at: '2017-02-20 08:59:55.931509'
   updated_at: '2017-02-20 08:59:55.931509'
-best_efforts_1587457678:
+best_effort_1587457678:
   id: 1587457678
   activity_id: 690200434
   athlete_id: 9123806
@@ -1221,7 +1221,7 @@ best_efforts_1587457678:
   start_date_local: '2015-05-23 08:00:58'
   created_at: '2017-02-20 08:59:55.960269'
   updated_at: '2017-02-20 08:59:55.960269'
-best_efforts_1587457854:
+best_effort_1587457854:
   id: 1587457854
   activity_id: 690200527
   athlete_id: 9123806
@@ -1234,7 +1234,7 @@ best_efforts_1587457854:
   start_date_local: '2015-05-23 15:27:13'
   created_at: '2017-02-20 08:59:56.592021'
   updated_at: '2017-02-20 08:59:56.592021'
-best_efforts_1587457855:
+best_effort_1587457855:
   id: 1587457855
   activity_id: 690200527
   athlete_id: 9123806
@@ -1247,7 +1247,7 @@ best_efforts_1587457855:
   start_date_local: '2015-05-23 15:25:42'
   created_at: '2017-02-20 08:59:56.62235'
   updated_at: '2017-02-20 08:59:56.62235'
-best_efforts_1587457856:
+best_effort_1587457856:
   id: 1587457856
   activity_id: 690200527
   athlete_id: 9123806
@@ -1260,7 +1260,7 @@ best_efforts_1587457856:
   start_date_local: '2015-05-23 15:20:22'
   created_at: '2017-02-20 08:59:56.648675'
   updated_at: '2017-02-20 08:59:56.648675'
-best_efforts_1587457857:
+best_effort_1587457857:
   id: 1587457857
   activity_id: 690200527
   athlete_id: 9123806
@@ -1273,7 +1273,7 @@ best_efforts_1587457857:
   start_date_local: '2015-05-23 15:22:01'
   created_at: '2017-02-20 08:59:56.675212'
   updated_at: '2017-02-20 08:59:56.675212'
-best_efforts_1587459219:
+best_effort_1587459219:
   id: 1587459219
   activity_id: 690201353
   athlete_id: 9123806
@@ -1286,7 +1286,7 @@ best_efforts_1587459219:
   start_date_local: '2015-05-31 08:39:47'
   created_at: '2017-02-20 09:00:00.9832'
   updated_at: '2017-02-20 09:00:00.9832'
-best_efforts_1587459220:
+best_effort_1587459220:
   id: 1587459220
   activity_id: 690201353
   athlete_id: 9123806
@@ -1299,7 +1299,7 @@ best_efforts_1587459220:
   start_date_local: '2015-05-31 08:39:56'
   created_at: '2017-02-20 09:00:01.00841'
   updated_at: '2017-02-20 09:00:01.00841'
-best_efforts_1587467473:
+best_effort_1587467473:
   id: 1587467473
   activity_id: 690206108
   athlete_id: 9123806
@@ -1312,7 +1312,7 @@ best_efforts_1587467473:
   start_date_local: '2015-07-26 08:59:35'
   created_at: '2017-02-20 09:00:33.11108'
   updated_at: '2017-02-20 09:00:33.11108'
-best_efforts_1587467474:
+best_effort_1587467474:
   id: 1587467474
   activity_id: 690206108
   athlete_id: 9123806
@@ -1325,7 +1325,7 @@ best_efforts_1587467474:
   start_date_local: '2015-07-26 08:59:35'
   created_at: '2017-02-20 09:00:33.136799'
   updated_at: '2017-02-20 09:00:33.136799'
-best_efforts_1587467475:
+best_effort_1587467475:
   id: 1587467475
   activity_id: 690206108
   athlete_id: 9123806
@@ -1338,7 +1338,7 @@ best_efforts_1587467475:
   start_date_local: '2015-07-26 08:59:35'
   created_at: '2017-02-20 09:00:33.163377'
   updated_at: '2017-02-20 09:00:33.163377'
-best_efforts_1587469945:
+best_effort_1587469945:
   id: 1587469945
   activity_id: 690207717
   athlete_id: 9123806
@@ -1351,7 +1351,7 @@ best_efforts_1587469945:
   start_date_local: '2015-08-29 10:02:19'
   created_at: '2017-02-20 09:00:48.634366'
   updated_at: '2017-02-20 09:00:48.634366'
-best_efforts_1587469946:
+best_effort_1587469946:
   id: 1587469946
   activity_id: 690207717
   athlete_id: 9123806
@@ -1364,7 +1364,7 @@ best_efforts_1587469946:
   start_date_local: '2015-08-29 10:01:38'
   created_at: '2017-02-20 09:00:48.663201'
   updated_at: '2017-02-20 09:00:48.663201'
-best_efforts_1587469947:
+best_effort_1587469947:
   id: 1587469947
   activity_id: 690207717
   athlete_id: 9123806
@@ -1377,7 +1377,7 @@ best_efforts_1587469947:
   start_date_local: '2015-08-29 10:01:17'
   created_at: '2017-02-20 09:00:48.69039'
   updated_at: '2017-02-20 09:00:48.69039'
-best_efforts_1587470252:
+best_effort_1587470252:
   id: 1587470252
   activity_id: 690207902
   athlete_id: 9123806
@@ -1390,7 +1390,7 @@ best_efforts_1587470252:
   start_date_local: '2015-09-03 06:54:56'
   created_at: '2017-02-20 09:00:50.618069'
   updated_at: '2017-02-20 09:00:50.618069'
-best_efforts_1587470253:
+best_effort_1587470253:
   id: 1587470253
   activity_id: 690207902
   athlete_id: 9123806
@@ -1403,7 +1403,7 @@ best_efforts_1587470253:
   start_date_local: '2015-09-03 06:54:56'
   created_at: '2017-02-20 09:00:50.644178'
   updated_at: '2017-02-20 09:00:50.644178'
-best_efforts_1587470488:
+best_effort_1587470488:
   id: 1587470488
   activity_id: 690208078
   athlete_id: 9123806
@@ -1416,7 +1416,7 @@ best_efforts_1587470488:
   start_date_local: '2015-09-06 10:02:17'
   created_at: '2017-02-20 09:00:51.819117'
   updated_at: '2017-02-20 09:00:51.819117'
-best_efforts_1587471408:
+best_effort_1587471408:
   id: 1587471408
   activity_id: 690208774
   athlete_id: 9123806
@@ -1429,7 +1429,7 @@ best_efforts_1587471408:
   start_date_local: '2015-09-22 18:28:16'
   created_at: '2017-02-20 09:01:07.049008'
   updated_at: '2017-02-20 09:01:07.049008'
-best_efforts_1587471409:
+best_effort_1587471409:
   id: 1587471409
   activity_id: 690208774
   athlete_id: 9123806
@@ -1442,7 +1442,7 @@ best_efforts_1587471409:
   start_date_local: '2015-09-22 18:20:56'
   created_at: '2017-02-20 09:01:07.077784'
   updated_at: '2017-02-20 09:01:07.077784'
-best_efforts_1587471411:
+best_effort_1587471411:
   id: 1587471411
   activity_id: 690208774
   athlete_id: 9123806
@@ -1455,7 +1455,7 @@ best_efforts_1587471411:
   start_date_local: '2015-09-22 17:49:26'
   created_at: '2017-02-20 09:01:07.141418'
   updated_at: '2017-02-20 09:01:07.141418'
-best_efforts_1587472601:
+best_effort_1587472601:
   id: 1587472601
   activity_id: 690209577
   athlete_id: 9123806
@@ -1468,7 +1468,7 @@ best_efforts_1587472601:
   start_date_local: '2015-10-03 07:46:28'
   created_at: '2017-02-20 09:01:13.974285'
   updated_at: '2017-02-20 09:01:13.974285'
-best_efforts_1587473344:
+best_effort_1587473344:
   id: 1587473344
   activity_id: 690210040
   athlete_id: 9123806
@@ -1481,7 +1481,7 @@ best_efforts_1587473344:
   start_date_local: '2015-10-10 07:11:00'
   created_at: '2017-02-20 09:01:14.810719'
   updated_at: '2017-02-20 09:01:14.810719'
-best_efforts_1587473345:
+best_effort_1587473345:
   id: 1587473345
   activity_id: 690210040
   athlete_id: 9123806
@@ -1494,7 +1494,7 @@ best_efforts_1587473345:
   start_date_local: '2015-10-10 07:06:00'
   created_at: '2017-02-20 09:01:14.83726'
   updated_at: '2017-02-20 09:01:14.83726'
-best_efforts_1587473961:
+best_effort_1587473961:
   id: 1587473961
   activity_id: 690210467
   athlete_id: 9123806
@@ -1507,7 +1507,7 @@ best_efforts_1587473961:
   start_date_local: '2015-10-20 17:56:57'
   created_at: '2017-02-20 09:01:17.304348'
   updated_at: '2017-02-20 09:01:17.304348'
-best_efforts_1587476201:
+best_effort_1587476201:
   id: 1587476201
   activity_id: 690211873
   athlete_id: 9123806
@@ -1520,7 +1520,7 @@ best_efforts_1587476201:
   start_date_local: '2015-11-21 08:01:40'
   created_at: '2017-02-20 09:01:26.767882'
   updated_at: '2017-02-20 09:01:26.767882'
-best_efforts_1587476202:
+best_effort_1587476202:
   id: 1587476202
   activity_id: 690211873
   athlete_id: 9123806
@@ -1533,7 +1533,7 @@ best_efforts_1587476202:
   start_date_local: '2015-11-21 08:01:25'
   created_at: '2017-02-20 09:01:26.796031'
   updated_at: '2017-02-20 09:01:26.796031'
-best_efforts_1587476203:
+best_effort_1587476203:
   id: 1587476203
   activity_id: 690211873
   athlete_id: 9123806
@@ -1546,7 +1546,7 @@ best_efforts_1587476203:
   start_date_local: '2015-11-21 08:01:28'
   created_at: '2017-02-20 09:01:26.826721'
   updated_at: '2017-02-20 09:01:26.826721'
-best_efforts_1587476204:
+best_effort_1587476204:
   id: 1587476204
   activity_id: 690211873
   athlete_id: 9123806
@@ -1559,7 +1559,7 @@ best_efforts_1587476204:
   start_date_local: '2015-11-21 08:01:31'
   created_at: '2017-02-20 09:01:26.859501'
   updated_at: '2017-02-20 09:01:26.859501'
-best_efforts_1587477863:
+best_effort_1587477863:
   id: 1587477863
   activity_id: 690213152
   athlete_id: 9123806
@@ -1572,7 +1572,7 @@ best_efforts_1587477863:
   start_date_local: '2015-12-13 09:00:32'
   created_at: '2017-02-20 09:01:33.861418'
   updated_at: '2017-02-20 09:01:33.861418'
-best_efforts_1587477864:
+best_effort_1587477864:
   id: 1587477864
   activity_id: 690213152
   athlete_id: 9123806
@@ -1585,7 +1585,7 @@ best_efforts_1587477864:
   start_date_local: '2015-12-13 09:00:32'
   created_at: '2017-02-20 09:01:33.889983'
   updated_at: '2017-02-20 09:01:33.889983'
-best_efforts_1587477865:
+best_effort_1587477865:
   id: 1587477865
   activity_id: 690213152
   athlete_id: 9123806
@@ -1598,7 +1598,7 @@ best_efforts_1587477865:
   start_date_local: '2015-12-13 09:00:32'
   created_at: '2017-02-20 09:01:33.921414'
   updated_at: '2017-02-20 09:01:33.921414'
-best_efforts_1587477866:
+best_effort_1587477866:
   id: 1587477866
   activity_id: 690213152
   athlete_id: 9123806
@@ -1611,7 +1611,7 @@ best_efforts_1587477866:
   start_date_local: '2015-12-13 09:00:25'
   created_at: '2017-02-20 09:01:33.950269'
   updated_at: '2017-02-20 09:01:33.950269'
-best_efforts_1587482654:
+best_effort_1587482654:
   id: 1587482654
   activity_id: 690216114
   athlete_id: 9123806
@@ -1624,7 +1624,7 @@ best_efforts_1587482654:
   start_date_local: '2016-02-13 08:30:40'
   created_at: '2017-02-20 09:01:59.535244'
   updated_at: '2017-02-20 09:01:59.535244'
-best_efforts_1587482655:
+best_effort_1587482655:
   id: 1587482655
   activity_id: 690216114
   athlete_id: 9123806
@@ -1637,7 +1637,7 @@ best_efforts_1587482655:
   start_date_local: '2016-02-13 08:30:45'
   created_at: '2017-02-20 09:01:59.56188'
   updated_at: '2017-02-20 09:01:59.56188'
-best_efforts_1587482656:
+best_effort_1587482656:
   id: 1587482656
   activity_id: 690216114
   athlete_id: 9123806
@@ -1650,7 +1650,7 @@ best_efforts_1587482656:
   start_date_local: '2016-02-13 08:30:40'
   created_at: '2017-02-20 09:01:59.588844'
   updated_at: '2017-02-20 09:01:59.588844'
-best_efforts_1587482657:
+best_effort_1587482657:
   id: 1587482657
   activity_id: 690216114
   athlete_id: 9123806
@@ -1663,7 +1663,7 @@ best_efforts_1587482657:
   start_date_local: '2016-02-13 08:30:44'
   created_at: '2017-02-20 09:01:59.614188'
   updated_at: '2017-02-20 09:01:59.614188'
-best_efforts_1587483716:
+best_effort_1587483716:
   id: 1587483716
   activity_id: 690216722
   athlete_id: 9123806
@@ -1676,7 +1676,7 @@ best_efforts_1587483716:
   start_date_local: '2016-02-28 08:59:47'
   created_at: '2017-02-20 09:02:04.554957'
   updated_at: '2017-02-20 09:02:04.554957'
-best_efforts_1587483717:
+best_effort_1587483717:
   id: 1587483717
   activity_id: 690216722
   athlete_id: 9123806
@@ -1689,7 +1689,7 @@ best_efforts_1587483717:
   start_date_local: '2016-02-28 08:59:43'
   created_at: '2017-02-20 09:02:04.581597'
   updated_at: '2017-02-20 09:02:04.581597'
-best_efforts_1587513938:
+best_effort_1587513938:
   id: 1587513938
   activity_id: 690235515
   athlete_id: 9123806
@@ -1702,7 +1702,7 @@ best_efforts_1587513938:
   start_date_local: '2016-04-02 09:49:41'
   created_at: '2017-02-20 09:02:45.035066'
   updated_at: '2017-02-20 09:02:45.035066'
-best_efforts_1587513939:
+best_effort_1587513939:
   id: 1587513939
   activity_id: 690235515
   athlete_id: 9123806
@@ -1715,7 +1715,7 @@ best_efforts_1587513939:
   start_date_local: '2016-04-02 09:27:12'
   created_at: '2017-02-20 09:02:45.063458'
   updated_at: '2017-02-20 09:02:45.063458'
-best_efforts_1587513940:
+best_effort_1587513940:
   id: 1587513940
   activity_id: 690235515
   athlete_id: 9123806
@@ -1728,7 +1728,7 @@ best_efforts_1587513940:
   start_date_local: '2016-04-02 09:22:16'
   created_at: '2017-02-20 09:02:45.090199'
   updated_at: '2017-02-20 09:02:45.090199'
-best_efforts_1587513941:
+best_effort_1587513941:
   id: 1587513941
   activity_id: 690235515
   athlete_id: 9123806
@@ -1741,7 +1741,7 @@ best_efforts_1587513941:
   start_date_local: '2016-04-02 09:04:41'
   created_at: '2017-02-20 09:02:45.126203'
   updated_at: '2017-02-20 09:02:45.126203'
-best_efforts_1587513942:
+best_effort_1587513942:
   id: 1587513942
   activity_id: 690235515
   athlete_id: 9123806

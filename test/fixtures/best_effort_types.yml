@@ -1,70 +1,70 @@
 ---
-best_effort_types_1:
+best_effort_type_1:
   id: 1
   name: 50k
   created_at: '2017-02-20 08:54:05.46103'
   updated_at: '2017-02-20 08:54:05.46103'
-best_effort_types_2:
+best_effort_type_2:
   id: 2
   name: Marathon
   created_at: '2017-02-20 08:54:05.473244'
   updated_at: '2017-02-20 08:54:05.473244'
-best_effort_types_3:
+best_effort_type_3:
   id: 3
   name: Half Marathon
   created_at: '2017-02-20 08:54:05.488372'
   updated_at: '2017-02-20 08:54:05.488372'
-best_effort_types_4:
+best_effort_type_4:
   id: 4
   name: 30k
   created_at: '2017-02-20 08:54:05.500203'
   updated_at: '2017-02-20 08:54:05.500203'
-best_effort_types_5:
+best_effort_type_5:
   id: 5
   name: 20k
   created_at: '2017-02-20 08:54:05.511809'
   updated_at: '2017-02-20 08:54:05.511809'
-best_effort_types_6:
+best_effort_type_6:
   id: 6
   name: 10 miles
   created_at: '2017-02-20 08:54:05.523127'
   updated_at: '2017-02-20 08:54:05.523127'
-best_effort_types_7:
+best_effort_type_7:
   id: 7
   name: 15k
   created_at: '2017-02-20 08:54:05.534955'
   updated_at: '2017-02-20 08:54:05.534955'
-best_effort_types_8:
+best_effort_type_8:
   id: 8
   name: 10k
   created_at: '2017-02-20 08:54:05.546931'
   updated_at: '2017-02-20 08:54:05.546931'
-best_effort_types_9:
+best_effort_type_9:
   id: 9
   name: 5k
   created_at: '2017-02-20 08:54:05.558676'
   updated_at: '2017-02-20 08:54:05.558676'
-best_effort_types_10:
+best_effort_type_10:
   id: 10
   name: 2 miles
   created_at: '2017-02-20 08:54:05.570581'
   updated_at: '2017-02-20 08:54:05.570581'
-best_effort_types_11:
+best_effort_type_11:
   id: 11
   name: 1 mile
   created_at: '2017-02-20 08:54:05.582286'
   updated_at: '2017-02-20 08:54:05.582286'
-best_effort_types_12:
+best_effort_type_12:
   id: 12
   name: 1k
   created_at: '2017-02-20 08:54:05.598131'
   updated_at: '2017-02-20 08:54:05.598131'
-best_effort_types_13:
+best_effort_type_13:
   id: 13
   name: 1/2 mile
   created_at: '2017-02-20 08:54:05.609464'
   updated_at: '2017-02-20 08:54:05.609464'
-best_effort_types_14:
+best_effort_type_14:
   id: 14
   name: 400m
   created_at: '2017-02-20 08:54:05.620984'

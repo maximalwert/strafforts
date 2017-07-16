@@ -1,5 +1,5 @@
 ---
-activities_690180328:
+activity_690180328:
   id: 690180328
   athlete_id: 9123806
   gear_id: g1313288
@@ -33,7 +33,7 @@ activities_690180328:
   suffer_score: 
   created_at: '2017-02-20 08:58:29.622566'
   updated_at: '2017-02-20 08:58:29.622566'
-activities_690180438:
+activity_690180438:
   id: 690180438
   athlete_id: 9123806
   gear_id: g1313288
@@ -67,7 +67,7 @@ activities_690180438:
   suffer_score: 
   created_at: '2017-02-20 08:58:30.395275'
   updated_at: '2017-02-20 08:58:30.395275'
-activities_690180546:
+activity_690180546:
   id: 690180546
   athlete_id: 9123806
   gear_id: g1313288
@@ -101,7 +101,7 @@ activities_690180546:
   suffer_score: 
   created_at: '2017-02-20 08:58:31.087757'
   updated_at: '2017-02-20 08:58:31.087757'
-activities_690180641:
+activity_690180641:
   id: 690180641
   athlete_id: 9123806
   gear_id: g1313288
@@ -135,7 +135,7 @@ activities_690180641:
   suffer_score: 
   created_at: '2017-02-20 08:58:31.779241'
   updated_at: '2017-02-20 08:58:31.779241'
-activities_690180747:
+activity_690180747:
   id: 690180747
   athlete_id: 9123806
   gear_id: g1313288
@@ -169,7 +169,7 @@ activities_690180747:
   suffer_score: 
   created_at: '2017-02-20 08:58:32.484802'
   updated_at: '2017-02-20 08:58:32.484802'
-activities_690180838:
+activity_690180838:
   id: 690180838
   athlete_id: 9123806
   gear_id: g1313288
@@ -203,7 +203,7 @@ activities_690180838:
   suffer_score: 
   created_at: '2017-02-20 08:58:33.211821'
   updated_at: '2017-02-20 08:58:33.211821'
-activities_690181070:
+activity_690181070:
   id: 690181070
   athlete_id: 9123806
   gear_id: g1313288
@@ -237,7 +237,7 @@ activities_690181070:
   suffer_score: 
   created_at: '2017-02-20 08:58:34.381798'
   updated_at: '2017-02-20 08:58:34.381798'
-activities_690181250:
+activity_690181250:
   id: 690181250
   athlete_id: 9123806
   gear_id: g1313288
@@ -271,7 +271,7 @@ activities_690181250:
   suffer_score: 
   created_at: '2017-02-20 08:58:34.963376'
   updated_at: '2017-02-20 08:58:34.963376'
-activities_690181397:
+activity_690181397:
   id: 690181397
   athlete_id: 9123806
   gear_id: g1313288
@@ -305,7 +305,7 @@ activities_690181397:
   suffer_score: 
   created_at: '2017-02-20 08:58:35.879237'
   updated_at: '2017-02-20 08:58:35.879237'
-activities_690181991:
+activity_690181991:
   id: 690181991
   athlete_id: 9123806
   gear_id: g1313288
@@ -339,7 +339,7 @@ activities_690181991:
   suffer_score: 
   created_at: '2017-02-20 08:58:36.530915'
   updated_at: '2017-02-20 08:58:36.530915'
-activities_690182162:
+activity_690182162:
   id: 690182162
   athlete_id: 9123806
   gear_id: g1313288
@@ -373,7 +373,7 @@ activities_690182162:
   suffer_score: 
   created_at: '2017-02-20 08:58:37.241849'
   updated_at: '2017-02-20 08:58:37.241849'
-activities_690182547:
+activity_690182547:
   id: 690182547
   athlete_id: 9123806
   gear_id: g1313288
@@ -407,7 +407,7 @@ activities_690182547:
   suffer_score: 
   created_at: '2017-02-20 08:58:38.024031'
   updated_at: '2017-02-20 08:58:38.024031'
-activities_690182704:
+activity_690182704:
   id: 690182704
   athlete_id: 9123806
   gear_id: g1313288
@@ -441,7 +441,7 @@ activities_690182704:
   suffer_score: 
   created_at: '2017-02-20 08:58:38.612301'
   updated_at: '2017-02-20 08:58:38.612301'
-activities_690183311:
+activity_690183311:
   id: 690183311
   athlete_id: 9123806
   gear_id: g1313288
@@ -475,7 +475,7 @@ activities_690183311:
   suffer_score: 
   created_at: '2017-02-20 08:58:39.183588'
   updated_at: '2017-02-20 08:58:39.183588'
-activities_690183592:
+activity_690183592:
   id: 690183592
   athlete_id: 9123806
   gear_id: g1313288
@@ -509,7 +509,7 @@ activities_690183592:
   suffer_score: 
   created_at: '2017-02-20 08:58:39.688986'
   updated_at: '2017-02-20 08:58:39.688986'
-activities_690184071:
+activity_690184071:
   id: 690184071
   athlete_id: 9123806
   gear_id: g1313288
@@ -543,7 +543,7 @@ activities_690184071:
   suffer_score: 
   created_at: '2017-02-20 08:58:40.6765'
   updated_at: '2017-02-20 08:58:40.6765'
-activities_690184333:
+activity_690184333:
   id: 690184333
   athlete_id: 9123806
   gear_id: g1313288
@@ -577,7 +577,7 @@ activities_690184333:
   suffer_score: 
   created_at: '2017-02-20 08:58:41.190892'
   updated_at: '2017-02-20 08:58:41.190892'
-activities_690184462:
+activity_690184462:
   id: 690184462
   athlete_id: 9123806
   gear_id: g1313288
@@ -611,7 +611,7 @@ activities_690184462:
   suffer_score: 
   created_at: '2017-02-20 08:58:42.591923'
   updated_at: '2017-02-20 08:58:42.591923'
-activities_690184729:
+activity_690184729:
   id: 690184729
   athlete_id: 9123806
   gear_id: g1313288
@@ -645,7 +645,7 @@ activities_690184729:
   suffer_score: 
   created_at: '2017-02-20 08:58:43.144315'
   updated_at: '2017-02-20 08:58:43.144315'
-activities_690184908:
+activity_690184908:
   id: 690184908
   athlete_id: 9123806
   gear_id: g1313288
@@ -679,7 +679,7 @@ activities_690184908:
   suffer_score: 
   created_at: '2017-02-20 08:58:43.875873'
   updated_at: '2017-02-20 08:58:43.875873'
-activities_690185037:
+activity_690185037:
   id: 690185037
   athlete_id: 9123806
   gear_id: g1313288
@@ -713,7 +713,7 @@ activities_690185037:
   suffer_score: 
   created_at: '2017-02-20 08:58:44.369605'
   updated_at: '2017-02-20 08:58:44.369605'
-activities_690185443:
+activity_690185443:
   id: 690185443
   athlete_id: 9123806
   gear_id: g1313288
@@ -747,7 +747,7 @@ activities_690185443:
   suffer_score: 
   created_at: '2017-02-20 08:58:46.79599'
   updated_at: '2017-02-20 08:58:46.79599'
-activities_690185709:
+activity_690185709:
   id: 690185709
   athlete_id: 9123806
   gear_id: g1313288
@@ -781,7 +781,7 @@ activities_690185709:
   suffer_score: 
   created_at: '2017-02-20 08:58:48.045485'
   updated_at: '2017-02-20 08:58:48.045485'
-activities_690185830:
+activity_690185830:
   id: 690185830
   athlete_id: 9123806
   gear_id: g1313288
@@ -815,7 +815,7 @@ activities_690185830:
   suffer_score: 
   created_at: '2017-02-20 08:58:49.76593'
   updated_at: '2017-02-20 08:58:49.76593'
-activities_690186159:
+activity_690186159:
   id: 690186159
   athlete_id: 9123806
   gear_id: g1313288
@@ -849,7 +849,7 @@ activities_690186159:
   suffer_score: 
   created_at: '2017-02-20 08:58:50.958189'
   updated_at: '2017-02-20 08:58:50.958189'
-activities_690186399:
+activity_690186399:
   id: 690186399
   athlete_id: 9123806
   gear_id: g1313288
@@ -883,7 +883,7 @@ activities_690186399:
   suffer_score: 
   created_at: '2017-02-20 08:58:52.15933'
   updated_at: '2017-02-20 08:58:52.15933'
-activities_690186549:
+activity_690186549:
   id: 690186549
   athlete_id: 9123806
   gear_id: g1313288
@@ -917,7 +917,7 @@ activities_690186549:
   suffer_score: 
   created_at: '2017-02-20 08:58:53.100236'
   updated_at: '2017-02-20 08:58:53.100236'
-activities_690186672:
+activity_690186672:
   id: 690186672
   athlete_id: 9123806
   gear_id: g1313288
@@ -951,7 +951,7 @@ activities_690186672:
   suffer_score: 
   created_at: '2017-02-20 08:58:53.84802'
   updated_at: '2017-02-20 08:58:53.84802'
-activities_690186804:
+activity_690186804:
   id: 690186804
   athlete_id: 9123806
   gear_id: g1313288
@@ -985,7 +985,7 @@ activities_690186804:
   suffer_score: 
   created_at: '2017-02-20 08:58:54.504607'
   updated_at: '2017-02-20 08:58:54.504607'
-activities_690187025:
+activity_690187025:
   id: 690187025
   athlete_id: 9123806
   gear_id: g1313288
@@ -1019,7 +1019,7 @@ activities_690187025:
   suffer_score: 
   created_at: '2017-02-20 08:58:55.308086'
   updated_at: '2017-02-20 08:58:55.308086'
-activities_690187156:
+activity_690187156:
   id: 690187156
   athlete_id: 9123806
   gear_id: g1313288
@@ -1053,7 +1053,7 @@ activities_690187156:
   suffer_score: 
   created_at: '2017-02-20 08:58:55.903913'
   updated_at: '2017-02-20 08:58:55.903913'
-activities_690187319:
+activity_690187319:
   id: 690187319
   athlete_id: 9123806
   gear_id: g1313288
@@ -1087,7 +1087,7 @@ activities_690187319:
   suffer_score: 
   created_at: '2017-02-20 08:58:56.600278'
   updated_at: '2017-02-20 08:58:56.600278'
-activities_690187439:
+activity_690187439:
   id: 690187439
   athlete_id: 9123806
   gear_id: g1313288
@@ -1121,7 +1121,7 @@ activities_690187439:
   suffer_score: 
   created_at: '2017-02-20 08:58:58.157969'
   updated_at: '2017-02-20 08:58:58.157969'
-activities_690187626:
+activity_690187626:
   id: 690187626
   athlete_id: 9123806
   gear_id: g1313288
@@ -1155,7 +1155,7 @@ activities_690187626:
   suffer_score: 
   created_at: '2017-02-20 08:58:59.037074'
   updated_at: '2017-02-20 08:58:59.037074'
-activities_690187767:
+activity_690187767:
   id: 690187767
   athlete_id: 9123806
   gear_id: g1313288
@@ -1189,7 +1189,7 @@ activities_690187767:
   suffer_score: 
   created_at: '2017-02-20 08:58:59.782895'
   updated_at: '2017-02-20 08:58:59.782895'
-activities_690188007:
+activity_690188007:
   id: 690188007
   athlete_id: 9123806
   gear_id: g1313288
@@ -1223,7 +1223,7 @@ activities_690188007:
   suffer_score: 
   created_at: '2017-02-20 08:59:00.704293'
   updated_at: '2017-02-20 08:59:00.704293'
-activities_690188255:
+activity_690188255:
   id: 690188255
   athlete_id: 9123806
   gear_id: g1313288
@@ -1257,7 +1257,7 @@ activities_690188255:
   suffer_score: 
   created_at: '2017-02-20 08:59:01.258217'
   updated_at: '2017-02-20 08:59:01.258217'
-activities_690188361:
+activity_690188361:
   id: 690188361
   athlete_id: 9123806
   gear_id: g1313288
@@ -1291,7 +1291,7 @@ activities_690188361:
   suffer_score: 
   created_at: '2017-02-20 08:59:01.968772'
   updated_at: '2017-02-20 08:59:01.968772'
-activities_690189101:
+activity_690189101:
   id: 690189101
   athlete_id: 9123806
   gear_id: g1313288
@@ -1325,7 +1325,7 @@ activities_690189101:
   suffer_score: 
   created_at: '2017-02-20 08:59:03.475571'
   updated_at: '2017-02-20 08:59:03.475571'
-activities_690189445:
+activity_690189445:
   id: 690189445
   athlete_id: 9123806
   gear_id: g1313288
@@ -1359,7 +1359,7 @@ activities_690189445:
   suffer_score: 
   created_at: '2017-02-20 08:59:04.867308'
   updated_at: '2017-02-20 08:59:04.867308'
-activities_690190153:
+activity_690190153:
   id: 690190153
   athlete_id: 9123806
   gear_id: g1313288
@@ -1394,7 +1394,7 @@ activities_690190153:
   suffer_score: 
   created_at: '2017-02-20 08:59:08.057056'
   updated_at: '2017-02-20 08:59:08.057056'
-activities_690192383:
+activity_690192383:
   id: 690192383
   athlete_id: 9123806
   gear_id: g1313288
@@ -1429,7 +1429,7 @@ activities_690192383:
   suffer_score: 
   created_at: '2017-02-20 08:59:10.706181'
   updated_at: '2017-02-20 08:59:10.706181'
-activities_690192454:
+activity_690192454:
   id: 690192454
   athlete_id: 9123806
   gear_id: g1313288
@@ -1464,7 +1464,7 @@ activities_690192454:
   suffer_score: 
   created_at: '2017-02-20 08:59:11.29033'
   updated_at: '2017-02-20 08:59:11.29033'
-activities_690192800:
+activity_690192800:
   id: 690192800
   athlete_id: 9123806
   gear_id: g1313288
@@ -1499,7 +1499,7 @@ activities_690192800:
   suffer_score: 
   created_at: '2017-02-20 08:59:12.171805'
   updated_at: '2017-02-20 08:59:12.171805'
-activities_690193053:
+activity_690193053:
   id: 690193053
   athlete_id: 9123806
   gear_id: g1642211
@@ -1534,7 +1534,7 @@ activities_690193053:
   suffer_score: 
   created_at: '2017-02-20 08:59:13.163207'
   updated_at: '2017-02-20 08:59:13.163207'
-activities_690193138:
+activity_690193138:
   id: 690193138
   athlete_id: 9123806
   gear_id: g1642211
@@ -1569,7 +1569,7 @@ activities_690193138:
   suffer_score: 
   created_at: '2017-02-20 08:59:13.708279'
   updated_at: '2017-02-20 08:59:13.708279'
-activities_690193754:
+activity_690193754:
   id: 690193754
   athlete_id: 9123806
   gear_id: g1642211
@@ -1604,7 +1604,7 @@ activities_690193754:
   suffer_score: 
   created_at: '2017-02-20 08:59:17.73213'
   updated_at: '2017-02-20 08:59:17.73213'
-activities_690194476:
+activity_690194476:
   id: 690194476
   athlete_id: 9123806
   gear_id: g1642211
@@ -1639,7 +1639,7 @@ activities_690194476:
   suffer_score: 
   created_at: '2017-02-20 08:59:23.100295'
   updated_at: '2017-02-20 08:59:23.100295'
-activities_690196016:
+activity_690196016:
   id: 690196016
   athlete_id: 9123806
   gear_id: g1642211
@@ -1674,7 +1674,7 @@ activities_690196016:
   suffer_score: 
   created_at: '2017-02-20 08:59:29.072846'
   updated_at: '2017-02-20 08:59:29.072846'
-activities_690196182:
+activity_690196182:
   id: 690196182
   athlete_id: 9123806
   gear_id: g798788
@@ -1709,7 +1709,7 @@ activities_690196182:
   suffer_score: 
   created_at: '2017-02-20 08:59:30.13125'
   updated_at: '2017-02-20 08:59:30.13125'
-activities_690196381:
+activity_690196381:
   id: 690196381
   athlete_id: 9123806
   gear_id: g798788
@@ -1744,7 +1744,7 @@ activities_690196381:
   suffer_score: 
   created_at: '2017-02-20 08:59:31.040438'
   updated_at: '2017-02-20 08:59:31.040438'
-activities_690196667:
+activity_690196667:
   id: 690196667
   athlete_id: 9123806
   gear_id: g798788
@@ -1779,7 +1779,7 @@ activities_690196667:
   suffer_score: 
   created_at: '2017-02-20 08:59:33.477183'
   updated_at: '2017-02-20 08:59:33.477183'
-activities_690197197:
+activity_690197197:
   id: 690197197
   athlete_id: 9123806
   gear_id: g1642211
@@ -1814,7 +1814,7 @@ activities_690197197:
   suffer_score: 
   created_at: '2017-02-20 08:59:38.006362'
   updated_at: '2017-02-20 08:59:38.006362'
-activities_690197270:
+activity_690197270:
   id: 690197270
   athlete_id: 9123806
   gear_id: g1642211
@@ -1849,7 +1849,7 @@ activities_690197270:
   suffer_score: 
   created_at: '2017-02-20 08:59:38.895655'
   updated_at: '2017-02-20 08:59:38.895655'
-activities_690197836:
+activity_690197836:
   id: 690197836
   athlete_id: 9123806
   gear_id: g1642211
@@ -1884,7 +1884,7 @@ activities_690197836:
   suffer_score: 
   created_at: '2017-02-20 08:59:41.625436'
   updated_at: '2017-02-20 08:59:41.625436'
-activities_690198763:
+activity_690198763:
   id: 690198763
   athlete_id: 9123806
   gear_id: g1642211
@@ -1919,7 +1919,7 @@ activities_690198763:
   suffer_score: 
   created_at: '2017-02-20 08:59:46.004978'
   updated_at: '2017-02-20 08:59:46.004978'
-activities_690200263:
+activity_690200263:
   id: 690200263
   athlete_id: 9123806
   gear_id: g1642211
@@ -1954,7 +1954,7 @@ activities_690200263:
   suffer_score: 
   created_at: '2017-02-20 08:59:54.870041'
   updated_at: '2017-02-20 08:59:54.870041'
-activities_690200434:
+activity_690200434:
   id: 690200434
   athlete_id: 9123806
   gear_id: g798788
@@ -1989,7 +1989,7 @@ activities_690200434:
   suffer_score: 
   created_at: '2017-02-20 08:59:55.841646'
   updated_at: '2017-02-20 08:59:55.841646'
-activities_690200527:
+activity_690200527:
   id: 690200527
   athlete_id: 9123806
   gear_id: g1642213
@@ -2024,7 +2024,7 @@ activities_690200527:
   suffer_score: 
   created_at: '2017-02-20 08:59:56.568213'
   updated_at: '2017-02-20 08:59:56.568213'
-activities_690200907:
+activity_690200907:
   id: 690200907
   athlete_id: 9123806
   gear_id: g1642213
@@ -2059,7 +2059,7 @@ activities_690200907:
   suffer_score: 69
   created_at: '2017-02-20 08:59:59.055067'
   updated_at: '2017-02-20 08:59:59.055067'
-activities_690201430:
+activity_690201430:
   id: 690201430
   athlete_id: 9123806
   gear_id: g1642212
@@ -2094,7 +2094,7 @@ activities_690201430:
   suffer_score: 38
   created_at: '2017-02-20 09:00:01.781824'
   updated_at: '2017-02-20 09:00:01.781824'
-activities_690201985:
+activity_690201985:
   id: 690201985
   athlete_id: 9123806
   gear_id: g852509
@@ -2129,7 +2129,7 @@ activities_690201985:
   suffer_score: 102
   created_at: '2017-02-20 09:00:05.52623'
   updated_at: '2017-02-20 09:00:05.52623'
-activities_690202807:
+activity_690202807:
   id: 690202807
   athlete_id: 9123806
   gear_id: g1642213
@@ -2164,7 +2164,7 @@ activities_690202807:
   suffer_score: 46
   created_at: '2017-02-20 09:00:11.995866'
   updated_at: '2017-02-20 09:00:11.995866'
-activities_690202921:
+activity_690202921:
   id: 690202921
   athlete_id: 9123806
   gear_id: g798788
@@ -2199,7 +2199,7 @@ activities_690202921:
   suffer_score: 54
   created_at: '2017-02-20 09:00:12.731163'
   updated_at: '2017-02-20 09:00:12.731163'
-activities_690204092:
+activity_690204092:
   id: 690204092
   athlete_id: 9123806
   gear_id: g798788
@@ -2234,7 +2234,7 @@ activities_690204092:
   suffer_score: 66
   created_at: '2017-02-20 09:00:19.070413'
   updated_at: '2017-02-20 09:00:19.070413'
-activities_690205494:
+activity_690205494:
   id: 690205494
   athlete_id: 9123806
   gear_id: g1642213
@@ -2269,7 +2269,7 @@ activities_690205494:
   suffer_score: 41
   created_at: '2017-02-20 09:00:26.45446'
   updated_at: '2017-02-20 09:00:26.45446'
-activities_690205831:
+activity_690205831:
   id: 690205831
   athlete_id: 9123806
   gear_id: g1642213
@@ -2305,7 +2305,7 @@ activities_690205831:
   suffer_score: 137
   created_at: '2017-02-20 09:00:30.226904'
   updated_at: '2017-02-20 09:00:30.226904'
-activities_690206108:
+activity_690206108:
   id: 690206108
   athlete_id: 9123806
   gear_id: g798788
@@ -2340,7 +2340,7 @@ activities_690206108:
   suffer_score: 90
   created_at: '2017-02-20 09:00:33.069068'
   updated_at: '2017-02-20 09:00:33.069068'
-activities_690206616:
+activity_690206616:
   id: 690206616
   athlete_id: 9123806
   gear_id: g1642213
@@ -2375,7 +2375,7 @@ activities_690206616:
   suffer_score: 124
   created_at: '2017-02-20 09:00:38.085278'
   updated_at: '2017-02-20 09:00:38.085278'
-activities_690207042:
+activity_690207042:
   id: 690207042
   athlete_id: 9123806
   gear_id: g798788
@@ -2410,7 +2410,7 @@ activities_690207042:
   suffer_score: 84
   created_at: '2017-02-20 09:00:41.145559'
   updated_at: '2017-02-20 09:00:41.145559'
-activities_690207362:
+activity_690207362:
   id: 690207362
   athlete_id: 9123806
   gear_id: g1642212
@@ -2445,7 +2445,7 @@ activities_690207362:
   suffer_score: 65
   created_at: '2017-02-20 09:00:44.108792'
   updated_at: '2017-02-20 09:00:44.108792'
-activities_690207421:
+activity_690207421:
   id: 690207421
   athlete_id: 9123806
   gear_id: g1642212
@@ -2480,7 +2480,7 @@ activities_690207421:
   suffer_score: 65
   created_at: '2017-02-20 09:00:44.933474'
   updated_at: '2017-02-20 09:00:44.933474'
-activities_690207642:
+activity_690207642:
   id: 690207642
   athlete_id: 9123806
   gear_id: g1642212
@@ -2515,7 +2515,7 @@ activities_690207642:
   suffer_score: 85
   created_at: '2017-02-20 09:00:47.898676'
   updated_at: '2017-02-20 09:00:47.898676'
-activities_690207717:
+activity_690207717:
   id: 690207717
   athlete_id: 9123806
   gear_id: g1642212
@@ -2550,7 +2550,7 @@ activities_690207717:
   suffer_score: 160
   created_at: '2017-02-20 09:00:48.613212'
   updated_at: '2017-02-20 09:00:48.613212'
-activities_690207902:
+activity_690207902:
   id: 690207902
   athlete_id: 9123806
   gear_id: g1642212
@@ -2585,7 +2585,7 @@ activities_690207902:
   suffer_score: 36
   created_at: '2017-02-20 09:00:50.596962'
   updated_at: '2017-02-20 09:00:50.596962'
-activities_690208078:
+activity_690208078:
   id: 690208078
   athlete_id: 9123806
   gear_id: g798788
@@ -2620,7 +2620,7 @@ activities_690208078:
   suffer_score: 160
   created_at: '2017-02-20 09:00:51.778814'
   updated_at: '2017-02-20 09:00:51.778814'
-activities_690208434:
+activity_690208434:
   id: 690208434
   athlete_id: 9123806
   gear_id: g1642213
@@ -2655,7 +2655,7 @@ activities_690208434:
   suffer_score: 105
   created_at: '2017-02-20 09:01:00.876255'
   updated_at: '2017-02-20 09:01:00.876255'
-activities_690208523:
+activity_690208523:
   id: 690208523
   athlete_id: 9123806
   gear_id: g1642212
@@ -2690,7 +2690,7 @@ activities_690208523:
   suffer_score: 90
   created_at: '2017-02-20 09:01:02.491397'
   updated_at: '2017-02-20 09:01:02.491397'
-activities_690208774:
+activity_690208774:
   id: 690208774
   athlete_id: 9123806
   gear_id: g1642212
@@ -2725,7 +2725,7 @@ activities_690208774:
   suffer_score: 87
   created_at: '2017-02-20 09:01:06.98506'
   updated_at: '2017-02-20 09:01:06.98506'
-activities_690208846:
+activity_690208846:
   id: 690208846
   athlete_id: 9123806
   gear_id: g1642212
@@ -2760,7 +2760,7 @@ activities_690208846:
   suffer_score: 93
   created_at: '2017-02-20 09:01:07.855384'
   updated_at: '2017-02-20 09:01:07.855384'
-activities_690208949:
+activity_690208949:
   id: 690208949
   athlete_id: 9123806
   gear_id: g1642212
@@ -2795,7 +2795,7 @@ activities_690208949:
   suffer_score: 195
   created_at: '2017-02-20 09:01:08.623055'
   updated_at: '2017-02-20 09:01:08.623055'
-activities_690209158:
+activity_690209158:
   id: 690209158
   athlete_id: 9123806
   gear_id: g1642212
@@ -2830,7 +2830,7 @@ activities_690209158:
   suffer_score: 
   created_at: '2017-02-20 09:01:10.254683'
   updated_at: '2017-02-20 09:01:10.254683'
-activities_690209577:
+activity_690209577:
   id: 690209577
   athlete_id: 9123806
   gear_id: g852509
@@ -2865,7 +2865,7 @@ activities_690209577:
   suffer_score: 155
   created_at: '2017-02-20 09:01:13.951516'
   updated_at: '2017-02-20 09:01:13.951516'
-activities_690210040:
+activity_690210040:
   id: 690210040
   athlete_id: 9123806
   gear_id: g852509
@@ -2900,7 +2900,7 @@ activities_690210040:
   suffer_score: 175
   created_at: '2017-02-20 09:01:14.790068'
   updated_at: '2017-02-20 09:01:14.790068'
-activities_690210467:
+activity_690210467:
   id: 690210467
   athlete_id: 9123806
   gear_id: g1642212
@@ -2935,7 +2935,7 @@ activities_690210467:
   suffer_score: 88
   created_at: '2017-02-20 09:01:17.264031'
   updated_at: '2017-02-20 09:01:17.264031'
-activities_690210668:
+activity_690210668:
   id: 690210668
   athlete_id: 9123806
   gear_id: g1642212
@@ -2970,7 +2970,7 @@ activities_690210668:
   suffer_score: 103
   created_at: '2017-02-20 09:01:18.561123'
   updated_at: '2017-02-20 09:01:18.561123'
-activities_690212023:
+activity_690212023:
   id: 690212023
   athlete_id: 9123806
   gear_id: g798788
@@ -3005,7 +3005,7 @@ activities_690212023:
   suffer_score: 87
   created_at: '2017-02-20 09:01:28.925333'
   updated_at: '2017-02-20 09:01:28.925333'
-activities_690213152:
+activity_690213152:
   id: 690213152
   athlete_id: 9123806
   gear_id: g798788
@@ -3040,7 +3040,7 @@ activities_690213152:
   suffer_score: 184
   created_at: '2017-02-20 09:01:33.810772'
   updated_at: '2017-02-20 09:01:33.810772'
-activities_690214045:
+activity_690214045:
   id: 690214045
   athlete_id: 9123806
   gear_id: g852509
@@ -3075,7 +3075,7 @@ activities_690214045:
   suffer_score: 142
   created_at: '2017-02-20 09:01:40.978342'
   updated_at: '2017-02-20 09:01:40.978342'
-activities_690214219:
+activity_690214219:
   id: 690214219
   athlete_id: 9123806
   gear_id: g798788
@@ -3110,7 +3110,7 @@ activities_690214219:
   suffer_score: 86
   created_at: '2017-02-20 09:01:42.230053'
   updated_at: '2017-02-20 09:01:42.230053'
-activities_690214327:
+activity_690214327:
   id: 690214327
   athlete_id: 9123806
   gear_id: g1126883
@@ -3145,7 +3145,7 @@ activities_690214327:
   suffer_score: 107
   created_at: '2017-02-20 09:01:43.385599'
   updated_at: '2017-02-20 09:01:43.385599'
-activities_690214538:
+activity_690214538:
   id: 690214538
   athlete_id: 9123806
   gear_id: g1126883
@@ -3180,7 +3180,7 @@ activities_690214538:
   suffer_score: 86
   created_at: '2017-02-20 09:01:45.31442'
   updated_at: '2017-02-20 09:01:45.31442'
-activities_690215227:
+activity_690215227:
   id: 690215227
   athlete_id: 9123806
   gear_id: g798788
@@ -3215,7 +3215,7 @@ activities_690215227:
   suffer_score: 179
   created_at: '2017-02-20 09:01:52.748892'
   updated_at: '2017-02-20 09:01:52.748892'
-activities_690216114:
+activity_690216114:
   id: 690216114
   athlete_id: 9123806
   gear_id: g1642212
@@ -3251,7 +3251,7 @@ activities_690216114:
   suffer_score: 299
   created_at: '2017-02-20 09:01:59.494248'
   updated_at: '2017-02-20 09:01:59.494248'
-activities_690216325:
+activity_690216325:
   id: 690216325
   athlete_id: 9123806
   gear_id: g1126883
@@ -3286,7 +3286,7 @@ activities_690216325:
   suffer_score: 80
   created_at: '2017-02-20 09:02:00.560269'
   updated_at: '2017-02-20 09:02:00.560269'
-activities_690216722:
+activity_690216722:
   id: 690216722
   athlete_id: 9123806
   gear_id: g798788
@@ -3321,7 +3321,7 @@ activities_690216722:
   suffer_score: 84
   created_at: '2017-02-20 09:02:04.514951'
   updated_at: '2017-02-20 09:02:04.514951'
-activities_690217795:
+activity_690217795:
   id: 690217795
   athlete_id: 9123806
   gear_id: g1126883
@@ -3356,7 +3356,7 @@ activities_690217795:
   suffer_score: 53
   created_at: '2017-02-20 09:02:09.301365'
   updated_at: '2017-02-20 09:02:09.301365'
-activities_690217893:
+activity_690217893:
   id: 690217893
   athlete_id: 9123806
   gear_id: g852509
@@ -3391,7 +3391,7 @@ activities_690217893:
   suffer_score: 158
   created_at: '2017-02-20 09:02:10.362127'
   updated_at: '2017-02-20 09:02:10.362127'
-activities_690232764:
+activity_690232764:
   id: 690232764
   athlete_id: 9123806
   gear_id: g1126883
@@ -3426,7 +3426,7 @@ activities_690232764:
   suffer_score: 78
   created_at: '2017-02-20 09:02:42.467612'
   updated_at: '2017-02-20 09:02:42.467612'
-activities_690235515:
+activity_690235515:
   id: 690235515
   athlete_id: 9123806
   gear_id: g1642212
@@ -3461,7 +3461,7 @@ activities_690235515:
   suffer_score: 271
   created_at: '2017-02-20 09:02:44.993259'
   updated_at: '2017-02-20 09:02:44.993259'
-activities_842318610:
+activity_842318610:
   id: 842318610
   athlete_id: 9123806
   gear_id: g1642212
@@ -3495,7 +3495,7 @@ activities_842318610:
   suffer_score: 84
   created_at: '2017-02-20 09:03:13.184285'
   updated_at: '2017-02-20 09:03:13.184285'
-activities_716148966:
+activity_716148966:
   id: 716148966
   athlete_id: 9123806
   gear_id: g1126882
@@ -3529,7 +3529,7 @@ activities_716148966:
   suffer_score: 191
   created_at: '2017-02-20 09:02:46.964722'
   updated_at: '2017-06-25 06:49:37.195216'
-activities_1019790623:
+activity_1019790623:
   id: 1019790623
   athlete_id: 9123806
   gear_id: g2240938
@@ -3564,7 +3564,7 @@ activities_1019790623:
   suffer_score: 126
   created_at: '2017-06-04 01:24:59.761904'
   updated_at: '2017-06-25 06:51:07.432104'
-activities_690213876:
+activity_690213876:
   id: 690213876
   athlete_id: 9123806
   gear_id: g1126883
@@ -3599,7 +3599,7 @@ activities_690213876:
   suffer_score: 77
   created_at: '2017-02-20 09:01:40.212714'
   updated_at: '2017-03-21 00:19:06.130369'
-activities_690214708:
+activity_690214708:
   id: 690214708
   athlete_id: 9123806
   gear_id: g798788
@@ -3634,7 +3634,7 @@ activities_690214708:
   suffer_score: 85
   created_at: '2017-02-20 09:01:47.413757'
   updated_at: '2017-03-21 00:19:15.310234'
-activities_690215044:
+activity_690215044:
   id: 690215044
   athlete_id: 9123806
   gear_id: g1126883
@@ -3669,7 +3669,7 @@ activities_690215044:
   suffer_score: 83
   created_at: '2017-02-20 09:01:50.743306'
   updated_at: '2017-03-21 00:19:17.962747'
-activities_690215385:
+activity_690215385:
   id: 690215385
   athlete_id: 9123806
   gear_id: g1126883
@@ -3704,7 +3704,7 @@ activities_690215385:
   suffer_score: 73
   created_at: '2017-02-20 09:01:53.623645'
   updated_at: '2017-03-21 00:19:20.757826'
-activities_690215985:
+activity_690215985:
   id: 690215985
   athlete_id: 9123806
   gear_id: g1642212
@@ -3739,7 +3739,7 @@ activities_690215985:
   suffer_score: 82
   created_at: '2017-02-20 09:01:58.131058'
   updated_at: '2017-03-21 00:19:26.493511'
-activities_690225037:
+activity_690225037:
   id: 690225037
   athlete_id: 9123806
   gear_id: g1642212
@@ -3775,7 +3775,7 @@ activities_690225037:
   suffer_score: 263
   created_at: '2017-02-20 09:02:19.963561'
   updated_at: '2017-04-08 02:18:05.318335'
-activities_746513888:
+activity_746513888:
   id: 746513888
   athlete_id: 9123806
   gear_id: g1126882
@@ -3809,7 +3809,7 @@ activities_746513888:
   suffer_score: 269
   created_at: '2017-02-20 09:02:50.91778'
   updated_at: '2017-06-25 06:49:41.765618'
-activities_861862237:
+activity_861862237:
   id: 861862237
   athlete_id: 9123806
   gear_id: g1126883
@@ -3843,7 +3843,7 @@ activities_861862237:
   suffer_score: 394
   created_at: '2017-02-20 09:03:20.272343'
   updated_at: '2017-06-25 06:50:15.236736'
-activities_690211873:
+activity_690211873:
   id: 690211873
   athlete_id: 9123806
   gear_id: g1642212
@@ -3879,7 +3879,7 @@ activities_690211873:
   suffer_score: 285
   created_at: '2017-02-20 09:01:26.720735'
   updated_at: '2017-04-08 02:17:08.616115'
-activities_905343871:
+activity_905343871:
   id: 905343871
   athlete_id: 9123806
   gear_id: g798788
@@ -3913,7 +3913,7 @@ activities_905343871:
   suffer_score: 235
   created_at: '2017-03-19 02:10:11.622432'
   updated_at: '2017-06-25 06:50:29.077561'
-activities_922387515:
+activity_922387515:
   id: 922387515
   athlete_id: 9123806
   gear_id: g798788
@@ -3947,7 +3947,7 @@ activities_922387515:
   suffer_score: 92
   created_at: '2017-04-01 00:48:41.346298'
   updated_at: '2017-06-25 06:50:33.471828'
-activities_932298832:
+activity_932298832:
   id: 932298832
   athlete_id: 9123806
   gear_id: g1642212
@@ -3981,7 +3981,7 @@ activities_932298832:
   suffer_score: 275
   created_at: '2017-04-08 01:22:31.021464'
   updated_at: '2017-06-25 06:50:38.46072'
-activities_952328683:
+activity_952328683:
   id: 952328683
   athlete_id: 9123806
   gear_id: g798788
@@ -4015,7 +4015,7 @@ activities_952328683:
   suffer_score: 82
   created_at: '2017-04-22 12:52:04.408357'
   updated_at: '2017-06-25 06:50:44.404191'
-activities_690201353:
+activity_690201353:
   id: 690201353
   athlete_id: 9123806
   gear_id: g798788
@@ -4050,7 +4050,7 @@ activities_690201353:
   suffer_score: 162
   created_at: '2017-02-20 09:00:00.834789'
   updated_at: '2017-06-25 06:46:31.748364'
-activities_731800152:
+activity_731800152:
   id: 731800152
   athlete_id: 9123806
   gear_id: g1126882
