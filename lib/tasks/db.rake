@@ -28,7 +28,7 @@ namespace :db do
     system 'rake db:migrate'
   end
 
-  desc 'Convert development DB to test fixtures'
+  desc 'Convert development DB to Rails test fixtures'
   task to_fixtures: :environment do
     TABLES_TO_SKIP = %w[ar_internal_metadata delayed_jobs schema_info schema_migrations].freeze
 
@@ -43,7 +43,7 @@ namespace :db do
           rows = ActiveRecord::Base.connection.select_all("SELECT * FROM #{table_name}")
           data = rows.each_with_object({}) do |record, hash|
             suffix = record['id'].blank? ? conter.succ! : record['id']
-            hash["#{table_name}_#{suffix}"] = record
+            hash["#{table_name.singularize}_#{suffix}"] = record
           end
           puts "Writing table '#{table_name}' to '#{file_path}'"
           file.write(data.to_yaml)

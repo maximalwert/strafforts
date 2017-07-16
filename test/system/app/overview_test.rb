@@ -6,6 +6,6 @@ class OverviewTest < AppTestBase
     visit DEMO_URL
 
     # assert.
-    assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | Overview")
+    assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | #{OVERVIEW_TITLE}")
   end
 end

@@ -5,6 +5,10 @@ module App
         '.main-header'
       end
 
+      def self.sidebar_toggle
+        "#{main_header} .sidebar-toggle"
+      end
+
       def self.btn_user_menu
         "#{main_header} .user-menu .dropdown-toggle"
       end
