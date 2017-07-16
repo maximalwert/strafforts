@@ -47,7 +47,7 @@ class RacesTimelineTest < AppTestBase
     ALL_SCREENS.each do |screen_size|
       # act.
       resize_window_to(screen_size)
-      sleep 1
+      sleep 0.2
 
       # assert.
       ALL_RACE_YEARS.each do |year|
@@ -70,6 +70,7 @@ class RacesTimelineTest < AppTestBase
     within(timeline_filter_buttons) do
       button = find(:xpath, ".//button[text()='#{text}']")
       button.click
+      sleep 0.2
       assert(button[:class].include?('active'), "Button (#{text})'s classes '#{button[:class]}' should contain 'active'.")
     end
   end
