@@ -3,7 +3,7 @@ require 'ostruct'
 module ApplicationHelper
   class Helper
     @@major_best_effort_types = ['Marathon', 'Half Marathon', '10k', '5k']
-    @@other_best_effort_types = ['50k', '30k', '20k', '10 miles', '15k', '2 miles', '1 mile', '1k', '1/2 mile', '400m']
+    @@other_best_effort_types = ['50k', '30k', '20k', '10 mile', '15k', '2 mile', '1 mile', '1k', '1/2 mile', '400m']
     @@major_race_distances = ['Marathon', 'Half Marathon', '10k', '5k']
     @@other_race_distances = ['100 miles', '100k', '50 miles', '50k', '20k', '15k', '3000m', '1 mile', 'Other']
 
