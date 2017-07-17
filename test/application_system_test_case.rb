@@ -30,12 +30,12 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   ALL_BEST_EFFORTS_TYPES = [
     '50k', 'Marathon', '30k', 'Half Marathon', '20k',
-    '10 Miles', '15k', '10k', '5k', '2 Miles',
+    '10 Mile', '15k', '10k', '5k', '2 Mile',
     '1 Mile', '1k', '1/2 Mile', '400m'
   ].freeze
   BEST_EFFORTS_TYPES_WITH_ALL_CHARTS_SHOWN = [
     'Half Marathon', '20k',
-    '10 Miles', '15k', '10k', '5k', '2 Miles',
+    '10 Mile', '15k', '10k', '5k', '2 Mile',
     '1 Mile', '1k', '1/2 Mile', '400m'
   ].freeze
   BEST_EFFORTS_CHART_TITLES = [
