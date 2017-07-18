@@ -33,7 +33,7 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 3. Bundle install
 
        cd strafforts
-       bundle install
+       bundle
 
 4. Generate secret tokens and create `secrets.yml`
 
@@ -84,13 +84,13 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
     The app uses [Yarn][Yarn] to manage JS dependencies. Please first make sure it's properly installed. Then use the following command to install:
 
-       yarn install
+       yarn
 
-    The app uses [TypeScript][TypeScript] instead of JavaScripts. A post-install step has been configured to compile TypeScript files after `yarn install`.
+    The app uses [TypeScript][TypeScript] instead of JavaScripts. A post-install step has been configured to compile TypeScript files after `yarn`.
 
 8. Fire up web server, worker and watcher.
 
-       rake foreman:start
+       bundle exec rake foreman:dev
 
       This Rake task is designed to provide that one command for all development needs using [Foreman][Foreman]:
       - fire up a Rails web server
@@ -99,7 +99,7 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
       - start a process worker to fetch data
       - start a watcher process that compiles TypeScript and watch for changes.
 
-      It might not work properly on Windows machines, then web server and workers process can be started by `foreman start`, while the watcher process needs to be started manually.
+      It might not work properly on Windows machines, then web server and workers process can be started by `foreman start`, while the watcher process needs to be started manually with `yarn dev`.
 
 9. Connect with Strava
 
@@ -108,29 +108,29 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
 10. Fetch data manually if needed
 
-    Foreman's worker process should fetch all estimated best efforts once Strafforts has connected to Strava. Alternatively, the same can be achieved by the following rake tasks:
+    Foreman's worker process should fetch all estimated best efforts once Strafforts has connected to Strava. Alternatively, the same can be achieved by the following rake tasks defined in `/lib/tasks/fetch.rake`.
 
-        rake fetch:all                          # Fetch all data for all athletes
-        rake fetch:athlete                      # Fetch data for a particular athlete by ID. Usage: rake fetch:athlete [all/latest] athlete_id
-        rake fetch:best_efforts                 # Fetch best efforts for all athletes. Usage: rake fetch:best_efforts [all/latest]
-        rake fetch:latest                       # Fetch the latest data for all athletes
-        rake fetch:races                        # Fetch races for all athletes. Usage: rake fetch:races [all/latest]
+        bundle exec rake fetch:all                                            # Fetch all data for all athletes
+        bundle exec rake fetch:athlete MODE=[all/latest] ID=[athlete_id]      # Fetch data for a particular athlete by ID
+        bundle exec rake fetch:best_efforts MODE=[all/latest]                 # Fetch best efforts for all athletes
+        bundle exec rake fetch:latest                                         # Fetch the latest data for all athletes
+        bundle exec rake fetch:races MODE=[all/latest]                        # Fetch races for all athletes
 
 11. Run tests
 
       There are few but not a lot of tests written. If you wish to run them, please follow the steps below:
 
-      - Migrate and seed testing DB
+      - Make sure testing DB has been created
 
-            rake db:migrate RAILS_ENV=test && rake db:seed RAILS_ENV=test
+            bundle exec rake db:create
 
       - Run unit tests.
 
-            rake test
+            bin/rails test
 
-      - Run Selenium UI tests defined in Cucumber features. Remember to start the server first by `rails server`.
+      - Run Rails system tests.
 
-            rake test:ui
+            bin/rails test:system
 
 ## Install on Heroku
 
