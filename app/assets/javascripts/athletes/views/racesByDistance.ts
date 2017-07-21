@@ -18,11 +18,18 @@ namespace Views {
             this.distanceFormattedForUrl = distance.trim().replace(/\//g, '|').replace(/\s/g, '-').toLowerCase();
         }
 
-        public load(): void {
+        public updateWindowState(): void {
             const viewUrl = `${AppHelpers.getBaseUrl()}?view=races&distance=${this.distanceFormattedForUrl}`;
+            super.updateWindowState(viewUrl);
+        }
+
+        public load(): void {
+            // Update again on purpose, so that browser's back button would never trigger state change again.
+            this.updateWindowState();
+
             const distanceId = this.distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-');
             const navigationAnchor = $(`a[id^="races-for-distance-${distanceId}"]`);
-            super.prepareView(viewUrl, 'Races', this.distance, navigationAnchor);
+            super.prepareView('Races', this.distance, navigationAnchor);
 
             this.createViewTemplate();
             this.createView();
