@@ -10,7 +10,7 @@ namespace AppHelpers {
 
     export function getBaseUrl(isApiCall?: boolean) {
         const athleteId = $('#athlete-id').text().trim();
-        const urlPrefix = `${window.location.protocol}//${window.location.host}${isApiCall ? '/api' : ''}/athletes/${athleteId}`;
+        const urlPrefix = `${Helpers.getBaseUrl()}${isApiCall ? '/api' : ''}/athletes/${athleteId}`;
         return urlPrefix;
     }
 
