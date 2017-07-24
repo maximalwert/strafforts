@@ -7,7 +7,7 @@ class Faqs
 Strava's <a href='https://strava.github.io/api/v3/oauth/' target='_blank'>authentication API</a>.</p>
 <p>All you need to do is to login to your Strava account then connect Strafforts with Strava.</p>")
     add('account', 'Is it possible to remove all my data on Strafforts?', "
-<p>Yes, abusolutely. You can go to your <code>Settings</code> - <code>Diagnostics</code> panel,
+<p>Yes, abusolutely. You can go to your <code>Settings</code> sidebar, click on <code>Diagnostics</code> tab,
 then click 'Delete All' button to remove yourself from Strafforts server.</p>
 <p>If you've changed your mind,
 you can re-connect to give Strafforts permission to retrieve your Strava data again.
@@ -20,7 +20,7 @@ like <code>Best estimated Half-Marathon effort (1:33:51)</code>, etc.</p>
 This means best efforts are not calculated here on Strafforts, but directly retrieved from Strava.
 If the activity on Strava missed out some gold trophies, they won't be shown here either.</p>
 <p><img src='https://support.strava.com/attachments/token/UJw9NjMB5AZSqRm8sst8kUqUy/?name=activity+-+Best+Effort.png'
-style='width:100%;'></p>
+style='width:85%;'></p>
 <p>For more details, see <a href='https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running'
 target='_blank'>What are 'Estimated Best Efforts'?</a> on Strava support forum.</p>")
     add('best-efforts', "Why can't I find some of my best efforts?", "
@@ -100,7 +100,7 @@ for more detailed and focused analysis of your training.
 Those four tags are Run, Race, Long Run, and Workout.</p>
 <p>Activties that are tagged as <code>Race</code> will be fetched and analyzed by Strafforts,
 then displayed within distance or year view, as well as timeline view.</p>
-<p><img src='/screenshots/doc-tag-run-as-race.png' style='width:100%;'></p>
+<p><img src='/screenshots/doc-tag-run-as-race.png' style='width:85%;'></p>
 <p>For more details,
 see <a href='https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs'
 target='_blank'>What are Strava races and how to create them?</a> on Strava support forum.</p>")
