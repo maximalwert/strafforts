@@ -33,13 +33,13 @@
 
 ### Add-ons
 
-- [PaperTrail](https://papertrailapp.com) - The log management service we always wanted. Papertrail makes logs fun. Ish.
+- [LogDNA](https://www.logdna.com/) - The easiest cloud log management system you will ever use.
 - [Trevor.io](https://trevor.io/) - Postgres Data Explorer your whole team can use.
 
 ## Testing
 
 - [Travis CI](https://travis-ci.org/) - A hosted, distributed continuous integration service used to build and test software projects hosted at GitHub.
-- [Cucumber](https://cucumber.io/) - Runs automated acceptance tests written in a behavior-driven development (BDD) style
+- [poltergeist](https://github.com/teampoltergeist/poltergeist) - A PhantomJS driver for Capybara
 - [Selenium WebDriver](https://github.com/SeleniumHQ/selenium) - A browser automation framework and ecosystem.
 
 [Ruby on Rails]: http://rubyonrails.org/

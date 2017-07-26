@@ -51,8 +51,9 @@
     "webpack-merge": "^4.1.0"
   },
   "scripts": {
-    "dev": "concurrently \"node_modules/.bin/tsc --project app/assets/javascripts/home/ --watch\" \"node_modules/.bin/tsc --project app/assets/javascripts/athletes/ --watch\"",
-    "postinstall": "node_modules/.bin/tsc --project app/assets/javascripts/athletes/ && node_modules/.bin/tsc --project app/assets/javascripts/home/"
+    "start": "bundle exec rake foreman:dev",
+    "postinstall": "node_modules/.bin/tsc --project app/assets/javascripts/athletes/ && node_modules/.bin/tsc --project app/assets/javascripts/home/",
+    "watch": "concurrently \"node_modules/.bin/tsc --project app/assets/javascripts/home/ --watch\" \"node_modules/.bin/tsc --project app/assets/javascripts/athletes/ --watch\""
   },
   "devDependencies": {
     "webpack-dev-server": "^2.4.5"

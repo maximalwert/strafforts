@@ -26,7 +26,7 @@ class BestEffortsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should GET index for Half Marathon' do
-    get URI.encode('/api/athletes/9123806/best-efforts/half-marathon')
+    get '/api/athletes/9123806/best-efforts/half-marathon'
     assert_response :success
   end
 

@@ -22,6 +22,13 @@ namespace EventBinders {
                 }
             });
 
+            // Load FAQ upon clicking 'FAQ' tab button if not yet created.
+            $(document).on('click', "a[href^='#pane-faqs']", () => {
+                if ($('#pane-faqs .loading-icon-panel').length) {
+                    new Views.Overview().loadFaqsPanel();
+                }
+            });
+
             // Bind other view loading events.
             $(document).on('click', '.show-races-timeline', () => {
                 new Views.RacesTimeline().load();

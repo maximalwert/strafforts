@@ -20,9 +20,9 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   RCAES_TIMELINE_TITLE = 'Races Timeline'.freeze
   STRAVA_URL = 'https://www.strava.com'.freeze
 
-  SOCIAL_SHARING_BUTTONS = [
-    'Facebook', 'LinkedIn', 'Twitter', 'Email', 'Reddit', 'More'
-  ].freeze
+  SOCIAL_SHARING_BUTTONS = %w[Facebook LinkedIn Twitter Email Reddit More].freeze
+
+  FAQ_CATEGORIES = ['Account', 'Best Efforts', 'Races', 'Miscellaneous'].freeze
 
   MAJOR_DISTANCES = [
     'Marathon', 'Half Marathon', '10k', '5k'
