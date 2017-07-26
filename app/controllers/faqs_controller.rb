@@ -7,7 +7,9 @@ class Faqs
 Strava's <a href='https://strava.github.io/api/v3/oauth/' target='_blank'>authentication API</a>.</p>
 <p>All you need to do is to login to your Strava account then connect Strafforts with Strava.</p>")
     add('account', 'Is it possible to remove all my data on Strafforts?', "
-<p>Yes, abusolutely. You can go to your <code>Settings</code> sidebar, click on <code>Diagnostics</code> tab,
+<p>Yes, abusolutely. First make sure you have connected and logged into Strafforts,
+then go to your 'Settings' sidebar by clicking <code><i class='fa fa-gears'></i></code> at top right corner of the app,
+and choosing <code><i class='fa fa-wrench'></i></code> tab,
 then click 'Delete All' button to remove yourself from Strafforts server.</p>
 <p>If you've changed your mind,
 you can re-connect to give Strafforts permission to retrieve your Strava data again.
@@ -18,7 +20,7 @@ However, since all data has been deleted on our server, it might take a while to
 like <code>Best estimated Half-Marathon effort (1:33:51)</code>, etc.</p>
 <p>Every best effort here on Strafforts will have a corresponding gold best efforts trophy on Strava, and vice versa.
 This means best efforts are not calculated here on Strafforts, but directly retrieved from Strava.
-If the activity on Strava missed out some gold trophies, they won't be shown here either.</p>
+If an activity on Strava missed out some gold trophies, they won't be shown here either.</p>
 <p><img src='https://support.strava.com/attachments/token/UJw9NjMB5AZSqRm8sst8kUqUy/?name=activity+-+Best+Effort.png'
 style='width:85%;'></p>
 <p>For more details, see <a href='https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running'
@@ -81,7 +83,7 @@ Because at the refreshing process, Strava will treat the later activities as 1st
 But since you are not refreshing those activities, best efforts on those activities won't be updated.</p>
 <p>Say for example,</p>
 <ul>
-<li>Activity ID 11111: 5k 20 minutes, 1st best efforts for 5k</li>
+<li>Activity ID 11111: 5k 10 minutes, 1st best efforts for 5k</li>
 <li>Activity ID 22222: 5k 25 minutes, 2nd best efforts for 5k</li>
 <li>Activity ID 33333: 5k 21 minutes, 2nd best efforts for 5k</li>
 <li>Activity ID 44444: 5k 23 minutes, 3rd best efforts for 5k</li>
@@ -91,7 +93,7 @@ so there will be no more '1st best efforts' for 5k on this activity.
 All other activities will remain the same too, which means there is no more '1st best efforts' on any activities.
 If you refresh the achievements of 22222 now, it will become '3rd best efforts for 5k'.
 Because Strava recalculates achievements based on all existing activities as of the time refreshing is done,
-25 minutes is only the '3rd best efforts for 5k' now. So athlete would never get '1st best efforts' back.</p>
+25 minutes is only the '3rd best efforts for 5k' now. So the athlete would never get '1st best efforts' back.</p>
 ")
 
     add('races', 'What are "Races" and how to create them?', "
@@ -111,7 +113,7 @@ Strafforts will treat it as a 10k race.</p>
 <p>If the actual distance of your 10k race is 9.7km or 10.5km,
 then Strafforts will put this activity under distance of 'Other'.</p>")
     add('races', 'Why my race is categorized as "Other"?', "
-<p>Race distance is determined by the actual distance of a Strava activity.
+<p>Same as above. Race distance is determined by the actual distance of a Strava activity.
 If it's within 2.5% under or 5% over margin of a pre-defined distance (10k for example),
 Strafforts will treat it as a 10k race.</p>
 <p>If the actual distance of your 10k race is 9.7km or 10.5km,

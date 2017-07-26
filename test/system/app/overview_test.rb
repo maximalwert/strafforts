@@ -25,6 +25,11 @@ class OverviewTest < AppTestBase
       headers.each do |header|
         assert(FAQ_CATEGORIES.include?(header.text))
       end
+
+      links = all(:css, '.accordion .box-body a')
+      links.each do |link|
+        assert_equal('_blank', link[:target], "Link's href: '#{link[:href]}'")
+      end
     end
   end
 end
