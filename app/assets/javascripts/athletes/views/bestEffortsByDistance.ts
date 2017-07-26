@@ -15,11 +15,18 @@ namespace Views {
             this.distanceFormattedForUrl = distance.trim().replace(/\//g, '|').replace(/\s/g, '-').toLowerCase();
         }
 
-        public load(): void {
+        public updateWindowState(): void {
             const viewUrl = `${AppHelpers.getBaseUrl()}?view=best-efforts&distance=${this.distanceFormattedForUrl}`;
+            super.updateWindowState(viewUrl);
+        }
+
+        public load(): void {
+            // Update again on purpose, so that browser's back button would never trigger state change again.
+            this.updateWindowState();
+
             const distanceId = this.distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-');
             const navigationAnchor = $(`a[id^="best-efforts-for-distance-${distanceId}"]`);
-            super.prepareView(viewUrl, 'Best Efforts', this.distance, navigationAnchor);
+            super.prepareView('Best Efforts', this.distance, navigationAnchor);
 
             this.createViewTemplate();
             this.createView();

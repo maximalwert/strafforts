@@ -29,23 +29,6 @@ namespace EventBinders {
                 }
             });
 
-            // Bind other view loading events.
-            $(document).on('click', '.show-races-timeline', () => {
-                new Views.RacesTimeline().load();
-            });
-            $(document).on('click', "a[id^='best-efforts-for-']", (event) => {
-                const distance = $(event.currentTarget).find('.item-text').text().trim();
-                new Views.BestEffortsByDistance(distance).load();
-            });
-            $(document).on('click', "a[id^='races-for-distance']", (event) => {
-                const distance = $(event.currentTarget).find('.item-text').text().trim();
-                new Views.RacesByDistance(distance).load();
-            });
-            $(document).on('click', "a[id^='races-for-year']", (event) => {
-                const year = $(event.currentTarget).find('.item-text').text().trim();
-                new Views.RacesByYear(year).load();
-            });
-
             // Bind race filter buttons in Races Timeline view.
             $(document).on('click', '.filter-buttons .btn:not(.show-all)', (event) => {
                 // Set the filter button to active upon clicking.

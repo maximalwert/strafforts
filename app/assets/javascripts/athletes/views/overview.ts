@@ -5,7 +5,8 @@ namespace Views {
 
         public load(): void {
             const viewUrl = AppHelpers.getBaseUrl();
-            super.prepareView(viewUrl, 'Overview');
+            super.updateWindowState(viewUrl);
+            super.prepareView('Overview');
 
             this.createViewTemplate();
             this.createView();

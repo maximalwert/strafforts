@@ -8,14 +8,7 @@ Pace.on('hide', () => {
     $('body').removeClass('page-loading').addClass('page-loaded');
 });
 
-$(document).ready(() => {
-    toastr.options = Toastr.getOptions();
-
-    GoogleAnalytics.bindEvents().apply(null);
-    EventBinders.bindAll().apply(null);
-
-    new Views.NavigationSidebar().load();
-
+const loadView = () => {
     const view = Helpers.getUrlParameter('view');
     const distance = Helpers.getUrlParameter('distance');
     const distanceText = distance ? distance.replace('-', ' ').replace('|', '/') : '';
@@ -32,4 +25,37 @@ $(document).ready(() => {
     } else {
         new Views.Overview().load();
     }
+};
+
+$(document).ready(() => {
+    toastr.options = Toastr.getOptions();
+
+    GoogleAnalytics.bindEvents().apply(null);
+    EventBinders.bindAll().apply(null);
+
+    new Views.NavigationSidebar().load();
+
+    loadView();
+
+    // Update window state upon navigation bar clicking,
+    // which will trigger window.onpopstate change that will then load the view.
+    // In this way, browser's back button would never work (in a less confusing way).
+    $(document).on('click', '.show-races-timeline', () => {
+        new Views.RacesTimeline().updateWindowState();
+    });
+    $(document).on('click', "a[id^='best-efforts-for-']", (event) => {
+        const distance = $(event.currentTarget).find('.item-text').text().trim();
+        new Views.BestEffortsByDistance(distance).updateWindowState();
+    });
+    $(document).on('click', "a[id^='races-for-distance']", (event) => {
+        const distance = $(event.currentTarget).find('.item-text').text().trim();
+        new Views.RacesByDistance(distance).updateWindowState();
+    });
+    $(document).on('click', "a[id^='races-for-year']", (event) => {
+        const year = $(event.currentTarget).find('.item-text').text().trim();
+        new Views.RacesByYear(year).updateWindowState();
+    });
+    window.onpopstate = (event) => {
+        loadView();
+    };
 });
