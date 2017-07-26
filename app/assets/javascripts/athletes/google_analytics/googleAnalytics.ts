@@ -44,8 +44,11 @@ namespace GoogleAnalytics {
             $('#main-content').on('click', '.nav-tabs li', (event) => {
                 GoogleAnalyticsHelpers.sendEvent('App - Main Content', 'Click Navigation Tab', event.currentTarget);
             });
-            $('#main-content').on('click', '.box-header a', (event) => {
+            $('#main-content').on('click', '.box-header a small', (event) => {
                 GoogleAnalyticsHelpers.sendEvent('App - Main Content', 'Click View Details', event.currentTarget);
+            });
+            $('#main-content').on('click', '#pane-faqs .accordion .box-header .box-title a', (event) => {
+                GoogleAnalyticsHelpers.sendEvent('App - Main Content', 'Show FAQ', event.currentTarget);
             });
             $('#main-content').delegate('.dataTables_wrapper .dataTables_filter input', 'click', (event) => {
                 setTimeout(() => {

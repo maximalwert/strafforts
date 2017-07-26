@@ -14,6 +14,14 @@ $color-red: #F56954;
 $color-yellow: #F39C12;
 $color-light-grey: rgba(128, 128, 128, .5);
 
+@mixin transition($args...) {
+    -webkit-transition: $args;
+       -moz-transition: $args;
+        -ms-transition: $args;
+         -o-transition: $args;
+            transition: $args;
+}
+
 input[type='submit'] {
     font-family: FontAwesome,'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
@@ -116,11 +124,7 @@ input[type='submit'] {
 
     .logo,
     .navbar .sidebar-toggle {
-        -webkit-transition: all .2s ease-in-out;
-           -moz-transition: all .2s ease-in-out;
-            -ms-transition: all .2s ease-in-out;
-             -o-transition: all .2s ease-in-out;
-                transition: all .2s ease-in-out;
+        @include transition(all .2s ease-in-out);
     }
 
     /* Style User Menu Dropdown */
@@ -166,11 +170,8 @@ input[type='submit'] {
     .sidebar-menu {
         .treeview-menu {
             li a {
-                -webkit-transition: all .2s ease-in-out;
-                   -moz-transition: all .2s ease-in-out;
-                    -ms-transition: all .2s ease-in-out;
-                     -o-transition: all .2s ease-in-out;
-                        transition: all .2s ease-in-out;
+                @include transition(all .2s ease-in-out);
+
                 &:hover {
                     box-shadow: inset 3px 0 0 $color-strava;
                 }
@@ -208,8 +209,30 @@ input[type='submit'] {
 }
 
 #main-content {
-    .nav-tabs-custom > .nav-tabs > li.active {
-        border-top-color: $color-strava;
+    .nav-tabs-custom > .nav-tabs {
+        li.active,
+        li.faq {
+            border-top-color: $color-strava;
+        }
+    }
+
+    .accordion {
+        .box-title {
+            font-size: 16px;
+            a {
+                @include transition(all .2s ease-in-out);
+
+                text-decoration: none;
+
+                color: inherit;
+                outline: 0;
+
+                &:hover {
+                    color: $color-strava;
+                    border-bottom-color: $color-strava;
+                }
+            }
+        }
     }
 
     .timeline-wrapper {
@@ -311,11 +334,8 @@ input[type='submit'] {
     /* Style links within data tables */
     .dataTable {
         a {
-            -webkit-transition: all .2s ease-in-out;
-               -moz-transition: all .2s ease-in-out;
-                -ms-transition: all .2s ease-in-out;
-                 -o-transition: all .2s ease-in-out;
-                    transition: all .2s ease-in-out;
+            @include transition(all .2s ease-in-out);
+
             text-decoration: none;
 
             color: inherit;
@@ -361,11 +381,8 @@ input[type='submit'] {
             background: transparent !important;
 
             a {
-                -webkit-transition: all .2s ease-in-out;
-                   -moz-transition: all .2s ease-in-out;
-                    -ms-transition: all .2s ease-in-out;
-                     -o-transition: all .2s ease-in-out;
-                        transition: all .2s ease-in-out;
+                @include transition(all .2s ease-in-out);
+
                 text-decoration: none;
 
                 color: inherit;
@@ -451,11 +468,7 @@ input[type='submit'] {
 body.page-loading > :not(.pace),
 body.page-loading:after,
 body.page-loading:before {
-    -webkit-transition: opacity .4s ease-in-out;
-       -moz-transition: opacity .4s ease-in-out;
-        -ms-transition: opacity .4s ease-in-out;
-         -o-transition: opacity .4s ease-in-out;
-            transition: opacity .4s ease-in-out;
+    @include transition(opacity .4s ease-in-out);
 }
 
 body.page-loading:not(.pace-done) > :not(.pace),

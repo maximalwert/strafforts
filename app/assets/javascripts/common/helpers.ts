@@ -23,6 +23,10 @@ namespace Helpers {
             });
     }
 
+    export function getBaseUrl() {
+        return `${window.location.protocol}//${window.location.host}`;
+    }
+
     export function getRgbColors(limit?: number) {
         const colors: RgbColor[] = [
             new RgbColor(189, 214, 186),

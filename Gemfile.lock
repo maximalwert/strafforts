@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/activemodel-serializers-xml.git
-  revision: dd9c0acf26aab111ebc647cd8deb99ebc6946531
+  revision: 675d3e8489e3a9f4d605feb4c9a1c71a082fc63f
   specs:
     activemodel-serializers-xml (1.0.1)
       activemodel (> 5.x)
@@ -50,7 +50,7 @@ GEM
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (8.0.0)
-    autoprefixer-rails (7.1.2.2)
+    autoprefixer-rails (7.1.2.3)
       execjs
     bindex (0.5.0)
     bootstrap-sass (3.3.7)
@@ -105,7 +105,7 @@ GEM
       httparty (>= 0.7.3)
       mimemagic
       multipart-post
-    httparty (0.15.5)
+    httparty (0.15.6)
       multi_xml (>= 0.5.2)
     i18n (0.8.6)
     jbuilder (2.7.0)
@@ -130,13 +130,14 @@ GEM
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
     mini_portile2 (2.2.0)
-    minitest (5.10.2)
+    minitest (5.10.3)
     multi_json (1.12.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
+    os (1.0.0)
     pg (0.21.0)
     phantomjs (2.1.1.0)
     poltergeist (1.15.0)
@@ -220,7 +221,7 @@ GEM
       multi_json
     thor (0.19.4)
     thread_safe (0.3.6)
-    tilt (2.0.7)
+    tilt (2.0.8)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
@@ -260,6 +261,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  os (~> 1.0)
   pg (~> 0.18)
   phantomjs
   poltergeist

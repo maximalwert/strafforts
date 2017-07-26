@@ -90,16 +90,16 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
 8. Fire up web server, worker and watcher.
 
-       bundle exec rake foreman:dev
+       yarn start
 
-      This Rake task is designed to provide that one command for all development needs using [Foreman][Foreman]:
+      This command is designed to provide that one command for all development needs using [Foreman][Foreman]:
       - fire up a Rails web server
 
         It can be accessed from <http://localhost:5000> by default.
-      - start a process worker to fetch data
+      - start a worker process to fetch data
       - start a watcher process that compiles TypeScript and watch for changes.
 
-      It might not work properly on Windows machines, then web server and workers process can be started by `foreman start`, while the watcher process needs to be started manually with `yarn dev`.
+      Note that the watcher might not work properly on Windows machines so that it needs to be started manually. See `yarn watch` command in `package.json` for more details.
 
 9. Connect with Strava
 

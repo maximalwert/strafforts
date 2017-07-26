@@ -15,9 +15,12 @@ Rails.application.routes.draw do
   get 'api/athletes/:id_or_username/races/get_counts_by_distance' => 'races#get_counts_by_distance'
   get 'api/athletes/:id_or_username/races/get_counts_by_year' => 'races#get_counts_by_year'
   get 'api/athletes/:id_or_username/races/:distance_or_year' => 'races#index'
+  get 'api/faqs/get_all' => 'faqs#index'
 
   post 'athletes/:id_or_username/save_profile' => 'athletes#save_profile'
   post 'athletes/:id_or_username/reset_last_activity_retrieved' => 'athletes#reset_last_activity_retrieved'
+
+  get 'faqs/index' => 'faqs#index'
 
   get 'home/index'
 

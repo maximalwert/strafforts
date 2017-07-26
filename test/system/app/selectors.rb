@@ -31,6 +31,10 @@ module App
         '#main-content'
       end
 
+      def self.nav_tab_faq
+        "#{main_content} .nav-tabs .faq a"
+      end
+
       def self.timeline_filter_buttons
         "#{main_content} .timeline-wrapper .filter-buttons"
       end

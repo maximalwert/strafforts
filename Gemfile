@@ -40,7 +40,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
-  gem 'phantomjs', :require => 'phantomjs/poltergeist'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist' unless Gem.win_platform?
   gem 'poltergeist'
   gem 'selenium-webdriver'
 end
@@ -58,6 +58,8 @@ group :development do
 
   # Require wdm for Windows.
   gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+
+  gem 'os', '~> 1.0'
 end
 
 group :test do
