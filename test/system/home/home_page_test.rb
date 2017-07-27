@@ -222,6 +222,7 @@ class HomePageTest < ApplicationSystemTestCase
 
   def assert_connect_with_strava_button_loads_successfully
     connect_with_strava_button = find(Home::Selectors.connect_with_strava_button)
+    assert(connect_with_strava_button[:href].start_with?(STRAVA_AUTHORIZATION_URL_PARTIAL))
     assert_equal('Connect With Strava', connect_with_strava_button[:title])
   end
 end

@@ -81,6 +81,12 @@
               <i class="fa fa-gears"></i>
             </a>
           </li>
+        <% else %>
+          <li>
+            <a href="<%= @auth_url %>" class="btn-connect-with-strava" title="Connect With Strava">
+              <%= image_tag("btn_strava_connectwith_orange.png", :alt => "Connect With Strava") %>
+            </a>
+          </li> 
         <% end %>
       </ul>
   </ul>

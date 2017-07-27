@@ -1,7 +1,6 @@
 class AthletesController < ApplicationController
-  STRAVA_ATHLETES_URL = Settings.strava.athletes_base_url
-
   def index
+    @auth_url = ApplicationController.get_auth_url(request)
     athlete = Athlete.find_by_id_or_username(params[:id_or_username])
     if athlete.nil?
       raise ActionController::RoutingError, "Could not find athlete '#{params[:id_or_username]}' by id or username"

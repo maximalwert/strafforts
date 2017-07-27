@@ -19,6 +19,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   OVERVIEW_TITLE = 'Overview'.freeze
   RCAES_TIMELINE_TITLE = 'Races Timeline'.freeze
   STRAVA_URL = 'https://www.strava.com'.freeze
+  STRAVA_AUTHORIZATION_URL_PARTIAL = 'https://www.strava.com/oauth/authorize?client_id='.freeze
 
   SOCIAL_SHARING_BUTTONS = %w[Facebook LinkedIn Twitter Email Reddit More].freeze
 
