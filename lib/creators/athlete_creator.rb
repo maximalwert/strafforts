@@ -1,6 +1,8 @@
 module Creators
   class AthleteCreator
-    def self.create_or_update(athlete_hash, access_token)
+    # On OAuth token exchange, a summary JSON is returned from Strava.
+    # Otherwise, a detailed JSON will be retrieved for athletes.
+    def self.create_or_update(access_token, athlete_hash, is_detailed)
       Rails.logger.debug("AthleteCreator - Athlete hash: #{athlete_hash}")
 
       if athlete_hash['id'].blank?
@@ -26,14 +28,17 @@ module Creators
       athlete.profile_medium = athlete_hash['profile_medium']
       athlete.profile = athlete_hash['profile']
       athlete.sex = athlete_hash['sex']
-      athlete.follower_count = athlete_hash['follower_count']
-      athlete.friend_count = athlete_hash['friend_count']
-      athlete.athlete_type = athlete_hash['athlete_type']
-      athlete.date_preference = athlete_hash['date_preference']
-      athlete.measurement_preference = athlete_hash['measurement_preference']
       athlete.email = athlete_hash['email']
-      athlete.weight = athlete_hash['weight']
       athlete.is_active = true
+
+      if is_detailed
+        athlete.follower_count = athlete_hash['follower_count']
+        athlete.friend_count = athlete_hash['friend_count']
+        athlete.athlete_type = athlete_hash['athlete_type']
+        athlete.date_preference = athlete_hash['date_preference']
+        athlete.measurement_preference = athlete_hash['measurement_preference']
+        athlete.weight = athlete_hash['weight']
+      end
 
       country_id = Creators::LocationCreator.create_country(athlete_hash['country'])
       state_id = Creators::LocationCreator.create_state(country_id, athlete_hash['state'])

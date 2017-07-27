@@ -20,7 +20,7 @@ class HomeController < ApplicationController
       if response.is_a? Net::HTTPSuccess
         result = JSON.parse(response.body)
         access_token = result['access_token']
-        ::Creators::AthleteCreator.create_or_update(result['athlete'], access_token)
+        ::Creators::AthleteCreator.create_or_update(access_token, result['athlete'], false)
         ::Creators::HeartRateZonesCreator.create_or_update(result['athlete']['id']) # Create default heart rate zones first.
 
         # Add a delayed_job to fetch data for this athlete.
