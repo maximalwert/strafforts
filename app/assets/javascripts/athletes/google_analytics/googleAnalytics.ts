@@ -19,6 +19,9 @@ namespace GoogleAnalytics {
             $('.main-header').on('click', '.control-sidebar-toggle', (event) => {
                 GoogleAnalyticsHelpers.sendEvent('App - Header', 'Toggle Settings Sidebar', event.currentTarget);
             });
+            $('.main-header').on('click', '.btn-connect-with-strava', (event) => {
+                GoogleAnalyticsHelpers.sendEvent('App - Header', 'Connect with Strava', event.currentTarget);
+            });
 
             // App - Navigation Sidebar.
             $('.main-sidebar .sidebar-menu').on('click', '.show-overview', (event) => {

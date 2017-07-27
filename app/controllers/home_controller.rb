@@ -1,11 +1,6 @@
 class HomeController < ApplicationController
-  STRAVA_API_AUTH_AUTHORIZE_URL = Settings.strava.api_auth_authorize_url
-  STRAVA_API_AUTH_TOKEN_URL = Settings.strava.api_auth_token_url
-  STRAVA_API_AUTH_DEAUTHORIZE_URL = Settings.strava.api_auth_deauthorize_url
-  STRAVA_API_CLIENT_ID = Settings.strava.api_client_id
-
   def index
-    @auth_url = "#{STRAVA_API_AUTH_AUTHORIZE_URL}?client_id=#{STRAVA_API_CLIENT_ID}&response_type=code&redirect_uri=#{request.protocol}#{request.host}:#{request.port}/auth/exchange_token&approval_prompt=auto&scope=view_private"
+    @auth_url = ApplicationController.get_auth_url(request)
     @demo_path = Settings.app.demo_path
     unless cookies.signed[:access_token].nil?
       athlete = Athlete.find_by_access_token(cookies.signed[:access_token])

@@ -111,32 +111,42 @@ input[type='submit'] {
         background-color: #555555 !important;
     }
 
-    /* Blue follower and following links. */
-    .navbar-nav > .user-menu > .dropdown-menu > .user-body a {
-        color: #007FB6 !important;
-    }
-
-    .navbar-nav > .notifications-menu > .dropdown-menu,
-    .navbar-nav > .messages-menu > .dropdown-menu,
-    .navbar-nav > .tasks-menu > .dropdown-menu {
-        width: 380px;
-    }
-
     .logo,
     .navbar .sidebar-toggle {
         @include transition(all .2s ease-in-out);
     }
 
-    /* Style User Menu Dropdown */
-    .navbar-nav .user-menu .dropdown-menu li.user-header {
-        img {
-            width: 90px;
-            height: 90px;
+    .navbar-nav {
+        /* Blue follower and following links. */
+        .user-menu > .dropdown-menu > .user-body a {
+            color: #007FB6 !important;
         }
 
-        a:hover,
-        a:focus {
-            background-color: inherit;
+        .notifications-menu > .dropdown-menu,
+        .messages-menu > .dropdown-menu,
+        .tasks-menu > .dropdown-menu {
+            width: 380px;
+        }
+
+        /* Style User Menu Dropdown */
+        .user-menu .dropdown-menu li.user-header {
+            img {
+                width: 90px;
+                height: 90px;
+            }
+
+            a:hover,
+            a:focus {
+                background-color: inherit;
+            }
+        }
+
+        .btn-connect-with-strava {
+            padding: 8px;
+
+            img {
+                width: 140px;
+            }
         }
     }
 }
