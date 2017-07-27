@@ -11,7 +11,7 @@ app:
   global_message: <%= ENV['GLOBAL_MESSAGE'] %>
   version: <%= ENV['APP_VERSION'] %>
 strava:
-  api_auth_authorize_url: 'http://www.strava.com/oauth/authorize'
+  api_auth_authorize_url: 'https://www.strava.com/oauth/authorize'
   api_auth_deauthorize_url: 'https://www.strava.com/oauth/deauthorize'
   api_auth_token_url: 'https://www.strava.com/oauth/token'
   api_client_id: <%= ENV['STRAVA_API_CLIENT_ID'] %>

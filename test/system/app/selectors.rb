@@ -16,6 +16,10 @@ module App
       def self.btn_social_sharing
         "#{main_header} .social-sharing-toggle"
       end
+
+      def self.btn_connect_with_strava
+        "#{main_header} .btn-connect-with-strava"
+      end
     end
 
     class MainContent
