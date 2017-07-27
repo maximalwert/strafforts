@@ -16,7 +16,7 @@ class ActivityFetcher
 
       # Create or update the current athlete first.
       current_athlete = @api_wrapper.retrieve_current_athlete
-      athlete = Creators::AthleteCreator.create_or_update(current_athlete, @access_token)
+      athlete = Creators::AthleteCreator.create_or_update(@access_token, current_athlete, true)
 
       # Create or update HR Zones of the current athlete.
       current_athlete_zones = @api_wrapper.retrieve_current_athlete_zones
