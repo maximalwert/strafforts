@@ -1,0 +1,39 @@
+engines:
+  brakeman:
+    enabled: true
+  bundler-audit:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        ruby:
+          mass_threshold: 35
+        javascript:
+    exclude_paths:
+      - 'db/**/*'
+  fixme:
+    enabled: true
+  markdownlint:
+    enabled: false
+  rubocop:
+    enabled: true
+    channel: rubocop-0-48
+    config:
+      file: config/rubocop.yml
+  tslint:
+    enabled: true
+    channel: beta
+    config: config/tslint.json
+
+ratings:
+   paths:
+   - Gemfile.lock
+   - '**.md'
+   - '**.rb'
+   - '**.ts'
+
+exclude_paths:
+- 'bin/**/*'
+- 'log/**/*'
+- 'node_modules/**/*'

@@ -1,0 +1,31 @@
+AllCops:
+  Exclude:
+    - 'Gemfile'
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+  TargetRubyVersion: 2.0
+Documentation:
+  Enabled: false
+Metrics/AbcSize:
+  Max: 50
+Metrics/BlockLength:
+  Exclude:
+    - '**/application_helper.rb'
+    - '**/*.rake'
+Metrics/ClassLength:
+  Exclude:
+    - '**/application_helper.rb'
+    - 'test/**/*.rb'
+Metrics/LineLength:
+  Max: 120
+Metrics/MethodLength:
+  Max: 25
+  Exclude:
+    - '**/application_helper.rb'
+Style/NumericLiterals:
+  Exclude:
+    - 'test/**/*.rb'

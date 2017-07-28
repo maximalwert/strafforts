@@ -31,14 +31,12 @@ before_install:
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
-  - bundle exec rake yarn:install
-  - bundle exec rake assets:tsc
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - RAILS_ENV=test bundle exec rake db:seed
+  - yarn
+  - RAILS_ENV=test bin/rails db:migrate --trace
+  - RAILS_ENV=test bin/rails db:seed
 
 script:
-  - RAILS_ENV=test bundle exec rake test
-  - RAILS_ENV=test bundle exec rake test:system
+  - yarn test
 
 notifications:
   email: false
