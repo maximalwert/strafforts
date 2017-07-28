@@ -63,6 +63,8 @@ end
 
 group :test do
   gem 'codecov', require: false # Code coverage tool.
+  gem 'simplecov', :require => false # Code coverage tool.
+
   gem 'shoulda', '~> 3.5'
   gem 'shoulda-matchers', '~> 2.0'
 end

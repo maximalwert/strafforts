@@ -294,6 +294,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda (~> 3.5)
   shoulda-matchers (~> 2.0)
+  simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
   strava-api-v3

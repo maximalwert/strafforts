@@ -1,3 +1,7 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=cb7faf522523bcf26d3608e1efb979c0f3e2d32c3309a2350a8a60e963924dc5
+    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
 language: ruby
 sudo: false
 
@@ -29,6 +33,8 @@ before_install:
   - npm install -g yarn
 
 before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
   - yarn
@@ -37,6 +43,7 @@ before_script:
 
 script:
   - yarn test
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $? || true; fi
 
 notifications:
   email: false

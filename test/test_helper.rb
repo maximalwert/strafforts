@@ -1,8 +1,17 @@
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start 'rails' do
+  add_filter '/app/channels/'
+  add_filter do |source_file|
+    source_file.lines.count < 5
+  end
+  add_group 'Decorators', 'app/decorators'
+end
 
-require 'codecov'
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
+  [
+    SimpleCov::Formatter::HTMLFormatter
+  ]
+)
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
