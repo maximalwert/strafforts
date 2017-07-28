@@ -24,14 +24,11 @@ class StravaApiWrapper
   def list_all_athlete_activities
     # In the format of [ [{},{},{}], [{},{},{}], [{},{},{}] ].
     athlete_activities = []
-    for i in 1..100 # 100 pages, which can hold up to 20000 activities.
-      Rails.logger.info("StravaApiWrapper - Listings athlete activities. Page: #{i}.")
-      new_page = @api_client.list_athlete_activities(per_page: 200, page: i)
-      if new_page.empty?
-        break
-      else
-        athlete_activities << new_page
-      end
+    (1..100).each do |index| # Get a maximum of 100 pages, which can hold up to 20000 activities.
+      Rails.logger.info("StravaApiWrapper - Listings athlete activities. Page: #{index}.")
+      new_page = @api_client.list_athlete_activities(per_page: 200, page: index)
+      break if new_page.empty?
+      athlete_activities << new_page
     end
     athlete_activities
   end

@@ -20,7 +20,7 @@ namespace :db do
     database = database_yml['development']['database']
     username = database_yml['development']['username']
 
-    command = "pg_restore --verbose --clean --no-acl --no-owner -h #{host} -U #{username} -W -d #{database} #{dump_file}"
+    command = "pg_restore --verbose --clean --no-acl --no-owner -h #{host} -U #{username} -W -d #{database} #{dump_file}" # rubocop:disable LineLength
     puts "Executing: #{command}"
     system command
 

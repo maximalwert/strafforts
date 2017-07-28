@@ -7,12 +7,12 @@ class ActivityFetcher
     @api_wrapper = StravaApiWrapper.new(@access_token)
   end
 
-  def fetch_all(options = {})
+  def fetch_all(options = {}) # rubocop:disable CyclomaticComplexity, MethodLength, PerceivedComplexity
     mode = options[:mode] || 'latest'
     type = options[:type] || %w[best-efforts races]
 
     begin
-      Rails.logger.info("ActivityFetcher - Start fetching MODE='#{mode.to_s}' TYPE='#{type.to_s}'.")
+      Rails.logger.info("ActivityFetcher - Start fetching MODE='#{mode}' TYPE='#{type}'.")
 
       # Create or update the current athlete first.
       current_athlete = @api_wrapper.retrieve_current_athlete
@@ -26,14 +26,12 @@ class ActivityFetcher
       activities_to_retrieve = []
       activity_ids = get_all_activity_ids(type)
       activity_ids.sort.each do |activity_id|
-        if (mode == 'all') || athlete.last_activity_retrieved.blank?
+        if (mode == 'all') || athlete.last_activity_retrieved.blank? || activity_id > athlete.last_activity_retrieved
           activities_to_retrieve << activity_id
-        else
-          activities_to_retrieve << activity_id if activity_id > athlete.last_activity_retrieved
         end
       end
 
-      Rails.logger.info("ActivityFetcher - Total number of #{activities_to_retrieve.count} activities to be retrieved for athlete #{athlete.id}.")
+      Rails.logger.info("ActivityFetcher - Total number of #{activities_to_retrieve.count} activities to be retrieved for athlete #{athlete.id}.") # rubocop:disable LineLength
       activities_to_retrieve.sort.each do |activity_id|
         activity = @api_wrapper.retrieve_an_activity(activity_id)
         Creators::ActivityCreator.create_or_update(activity)
@@ -41,7 +39,7 @@ class ActivityFetcher
         athlete.save!
       end
     rescue StandardError => e
-      Rails.logger.error("ActivityFetcher - Error fetching athlete information with access_token '#{@access_token}'.\n\tMessage: #{e.message}\nBacktrace:\n\t#{e.backtrace.join("\n\t")}")
+      Rails.logger.error("ActivityFetcher - Error fetching athlete information with access_token '#{@access_token}'.\n\tMessage: #{e.message}\nBacktrace:\n\t#{e.backtrace.join("\n\t")}") # rubocop:disable LineLength
       if e.message.include?('Authorization Error')
         athlete = Athlete.find_by_access_token(@access_token)
         unless athlete.nil?

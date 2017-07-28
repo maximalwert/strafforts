@@ -2,26 +2,32 @@ class HomeController < ApplicationController
   def index
     @auth_url = ApplicationController.get_auth_url(request)
     @demo_path = Settings.app.demo_path
-    unless cookies.signed[:access_token].nil?
-      athlete = Athlete.find_by_access_token(cookies.signed[:access_token])
-      if athlete.nil?
-        # Something's not right. Destroy access_token cookie and try connect again.
-        logout
-      else
-        redirect_to "/athletes/#{athlete.id}"
-      end
+
+    return if cookies.signed[:access_token].nil?
+
+    athlete = Athlete.find_by_access_token(cookies.signed[:access_token])
+    if athlete.nil?
+      # Something's not right. Destroy access_token cookie and try connect again.
+      logout
+    else
+      redirect_to "/athletes/#{athlete.id}"
     end
   end
 
   def exchange_token
     if params[:error].blank?
-      uri = URI(STRAVA_API_AUTH_TOKEN_URL)
-      response = Net::HTTP.post_form(uri, 'code' => params[:code], 'client_id' => STRAVA_API_CLIENT_ID, 'client_secret' => ENV['STRAVA_API_CLIENT_SECRET'])
+      response = Net::HTTP.post_form(
+        URI(STRAVA_API_AUTH_TOKEN_URL),
+        'code' => params[:code],
+        'client_id' => STRAVA_API_CLIENT_ID,
+        'client_secret' => ENV['STRAVA_API_CLIENT_SECRET']
+      )
+
       if response.is_a? Net::HTTPSuccess
         result = JSON.parse(response.body)
         access_token = result['access_token']
         ::Creators::AthleteCreator.create_or_update(access_token, result['athlete'], false)
-        ::Creators::HeartRateZonesCreator.create_or_update(result['athlete']['id']) # Create default heart rate zones first.
+        ::Creators::HeartRateZonesCreator.create_or_update(result['athlete']['id']) # Create default heart rate zones.
 
         # Add a delayed_job to fetch data for this athlete.
         fetcher = ::ActivityFetcher.new(access_token)
@@ -64,7 +70,7 @@ class HomeController < ApplicationController
         Rails.logger.info("Revoked Strava access for athlete with access_token '#{cookies.signed[:access_token]}'.")
       else
         # Fail to revoke Strava access. Log it and don't throw.
-        Rails.logger.error("Revoking Strava access failed. HTTP Status Code: #{response.code}.\nResponse Message: #{response.message}")
+        Rails.logger.error("Revoking Strava access failed. HTTP Status Code: #{response.code}.\nResponse Message: #{response.message}") # rubocop:disable LineLength
       end
     end
 

@@ -1,5 +1,5 @@
-class Faqs
-  def initialize
+class Faqs # rubocop:disable ClassLength
+  def initialize # rubocop:disable MethodLength
     @faqs = []
 
     add('account', 'Does Strafforts need/store my Strava password?', "
@@ -23,8 +23,9 @@ This means best efforts are not calculated here on Strafforts, but directly retr
 If an activity on Strava missed out some gold trophies, they won't be shown here either.</p>
 <p><img src='https://support.strava.com/attachments/token/UJw9NjMB5AZSqRm8sst8kUqUy/?name=activity+-+Best+Effort.png'
 style='width:85%;'></p>
-<p>For more details, see <a href='https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running'
-target='_blank'>What are 'Estimated Best Efforts'?</a> on Strava support forum.</p>")
+<p>For more details, see
+<a href='https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running' target='_blank'>
+What are 'Estimated Best Efforts'?</a> on Strava support forum.</p>")
     add('best-efforts', "Why can't I find some of my best efforts?", "
 <p>Best efforts here on Strafforts are just those gold best efforts trophies on Strava running activities.</p>
 <p>First please check if the best effort you are looking for do exist on the corresponding Strava activity.

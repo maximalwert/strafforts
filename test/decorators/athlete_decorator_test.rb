@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class AthleteDecoratorTest < Draper::TestCase
-
   STRAVA_URL = 'https://www.strava.com'.freeze
 
   test 'should get Strava url as the profile_url when athlete.id is blank' do
