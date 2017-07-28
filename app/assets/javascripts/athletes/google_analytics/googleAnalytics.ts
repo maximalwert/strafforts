@@ -31,13 +31,21 @@ namespace GoogleAnalytics {
                 GoogleAnalyticsHelpers.sendEvent('App - Navigation Sidebar', 'Show Race Timeline', event.currentTarget);
             });
             $('.main-sidebar .sidebar-menu').on('click', 'a[id^="best-efforts-for-"]', (event) => {
-                GoogleAnalyticsHelpers.sendEvent('App - Navigation Sidebar', 'Show Best Efforts Details', event.currentTarget);
+                GoogleAnalyticsHelpers.sendEvent(
+                    'App - Navigation Sidebar',
+                    'Show Best Efforts Details',
+                    event.currentTarget,
+                );
             });
             $('.main-sidebar .sidebar-menu').on('click', 'a[id^="races-for-"]', (event) => {
                 GoogleAnalyticsHelpers.sendEvent('App - Navigation Sidebar', 'Show Races Details', event.currentTarget);
             });
             $('.main-sidebar .sidebar-menu').on('click', '.show-other-distance', (event) => {
-                GoogleAnalyticsHelpers.sendEvent('App - Navigation Sidebar', 'Show Other Distances', event.currentTarget);
+                GoogleAnalyticsHelpers.sendEvent(
+                    'App - Navigation Sidebar',
+                    'Show Other Distances',
+                    event.currentTarget,
+                );
             });
 
             // App - Content.
@@ -65,13 +73,21 @@ namespace GoogleAnalytics {
             $('#main-content').delegate('.dataTables_wrapper .dataTables_length select', 'change', (event) => {
                 const value = parseInt((event.currentTarget as HTMLSelectElement).value, 10);
                 $(event.currentTarget).attr('title', 'Change DataTable Pagination');
-                GoogleAnalyticsHelpers.sendEvent('App - Main Content', 'Change DataTable Pagination',  event.currentTarget, value);
+                GoogleAnalyticsHelpers.sendEvent(
+                    'App - Main Content',
+                    'Change DataTable Pagination',
+                    event.currentTarget, value,
+                );
             });
             $('#main-content').delegate('.dataTables_wrapper .dataTable thead th', 'click', (event) => {
                 GoogleAnalyticsHelpers.sendEvent('App - Main Content', 'Sort DataTable Column', event.currentTarget);
             });
             $('#main-content').delegate('.timeline-wrapper .timeline-item .btn', 'click', (event) => {
-                GoogleAnalyticsHelpers.sendEvent('App - Main Content', 'Filter Timeline by Header', event.currentTarget);
+                GoogleAnalyticsHelpers.sendEvent(
+                    'App - Main Content',
+                    'Filter Timeline by Header',
+                    event.currentTarget,
+                );
             });
             $('#main-content').delegate('timeline-wrapper .filter-buttons .btn', 'click', (event) => {
                 GoogleAnalyticsHelpers.sendEvent('App - Main Content', 'Filter Timeline', event.currentTarget);
@@ -82,13 +98,25 @@ namespace GoogleAnalytics {
                 GoogleAnalyticsHelpers.sendEvent('App - Settings Sidebar', 'Sign Out', event.currentTarget);
             });
             $('.control-sidebar').on('click', '.nav-tabs a', (event) => {
-                GoogleAnalyticsHelpers.sendEvent('App - Settings Sidebar', 'Select Tab in Settings', event.currentTarget);
+                GoogleAnalyticsHelpers.sendEvent(
+                    'App - Settings Sidebar',
+                    'Select Tab in Settings',
+                    event.currentTarget,
+                );
             });
             $('.control-sidebar').on('click', '.show-hear-rate-zones', (event) => {
-                GoogleAnalyticsHelpers.sendEvent('App - Settings Sidebar', 'Show Heart Rate Zones', event.currentTarget);
+                GoogleAnalyticsHelpers.sendEvent(
+                    'App - Settings Sidebar',
+                    'Show Heart Rate Zones',
+                    event.currentTarget,
+                );
             });
             $('.control-sidebar').on('click', 'button', (event) => {
-                GoogleAnalyticsHelpers.sendEvent('App - Settings Sidebar', 'Click Button in Settings', event.currentTarget);
+                GoogleAnalyticsHelpers.sendEvent(
+                    'App - Settings Sidebar',
+                    'Click Button in Settings',
+                    event.currentTarget,
+                );
             });
         };
         return eventBinders;

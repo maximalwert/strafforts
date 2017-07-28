@@ -68,10 +68,11 @@ class RacesTimelineTest < AppTestBase
   def assert_clicking_filter_button_works_as_expected(text)
     timeline_filter_buttons = find(:css, App::Selectors::MainContent.timeline_filter_buttons)
     within(timeline_filter_buttons) do
-      button = find(:xpath, ".//button[text()='#{text}']")
+      button = find(:xpath, ".//button[normalize-space(.)='#{text}']")
       button.click
       sleep 0.2
-      assert(button[:class].include?('active'), "Button (#{text})'s classes '#{button[:class]}' should contain 'active'.")
+      assert(button[:class].include?('active'),
+             "Button (#{text})'s classes '#{button[:class]}' should contain 'active'.")
     end
   end
 
@@ -79,11 +80,11 @@ class RacesTimelineTest < AppTestBase
     timeline_filter_buttons = find(:css, App::Selectors::MainContent.timeline_filter_buttons)
     within(timeline_filter_buttons) do
       texts.each do |text|
-        button = find(:xpath, ".//button[text()='#{text}']")
+        button = find(:xpath, ".//button[normalize-space(.)='#{text}']")
         assert_not(button.disabled?)
       end
       if check_show_all_button
-        button = find(:xpath, ".//button[text()='Show All']")
+        button = find(:xpath, ".//button[normalize-space(.)='Show All']")
         assert_not(button.disabled?)
       end
     end

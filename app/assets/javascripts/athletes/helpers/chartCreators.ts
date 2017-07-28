@@ -652,7 +652,8 @@ namespace Helpers {
                 },
             };
 
-            const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
+            const chartOptions = customChartOptions ?
+                { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
             this.createChart(id, 'bar', chartData, chartOptions);
         }
 
@@ -669,7 +670,8 @@ namespace Helpers {
                 maintainAspectRatio: false,
             };
 
-            const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
+            const chartOptions = customChartOptions ?
+                { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
             this.createChart(id, 'bubble', chartData, chartOptions);
         }
 
@@ -710,7 +712,8 @@ namespace Helpers {
                 },
             };
 
-            const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
+            const chartOptions = customChartOptions ?
+                { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
             this.createChart(id, 'horizontalBar', chartData, chartOptions);
         }
 
@@ -730,7 +733,8 @@ namespace Helpers {
                 },
             };
 
-            const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
+            const chartOptions = customChartOptions ?
+                { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
             this.createChart(id, 'line', chartData, chartOptions);
         }
 
@@ -781,7 +785,8 @@ namespace Helpers {
                 },
             };
 
-            const chartOptions = customChartOptions ? { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
+            const chartOptions = customChartOptions ?
+                { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
             this.createChart(id, 'pie', chartData, chartOptions);
         }
     }

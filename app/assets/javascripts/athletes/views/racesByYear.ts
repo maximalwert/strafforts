@@ -36,8 +36,18 @@ namespace Views {
             const showLoadingIcon = true;
             const content = `
                 <div class="row">
-                    ${HtmlHelpers.constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6, showLoadingIcon)}
-                    ${HtmlHelpers.constructChartHtml('monthly-distribution-chart', 'Monthly Distribution Chart', 6, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml(
+                        'distances-distribution-chart',
+                        'Distance Distribution Chart',
+                        6,
+                        showLoadingIcon,
+                    )}
+                    ${HtmlHelpers.constructChartHtml(
+                        'monthly-distribution-chart',
+                        'Monthly Distribution Chart',
+                        6,
+                        showLoadingIcon,
+                    )}
                 </div>
                 ${this.constructDataTableHtml()}
                 <div class="row">
@@ -46,7 +56,12 @@ namespace Views {
                 </div>
                 <div class="row">
                     ${HtmlHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6, showLoadingIcon)}
-                    ${HtmlHelpers.constructChartHtml('average-hr-zones-chart', 'Average HR Zones Distribution Chart', 6, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml(
+                        'average-hr-zones-chart',
+                        'Average HR Zones Distribution Chart',
+                        6,
+                        showLoadingIcon,
+                    )}
                 </div>
             `;
             mainContent.append(content);
@@ -70,7 +85,11 @@ namespace Views {
 
                     const content = `
                         <div class="row">
-                            ${HtmlHelpers.constructChartHtml('distances-distribution-chart', 'Distance Distribution Chart', 6)}
+                            ${HtmlHelpers.constructChartHtml(
+                                'distances-distribution-chart',
+                                'Distance Distribution Chart',
+                                6,
+                            )}
                             ${HtmlHelpers.constructChartHtml('month-distribution-chart', 'Month Distribution Chart', 6)}
                         </div>
                         ${this.constructDataTableHtml(items)}
@@ -80,7 +99,11 @@ namespace Views {
                         </div>
                         <div class="row">
                             ${HtmlHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6)}
-                            ${HtmlHelpers.constructChartHtml('average-hr-zones-chart', 'Average HR Zones Distribution Chart', 6)}
+                            ${HtmlHelpers.constructChartHtml(
+                                'average-hr-zones-chart',
+                                'Average HR Zones Distribution Chart',
+                                6,
+                            )}
                         </div>
                     `;
                     mainContent.append(content);
