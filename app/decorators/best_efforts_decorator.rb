@@ -25,7 +25,9 @@ class BestEffortsDecorator < Draper::CollectionDecorator
   private
 
   def find_best_efforts_by_type(best_effort_type)
-    best_efforts = object.select { |best_effort| best_effort_type.casecmp(best_effort[:best_effort_type]).zero? }
+    best_efforts = object.select do |best_effort|
+      best_effort_type.casecmp(best_effort[:best_effort_type]).zero? unless best_effort[:best_effort_type].blank?
+    end
     best_efforts = best_efforts.take(MAX_ITEM_ALLOWED_PER_DISTANCE)
     best_efforts
   end

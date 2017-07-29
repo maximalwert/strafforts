@@ -8,25 +8,25 @@ Rails.application.routes.draw do
 
   get 'athletes/:id_or_username' => 'athletes#index'
 
-  get 'api/athletes/:id_or_username/best-efforts' => 'best_efforts#index'
-  get 'api/athletes/:id_or_username/best-efforts/get_counts' => 'best_efforts#get_counts'
-  get 'api/athletes/:id_or_username/best-efforts/:distance' => 'best_efforts#index'
-  get 'api/athletes/:id_or_username/races' => 'races#index'
-  get 'api/athletes/:id_or_username/races/get_counts_by_distance' => 'races#get_counts_by_distance'
-  get 'api/athletes/:id_or_username/races/get_counts_by_year' => 'races#get_counts_by_year'
-  get 'api/athletes/:id_or_username/races/:distance_or_year' => 'races#index'
-  get 'api/faqs/get_all' => 'faqs#index'
-
   post 'athletes/:id_or_username/save_profile' => 'athletes#save_profile'
   post 'athletes/:id_or_username/reset_last_activity_retrieved' => 'athletes#reset_last_activity_retrieved'
 
-  get 'faqs/index' => 'faqs#index'
+  namespace :api do
+    get 'athletes/:id_or_username/best-efforts' => 'best_efforts#index'
+    get 'athletes/:id_or_username/best-efforts/get_counts' => 'best_efforts#get_counts'
+    get 'athletes/:id_or_username/best-efforts/:distance' => 'best_efforts#index'
+    get 'athletes/:id_or_username/races' => 'races#index'
+    get 'athletes/:id_or_username/races/get_counts_by_distance' => 'races#get_counts_by_distance'
+    get 'athletes/:id_or_username/races/get_counts_by_year' => 'races#get_counts_by_year'
+    get 'athletes/:id_or_username/races/:distance_or_year' => 'races#index'
+    get 'faqs/index' => 'faqs#index'
+  end
 
   get 'home/index'
 
-  get 'auth/exchange_token' => 'home#exchange_token'
-  get 'auth/deauthorize' => 'home#deauthorize'
-  get 'auth/logout' => 'home#logout'
+  get 'auth/exchange_token' => 'auth#exchange_token'
+  get 'auth/deauthorize' => 'auth#deauthorize'
+  get 'auth/logout' => 'auth#logout'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#index'

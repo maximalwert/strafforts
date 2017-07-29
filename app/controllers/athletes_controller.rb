@@ -2,13 +2,11 @@ class AthletesController < ApplicationController
   def index
     @auth_url = ApplicationController.get_auth_url(request)
     athlete = Athlete.find_by_id_or_username(params[:id_or_username])
+    ApplicationController.raise_athlete_not_found_error(params[:id_or_username]) if athlete.nil?
 
-    error_message = "Could not find athlete '#{params[:id_or_username]}' by id or username"
-    raise ActionController::RoutingError, error_message if athlete.nil?
-
-    error_message = "Could not access athlete '#{params[:id_or_username]}'"
     @is_current_user = athlete.access_token == cookies.signed[:access_token]
-    raise ActionController::RoutingError, error_message unless athlete.is_public || @is_current_user
+    is_accessible = athlete.is_public || @is_current_user
+    ApplicationController.raise_athlete_not_accessible_error(params[:id_or_username]) unless is_accessible
 
     @athlete_profile_url = "#{STRAVA_ATHLETES_URL}/#{athlete.id}"
     @athlete = athlete.decorate
@@ -25,13 +23,10 @@ class AthletesController < ApplicationController
 
   def save_profile
     athlete = Athlete.find_by_id_or_username(params[:id_or_username])
+    ApplicationController.raise_item_not_found_error('athlete', params[:id_or_username]) if athlete.nil?
 
-    error_message = "Could not find requested athlete '#{params[:id_or_username]}' by id or username"
-    raise ActionController::BadRequest, error_message if athlete.nil?
-
-    error_message = 'Could not update a user that is not the current user'
     @is_current_user = athlete.access_token == cookies.signed[:access_token]
-    raise ActionController::BadRequest, error_message unless @is_current_user
+    ApplicationController.raise_user_not_current_error unless @is_current_user
 
     is_public = params[:is_public].blank? || params[:is_public]
     athlete.update(is_public: is_public)
@@ -39,13 +34,10 @@ class AthletesController < ApplicationController
 
   def reset_last_activity_retrieved
     athlete = Athlete.find_by_id_or_username(params[:id_or_username])
-
-    error_message = "Could not find requested athlete '#{params[:id_or_username]}' by id or username"
-    raise ActionController::BadRequest, error_message if athlete.nil?
+    ApplicationController.raise_item_not_found_error('athlete', params[:id_or_username]) if athlete.nil?
 
     @is_current_user = athlete.access_token == cookies.signed[:access_token]
-    error_message = 'Could not update a user that is not the current user'
-    raise ActionController::BadRequest, error_message unless @is_current_user
+    ApplicationController.raise_user_not_current_error unless @is_current_user
 
     # Set last_activity_retrieved to nil for this athlete.
     athlete.update(last_activity_retrieved: nil)

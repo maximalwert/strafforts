@@ -42,4 +42,7 @@ Rails.application.configure do
 
   # Set secret_key_base.
   config.secret_key_base = ENV['SECRET_KEY_BASE']
+
+  # Disable assets fingerprints for controller tests that need to compare HTML..
+  config.assets.digest = false
 end

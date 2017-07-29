@@ -5,15 +5,15 @@ class AthletesControllerTest < ActionDispatch::IntegrationTest
     exception = assert_raises(ActionController::BadRequest) do
       post '/athletes/12345678/save_profile'
     end
-    assert(exception.message.include?('Could not find requested athlete'))
+    assert_equal("Could not find requested athlete '12345678'.", exception.message)
   end
 
-  test 'should be a bad request when POST save_profile without a correct access token' do
+  test 'should be a bad request when POST save_profile without log in' do
     exception = assert_raises(ActionController::BadRequest) do
       setup_cookie(nil)
       post '/athletes/123/save_profile'
     end
-    assert(exception.message.include?('Could not update a user that is not the current user'))
+    assert_equal('Could not update a user that is not the current user.', exception.message)
   end
 
   test 'should set is_public to true when POST save_profile with is_public parameter' do

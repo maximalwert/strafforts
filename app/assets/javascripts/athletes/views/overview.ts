@@ -55,7 +55,7 @@ namespace Views {
         }
 
         private createFaq() {
-            const fullUrl = `${Helpers.getBaseUrl()}/api/faqs/get_all`;
+            const fullUrl = `${Helpers.getBaseUrl()}/api/faqs/index`;
             $.ajax({
                 url: fullUrl,
                 dataType: 'json',

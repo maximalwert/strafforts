@@ -25,7 +25,9 @@ class RacesDecorator < Draper::CollectionDecorator
   private
 
   def find_race_by_distance(race_distance)
-    races = object.select { |race| race_distance.casecmp(race[:race_distance]).zero? }
+    races = object.select do |race|
+      race_distance.casecmp(race[:race_distance]).zero? unless race[:race_distance].blank?
+    end
     races = races.take(MAX_ITEM_ALLOWED_PER_DISTANCE)
     races
   end
