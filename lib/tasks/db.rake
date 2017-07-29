@@ -6,7 +6,7 @@ namespace :db do
     dump_file = args[:file] || 'latest.dump'
 
     # Create DB in case it doesn't exist.
-    system 'rake db:create'
+    system 'bin/rails db:create'
 
     # Remove the existing dump file.
     FileUtils.rm(dump_file, force: true)
@@ -20,12 +20,12 @@ namespace :db do
     database = database_yml['development']['database']
     username = database_yml['development']['username']
 
-    command = "pg_restore --verbose --clean --no-acl --no-owner -h #{host} -U #{username} -W -d #{database} #{dump_file}"
+    command = "pg_restore --verbose --clean --no-acl --no-owner -h #{host} -U #{username} -W -d #{database} #{dump_file}" # rubocop:disable LineLength
     puts "Executing: #{command}"
     system command
 
     # Run db:migrate.
-    system 'rake db:migrate'
+    system 'bin/rails db:migrate'
   end
 
   desc 'Convert development DB to Rails test fixtures'

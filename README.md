@@ -8,7 +8,7 @@
 [![Code Climate](https://img.shields.io/codeclimate/github/yizeng/strafforts.svg?style=flat-square)][Strafforts Code Climate]
 [![Gemnasium](https://img.shields.io/gemnasium/yizeng/strafforts.svg?style=flat-square)][Strafforts Gemnasium]
 
-### An Analytics App for Strava Estimated Best Efforts and Races
+## An Analytics App for Strava Estimated Best Efforts and Races
 
 Strafforts is a web app that calls [Strava API][Strava API]
 to fetch athletes' [estimated best efforts][Strava Support Best Efforts] and [races][Use Run Type Tags]
@@ -22,22 +22,21 @@ so that athletes can connect Strafforts with their Strava accounts and see visua
 
 ### Demo
 
-http://www.strafforts.com
+<http://www.strafforts.com>
 
 ![Strafforts Homepage Screenshot](public/screenshots/strafforts-home.jpg)
 ![Strafforts Races Timeline Screenshot](public/screenshots/strafforts-races-timeline-view.png)
 ![Strafforts Best Efforts View Screenshot](public/screenshots/strafforts-best-efforts-view.png)
 ![Strafforts Races View Screenshot](public/screenshots/strafforts-races-by-year-view.png)
 
-
 ### What are 'Estimated Best Efforts'?
 
 Quoting from [Strava Support][Strava Support Best Efforts]:
 
 > Estimated Best Efforts are automatically calculated using your GPS-based running activity,
-  and reflect your fastest times for benchmark distances such as 1 mile, 5km, 10km, and half marathon.
-  Strava can find your best effort at any point in each running activity.
-  We do not require that a best effort starts at a mile split.
+> and reflect your fastest times for benchmark distances such as 1 mile, 5km, 10km, and half marathon.
+> Strava can find your best effort at any point in each running activity.
+> We do not require that a best effort starts at a mile split.
 
 ![Side by side Best Efforts][Side by side Best Efforts Image]
 ![Strava Best Efforts][Strava Best Efforts Image]
@@ -47,11 +46,10 @@ Quoting from [Strava Support][Strava Support Best Efforts]:
 Quoting from [Strava Support][Use Run Type Tags]:
 
 > Strava offers four different sub-categories within the Running activity type to
-  allow for more detailed and focused analysis of your training.
-  Those four tags are Run, Race, Long Run, and Workout.
+> allow for more detailed and focused analysis of your training.
+> Those four tags are Run, Race, Long Run, and Workout.
 
 ![Strava Run Type Tag](public/screenshots/doc-tag-run-as-race.png)
-
 
 ## Acknowledgements
 
@@ -73,6 +71,7 @@ If you want to make code changes, feel free to create PRs.
 Development guide can be found [here](docs/development-guide.md) if needed.
 
 ## License
+
 Strafforts is a project developed and maintained by [Yi Zeng][yizeng.me], licensed under [MIT License](LICENSE).
 
 [GitHub Tags]: https://github.com/yizeng/strafforts/tags

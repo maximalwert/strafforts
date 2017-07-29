@@ -1,6 +1,7 @@
 namespace HtmlHelpers {
     export function constructChartHtml(id: string, title: string, width: number, withLoadingIcon: boolean = false) {
-        const content = withLoadingIcon ? HtmlHelpers.getLoadingIcon() : `<canvas id="${id}-canvas" height="300"></canvas>`;
+        const canvas = `<canvas id="${id}-canvas" height="300"></canvas>`;
+        const content = withLoadingIcon ? HtmlHelpers.getLoadingIcon() : canvas;
         const chart = `
             <div class="col-md-${width}">
                 <div class="box">
@@ -22,7 +23,8 @@ namespace HtmlHelpers {
         const html = `
         <p class="link-contributions-welcome">
             <a href="https://github.com/yizeng/strafforts/blob/master/docs/development-guide.md" target="_blank">
-                <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square" alt="Contributions Welcome">
+                <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square"
+                    alt="Contributions Welcome">
             </a>
             <a href="https://github.com/yizeng/strafforts/pulls" target="_blank">
                 <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome">
@@ -43,7 +45,8 @@ namespace HtmlHelpers {
 
     export function getNoDataInfoBox() {
         const title = 'Nothing Yet!';
-        const link = 'https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs';
+        const link = 'https://support.strava.com/hc/en-us/articles/'
+            + '216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs';
         const messageBody = `
         <p>
             If you have just connected Strafforts with your Strava account,
@@ -115,11 +118,12 @@ namespace HtmlHelpers {
 
     export function getDatatableRowForBestEfforts(item: any[]) {
         const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
+        const workoutTypeNameClass = `workout-type-${item['workout_type_name'].replace(/\s/g, '-')}`;
         const row = `
             <tr>
                 <td>${item['start_date']}</td>
                 <td class="text-center badge-cell hidden-xs-down">
-                    <span class="label workout-type-${item['workout_type_name'].replace(/ /g, '-')}">${item['workout_type_name']}</span>
+                    <span class="label ${workoutTypeNameClass}">${item['workout_type_name']}</span>
                 </td>
                 <td>
                     <a class="strava-activity-link" href="${stravaLink}" target="_blank">
@@ -152,7 +156,8 @@ namespace HtmlHelpers {
 
     export function getDatatableRowForRaces(item: any[], showDistanceColumn?: boolean) {
         const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
-        const distanceColumn = showDistanceColumn ? `<td>${(item['distance']).toFixed(1)} ${item['distance_unit']}</td>` : '';
+        const distanceColumn = showDistanceColumn ?
+            `<td>${(item['distance']).toFixed(1)} ${item['distance_unit']}</td>` : '';
         const row = `
             <tr>
                 <td>${item['start_date']}</td>

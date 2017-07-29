@@ -39,7 +39,7 @@ class AthleteDecorator < Draper::Decorator
     end
   end
 
-  def location
+  def location # rubocop:disable AbcSize, CyclomaticComplexity, PerceivedComplexity
     return '' if object.city.nil? && object.country.nil?
     return object.country.name.to_s.strip if object.city.nil?
     return object.city.name.to_s.strip if object.country.nil?

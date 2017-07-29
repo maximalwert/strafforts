@@ -330,5 +330,5 @@
         ]
     ]
   },
-  "tslint.configFile": "./tslint.json"
+  "tslint.configFile": "config/tslint.json"
 }

@@ -2,10 +2,10 @@ require 'ostruct'
 
 module ApplicationHelper
   class Helper
-    @@major_best_effort_types = ['Marathon', 'Half Marathon', '10k', '5k']
-    @@other_best_effort_types = ['50k', '30k', '20k', '10 mile', '15k', '2 mile', '1 mile', '1k', '1/2 mile', '400m']
-    @@major_race_distances = ['Marathon', 'Half Marathon', '10k', '5k']
-    @@other_race_distances = ['100 miles', '100k', '50 miles', '50k', '20k', '15k', '3000m', '1 mile', 'Other']
+    @major_best_effort_types = ['Marathon', 'Half Marathon', '10k', '5k']
+    @other_best_effort_types = ['50k', '30k', '20k', '10 mile', '15k', '2 mile', '1 mile', '1k', '1/2 mile', '400m']
+    @major_race_distances = ['Marathon', 'Half Marathon', '10k', '5k']
+    @other_race_distances = ['100 miles', '100k', '50 miles', '50k', '20k', '15k', '3000m', '1 mile', 'Other']
 
     # This shapes BestEffort entities retrieved from DB into best efforts needed in the view.
     def self.shape_best_efforts(best_effort_entities, heart_rate_zones, measurement_unit)
@@ -30,19 +30,19 @@ module ApplicationHelper
     end
 
     def self.major_best_effort_types
-      create_item_array(@@major_best_effort_types, true)
+      create_item_array(@major_best_effort_types, true)
     end
 
     def self.other_best_effort_types
-      create_item_array(@@other_best_effort_types, false)
+      create_item_array(@other_best_effort_types, false)
     end
 
     def self.major_race_distances
-      create_item_array(@@major_race_distances, true)
+      create_item_array(@major_race_distances, true)
     end
 
     def self.other_race_distances
-      create_item_array(@@other_race_distances, false)
+      create_item_array(@other_race_distances, false)
     end
 
     def self.get_heart_rate_zones(athlete_id)
@@ -60,7 +60,7 @@ module ApplicationHelper
     end
 
     def self.convert_to_pace(average_speed, is_imperial_unit)
-      return '' if (average_speed.blank? || average_speed.to_i == 0)
+      return '' if average_speed.blank? || average_speed.to_i.zero?
 
       seconds = is_imperial_unit ? (1609.344 / average_speed) : (1000 / average_speed)
       mins, secs = seconds.divmod(60)
@@ -69,7 +69,7 @@ module ApplicationHelper
     end
 
     def self.create_default_heart_rate_zones
-      heart_rate_zones = OpenStruct.new(:custom_zones => false)
+      heart_rate_zones = OpenStruct.new(custom_zones: false)
       heart_rate_zones.zone_1_min = 0
       heart_rate_zones.zone_1_max = 123
       heart_rate_zones.zone_2_min = 123
@@ -83,13 +83,13 @@ module ApplicationHelper
       heart_rate_zones
     end
 
-    def self.get_heart_rate_zone(heart_rate_zones, heart_rate)
+    def self.get_heart_rate_zone(heart_rate_zones, heart_rate) # rubocop:disable CyclomaticComplexity, PerceivedComplexity, LineLength
       if heart_rate_zones.nil? ||
-        heart_rate_zones.zone_1_min.blank? || heart_rate_zones.zone_1_max.blank? ||
-        heart_rate_zones.zone_2_min.blank? || heart_rate_zones.zone_2_max.blank? ||
-        heart_rate_zones.zone_3_min.blank? || heart_rate_zones.zone_3_max.blank? ||
-        heart_rate_zones.zone_4_min.blank? || heart_rate_zones.zone_4_max.blank? ||
-        heart_rate_zones.zone_5_min.blank? || heart_rate_zones.zone_5_max.blank?
+         heart_rate_zones.zone_1_min.blank? || heart_rate_zones.zone_1_max.blank? ||
+         heart_rate_zones.zone_2_min.blank? || heart_rate_zones.zone_2_max.blank? ||
+         heart_rate_zones.zone_3_min.blank? || heart_rate_zones.zone_3_max.blank? ||
+         heart_rate_zones.zone_4_min.blank? || heart_rate_zones.zone_4_max.blank? ||
+         heart_rate_zones.zone_5_min.blank? || heart_rate_zones.zone_5_max.blank?
         heart_rate_zones = create_default_heart_rate_zones
       end
 
@@ -108,7 +108,7 @@ module ApplicationHelper
       end
     end
 
-    def self.shape_entities(entities, heart_rate_zones, measurement_unit, is_type_of_best_efforts)
+    def self.shape_entities(entities, heart_rate_zones, measurement_unit, is_type_of_best_efforts) # rubocop:disable AbcSize, CyclomaticComplexity, PerceivedComplexity, LineLength
       shaped_items = []
 
       return shaped_items if entities.nil?
@@ -131,14 +131,15 @@ module ApplicationHelper
           item[:elapsed_time] = entity.activity.elapsed_time
 
           # Convert distance from meters to miles/km.
-          item[:distance] = item[:is_imperial_unit] ? entity.activity.distance * 0.000621371 : entity.activity.distance * 0.001
+          distance = item[:is_imperial_unit] ? entity.activity.distance * 0.000621371 : entity.activity.distance * 0.001
+          item[:distance] = distance
           item[:distance_unit] = item[:is_imperial_unit] ? 'miles' : 'km'
           average_speed = entity.activity.average_speed
         end
 
         item[:activity_id] = entity.activity.id
         item[:activity_name] = entity.activity.name
-        item[:start_date] = entity.activity.start_date_local.nil? ? '' : entity.activity.start_date_local.to_s.slice(0, 10)
+        item[:start_date] = get_date_time(entity.activity.start_date_local)
         item[:workout_type_name] = entity.activity.workout_type.nil? ? 'n/a' : entity.activity.workout_type.name
         item[:elapsed_time_formatted] = Time.at(item[:elapsed_time]).utc.strftime('%H:%M:%S')
         item[:pace] = convert_to_pace(average_speed, item[:is_imperial_unit])
@@ -168,6 +169,10 @@ module ApplicationHelper
         results << item
       end
       results
+    end
+
+    def self.get_date_time(date_time)
+      date_time.nil? ? '' : date_time.to_s.slice(0, 10)
     end
   end
 end

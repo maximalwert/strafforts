@@ -5,7 +5,7 @@ class AthletesControllerTest < ActionDispatch::IntegrationTest
     exception = assert_raises(ActionController::BadRequest) do
       post '/athletes/12345678/reset_last_activity_retrieved'
     end
-    assert(exception.message.include?('Could not find requested athlete'))
+    assert_equal("Could not find requested athlete '12345678'.", exception.message)
   end
 
   test 'should be a bad request when POST reset_last_activity_retrieved without a correct access token' do
@@ -13,7 +13,7 @@ class AthletesControllerTest < ActionDispatch::IntegrationTest
       setup_cookie(nil)
       post '/athletes/9123806/reset_last_activity_retrieved'
     end
-    assert(exception.message.include?('Could not update a user that is not the current user'))
+    assert_equal('Could not update a user that is not the current user.', exception.message)
   end
 
   test 'should reset last activity retrieved when POST reset_last_activity_retrieved' do

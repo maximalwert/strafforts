@@ -55,7 +55,8 @@ namespace Views {
                 let distancesFilterButtons = '';
                 RacesTimeline.distances.forEach((distanceText) => {
                     distancesFilterButtons += `
-                        <button class="btn btn-md btn-race-distance" data-race-distance="${distanceText}">${distanceText}</button>
+                        <button class="btn btn-md btn-race-distance"
+                            data-race-distance="${distanceText}">${distanceText}</button>
                     `;
                 });
 

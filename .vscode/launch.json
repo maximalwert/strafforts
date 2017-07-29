@@ -2,17 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "rake foreman:dev",
-            "type": "Ruby",
-            "request": "launch",
-            "cwd": "${workspaceRoot}",
-            "program": "${workspaceRoot}/bin/rake",
-            "args": [
-                "foreman:dev"
-            ]
-        },
-        {
-            "name": "Rails server",
+            "name": "rails server",
             "type": "Ruby",
             "request": "launch",
             "cwd": "${workspaceRoot}",
@@ -24,11 +14,11 @@
             ]
         },
         {
-            "name": "Rake Test",
+            "name": "rails test",
             "type": "Ruby",
             "request": "launch",
             "cwd": "${workspaceRoot}",
-            "program": "${workspaceRoot}/bin/rake",
+            "program": "${workspaceRoot}/bin/rails",
             "args": [
                 "test"
             ]

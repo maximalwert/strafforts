@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
@@ -53,50 +53,38 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  # Manager Procfile.dev under develpoment environment.
-  gem 'foreman'
+  gem 'foreman' # Manager Procfile.dev under develpoment environment.
 
-  # Require wdm for Windows.
-  gem 'wdm', '>= 0.1.0' if Gem.win_platform?
-
+  gem 'mdl', require: false # Markdown lint tool.
   gem 'os', '~> 1.0'
+  gem 'rubocop', '= 0.48.1', require: false
+  gem 'wdm', '>= 0.1.0' if Gem.win_platform? # Require wdm for Windows.
 end
 
 group :test do
   gem 'codecov', require: false # Code coverage tool.
+  gem 'simplecov', :require => false # Code coverage tool.
+
   gem 'shoulda', '~> 3.5'
   gem 'shoulda-matchers', '~> 2.0'
+  gem 'webmock'
 end
 
 group :production do
-  # Enable gzip compression on heroku, but don't compress images.
-  gem 'heroku-deflater'
+  gem 'heroku-deflater' # Enable gzip compression on heroku, but don't compress images.
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# Strava Ruby API Client.
-gem 'strava-api-v3'
-
-# Rails Font Awesome.
-gem 'font-awesome-rails'
-
-# Bootstrap.
-gem 'bootstrap-sass', '~> 3.3.6'
-
 # Use Draper to add an object-oriented layer of presentation logic.
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
 gem 'draper'
 
-# Config.
-gem 'config'
-
-# ActiveRecord backend integration for DelayedJob 3.0+.
-gem 'delayed_job_active_record'
-
-# Add daemons gem to show delayed_job status.
-gem 'daemons'
-
-# Heroku needs this gem for Yarn. Also needed to debug deployment locally.
-gem 'webpacker', '~> 2.0'
+gem 'bootstrap-sass', '~> 3.3.6' # Bootstrap.
+gem 'config' # Config.
+gem 'daemons' # Add daemons gem to show delayed_job status.
+gem 'delayed_job_active_record' # ActiveRecord backend integration for DelayedJob 3.0+.
+gem 'font-awesome-rails' # Rails Font Awesome.
+gem 'strava-api-v3' # Strava Ruby API Client.
+gem 'webpacker', '~> 2.0' # Heroku needs this gem for Yarn. Also needed to debug deployment locally.

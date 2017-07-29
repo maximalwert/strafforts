@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class AthleteDecoratorTest < Draper::TestCase
-
   STRAVA_URL = 'https://www.strava.com'.freeze
 
   test 'should get Strava url as the profile_url when athlete.id is blank' do
@@ -87,6 +86,12 @@ class AthleteDecoratorTest < Draper::TestCase
     athlete = Athlete.find_by_id_or_username(9123806)
     decorator = AthleteDecorator.decorate(athlete)
     assert_equal('44', decorator.friend_count)
+  end
+
+  test 'should get 0 follower_count when it\'s blank' do
+    athlete = Athlete.find_by_id_or_username(789)
+    decorator = AthleteDecorator.decorate(athlete)
+    assert_equal('0', decorator.follower_count)
   end
 
   test 'should get the correct follower_count' do

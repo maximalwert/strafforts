@@ -10,14 +10,14 @@ module Creators
         create_race(activity_json)
       end
 
-      unless activity_json['best_efforts'].blank?
-        activity_json['best_efforts'].each do |best_effort_json|
-          next if best_effort_json['pr_rank'] != 1
+      return if activity_json['best_efforts'].blank?
 
-          Rails.logger.info("ActivityCreator - Activity #{activity_json['id']} has best efforts.")
-          create_activity(activity_json)
-          create_best_effort(activity_json, best_effort_json)
-        end
+      activity_json['best_efforts'].each do |best_effort_json|
+        next if best_effort_json['pr_rank'] != 1
+
+        Rails.logger.info("ActivityCreator - Activity #{activity_json['id']} has best efforts.")
+        create_activity(activity_json)
+        create_best_effort(activity_json, best_effort_json)
       end
     end
 
@@ -30,11 +30,14 @@ module Creators
       best_effort_type.id
     end
 
-    def self.create_activity(activity_json)
-      Rails.logger.info("ActivityCreator - Creating or updating activity #{activity_json['id']} for athlete #{activity_json['athlete']['id']}.")
-      activity = Activity.where(id: activity_json['id']).first_or_create
+    def self.create_activity(activity_json) # rubocop:disable AbcSize, MethodLength
+      activity_id = activity_json['id']
+      athlete_id = activity_json['athlete']['id']
+      Rails.logger.info("ActivityCreator - Creating or updating activity #{activity_id} for athlete #{athlete_id}.")
+
+      activity = Activity.where(id: activity_id).first_or_create
       activity.name = activity_json['name']
-      activity.athlete_id = activity_json['athlete']['id']
+      activity.athlete_id = athlete_id
       activity.description = activity_json['description']
       activity.distance = activity_json['distance'].to_f
       activity.moving_time = activity_json['moving_time'].to_i
@@ -67,7 +70,7 @@ module Creators
     end
 
     def self.create_best_effort(activity_json, best_effort_json)
-      Rails.logger.info("ActivityCreator - Creating or updating best effort for activity #{activity_json['id']} - '#{activity_json['name']}'.")
+      Rails.logger.info("ActivityCreator - Creating or updating best effort for activity #{activity_json['id']} - '#{activity_json['name']}'.") # rubocop:disable LineLength
       best_effort = BestEffort.where(id: best_effort_json['id']).first_or_create
       best_effort.activity_id = activity_json['id']
       best_effort.athlete_id = activity_json['athlete']['id']
@@ -76,20 +79,24 @@ module Creators
       best_effort.distance = best_effort_json['distance']
       best_effort.moving_time = best_effort_json['moving_time']
       best_effort.elapsed_time = best_effort_json['elapsed_time']
-      best_effort.start_date = DateTime.parse(best_effort_json['start_date']) unless best_effort_json['start_date'].blank?
-      best_effort.start_date_local = DateTime.parse(best_effort_json['start_date_local']) unless best_effort_json['start_date_local'].blank?
+      best_effort.start_date = parse_date_time(best_effort_json['start_date'])
+      best_effort.start_date_local = parse_date_time(best_effort_json['start_date_local'])
       best_effort.save!
     end
 
     def self.create_race(activity_json)
       race_distance = RaceDistance.find_by_actual_distance(activity_json['distance'].to_f)
-      unless race_distance.nil?
-        Rails.logger.info("ActivityCreator - Creating or updating race of distance '#{race_distance.name}' for activity #{activity_json['id']} - '#{activity_json['name']}'.")
-        race = Race.where(activity_id: activity_json['id']).first_or_create
-        race.athlete_id = activity_json['athlete']['id']
-        race.race_distance = race_distance
-        race.save!
-      end
+      return if race_distance.nil?
+
+      Rails.logger.info("ActivityCreator - Creating or updating race of distance '#{race_distance.name}' for activity #{activity_json['id']} - '#{activity_json['name']}'.") # rubocop:disable LineLength
+      race = Race.where(activity_id: activity_json['id']).first_or_create
+      race.athlete_id = activity_json['athlete']['id']
+      race.race_distance = race_distance
+      race.save!
+    end
+
+    def self.parse_date_time(date_time)
+      return DateTime.parse(date_time) unless date_time.blank?
     end
   end
 end

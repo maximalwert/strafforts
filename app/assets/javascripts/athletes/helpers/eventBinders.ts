@@ -3,7 +3,8 @@ namespace EventBinders {
     export function bindAll() {
         const eventBinders = () => {
             // Disable double clicking for logo and navigation items.
-            $(document).on('dblclick', ".main-header .logo, a[id^='best-efforts-for-'], a[id^='races-for-']", (event) => {
+            const selectors = '.main-header .logo, a[id^="best-efforts-for-"], a[id^="races-for-"]';
+            $(document).on('dblclick', selectors, (event) => {
                 event.preventDefault();
             });
 

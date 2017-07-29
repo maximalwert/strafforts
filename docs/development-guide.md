@@ -9,7 +9,7 @@ with a free plan or setup on any local machines which are Ruby on Rails ready.
 
 First off, create your own Strava API application.
 Any registered Strava user can obtain `Client ID` and `Client Secret`
-by first creating an application at https://www.strava.com/settings/api,
+by first creating an application at <https://www.strava.com/settings/api>,
 which allows your Strafforts instance (either in the cloud or local) to connect with Strava
 and retrieve data via [Strava API service][Strava API].
 
@@ -26,20 +26,20 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
        git clone https://github.com/yizeng/strafforts.git
 
-2. Install required gems
+1. Install required gems
 
        gem install bundler foreman
 
-3. Bundle install
+1. Bundle install
 
        cd strafforts
        bundle
 
-4. Generate secret tokens and create `secrets.yml`
+1. Generate secret tokens and create `secrets.yml`
 
     Use the command below to generate to two secret tokens, one for development and one for test:
 
-       bundle exec rake secret
+       bin/rails secret
 
     Create a file called `config/secrets.yml` file like the following:
 
@@ -66,7 +66,7 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
         production:
           secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
 
-5. Setup environment variables
+1. Setup environment variables
 
     Create a file called `.env` under root directory.
 
@@ -76,11 +76,11 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
        STRAVA_API_CLIENT_ID=replace_with_client_id_of_your_strava_api_application
        STRAVA_API_CLIENT_SECRET=replace_with_client_secret_of_your_strava_api_application
 
-6. Create, migrate and seed database
+1. Create, migrate and seed database
 
-       rake db:create && rake db:migrate && rake db:seed
+       bin/rails db:create && bin/rails db:migrate && bin/rails db:seed
 
-7. Install JS dependencies
+1. Install JS dependencies
 
     The app uses [Yarn][Yarn] to manage JS dependencies. Please first make sure it's properly installed. Then use the following command to install:
 
@@ -88,7 +88,7 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
     The app uses [TypeScript][TypeScript] instead of JavaScripts. A post-install step has been configured to compile TypeScript files after `yarn`.
 
-8. Fire up web server, worker and watcher.
+1. Fire up web server, worker and watcher.
 
        yarn start
 
@@ -101,28 +101,28 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
       Note that the watcher might not work properly on Windows machines so that it needs to be started manually. See `yarn watch` command in `package.json` for more details.
 
-9. Connect with Strava
+1. Connect with Strava
 
       From <http://localhost:5000>, connect with your Strava account.
       If it succeeds, it should redirect to the athlete overview page.
 
-10. Fetch data manually if needed
+1. Fetch data manually if needed
 
     Foreman's worker process should fetch all estimated best efforts once Strafforts has connected to Strava. Alternatively, the same can be achieved by the following rake tasks defined in `/lib/tasks/fetch.rake`.
 
-        bundle exec rake fetch:all                                            # Fetch all data for all athletes
-        bundle exec rake fetch:athlete MODE=[all/latest] ID=[athlete_id]      # Fetch data for a particular athlete by ID
-        bundle exec rake fetch:best_efforts MODE=[all/latest]                 # Fetch best efforts for all athletes
-        bundle exec rake fetch:latest                                         # Fetch the latest data for all athletes
-        bundle exec rake fetch:races MODE=[all/latest]                        # Fetch races for all athletes
+        bin/rake fetch:all                                       # Fetch all data for all athletes
+        bin/rake fetch:athlete MODE=[all/latest] ID=[athlete_id] # Fetch data for a particular athlete by ID
+        bin/rake fetch:best_efforts MODE=[all/latest]            # Fetch best efforts for all athletes
+        bin/rake fetch:latest                                    # Fetch the latest data for all athletes
+        bin/rake fetch:races MODE=[all/latest]                   # Fetch races for all athletes
 
-11. Run tests
+1. Run tests
 
       There are few but not a lot of tests written. If you wish to run them, please follow the steps below:
 
       - Make sure testing DB has been created
 
-            bundle exec rake db:create
+            RAILS_ENV=test bin/rails db:create
 
       - Run unit tests.
 
@@ -132,13 +132,15 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
             bin/rails test:system
 
+      - Alternatively, use `yarn test` to run both sets of tests.
+
 ## Install on Heroku
 
 1. Clone repository
 
         git clone https://github.com/yizeng/strafforts.git
 
-2. Create Heroku App
+1. Create Heroku App
 
     General instructions can be followed as described in [Getting Started on Heroku with Ruby](https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction).
 
@@ -157,22 +159,22 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
         heroku addons:create scheduler
         heroku addons:open scheduler
 
-3. Setup Heroku Scheduler
+1. Setup Heroku Scheduler
 
-    In Heroku's Add-ons page, setup the scheduler with `rake fetch:latest` command
+    In Heroku's Add-ons page, setup the scheduler with `bin/rake fetch:latest` command
     to tell it to fetch the latest data from Strava API periodically.
     Note that Strava API application has a rate limit of 600 requests every 15 minutes, 30000 daily,
     please set the scheduler to run on a reasonable interval.
 
-4. Update Strava API Authorization Callback Domain
+1. Update Strava API Authorization Callback Domain
 
-  Go back to [Strava API settings page][Strava API settings page]
-  and update 'Authorization Callback Domain' field to be the domain of your Strafforts instance.
-  For example, if you Heorku app is called `boiling-island-12345`' by default,
-  the callback domain should be `boiling-island-12345.herokuapp.com`.
-  If you have your own domain setup on Heroku, paste your own domain in.
+    Go back to [Strava API settings page][Strava API settings page]
+    and update 'Authorization Callback Domain' field to be the domain of your Strafforts instance.
+    For example, if you Heorku app is called `boiling-island-12345`' by default,
+    the callback domain should be `boiling-island-12345.herokuapp.com`.
+    If you have your own domain setup on Heroku, paste your own domain in.
 
-5. Play around!
+1. Play around!
 
 [Strava API]: https://strava.github.io/api/
 [Strava API settings page]: https://www.strava.com/settings/api

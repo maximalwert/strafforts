@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Strafforts - An Analytics App for Strava Estimated Best Efforts and Races</title>
+
+    <meta charset="utf-8">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- SEO meta tags -->
+    <meta name="author" content="Yi Zeng">
+    <meta property="og:title" content="Strafforts - An Analytics App for Strava Estimated Best Efforts and Races" />
+    <meta property="og:locale" content="en" />
+    <meta name="description" content="An analytics app that allow athletes to analyze their visualized Strava estimated best efforts and races data in tables and charts." />
+    <meta property="og:description" content="An analytics app that allow athletes to analyze their visualized Strava estimated best efforts and races data in tables and charts." />
+    <meta property="og:url" content="http://www.strafforts.com" />
+    <meta name="keywords" content="strava,strafforts,bestefforts,races,running,data,visualizer,analytics"/>
+    <script type="application/ld+json">{"@context": "http://schema.org","@type": "WebSite","name": "Straffrots","author":"Yi Zeng","description":"An analytics app that allow athletes to analyze their visualized Strava estimated best efforts and races data in tables and charts.","url": "http://www.strafforts.com"}</script>
+
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/assets/html5shiv/dist/html5shiv.min.js"></script>
+      <script src="/assets/respond.js/dest/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" media="all" href="/assets/application.css" />
+    <link rel="stylesheet" media="all" href="/assets/home.css" />
+  </head>
+
+  <body id="page-top" class="homepage" data-ga-tracking-id="" data-spy="scroll" data-target=".navbar-fixed-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-custom navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" title="Toggle Navigation Menu" data-toggle="collapse" data-target=".navbar-main-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand page-scroll" title="Page Top" href="#page-top">
+          <span class="light">Stra</span>fforts
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+        <ul class="nav navbar-nav">
+          <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+          <li class="hidden">
+            <a href="#page-top"></a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#about">About</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#demo">Demo</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#connect">Connect</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="intro">
+    <div class="intro-body">
+      <div class="container">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="heading-text">
+            <h1 class="brand-heading">
+              Strafforts
+            </h1>
+            <p class="intro-text">
+              An Analytics App for Strava Estimated Best Efforts and Races
+            </p>
+            <ul class="list-inline banner-social-buttons">
+              <li>
+                <a href="/athletes/9123806" class="btn btn-default btn-lg btn-view-demo">
+                  <span>View App Demo</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.strava.com/oauth/authorize?client_id=&amp;response_type=code&amp;redirect_uri=http://www.example.com:80/auth/exchange_token&amp;approval_prompt=auto&amp;scope=view_private" class="btn-connect-with-strava" title="Connect With Strava">
+                  <img alt="Connect With Strava" src="/assets/btn_strava_connectwith_orange.png" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about" class="container content-section text-center">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <h2>About</h2>
+        <p>
+          Strafforts is a web app that calls
+          <a target="_blank" href="https://strava.github.io/api/">Strava API</a>
+          to fetch athlete's
+          <a target="_blank" href="https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running">estimated best efforts</a>
+          and <a target="_blank" href="https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs">races</a> data,
+          then visualize them in forms of data tables, line charts and pie charts, in such way athletes can perform some analysis, like half marathon PB
+          progression, fastest shoes used for a 10K race, how often 5K PB gets set, etc.
+        </p>
+        <p>
+          This app is absolutely free and <a target="_blank" href="https://github.com/yizeng/strafforts">open source</a>.
+          It doesn't modify any of your data on <a target="_blank" href="https://www.strava.com/">Strava</a> or store your Strava password.
+          All you need to do is to connect this app with your Strava account by clicking "<a href="#connect">Connect with Strava</a>" button
+          and wait for our background worker to fetch and visualize your data.
+        </p>
+      <h3>FAQ</h3>
+      <p>
+        <a target="_blank" href="https://support.strava.com/hc/en-us/articles/216917127-Estimated-Best-Efforts-for-Running">What are &#39;Estimated Best Efforts&#39;?</a><br />
+        <a target="_blank" href="https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs">What are Strava races and how to create them?</a>
+      </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo" class="content-section text-center">
+    <div class="demo-section">
+      <div class="container">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="heading-text">
+            <h2>Demo</h2>
+            <p>See how my Strava estimated best efforts and races are visualized.</p>
+            <ul class="list-inline banner-social-buttons">
+              <li>
+                <a href="/athletes/9123806" class="btn btn-default btn-lg btn-view-demo">
+                  <span>View App Demo</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="connect" class="container content-section text-center">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <h2>Connect</h2>
+        <p>Connect now to let Strafforts fetch and visualize your Strava best efforts and races!</p>
+        </p>
+        <ul class="list-inline banner-social-buttons">
+          <li>
+            <a href="https://www.strava.com/oauth/authorize?client_id=&amp;response_type=code&amp;redirect_uri=http://www.example.com:80/auth/exchange_token&amp;approval_prompt=auto&amp;scope=view_private" class="btn-connect-with-strava" title="Connect With Strava">
+              <img alt="Connect With Strava" src="/assets/btn_strava_connectwith_orange.png" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container text-center">
+      <p>App designed and developed by
+        <a target="_blank" href="http://yizeng.me">Yi Zeng</a>.</p>
+      <p>
+        <a href="https://www.strava.com" class="btn-powered-by-strava" title="Powered by Strava" target="_blank">
+          <img alt="Powered by Strava" src="/assets/api_logo_pwrdBy_strava_stack_light.png" />
+        </a>
+      </p>
+    </div>
+  </footer>
+
+<script src="/assets/application.js"></script>
+<script src="/assets/home.js"></script>
+
+</body>
+
+</html>

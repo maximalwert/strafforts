@@ -44,7 +44,12 @@ namespace Views {
             const content = `
                 <div class="row">
                     ${HtmlHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
-                    ${HtmlHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml(
+                        'year-distribution-pie-chart',
+                        'Year Distribution Chart',
+                        4,
+                        showLoadingIcon,
+                    )}
                 </div>
                 ${this.constructDataTableHtml()}
                 <div class="row">
@@ -53,7 +58,12 @@ namespace Views {
                 </div>
                 <div class="row">
                     ${HtmlHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6, showLoadingIcon)}
-                    ${HtmlHelpers.constructChartHtml('average-hr-zones-chart', 'Average HR Zones Distribution Chart', 6, showLoadingIcon)}
+                    ${HtmlHelpers.constructChartHtml(
+                        'average-hr-zones-chart',
+                        'Average HR Zones Distribution Chart',
+                        6,
+                        showLoadingIcon,
+                    )}
                 </div>
             `;
             mainContent.append(content);
@@ -78,7 +88,11 @@ namespace Views {
                     const content = `
                         <div class="row">
                             ${HtmlHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8)}
-                            ${HtmlHelpers.constructChartHtml('year-distribution-pie-chart', 'Year Distribution Chart', 4)}
+                            ${HtmlHelpers.constructChartHtml(
+                                'year-distribution-pie-chart',
+                                'Year Distribution Chart',
+                                4,
+                            )}
                         </div>
                         ${this.constructDataTableHtml(items)}
                         <div class="row">
@@ -87,7 +101,11 @@ namespace Views {
                         </div>
                         <div class="row">
                             ${HtmlHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6)}
-                            ${HtmlHelpers.constructChartHtml('average-hr-zones-chart', 'Average HR Zones Distribution Chart', 6)}
+                            ${HtmlHelpers.constructChartHtml(
+                                'average-hr-zones-chart',
+                                'Average HR Zones Distribution Chart',
+                                6,
+                            )}
                         </div>
                     `;
                     mainContent.append(content);
@@ -105,8 +123,9 @@ namespace Views {
                     chartCreator.createYearDistributionChart('year-distribution-pie-chart');
                     $('.dataTable').each(function() {
                         ($(this) as any).DataTable({
+                            // Disable searching for Time, Pace, Elevation, Cadence and HRs.
                             columnDefs: [{
-                                targets: [2, 3, 5, 6, 7, 8], // Disable searching for Time, Pace, Elevation, Cadence and HRs.
+                                targets: [2, 3, 5, 6, 7, 8],
                                 searchable: false,
                             }],
                             iDisplayLength: 10,

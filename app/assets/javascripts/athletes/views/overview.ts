@@ -55,7 +55,7 @@ namespace Views {
         }
 
         private createFaq() {
-            const fullUrl = `${Helpers.getBaseUrl()}/api/faqs/get_all`;
+            const fullUrl = `${Helpers.getBaseUrl()}/api/faqs/index`;
             $.ajax({
                 url: fullUrl,
                 dataType: 'json',
@@ -106,7 +106,9 @@ namespace Views {
                                     <h3 class="box-title">${Helpers.toTitleCase(category.replace(/-/g, ' '))}</h3>
                                 </div>
                                 <div class="box-body">
-                                    <div class="box-group accordion" id="accordion-${category}">${accordionContent}</div>
+                                    <div class="box-group accordion" id="accordion-${category}">
+                                        ${accordionContent}
+                                    </div>
                                 </div>
                             </div>
                         `;
@@ -151,7 +153,8 @@ namespace Views {
                                 <tr>
                                     <td>${item['start_date']}</td>
                                     <td class="text-center badge-cell hidden-md-down">
-                                        <span class="label workout-type-${item['workout_type_name'].replace(/\s/g, '-')}">
+                                        <span class="label
+                                            workout-type-${item['workout_type_name'].replace(/\s/g, '-')}">
                                             ${item['workout_type_name']}
                                         </span>
                                     </td>

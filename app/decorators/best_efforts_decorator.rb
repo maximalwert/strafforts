@@ -1,6 +1,6 @@
 class BestEffortsDecorator < Draper::CollectionDecorator
-  @@max_distances_to_show = 4
-  @@max_item_allowed_per_distance = 5
+  MAX_DISTANCES_TO_SHOW = 4
+  MAX_ITEM_ALLOWED_PER_DISTANCE = 5
 
   def to_show_in_overview
     results = {}
@@ -14,7 +14,7 @@ class BestEffortsDecorator < Draper::CollectionDecorator
       ApplicationHelper::Helper.other_race_distances.each do |item|
         items = find_best_efforts_by_type(item[:name])
         unless items.empty?
-          results[item[:name]] = items if results.count < @@max_distances_to_show
+          results[item[:name]] = items if results.count < MAX_DISTANCES_TO_SHOW
         end
       end
     end
@@ -25,8 +25,10 @@ class BestEffortsDecorator < Draper::CollectionDecorator
   private
 
   def find_best_efforts_by_type(best_effort_type)
-    best_efforts = object.select { |best_effort| best_effort_type.casecmp(best_effort[:best_effort_type]).zero? }
-    best_efforts = best_efforts.take(@@max_item_allowed_per_distance)
+    best_efforts = object.select do |best_effort|
+      best_effort_type.casecmp(best_effort[:best_effort_type]).zero? unless best_effort[:best_effort_type].blank?
+    end
+    best_efforts = best_efforts.take(MAX_ITEM_ALLOWED_PER_DISTANCE)
     best_efforts
   end
 end

@@ -54,7 +54,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     '#gear-count-chart',
     '#heart-rates-chart',
     '#average-hr-zones-chart'
-  ]
+  ].freeze
 
   ALL_RACE_DISTANCES = [
     '100 Miles', '100k', '50 Miles', '50k',
@@ -84,12 +84,8 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     '#average-hr-zones-chart'
   ].freeze
 
-  ALL_RACE_YEARS = [
-    '2017', '2016', '2015', '2014'
-  ].freeze
-  RACE_YEARS_WITH_ALL_CHARTS_SHOWN = [
-    '2017', '2016', '2015'
-  ].freeze
+  ALL_RACE_YEARS = %w[2017 2016 2015 2014].freeze
+  RACE_YEARS_WITH_ALL_CHARTS_SHOWN = %w[2017 2016 2015].freeze
   RACE_YEARS_CHART_TITLES = [
     'Distance Distribution Chart',
     'Month Distribution Chart',
