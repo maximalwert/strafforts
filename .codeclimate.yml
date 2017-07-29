@@ -8,7 +8,7 @@ engines:
     config:
       languages:
         ruby:
-          mass_threshold: 35
+          mass_threshold: 45
         javascript:
     exclude_paths:
       - 'db/**/*'
