@@ -12,6 +12,7 @@ engines:
         javascript:
     exclude_paths:
       - 'db/**/*'
+      - '**/*.js'
   fixme:
     enabled: true
   markdownlint:

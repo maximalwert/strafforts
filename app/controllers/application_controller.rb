@@ -7,11 +7,6 @@ require 'activity_fetcher'
 require 'strava_api_wrapper'
 
 class ApplicationController < ActionController::Base
-  class ItemType
-    BEST_EFFORTS = 'best-efforts'.freeze
-    RACES = 'races'.freeze
-  end
-
   STRAVA_API_AUTH_AUTHORIZE_URL = Settings.strava.api_auth_authorize_url
   STRAVA_API_AUTH_TOKEN_URL = Settings.strava.api_auth_token_url
   STRAVA_API_AUTH_DEAUTHORIZE_URL = Settings.strava.api_auth_deauthorize_url
@@ -32,8 +27,8 @@ class ApplicationController < ActionController::Base
     athlete = Athlete.find_by_id_or_username(id_or_username)
     raise_athlete_not_found_error(id_or_username) if athlete.nil?
 
-    is_type_of_best_efforts = item_type == ItemType::BEST_EFFORTS
-    is_type_of_races = item_type == ItemType::RACES
+    is_type_of_best_efforts = item_type == ApplicationHelper::ItemType::BEST_EFFORTS
+    is_type_of_races = item_type == ApplicationHelper::ItemType::RACES
 
     results = []
     items = ApplicationHelper::Helper.all_best_effort_types if is_type_of_best_efforts

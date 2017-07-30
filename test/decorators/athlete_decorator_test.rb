@@ -99,4 +99,11 @@ class AthleteDecoratorTest < Draper::TestCase
     decorator = AthleteDecorator.decorate(athlete)
     assert_equal('49', decorator.follower_count)
   end
+
+  test 'should get nil profile_image_url if profile image url throws InvalidURIError' do
+    athlete = Athlete.find_by_id_or_username(9123806)
+    athlete.profile = 'strafforts/@#$%^&*()'
+    decorator = AthleteDecorator.decorate(athlete)
+    assert_nil(decorator.profile_image_url)
+  end
 end

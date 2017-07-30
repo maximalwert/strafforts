@@ -26,7 +26,7 @@ module Api
     end
 
     def get_counts # rubocop:disable AccessorMethodName
-      results = ApplicationController.get_counts(params[:id_or_username], ApplicationController::ItemType::BEST_EFFORTS)
+      results = ApplicationController.get_counts(params[:id_or_username], ApplicationHelper::ItemType::BEST_EFFORTS)
       render json: results
     end
   end

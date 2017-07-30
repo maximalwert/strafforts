@@ -1,7 +1,15 @@
 require 'ostruct'
 
 module ApplicationHelper
+  class ItemType
+    BEST_EFFORTS = 'best-efforts'.freeze
+    RACES = 'races'.freeze
+  end
+
   class Helper
+    MAX_DISTANCES_TO_SHOW = 4
+    MAX_ITEM_ALLOWED_PER_DISTANCE = 5
+
     @major_best_effort_types = ['Marathon', 'Half Marathon', '10k', '5k']
     @other_best_effort_types = ['50k', '30k', '20k', '10 mile', '15k', '2 mile', '1 mile', '1k', '1/2 mile', '400m']
     @major_race_distances = ['Marathon', 'Half Marathon', '10k', '5k']
@@ -51,6 +59,38 @@ module ApplicationHelper
       heart_rate_zones
     end
 
+    def self.find_items_to_show_in_overview(item_type, items) # rubocop:disable CyclomaticComplexity
+      is_type_of_best_efforts = item_type == ApplicationHelper::ItemType::BEST_EFFORTS
+      is_type_of_races = item_type == ApplicationHelper::ItemType::RACES
+
+      if is_type_of_best_efforts
+        major_distances = ApplicationHelper::Helper.major_best_effort_types
+        other_distances = ApplicationHelper::Helper.other_best_effort_types
+      end
+      if is_type_of_races
+        major_distances = ApplicationHelper::Helper.major_race_distances
+        other_distances = ApplicationHelper::Helper.other_race_distances
+      end
+
+      results = {}
+      major_distances.each do |distance|
+        activities = find_activities_by_distance(items, distance[:name])
+        results[distance[:name]] = activities unless activities.empty?
+      end
+
+      # Fill in with other distances when there are not enough major distances.
+      if results.empty?
+        other_distances.each do |distance|
+          activities = find_activities_by_distance(items, distance[:name])
+          unless activities.empty?
+            results[item[:name]] = activities if results.count < MAX_DISTANCES_TO_SHOW
+          end
+        end
+      end
+
+      results
+    end
+
     private_class_method
 
     def self.calculate_total_elevation_gain(total_elevation_gain, is_imperial_unit)
@@ -81,6 +121,18 @@ module ApplicationHelper
       heart_rate_zones.zone_5_min = 184
       heart_rate_zones.zone_5_max = -1
       heart_rate_zones
+    end
+
+    def self.find_activities_by_distance(items, distance)
+      activities = items.select do |item|
+        if !item[:best_effort_type].blank?
+          distance.casecmp(item[:best_effort_type]).zero?
+        elsif !item[:race_distance].blank?
+          distance.casecmp(item[:race_distance]).zero?
+        end
+      end
+      activities = activities.take(MAX_ITEM_ALLOWED_PER_DISTANCE)
+      activities
     end
 
     def self.get_heart_rate_zone(heart_rate_zones, heart_rate) # rubocop:disable CyclomaticComplexity, PerceivedComplexity, LineLength
