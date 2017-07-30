@@ -33,7 +33,7 @@ class AppTestBase < ApplicationSystemTestCase
   def assert_chart_canvas_loads_successfully(chart_section_selector)
     main_content = find(:css, App::Selectors::MainContent.main_content)
     within(main_content) do
-      assert(has_selector?(:css, chart_section_selector + '-canvas'))
+      assert_has_selector(chart_section_selector + '-canvas')
     end
   end
 
@@ -42,7 +42,7 @@ class AppTestBase < ApplicationSystemTestCase
     within(main_content) do
       chart_section = find(:css, chart_section_selector)
       within(chart_section) do
-        assert(has_selector?('h4'))
+        assert_has_selector('h4')
         assert_not_empty(find(:css, 'h4').text)
       end
     end

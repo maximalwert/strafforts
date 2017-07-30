@@ -8,7 +8,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   VERBOSE_LOGGING = false
 
   APP_NAME = 'Strafforts'.freeze
-  APP_DESCRIPTION = 'An Analytics App for Strava Estimated Best Efforts and Races'.freeze
+  APP_DESCRIPTION = 'An Analytics Web App for Strava Estimated Best Efforts and Races'.freeze
   HOME_URL = '/'.freeze
   DEMO_ATHLETE_ID = '9123806'.freeze
   DEMO_ATHLETE_FRIENDS = '44'.freeze
@@ -129,6 +129,26 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   def resize_window_to(size)
     Capybara.current_session.current_window.resize_to(size[0], size[1])
+  end
+
+  def assert_has_selector(selector, custom_message = nil)
+    message = custom_message.blank? ? "Selector '#{selector}' should be found." : custom_message
+    assert(has_selector?(selector), message)
+  end
+
+  def assert_includes_text(item, text_be_included, custom_message = nil)
+    message = custom_message.blank? ? "'#{item}' should include '#{text_be_included}'." : custom_message
+    assert(item.include?(text_be_included), message)
+  end
+
+  def assert_starts_wth_text(text, expected_start, custom_message = nil)
+    message = custom_message.blank? ? "'#{text}' should start with '#{expected_start}'." : custom_message
+    assert(text.start_with?(expected_start), message)
+  end
+
+  def assert_visible(element, element_name, custom_message = nil)
+    message = custom_message.blank? ? "Element '#{element_name}' should be visible." : custom_message
+    assert(element.visible?, message)
   end
 
   driven_by :poltergeist, options: {

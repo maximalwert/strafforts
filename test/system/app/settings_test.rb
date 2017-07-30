@@ -11,7 +11,7 @@ class SettingsTest < AppTestBase
 
       # assert.
       btn_connect_with_strava = find(:css, App::Selectors::MainHeader.btn_connect_with_strava)
-      assert(btn_connect_with_strava[:href].start_with?(STRAVA_AUTHORIZATION_URL_PARTIAL))
+      assert_starts_wth_text(btn_connect_with_strava[:href], STRAVA_AUTHORIZATION_URL_PARTIAL)
       assert_equal('Connect With Strava', btn_connect_with_strava[:title])
     end
   end

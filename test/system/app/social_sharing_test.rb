@@ -22,7 +22,7 @@ class SocialSharingTest < AppTestBase
         if MEDIUM_TO_LARGE_SCREENS.include?(screen_size)
           labels = all(:css, '.addthis_inline_share_toolbox .at-share-btn-elements a .at-label')
           labels.each do |label|
-            assert(SOCIAL_SHARING_BUTTONS.include?(label.text))
+            assert_includes_text(SOCIAL_SHARING_BUTTONS, label.text)
           end
         end
       end

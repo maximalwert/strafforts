@@ -140,12 +140,12 @@ class HomePageTest < ApplicationSystemTestCase
 
   def assert_navbar_toggle_button_loads_successfully
     navbar_toggle_button = find(Home::Selectors.navbar_toggle_button)
-    assert(navbar_toggle_button.visible?)
+    assert_visible(navbar_toggle_button, 'navbar_toggle_button')
   end
 
   def assert_navbar_brand_link_loads_successfully
     navbar_brand = find(Home::Selectors.navbar_brand)
-    assert(navbar_brand.visible?)
+    assert_visible(navbar_brand, 'navbar_brand')
   end
 
   def assert_navbar_loads_for_small_screens_successfully
@@ -161,7 +161,7 @@ class HomePageTest < ApplicationSystemTestCase
     assert_equal(3, all_navbar_links.count)
     all_navbar_links.each do |link|
       assert_not_empty(link.text)
-      assert(link[:href].include?(link.text.downcase)) # link's href should match its text.
+      assert_includes_text(link[:href], link.text.downcase) # link's href should match its text.
     end
 
     assert_equal(ABOUT, find(:css, Home::Selectors.navbar_link_about).text)
@@ -216,13 +216,13 @@ class HomePageTest < ApplicationSystemTestCase
 
   def assert_view_demo_button_loads_successfully
     view_demo_button = find(Home::Selectors.view_demo_button)
-    assert(view_demo_button[:href].include?('/athletes/9123806'))
+    assert_includes_text(view_demo_button[:href], '/athletes/9123806')
     assert_equal('VIEW APP DEMO', view_demo_button.text)
   end
 
   def assert_connect_with_strava_button_loads_successfully
     connect_with_strava_button = find(Home::Selectors.connect_with_strava_button)
-    assert(connect_with_strava_button[:href].start_with?(STRAVA_AUTHORIZATION_URL_PARTIAL))
+    assert_starts_wth_text(connect_with_strava_button[:href], STRAVA_AUTHORIZATION_URL_PARTIAL)
     assert_equal('Connect With Strava', connect_with_strava_button[:title])
   end
 end

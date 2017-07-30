@@ -108,7 +108,7 @@ class NavigationTest < AppTestBase
     navigation_item.click
 
     assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | #{OVERVIEW_TITLE}")
-    assert(page.current_url.include?(DEMO_URL))
+    assert_includes_text(page.current_url, DEMO_URL)
     assert_content_header_loads_successfully(OVERVIEW_TITLE)
   end
 
@@ -117,7 +117,7 @@ class NavigationTest < AppTestBase
     navigation_item.click
 
     assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | #{RCAES_TIMELINE_TITLE}")
-    assert(page.current_url.include?("#{DEMO_URL}?view=timeline&type=races"))
+    assert_includes_text(page.current_url, "#{DEMO_URL}?view=timeline&type=races")
     assert_content_header_loads_successfully(RCAES_TIMELINE_TITLE)
   end
 
@@ -131,11 +131,11 @@ class NavigationTest < AppTestBase
 
     within(navigation_item) do
       icon = find(:css, 'i')
-      assert(icon[:class].include?('fa-check-circle-o'))
+      assert_includes_text(icon[:class], 'fa-check-circle-o')
     end
 
     assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | #{type} - #{distance}")
-    assert(page.current_url.include?("#{DEMO_URL}?view=#{type_formatted}&distance=#{distance_formatted_for_url}"))
+    assert_includes_text(page.current_url, "#{DEMO_URL}?view=#{type_formatted}&distance=#{distance_formatted_for_url}")
     assert_content_header_loads_successfully("#{type} - #{distance}")
     assert_all_chart_titles_load_successfully(chart_titles)
   end
@@ -146,11 +146,11 @@ class NavigationTest < AppTestBase
 
     within(navigation_item) do
       icon = find(:css, 'i')
-      assert(icon[:class].include?('fa-check-circle-o'))
+      assert_includes_text(icon[:class], 'fa-check-circle-o')
     end
 
     assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | Races - #{year}")
-    assert(page.current_url.include?("#{DEMO_URL}?view=races&year=#{year}"))
+    assert_includes_text(page.current_url, "#{DEMO_URL}?view=races&year=#{year}")
     assert_content_header_loads_successfully("Races - #{year}")
     assert_all_chart_titles_load_successfully(RACE_YEARS_CHART_TITLES)
   end

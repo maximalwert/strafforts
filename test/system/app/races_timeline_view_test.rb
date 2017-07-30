@@ -71,8 +71,7 @@ class RacesTimelineTest < AppTestBase
       button = find(:xpath, ".//button[normalize-space(.)='#{text}']")
       button.click
       sleep 0.2
-      assert(button[:class].include?('active'),
-             "Button (#{text})'s classes '#{button[:class]}' should contain 'active'.")
+      assert_includes_text(button[:class], 'active')
     end
   end
 
@@ -94,20 +93,20 @@ class RacesTimelineTest < AppTestBase
     time_labels = all(:css, App::Selectors::MainContent.timeline_time_labels)
     assert_equal(time_labels.count, years.count)
     time_labels.each do |time_label|
-      assert(years.include?(time_label.text))
+      assert_includes_text(years, time_label.text)
     end
   end
 
   def assert_timeline_headers_load_successfully(distances)
     timeline_headers = all(:css, App::Selectors::MainContent.timeline_headers)
-    assert(timeline_headers.count > 0)
+    assert_operator(timeline_headers.count, :>, 0)
 
     timeline_headers.each do |timeline_header|
       within(timeline_header) do
-        assert(has_selector?('.strava-activity-link'))
+        assert_has_selector('.strava-activity-link')
 
         btn_distance = find(:css, '.btn')
-        assert(distances.include?(btn_distance.text))
+        assert_includes_text(distances, btn_distance.text)
       end
     end
   end

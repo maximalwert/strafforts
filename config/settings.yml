@@ -2,12 +2,12 @@ app:
   name: 'Strafforts'
   contact_url: 'http://yizeng.me/#contact'
   demo_path: '/athletes/9123806'
-  description: 'An Analytics App for Strava Estimated Best Efforts and Races'
-  html_meta_description: 'An analytics app that allow athletes to analyze their visualized Strava estimated best efforts and races data in tables and charts.'
+  description: 'An Analytics Web App for Strava Estimated Best Efforts and Races'
+  html_meta_description: 'An analytics web app that allow athletes to analyze their visualized Strava estimated best efforts and races data in tables and charts.'
   html_meta_description_for_athletes: 'Visualized Strava estimated best efforts and races data for '
   html_meta_keywords: 'strava,strafforts,bestefforts,races,running,data,visualizer,analytics'
   production_url: 'http://www.strafforts.com'
-  title: 'Strafforts - An Analytics App for Strava Estimated Best Efforts and Races'
+  title: 'Strafforts - An Analytics Web App for Strava Estimated Best Efforts and Races'
   global_message: <%= ENV['GLOBAL_MESSAGE'] %>
   version: <%= ENV['APP_VERSION'] %>
 strava:
