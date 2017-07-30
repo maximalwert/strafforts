@@ -31,7 +31,7 @@ module Api
     end
 
     def get_counts_by_distance # rubocop:disable AccessorMethodName
-      results = ApplicationController.get_counts(params[:id_or_username], ApplicationController::ItemType::RACES)
+      results = ApplicationController.get_counts(params[:id_or_username], ApplicationHelper::ItemType::RACES)
       render json: results
     end
 

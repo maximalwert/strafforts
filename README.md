@@ -8,7 +8,7 @@
 [![Code Climate](https://img.shields.io/codeclimate/github/yizeng/strafforts.svg?style=flat-square)][Strafforts Code Climate]
 [![Gemnasium](https://img.shields.io/gemnasium/yizeng/strafforts.svg?style=flat-square)][Strafforts Gemnasium]
 
-## An Analytics App for Strava Estimated Best Efforts and Races
+## An Analytics Web App for Strava Estimated Best Efforts and Races
 
 Strafforts is a web app that calls [Strava API][Strava API]
 to fetch athletes' [estimated best efforts][Strava Support Best Efforts] and [races][Use Run Type Tags]
@@ -65,7 +65,7 @@ Strafforts is my first Ruby on Rails app that helps me learning the framework an
 Since it's so amateur, surely there are so much can be improved from a Ruby developer's point view.
 I will try my best to improve this and make it more useful for everyone.
 
-Got any questions? Check out the [Q&A page](docs/q-and-a.md) first to see if it's been asked before.
+Got any questions? Check out the FAQ in the app first to see if it's been asked before.
 If you have any feature idea, or are running into problems, please raise an issue on GitHub.
 If you want to make code changes, feel free to create PRs.
 Development guide can be found [here](docs/development-guide.md) if needed.

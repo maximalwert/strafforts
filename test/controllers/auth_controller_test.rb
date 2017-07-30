@@ -48,8 +48,8 @@ class AuthControllerTest < ActionDispatch::IntegrationTest
 
     # assert.
     athlete = Athlete.find_by_id_or_username(9123806)
-    assert(athlete.nil?)
-    assert(cookies[:access_token].nil?)
+    assert_nil(athlete)
+    assert_nil(cookies[:access_token])
     assert_redirected_to root_path
   end
 
@@ -59,7 +59,7 @@ class AuthControllerTest < ActionDispatch::IntegrationTest
     get '/auth/deauthorize'
 
     assert_redirected_to root_path
-    assert(cookies[:access_token].nil?)
+    assert_nil(cookies[:access_token])
   end
 
   test 'should logout when GET deauthorize with an invalid access token' do
@@ -73,7 +73,7 @@ class AuthControllerTest < ActionDispatch::IntegrationTest
 
     # assert.
     assert_redirected_to root_path
-    assert(cookies[:access_token].nil?)
+    assert_nil(cookies[:access_token])
   end
 
   test 'should logout when GET deauthorize with a valid access token' do
@@ -86,13 +86,13 @@ class AuthControllerTest < ActionDispatch::IntegrationTest
 
     # assert.
     assert_redirected_to root_path
-    assert(cookies[:access_token].nil?)
+    assert_nil(cookies[:access_token])
   end
 
   test 'should return to root when GET logout' do
     get '/auth/logout'
 
     assert_redirected_to root_path
-    assert(cookies[:access_token].nil?)
+    assert_nil(cookies[:access_token])
   end
 end

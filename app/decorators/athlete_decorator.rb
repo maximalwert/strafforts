@@ -75,8 +75,6 @@ class AthleteDecorator < Draper::Decorator
   def valid_url?(string)
     uri = URI.parse(string)
     %w[http https ftp].include?(uri.scheme)
-  rescue URI::BadURIError
-    false
   rescue URI::InvalidURIError
     false
   end

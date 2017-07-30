@@ -23,7 +23,7 @@ class OverviewTest < AppTestBase
       headers = all(:css, 'h3.box-title')
       assert_equal(FAQ_CATEGORIES.count, headers.count)
       headers.each do |header|
-        assert(FAQ_CATEGORIES.include?(header.text))
+        assert_includes_text(FAQ_CATEGORIES, header.text)
       end
 
       links = all(:css, '.accordion .box-body a')
