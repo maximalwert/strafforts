@@ -1,12 +1,12 @@
 ---
-dummy_one:
+unit_test_one:
   id: 123
   access_token: '3f2a45886980ebec9f4a689371e95860'
   firstname: 'Tony'
   lastname: 'Stark'
   username: 'tonystark'
   is_public: false
-dummy_two:
+unit_test_two:
   id: 456
   access_token: '58e42e6f5e496dc5aa0d5ec354da8048'
   firstname: 'Jessica'
@@ -14,7 +14,7 @@ dummy_two:
   username: 'jessicajones'
   is_public: true
   last_activity_retrieved: 9999
-dummy_three:
+unit_test_three:
   id: 789
   access_token: '4e4711b645307480587dd52523e2d5e5'
   username: 'bruce.banner'
