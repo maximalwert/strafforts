@@ -153,17 +153,31 @@ input[type='submit'] {
 
 .main-sidebar {
     .user-panel {
-        .image img {
-            width: 45px;
-            height: 45px;
+        overflow: scroll;
+
+        padding-bottom: 0;
+        .image {
+            margin-bottom: 6px;
+
+            img {
+                width: 36px;
+                height: 36px;
+            }
         }
 
         .info {
             font-weight: bold;
 
+            position: initial;
+
+            padding-left: 5px;
+
+            span {
+                padding-top: 4px;
+            }
+
             p {
                 margin-top: 10px;
-                margin-bottom: 10px;
             }
 
             a {
@@ -178,6 +192,12 @@ input[type='submit'] {
     }
 
     .sidebar-menu {
+        .treeview-header:not(.disabled) {
+            &:hover {
+                box-shadow: inset 3px 0 0 $color-strava;
+            }
+        }
+
         .treeview-menu {
             li a {
                 @include transition(all .2s ease-in-out);
@@ -297,8 +317,8 @@ input[type='submit'] {
                     color: inherit;
                     border-bottom: dotted 1px $color-light-grey;
                     &:hover {
-                        color: #FC4C02;
-                        border-bottom-color: #FC4C02;
+                        color: $color-strava;
+                        border-bottom-color: $color-strava;
                     }
                 }
                 .btn {
