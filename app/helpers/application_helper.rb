@@ -83,7 +83,7 @@ module ApplicationHelper
         other_distances.each do |distance|
           activities = find_activities_by_distance(items, distance[:name])
           unless activities.empty?
-            results[item[:name]] = activities if results.count < MAX_DISTANCES_TO_SHOW
+            results[distance[:name]] = activities if results.count < MAX_DISTANCES_TO_SHOW
           end
         end
       end
