@@ -1,8 +1,8 @@
 {
   "name": "strafforts",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "private": true,
-  "description": "An Analytics Web App for Strava Estimated Best Efforts and Races",
+  "description": "An Analytics App for Strava Estimated Best Efforts and Races",
   "repository": "https://github.com/yizeng/strafforts.git",
   "author": "Yi Zeng <yi.zeng.dev@gmail.com>",
   "license": "MIT",

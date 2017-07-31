@@ -8,7 +8,7 @@
 [![Code Climate](https://img.shields.io/codeclimate/github/yizeng/strafforts.svg?style=flat-square)][Strafforts Code Climate]
 [![Gemnasium](https://img.shields.io/gemnasium/yizeng/strafforts.svg?style=flat-square)][Strafforts Gemnasium]
 
-## An Analytics Web App for Strava Estimated Best Efforts and Races
+## An Analytics App for Strava Estimated Best Efforts and Races
 
 Strafforts is a web app that calls [Strava API][Strava API]
 to fetch athletes' [estimated best efforts][Strava Support Best Efforts] and [races][Use Run Type Tags]
