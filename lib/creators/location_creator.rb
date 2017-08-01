@@ -1,7 +1,7 @@
 module Creators
   class LocationCreator
     def self.create_country(country)
-      return if country_id.blank?
+      return if country.blank?
 
       Rails.logger.info("LocationCreator - Creating or updating country '#{country}'.")
       country = Country.where(name: country).first_or_create
