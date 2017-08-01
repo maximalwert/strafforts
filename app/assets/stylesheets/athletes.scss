@@ -153,7 +153,7 @@ input[type='submit'] {
 
 .main-sidebar {
     .user-panel {
-        overflow: scroll;
+        overflow: hidden;
 
         padding-bottom: 0;
         .image {
@@ -168,7 +168,7 @@ input[type='submit'] {
         .info {
             font-weight: bold;
 
-            position: initial;
+            position: static;
 
             padding-left: 5px;
 
