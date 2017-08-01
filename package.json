@@ -52,12 +52,12 @@
     "webpack-merge": "^4.1.0"
   },
   "scripts": {
-    "mdlint": "bin/mdl README.md -c config/.mdlrc && bin/mdl docs/ -c config/.mdlrc",
-    "start": "bin/rake foreman:dev",
+    "mdlint": "bundle exec mdl README.md -c config/.mdlrc && bundle exec mdl docs/ -c config/.mdlrc",
+    "start": "bundle exec rake foreman:dev",
     "postinstall": "node_modules/.bin/tsc --project app/assets/javascripts/athletes/ && node_modules/.bin/tsc --project app/assets/javascripts/home/",
-    "test": "bin/rails test && bin/rails test:system",
+    "test": "bundle exec rails test && bundle exec rails test:system",
     "tslint": "node_modules/.bin/tslint -c config/tslint.json app/**/*.ts",
-    "rubocop": "bin/rubocop -c config/rubocop.yml",
+    "rubocop": "bundle exec rubocop -c config/rubocop.yml",
     "watch": "node_modules/.bin/concurrently \"node_modules/.bin/tsc --project app/assets/javascripts/home/ --watch\" \"node_modules/.bin/tsc --project app/assets/javascripts/athletes/ --watch\""
   },
   "devDependencies": {

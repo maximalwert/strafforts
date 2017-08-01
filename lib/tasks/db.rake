@@ -6,7 +6,7 @@ namespace :db do
     dump_file = args[:file] || 'latest.dump'
 
     # Create DB in case it doesn't exist.
-    system 'bin/rails db:create'
+    system 'bundle exec rails db:create'
 
     # Remove the existing dump file.
     FileUtils.rm(dump_file, force: true)
@@ -25,7 +25,7 @@ namespace :db do
     system command
 
     # Run db:migrate.
-    system 'bin/rails db:migrate'
+    system 'bundle exec rails db:migrate'
   end
 
   desc 'Convert development DB to Rails test fixtures'
