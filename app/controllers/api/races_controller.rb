@@ -30,25 +30,27 @@ module Api
       end
     end
 
-    def get_counts_by_distance # rubocop:disable AccessorMethodName
-      results = ApplicationController.get_counts(params[:id_or_username], ApplicationHelper::ItemType::RACES)
-      render json: results
-    end
-
-    def get_counts_by_year # rubocop:disable AccessorMethodName
+    def meta_by_distance
       athlete = Athlete.find_by_id_or_username(params[:id_or_username])
       ApplicationController.raise_athlete_not_found_error(params[:id_or_username]) if athlete.nil?
 
-      results = []
-      year_count_pairs = Race.find_years_and_counts_by_athlete_id(athlete.id)
-      year_count_pairs.each do |pair|
-        result = {
-          race_year: pair[0].to_i.to_s,
-          count: pair[1],
-          is_major: true
-        }
-        results << result
-      end
+      results = ApplicationController.get_meta(
+        athlete.id,
+        ApplicationHelper::Helper.all_race_distances,
+        ApplicationHelper::ViewType::RACES_BY_DISTANCE
+      )
+      render json: results
+    end
+
+    def meta_by_year
+      athlete = Athlete.find_by_id_or_username(params[:id_or_username])
+      ApplicationController.raise_athlete_not_found_error(params[:id_or_username]) if athlete.nil?
+
+      results = ApplicationController.get_meta(
+        athlete.id,
+        Race.find_years_and_counts_by_athlete_id(athlete.id),
+        ApplicationHelper::ViewType::RACES_BY_YEAR
+      )
       render json: results
     end
   end

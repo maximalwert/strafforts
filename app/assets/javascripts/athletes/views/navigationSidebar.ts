@@ -2,12 +2,12 @@ namespace Views {
     export class NavigationSidebar {
 
         public load(): void {
-            this.createNavigationItem('/best-efforts/get_counts', 'best_effort_type', 'best-efforts-for-distance');
-            this.createNavigationItem('/races/get_counts_by_distance', 'race_distance', 'races-for-distance');
-            this.createNavigationItem('/races/get_counts_by_year', 'race_year', 'races-for-year');
+            this.createNavigationItem('/best-efforts/meta', 'best-efforts-for-distance');
+            this.createNavigationItem('/races/meta_by_distance', 'races-for-distance');
+            this.createNavigationItem('/races/meta_by_year', 'races-for-year');
         }
 
-        private createNavigationItem(url: string, itemName: string, elementIdPrefix: string) {
+        private createNavigationItem(url: string, elementIdPrefix: string) {
             const fullUrl = AppHelpers.getApiBaseUrl() + url;
             $.ajax({
                 url: fullUrl,
@@ -18,8 +18,8 @@ namespace Views {
                         $(`#treeview-menu-${elementIdPrefix}`).closest('.treeview').empty();
                     } else {
                         $.each(data, (key, value) => {
-                            const itemText = value[itemName];
-                            const itemId = value[itemName].replace(/\s/g, '-').replace(/\//g, '-').toLowerCase();
+                            const itemText = value['name'];
+                            const itemId = value['name'].replace(/\s/g, '-').replace(/\//g, '-').toLowerCase();
                             const elementId = `${elementIdPrefix}-${itemId}-navigation`;
                             const count = value['count'];
 

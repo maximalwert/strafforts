@@ -13,11 +13,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'athletes/:id_or_username/best-efforts' => 'best_efforts#index'
-    get 'athletes/:id_or_username/best-efforts/get_counts' => 'best_efforts#get_counts'
+    get 'athletes/:id_or_username/best-efforts/meta' => 'best_efforts#meta'
     get 'athletes/:id_or_username/best-efforts/:distance' => 'best_efforts#index'
     get 'athletes/:id_or_username/races' => 'races#index'
-    get 'athletes/:id_or_username/races/get_counts_by_distance' => 'races#get_counts_by_distance'
-    get 'athletes/:id_or_username/races/get_counts_by_year' => 'races#get_counts_by_year'
+    get 'athletes/:id_or_username/races/meta_by_distance' => 'races#meta_by_distance'
+    get 'athletes/:id_or_username/races/meta_by_year' => 'races#meta_by_year'
     get 'athletes/:id_or_username/races/:distance_or_year' => 'races#index'
     get 'faqs/index' => 'faqs#index'
   end

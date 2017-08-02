@@ -23,40 +23,39 @@ class ApplicationController < ActionController::Base
     '&approval_prompt=auto&scope=view_private'
   end
 
-  def self.get_counts(id_or_username, item_type) # rubocop:disable CyclomaticComplexity, PerceivedComplexity, LineLength, MethodLength
-    athlete = Athlete.find_by_id_or_username(id_or_username)
-    raise_athlete_not_found_error(id_or_username) if athlete.nil?
-
-    is_type_of_best_efforts = item_type == ApplicationHelper::ItemType::BEST_EFFORTS
-    is_type_of_races = item_type == ApplicationHelper::ItemType::RACES
-
+  def self.get_meta(athlete_id, items, item_type) # rubocop:disable CyclomaticComplexity, MethodLength
     results = []
-    items = ApplicationHelper::Helper.all_best_effort_types if is_type_of_best_efforts
-    items = ApplicationHelper::Helper.all_race_distances if is_type_of_races
 
-    items.each do |item|
-      if is_type_of_best_efforts
+    items.each do |item| # rubocop:disable BlockLength
+      case item_type
+      when ApplicationHelper::ViewType::BEST_EFFORTS
         model = BestEffortType.find_by_name(item[:name])
         next if model.nil?
 
-        best_efforts = BestEffort.find_all_by_athlete_id_and_best_effort_type_id(athlete.id, model.id)
+        best_efforts = BestEffort.find_all_by_athlete_id_and_best_effort_type_id(athlete_id, model.id)
         result = {
-          best_effort_type: item[:name],
+          name: item[:name],
           count: best_efforts.nil? ? 0 : best_efforts.size,
           is_major: item[:is_major]
         }
-      end
-
-      if is_type_of_races
+      when ApplicationHelper::ViewType::RACES_BY_DISTANCE
         model = RaceDistance.find_by_name(item[:name])
         next if model.nil?
 
-        races = Race.find_all_by_athlete_id_and_race_distance_id(athlete.id, model.id)
+        races = Race.find_all_by_athlete_id_and_race_distance_id(athlete_id, model.id)
         result = {
-          race_distance: item[:name],
+          name: item[:name],
           count: races.nil? ? 0 : races.size,
           is_major: item[:is_major]
         }
+      when ApplicationHelper::ViewType::RACES_BY_YEAR
+        result = {
+          name: item[0].to_i.to_s,
+          count: item[1],
+          is_major: true
+        }
+      else
+        next
       end
 
       results << result
