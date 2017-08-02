@@ -2,6 +2,7 @@ class AthleteDecorator < Draper::Decorator
   delegate_all
 
   STRAVA_URL = 'https://www.strava.com'.freeze
+  MAX_INFO_TEXT_LENGTH = 25
 
   def profile_url
     if object.id.blank?
@@ -39,6 +40,12 @@ class AthleteDecorator < Draper::Decorator
     end
   end
 
+  def display_name
+    return fullname unless fullname.length > MAX_INFO_TEXT_LENGTH
+    return object.firstname unless object.firstname.blank?
+    return object.lastname unless object.lastname.blank?
+  end
+
   def location # rubocop:disable AbcSize, CyclomaticComplexity, PerceivedComplexity
     return '' if object.city.nil? && object.country.nil?
     return object.country.name.to_s.strip if object.city.nil?
@@ -48,6 +55,12 @@ class AthleteDecorator < Draper::Decorator
     return object.country.name.to_s.strip if object.city.name.blank?
     return object.city.name.to_s.strip if object.country.name.blank?
     "#{object.city.name.to_s.strip}, #{object.country.name.to_s.strip}"
+  end
+
+  def display_location
+    return location unless location.length > MAX_INFO_TEXT_LENGTH
+    return object.city.name unless object.city.nil? || object.city.name.blank?
+    return object.country.name unless object.country.nil? || object.country.name.blank?
   end
 
   def friend_count
