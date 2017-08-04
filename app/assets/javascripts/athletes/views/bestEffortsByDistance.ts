@@ -11,8 +11,8 @@ namespace Views {
         constructor(distance: string) {
             super();
 
-            this.distance = distance;
-            this.distanceFormattedForUrl = distance.trim().replace(/\//g, '|').replace(/\s/g, '-').toLowerCase();
+            this.distance = distance.trim().replace(/_/g, '/');
+            this.distanceFormattedForUrl = distance.trim().replace(/\//g, '_').replace(/\s/g, '-').toLowerCase();
         }
 
         public updateWindowState(): void {
