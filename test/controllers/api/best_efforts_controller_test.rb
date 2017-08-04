@@ -30,7 +30,6 @@ class BestEffortsControllerTest < ActionDispatch::IntegrationTest
       get URI.encode(url)
 
       assert_response :success
-      write_expected_controller_response(url, ResponseType::JSON, response.body)
       assert_equal(read_expected_controller_response(url, ResponseType::JSON), response.body)
     end
   end
