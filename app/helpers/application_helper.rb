@@ -5,6 +5,11 @@ module ApplicationHelper
     BEST_EFFORTS = 'best-efforts'.freeze
     RACES = 'races'.freeze
   end
+  class ViewType
+    BEST_EFFORTS = 'best-efforts'.freeze
+    RACES_BY_DISTANCE = 'races-by-distance'.freeze
+    RACES_BY_YEAR = 'races-by-year'.freeze
+  end
 
   class Helper
     MAX_DISTANCES_TO_SHOW = 4

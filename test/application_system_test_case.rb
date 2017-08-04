@@ -123,7 +123,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   def format_text_for_url(distance)
     result = distance
     result = result.tr(' ', '-') if distance.include?(' ')
-    result = result.tr('/', '|') if distance.include?('/')
+    result = result.tr('/', '_') if distance.include?('/')
     result.downcase
   end
 

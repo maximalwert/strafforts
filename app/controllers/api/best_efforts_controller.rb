@@ -13,9 +13,9 @@ module Api
         render json: @best_efforts
       else
         # Get best_effort_type from distance parameter.
-        # '1/2 mile' is passed in as 1|2 mile, 'Half Marathon' is passed in as half-marathon
-        # as defined in createView method in athletes/best-efforts.js, revert back when before searching here.
-        distance = params[:distance].tr('|', '/').tr('-', ' ')
+        # '1/2 mile' is passed in as 1_2 mile, 'Half Marathon' is passed in as half-marathon
+        # as defined in createView method in app/assets/javascripts/athletes/views/bestEffortsByDistance.ts.
+        distance = params[:distance].tr('_', '/').tr('-', ' ')
         best_effort_type = BestEffortType.find_by_name(distance)
         ApplicationController.raise_item_not_found_error('best effort type', distance) if best_effort_type.nil?
 
@@ -25,8 +25,15 @@ module Api
       end
     end
 
-    def get_counts # rubocop:disable AccessorMethodName
-      results = ApplicationController.get_counts(params[:id_or_username], ApplicationHelper::ItemType::BEST_EFFORTS)
+    def meta
+      athlete = Athlete.find_by_id_or_username(params[:id_or_username])
+      ApplicationController.raise_athlete_not_found_error(params[:id_or_username]) if athlete.nil?
+
+      results = ApplicationController.get_meta(
+        athlete.id,
+        ApplicationHelper::Helper.all_best_effort_types,
+        ApplicationHelper::ViewType::BEST_EFFORTS
+      )
       render json: results
     end
   end

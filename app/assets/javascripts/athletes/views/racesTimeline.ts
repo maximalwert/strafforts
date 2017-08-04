@@ -86,12 +86,12 @@ namespace Views {
         protected getRaceYears(): number[] {
             const years: number[] = [];
             $.ajax({
-                url: AppHelpers.getApiBaseUrl() + '/races/get_counts_by_year',
+                url: AppHelpers.getApiBaseUrl() + '/races/meta_by_year',
                 dataType: 'json',
                 async: false,
                 success: (data) => {
                     $.each(data, (key, value) => {
-                        const year = value['race_year'];
+                        const year = value['name'];
                         if ($.inArray(year, years) === -1) {
                             years.push(year);
                         }
