@@ -16,20 +16,28 @@ class RacesControllerTest < ActionDispatch::IntegrationTest
     assert_equal(read_expected_controller_response(url, ResponseType::JSON), response.body)
   end
 
-  test 'should GET index for Half Marathon' do
-    url = '/api/athletes/9123806/races/half-marathon'
-    get url
+  test 'should GET index for all race distances' do
+    distances = RaceDistance.all
+    distances.each do |distance|
+      url = "/api/athletes/9123806/races/#{distance.name}"
+      get URI.encode(url)
 
-    assert_response :success
-    assert_equal(read_expected_controller_response(url, ResponseType::JSON), response.body)
+      assert_response :success
+      write_expected_controller_response(url, ResponseType::JSON, response.body)
+      assert_equal(read_expected_controller_response(url, ResponseType::JSON), response.body)
+    end
   end
 
-  test 'should GET index with a valid year' do
-    url = '/api/athletes/9123806/races/2016'
-    get url
+  test 'should GET index with valid years' do
+    VALID_YEARS = %w[2014 2015 2016 2017].freeze
+    VALID_YEARS.each do |year|
+      url = "/api/athletes/9123806/races/#{year}"
+      get URI.encode(url)
 
-    assert_response :success
-    assert_equal(read_expected_controller_response(url, ResponseType::JSON), response.body)
+      assert_response :success
+      write_expected_controller_response(url, ResponseType::JSON, response.body)
+      assert_equal(read_expected_controller_response(url, ResponseType::JSON), response.body)
+    end
   end
 
   test 'should GET an empty JSON with an invalid year latter than 2000' do
