@@ -110,11 +110,11 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
     Foreman's worker process should fetch all estimated best efforts once Strafforts has connected to Strava. Alternatively, the same can be achieved by the following rake tasks defined in `/lib/tasks/fetch.rake`.
 
-        bin/rake fetch:all                                       # Fetch all data for all athletes
-        bin/rake fetch:athlete MODE=[all/latest] ID=[athlete_id] # Fetch data for a particular athlete by ID
-        bin/rake fetch:best_efforts MODE=[all/latest]            # Fetch best efforts for all athletes
-        bin/rake fetch:latest                                    # Fetch the latest data for all athletes
-        bin/rake fetch:races MODE=[all/latest]                   # Fetch races for all athletes
+        bundle exec rails fetch:all                                       # Fetch all data for all athletes
+        bundle exec rails fetch:athlete MODE=[all/latest] ID=[athlete_id] # Fetch data for a particular athlete by ID
+        bundle exec rails fetch:best_efforts MODE=[all/latest]            # Fetch best efforts for all athletes
+        bundle exec rails fetch:latest                                    # Fetch the latest data for all athletes
+        bundle exec rails fetch:races MODE=[all/latest]                   # Fetch races for all athletes
 
 1. Run tests
 
@@ -122,15 +122,15 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
       - Make sure testing DB has been created
 
-            RAILS_ENV=test bin/rails db:create
+            RAILS_ENV=test bundle exec rails db:create
 
       - Run unit tests.
 
-            bin/rails test
+            bundle exec rails test
 
       - Run Rails system tests.
 
-            bin/rails test:system
+            bundle exec rails test:system
 
       - Alternatively, use `yarn test` to run both sets of tests.
 
@@ -161,7 +161,7 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
 1. Setup Heroku Scheduler
 
-    In Heroku's Add-ons page, setup the scheduler with `bin/rake fetch:latest` command
+    In Heroku's Add-ons page, setup the scheduler with `bundle exec rails fetch:latest` command
     to tell it to fetch the latest data from Strava API periodically.
     Note that Strava API application has a rate limit of 600 requests every 15 minutes, 30000 daily,
     please set the scheduler to run on a reasonable interval.
