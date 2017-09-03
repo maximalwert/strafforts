@@ -68,6 +68,8 @@ module ApplicationHelper
       is_type_of_best_efforts = item_type == ApplicationHelper::ItemType::BEST_EFFORTS
       is_type_of_races = item_type == ApplicationHelper::ItemType::RACES
 
+      results = {}
+
       if is_type_of_best_efforts
         major_distances = ApplicationHelper::Helper.major_best_effort_types
         other_distances = ApplicationHelper::Helper.other_best_effort_types
@@ -75,16 +77,22 @@ module ApplicationHelper
       if is_type_of_races
         major_distances = ApplicationHelper::Helper.major_race_distances
         other_distances = ApplicationHelper::Helper.other_race_distances
+
+        # This determines showDistanceColumn in app/assets/javascripts/athletes/views/overview.ts.
+        results['Recent'] = items.take(MAX_ITEM_ALLOWED_PER_DISTANCE) unless items.empty?
       end
 
-      results = {}
+      has_major_distance_items = false
       major_distances.each do |distance|
         activities = find_activities_by_distance(items, distance[:name])
-        results[distance[:name]] = activities unless activities.empty?
+        unless activities.empty?
+          results[distance[:name]] = activities
+          has_major_distance_items = true
+        end
       end
 
       # Fill in with other distances when there are not enough major distances.
-      if results.empty?
+      unless has_major_distance_items
         other_distances.each do |distance|
           activities = find_activities_by_distance(items, distance[:name])
           unless activities.empty?
