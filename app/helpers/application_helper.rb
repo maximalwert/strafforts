@@ -64,7 +64,7 @@ module ApplicationHelper
       heart_rate_zones
     end
 
-    def self.find_items_to_show_in_overview(item_type, items) # rubocop:disable CyclomaticComplexity
+    def self.find_items_to_show_in_overview(item_type, items) # rubocop:disable CyclomaticComplexity, PerceivedComplexity, LineLength
       is_type_of_best_efforts = item_type == ApplicationHelper::ItemType::BEST_EFFORTS
       is_type_of_races = item_type == ApplicationHelper::ItemType::RACES
 
