@@ -55,7 +55,9 @@
     "mdlint": "bundle exec mdl README.md -c config/.mdlrc && bundle exec mdl docs/ -c config/.mdlrc",
     "start": "bundle exec rails foreman:start",
     "postinstall": "node_modules/.bin/tsc --project app/assets/javascripts/athletes/ && node_modules/.bin/tsc --project app/assets/javascripts/home/",
-    "test": "bundle exec rails test && bundle exec rails test:system",
+    "test": "bundle exec rails test",
+    "test:all": "bundle exec rails test && bundle exec rails test:system",
+    "test:ui": "bundle exec rails test:system",
     "tslint": "node_modules/.bin/tslint -c config/tslint.json app/**/*.ts",
     "rubocop": "bundle exec rubocop -c config/rubocop.yml",
     "watch": "node_modules/.bin/concurrently \"node_modules/.bin/tsc --project app/assets/javascripts/home/ --watch\" \"node_modules/.bin/tsc --project app/assets/javascripts/athletes/ --watch\""

@@ -143,26 +143,44 @@ namespace Views {
                         pane.append(infoBox);
                     } else {
                         distances.forEach((model: any[]) => {
+                            const isTypeOfRaces = type === 'races';
+
                             const distanceId = model['distance'].toLowerCase().replace(/\s/g, '-').replace(/\//g, '-');
                             const linkId = `${type}-for-distance-${distanceId}`;
+                            const workoutTypeColumnHeader = isTypeOfRaces ?
+                                '' : `<th class="col-md-1 text-center badge-cell hidden-md-down">Type</th>`;
+                            const showDistanceColumn = model['distance'] === 'Recent';
+                            const activityColumnWidth = showDistanceColumn ? '2' : '3';
+                            const distanceColumnHeader = showDistanceColumn ?
+                                `<th class="col-md-1">Distance</th>` : '';
 
                             let rows = '';
                             model['items'].forEach((item: any[]) => {
                                 const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
+                                const distanceColumn = showDistanceColumn ?
+                                    `<td>${(item['distance']).toFixed(1)} ${item['distance_unit']}</td>` : '';
+                                const workoutTypeColumn = isTypeOfRaces ? '' :
+                                `<td class="text-center badge-cell hidden-md-down">
+                                    <span class="label workout-type-${item['workout_type_name'].replace(/\s/g, '-')}">
+                                        ${item['workout_type_name']}
+                                    </span>
+                                </td>`;
+                                const stravaLogoLink = isTypeOfRaces ?
+                                `<a class="strava-logo-link hidden-lg-down" href="${stravaLink}" target="_blank">
+                                    <span></span>
+                                </a>` : '';
+
                                 rows += `
                                 <tr>
                                     <td>${item['start_date']}</td>
-                                    <td class="text-center badge-cell hidden-md-down">
-                                        <span class="label
-                                            workout-type-${item['workout_type_name'].replace(/\s/g, '-')}">
-                                            ${item['workout_type_name']}
-                                        </span>
-                                    </td>
+                                    ${workoutTypeColumn}
                                     <td>
+                                        ${stravaLogoLink}
                                         <a class="strava-activity-link" href="${stravaLink}" target="_blank">
                                             ${item['activity_name']}
                                         </a>
                                     </td>
+                                    ${distanceColumn}
                                     <td>${item['elapsed_time_formatted']}</td>
                                     <td class="hidden-xs-down">
                                         ${item['pace']}<small>${item['pace_unit']}</small>
@@ -187,7 +205,8 @@ namespace Views {
                                     <h3 class="box-title">
                                         ${model['distance']}
                                     </h3>
-                                    <a class="pull-right" id="${linkId}" href="#" title="${model['distance']}">
+                                    <a class="pull-right ${showDistanceColumn ? 'hidden' : ''}"
+                                        id="${linkId}" href="#" title="${model['distance']}">
                                         <small> View Details</small>
                                         <span class="item-text hidden">
                                             ${model['distance']}
@@ -199,8 +218,9 @@ namespace Views {
                                         <thead>
                                             <tr>
                                                 <th class="col-md-1">Date</th>
-                                                <th class="col-md-1 text-center badge-cell hidden-md-down">Type</th>
-                                                <th class="col-md-4">Activity</th>
+                                                ${workoutTypeColumnHeader}
+                                                <th class="col-md-${activityColumnWidth}">Activity</th>
+                                                ${distanceColumnHeader}
                                                 <th class="col-md-1">Time</th>
                                                 <th class="col-md-1 hidden-xs-down">Pace</th>
                                                 <th class="col-md-2 hidden-lg-down">Gear</th>

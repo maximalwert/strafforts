@@ -132,7 +132,7 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
             bundle exec rails test:system
 
-      - Alternatively, use `yarn test` to run both sets of tests.
+      - Alternatively, use `yarn test:all` to run both sets of tests.
 
 ## Install on Heroku
 

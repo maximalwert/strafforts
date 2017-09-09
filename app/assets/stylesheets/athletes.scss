@@ -380,17 +380,15 @@ input[type='submit'] {
         }
 
         .strava-logo-link {
+            vertical-align: middle;
+
             border-bottom: none;
-            span {
-                width: 20px;
-                max-width: 100%;
-                height: 20px;
-                margin-right: 8px;
+
+            span::before {
+                margin-right: 2px;
 
                 content: image-url('strava-logo-small.png');
                 vertical-align: middle;
-
-                border: 0;
             }
         }
     }
