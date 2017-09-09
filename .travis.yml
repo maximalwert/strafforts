@@ -36,7 +36,7 @@ before_script:
   - RAILS_ENV=test bin/rails db:seed
 
 script:
-  - yarn test
+  - yarn test:all
 
 notifications:
   email: false
