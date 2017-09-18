@@ -126,8 +126,7 @@ then Strafforts will put this activity under distance of 'Other'.
 You can submit a request at Strava's support site
 <a href='https://support.strava.com/hc/en-us/requests/new' target='_blank'>here</a>.")
       add('miscellaneous', 'How to contact Strafforts support?', "
-<p>Currently Strafforts is a one-man project,
-so you can get hold of me via <a href='http://yizeng.me/#contact'>one of these methods</a>.</p>
+<p>Please email us at <a href='mailto:support@strafforts.com'>support@strafforts.com</a> with your enquiries.</p>
 <p>Alternatively, if you have a GitHub account,
 you can also raise an issue <a href='https://github.com/yizeng/strafforts' target='_blank'>here</a>.
 </p>")

@@ -1,6 +1,6 @@
 app:
   name: 'Strafforts'
-  contact_url: 'http://yizeng.me/#contact'
+  contact_url: 'mailto:support@strafforts.com'
   demo_path: '/athletes/9123806'
   description: 'An Analytics App for Strava Estimated Best Efforts and Races'
   html_meta_description: 'An analytics app that allow athletes to analyze their visualized Strava estimated best efforts and races data in tables and charts.'

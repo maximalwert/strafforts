@@ -4,8 +4,8 @@
     <a href="https://github.com/yizeng/strafforts" target="_blank">yizeng/strafforts</a>.
   </span>
   <span class="pull-right">
-      <a class="bg-strava btn label" href="https://www.strava.com/athletes/9123806" target="_blank">Follow me on Strava</a>
-      <a class="bg-strava btn label" href="http://yizeng.me/#contact" target="_blank">Contact Me</a>
+      <a class="bg-strava btn label" href="https://www.strava.com<%= Settings.app.demo_path %>" target="_blank">Follow me on Strava</a>
+      <a class="bg-strava btn label" href="<%= Settings.app.contact_url %>" target="_blank">Contact Us</a>
       <% unless Settings.app.version.blank? %>
           <small><%=  Settings.app.version %></small>
       <% else %>
