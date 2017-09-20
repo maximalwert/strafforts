@@ -22,7 +22,7 @@ so that athletes can connect Strafforts with their Strava accounts and see visua
 
 ### Demo
 
-<http://www.strafforts.com>
+<https://www.strafforts.com>
 
 ![Strafforts Main Screenshot](public/screenshots/strafforts-main.gif)
 ![Strafforts Graphs Screenshot](public/screenshots/strafforts-graphs.gif)
