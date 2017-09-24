@@ -13,11 +13,14 @@ module Creators
       end
 
       athlete_id = athlete_hash['id']
+      is_new_athlete = false
       begin
         @athlete = Athlete.find(athlete_id)
+
         Rails.logger.info("AthleteCreator - Updating athlete #{athlete_id}.")
       rescue ActiveRecord::RecordNotFound
         Rails.logger.info("AthleteCreator - Creating athlete #{athlete_id}.")
+        is_new_athlete = true
         @athlete = Athlete.new
         @athlete.id = athlete_id
         @athlete.is_public = true # Set profile to true by default when it's a new athlete.
@@ -31,6 +34,7 @@ module Creators
 
       Creators::GearCreator.create(athlete_id, athlete_hash['shoes'])
 
+      UserMailer.welcome_email(@athlete).deliver_now.delay if is_new_athlete
       @athlete
     end
 

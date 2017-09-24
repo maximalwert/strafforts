@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to <%= @app_name%>, <%= @athlete_name %>!</h1>
+    <p>
+      Dear <%= @athlete_name %>,<br />
+    </p>
+    <p>
+      Thanks for connecting your Strava account with <a href="<%= @app_url %>" target="_blank"><%= @app_name%></a>!.<br />
+    </p>
+    <p>
+      It might take a while for your data to be synced and processed by <%= @app_name%>.<br />
+      While you wait, you may visit our demo page's FAQ section to have a look around.
+    </p>
+    <p>
+      If you didn't know or haven't done so, you can tag your Strava activities like
+      <a href="https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs">this</a>.<br />
+      All <%= @app_name%> charts related "Races" are analyzed from those activities tagged as "Race" in Strava.
+    </p>
+    <p>
+      Your <%= @app_name%> profile URL is <a href="<%= @athlete_profile_url %>"><%= @athlete_profile_url %></a>.<br />
+      Feel free to bookmark it so that you won't lose your way back!
+    </p>
+    <p>
+      If you have any queries,
+      please don't hesitate to contact us at <a href="mailto:<%= @sender_email %>"><%= @sender_email %></a>.
+    </p>
+    <p>
+      Once again, thanks for joining!
+    </p>
+    <p>
+      <br /><br />
+      Regards,<br />
+      <%= @sender_name %>
+    </p>
+  </body>
+</html>
