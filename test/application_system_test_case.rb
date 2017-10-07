@@ -21,7 +21,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   STRAVA_URL = 'https://www.strava.com'.freeze
   STRAVA_AUTHORIZATION_URL_PARTIAL = 'https://www.strava.com/oauth/authorize?client_id='.freeze
 
-  SOCIAL_SHARING_BUTTONS = %w[Facebook LinkedIn Twitter Email Reddit More].freeze
+  SOCIAL_SHARING_BUTTONS = %w[Facebook Vkontakte Twitter LinkedIn Email WhatsApp Telegram More].freeze
 
   FAQ_CATEGORIES = ['Account', 'Support', 'Best Efforts', 'Races', 'Miscellaneous'].freeze
 
