@@ -34,6 +34,7 @@ String.prototype.toHHMMSS = function() {
     return time;
 }
 
+// Initialize AdminLTE.
 var AdminLTEOptions = {
     // Bootstrap.js tooltip.
     enableBSTooltip: true,
@@ -50,3 +51,14 @@ var AdminLTEOptions = {
         slide: false
     }
 };
+
+// Lazy Loading AddThis plugin.
+$('#modal-social-sharing').on('shown.bs.modal', function (e) {
+    var script = document.createElement('script');
+    script.onload = function () {
+        addthis.init();
+        $('#modal-social-sharing .loading-icon-panel').remove();
+    };
+    script.src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5945b04103f9ff79&domready=1";
+    document.head.appendChild(script);
+});
