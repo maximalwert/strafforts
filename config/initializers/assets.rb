@@ -21,4 +21,5 @@ Rails.application.config.assets.precompile += %w(
   errors.js
   home.css
   home.js
+  vendor/donorbox.js
 )
