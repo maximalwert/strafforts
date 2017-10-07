@@ -16,7 +16,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     get root_path
 
     assert_redirected_to root_path
-    assert_nil(cookies[:access_token])
+    assert(cookies[:access_token].blank?)
   end
 
   test 'should redirect to athlete page for current user' do
