@@ -118,6 +118,14 @@ namespace GoogleAnalytics {
                     event.currentTarget,
                 );
             });
+
+            // App - Footer.
+            $('.main-footer').on('click', '.custom-dbox-popup', (event) => {
+                GoogleAnalyticsHelpers.sendEvent('App - Footer', 'Click Donation Link', event.currentTarget);
+            });
+            $('.main-footer').on('click', '.btn', (event) => {
+                GoogleAnalyticsHelpers.sendEvent('App - Footer', 'Click Footer Button', event.currentTarget);
+            });
         };
         return eventBinders;
     }

@@ -16,6 +16,15 @@ then click 'Delete All' button to remove yourself from Strafforts server.</p>
 you can re-connect to give Strafforts permission to retrieve your Strava data again.
 However, since all data has been deleted on our server, it might take a while to retrieve everything again.</p>")
 
+      add('support', 'How to contact Strava support?', "
+You can submit a request at Strava's support site
+<a href='https://support.strava.com/hc/en-us/requests/new' target='_blank'>here</a>.")
+      add('support', 'How to contact Strafforts support?', "
+<p>Please email us at <a href='mailto:support@strafforts.com'>support@strafforts.com</a> with your enquiries.</p>
+<p>Alternatively, if you have a GitHub account,
+you can also raise an issue <a href='https://github.com/yizeng/strafforts/issues' target='_blank'>here</a>.
+</p>")
+
       add('best-efforts', 'What are "Best Efforts (PBs)"?', "
 <p>In short, Strafforts' personal bests are those gold best estimated efforts trophies on Strava running activities,
 like <code>Best estimated Half-Marathon effort (1:33:51)</code>, etc.</p>
@@ -119,17 +128,15 @@ Strafforts will treat it as a 10k race.</p>
 then Strafforts will put this activity under distance of 'Other'.
 </p>")
 
-      add('miscellaneous', 'How to contact Strava support?', "
-You can submit a request at Strava's support site
-<a href='https://support.strava.com/hc/en-us/requests/new' target='_blank'>here</a>.")
-      add('miscellaneous', 'How to contact Strafforts support?', "
-<p>Please email us at <a href='mailto:support@strafforts.com'>support@strafforts.com</a> with your enquiries.</p>
-<p>Alternatively, if you have a GitHub account,
-you can also raise an issue <a href='https://github.com/yizeng/strafforts' target='_blank'>here</a>.
-</p>")
       add('miscellaneous', 'What technologies are used in Strafforts?', "
 <p>See <a href='https://github.com/yizeng/strafforts/blob/master/docs/acknowledgements.md'
 target='_blank'>Acknowledgements page</a> for a comprehensive list.</p>")
+      add('miscellaneous', 'How to contribute to Strafforts?', "
+<p>Strafforts is an open source project hosted on
+<a href='https://github.com/yizeng/strafforts/' target='_blank'>GitHub</a>.</p>
+<p>You can <a href='https://github.com/yizeng/strafforts/issues' target='_blank'>raise issues</a>,
+<a href='https://github.com/yizeng/strafforts/pulls' target='_blank'>provide PRs</a> or even simply
+<a href='https://donorbox.org/help-push-strafforts-forward?amount=25' target='_blank'>donate</a>.</p>")
     end
 
     def to_json
