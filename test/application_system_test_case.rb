@@ -8,7 +8,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   VERBOSE_LOGGING = false
 
   APP_NAME = 'Strafforts'.freeze
-  APP_DESCRIPTION = 'An Analytics App for Strava Estimated Best Efforts and Races'.freeze
+  APP_DESCRIPTION = 'An Analytics App for Strava Best Efforts (PBs) and Races'.freeze
   HOME_URL = '/'.freeze
   DEMO_ATHLETE_ID = '9123806'.freeze
   DEMO_ATHLETE_FRIENDS = '44'.freeze

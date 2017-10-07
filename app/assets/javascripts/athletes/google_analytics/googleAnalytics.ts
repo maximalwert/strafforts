@@ -33,7 +33,7 @@ namespace GoogleAnalytics {
             $('.main-sidebar .sidebar-menu').on('click', 'a[id^="best-efforts-for-"]', (event) => {
                 GoogleAnalyticsHelpers.sendEvent(
                     'App - Navigation Sidebar',
-                    'Show Best Efforts Details',
+                    'Show PBs Details',
                     event.currentTarget,
                 );
             });

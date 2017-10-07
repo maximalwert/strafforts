@@ -108,7 +108,7 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
 1. Fetch data manually if needed
 
-    Foreman's worker process should fetch all estimated best efforts once Strafforts has connected to Strava. Alternatively, the same can be achieved by the following rake tasks defined in `/lib/tasks/fetch.rake`.
+    Foreman's worker process should fetch all best efforts (PBs) once Strafforts has connected to Strava. Alternatively, the same can be achieved by the following rake tasks defined in `/lib/tasks/fetch.rake`.
 
         bundle exec rails fetch:all                                       # Fetch all data for all athletes
         bundle exec rails fetch:athlete MODE=[all/latest] ID=[athlete_id] # Fetch data for a particular athlete by ID
