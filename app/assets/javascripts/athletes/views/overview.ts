@@ -30,7 +30,7 @@ namespace Views {
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
                             <li class="active">
-                                <a href="#pane-best-efforts" data-toggle="tab">Best Efforts</a>
+                                <a href="#pane-best-efforts" data-toggle="tab">Best Efforts (PBs)</a>
                             </li>
                             <li>
                                 <a href="#pane-races" data-toggle="tab">Races</a>

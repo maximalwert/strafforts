@@ -9,7 +9,7 @@ class BestEffortsViewTest < AppTestBase
       visit URL + format_text_for_url(distance)
 
       # assert.
-      assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | Best Efforts - #{distance}")
+      assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | Personal Bests - #{distance}")
     end
   end
 
@@ -24,7 +24,7 @@ class BestEffortsViewTest < AppTestBase
 
         # assert.
         puts "#{distance} - #{screen_size}" if VERBOSE_LOGGING
-        assert_content_header_loads_successfully("Best Efforts - #{distance}")
+        assert_content_header_loads_successfully("Personal Bests - #{distance}")
       end
     end
   end

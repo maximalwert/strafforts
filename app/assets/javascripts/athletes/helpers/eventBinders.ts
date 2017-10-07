@@ -8,7 +8,7 @@ namespace EventBinders {
                 event.preventDefault();
             });
 
-            // Disable clicking for 'Estimated Best Efforts', 'Race by Distance' and 'Race by Year' treeview headers.
+            // Disable clicking for 'PBs by Distance', 'Race by Distance' and 'Race by Year' treeview headers.
             $('.sidebar-menu .disabled').click(false);
 
             // Reload Overview page.

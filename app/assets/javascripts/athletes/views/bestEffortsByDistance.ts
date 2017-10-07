@@ -26,7 +26,7 @@ namespace Views {
 
             const distanceId = this.distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-');
             const navigationAnchor = $(`a[id^="best-efforts-for-distance-${distanceId}"]`);
-            super.prepareView('Best Efforts', this.distance, navigationAnchor);
+            super.prepareView('Personal Bests', this.distance, navigationAnchor);
 
             this.createViewTemplate();
             this.createView();
