@@ -1,15 +1,20 @@
 <footer class="main-footer">
   <span class="hidden-xs">
-    Created by <a href="http://yizeng.me" target="_blank">Yi Zeng</a> and GitHub'ed at
-    <a href="https://github.com/yizeng/strafforts" target="_blank">yizeng/strafforts</a>.
+    <small>
+      Enjoyed <%= Settings.app.name %>?
+      <a class="custom-dbox-popup" href="https://donorbox.org/help-push-strafforts-forward?amount=25" 
+        title="Donate to Strafforts">Help push us forward</a>!
+    </small>
   </span>
   <span class="pull-right">
       <a class="bg-strava btn label" href="https://www.strava.com<%= Settings.app.demo_path %>" target="_blank">Follow me on Strava</a>
       <a class="bg-strava btn label" href="<%= Settings.app.contact_url %>" target="_blank">Contact Us</a>
       <% unless Settings.app.version.blank? %>
-          <small><%=  Settings.app.version %></small>
+          <small><%= Settings.app.version %></small>
       <% else %>
           <small>v.0.10.2</small>
       <% end %>
   </span>
 </footer>
+<script src="https://donorbox.org/install-popup-button.js" type="text/javascript" defer></script>
+<script> window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' } </script>

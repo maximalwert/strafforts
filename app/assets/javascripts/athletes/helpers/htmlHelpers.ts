@@ -21,6 +21,7 @@ namespace HtmlHelpers {
 
     export function getContributionWelcomeBadges() {
         const html = `
+        <p>If you are a techie and would like to help out...</p>
         <p class="link-contributions-welcome">
             <a href="https://github.com/yizeng/strafforts/blob/master/docs/development-guide.md" target="_blank">
                 <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square"
