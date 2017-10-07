@@ -16,13 +16,17 @@ class SocialSharingTest < AppTestBase
       modal_dialog = find(:css, '#modal-social-sharing')
       assert_modal_dialog_loads_successfully(modal_dialog, 'Share This Profile')
       within(modal_dialog) do
-        buttons = all(:css, '.addthis_inline_share_toolbox .at-share-btn-elements a')
-        assert_equal(SOCIAL_SHARING_BUTTONS.count, buttons.count)
+        # Explicit find to wait for lazy loading.
+        addthis_layer = find(:css, '.addthis_inline_share_toolbox .addthis-smartlayers')
+        within(addthis_layer) do
+          buttons = all(:css, '.at-share-btn-elements a')
+          assert_equal(SOCIAL_SHARING_BUTTONS.count, buttons.count)
 
-        if MEDIUM_TO_LARGE_SCREENS.include?(screen_size)
-          labels = all(:css, '.addthis_inline_share_toolbox .at-share-btn-elements a .at-label')
-          labels.each do |label|
-            assert_includes_text(SOCIAL_SHARING_BUTTONS, label.text)
+          if MEDIUM_TO_LARGE_SCREENS.include?(screen_size)
+            labels = all(:css, '.addthis_inline_share_toolbox .at-share-btn-elements a .at-label')
+            labels.each do |label|
+              assert_includes_text(SOCIAL_SHARING_BUTTONS, label.text)
+            end
           end
         end
       end
