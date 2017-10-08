@@ -103,6 +103,11 @@
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        <li>
+          <a class="show-faq" href="?view=faq" title="Show FAQ">
+            <i class="fa fa-question-circle"></i>
+          </a>
+        </li>
           <li>
             <a href="https://www.strava.com/oauth/authorize?client_id=&amp;response_type=code&amp;redirect_uri=http://www.example.com:80/auth/exchange_token&amp;approval_prompt=auto&amp;scope=view_private" class="btn-connect-with-strava" title="Connect With Strava">
               <img alt="Connect With Strava" src="/assets/btn_strava_connectwith_orange.png" />
@@ -163,14 +168,14 @@
 
     <ul class="sidebar-menu">
       <li>
-        <a class="show-overview treeview-header" href="#">
+        <a class="show-overview treeview-header" href="?view=overview">
           <i class="fa fa-home"></i>
           <span>Overview</span>
         </a>
       </li>
 
       <li>
-        <a class="show-races-timeline treeview-header" href="#">
+        <a class="show-races-timeline treeview-header" href="?view=timeline&type=races">
           <i class="fa fa-calendar"></i>
           <span>Races Timeline</span>
         </a>
@@ -270,7 +275,7 @@
   <span class="pull-right">
       <a class="bg-strava btn label" href="https://www.strava.com/athletes/9123806" target="_blank">Follow me on Strava</a>
       <a class="bg-strava btn label" href="mailto:support@strafforts.com" target="_blank">Contact Us</a>
-          <small>v.0.10.2</small>
+          <small>v.0.11.0</small>
   </span>
 </footer>
 <script> window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' } </script>

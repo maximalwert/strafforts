@@ -6,15 +6,7 @@ namespace Views {
 
         private static distances: string[] = [];
 
-        public updateWindowState(): void {
-            const viewUrl = `${AppHelpers.getBaseUrl()}?view=timeline&type=races`;
-            super.updateWindowState(viewUrl);
-        }
-
         public load(): void {
-            // Update again on purpose, so that browser's back button would never trigger state change again.
-            this.updateWindowState();
-
             super.prepareView('Races Timeline');
 
             this.createViewTemplate();

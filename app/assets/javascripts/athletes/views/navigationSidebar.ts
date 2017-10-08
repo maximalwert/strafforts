@@ -2,13 +2,22 @@ namespace Views {
     export class NavigationSidebar {
 
         public load(): void {
-            this.createNavigationItem('/best-efforts/meta', 'best-efforts-for-distance');
-            this.createNavigationItem('/races/meta_by_distance', 'races-for-distance');
-            this.createNavigationItem('/races/meta_by_year', 'races-for-year');
+            this.createNavigationItem(
+                '/best-efforts/meta',
+                '?view=best-efforts&distance',
+                'best-efforts-for-distance');
+            this.createNavigationItem(
+                '/races/meta_by_distance',
+                '?view=races&distance',
+                'races-for-distance');
+            this.createNavigationItem(
+                '/races/meta_by_year',
+                '?view=races&year',
+                'races-for-year');
         }
 
-        private createNavigationItem(url: string, elementIdPrefix: string) {
-            const fullUrl = AppHelpers.getApiBaseUrl() + url;
+        private createNavigationItem(dataUrl: string, urlQuery: string, elementIdPrefix: string) {
+            const fullUrl = AppHelpers.getApiBaseUrl() + dataUrl;
             $.ajax({
                 url: fullUrl,
                 dataType: 'json',
@@ -25,7 +34,7 @@ namespace Views {
 
                             const menuItem = `
                                 <li>
-                                    <a id="${elementId}" title="${itemText}" href="#">
+                                    <a id="${elementId}" title="${itemText}" href="${urlQuery}=${itemId}">
                                         <i class="fa fa-circle-o"></i>
                                         <span class="item-text">${itemText}</span>
                                         <span class="pull-right-container">

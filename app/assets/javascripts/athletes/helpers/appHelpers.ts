@@ -18,8 +18,13 @@ namespace AppHelpers {
         return getBaseUrl(true);
     }
 
-    export function pushStateToWindow(url: string) {
-        window.history.pushState({}, '', url);
+    export function formateDistanceForUrl(distance: string) {
+        return distance.trim().replace(/\//g, '_').replace(/\s/g, '-').toLowerCase();
+    }
+
+    export function pushStateToWindow(relativeUrl: string) {
+        const url = AppHelpers.getBaseUrl() + relativeUrl;
+        window.history.pushState({ url }, '', url);
     }
 
     export function resetNavigationItems() {

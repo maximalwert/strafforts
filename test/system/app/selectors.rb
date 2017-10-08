@@ -17,6 +17,10 @@ module App
         "#{main_header} .social-sharing-toggle"
       end
 
+      def self.btn_faq
+        "#{main_header} .show-faq"
+      end
+
       def self.btn_connect_with_strava
         "#{main_header} .btn-connect-with-strava"
       end
@@ -33,10 +37,6 @@ module App
 
       def self.main_content
         '#main-content'
-      end
-
-      def self.nav_tab_faq
-        "#{main_content} .nav-tabs .faq a"
       end
 
       def self.timeline_filter_buttons

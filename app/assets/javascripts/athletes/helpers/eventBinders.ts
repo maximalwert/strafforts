@@ -11,22 +11,10 @@ namespace EventBinders {
             // Disable clicking for 'PBs by Distance', 'Race by Distance' and 'Race by Year' treeview headers.
             $('.sidebar-menu .disabled').click(false);
 
-            // Reload Overview page.
-            $(document).on('click', '.show-overview', () => {
-                new Views.Overview().load();
-            });
-
             // Load Races Overview upon clicking 'Races' tab button if not yet created.
             $(document).on('click', "a[href^='#pane-races']", () => {
                 if ($('#pane-races .loading-icon-panel').length) {
                     new Views.Overview().loadRacesPanel();
-                }
-            });
-
-            // Load FAQ upon clicking 'FAQ' tab button if not yet created.
-            $(document).on('click', "a[href^='#pane-faqs']", () => {
-                if ($('#pane-faqs .loading-icon-panel').length) {
-                    new Views.Overview().loadFaqsPanel();
                 }
             });
 
