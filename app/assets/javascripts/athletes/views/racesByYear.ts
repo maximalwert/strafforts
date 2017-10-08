@@ -12,15 +12,7 @@ namespace Views {
             this.year = year;
         }
 
-        public updateWindowState(): void {
-            const viewUrl = `${AppHelpers.getBaseUrl()}?view=races&year=${this.year}`;
-            super.updateWindowState(viewUrl);
-        }
-
         public load(): void {
-            // Update again on purpose, so that browser's back button would never trigger state change again.
-            this.updateWindowState();
-
             const navigationAnchor = $(`a[id^="races-for-year-${this.year}"]`);
             super.prepareView('Races', this.year, navigationAnchor);
 

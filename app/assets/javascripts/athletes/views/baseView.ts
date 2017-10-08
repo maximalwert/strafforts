@@ -17,11 +17,7 @@ namespace Views {
             }
         }
 
-        protected updateWindowState(viewUrl: string) {
-            AppHelpers.pushStateToWindow(viewUrl);
-        }
-
-        protected abstract load(): void;
+        protected abstract load(relativeUrl: string): void;
 
         protected abstract createViewTemplate(): void;
 

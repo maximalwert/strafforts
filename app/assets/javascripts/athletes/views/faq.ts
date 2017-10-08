@@ -4,19 +4,7 @@ namespace Views {
 
     export class Faq extends BaseView {
 
-        constructor() {
-            super();
-        }
-
-        public updateWindowState(): void {
-            const viewUrl = `${AppHelpers.getBaseUrl()}?view=faq`;
-            super.updateWindowState(viewUrl);
-        }
-
         public load(): void {
-            // Update again on purpose, so that browser's back button would never trigger state change again.
-            // this.updateWindowState();
-
             super.prepareView('Frequently Asked Questions');
 
             this.createViewTemplate();

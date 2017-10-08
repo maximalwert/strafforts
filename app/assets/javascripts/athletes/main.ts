@@ -14,12 +14,12 @@ const loadView = () => {
     const distanceText = distance ? distance.replace('-', ' ').replace('|', '/') : '';
     const year = Helpers.getUrlParameter('year');
 
-    if (view === 'timeline') {
+    if (view === 'faq') {
+        new Views.Faq().load();
+    } else if (view === 'timeline') {
         new Views.RacesTimeline().load();
     } else if (view === 'best-efforts' && distance) {
         new Views.BestEffortsByDistance(distanceText).load();
-    } else if (view === 'faq') {
-        new Views.Faq().load();
     } else if (view === 'races' && year && /^20\d\d$/g.test(year)) {
         new Views.RacesByYear(year).load();
     } else if (view === 'races' && distance) {
@@ -39,30 +39,49 @@ $(document).ready(() => {
 
     loadView();
 
-    // Update window state upon navigation bar clicking,
-    // which will trigger window.onpopstate change that will then load the view.
-    // In this way, browser's back button would never work (in a less confusing way).
-    $(document).on('click', '.show-races-timeline', () => {
-        const view = new Views.RacesTimeline();
-        view.updateWindowState();
-        view.load();
+    // Bind page loading handlers.
+    $(document).on('click', '.show-faq', (event) => {
+        event.preventDefault();
+
+        AppHelpers.pushStateToWindow('?view=faq');
+        new Views.Faq().load();
+    });
+    $(document).on('click', '.show-overview', (event) => {
+        event.preventDefault();
+
+        AppHelpers.pushStateToWindow('');
+        new Views.Overview().load();
+    });
+    $(document).on('click', '.show-races-timeline', (event) => {
+        event.preventDefault();
+
+        AppHelpers.pushStateToWindow('?view=timeline&type=races');
+        new Views.RacesTimeline().load();
     });
     $(document).on('click', "a[id^='best-efforts-for-']", (event) => {
+        event.preventDefault();
+
         const distance = $(event.currentTarget).find('.item-text').text().trim();
-        const view = new Views.BestEffortsByDistance(distance);
-        view.updateWindowState();
-        view.load();
+        const distanceFormattedForUrl = AppHelpers.formateDistanceForUrl(distance);
+
+        AppHelpers.pushStateToWindow(`?view=best-efforts&distance=${distanceFormattedForUrl}`);
+        new Views.BestEffortsByDistance(distance).load();
     });
     $(document).on('click', "a[id^='races-for-distance']", (event) => {
+        event.preventDefault();
+
         const distance = $(event.currentTarget).find('.item-text').text().trim();
-        const view = new Views.RacesByDistance(distance);
-        view.updateWindowState();
-        view.load();
+        const distanceFormattedForUrl = AppHelpers.formateDistanceForUrl(distance);
+
+        AppHelpers.pushStateToWindow(`?view=races&distance=${distanceFormattedForUrl}`);
+        new Views.RacesByDistance(distance).load();
     });
     $(document).on('click', "a[id^='races-for-year']", (event) => {
+        event.preventDefault();
+
         const year = $(event.currentTarget).find('.item-text').text().trim();
-        const view = new Views.RacesByYear(year);
-        view.updateWindowState();
-        view.load();
+
+        AppHelpers.pushStateToWindow(`?view=races&year=${year}`);
+        new Views.RacesByYear(year).load();
     });
 });

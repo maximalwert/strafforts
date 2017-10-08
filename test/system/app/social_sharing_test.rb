@@ -12,6 +12,7 @@ class SocialSharingTest < AppTestBase
     ALL_SCREENS.each do |screen_size|
       # assert.
       resize_window_to(screen_size)
+      sleep 0.2
 
       modal_dialog = find(:css, '#modal-social-sharing')
       assert_modal_dialog_loads_successfully(modal_dialog, 'Share This Profile')

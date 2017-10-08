@@ -4,8 +4,6 @@ namespace Views {
     export class Overview extends BaseView {
 
         public load(): void {
-            const viewUrl = AppHelpers.getBaseUrl();
-            super.updateWindowState(viewUrl);
             super.prepareView('Overview');
 
             this.createViewTemplate();

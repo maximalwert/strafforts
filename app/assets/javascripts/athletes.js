@@ -62,3 +62,11 @@ $('#modal-social-sharing').on('shown.bs.modal', function (e) {
     script.src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5945b04103f9ff79&domready=1";
     document.head.appendChild(script);
 });
+
+// Handle browser back event.
+$(window).on('popstate', function (e) {
+    var state = e.originalEvent.state;
+    if (state !== null) {
+        loadView(); // Global function defined in main.ts.
+    }
+});
