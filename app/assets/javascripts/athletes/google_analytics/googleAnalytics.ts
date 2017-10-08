@@ -16,6 +16,9 @@ namespace GoogleAnalytics {
             $('.main-header').on('click', '.social-sharing-toggle', (event) => {
                 GoogleAnalyticsHelpers.sendEvent('App - Header', 'Toggle Profile Sharing Modal', event.currentTarget);
             });
+            $('.main-header').on('click', '.show-faq', (event) => {
+                GoogleAnalyticsHelpers.sendEvent('App - Header', 'Show FAQ', event.currentTarget);
+            });
             $('.main-header').on('click', '.control-sidebar-toggle', (event) => {
                 GoogleAnalyticsHelpers.sendEvent('App - Header', 'Toggle Settings Sidebar', event.currentTarget);
             });
@@ -89,8 +92,11 @@ namespace GoogleAnalytics {
                     event.currentTarget,
                 );
             });
-            $('#main-content').delegate('timeline-wrapper .filter-buttons .btn', 'click', (event) => {
+            $('#main-content').delegate('.timeline-wrapper .filter-buttons .btn', 'click', (event) => {
                 GoogleAnalyticsHelpers.sendEvent('App - Main Content', 'Filter Timeline', event.currentTarget);
+            });
+            $('#main-content').delegate('.faq-panel .box-title a', 'click', (event) => {
+                GoogleAnalyticsHelpers.sendEvent('App - Main Content', 'View FAQ Item', event.currentTarget);
             });
 
             // App - Settings Sidebar.

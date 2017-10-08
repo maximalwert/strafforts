@@ -12,10 +12,6 @@ namespace Views {
             this.createView();
         }
 
-        public loadFaqsPanel(): void {
-            this.createFaq();
-        }
-
         public loadRacesPanel(): void {
             this.createOverviewDatatable('races');
         }
@@ -35,14 +31,10 @@ namespace Views {
                             <li>
                                 <a href="#pane-races" data-toggle="tab">Races</a>
                             </li>
-                            <li class="faq pull-right">
-                                <a href="#pane-faqs" data-toggle="tab">FAQ</a>
-                            </li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="pane-best-efforts">${HtmlHelpers.getLoadingIcon()}</div>
                             <div class="tab-pane" id="pane-races">${HtmlHelpers.getLoadingIcon()}</div>
-                            <div class="tab-pane" id="pane-faqs">${HtmlHelpers.getLoadingIcon()}</div>
                         </div>
                     </div>
                 </div>
@@ -52,71 +44,6 @@ namespace Views {
 
         protected createView(): void {
             this.createOverviewDatatable('best-efforts');
-        }
-
-        private createFaq() {
-            const fullUrl = `${Helpers.getBaseUrl()}/api/faqs/index`;
-            $.ajax({
-                url: fullUrl,
-                dataType: 'json',
-                async: false,
-                success: (data) => {
-                    const categories: string[] = [];
-                    const faqs: object[] = [];
-                    $.each(data, (key, value) => {
-                        const faq: object = {
-                            title: value['title'],
-                            content: value['content'],
-                            category: value['category'],
-                        };
-                        faqs.push(faq);
-                        if ($.inArray(value['category'], categories) === -1) {
-                            categories.push(value['category']);
-                        }
-                    });
-
-                    const pane = $('#pane-faqs');
-                    pane.empty();
-
-                    let accordions = ``;
-                    categories.forEach((category: string) => {
-                        let accordionContent = '';
-                        faqs.forEach((faq: object, index: number) => {
-                            if (faq['category'] === category) {
-                                accordionContent += `
-                                    <div class="panel box">
-                                        <div class="box-header with-border">
-                                            <h4 class="box-title">
-                                                <a data-toggle="collapse" data-parent="#accordion-${category}"
-                                                    href="#accordion-${category}-${index}">
-                                                    ${faq['title']}
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="accordion-${category}-${index}" class="panel-collapse collapse">
-                                            <div class="box-body">${faq['content']}</div>
-                                        </div>
-                                    </div>
-                                `;
-                            }
-                        });
-                        const accordion = `
-                            <div class="box">
-                                <div class="box-header">
-                                    <h3 class="box-title">${Helpers.toTitleCase(category.replace(/-/g, ' '))}</h3>
-                                </div>
-                                <div class="box-body">
-                                    <div class="box-group accordion" id="accordion-${category}">
-                                        ${accordionContent}
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                        accordions += accordion;
-                    });
-                    pane.append(accordions);
-                },
-            });
         }
 
         private createOverviewDatatable(type: string) {

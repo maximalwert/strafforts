@@ -23,11 +23,9 @@ namespace EventBinders {
                 }
             });
 
-            // Load FAQ upon clicking 'FAQ' tab button if not yet created.
-            $(document).on('click', "a[href^='#pane-faqs']", () => {
-                if ($('#pane-faqs .loading-icon-panel').length) {
-                    new Views.Overview().loadFaqsPanel();
-                }
+            // Load FAQ.
+            $(document).on('click', '.show-faq', () => {
+                new Views.Faq().load();
             });
 
             // Bind race filter buttons in Races Timeline view.

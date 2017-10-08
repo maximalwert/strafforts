@@ -18,6 +18,8 @@ const loadView = () => {
         new Views.RacesTimeline().load();
     } else if (view === 'best-efforts' && distance) {
         new Views.BestEffortsByDistance(distanceText).load();
+    } else if (view === 'faq') {
+        new Views.Faq().load();
     } else if (view === 'races' && year && /^20\d\d$/g.test(year)) {
         new Views.RacesByYear(year).load();
     } else if (view === 'races' && distance) {
