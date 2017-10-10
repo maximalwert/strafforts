@@ -2,9 +2,9 @@
 @import 'bootstrap';
 @import 'font-awesome';
 @import 'admin-lte/plugins/pace/pace.min';
-@import 'admin-lte/plugins/datatables/dataTables.bootstrap';
 @import 'admin-lte/dist/css/AdminLTE.min';
 @import 'admin-lte/dist/css/skins/skin-black-light.min';
+@import 'datatables.net-bs/css/dataTables.bootstrap';
 @import 'toastr/build/toastr.min';
 $color-strava: #FC4C02;
 $color-strava-hover: #E34402;

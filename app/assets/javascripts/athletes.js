@@ -1,10 +1,10 @@
-//= require admin-lte/dist/js/app.min
+//= require admin-lte/dist/js/adminlte.min
 
-//= require admin-lte/plugins/datatables/jquery.dataTables.min
-//= require admin-lte/plugins/datatables/dataTables.bootstrap.min
-//= require admin-lte/plugins/fastclick/fastclick.min
 //= require admin-lte/plugins/pace/pace.min
-//= require admin-lte/plugins/slimScroll/jquery.slimscroll.min
+//= require datatables.net/js/jquery.dataTables
+//= require datatables.net-bs/js/dataTables.bootstrap
+//= require fastclick/lib/fastclick
+//= require jquery-slimscroll/jquery.slimscroll.min
 
 //= require moment/min/moment.min
 //= require chart.js/dist/Chart.min
