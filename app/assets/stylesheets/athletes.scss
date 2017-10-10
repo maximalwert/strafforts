@@ -631,6 +631,11 @@ body.page-loading:not(.pace-done):before {
         display: none !important;
     }
 }
+@media (min-width: 1200px) {
+    .hidden-lg-up {
+        display: none !important;
+    }
+}
 @media (max-width: 1600px) {
     .hidden-xl-down {
         display: none !important;
