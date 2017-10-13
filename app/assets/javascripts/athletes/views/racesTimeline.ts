@@ -125,7 +125,7 @@ namespace Views {
                             <li>
                                 <i class="fa fa-trophy"></i>
                                 <div class="timeline-item" data-race-distance="${distance}" data-race-year="${year}">
-                                    <span class="time"><i class="fa fa-clock-o"></i>${item['start_date']}</span>
+                                    <span class="time"><i class="fa fa-clock-o"></i> ${item['start_date']}</span>
                                     <h3 class="timeline-header">
                                         <a class="strava-activity-link" href="${stravaLink}" target="_blank">
                                             ${item['activity_name']}
