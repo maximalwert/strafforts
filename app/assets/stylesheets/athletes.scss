@@ -6,6 +6,21 @@
 @import 'admin-lte/dist/css/skins/skin-black-light.min';
 @import 'datatables.net-bs/css/dataTables.bootstrap';
 @import 'toastr/build/toastr.min';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700&subset=cyrillic');
+
+@font-face {
+    font-family: 'Source Sans Pro Fallback';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('sourcesanspro-regular-webfont.eot');
+    src: url('sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('sourcesanspro-regular-webfont.woff2') format('woff2'),
+    url('sourcesanspro-regular-webfont.woff') format('woff'),
+    url('sourcesanspro-regular-webfont.ttf') format('truetype'),
+    url('sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+}
+
 $color-strava: #FC4C02;
 $color-strava-hover: #E34402;
 $color-light-green: #00BD65;
@@ -20,6 +35,10 @@ $color-light-grey: rgba(128, 128, 128, .5);
         -ms-transition: $args;
          -o-transition: $args;
             transition: $args;
+}
+
+body {
+    font-family: 'Source Sans Pro','Source Sans Pro Fallback','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
 input[type='submit'] {
