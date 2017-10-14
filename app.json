@@ -5,6 +5,7 @@
     "postdeploy": "bundle exec rake db:schema:load db:seed"
   },
   "env": {
+    "APP_VERSION": "0.0.0-alpha",
     "LANG": {
       "required": true
     },
@@ -31,12 +32,18 @@
     }
   },
   "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    },
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
   },
   "addons": [
-    "logdna",
     "heroku-postgresql",
-    "scheduler",
-    "trevor"
+    "scheduler"
   ],
   "buildpacks": [
     {
