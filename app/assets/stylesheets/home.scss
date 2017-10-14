@@ -1,6 +1,7 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'font-awesome';
+@import url('https://fonts.googleapis.com/css?family=Junge');
 
 @font-face {
     font-family: 'Junge Regular';
@@ -15,7 +16,7 @@ $primary-color: #FC4C02;
 $primary-color-hover: #E34402;
 
 body {
-    font-family: 'Junge Regular','Courier New',Georgia,'Times New Roman',serif;
+    font-family: 'Junge','Junge Regular','Courier New',Georgia,'Times New Roman',serif;
 
     width: 100%;
     height: 100%;

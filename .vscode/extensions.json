@@ -1,13 +1,15 @@
 {
     "recommendations": [
-        "alexkrechik.cucumberautocomplete",
-        "donjayamanne.githistory",
+        "castwide.solargraph",
+        "christian-kohler.path-intellisense",
         "eg2.tslint",
         "groksrc.ruby",
         "misogi.ruby-rubocop",
         "mrmlnc.vscode-csscomb",
+        "rbbit.typescript-hero",
         "rebornix.ruby",
         "robinbentley.sass-indented",
-        "Tyriar.sort-lines"
+        "Tyriar.sort-lines",
+        "Zignd.html-css-class-completion"
     ]
 }

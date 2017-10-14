@@ -77,13 +77,15 @@ namespace Views {
                             const showDistanceColumn = model['distance'] === 'Recent';
                             const activityColumnWidth = showDistanceColumn ? '2' : '3';
                             const distanceColumnHeader = showDistanceColumn ?
-                                `<th class="col-md-1">Distance</th>` : '';
+                                `<th class="col-md-1 hidden-xs-down">Distance</th>` : '';
 
                             let rows = '';
                             model['items'].forEach((item: any[]) => {
                                 const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
                                 const distanceColumn = showDistanceColumn ?
-                                    `<td>${(item['distance']).toFixed(1)} ${item['distance_unit']}</td>` : '';
+                                    `<td class="hidden-xs-down">
+                                        ${(item['distance']).toFixed(1)} ${item['distance_unit']}
+                                    </td>` : '';
                                 const workoutTypeColumn = isTypeOfRaces ? '' :
                                 `<td class="text-center badge-cell hidden-md-down">
                                     <span class="label workout-type-${item['workout_type_name'].replace(/\s/g, '-')}">
