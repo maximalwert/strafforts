@@ -31,12 +31,18 @@
     }
   },
   "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    },
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
   },
   "addons": [
-    "logdna",
     "heroku-postgresql",
-    "scheduler",
-    "trevor"
+    "scheduler"
   ],
   "buildpacks": [
     {
