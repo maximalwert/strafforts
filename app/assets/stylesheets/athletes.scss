@@ -382,6 +382,7 @@ input[type='submit'] {
 
     /* Style links within data tables */
     .dataTable {
+        width: 100% !important;
         a {
             @include transition(all .2s ease-in-out);
 
