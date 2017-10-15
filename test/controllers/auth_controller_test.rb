@@ -15,7 +15,7 @@ class AuthControllerTest < ActionDispatch::IntegrationTest
       stub_strava_post_request(Settings.strava.api_auth_token_url, TOKEN_EXCHANGE_REQUEST_BODY, 400)
       get '/auth/exchange_token'
     end
-    assert_equal('Bad request while exchanging token with Strava', exception.message)
+    assert_equal('Bad request while exchanging token with Strava.', exception.message)
   end
 
   test 'should get an error when GET exchange_token returns error status code other than 400)' do
