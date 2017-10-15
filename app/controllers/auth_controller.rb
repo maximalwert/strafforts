@@ -21,8 +21,7 @@ class AuthController < ApplicationController
         # Encrypt and set access_token in cookies.
         cookies.signed[:access_token] = access_token
       elsif response.code == '400'
-        Rails.logger.info("Response Body: #{response.body}")
-        raise ActionController::BadRequest, 'Bad request while exchanging token with Strava'
+        raise ActionController::BadRequest, "Bad request while exchanging token with Strava.\nResponse Body: #{response.body}" # rubocop:disable LineLength
       else
         raise "Exchanging token failed. HTTP Status Code: #{response.code}.\nResponse Body: #{response.body}"
       end

@@ -42,8 +42,6 @@ module Creators
     end
 
     def self.create_heart_rate_zones_from_athlete_zones_hash(athlete_zones)
-      Rails.logger.debug("HeartRateZonesCreator - Athlete Zones hash #{athlete_zones}.")
-
       @heart_rate_zones.custom_zones = athlete_zones['heart_rate']['custom_zones']
       @heart_rate_zones.zone_1_min = athlete_zones['heart_rate']['zones'][0]['min']
       @heart_rate_zones.zone_1_max = athlete_zones['heart_rate']['zones'][0]['max']

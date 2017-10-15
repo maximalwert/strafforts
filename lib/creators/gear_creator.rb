@@ -4,8 +4,6 @@ module Creators
       return if athlete_id.blank? || gears.blank?
 
       gears_json = JSON.parse(gears.to_json)
-      Rails.logger.debug("GearCreator - Gear JSON #{gears_json}.")
-
       gears_json.each do |gear_json|
         Rails.logger.info("GearCreator - Creating or updating gear #{gear_json['id']} for athlete #{athlete_id}.")
 
