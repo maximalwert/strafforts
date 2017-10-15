@@ -24,19 +24,25 @@ class ActivityFetcher
 
       # Retrieve activities of the current athlete.
       activities_to_retrieve = []
-      activity_ids = get_all_activity_ids(type)
-      activity_ids.sort.each do |activity_id|
-        if (mode == 'all') || athlete.last_activity_retrieved.blank? || activity_id > athlete.last_activity_retrieved
-          activities_to_retrieve << activity_id
+      current_total_run_count = retrieve_current_total_run_count(athlete.id)
+      if mode == 'all' || athlete.total_run_count != current_total_run_count
+        activity_ids = get_all_activity_ids(type)
+        activity_ids.sort.each do |activity_id|
+          if mode == 'all' || athlete.last_activity_retrieved.blank? || activity_id > athlete.last_activity_retrieved
+            activities_to_retrieve << activity_id
+          end
         end
-      end
 
-      Rails.logger.info("ActivityFetcher - Total number of #{activities_to_retrieve.count} activities to be retrieved for athlete #{athlete.id}.") # rubocop:disable LineLength
-      activities_to_retrieve.sort.each do |activity_id|
-        activity = @api_wrapper.retrieve_an_activity(activity_id)
-        Creators::ActivityCreator.create_or_update(activity)
-        athlete.last_activity_retrieved = activity_id
-        athlete.save!
+        Rails.logger.info("ActivityFetcher - Total number of #{activities_to_retrieve.count} activities (TYPE='#{type}') to be retrieved for athlete #{athlete.id}.") # rubocop:disable LineLength
+        activities_to_retrieve.sort.each do |activity_id|
+          activity = @api_wrapper.retrieve_an_activity(activity_id)
+          Creators::ActivityCreator.create_or_update(activity)
+          athlete.last_activity_retrieved = activity_id
+          athlete.total_run_count = current_total_run_count
+          athlete.save!
+        end
+      else
+        Rails.logger.info("ActivityFetcher - Nothing to be retrieved for athlete #{athlete.id}. Total run count: #{athlete.total_run_count}.") # rubocop:disable LineLength
       end
     rescue StandardError => e
       Rails.logger.error("ActivityFetcher - Error fetching athlete information with access_token '#{@access_token}'.\n\tMessage: #{e.message}\nBacktrace:\n\t#{e.backtrace.join("\n\t")}") # rubocop:disable LineLength
@@ -75,5 +81,12 @@ class ActivityFetcher
     end
     activity_ids.uniq!
     activity_ids
+  end
+
+  def retrieve_current_total_run_count(athlete_id)
+    totals_and_stats = @api_wrapper.totals_and_stats(athlete_id)
+    totals_and_stats_json = JSON.parse(totals_and_stats.to_json)
+    total_run_count = totals_and_stats_json['all_run_totals']['count']
+    total_run_count
   end
 end

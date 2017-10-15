@@ -21,6 +21,12 @@ class StravaApiWrapper
     activity
   end
 
+  def totals_and_stats(athlete_id)
+    Rails.logger.info('StravaApiWrapper - Retrieving current athlete\'s totals and stats.')
+    totals = @api_client.totals_and_stats(athlete_id)
+    totals
+  end
+
   def list_all_athlete_activities
     # In the format of [ [{},{},{}], [{},{},{}], [{},{},{}] ].
     athlete_activities = []

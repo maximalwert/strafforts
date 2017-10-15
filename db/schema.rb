@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610095813) do
+ActiveRecord::Schema.define(version: 20171015071749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20170610095813) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_active", default: true
+    t.integer "total_run_count", default: 0
     t.index ["access_token"], name: "index_athletes_on_access_token"
     t.index ["city_id"], name: "index_athletes_on_city_id"
     t.index ["country_id"], name: "index_athletes_on_country_id"
