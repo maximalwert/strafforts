@@ -15,6 +15,7 @@
     "RAILS_ENV": {
       "required": true
     },
+    "RAILS_LOG_LEVEL": "debug",
     "RAILS_LOG_TO_STDOUT": {
       "required": true
     },
@@ -43,6 +44,7 @@
   },
   "addons": [
     "heroku-postgresql",
+    "papertrail",
     "scheduler"
   ],
   "buildpacks": [
