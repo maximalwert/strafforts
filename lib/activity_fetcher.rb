@@ -33,16 +33,22 @@ class ActivityFetcher
           end
         end
 
-        Rails.logger.info("ActivityFetcher - Total number of #{activities_to_retrieve.count} activities (TYPE='#{type}') to be retrieved for athlete #{athlete.id}.") # rubocop:disable LineLength
-        activities_to_retrieve.sort.each do |activity_id|
-          activity = @api_wrapper.retrieve_an_activity(activity_id)
-          Creators::ActivityCreator.create_or_update(activity)
-          athlete.last_activity_retrieved = activity_id
-          athlete.total_run_count = current_total_run_count
-          athlete.save!
+        if activities_to_retrieve.count > 0
+          Rails.logger.info("ActivityFetcher - Total number of #{activities_to_retrieve.count} activities (TYPE='#{type}') to be retrieved for athlete #{athlete.id}.") # rubocop:disable LineLength
+
+          activities_to_retrieve.sort.each do |activity_id|
+            activity = @api_wrapper.retrieve_an_activity(activity_id)
+            Creators::ActivityCreator.create_or_update(activity)
+            athlete.last_activity_retrieved = activity_id
+          end
+        else
+          Rails.logger.info(get_no_new_runs_message(athlete.id, current_total_run_count))
         end
+
+        athlete.total_run_count = current_total_run_count
+        athlete.save!
       else
-        Rails.logger.info("ActivityFetcher - Nothing to be retrieved for athlete #{athlete.id}. Total run count: #{athlete.total_run_count}.") # rubocop:disable LineLength
+        Rails.logger.info(get_no_new_runs_message(athlete.id, current_total_run_count))
       end
     rescue StandardError => e
       Rails.logger.error("ActivityFetcher - Error fetching athlete information with access_token '#{@access_token}'.\n\tMessage: #{e.message}\nBacktrace:\n\t#{e.backtrace.join("\n\t")}") # rubocop:disable LineLength
@@ -81,6 +87,10 @@ class ActivityFetcher
     end
     activity_ids.uniq!
     activity_ids
+  end
+
+  def get_no_new_runs_message(athlete_id, total_run_count)
+    "ActivityFetcher - No new runs found for athlete #{athlete_id}. Total run count: #{total_run_count}."
   end
 
   def retrieve_current_total_run_count(athlete_id)

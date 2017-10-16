@@ -5,7 +5,9 @@
     "postdeploy": "bundle exec rake db:schema:load db:seed"
   },
   "env": {
-    "APP_VERSION": "0.0.0-alpha",
+    "APP_VERSION": {
+      "required": true
+    },
     "LANG": {
       "required": true
     },
@@ -15,7 +17,9 @@
     "RAILS_ENV": {
       "required": true
     },
-    "RAILS_LOG_LEVEL": "debug",
+    "RAILS_LOG_LEVEL": {
+      "required": true
+    },
     "RAILS_LOG_TO_STDOUT": {
       "required": true
     },
@@ -44,7 +48,7 @@
   },
   "addons": [
     "heroku-postgresql",
-    "papertrail",
+    "trevor",
     "scheduler"
   ],
   "buildpacks": [
