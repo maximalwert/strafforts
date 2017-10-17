@@ -7,16 +7,15 @@ class ActivityFetcher
     @api_wrapper = StravaApiWrapper.new(@access_token)
   end
 
-  def fetch_all(options = {}) # rubocop:disable CyclomaticComplexity, MethodLength, PerceivedComplexity
+  def fetch_all(options = {}) # rubocop:disable AbcSize, CyclomaticComplexity, MethodLength, PerceivedComplexity
     mode = options[:mode] || 'latest'
     type = options[:type] || %w[best-efforts races]
 
     begin
-      Rails.logger.debug("ActivityFetcher - Start fetching MODE='#{mode}' TYPE='#{type}'.")
-
       # Create or update the current athlete first.
       current_athlete = @api_wrapper.retrieve_current_athlete
       athlete = Creators::AthleteCreator.create_or_update(@access_token, current_athlete, true)
+      Rails.logger.info("ActivityFetcher - Start fetching activities for athlete #{athlete.id}.")
 
       # Create or update HR Zones of the current athlete.
       current_athlete_zones = @api_wrapper.retrieve_current_athlete_zones
@@ -34,7 +33,7 @@ class ActivityFetcher
         end
 
         if activities_to_retrieve.count > 0
-          Rails.logger.info("ActivityFetcher - Total number of #{activities_to_retrieve.count} activities (TYPE='#{type}') to be retrieved for athlete #{athlete.id}.") # rubocop:disable LineLength
+          Rails.logger.info("ActivityFetcher - A total of #{activities_to_retrieve.count} activities to be retrieved for athlete #{athlete.id}.") # rubocop:disable LineLength
 
           activities_to_retrieve.sort.each do |activity_id|
             activity = @api_wrapper.retrieve_an_activity(activity_id)
@@ -51,7 +50,7 @@ class ActivityFetcher
         Rails.logger.info(get_no_new_runs_message(athlete.id, current_total_run_count))
       end
     rescue StandardError => e
-      Rails.logger.error("ActivityFetcher - Error fetching athlete information with access_token '#{@access_token}'.\n\tMessage: #{e.message}\nBacktrace:\n\t#{e.backtrace.join("\n\t")}") # rubocop:disable LineLength
+      Rails.logger.error("ActivityFetcher - Error fetching athlete (access_token=#{@access_token}). #{e.message}\nBacktrace:\n\t#{e.backtrace.join("\n\t")}") # rubocop:disable LineLength
       if e.message.include?('Authorization Error')
         athlete = Athlete.find_by_access_token(@access_token)
         unless athlete.nil?

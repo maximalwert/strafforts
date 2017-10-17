@@ -4,7 +4,7 @@ module Creators
       activity_json = JSON.parse(activity_hash.to_json)
 
       if activity_json['workout_type'].to_i == 1
-        Rails.logger.debug("ActivityCreator - Activity #{activity_json['id']} is a race.")
+        Rails.logger.info("ActivityCreator - Activity #{activity_json['id']} is a race.")
         create_activity(activity_json)
         create_race(activity_json)
       end
@@ -14,7 +14,7 @@ module Creators
       activity_json['best_efforts'].each do |best_effort_json|
         next if best_effort_json['pr_rank'] != 1
 
-        Rails.logger.debug("ActivityCreator - Activity #{activity_json['id']} has best efforts.")
+        Rails.logger.info("ActivityCreator - Activity #{activity_json['id']} has best efforts.")
         create_activity(activity_json)
         create_best_effort(activity_json, best_effort_json)
       end

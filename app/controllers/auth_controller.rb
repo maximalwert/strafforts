@@ -17,7 +17,7 @@ class AuthController < ApplicationController
       # Delete all data.
       athlete = Athlete.find_by_access_token(cookies.signed[:access_token])
       unless athlete.nil?
-        Rails.logger.warn("Destroying all data for athlete ID='#{athlete.id}'.")
+        Rails.logger.warn("Destroying all data for athlete #{athlete.id}.")
         Activity.where(athlete_id: athlete.id).destroy_all
         Athlete.where(id: athlete.id).destroy_all
         BestEffort.where(athlete_id: athlete.id).destroy_all
@@ -29,10 +29,10 @@ class AuthController < ApplicationController
       uri = URI(STRAVA_API_AUTH_DEAUTHORIZE_URL)
       response = Net::HTTP.post_form(uri, 'access_token' => cookies.signed[:access_token])
       if response.is_a? Net::HTTPSuccess
-        Rails.logger.info("Revoked Strava access for athlete with access_token '#{cookies.signed[:access_token]}'.")
+        Rails.logger.info("Revoked Strava access for athlete (access_token=#{cookies.signed[:access_token]}).")
       else
         # Fail to revoke Strava access. Log it and don't throw.
-        Rails.logger.error("Revoking Strava access failed. HTTP Status Code: #{response.code}.\nResponse Message: #{response.message}") # rubocop:disable LineLength
+        Rails.logger.error("Revoking Strava access failed. HTTP Status Code: #{response.code}. Response Message: #{response.message}") # rubocop:disable LineLength
       end
     end
 
