@@ -5,9 +5,6 @@
     "postdeploy": "bundle exec rake db:schema:load db:seed"
   },
   "env": {
-    "APP_VERSION": {
-      "required": true
-    },
     "LANG": {
       "required": true
     },
