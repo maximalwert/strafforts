@@ -22,7 +22,7 @@ namespace EventBinders {
             $(document).on('click', '.filter-buttons .btn:not(.show-all)', (event) => {
                 // Set the filter button to active upon clicking.
                 $('.filter-buttons .btn').removeClass('active');
-                $('.filter-buttons .show-all').removeClass('hidden').fadeIn(500);
+                $('.filter-buttons .show-all').removeClass('hidden').fadeIn();
                 $(event.currentTarget).addClass('active');
             });
 
@@ -30,11 +30,11 @@ namespace EventBinders {
                 const distance = $(event.currentTarget).attr('data-race-distance');
 
                 // Show all year labels.
-                $('.time-label').fadeIn(500);
+                $('.time-label').fadeIn();
 
                 // Show only timeline items of this distance.
                 $('.timeline-item').parent().hide();
-                $(`.timeline-item[data-race-distance='${distance}']`).parent().fadeIn(500);
+                $(`.timeline-item[data-race-distance='${distance}']`).parent().fadeIn();
             });
 
             $(document).on('click', '.timeline-header .btn', (event) => {
@@ -42,7 +42,7 @@ namespace EventBinders {
 
                 // Update the state of filter buttons.
                 $('.filter-buttons .btn').removeClass('active');
-                $('.filter-buttons .show-all').removeClass('hidden').fadeIn(500);
+                $('.filter-buttons .show-all').removeClass('hidden').fadeIn();
                 $(`.filter-buttons [data-race-distance='${distance}']`).addClass('active');
             });
 
@@ -51,9 +51,9 @@ namespace EventBinders {
 
                 // Show only time labels, items of this year.
                 $('.time-label').hide();
-                $(`.time-label[data-race-year='${year}']`).fadeIn(500);
+                $(`.time-label[data-race-year='${year}']`).fadeIn();
                 $('.timeline-item').parent().hide();
-                $(`.timeline-item[data-race-year='${year}']`).parent().fadeIn(500);
+                $(`.timeline-item[data-race-year='${year}']`).parent().fadeIn();
             });
 
             // Append PR/Contributions welcome badges upon clicking settings toggle button.

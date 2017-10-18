@@ -72,7 +72,7 @@ namespace Views {
 
             const mainContent = $('#main-content');
             mainContent.empty();
-            mainContent.append(content);
+            mainContent.append(content).hide().fadeIn();
         }
 
         protected getRaceYears(): number[] {

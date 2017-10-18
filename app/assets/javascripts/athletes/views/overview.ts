@@ -65,7 +65,7 @@ namespace Views {
 
                     if (distances.length === 0) {
                         const infoBox = HtmlHelpers.getNoDataInfoBox();
-                        pane.append(infoBox);
+                        pane.append(infoBox).hide().fadeIn();
                     } else {
                         distances.forEach((model: any[]) => {
                             const isTypeOfRaces = type === 'races';

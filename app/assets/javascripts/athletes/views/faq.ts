@@ -84,7 +84,7 @@ namespace Views {
                             `;
                         accordions += accordion;
                     });
-                    pane.append(accordions);
+                    pane.append(accordions).hide().fadeIn();
                 },
             });
         }

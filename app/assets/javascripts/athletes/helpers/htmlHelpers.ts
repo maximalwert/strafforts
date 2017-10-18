@@ -37,9 +37,7 @@ namespace HtmlHelpers {
     export function getLoadingIcon() {
         const html = `
         <div class='loading-icon-panel text-center'>
-            <button type='button' class='btn btn-default btn-lrg' title='Loading Data...'>
-                <i class='fa fa-spin fa-refresh'></i>
-            </button>
+            <span title='Loading Data...'><i class='fa fa-spin fa-refresh'></i></span>
         </div>`;
         return html;
     }
