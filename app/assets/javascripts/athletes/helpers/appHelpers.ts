@@ -36,8 +36,19 @@ namespace AppHelpers {
     }
 
     export function setContentHeader(headerText: string) {
-        $('.content-header h1').text(headerText);
-        $('.content-header .breadcrumb li.active').text(headerText);
+        const header = $('.content-header h1');
+        if (header.length) {
+            header.text(headerText);
+        } else {
+            $('.content-header .breadcrumb').before(`<h1>${headerText}</h1>`);
+        }
+
+        const activeBreadcrumb = $('.content-header .breadcrumb li.active');
+        if (activeBreadcrumb.length) {
+            activeBreadcrumb.text(headerText);
+        } else {
+            $('.content-header .breadcrumb').append(`<li class="active">${headerText}</li>`);
+        }
     }
 
     export function setNavigationItem(anchor: JQuery) {

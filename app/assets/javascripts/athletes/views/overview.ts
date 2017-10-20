@@ -49,7 +49,6 @@ namespace Views {
             $.ajax({
                 url: fullUrl,
                 dataType: 'json',
-                async: false,
                 success: (data) => {
                     const distances: object[] = [];
                     $.each(data, (key, value) => {
@@ -65,7 +64,7 @@ namespace Views {
 
                     if (distances.length === 0) {
                         const infoBox = HtmlHelpers.getNoDataInfoBox();
-                        pane.append(infoBox).hide().fadeIn();
+                        pane.append(infoBox);
                     } else {
                         distances.forEach((model: any[]) => {
                             const isTypeOfRaces = type === 'races';

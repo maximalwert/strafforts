@@ -88,7 +88,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   RACE_YEARS_WITH_ALL_CHARTS_SHOWN = %w[2017 2016 2015].freeze
   RACE_YEARS_CHART_TITLES = [
     'Distance Distribution Chart',
-    'Month Distribution Chart',
+    'Monthly Distribution Chart',
     'Gear Count Chart',
     'Gear Mileage Chart',
     'Heart Rates Chart',
@@ -156,4 +156,5 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   driven_by :poltergeist, options: {
     phantomjs: Phantomjs.path
   }
+  Capybara.default_max_wait_time = 5
 end

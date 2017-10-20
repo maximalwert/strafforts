@@ -63,7 +63,6 @@ namespace Views {
             $.ajax({
                 url: `${AppHelpers.getApiBaseUrl()}/races/${this.year}`,
                 dataType: 'json',
-                async: false,
                 success: (data) => {
 
                     const items: any[] = [];
@@ -82,7 +81,11 @@ namespace Views {
                                 'Distance Distribution Chart',
                                 6,
                             )}
-                            ${HtmlHelpers.constructChartHtml('month-distribution-chart', 'Month Distribution Chart', 6)}
+                            ${HtmlHelpers.constructChartHtml(
+                                'month-distribution-chart',
+                                'Monthly Distribution Chart',
+                                6,
+                            )}
                         </div>
                         ${this.constructDataTableHtml(items)}
                         <div class="row">

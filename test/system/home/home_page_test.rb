@@ -156,6 +156,7 @@ class HomePageTest < ApplicationSystemTestCase
   def assert_navbar_loads_for_medium_to_large_screens_successfully
     assert_navbar_brand_link_loads_successfully
 
+    assert_has_selector(Home::Selectors.navbar_links)
     all_navbar_links = all(Home::Selectors.navbar_links)
 
     assert_equal(3, all_navbar_links.count)

@@ -24,6 +24,7 @@ class FaqTest < AppTestBase
   def assert_faq_panel_load_successfully
     faq_panel = find(:css, '.pane-faq')
     within(faq_panel) do
+      assert_has_selector('h3.box-title')
       headers = all(:css, 'h3.box-title')
       assert_equal(FAQ_CATEGORIES.count, headers.count)
       headers.each do |header|

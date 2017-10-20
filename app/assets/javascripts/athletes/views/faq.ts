@@ -21,7 +21,7 @@ namespace Views {
                 ${HtmlHelpers.getLoadingIcon()}
                 </div>
             `;
-            mainContent.append(content);
+            mainContent.append(content).hide().fadeIn();
         }
 
         protected createView(): void {
@@ -29,7 +29,6 @@ namespace Views {
             $.ajax({
                 url: fullUrl,
                 dataType: 'json',
-                async: false,
                 success: (data) => {
                     const categories: string[] = [];
                     const faqs: object[] = [];

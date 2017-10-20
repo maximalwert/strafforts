@@ -127,6 +127,7 @@ class NavigationTest < AppTestBase
 
     navigation_item = find(:id, "#{type}-for-distance-#{distance_formatted_for_html}-navigation")
     navigation_item.click
+    sleep 0.2
 
     within(navigation_item) do
       icon = find(:css, 'i')

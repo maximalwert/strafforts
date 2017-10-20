@@ -62,7 +62,6 @@ namespace Views {
             $.ajax({
                 url: `${AppHelpers.getApiBaseUrl()}/best-efforts/${this.distanceFormattedForUrl}`,
                 dataType: 'json',
-                async: false,
                 success: (data) => {
                     const items: any[] = [];
                     $.each(data, (key, value) => {
