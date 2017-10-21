@@ -2,10 +2,21 @@
 @import 'bootstrap';
 @import 'font-awesome';
 @import 'admin-lte/plugins/pace/pace.min';
-@import 'admin-lte/plugins/datatables/dataTables.bootstrap';
 @import 'admin-lte/dist/css/AdminLTE.min';
 @import 'admin-lte/dist/css/skins/skin-black-light.min';
+@import 'datatables.net-bs/css/dataTables.bootstrap';
 @import 'toastr/build/toastr.min';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700&subset=cyrillic');
+
+@font-face {
+    font-family: 'Source Sans Pro Fallback';
+    font-weight: normal;
+    font-style: normal;
+
+    src: font-url('sourcesanspro-regular-webfont.eot');
+    src: font-url('sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'), font-url('sourcesanspro-regular-webfont.woff2') format('woff2'), font-url('sourcesanspro-regular-webfont.woff') format('woff'), font-url('sourcesanspro-regular-webfont.ttf') format('truetype'), font-url('sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+}
+
 $color-strava: #FC4C02;
 $color-strava-hover: #E34402;
 $color-light-green: #00BD65;
@@ -20,6 +31,10 @@ $color-light-grey: rgba(128, 128, 128, .5);
         -ms-transition: $args;
          -o-transition: $args;
             transition: $args;
+}
+
+body {
+    font-family: 'Source Sans Pro','Source Sans Pro Fallback','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
 input[type='submit'] {
@@ -363,6 +378,7 @@ input[type='submit'] {
 
     /* Style links within data tables */
     .dataTable {
+        width: 100% !important;
         a {
             @include transition(all .2s ease-in-out);
 
@@ -493,101 +509,29 @@ input[type='submit'] {
 }
 
 /* Pace loading progress bar style */
-body.page-loading > :not(.pace),
-body.page-loading:after,
-body.page-loading:before {
-    @include transition(opacity .4s ease-in-out);
+.pace {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+            pointer-events: none;
+
+    -webkit-pointer-events: none;
 }
 
-body.page-loading:not(.pace-done) > :not(.pace),
-body.page-loading:not(.pace-done):after,
-body.page-loading:not(.pace-done):before {
-    opacity: 0;
-}
-.page-loading {
-    .pace {
-        position: fixed;
-        z-index: 2000;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-
-        overflow: hidden;
-
-        width: 60%;
-        height: 5px;
-        margin: auto;
-
-        -webkit-user-select: none;
-           -moz-user-select: none;
-            -ms-user-select: none;
-                user-select: none;
-                pointer-events: none;
-
-        border: 1px solid $color-strava;
-        background: #FFFFFF;
-
-        -webkit-pointer-events: none;
-
-        .pace-progress {
-            position: absolute;
-            z-index: 2000;
-            top: 0;
-            right: 100%;
-
-            display: block;
-
-            -webkit-box-sizing: border-box;
-               -moz-box-sizing: border-box;
-                    box-sizing: border-box;
-            width: 100%;
-            max-width: 200px;
-            height: 100%;
-
-            -webkit-transform: translate3d(0, 0, 0);
-               -moz-transform: translate3d(0, 0, 0);
-                -ms-transform: translate3d(0, 0, 0);
-                 -o-transform: translate3d(0, 0, 0);
-                    transform: translate3d(0, 0, 0);
-
-            background: $color-strava;
-
-                -ms-box-sizing: border-box;
-                 -o-box-sizing: border-box;
-        }
-
-        &.pace-inactive {
-            display: none;
-        }
-    }
+.pace-inactive {
+    display: none;
 }
 
-.page-loaded {
-    .pace {
-        -webkit-user-select: none;
-           -moz-user-select: none;
-                user-select: none;
-                pointer-events: none;
+.pace .pace-progress {
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 100%;
 
-        -webkit-pointer-events: none;
-    }
+    width: 100%;
+    height: 2px;
 
-    .pace-inactive {
-        display: none;
-    }
-
-    .pace .pace-progress {
-        position: fixed;
-        z-index: 2000;
-        top: 0;
-        right: 100%;
-
-        width: 100%;
-        height: 2px;
-
-        background: $color-strava;
-    }
+    background: $color-strava;
 }
 
 /* Responsive */
@@ -628,6 +572,11 @@ body.page-loading:not(.pace-done):before {
 }
 @media (max-width: 1200px) {
     .hidden-lg-down {
+        display: none !important;
+    }
+}
+@media (min-width: 1200px) {
+    .hidden-lg-up {
         display: none !important;
     }
 }

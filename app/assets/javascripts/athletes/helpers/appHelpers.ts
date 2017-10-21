@@ -18,8 +18,13 @@ namespace AppHelpers {
         return getBaseUrl(true);
     }
 
-    export function pushStateToWindow(url: string) {
-        window.history.pushState({}, '', url);
+    export function formateDistanceForUrl(distance: string) {
+        return distance.trim().replace(/\//g, '_').replace(/\s/g, '-').toLowerCase();
+    }
+
+    export function pushStateToWindow(relativeUrl: string) {
+        const url = AppHelpers.getBaseUrl() + relativeUrl;
+        window.history.pushState({ url }, '', url);
     }
 
     export function resetNavigationItems() {
@@ -31,8 +36,19 @@ namespace AppHelpers {
     }
 
     export function setContentHeader(headerText: string) {
-        $('.content-header h1').text(headerText);
-        $('.content-header .breadcrumb li.active').text(headerText);
+        const header = $('.content-header h1');
+        if (header.length) {
+            header.text(headerText);
+        } else {
+            $('.content-header .breadcrumb').before(`<h1>${headerText}</h1>`);
+        }
+
+        const activeBreadcrumb = $('.content-header .breadcrumb li.active');
+        if (activeBreadcrumb.length) {
+            activeBreadcrumb.text(headerText);
+        } else {
+            $('.content-header .breadcrumb').append(`<li class="active">${headerText}</li>`);
+        }
     }
 
     export function setNavigationItem(anchor: JQuery) {

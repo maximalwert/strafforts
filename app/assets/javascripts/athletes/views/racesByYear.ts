@@ -12,15 +12,7 @@ namespace Views {
             this.year = year;
         }
 
-        public updateWindowState(): void {
-            const viewUrl = `${AppHelpers.getBaseUrl()}?view=races&year=${this.year}`;
-            super.updateWindowState(viewUrl);
-        }
-
         public load(): void {
-            // Update again on purpose, so that browser's back button would never trigger state change again.
-            this.updateWindowState();
-
             const navigationAnchor = $(`a[id^="races-for-year-${this.year}"]`);
             super.prepareView('Races', this.year, navigationAnchor);
 
@@ -71,7 +63,6 @@ namespace Views {
             $.ajax({
                 url: `${AppHelpers.getApiBaseUrl()}/races/${this.year}`,
                 dataType: 'json',
-                async: false,
                 success: (data) => {
 
                     const items: any[] = [];
@@ -90,7 +81,11 @@ namespace Views {
                                 'Distance Distribution Chart',
                                 6,
                             )}
-                            ${HtmlHelpers.constructChartHtml('month-distribution-chart', 'Month Distribution Chart', 6)}
+                            ${HtmlHelpers.constructChartHtml(
+                                'month-distribution-chart',
+                                'Monthly Distribution Chart',
+                                6,
+                            )}
                         </div>
                         ${this.constructDataTableHtml(items)}
                         <div class="row">

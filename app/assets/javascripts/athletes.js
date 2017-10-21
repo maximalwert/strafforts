@@ -1,14 +1,15 @@
-//= require admin-lte/dist/js/app.min
+//= require admin-lte/dist/js/adminlte.min
 
-//= require admin-lte/plugins/datatables/jquery.dataTables.min
-//= require admin-lte/plugins/datatables/dataTables.bootstrap.min
-//= require admin-lte/plugins/fastclick/fastclick.min
 //= require admin-lte/plugins/pace/pace.min
-//= require admin-lte/plugins/slimScroll/jquery.slimscroll.min
+//= require datatables.net/js/jquery.dataTables
+//= require datatables.net-bs/js/dataTables.bootstrap
+//= require fastclick/lib/fastclick
+//= require jquery-slimscroll/jquery.slimscroll.min
 
 //= require moment/min/moment.min
 //= require chart.js/dist/Chart.min
 //= require toastr/build/toastr.min
+//= require vendor/donorbox
 
 //= require generated/athletes.js
 
@@ -33,6 +34,7 @@ String.prototype.toHHMMSS = function() {
     return time;
 }
 
+// Initialize AdminLTE.
 var AdminLTEOptions = {
     // Bootstrap.js tooltip.
     enableBSTooltip: true,
@@ -49,3 +51,22 @@ var AdminLTEOptions = {
         slide: false
     }
 };
+
+// Lazy Loading AddThis plugin.
+$('#modal-social-sharing').on('shown.bs.modal', function (e) {
+    var script = document.createElement('script');
+    script.onload = function () {
+        addthis.init();
+        $('#modal-social-sharing .loading-icon-panel').remove();
+    };
+    script.src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5945b04103f9ff79&domready=1";
+    document.head.appendChild(script);
+});
+
+// Handle browser back event.
+$(window).on('popstate', function (e) {
+    var state = e.originalEvent.state;
+    if (state !== null) {
+        loadView(); // Global function defined in main.ts.
+    }
+});

@@ -8,10 +8,10 @@
 [![Code Climate](https://img.shields.io/codeclimate/github/yizeng/strafforts.svg?style=flat-square)][Strafforts Code Climate]
 [![Gemnasium](https://img.shields.io/gemnasium/yizeng/strafforts.svg?style=flat-square)][Strafforts Gemnasium]
 
-## An Analytics App for Strava Estimated Best Efforts and Races
+## An Analytics App for Strava Best Efforts (PBs) and Races
 
 Strafforts is a web app that calls [Strava API][Strava API]
-to fetch athletes' [estimated best efforts][Strava Support Best Efforts] and [races][Use Run Type Tags]
+to fetch athletes' [best efforts (PBs)][Strava Support Best Efforts] and [races][Use Run Type Tags]
 and visualize them in forms of data tables, line charts and pie charts,
 in such way athletes can perform some analysis like half marathon PB progression,
 fastest shoes used for a 10K race, how often 5K PB gets set, etc.
@@ -27,7 +27,7 @@ so that athletes can connect Strafforts with their Strava accounts and see visua
 ![Strafforts Main Screenshot](public/screenshots/strafforts-main.gif)
 ![Strafforts Graphs Screenshot](public/screenshots/strafforts-graphs.gif)
 
-### What are 'Estimated Best Efforts'?
+### What are 'Best Efforts'?
 
 Quoting from [Strava Support][Strava Support Best Efforts]:
 

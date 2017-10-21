@@ -15,18 +15,11 @@ namespace Views {
 
             this.distance = distance;
             this.isOtherDistance = distance.toLocaleLowerCase() === 'other';
-            this.distanceFormattedForUrl = distance.trim().replace(/\//g, '|').replace(/\s/g, '-').toLowerCase();
-        }
-
-        public updateWindowState(): void {
-            const viewUrl = `${AppHelpers.getBaseUrl()}?view=races&distance=${this.distanceFormattedForUrl}`;
-            super.updateWindowState(viewUrl);
+            this.distanceFormattedForUrl = AppHelpers.formateDistanceForUrl(distance);
         }
 
         public load(): void {
-            // Update again on purpose, so that browser's back button would never trigger state change again.
-            this.updateWindowState();
-
+            const viewUrl = `${AppHelpers.getBaseUrl()}?view=races&distance=${this.distanceFormattedForUrl}`;
             const distanceId = this.distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-');
             const navigationAnchor = $(`a[id^="races-for-distance-${distanceId}"]`);
             super.prepareView('Races', this.distance, navigationAnchor);
@@ -73,7 +66,6 @@ namespace Views {
             $.ajax({
                 url: `${AppHelpers.getApiBaseUrl()}/races/${this.distanceFormattedForUrl}`,
                 dataType: 'json',
-                async: false,
                 success: (data) => {
 
                     const items: any[] = [];

@@ -1,5 +1,5 @@
 namespace :fetch do
-  desc 'Fetch data for a particular athlete by ID. Usage: rails fetch:athlete MODE=[all/latest] ID=[athlete_id]'
+  desc 'Fetch data for a particular athlete by ID. Usage: bin/rails fetch:athlete MODE=[all/latest] ID=[athlete_id]'
   task athlete: :environment do
     athlete = Athlete.find_by_id_or_username(ENV['ID'])
     if athlete.nil?
@@ -20,21 +20,21 @@ namespace :fetch do
     fetch('all')
   end
 
-  desc 'Fetch best efforts for all athletes. Usage: rails fetch:best_efforts MODE=[all/latest]'
+  desc 'Fetch best efforts for all athletes. Usage: bin/rails fetch:best_efforts MODE=[all/latest]'
   task best_efforts: :environment do
     fetch(ENV['MODE'], %w[best-efforts])
   end
 
-  desc 'Fetch races for all athletes. Usage: rails fetch:races MODE=[all/latest]'
+  desc 'Fetch races for all athletes. Usage: bin/rails fetch:races MODE=[all/latest]'
   task races: :environment do
     fetch(ENV['MODE'], %w[races])
   end
 
   def fetch(mode = nil, type = nil)
     athletes = Athlete.find_all_by_is_active(true)
-    athletes.each_with_index do |athlete|
+    athletes.each_with_index do |athlete, index|
       fetcher = ActivityFetcher.new(athlete.access_token)
-      fetcher.delay(priority: 1).fetch_all(mode: mode, type: type)
+      fetcher.delay(run_at: (index * 2).seconds.from_now, priority: 1).fetch_all(mode: mode, type: type)
     end
   end
 end

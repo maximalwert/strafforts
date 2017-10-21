@@ -22,8 +22,9 @@ class AppTestBase < ApplicationSystemTestCase
   def assert_all_chart_titles_load_successfully(chart_titles)
     main_content = find(:css, App::Selectors::MainContent.main_content)
     within(main_content) do
-      headers = all(:xpath, './/*[@class="chart"]/../../*[contains(@class, "box-header")]/*[@class="box-title"]')
-      assert_equal(chart_titles.count, headers.count)
+      xpath = './/*[@class="chart"]/../../*[contains(@class, "box-header")]/*[@class="box-title"]'
+      assert_selector(:xpath, xpath, count: chart_titles.count)
+      headers = all(:xpath, xpath)
       headers.each do |header|
         assert_includes(chart_titles, header.text)
       end

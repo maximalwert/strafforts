@@ -7,16 +7,15 @@ class ActivityFetcher
     @api_wrapper = StravaApiWrapper.new(@access_token)
   end
 
-  def fetch_all(options = {}) # rubocop:disable CyclomaticComplexity, MethodLength, PerceivedComplexity
+  def fetch_all(options = {}) # rubocop:disable AbcSize, CyclomaticComplexity, MethodLength, PerceivedComplexity
     mode = options[:mode] || 'latest'
     type = options[:type] || %w[best-efforts races]
 
     begin
-      Rails.logger.info("ActivityFetcher - Start fetching MODE='#{mode}' TYPE='#{type}'.")
-
       # Create or update the current athlete first.
       current_athlete = @api_wrapper.retrieve_current_athlete
       athlete = Creators::AthleteCreator.create_or_update(@access_token, current_athlete, true)
+      Rails.logger.info("ActivityFetcher - Start fetching activities for athlete #{athlete.id}.")
 
       # Create or update HR Zones of the current athlete.
       current_athlete_zones = @api_wrapper.retrieve_current_athlete_zones
@@ -24,22 +23,34 @@ class ActivityFetcher
 
       # Retrieve activities of the current athlete.
       activities_to_retrieve = []
-      activity_ids = get_all_activity_ids(type)
-      activity_ids.sort.each do |activity_id|
-        if (mode == 'all') || athlete.last_activity_retrieved.blank? || activity_id > athlete.last_activity_retrieved
-          activities_to_retrieve << activity_id
+      current_total_run_count = retrieve_current_total_run_count(athlete.id)
+      if mode == 'all' || athlete.total_run_count != current_total_run_count
+        activity_ids = get_all_activity_ids(type)
+        activity_ids.sort.each do |activity_id|
+          if mode == 'all' || athlete.last_activity_retrieved.blank? || activity_id > athlete.last_activity_retrieved
+            activities_to_retrieve << activity_id
+          end
         end
-      end
 
-      Rails.logger.info("ActivityFetcher - Total number of #{activities_to_retrieve.count} activities to be retrieved for athlete #{athlete.id}.") # rubocop:disable LineLength
-      activities_to_retrieve.sort.each do |activity_id|
-        activity = @api_wrapper.retrieve_an_activity(activity_id)
-        Creators::ActivityCreator.create_or_update(activity)
-        athlete.last_activity_retrieved = activity_id
+        if activities_to_retrieve.count > 0
+          Rails.logger.info("ActivityFetcher - A total of #{activities_to_retrieve.count} activities to be retrieved for athlete #{athlete.id}.") # rubocop:disable LineLength
+
+          activities_to_retrieve.sort.each do |activity_id|
+            activity = @api_wrapper.retrieve_an_activity(activity_id)
+            Creators::ActivityCreator.create_or_update(activity)
+            athlete.last_activity_retrieved = activity_id
+          end
+        else
+          Rails.logger.info(get_no_new_runs_message(athlete.id, current_total_run_count))
+        end
+
+        athlete.total_run_count = current_total_run_count
         athlete.save!
+      else
+        Rails.logger.info(get_no_new_runs_message(athlete.id, current_total_run_count))
       end
     rescue StandardError => e
-      Rails.logger.error("ActivityFetcher - Error fetching athlete information with access_token '#{@access_token}'.\n\tMessage: #{e.message}\nBacktrace:\n\t#{e.backtrace.join("\n\t")}") # rubocop:disable LineLength
+      Rails.logger.error("ActivityFetcher - Error fetching athlete (access_token=#{@access_token}). #{e.message}\nBacktrace:\n\t#{e.backtrace.join("\n\t")}") # rubocop:disable LineLength
       if e.message.include?('Authorization Error')
         athlete = Athlete.find_by_access_token(@access_token)
         unless athlete.nil?
@@ -75,5 +86,16 @@ class ActivityFetcher
     end
     activity_ids.uniq!
     activity_ids
+  end
+
+  def get_no_new_runs_message(athlete_id, total_run_count)
+    "ActivityFetcher - No new runs found for athlete #{athlete_id}. Total run count: #{total_run_count}."
+  end
+
+  def retrieve_current_total_run_count(athlete_id)
+    totals_and_stats = @api_wrapper.totals_and_stats(athlete_id)
+    totals_and_stats_json = JSON.parse(totals_and_stats.to_json)
+    total_run_count = totals_and_stats_json['all_run_totals']['count']
+    total_run_count
   end
 end

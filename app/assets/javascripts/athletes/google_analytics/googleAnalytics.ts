@@ -16,6 +16,9 @@ namespace GoogleAnalytics {
             $('.main-header').on('click', '.social-sharing-toggle', (event) => {
                 GoogleAnalyticsHelpers.sendEvent('App - Header', 'Toggle Profile Sharing Modal', event.currentTarget);
             });
+            $('.main-header').on('click', '.show-faq', (event) => {
+                GoogleAnalyticsHelpers.sendEvent('App - Header', 'Show FAQ', event.currentTarget);
+            });
             $('.main-header').on('click', '.control-sidebar-toggle', (event) => {
                 GoogleAnalyticsHelpers.sendEvent('App - Header', 'Toggle Settings Sidebar', event.currentTarget);
             });
@@ -33,7 +36,7 @@ namespace GoogleAnalytics {
             $('.main-sidebar .sidebar-menu').on('click', 'a[id^="best-efforts-for-"]', (event) => {
                 GoogleAnalyticsHelpers.sendEvent(
                     'App - Navigation Sidebar',
-                    'Show Best Efforts Details',
+                    'Show PBs Details',
                     event.currentTarget,
                 );
             });
@@ -89,8 +92,11 @@ namespace GoogleAnalytics {
                     event.currentTarget,
                 );
             });
-            $('#main-content').delegate('timeline-wrapper .filter-buttons .btn', 'click', (event) => {
+            $('#main-content').delegate('.timeline-wrapper .filter-buttons .btn', 'click', (event) => {
                 GoogleAnalyticsHelpers.sendEvent('App - Main Content', 'Filter Timeline', event.currentTarget);
+            });
+            $('#main-content').delegate('.faq-panel .box-title a', 'click', (event) => {
+                GoogleAnalyticsHelpers.sendEvent('App - Main Content', 'View FAQ Item', event.currentTarget);
             });
 
             // App - Settings Sidebar.
@@ -117,6 +123,14 @@ namespace GoogleAnalytics {
                     'Click Button in Settings',
                     event.currentTarget,
                 );
+            });
+
+            // App - Footer.
+            $('.main-footer').on('click', '.custom-dbox-popup', (event) => {
+                GoogleAnalyticsHelpers.sendEvent('App - Footer', 'Click Donation Link', event.currentTarget);
+            });
+            $('.main-footer').on('click', '.btn', (event) => {
+                GoogleAnalyticsHelpers.sendEvent('App - Footer', 'Click Footer Button', event.currentTarget);
             });
         };
         return eventBinders;

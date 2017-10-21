@@ -6,17 +6,17 @@ class BestEffortsViewTest < AppTestBase
   test 'best efforts view should load with the correct title' do
     ALL_BEST_EFFORTS_TYPES.each do |distance|
       # arrange & act.
-      visit URL + format_text_for_url(distance)
+      visit_page URL + format_text_for_url(distance)
 
       # assert.
-      assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | Best Efforts - #{distance}")
+      assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | Personal Bests - #{distance}")
     end
   end
 
   test 'best efforts view should have the correct header and breadcrumb' do
     ALL_BEST_EFFORTS_TYPES.each do |distance|
       # arrange.
-      visit URL + format_text_for_url(distance)
+      visit_page URL + format_text_for_url(distance)
 
       ALL_SCREENS.each do |screen_size|
         # act.
@@ -24,7 +24,7 @@ class BestEffortsViewTest < AppTestBase
 
         # assert.
         puts "#{distance} - #{screen_size}" if VERBOSE_LOGGING
-        assert_content_header_loads_successfully("Best Efforts - #{distance}")
+        assert_content_header_loads_successfully("Personal Bests - #{distance}")
       end
     end
   end
@@ -32,7 +32,7 @@ class BestEffortsViewTest < AppTestBase
   test 'best efforts view should load charts correctly' do
     ALL_BEST_EFFORTS_TYPES.each do |distance|
       # arrange.
-      visit URL + format_text_for_url(distance)
+      visit_page URL + format_text_for_url(distance)
 
       ALL_SCREENS.each do |screen_size|
         # act.

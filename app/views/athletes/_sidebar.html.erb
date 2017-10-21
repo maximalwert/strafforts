@@ -23,16 +23,16 @@
       </div>
     </div>
 
-    <ul class="sidebar-menu">
+    <ul class="sidebar-menu" data-widget="tree">
       <li>
-        <a class="show-overview treeview-header" href="#">
+        <a class="show-overview treeview-header" href="?view=overview">
           <i class="fa fa-home"></i>
           <span>Overview</span>
         </a>
       </li>
 
       <li>
-        <a class="show-races-timeline treeview-header" href="#">
+        <a class="show-races-timeline treeview-header" href="?view=timeline&type=races">
           <i class="fa fa-calendar"></i>
           <span>Races Timeline</span>
         </a>
@@ -41,11 +41,11 @@
       <li class="active treeview">
         <a class="treeview-header disabled" href="#">
           <i class="fa fa-trophy"></i>
-          <span>Estimated Best Efforts</span>
+          <span>PBs by Distance</span>
         </a>
 
         <ul class="treeview-menu">
-          <li id="treeview-menu-best-efforts-for-distance" class="treeview-expander">
+          <li id="treeview-menu-best-efforts-for-distance" class="treeview-expander treeview">
             <a href="#" class="show-other-distance">
               <i class="fa fa-circle-o"></i>Other Distances
               <span class="pull-right-container">
@@ -66,7 +66,7 @@
 
         <ul class="treeview-menu">
 
-          <li id="treeview-menu-races-for-distance" class="treeview-expander">
+          <li id="treeview-menu-races-for-distance" class="treeview-expander treeview">
             <a href="#" class="show-other-distance">
               <i class="fa fa-circle-o"></i>Other Distances
               <span class="pull-right-container">

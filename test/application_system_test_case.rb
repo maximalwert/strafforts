@@ -8,7 +8,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   VERBOSE_LOGGING = false
 
   APP_NAME = 'Strafforts'.freeze
-  APP_DESCRIPTION = 'An Analytics App for Strava Estimated Best Efforts and Races'.freeze
+  APP_DESCRIPTION = 'An Analytics App for Strava Best Efforts (PBs) and Races'.freeze
   HOME_URL = '/'.freeze
   DEMO_ATHLETE_ID = '9123806'.freeze
   DEMO_ATHLETE_FRIENDS = '44'.freeze
@@ -21,9 +21,9 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   STRAVA_URL = 'https://www.strava.com'.freeze
   STRAVA_AUTHORIZATION_URL_PARTIAL = 'https://www.strava.com/oauth/authorize?client_id='.freeze
 
-  SOCIAL_SHARING_BUTTONS = %w[Facebook LinkedIn Twitter Email Reddit More].freeze
+  SOCIAL_SHARING_BUTTONS = %w[Facebook Vkontakte Twitter LinkedIn Email WhatsApp Telegram More].freeze
 
-  FAQ_CATEGORIES = ['Account', 'Best Efforts', 'Races', 'Miscellaneous'].freeze
+  FAQ_CATEGORIES = ['Account', 'Support', 'Best Efforts', 'Races', 'Miscellaneous'].freeze
 
   MAJOR_DISTANCES = [
     'Marathon', 'Half Marathon', '10k', '5k'
@@ -88,7 +88,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   RACE_YEARS_WITH_ALL_CHARTS_SHOWN = %w[2017 2016 2015].freeze
   RACE_YEARS_CHART_TITLES = [
     'Distance Distribution Chart',
-    'Month Distribution Chart',
+    'Monthly Distribution Chart',
     'Gear Count Chart',
     'Gear Mileage Chart',
     'Heart Rates Chart',
@@ -128,7 +128,14 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   end
 
   def resize_window_to(size)
+    Capybara.current_session.execute_script('$.fx.off = true;') # disable jQuery animation effects.
     Capybara.current_session.current_window.resize_to(size[0], size[1])
+    sleep 0.2
+  end
+
+  def visit_page(url)
+    visit url
+    has_selector?(App::Selectors::MainHeader.pace_done)
   end
 
   def assert_has_selector(selector, custom_message = nil)
@@ -154,4 +161,5 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   driven_by :poltergeist, options: {
     phantomjs: Phantomjs.path
   }
+  Capybara.default_max_wait_time = 5
 end

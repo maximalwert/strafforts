@@ -1,16 +1,16 @@
 app:
   name: 'Strafforts'
   demo_path: '/athletes/9123806'
-  description: 'An Analytics App for Strava Estimated Best Efforts and Races'
+  description: 'An Analytics App for Strava Best Efforts (PBs) and Races'
   emailer:
     default_sender_name: 'Yi Zeng'
     default_sender_email: 'support@strafforts.com'
   global_message: <%= ENV['GLOBAL_MESSAGE'] %>
-  html_meta_description: 'An analytics app that allow athletes to analyze their visualized Strava estimated best efforts and races data in tables and charts.'
-  html_meta_description_for_athletes: 'Visualized Strava estimated best efforts and races data for '
-  html_meta_keywords: 'strava,strafforts,bestefforts,races,running,data,visualizer,analytics'
+  html_meta_description: 'An analytics app that allow athletes to analyze their visualized Strava best efforts (PBs) and races data in tables and charts.'
+  html_meta_description_for_athletes: 'Visualized Strava best efforts (PBs) and races data for '
+  html_meta_keywords: 'strava,strafforts,bestefforts,pb,races,running,data,visualizer,analytics'
   production_url: 'https://www.strafforts.com'
-  title: 'Strafforts - An Analytics App for Strava Estimated Best Efforts and Races'
+  title: 'Strafforts - An Analytics App for Strava Best Efforts (PBs) and Races'
   version: <%= ENV['APP_VERSION'] %>
 strava:
   api_auth_authorize_url: 'https://www.strava.com/oauth/authorize'

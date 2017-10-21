@@ -5,8 +5,6 @@ module Creators
     # On OAuth token exchange, a summary JSON is returned from Strava.
     # Otherwise, a detailed JSON will be retrieved for athletes.
     def self.create_or_update(access_token, athlete_hash, is_detailed)
-      Rails.logger.debug("AthleteCreator - Athlete hash: #{athlete_hash}")
-
       if athlete_hash['id'].blank?
         Rails.logger.warn('AthleteCreator - Athlete ID is blank. Exiting...')
         return

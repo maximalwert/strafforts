@@ -8,13 +8,8 @@ namespace EventBinders {
                 event.preventDefault();
             });
 
-            // Disable clicking for 'Estimated Best Efforts', 'Race by Distance' and 'Race by Year' treeview headers.
+            // Disable clicking for 'PBs by Distance', 'Race by Distance' and 'Race by Year' treeview headers.
             $('.sidebar-menu .disabled').click(false);
-
-            // Reload Overview page.
-            $(document).on('click', '.show-overview', () => {
-                new Views.Overview().load();
-            });
 
             // Load Races Overview upon clicking 'Races' tab button if not yet created.
             $(document).on('click', "a[href^='#pane-races']", () => {
@@ -23,18 +18,11 @@ namespace EventBinders {
                 }
             });
 
-            // Load FAQ upon clicking 'FAQ' tab button if not yet created.
-            $(document).on('click', "a[href^='#pane-faqs']", () => {
-                if ($('#pane-faqs .loading-icon-panel').length) {
-                    new Views.Overview().loadFaqsPanel();
-                }
-            });
-
             // Bind race filter buttons in Races Timeline view.
             $(document).on('click', '.filter-buttons .btn:not(.show-all)', (event) => {
                 // Set the filter button to active upon clicking.
                 $('.filter-buttons .btn').removeClass('active');
-                $('.filter-buttons .show-all').removeClass('hidden').fadeIn(500);
+                $('.filter-buttons .show-all').removeClass('hidden').fadeIn();
                 $(event.currentTarget).addClass('active');
             });
 
@@ -42,11 +30,11 @@ namespace EventBinders {
                 const distance = $(event.currentTarget).attr('data-race-distance');
 
                 // Show all year labels.
-                $('.time-label').fadeIn(500);
+                $('.time-label').fadeIn();
 
                 // Show only timeline items of this distance.
                 $('.timeline-item').parent().hide();
-                $(`.timeline-item[data-race-distance='${distance}']`).parent().fadeIn(500);
+                $(`.timeline-item[data-race-distance='${distance}']`).parent().fadeIn();
             });
 
             $(document).on('click', '.timeline-header .btn', (event) => {
@@ -54,7 +42,7 @@ namespace EventBinders {
 
                 // Update the state of filter buttons.
                 $('.filter-buttons .btn').removeClass('active');
-                $('.filter-buttons .show-all').removeClass('hidden').fadeIn(500);
+                $('.filter-buttons .show-all').removeClass('hidden').fadeIn();
                 $(`.filter-buttons [data-race-distance='${distance}']`).addClass('active');
             });
 
@@ -63,9 +51,9 @@ namespace EventBinders {
 
                 // Show only time labels, items of this year.
                 $('.time-label').hide();
-                $(`.time-label[data-race-year='${year}']`).fadeIn(500);
+                $(`.time-label[data-race-year='${year}']`).fadeIn();
                 $('.timeline-item').parent().hide();
-                $(`.timeline-item[data-race-year='${year}']`).parent().fadeIn(500);
+                $(`.timeline-item[data-race-year='${year}']`).parent().fadeIn();
             });
 
             // Append PR/Contributions welcome badges upon clicking settings toggle button.

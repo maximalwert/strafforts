@@ -15,7 +15,7 @@ class AuthControllerTest < ActionDispatch::IntegrationTest
       stub_strava_post_request(Settings.strava.api_auth_token_url, TOKEN_EXCHANGE_REQUEST_BODY, 400)
       get '/auth/exchange_token'
     end
-    assert_equal('Bad request while exchanging token with Strava', exception.message)
+    assert_equal('Bad request while exchanging token with Strava.', exception.message)
   end
 
   test 'should get an error when GET exchange_token returns error status code other than 400)' do
@@ -49,7 +49,7 @@ class AuthControllerTest < ActionDispatch::IntegrationTest
     # assert.
     athlete = Athlete.find_by_id_or_username(9123806)
     assert_nil(athlete)
-    assert_nil(cookies[:access_token])
+    assert(cookies[:access_token].blank?)
     assert_redirected_to root_path
   end
 
@@ -59,7 +59,7 @@ class AuthControllerTest < ActionDispatch::IntegrationTest
     get '/auth/deauthorize'
 
     assert_redirected_to root_path
-    assert_nil(cookies[:access_token])
+    assert(cookies[:access_token].blank?)
   end
 
   test 'should logout when GET deauthorize with an invalid access token' do
@@ -73,7 +73,7 @@ class AuthControllerTest < ActionDispatch::IntegrationTest
 
     # assert.
     assert_redirected_to root_path
-    assert_nil(cookies[:access_token])
+    assert(cookies[:access_token].blank?)
   end
 
   test 'should logout when GET deauthorize with a valid access token' do
@@ -86,13 +86,13 @@ class AuthControllerTest < ActionDispatch::IntegrationTest
 
     # assert.
     assert_redirected_to root_path
-    assert_nil(cookies[:access_token])
+    assert(cookies[:access_token].blank?)
   end
 
   test 'should return to root when GET logout' do
     get '/auth/logout'
 
     assert_redirected_to root_path
-    assert_nil(cookies[:access_token])
+    assert(cookies[:access_token].blank?)
   end
 end

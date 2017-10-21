@@ -12,21 +12,13 @@ namespace Views {
             super();
 
             this.distance = distance.trim().replace(/_/g, '/');
-            this.distanceFormattedForUrl = distance.trim().replace(/\//g, '_').replace(/\s/g, '-').toLowerCase();
-        }
-
-        public updateWindowState(): void {
-            const viewUrl = `${AppHelpers.getBaseUrl()}?view=best-efforts&distance=${this.distanceFormattedForUrl}`;
-            super.updateWindowState(viewUrl);
+            this.distanceFormattedForUrl = AppHelpers.formateDistanceForUrl(distance);
         }
 
         public load(): void {
-            // Update again on purpose, so that browser's back button would never trigger state change again.
-            this.updateWindowState();
-
             const distanceId = this.distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-');
             const navigationAnchor = $(`a[id^="best-efforts-for-distance-${distanceId}"]`);
-            super.prepareView('Best Efforts', this.distance, navigationAnchor);
+            super.prepareView('Personal Bests', this.distance, navigationAnchor);
 
             this.createViewTemplate();
             this.createView();
@@ -70,7 +62,6 @@ namespace Views {
             $.ajax({
                 url: `${AppHelpers.getApiBaseUrl()}/best-efforts/${this.distanceFormattedForUrl}`,
                 dataType: 'json',
-                async: false,
                 success: (data) => {
                     const items: any[] = [];
                     $.each(data, (key, value) => {

@@ -21,6 +21,7 @@ namespace HtmlHelpers {
 
     export function getContributionWelcomeBadges() {
         const html = `
+        <p>If you are a techie and would like to help out...</p>
         <p class="link-contributions-welcome">
             <a href="https://github.com/yizeng/strafforts/blob/master/docs/development-guide.md" target="_blank">
                 <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square"
@@ -36,9 +37,7 @@ namespace HtmlHelpers {
     export function getLoadingIcon() {
         const html = `
         <div class='loading-icon-panel text-center'>
-            <button type='button' class='btn btn-default btn-lrg' title='Loading Data...'>
-                <i class='fa fa-spin fa-refresh'></i>
-            </button>
+            <span title='Loading Data...'><i class='fa fa-spin fa-refresh'></i></span>
         </div>`;
         return html;
     }

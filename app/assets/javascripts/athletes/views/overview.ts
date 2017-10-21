@@ -4,16 +4,10 @@ namespace Views {
     export class Overview extends BaseView {
 
         public load(): void {
-            const viewUrl = AppHelpers.getBaseUrl();
-            super.updateWindowState(viewUrl);
             super.prepareView('Overview');
 
             this.createViewTemplate();
             this.createView();
-        }
-
-        public loadFaqsPanel(): void {
-            this.createFaq();
         }
 
         public loadRacesPanel(): void {
@@ -30,19 +24,15 @@ namespace Views {
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
                             <li class="active">
-                                <a href="#pane-best-efforts" data-toggle="tab">Best Efforts</a>
+                                <a href="#pane-best-efforts" data-toggle="tab">Best Efforts (PBs)</a>
                             </li>
                             <li>
                                 <a href="#pane-races" data-toggle="tab">Races</a>
-                            </li>
-                            <li class="faq pull-right">
-                                <a href="#pane-faqs" data-toggle="tab">FAQ</a>
                             </li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="pane-best-efforts">${HtmlHelpers.getLoadingIcon()}</div>
                             <div class="tab-pane" id="pane-races">${HtmlHelpers.getLoadingIcon()}</div>
-                            <div class="tab-pane" id="pane-faqs">${HtmlHelpers.getLoadingIcon()}</div>
                         </div>
                     </div>
                 </div>
@@ -54,77 +44,11 @@ namespace Views {
             this.createOverviewDatatable('best-efforts');
         }
 
-        private createFaq() {
-            const fullUrl = `${Helpers.getBaseUrl()}/api/faqs/index`;
-            $.ajax({
-                url: fullUrl,
-                dataType: 'json',
-                async: false,
-                success: (data) => {
-                    const categories: string[] = [];
-                    const faqs: object[] = [];
-                    $.each(data, (key, value) => {
-                        const faq: object = {
-                            title: value['title'],
-                            content: value['content'],
-                            category: value['category'],
-                        };
-                        faqs.push(faq);
-                        if ($.inArray(value['category'], categories) === -1) {
-                            categories.push(value['category']);
-                        }
-                    });
-
-                    const pane = $('#pane-faqs');
-                    pane.empty();
-
-                    let accordions = ``;
-                    categories.forEach((category: string) => {
-                        let accordionContent = '';
-                        faqs.forEach((faq: object, index: number) => {
-                            if (faq['category'] === category) {
-                                accordionContent += `
-                                    <div class="panel box">
-                                        <div class="box-header with-border">
-                                            <h4 class="box-title">
-                                                <a data-toggle="collapse" data-parent="#accordion-${category}"
-                                                    href="#accordion-${category}-${index}">
-                                                    ${faq['title']}
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="accordion-${category}-${index}" class="panel-collapse collapse">
-                                            <div class="box-body">${faq['content']}</div>
-                                        </div>
-                                    </div>
-                                `;
-                            }
-                        });
-                        const accordion = `
-                            <div class="box">
-                                <div class="box-header">
-                                    <h3 class="box-title">${Helpers.toTitleCase(category.replace(/-/g, ' '))}</h3>
-                                </div>
-                                <div class="box-body">
-                                    <div class="box-group accordion" id="accordion-${category}">
-                                        ${accordionContent}
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                        accordions += accordion;
-                    });
-                    pane.append(accordions);
-                },
-            });
-        }
-
         private createOverviewDatatable(type: string) {
             const fullUrl = AppHelpers.getApiBaseUrl() + '/' + type;
             $.ajax({
                 url: fullUrl,
                 dataType: 'json',
-                async: false,
                 success: (data) => {
                     const distances: object[] = [];
                     $.each(data, (key, value) => {
@@ -152,13 +76,15 @@ namespace Views {
                             const showDistanceColumn = model['distance'] === 'Recent';
                             const activityColumnWidth = showDistanceColumn ? '2' : '3';
                             const distanceColumnHeader = showDistanceColumn ?
-                                `<th class="col-md-1">Distance</th>` : '';
+                                `<th class="col-md-1 hidden-xs-down">Distance</th>` : '';
 
                             let rows = '';
                             model['items'].forEach((item: any[]) => {
                                 const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
                                 const distanceColumn = showDistanceColumn ?
-                                    `<td>${(item['distance']).toFixed(1)} ${item['distance_unit']}</td>` : '';
+                                    `<td class="hidden-xs-down">
+                                        ${(item['distance']).toFixed(1)} ${item['distance_unit']}
+                                    </td>` : '';
                                 const workoutTypeColumn = isTypeOfRaces ? '' :
                                 `<td class="text-center badge-cell hidden-md-down">
                                     <span class="label workout-type-${item['workout_type_name'].replace(/\s/g, '-')}">
