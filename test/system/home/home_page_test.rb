@@ -8,7 +8,7 @@ class HomePageTest < ApplicationSystemTestCase
 
   test 'home page should load with the correct title' do
     # act.
-    visit HOME_URL
+    visit_page HOME_URL
 
     # assert.
     assert_title("#{APP_NAME} - #{APP_DESCRIPTION}")
@@ -16,7 +16,7 @@ class HomePageTest < ApplicationSystemTestCase
 
   test 'home page should only show navbar toggle button for small screens' do
     # arrange.
-    visit HOME_URL
+    visit_page HOME_URL
 
     SMALL_SCREENS.each do |screen_size|
       # act.
@@ -37,7 +37,7 @@ class HomePageTest < ApplicationSystemTestCase
 
   test 'home page should show navigation bar correctly' do
     # arrange.
-    visit HOME_URL
+    visit_page HOME_URL
 
     SMALL_SCREENS.each do |screen_size|
       # act.
@@ -58,7 +58,7 @@ class HomePageTest < ApplicationSystemTestCase
 
   test 'home page should show intro section correctly on load' do
     # arrange.
-    visit HOME_URL
+    visit_page HOME_URL
 
     ALL_SCREENS.each do |screen_size|
       # act.
@@ -71,7 +71,7 @@ class HomePageTest < ApplicationSystemTestCase
 
   test 'home page should have top brand link working as expected' do
     # arrange.
-    visit HOME_URL
+    visit_page HOME_URL
 
     ALL_SCREENS.each do |screen_size|
       # act.
@@ -94,7 +94,7 @@ class HomePageTest < ApplicationSystemTestCase
 
   test 'home page should have navigation links working as expected for small screens' do
     # arrange.
-    visit HOME_URL
+    visit_page HOME_URL
 
     SMALL_SCREENS.each do |screen_size|
       # act.
@@ -118,7 +118,7 @@ class HomePageTest < ApplicationSystemTestCase
 
   test 'home page should have navigation links working as expected for medium to large screens' do
     # arrange.
-    visit HOME_URL
+    visit_page HOME_URL
 
     MEDIUM_TO_LARGE_SCREENS.each do |screen_size|
       # act.

@@ -3,7 +3,7 @@ require_relative './app_test_base'
 class FaqTest < AppTestBase
   test 'open FAQ page from url should be successful' do
     # act.
-    visit DEMO_URL + '?view=faq'
+    visit_page DEMO_URL + '?view=faq'
 
     # assert.
     assert_faq_panel_load_successfully
@@ -11,7 +11,7 @@ class FaqTest < AppTestBase
 
   test 'open FAQ page from header button should be successful' do
     # arrange.
-    visit DEMO_URL
+    visit_page DEMO_URL
 
     # act.
     nav_tab_faq = find(:css, App::Selectors::MainHeader.btn_faq)

@@ -5,7 +5,7 @@ class RacesTimelineTest < AppTestBase
 
   test 'races timeline view should load with the correct title' do
     # act.
-    visit URL
+    visit_page URL
 
     # assert.
     assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | #{RCAES_TIMELINE_TITLE}")
@@ -13,7 +13,7 @@ class RacesTimelineTest < AppTestBase
 
   test 'races timeline view should have the correct header and breadcrumb' do
     # arrange.
-    visit URL
+    visit_page URL
 
     ALL_SCREENS.each do |screen_size|
       # act.
@@ -26,7 +26,7 @@ class RacesTimelineTest < AppTestBase
 
   test 'race timeline view should load correctly' do
     # arrange.
-    visit URL
+    visit_page URL
 
     ALL_SCREENS.each do |screen_size|
       # act.
@@ -42,7 +42,7 @@ class RacesTimelineTest < AppTestBase
 
   test "race timeline view's filter buttons should work correctly" do
     # arrange.
-    visit URL
+    visit_page URL
 
     ALL_SCREENS.each do |screen_size|
       # act.

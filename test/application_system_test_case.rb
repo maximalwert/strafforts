@@ -133,6 +133,11 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     sleep 0.2
   end
 
+  def visit_page(url)
+    visit url
+    has_selector?(App::Selectors::MainHeader.pace_done)
+  end
+
   def assert_has_selector(selector, custom_message = nil)
     message = custom_message.blank? ? "Selector '#{selector}' should be found." : custom_message
     assert(has_selector?(selector), message)
