@@ -53,6 +53,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+  gem 'dotenv-rails'
   gem 'foreman' # Manager Procfile.dev under develpoment environment.
 
   gem 'mdl', require: false # Markdown lint tool.

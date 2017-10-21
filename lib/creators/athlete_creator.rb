@@ -32,7 +32,7 @@ module Creators
 
       Creators::GearCreator.create(athlete_id, athlete_hash['shoes'])
 
-      UserMailer.welcome_email(@athlete).deliver_now.delay if is_new_athlete
+      UserMailer.delay.welcome_email(@athlete) if is_new_athlete
       @athlete
     end
 

@@ -1,13 +1,13 @@
-Welcome to <%= @app_name%>, <%= @athlete_name %>!
+Welcome to <%= @app_name%>!
 ===============================================
 Dear <%= @athlete_name %>,
 
 Thanks for connecting your Strava account with <%= @app_name%>!
 
 It might take a while for your data to be synced and processed by <%= @app_name%>.
-While you wait, you may visit our demo page's FAQ section to have a look around.
+While you wait, you may visit our demo page to have a look around.
 
-If you didn't know or haven't done so, you can tag your Strava activities.
+If you didn't know or haven't done so, you can tag your Strava activities as "Race", "Workout" and "Long Run" .
 All <%= @app_name%> charts related "Races" are analyzed from those activities tagged as "Race" in Strava.
 
 Your <%= @app_name%> profile URL is <%= @athlete_profile_url %>.
@@ -18,3 +18,4 @@ Once again, thanks for joining!
 
 Regards,
 <%= @sender_name %>
+<%= @app_url.gsub("https://", "") %>
