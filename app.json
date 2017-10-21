@@ -45,7 +45,6 @@
   },
   "addons": [
     "heroku-postgresql",
-    "trevor",
     "scheduler"
   ],
   "buildpacks": [

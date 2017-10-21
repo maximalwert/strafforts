@@ -66,7 +66,6 @@ namespace Views {
             $.ajax({
                 url: `${AppHelpers.getApiBaseUrl()}/races/${this.distanceFormattedForUrl}`,
                 dataType: 'json',
-                async: false,
                 success: (data) => {
 
                     const items: any[] = [];

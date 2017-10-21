@@ -40,29 +40,34 @@ What are 'Estimated Best Efforts'?</a> on Strava support forum.</p>")
 <p>Personal bests on Strafforts are just those gold best estimated efforts trophies on Strava running activities.</p>
 <p>First please check if the best effort you are looking for do exist on the corresponding Strava activity.
 If it does exist on Strava, but not Strafforts, please contact me
-(See 'How to contact Strafforts support?' section below).</p>
+(See 'How to contact Strafforts support?' section).</p>
 <p>If it doesn't exist on Strava either, please submit a request at Strava's support site
 <a href='https://support.strava.com/hc/en-us/requests/new' target='_blank'>here</a>.</p>
 <p><b>Note:</b> Strava's best effort only starts counting from the 2nd best effort of such distance.
 See <a href='https://support.strava.com/hc/en-us/articles/216917137-Achievement-Awards-Glossary'>
 Achievement Awards Glossary</a> for more details.</p>")
-      add('best-efforts', 'Why my activity is shown under another distance?', "
-<p>Strafforts' personal bests are just visual representations of those Strava gold best estimated efforts trophies.</p>
-<p>If you made a best 20k effort within a full marathon activity,
-there will be a gold 20k trophy on this activity on Strava,
-therefore Strafforts will pick it up and display it as well.</p>
-<p>This means one activity may have multiple personal bests over different distances,
-therefore this activity may be shown under different distances in Strafforts.</p>")
+      add('best-efforts', 'Why there are some outlier in my PB progression chart?', "
+<p>All best efforts (PBs/PRs) here in Strafforts are just those
+gold best estimated efforts trophies on Strava running activities.</p>
+<p>Sometimes data on Strava can be unreliable and can be generated unpredictably.</p>
+<p>If you notice some messed up best efforts within Strafforts,
+you can try go to those activities on Strava and try
+'<a href='https://support.strava.com/hc/en-us/articles/216919597-The-Refresh-My-Achievements-Tool-'
+target='_blank'>Refresh Activity Achievements</a>',
+or '<a href='https://support.strava.com/hc/en-us/requests/new' target='_blank'>Submit a request</a>'
+on Strava support site regarding your wrong Strava best efforts data.</p>
+<p>Then reset your last retrieved activity here in your setting
+to trigger a complete re-fetch of your activities.</p>
+")
       add('best-efforts', "Strava's estimated best efforts can be unreliable, would Strafforts correct them?", "
 <p>Unfortunately no.</p>
-<p>Even though technically that is totally achievable,
+<p>Even though technically that might be achievable,
 it's against the purpose of having this 'Strava Best Efforts (PBs)' visualizer.
 This app was designed to fetch and visualize the personal bests data on Strava
 (i.e. those trophies actually on activities),
 instead of implement an algorithm to calculate athletes' personal bests based on Strava activities.</p>
 <p>If one athlete doesn't have '1st best efforts' for 5k distance on Strava, Strafforts shouldn't show it here either.
-Because 'Strava Estimated Best Efforts' is a term that was created and defined by Strava,
-any data shown in this app should be consistent with such data on Strava.</p>
+Because any data shown in this app should be consistent with such data on Strava.</p>
 <p>However, if you notice some messed up best efforts within Strafforts,
 you can try go to those activities on Strava and try
 '<a href='https://support.strava.com/hc/en-us/articles/216919597-The-Refresh-My-Achievements-Tool-'
@@ -70,6 +75,13 @@ target='_blank'>Refresh Activity Achievements</a>',
 or '<a href='https://support.strava.com/hc/en-us/requests/new' target='_blank'>Submit a request</a>'
 on Strava support site regarding your wrong Strava best efforts data.</p>
 ")
+      add('best-efforts', 'Why my activity is shown under another distance?', "
+<p>Strafforts' personal bests are just visual representations of those Strava gold best estimated efforts trophies.</p>
+<p>If you made a best 20k effort within a full marathon activity,
+there will be a gold 20k trophy on this activity on Strava,
+therefore Strafforts will pick it up and display it as well.</p>
+<p>This means one activity may have multiple personal bests over different distances,
+therefore this activity may be shown under different distances in Strafforts.</p>")
       add('best-efforts', 'How to recalculate all best estimated efforts on Strava?', "
 <p>The quick answer is - no, you can't.</p>
 <p>Sometimes an activity was uploaded as wrong activity type,

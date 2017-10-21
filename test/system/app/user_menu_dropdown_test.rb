@@ -3,7 +3,7 @@ require_relative './app_test_base'
 class UserMenuDropdownTest < AppTestBase
   test 'user menu dropdown should work as expected' do
     # arrange.
-    visit DEMO_URL
+    visit_page DEMO_URL
 
     # act.
     btn_user_menu = find(:css, App::Selectors::MainHeader.btn_user_menu)

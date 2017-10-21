@@ -1,6 +1,10 @@
 module App
   module Selectors
     class MainHeader
+      def self.pace_done
+        'body.pace-done'
+      end
+
       def self.main_header
         '.main-header'
       end

@@ -3,11 +3,6 @@
 /// <reference path="./../../../../node_modules/@types/toastr/index.d.ts" />
 /// <reference path="./../common/helpers.ts" />
 
-declare var Pace: HubSpotPaceInterfaces.Pace;
-Pace.on('hide', () => {
-    $('body').removeClass('page-loading').addClass('page-loaded');
-});
-
 const loadView = () => {
     const view = Helpers.getUrlParameter('view');
     const distance = Helpers.getUrlParameter('distance');
@@ -34,10 +29,6 @@ $(document).ready(() => {
 
     GoogleAnalytics.bindEvents().apply(null);
     EventBinders.bindAll().apply(null);
-
-    new Views.NavigationSidebar().load();
-
-    loadView();
 
     // Bind page loading handlers.
     $(document).on('click', '.show-faq', (event) => {
@@ -84,4 +75,9 @@ $(document).ready(() => {
         AppHelpers.pushStateToWindow(`?view=races&year=${year}`);
         new Views.RacesByYear(year).load();
     });
+});
+
+$(window).load(() => {
+    new Views.NavigationSidebar().load();
+    loadView();
 });

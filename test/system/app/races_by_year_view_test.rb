@@ -6,7 +6,7 @@ class RacesByYearViewTest < AppTestBase
   test 'races by year view should load with the correct title' do
     ALL_RACE_YEARS.each do |year|
       # act.
-      visit URL + year
+      visit_page URL + year
 
       # assert.
       assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | Races - #{year}")
@@ -16,7 +16,7 @@ class RacesByYearViewTest < AppTestBase
   test 'races by year view should have the correct header and breadcrumb' do
     ALL_RACE_YEARS.each do |year|
       # arrange.
-      visit URL + year
+      visit_page URL + year
 
       ALL_SCREENS.each do |screen_size|
         # act.
@@ -32,7 +32,7 @@ class RacesByYearViewTest < AppTestBase
   test 'races by year view should load charts correctly' do
     ALL_RACE_YEARS.each do |year|
       # arrange.
-      visit URL + year
+      visit_page URL + year
 
       ALL_SCREENS.each do |screen_size|
         # act.

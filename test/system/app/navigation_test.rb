@@ -3,7 +3,7 @@ require_relative './app_test_base'
 class NavigationTest < AppTestBase
   test 'navigation bar should work for overview' do
     # arrange.
-    visit DEMO_URL
+    visit_page DEMO_URL
 
     ALL_SCREENS.each do |screen_size|
       # act.
@@ -17,7 +17,7 @@ class NavigationTest < AppTestBase
 
   test 'navigation bar should work for races timeline view' do
     # arrange.
-    visit DEMO_URL
+    visit_page DEMO_URL
 
     ALL_SCREENS.each do |screen_size|
       # act.
@@ -31,7 +31,7 @@ class NavigationTest < AppTestBase
 
   test 'navigation bar should work for best efforts views' do
     # arrange.
-    visit DEMO_URL
+    visit_page DEMO_URL
 
     ALL_SCREENS.each do |screen_size|
       # act.
@@ -50,7 +50,7 @@ class NavigationTest < AppTestBase
 
   test 'navigation bar should work for race distance views' do
     # arrange.
-    visit DEMO_URL
+    visit_page DEMO_URL
 
     ALL_SCREENS.each do |screen_size|
       # act.
@@ -69,7 +69,7 @@ class NavigationTest < AppTestBase
 
   test 'navigation bar should work for races by year views' do
     # arrange.
-    visit DEMO_URL
+    visit_page DEMO_URL
 
     ALL_SCREENS.each do |screen_size|
       # act.
@@ -87,7 +87,6 @@ class NavigationTest < AppTestBase
   private
 
   def open_navigation_bar_when_needed
-    sleep 0.2
     body = find(:css, 'body')
     return if body[:class].include?('sidebar-open')
     sidebar_toggle = find(:css, App::Selectors::MainHeader.sidebar_toggle)
@@ -106,6 +105,7 @@ class NavigationTest < AppTestBase
   def assert_navigate_to_overview_successfully
     navigation_item = find(:css, '.sidebar-menu .show-overview')
     navigation_item.click
+    has_selector?(App::Selectors::MainHeader.pace_done)
 
     assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | #{OVERVIEW_TITLE}")
     assert_includes_text(page.current_url, DEMO_URL)
@@ -115,6 +115,7 @@ class NavigationTest < AppTestBase
   def assert_navigate_to_races_timeline_successfully
     navigation_item = find(:css, '.sidebar-menu .show-races-timeline')
     navigation_item.click
+    has_selector?(App::Selectors::MainHeader.pace_done)
 
     assert_title("#{APP_NAME} | #{DEMO_ATHLETE_NAME} | #{RCAES_TIMELINE_TITLE}")
     assert_includes_text(page.current_url, "#{DEMO_URL}?view=timeline&type=races")
@@ -127,6 +128,7 @@ class NavigationTest < AppTestBase
 
     navigation_item = find(:id, "#{type}-for-distance-#{distance_formatted_for_html}-navigation")
     navigation_item.click
+    has_selector?(App::Selectors::MainHeader.pace_done)
 
     within(navigation_item) do
       icon = find(:css, 'i')
@@ -142,6 +144,7 @@ class NavigationTest < AppTestBase
   def assert_navigate_to_year_successfully(year)
     navigation_item = find(:id, "races-for-year-#{year}-navigation")
     navigation_item.click
+    has_selector?(App::Selectors::MainHeader.pace_done)
 
     within(navigation_item) do
       icon = find(:css, 'i')

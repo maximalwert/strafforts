@@ -3,7 +3,7 @@ require_relative './app_test_base'
 class SocialSharingTest < AppTestBase
   test 'social sharing button and modal dialog should work as expected' do
     # arrange.
-    visit DEMO_URL
+    visit_page DEMO_URL
 
     # act.
     btn_social_sharing = find(:css, App::Selectors::MainHeader.btn_social_sharing)
@@ -20,11 +20,11 @@ class SocialSharingTest < AppTestBase
         # Explicit find to wait for lazy loading.
         addthis_layer = find(:css, '.addthis_inline_share_toolbox .addthis-smartlayers')
         within(addthis_layer) do
-          buttons = all(:css, '.at-share-btn-elements a')
-          assert_equal(SOCIAL_SHARING_BUTTONS.count, buttons.count)
+          selector = '.at-share-btn-elements a'
+          assert_has_selector(selector, count: SOCIAL_SHARING_BUTTONS.count)
 
           if MEDIUM_TO_LARGE_SCREENS.include?(screen_size)
-            labels = all(:css, '.addthis_inline_share_toolbox .at-share-btn-elements a .at-label')
+            labels = all(:css, '.at-share-btn-elements a .at-label')
             labels.each do |label|
               assert_includes_text(SOCIAL_SHARING_BUTTONS, label.text)
             end

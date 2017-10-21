@@ -21,7 +21,6 @@ namespace Views {
             $.ajax({
                 url: fullUrl,
                 dataType: 'json',
-                async: false,
                 success: (data) => {
                     if (data.length === 0) {
                         $(`#treeview-menu-${elementIdPrefix}`).closest('.treeview').empty();

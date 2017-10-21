@@ -3,7 +3,7 @@ require_relative './app_test_base'
 class SettingsTest < AppTestBase
   test 'should see connect with Strava button when not logged in' do
     # arrange.
-    visit DEMO_URL
+    visit_page DEMO_URL
 
     ALL_SCREENS.each do |screen_size|
       # act.

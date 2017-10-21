@@ -49,7 +49,6 @@ namespace Views {
             $.ajax({
                 url: fullUrl,
                 dataType: 'json',
-                async: false,
                 success: (data) => {
                     const distances: object[] = [];
                     $.each(data, (key, value) => {
