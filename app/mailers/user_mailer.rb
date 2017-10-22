@@ -21,7 +21,7 @@ class UserMailer < ApplicationMailer
   private
 
   def format_athlete_fullname
-    return if @athlete.nil? || (@athlete.firstname.blank? && @athlete.lastname.blank?)
+    return 'New Athlete' if @athlete.nil? || (@athlete.firstname.blank? && @athlete.lastname.blank?)
     "#{@athlete.firstname} #{@athlete.lastname}".to_s.strip
   end
 end
