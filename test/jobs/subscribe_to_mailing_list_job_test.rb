@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SubscribeUserToMailingListJobTest < ActiveJob::TestCase
+class SubscribeToMailingListJobTest < ActiveJob::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -12,7 +12,8 @@ class Athlete < ApplicationRecord
   has_many :heart_rate_zones
   has_many :races
 
-  after_create :send_welcome_email, :subscribe_user_to_mailing_list
+  after_create :send_welcome_email
+  after_save :subscribe_to_mailing_list
 
   def self.find_by_access_token(access_token)
     results = where(access_token: access_token)
@@ -35,7 +36,7 @@ class Athlete < ApplicationRecord
     UserMailer.delay.welcome_email(self)
   end
 
-  def subscribe_user_to_mailing_list
-    SubscribeUserToMailingListJob.perform_later(self)
+  def subscribe_to_mailing_list
+    SubscribeToMailingListJob.perform_later(self)
   end
 end
