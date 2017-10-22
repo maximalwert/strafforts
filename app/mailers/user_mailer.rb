@@ -3,6 +3,7 @@ class UserMailer < ApplicationMailer
     return if athlete.nil?
 
     @app_name = Settings.app.name
+    @app_description = Settings.app.description
     @app_url = Settings.app.production_url
     @demo_url = "#{@app_url}#{Settings.app.demo_path}"
     @sender_name = Settings.app.emailer.default_sender_name

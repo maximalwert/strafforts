@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class UserMailerTest < ActionMailer::TestCase
-
   test 'should not send new athlete welcome email when athlete is nil' do
     email = UserMailer.welcome_email(nil)
     assert_emails 0 do
