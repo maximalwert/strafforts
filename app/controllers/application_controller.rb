@@ -4,6 +4,7 @@ require 'creators/gear_creator'
 require 'creators/location_creator'
 require 'creators/heart_rate_zones_creator'
 require 'activity_fetcher'
+require 'mailchimp_api_wrapper'
 require 'strava_api_wrapper'
 
 class ApplicationController < ActionController::Base
