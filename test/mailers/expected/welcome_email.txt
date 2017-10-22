@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Strafforts!</h1>
+    <p>
+      Dear Tony Stark,<br />
+    </p>
+    <p>
+      Thanks for connecting your Strava account with <a href="https://www.strafforts.com" target="_blank">Strafforts</a>!.<br />
+    </p>
+    <p>
+      It might take a while for your data to be fetched and processed by Strafforts.<br />
+      While you wait, you may visit our <a href="https://www.strafforts.com/athletes/9123806" target="_blank">demo page</a> to have a look around.
+    </p>
+    <p>
+      If you didn't know or haven't done so, you can tag your Strava activities as "Race", "Workout" and "Long Run".
+      See <a href="https://support.strava.com/hc/en-us/articles/216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs" target="_blank">this</a>
+      for more details.<br />
+      All Strafforts data related "Races" are analyzed from those activities tagged as "Race" in Strava.
+    </p>
+    <p>
+      Your Strafforts profile URL is <a href="https://www.strafforts.com/athletes/123" target="_blank">https://www.strafforts.com/athletes/123</a>.<br />
+      Feel free to bookmark it so that you won't lose your way back!
+    </p>
+    <p>
+      If you have any queries,
+      please don't hesitate to contact us by simply replying to this email.
+    </p>
+    <p>
+      Once again, thanks for joining!
+    </p>
+    <p>
+      <br /><br />
+      Regards,<br />
+      Yi Zeng<br />
+      <a href="https://www.strafforts.com" target="_blank">www.strafforts.com</a>
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>

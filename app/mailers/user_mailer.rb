@@ -1,5 +1,7 @@
 class UserMailer < ApplicationMailer
   def welcome_email(athlete)
+    return if athlete.nil?
+
     @app_name = Settings.app.name
     @app_url = Settings.app.production_url
     @demo_url = "#{@app_url}#{Settings.app.demo_path}"
@@ -21,7 +23,7 @@ class UserMailer < ApplicationMailer
   private
 
   def format_athlete_fullname
-    return 'New Athlete' if @athlete.nil? || (@athlete.firstname.blank? && @athlete.lastname.blank?)
+    return 'New Athlete' if @athlete.firstname.blank? && @athlete.lastname.blank?
     "#{@athlete.firstname} #{@athlete.lastname}".to_s.strip
   end
 end
