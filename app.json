@@ -8,12 +8,8 @@
     "LANG": {
       "required": true
     },
-    "RACK_ENV": {
-      "required": true
-    },
-    "RAILS_ENV": {
-      "required": true
-    },
+    "RACK_ENV": "preview",
+    "RAILS_ENV": "preview",
     "RAILS_LOG_LEVEL": {
       "required": true
     },
@@ -26,12 +22,10 @@
     "SECRET_KEY_BASE": {
       "generator": "secret"
     },
-    "STRAVA_API_CLIENT_ID": {
-      "required": true
-    },
-    "STRAVA_API_CLIENT_SECRET": {
-      "required": true
-    }
+    "SMTP_PROVIDER_USERNAME": "yi.zeng@strafforts.com",
+    "SMTP_PROVIDER_PASSWORD": "",
+    "STRAVA_API_CLIENT_ID": "",
+    "STRAVA_API_CLIENT_SECRET": ""
   },
   "formation": {
     "web": {
