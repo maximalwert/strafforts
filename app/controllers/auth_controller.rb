@@ -18,11 +18,12 @@ class AuthController < ApplicationController
       athlete = Athlete.find_by_access_token(cookies.signed[:access_token])
       unless athlete.nil?
         Rails.logger.warn("Destroying all data for athlete #{athlete.id}.")
-        Activity.where(athlete_id: athlete.id).destroy_all
-        Athlete.where(id: athlete.id).destroy_all
         BestEffort.where(athlete_id: athlete.id).destroy_all
+        Race.where(athlete_id: athlete.id).destroy_all
         Gear.where(athlete_id: athlete.id).destroy_all
         HeartRateZones.where(athlete_id: athlete.id).destroy_all
+        Activity.where(athlete_id: athlete.id).destroy_all
+        Athlete.where(id: athlete.id).destroy_all
       end
 
       # Revoke Strava access.
