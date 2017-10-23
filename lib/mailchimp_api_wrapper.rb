@@ -19,6 +19,8 @@ class MailChimpApiWrapper
       member = @api_client.lists(ENV['MAILCHIMP_LIST_ID']).members(hashed_email_address).retrieve
       current_status = member.body['status']
 
+      return if 'unsubscribed'.casecmp(current_status).zero? # Do nothing if athlete has unsubsribed from mailing list.
+
       @api_client.lists(ENV['MAILCHIMP_LIST_ID']).members(hashed_email_address).upsert(
         body: {
           email_address: athlete.email,
