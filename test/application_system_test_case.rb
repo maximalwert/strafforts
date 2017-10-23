@@ -128,7 +128,6 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   end
 
   def resize_window_to(size)
-    Capybara.current_session.execute_script('$.fx.off = true;') # disable jQuery animation effects.
     Capybara.current_session.current_window.resize_to(size[0], size[1])
     sleep 0.2
   end
@@ -136,6 +135,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   def visit_page(url)
     visit url
     has_selector?(App::Selectors::MainHeader.pace_done)
+    Capybara.current_session.execute_script('$.fx.off = true;') # disable jQuery animation effects.
   end
 
   def assert_has_selector(selector, custom_message = nil)

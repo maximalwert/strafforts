@@ -1,0 +1,22 @@
+Welcome to Strafforts!
+===============================================
+Dear Tony Stark,
+
+Thanks for connecting your Strava account with Strafforts!
+
+It might take a while for your data to be fetched and processed by Strafforts.
+While you wait, you may visit our demo page to have a look around.
+
+In case you didn't know or haven't done so, you can tag your Strava activities as "Race", "Workout" or "Long Run" .
+All Strafforts races are analyzed from those activities tagged as "Race" in Strava.
+
+Your Strafforts profile URL is https://www.strafforts.com/athletes/123.
+Feel free to bookmark it so that you won't lose your way back!
+
+If you have any queries, please don't hesitate to contact us by simply replying to this email.
+
+Once again, thanks for joining!
+
+Regards,
+Yi Zeng
+www.strafforts.com

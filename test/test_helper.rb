@@ -25,6 +25,7 @@ module ActiveSupport
     class ResponseType
       HTML = 'html'.freeze
       JSON = 'json'.freeze
+      TXT = 'txt'.freeze
     end
 
     # Set WbMock to allow localhost, so that system tests still work.
@@ -36,6 +37,10 @@ module ActiveSupport
     # Add more helper methods to be used by all tests here...
     def read_expected_controller_response(file_path, response_type)
       File.read("./test/controllers/expected/#{file_path}.#{response_type}")
+    end
+
+    def read_expected_mailer_body(file_path, email_type)
+      File.read("./test/mailers/expected/#{file_path}.#{email_type}")
     end
 
     def setup_cookie(access_token)
@@ -62,6 +67,12 @@ module ActiveSupport
     def write_expected_controller_response(file_path, response_type, response_body)
       File.open("./test/controllers/expected/#{file_path}.#{response_type}", 'w+') do |file|
         file.write(response_body)
+      end
+    end
+
+    def write_expected_mailer_body(file_path, email_type, email_body)
+      File.open("./test/mailers/expected/#{file_path}.#{email_type}", 'w+') do |file|
+        file.write(email_body)
       end
     end
   end

@@ -53,6 +53,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+  gem 'dotenv-rails'
   gem 'foreman' # Manager Procfile.dev under develpoment environment.
 
   gem 'mdl', require: false # Markdown lint tool.
@@ -86,5 +87,6 @@ gem 'config' # Config.
 gem 'daemons' # Add daemons gem to show delayed_job status.
 gem 'delayed_job_active_record' # ActiveRecord backend integration for DelayedJob 3.0+.
 gem 'font-awesome-rails' # Rails Font Awesome.
+gem "gibbon" # MailChimp API wrapper.
 gem 'strava-api-v3' # Strava Ruby API Client.
 gem 'webpacker', '~> 2.0' # Heroku needs this gem for Yarn. Also needed to debug deployment locally.

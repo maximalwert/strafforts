@@ -46,10 +46,10 @@ If it does exist on Strava, but not Strafforts, please contact me
 <p><b>Note:</b> Strava's best effort only starts counting from the 2nd best effort of such distance.
 See <a href='https://support.strava.com/hc/en-us/articles/216917137-Achievement-Awards-Glossary'>
 Achievement Awards Glossary</a> for more details.</p>")
-      add('best-efforts', 'Why there are some outlier in my PB progression chart?', "
+      add('best-efforts', 'Why there are some outliers in my PB progression chart?', "
 <p>All best efforts (PBs/PRs) here in Strafforts are just those
 gold best estimated efforts trophies on Strava running activities.</p>
-<p>Sometimes data on Strava can be unreliable and can be generated unpredictably.</p>
+<p>Sometimes best efforts on Strava can be generated unpredictably and unreliably.</p>
 <p>If you notice some messed up best efforts within Strafforts,
 you can try go to those activities on Strava and try
 '<a href='https://support.strava.com/hc/en-us/articles/216919597-The-Refresh-My-Achievements-Tool-'
@@ -149,6 +149,11 @@ target='_blank'>Acknowledgements page</a> for a comprehensive list.</p>")
 <p>You can <a href='https://github.com/yizeng/strafforts/issues' target='_blank'>raise issues</a>,
 <a href='https://github.com/yizeng/strafforts/pulls' target='_blank'>provide PRs</a> or even simply
 <a href='https://donorbox.org/help-push-strafforts-forward?amount=25' target='_blank'>donate</a>.</p>")
+      add('miscellaneous', 'Where was the homepage background photo taken?', "
+<p>The photo was taken in Listbon, Portugal, and the bridge in the background is the
+<a href='https://en.wikipedia.org/wiki/25_de_Abril_Bridge' target='_blank'>25 de Abril Bridge</a>.</p>
+<p>It was the period I started this project while travelling in Europe,
+where I did Lisbon Rock'n'Roll half marathon and had one of my most memorable holidays in my life.</p>")
     end
 
     def to_json

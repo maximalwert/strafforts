@@ -13,6 +13,7 @@ module Creators
       athlete_id = athlete_hash['id']
       begin
         @athlete = Athlete.find(athlete_id)
+
         Rails.logger.info("AthleteCreator - Updating athlete #{athlete_id}.")
       rescue ActiveRecord::RecordNotFound
         Rails.logger.info("AthleteCreator - Creating athlete #{athlete_id}.")

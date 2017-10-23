@@ -91,6 +91,7 @@ class NavigationTest < AppTestBase
     return if body[:class].include?('sidebar-open')
     sidebar_toggle = find(:css, App::Selectors::MainHeader.sidebar_toggle)
     sidebar_toggle.click
+    sleep 0.2
   end
 
   def expand_other_distances_when_needed(id)

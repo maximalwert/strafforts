@@ -1,0 +1,22 @@
+Welcome to <%= @app_name%>!
+===============================================
+Dear <%= @athlete_name %>,
+
+Thanks for connecting your Strava account with <%= @app_name%>!
+
+It might take a while for your data to be fetched and processed by <%= @app_name%>.
+While you wait, you may visit our demo page to have a look around.
+
+In case you didn't know or haven't done so, you can tag your Strava activities as "Race", "Workout" or "Long Run" .
+All <%= @app_name%> races are analyzed from those activities tagged as "Race" in Strava.
+
+Your <%= @app_name%> profile URL is <%= @athlete_profile_url %>.
+Feel free to bookmark it so that you won't lose your way back!
+
+If you have any queries, please don't hesitate to contact us by simply replying to this email.
+
+Once again, thanks for joining!
+
+Regards,
+<%= @sender_name %>
+<%= @app_url.gsub("https://", "") %>

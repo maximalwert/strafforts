@@ -6,6 +6,7 @@ unit_test_one:
   lastname: 'Stark'
   username: 'tonystark'
   is_public: false
+  email: 'tony.stark@avengers.com'
 unit_test_two:
   id: 456
   access_token: '58e42e6f5e496dc5aa0d5ec354da8048'
@@ -22,6 +23,7 @@ unit_test_three:
   city_id: 1
   country_id: 1
   is_public: false
+  email: 'bruce.banner@avengers.com'
 athlete_9123806:
   id: 9123806
   username: yizeng
