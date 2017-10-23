@@ -1,15 +1,23 @@
 {
   "name": "strafforts",
   "description": "An Analytics App for Strava Best Efforts (PBs) and Races",
+  "website": "https://www.strafforts.com",
   "scripts": {
     "postdeploy": "bundle exec rake db:schema:load db:seed"
   },
   "env": {
+    "APP_VERSION": "v0.0.0-preview",
     "LANG": {
       "required": true
     },
-    "MAILCHIMP_API_KEY": "",
-    "MAILCHIMP_LIST_ID": "",
+    "MAILCHIMP_API_KEY": {
+      "required": false,
+      "value": ""
+    },
+    "MAILCHIMP_LIST_ID": {
+      "required": false,
+      "value": ""
+    },
     "RACK_ENV": "preview",
     "RAILS_ENV": "preview",
     "RAILS_LOG_LEVEL": {
@@ -24,10 +32,22 @@
     "SECRET_KEY_BASE": {
       "generator": "secret"
     },
-    "SMTP_PROVIDER_USERNAME": "yi.zeng@strafforts.com",
-    "SMTP_PROVIDER_PASSWORD": "",
-    "STRAVA_API_CLIENT_ID": "",
-    "STRAVA_API_CLIENT_SECRET": ""
+    "SMTP_PROVIDER_USERNAME": {
+      "required": false,
+      "value": ""
+    },
+    "SMTP_PROVIDER_PASSWORD": {
+      "required": false,
+      "value": ""
+    },
+    "STRAVA_API_CLIENT_ID": {
+      "required": false,
+      "value": ""
+    },
+    "STRAVA_API_CLIENT_SECRET": {
+      "required": false,
+      "value": ""
+    }
   },
   "formation": {
     "web": {
