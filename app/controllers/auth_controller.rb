@@ -60,8 +60,11 @@ class AuthController < ApplicationController
     if response.is_a? Net::HTTPSuccess
       result = JSON.parse(response.body)
       access_token = result['access_token']
-      ::Creators::AthleteCreator.create_or_update(access_token, result['athlete'], false)
+      athlete = ::Creators::AthleteCreator.create_or_update(access_token, result['athlete'], false)
       ::Creators::HeartRateZonesCreator.create_or_update(result['athlete']['id']) # Create default heart rate zones.
+
+      # Subsribe or update to mailing list.
+      SubscribeToMailingListJob.perform_later(athlete)
 
       # Add a delayed_job to fetch data for this athlete.
       fetcher = ::ActivityFetcher.new(access_token)

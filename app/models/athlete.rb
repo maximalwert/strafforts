@@ -13,7 +13,6 @@ class Athlete < ApplicationRecord
   has_many :races
 
   after_create :send_welcome_email
-  after_save :subscribe_to_mailing_list
   before_destroy :remove_from_mailing_list
 
   def self.find_by_access_token(access_token)
@@ -39,9 +38,5 @@ class Athlete < ApplicationRecord
 
   def send_welcome_email
     UserMailer.delay(priority: 1).welcome_email(self)
-  end
-
-  def subscribe_to_mailing_list
-    SubscribeToMailingListJob.perform_later(self)
   end
 end
