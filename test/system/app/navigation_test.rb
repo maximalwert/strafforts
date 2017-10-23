@@ -74,7 +74,6 @@ class NavigationTest < AppTestBase
     ALL_SCREENS.each do |screen_size|
       # act.
       resize_window_to(screen_size)
-      sleep 0.2
       open_navigation_bar_when_needed
 
       # asserts.
@@ -92,6 +91,7 @@ class NavigationTest < AppTestBase
     return if body[:class].include?('sidebar-open')
     sidebar_toggle = find(:css, App::Selectors::MainHeader.sidebar_toggle)
     sidebar_toggle.click
+    sleep 0.2
   end
 
   def expand_other_distances_when_needed(id)
