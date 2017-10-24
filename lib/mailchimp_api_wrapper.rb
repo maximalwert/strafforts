@@ -23,7 +23,7 @@ class MailChimpApiWrapper
         body: {
           email_address: athlete.email,
           status: current_status,
-          merge_fields: { ATHLETE_ID: athlete.id.to_s, FNAME: athlete.firstname, LNAME: athlete.lastname }
+          merge_fields: create_merge_fields(athlete)
         }
       )
     rescue Gibbon::MailChimpError => e
@@ -32,9 +32,22 @@ class MailChimpApiWrapper
         body: {
           email_address: athlete.email,
           status: 'subscribed',
-          merge_fields: { ATHLETE_ID: athlete.id.to_s, FNAME: athlete.firstname, LNAME: athlete.lastname }
+          merge_fields: create_merge_fields(athlete)
         }
       )
     end
+  end
+
+  private
+
+  def create_merge_fields(athlete)
+    {
+      ATHLETE_ID: athlete.id.to_s,
+      JOIN_DATE: athlete.created_at.strftime('%Y/%m/%d'),
+      FNAME: athlete.firstname,
+      LNAME: athlete.lastname,
+      URL: "#{Settings.app.production_url}/athletes/#{athlete.id}",
+      STRAVA_URL: "#{Settings.strava.athletes_base_url}/#{athlete.id}"
+    }
   end
 end
