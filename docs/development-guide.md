@@ -75,7 +75,7 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
        STRAVA_API_CLIENT_ID=replace_with_client_id_of_your_strava_api_application
        STRAVA_API_CLIENT_SECRET=replace_with_client_secret_of_your_strava_api_application
 
-    In addition, there are few more ENV variables you can set: `GOOGLE_ANALYTICS_TRACKING_CODE`,
+    In addition, there are few more ENV variables you can set: `GOOGLE_ANALYTICS_TRACKING_CODE`, `HOTJAR_ID`
     `MAILCHIMP_API_KEY`, `MAILCHIMP_LIST_ID`, `SMTP_PROVIDER_USERNAME`, `SMTP_PROVIDER_PASSWORD`.
 
 1. Create, migrate and seed database
