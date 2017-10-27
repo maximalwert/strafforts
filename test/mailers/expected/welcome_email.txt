@@ -1,10 +1,10 @@
 Welcome to Strafforts!
 ===============================================
-Dear Tony Stark,
+Dear Tony,
 
 Thanks for connecting your Strava account with Strafforts!
 
-It might take a while for your data to be fetched and processed by Strafforts.
+It might take a few minutes for your data to be fetched and processed by Strafforts.
 While you wait, you may visit our demo page to have a look around.
 
 In case you didn't know or haven't done so, you can tag your Strava activities as "Race", "Workout" or "Long Run" .
