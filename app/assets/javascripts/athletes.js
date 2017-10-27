@@ -14,7 +14,7 @@
 //= require generated/athletes.js
 
 // Extension method to convert a number into time format.
-String.prototype.toHHMMSS = function() {
+String.prototype.toHHMMSS = function () {
     var sec_num = parseInt(this, 10); // Don't forget the second param.
     var hours = Math.floor(sec_num / 3600);
     var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
@@ -69,4 +69,16 @@ $(window).on('popstate', function (e) {
     if (state !== null) {
         loadView(); // Global function defined in main.ts.
     }
+});
+
+$(document).ajaxStop(function () {
+    (function (h, o, t, j, a, r) {
+        var id = document.getElementsByTagName('body')[0].getAttribute('data-hotjar-id');
+        h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+        h._hjSettings = { hjid: id, hjsv: 6 };
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script'); r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
 });
