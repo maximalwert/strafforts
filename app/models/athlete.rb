@@ -12,7 +12,6 @@ class Athlete < ApplicationRecord
   has_many :heart_rate_zones
   has_many :races
 
-  after_create :send_welcome_email
   before_destroy :remove_from_mailing_list
 
   def self.find_by_access_token(access_token)
@@ -34,9 +33,5 @@ class Athlete < ApplicationRecord
 
   def remove_from_mailing_list
     RemoveFromMailingListJob.perform_later(id, email)
-  end
-
-  def send_welcome_email
-    UserMailer.delay(priority: 1).welcome_email(self)
   end
 end

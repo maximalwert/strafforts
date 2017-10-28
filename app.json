@@ -32,14 +32,6 @@
     "SECRET_KEY_BASE": {
       "generator": "secret"
     },
-    "SMTP_PROVIDER_USERNAME": {
-      "required": false,
-      "value": ""
-    },
-    "SMTP_PROVIDER_PASSWORD": {
-      "required": false,
-      "value": ""
-    },
     "STRAVA_API_CLIENT_ID": {
       "required": false,
       "value": ""
