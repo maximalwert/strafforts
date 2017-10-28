@@ -33,6 +33,9 @@ namespace AppHelpers {
             $(this).children('i').removeClass('fa-check-circle-o');
             $(this).children('i').addClass('fa-circle-o');
         });
+        $('.treeview-menu .treeview-expander').each(function() {
+            $(this).removeClass('active');
+        });
     }
 
     export function setContentHeader(headerText: string) {

@@ -43,10 +43,10 @@ namespace GoogleAnalytics {
             $('.main-sidebar .sidebar-menu').on('click', 'a[id^="races-for-"]', (event) => {
                 GoogleAnalyticsHelpers.sendEvent('App - Navigation Sidebar', 'Show Races Details', event.currentTarget);
             });
-            $('.main-sidebar .sidebar-menu').on('click', '.show-other-distance', (event) => {
+            $('.main-sidebar .sidebar-menu').on('click', '.show-more-distance', (event) => {
                 GoogleAnalyticsHelpers.sendEvent(
                     'App - Navigation Sidebar',
-                    'Show Other Distances',
+                    'Show More Distances',
                     event.currentTarget,
                 );
             });

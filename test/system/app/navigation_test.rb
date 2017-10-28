@@ -37,7 +37,7 @@ class NavigationTest < AppTestBase
       # act.
       resize_window_to(screen_size)
       open_navigation_bar_when_needed
-      expand_other_distances_when_needed('treeview-menu-best-efforts-for-distance')
+      expand_more_distances_when_needed('treeview-menu-best-efforts-for-distance')
 
       # asserts.
       ALL_BEST_EFFORTS_TYPES.each do |distance|
@@ -56,7 +56,7 @@ class NavigationTest < AppTestBase
       # act.
       resize_window_to(screen_size)
       open_navigation_bar_when_needed
-      expand_other_distances_when_needed('treeview-menu-races-for-distance')
+      expand_more_distances_when_needed('treeview-menu-races-for-distance')
 
       # asserts.
       ALL_RACE_DISTANCES.each do |distance|
@@ -94,12 +94,12 @@ class NavigationTest < AppTestBase
     sleep 0.2
   end
 
-  def expand_other_distances_when_needed(id)
+  def expand_more_distances_when_needed(id)
     treeview_expander = find(:id, id)
     return if treeview_expander[:class].include?('active')
     within(treeview_expander) do
-      show_other_distances = find(:css, '.show-other-distance')
-      show_other_distances.click
+      show_more_distances = find(:css, '.show-more-distance')
+      show_more_distances.click
     end
   end
 
