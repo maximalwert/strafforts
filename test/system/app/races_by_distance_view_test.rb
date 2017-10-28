@@ -43,7 +43,7 @@ class RacesByDistanceViewTest < AppTestBase
 
         RACE_DISTANCES_CHART_SECTION_SELECTORS.each do |chart_section_selector|
           puts "#{distance} - #{screen_size} - #{chart_section_selector}" if VERBOSE_LOGGING
-          if distance == 'Other' && chart_section_selector == '#progression-chart'
+          if distance == 'Other Distances' && chart_section_selector == '#progression-chart'
             assert_chart_message_loads_successfully(chart_section_selector)
             next
           end

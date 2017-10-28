@@ -14,7 +14,7 @@ namespace Views {
             super();
 
             this.distance = distance;
-            this.isOtherDistance = distance.toLocaleLowerCase() === 'other';
+            this.isOtherDistance = distance.toLocaleLowerCase() === 'other distances';
             this.distanceFormattedForUrl = AppHelpers.formateDistanceForUrl(distance);
         }
 
@@ -102,7 +102,7 @@ namespace Views {
                     `;
                     mainContent.append(content);
 
-                    // Create a progression chart when distance is not 'Other'.
+                    // Create a progression chart when distance is not 'Other Distances'.
                     const chartCreator = new Helpers.ChartCreator(items);
                     const progressionChartId = 'progression-chart';
                     if (this.isOtherDistance) {

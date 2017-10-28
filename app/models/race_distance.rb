@@ -10,7 +10,7 @@ class RaceDistance < ApplicationRecord
       next unless actual_distance.between?(distance * 0.975, distance * 1.05) # Allowed margin: 2.5% under or 5% over.
       return race_distance
     end
-    # If no matching distance was found, find the default RaceDistance called 'Other'.
+    # If no matching distance was found, find the default RaceDistance called 'Other Distances'.
     results = where(distance: 0)
     results.empty? ? nil : results.take
   end

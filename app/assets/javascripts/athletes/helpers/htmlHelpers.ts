@@ -46,15 +46,32 @@ namespace HtmlHelpers {
         const title = 'Nothing Yet!';
         const link = 'https://support.strava.com/hc/en-us/articles/'
             + '216919557-Using-Strava-Run-Type-Tags-to-analyze-your-Runs';
+        const supportEmail = 'support@strafforts.com';
         const messageBody = `
+        <h4>If Just Connected...</h4>
         <p>
-            If you have just connected Strafforts with your Strava account,
-            please be patient while your data is being processed.
+            Please be patient while the data is being processed. It should nomrally take only a few minutes.
+            Go grab a cup of tea then come back and refresh the page.
         </p>
+        <h4>Troubleshooting...</h4>
         <p>
-            To make your races show up in Strafforts, you need to tag them as "Race" in Strava.
-            See <a href="${link}" target="_blank">"Using Strava Run Type Tags to analyze your Runs"</a>
-            for more details.
+            In the situation that the data doesn't come through for some reason,
+            please follow these steps to troubleshoot:
+            <ol>
+                <li>Check if there are any running activities for this athlete on Strava.</li>
+                <li>
+                    For PBs, check if there are any best efforts
+                    (e.g. gold trophies like 'Best Estimated 10k Effort') on Strava.
+                </li>
+                <li>
+                    For races, make sure there are activities tagged as 'Race' on Strava.
+                    See <a href="${link}" target="_blank">"Using Strava Run Type Tags to analyze your Runs"</a>
+                    for more details.
+                </li>
+                <li>
+                    Contact us at <a href="mailto:${supportEmail}">${supportEmail}</a>
+                    with the Strava athlete ID (and links to those activities on Strava).</li>
+            </ol>
         </p>`;
 
         const html = `

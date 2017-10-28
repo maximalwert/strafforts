@@ -13,7 +13,7 @@ class RaceDistanceTest < ActiveSupport::TestCase
     # Assert.
     assert(item.is_a?(RaceDistance))
     assert_equal(0, item.distance)
-    assert_equal('Other', item.name)
+    assert_equal('Other Distances', item.name)
   end
 
   test 'should get default distance when actual distance is outside of defined upper margin' do
@@ -23,7 +23,7 @@ class RaceDistanceTest < ActiveSupport::TestCase
     # Assert.
     assert(item.is_a?(RaceDistance))
     assert_equal(0, item.distance)
-    assert_equal('Other', item.name)
+    assert_equal('Other Distances', item.name)
   end
 
   test 'should get the item when actual distance is within defined lower margin' do

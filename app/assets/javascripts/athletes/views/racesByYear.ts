@@ -135,7 +135,7 @@ namespace Views {
                 const distancesToDisplay: string[] = [];
                 const allDistances = [
                     '100 miles', '100k', '50 miles', '50k', 'Marathon', 'Half Marathon',
-                    '20k', '15k', '10k', '5k', '3000m', '1 mile', 'Other',
+                    '20k', '15k', '10k', '5k', '3000m', '1 mile', 'Other Distances',
                 ]; // Just hard code race distances here. No need to get from server side for now.
                 allDistances.forEach((distance) => {
                     items.forEach((item, index) => {
@@ -148,7 +148,7 @@ namespace Views {
 
                 distancesToDisplay.forEach((distance) => {
                     let rows = '';
-                    const showDistanceColumn: boolean = distance.toLocaleLowerCase() === 'other';
+                    const showDistanceColumn: boolean = distance.toLocaleLowerCase() === 'other distances';
                     items.forEach((item) => {
                         if (distance === item['race_distance']) {
                             rows += HtmlHelpers.getDatatableRowForRaces(item, showDistanceColumn);

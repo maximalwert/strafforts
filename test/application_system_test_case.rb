@@ -59,13 +59,13 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   ALL_RACE_DISTANCES = [
     '100 Miles', '100k', '50 Miles', '50k',
     'Marathon', 'Half Marathon', '20k', '15k',
-    '10k', '5k', '3000m', '1 Mile', 'Other'
+    '10k', '5k', '3000m', '1 Mile', 'Other Distances'
   ].freeze
   RACE_DISTANCES_WITH_ALL_CHARTS_SHOWN = [
-    'Half Marathon', '15k', '10k', '5k', 'Other'
+    'Half Marathon', '15k', '10k', '5k', 'Other Distances'
   ].freeze
   RACE_DISTANCES_WITH_DATA = [
-    'Half Marathon', '15k', '10k', '5k', '3000m', 'Other'
+    'Half Marathon', '15k', '10k', '5k', '3000m', 'Other Distances'
   ].freeze
   RACE_DISTANCES_CHART_TITLES = [
     'Progression Chart',
@@ -159,6 +159,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   end
 
   driven_by :poltergeist, options: {
+    js_errors: false,
     phantomjs: Phantomjs.path
   }
   Capybara.default_max_wait_time = 5

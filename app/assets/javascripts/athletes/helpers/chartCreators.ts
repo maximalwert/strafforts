@@ -263,9 +263,14 @@ namespace Helpers {
             for (const key in raceDistances) {
                 if (raceDistances.hasOwnProperty(key)) {
                     const value = parseInt(raceDistances[key], 10);
-
                     counts.push(value);
-                    legendLabels.push(`${key}: (${value})`);
+
+                    if (key.toLowerCase() === 'other distances') {
+                        // Hack to use 'Other' instead 'Other Distances' in distance bar charts.
+                        legendLabels.push(`Other: (${value})`);
+                    } else {
+                        legendLabels.push(`${key}: (${value})`);
+                    }
                 }
             }
 

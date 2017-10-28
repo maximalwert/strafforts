@@ -131,13 +131,13 @@ target='_blank'>What are Strava races and how to create them?</a> on Strava supp
 If it's within 2.5% under or 5% over margin of a pre-defined distance (10k for example),
 Strafforts will treat it as a 10k race.</p>
 <p>If the actual distance of your 10k race is 9.7km or 10.5km,
-then Strafforts will put this activity under distance of 'Other'.</p>")
-      add('races', 'Why my race is categorized as "Other"?', "
+then Strafforts will put this activity under distance of 'Other Distances'.</p>")
+      add('races', 'Why my race is categorized as "Other Distances"?', "
 <p>Same as above. Race distance is determined by the actual distance of a Strava activity.
 If it's within 2.5% under or 5% over margin of a pre-defined distance (10k for example),
 Strafforts will treat it as a 10k race.</p>
 <p>If the actual distance of your 10k race is 9.7km or 10.5km,
-then Strafforts will put this activity under distance of 'Other'.
+then Strafforts will put this activity under distance of 'Other Distances'.
 </p>")
 
       add('miscellaneous', 'What technologies are used in Strafforts?', "
