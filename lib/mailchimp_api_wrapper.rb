@@ -1,3 +1,5 @@
+require 'date'
+
 class MailChimpApiWrapper
   def initialize
     @api_client = Gibbon::Request.new(api_key: ENV['MAILCHIMP_API_KEY'])
@@ -46,6 +48,7 @@ class MailChimpApiWrapper
       JOIN_DATE: athlete.created_at.strftime('%Y/%m/%d'),
       FNAME: athlete.firstname,
       LNAME: athlete.lastname,
+      LAST_LOGIN: Time.now.utc.to_date.strftime('%Y/%m/%d'),
       URL: "#{Settings.app.production_url}/athletes/#{athlete.id}",
       STRAVA_URL: "#{Settings.strava.athletes_base_url}/#{athlete.id}"
     }
