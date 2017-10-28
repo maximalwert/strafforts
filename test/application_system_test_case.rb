@@ -159,6 +159,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   end
 
   driven_by :poltergeist, options: {
+    js_errors: false,
     phantomjs: Phantomjs.path
   }
   Capybara.default_max_wait_time = 5
