@@ -70,6 +70,7 @@ namespace Views {
                             const isTypeOfRaces = type === 'races';
 
                             const distanceId = model['distance'].toLowerCase().replace(/\s/g, '-').replace(/\//g, '-');
+                            const distanceHeaderText = isTypeOfRaces ? model['distance'] : `PBs - ${model['distance']}`;
                             const linkId = `${type}-for-distance-${distanceId}`;
                             const workoutTypeColumnHeader = isTypeOfRaces ?
                                 '' : `<th class="col-md-1 text-center badge-cell hidden-md-down">Type</th>`;
@@ -129,7 +130,7 @@ namespace Views {
                             <div class="box">
                                 <div class="box-header">
                                     <h3 class="box-title">
-                                        ${model['distance']}
+                                        ${distanceHeaderText}
                                     </h3>
                                     <a class="pull-right ${showDistanceColumn ? 'hidden' : ''}"
                                         id="${linkId}" href="#" title="${model['distance']}">
