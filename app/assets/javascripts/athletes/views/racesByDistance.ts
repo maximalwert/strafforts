@@ -144,12 +144,14 @@ namespace Views {
                 });
 
                 table = `
-                    <table class="dataTable table table-bordered table-striped">
-                        ${HtmlHelpers.getDatatableHeaderForRaces(this.isOtherDistance)}
-                        <tbody>
-                            ${rows}
-                        </tbody>
-                    </table>
+                    <div class="dataTable-wrapper">
+                        <table class="dataTable table table-bordered table-striped">
+                            ${HtmlHelpers.getDatatableHeaderForRaces(this.isOtherDistance)}
+                            <tbody>
+                                ${rows}
+                            </tbody>
+                        </table>
+                    </div>
                 `;
             }
 

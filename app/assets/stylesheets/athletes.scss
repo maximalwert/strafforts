@@ -54,6 +54,10 @@ input[type='submit'] {
     }
 }
 
+.no-wrap {
+    white-space: nowrap;
+}
+
 /* Badge and label styles */
 .badge,
 .label {
@@ -377,8 +381,21 @@ input[type='submit'] {
     }
 
     /* Style links within data tables */
+    .dataTables_filter input {
+        width: 170px !important;
+    }
+
+    .dataTables_length select {
+        width: 60px !important;
+    }
+
+    .dataTable-wrapper {
+        overflow-x: auto;
+    }
+
     .dataTable {
         width: 100% !important;
+
         a {
             @include transition(all .2s ease-in-out);
 
@@ -460,15 +477,6 @@ input[type='submit'] {
 
     canvas {
         height: 300px;
-    }
-
-    /* DataTable styles */
-    .dataTables_filter input {
-        width: 170px !important;
-    }
-
-    .dataTables_length select {
-        width: 60px !important;
     }
 
     .pagination > .active > a,

@@ -137,7 +137,7 @@ namespace HtmlHelpers {
         const workoutTypeNameClass = `workout-type-${item['workout_type_name'].replace(/\s/g, '-')}`;
         const row = `
             <tr>
-                <td>${item['start_date']}</td>
+                <td class="no-wrap">${item['start_date']}</td>
                 <td class="text-center badge-cell hidden-xs-down">
                     <span class="label ${workoutTypeNameClass}">${item['workout_type_name']}</span>
                 </td>
@@ -146,7 +146,7 @@ namespace HtmlHelpers {
                         ${item['activity_name']}
                     </a>
                 </td>
-                <td>
+                <td class="no-wrap">
                     ${item['elapsed_time_formatted']}
                 </td>
                 <td class="hidden-xs-down">
@@ -176,7 +176,7 @@ namespace HtmlHelpers {
             `<td>${(item['distance']).toFixed(1)} ${item['distance_unit']}</td>` : '';
         const row = `
             <tr>
-                <td>${item['start_date']}</td>
+                <td class="no-wrap">${item['start_date']}</td>
                 <td>
                     <a class="strava-logo-link hidden-lg-down" href="${stravaLink}" target="_blank">
                         <span></span>
@@ -186,7 +186,7 @@ namespace HtmlHelpers {
                     </a>
                 </td>
                 ${distanceColumn}
-                <td>
+                <td class="no-wrap">
                     ${item['elapsed_time_formatted']}
                 </td>
                 <td class="hidden-xs-down">

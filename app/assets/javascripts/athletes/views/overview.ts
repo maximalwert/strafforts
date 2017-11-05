@@ -99,7 +99,7 @@ namespace Views {
 
                                 rows += `
                                 <tr>
-                                    <td>${item['start_date']}</td>
+                                    <td class="no-wrap">${item['start_date']}</td>
                                     ${workoutTypeColumn}
                                     <td>
                                         ${stravaLogoLink}
@@ -108,7 +108,7 @@ namespace Views {
                                         </a>
                                     </td>
                                     ${distanceColumn}
-                                    <td>${item['elapsed_time_formatted']}</td>
+                                    <td class="no-wrap">${item['elapsed_time_formatted']}</td>
                                     <td class="hidden-xs-down">
                                         ${item['pace']}<small>${item['pace_unit']}</small>
                                     </td>
@@ -140,7 +140,7 @@ namespace Views {
                                         </span>
                                     </a>
                                 </div>
-                                <div class="box-body">
+                                <div class="box-body dataTable-wrapper">
                                     <table class="dataTable table table-bordered table-striped">
                                         <thead>
                                             <tr>

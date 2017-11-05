@@ -157,12 +157,14 @@ namespace Views {
 
                     table += `
                         <h4>${distance}</h4>
-                        <table class="dataTable table table-bordered table-striped">
-                            ${HtmlHelpers.getDatatableHeaderForRaces(showDistanceColumn)}
-                            <tbody>
-                                ${rows}
-                            </tbody>
-                        </table>
+                        <div class="dataTable-wrapper">
+                            <table class="dataTable table table-bordered table-striped">
+                                ${HtmlHelpers.getDatatableHeaderForRaces(showDistanceColumn)}
+                                <tbody>
+                                    ${rows}
+                                </tbody>
+                            </table>
+                        </div>
                     `;
                 });
             }
