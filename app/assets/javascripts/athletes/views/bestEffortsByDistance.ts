@@ -130,12 +130,14 @@ namespace Views {
                 });
 
                 table = `
-                    <table class="dataTable table table-bordered table-striped">
-                        ${HtmlHelpers.getDatatableHeaderForBestEfforts()}
-                        <tbody>
-                            ${rows}
-                        </tbody>
-                    </table>
+                    <div class="dataTable-wrapper">
+                        <table class="dataTable table table-bordered table-striped">
+                            ${HtmlHelpers.getDatatableHeaderForBestEfforts()}
+                            <tbody>
+                                ${rows}
+                            </tbody>
+                        </table>
+                    </div>
                 `;
             }
 
