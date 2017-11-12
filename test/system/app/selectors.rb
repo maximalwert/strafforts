@@ -47,7 +47,11 @@ module App
         "#{main_content} .timeline-wrapper .filter-buttons"
       end
 
-      def self.timeline_time_labels
+      def self.timeline_show_all
+        "#{main_content} .timeline-wrapper .filter-buttons .show-all"
+      end
+
+      def self.timeline_year_labels
         "#{main_content} .timeline-wrapper .time-label span"
       end
 
