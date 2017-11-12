@@ -35,7 +35,7 @@ class RacesTimelineTest < AppTestBase
       # assert.
       assert_filter_buttons_load_successfully(RACE_DISTANCES_WITH_DATA)
       assert_filter_buttons_load_successfully(ALL_RACE_YEARS)
-      assert_time_labels_load_successfully(ALL_RACE_YEARS)
+      assert_year_labels_load_successfully(ALL_RACE_YEARS)
       assert_timeline_headers_load_successfully(RACE_DISTANCES_WITH_DATA)
     end
   end
@@ -54,16 +54,69 @@ class RacesTimelineTest < AppTestBase
         puts "#{year} - #{screen_size}" if VERBOSE_LOGGING
         assert_clicking_filter_button_works_as_expected(year)
         assert_filter_buttons_load_successfully(ALL_RACE_YEARS, true)
+        assert_year_labels_load_successfully([year])
       end
       RACE_DISTANCES_WITH_DATA.each do |distance|
         puts "#{distance} - #{screen_size}" if VERBOSE_LOGGING
         assert_clicking_filter_button_works_as_expected(distance)
         assert_filter_buttons_load_successfully(RACE_DISTANCES_WITH_DATA, true)
+        assert_timeline_headers_load_successfully([distance])
       end
     end
   end
 
+  test "race timeline view's show all buttons should work correctly" do
+    # arrange.
+    visit_page URL
+
+    ALL_SCREENS.each do |screen_size|
+      # act.
+      resize_window_to(screen_size)
+      sleep 0.2
+
+      # assert.
+      ALL_RACE_YEARS.each do |year|
+        puts "#{year} - #{screen_size}" if VERBOSE_LOGGING
+        assert_clicking_filter_button_works_as_expected(year)
+
+        click_show_all
+        assert_year_labels_load_successfully(ALL_RACE_YEARS)
+      end
+      RACE_DISTANCES_WITH_DATA.each do |distance|
+        puts "#{distance} - #{screen_size}" if VERBOSE_LOGGING
+        assert_clicking_filter_button_works_as_expected(distance)
+
+        click_show_all
+        assert_timeline_headers_load_successfully(RACE_DISTANCES_WITH_DATA)
+      end
+    end
+  end
+
+  test "race timeline view's timeline item header button should work correctly" do
+    # arrange.
+    visit_page URL
+
+    ALL_SCREENS.each do |screen_size|
+      # act.
+      resize_window_to(screen_size)
+      sleep 0.2
+
+      # assert.
+      timeline_header_btn = all(:css, '#main-content .timeline-wrapper .timeline-header .btn')[0]
+      distance = timeline_header_btn.text
+
+      timeline_header_btn.click
+      assert_timeline_headers_load_successfully([distance])
+    end
+  end
+
   private
+
+  def click_show_all
+    show_all_button = find(:css, App::Selectors::MainContent.timeline_show_all)
+    show_all_button.click
+    sleep 0.2
+  end
 
   def assert_clicking_filter_button_works_as_expected(text)
     timeline_filter_buttons = find(:css, App::Selectors::MainContent.timeline_filter_buttons)
@@ -89,8 +142,8 @@ class RacesTimelineTest < AppTestBase
     end
   end
 
-  def assert_time_labels_load_successfully(years)
-    time_labels = all(:css, App::Selectors::MainContent.timeline_time_labels)
+  def assert_year_labels_load_successfully(years)
+    time_labels = all(:css, App::Selectors::MainContent.timeline_year_labels)
     assert_equal(time_labels.count, years.count)
     time_labels.each do |time_label|
       assert_includes_text(years, time_label.text)
