@@ -1,7 +1,4 @@
-/// <reference path="./../../../../node_modules/@types/jquery/index.d.ts" />
-/// <reference path="./../common/googleAnalyticsHelpers.ts" />
-/// <reference path="./../common/helpers.ts" />
-/// <reference path="./../common/jQueryHelpers.ts" />
+import { Helpers } from './../common/helpers';
 
 /*!
  * Start Bootstrap - Grayscale Bootstrap Theme (http://startbootstrap.com)
@@ -41,20 +38,20 @@ $(document).ready(() => {
     // Google Analytics event tracking.
     $('.homepage').on('click', '.btn', (event) => {
         const actionName = event.currentTarget.textContent ? event.currentTarget.textContent : 'Click Button';
-        GoogleAnalyticsHelpers.sendEvent('Home', actionName, event.currentTarget);
+        Helpers.sendGoogleAnalyticsEvent('Home', actionName, event.currentTarget);
     });
     $('.homepage').on('click', '.btn-connect-with-strava', (event) => {
-        GoogleAnalyticsHelpers.sendEvent('Home', 'Connect with Strava', event.currentTarget);
+        Helpers.sendGoogleAnalyticsEvent('Home', 'Connect with Strava', event.currentTarget);
     });
     $('.navbar').on('click', '.navbar-toggle', (event) => {
-        GoogleAnalyticsHelpers.sendEvent('Home', 'Toggle Navigation Menu', event.currentTarget);
+        Helpers.sendGoogleAnalyticsEvent('Home', 'Toggle Navigation Menu', event.currentTarget);
     });
     $('.navbar').on('click', '.navbar-brand, .navbar-nav a', (event) => {
-        GoogleAnalyticsHelpers.sendEvent('Home', 'Navigate', event.currentTarget);
+        Helpers.sendGoogleAnalyticsEvent('Home', 'Navigate', event.currentTarget);
     });
     $('.error-page').on('click', '.btn', (event) => {
         const actionName = event.currentTarget.textContent ? event.currentTarget.textContent : 'Click Button';
         const errorCode = parseInt($('body').attr('data-error-code'), 10);
-        GoogleAnalyticsHelpers.sendEvent('Error', actionName, event.currentTarget, errorCode);
+        Helpers.sendGoogleAnalyticsEvent('Error', actionName, event.currentTarget, errorCode);
     });
 });

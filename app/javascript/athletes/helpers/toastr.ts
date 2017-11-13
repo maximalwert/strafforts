@@ -1,4 +1,5 @@
-namespace Toastr {
+export namespace Toastr {
+
     export function getOptions(): ToastrOptions {
         const options = {
             closeButton: true,

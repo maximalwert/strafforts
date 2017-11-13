@@ -1,4 +1,7 @@
-namespace EventBinders {
+import { HtmlHelpers } from '../helpers/htmlHelpers';
+import Overview from '../views/overview';
+
+export namespace EventBinders {
 
     export function bindAll() {
         const eventBinders = () => {
@@ -14,7 +17,7 @@ namespace EventBinders {
             // Load Races Overview upon clicking 'Races' tab button if not yet created.
             $(document).on('click', "a[href^='#pane-races']", () => {
                 if ($('#pane-races .loading-icon-panel').length) {
-                    new Views.Overview().loadRacesPanel();
+                    new Overview().loadRacesPanel();
                 }
             });
 

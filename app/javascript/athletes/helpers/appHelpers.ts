@@ -1,4 +1,6 @@
-namespace AppHelpers {
+import { Helpers } from './../../common/helpers';
+
+export namespace AppHelpers {
 
     export function appendToPageTitle(content: string) {
         const pageTitle = document.title;

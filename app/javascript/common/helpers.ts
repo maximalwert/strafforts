@@ -1,6 +1,7 @@
-/// <reference path="./../common/rgbColor.ts" />
+import { RgbColor } from './rgbColor';
 
-namespace Helpers {
+export namespace Helpers {
+
     export function convertDurationToTime(duration: string) {
         const totalSeconds = parseInt(duration, 10); // Don't forget the second param.
 
@@ -87,6 +88,19 @@ namespace Helpers {
         const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
         const results = regex.exec(location.search);
         return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    export function sendGoogleAnalyticsEvent(category: string, action: string, element: Element, value?: number) {
+        const title = element.getAttribute('title');
+        const textConent = element.textContent ? element.textContent.trim() : undefined;
+        const label = (title && title.length !== 0) ? title : textConent;
+        ga('send', {
+            hitType: 'event',
+            eventCategory: category,
+            eventAction: action.trim(),
+            eventLabel: label,
+            eventValue: value,
+        });
     }
 
     export function toTitleCase(str: string) {

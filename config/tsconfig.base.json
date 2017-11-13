@@ -5,8 +5,12 @@
         "strictNullChecks": true,
         "suppressImplicitAnyIndexErrors": true
     },
+    "compileOnSave": false,
     "exclude": [
         "**/*.d.ts",
-        "**/*.spec.ts"
+        "**/*.spec.ts",
+        "node_modules",
+        "vendor",
+        "public"
     ]
 }

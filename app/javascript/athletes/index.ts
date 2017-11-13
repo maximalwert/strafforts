@@ -1,7 +1,15 @@
-/// <reference path="./../../../../node_modules/@types/hubspot-pace/index.d.ts" />
-/// <reference path="./../../../../node_modules/@types/jquery/index.d.ts" />
-/// <reference path="./../../../../node_modules/@types/toastr/index.d.ts" />
-/// <reference path="./../common/helpers.ts" />
+import { Helpers } from './../common/helpers';
+import { AppHelpers } from './helpers/appHelpers';
+import { EventBinders } from './helpers/eventBinders';
+import { GoogleAnalytics } from './helpers/googleAnalytics';
+import { Toastr } from './helpers/toastr';
+import BestEffortsByDistanceView from './views/bestEffortsByDistance';
+import FaqView from './views/faq';
+import NavigationSidebar from './views/navigationSidebar';
+import Overview from './views/overview';
+import RacesByDistanceView from './views/racesByDistance';
+import RacesByYearView from './views/racesByYear';
+import RacesTimelineView from './views/racesTimeline';
 
 const loadView = () => {
     const view = Helpers.getUrlParameter('view');
@@ -10,17 +18,17 @@ const loadView = () => {
     const year = Helpers.getUrlParameter('year');
 
     if (view === 'faq') {
-        new Views.Faq().load();
+        new FaqView().load();
     } else if (view === 'timeline') {
-        new Views.RacesTimeline().load();
+        new RacesTimelineView().load();
     } else if (view === 'best-efforts' && distance) {
-        new Views.BestEffortsByDistance(distanceText).load();
+        new BestEffortsByDistanceView(distanceText).load();
     } else if (view === 'races' && year && /^20\d\d$/g.test(year)) {
-        new Views.RacesByYear(year).load();
+        new RacesByYearView(year).load();
     } else if (view === 'races' && distance) {
-        new Views.RacesByDistance(distanceText).load();
+        new RacesByDistanceView(distanceText).load();
     } else {
-        new Views.Overview().load();
+        new Overview().load();
     }
 };
 
@@ -35,19 +43,19 @@ $(document).ready(() => {
         event.preventDefault();
 
         AppHelpers.pushStateToWindow('?view=faq');
-        new Views.Faq().load();
+        new FaqView().load();
     });
     $(document).on('click', '.show-overview', (event) => {
         event.preventDefault();
 
         AppHelpers.pushStateToWindow('');
-        new Views.Overview().load();
+        new Overview().load();
     });
     $(document).on('click', '.show-races-timeline', (event) => {
         event.preventDefault();
 
         AppHelpers.pushStateToWindow('?view=timeline&type=races');
-        new Views.RacesTimeline().load();
+        new RacesTimelineView().load();
     });
     $(document).on('click', "a[id^='best-efforts-for-']", (event) => {
         event.preventDefault();
@@ -56,7 +64,7 @@ $(document).ready(() => {
         const distanceFormattedForUrl = AppHelpers.formateDistanceForUrl(distance);
 
         AppHelpers.pushStateToWindow(`?view=best-efforts&distance=${distanceFormattedForUrl}`);
-        new Views.BestEffortsByDistance(distance).load();
+        new BestEffortsByDistanceView(distance).load();
     });
     $(document).on('click', "a[id^='races-for-distance']", (event) => {
         event.preventDefault();
@@ -65,7 +73,7 @@ $(document).ready(() => {
         const distanceFormattedForUrl = AppHelpers.formateDistanceForUrl(distance);
 
         AppHelpers.pushStateToWindow(`?view=races&distance=${distanceFormattedForUrl}`);
-        new Views.RacesByDistance(distance).load();
+        new RacesByDistanceView(distance).load();
     });
     $(document).on('click', "a[id^='races-for-year']", (event) => {
         event.preventDefault();
@@ -73,11 +81,11 @@ $(document).ready(() => {
         const year = $(event.currentTarget).find('.item-text').text().trim();
 
         AppHelpers.pushStateToWindow(`?view=races&year=${year}`);
-        new Views.RacesByYear(year).load();
+        new RacesByYearView(year).load();
     });
 });
 
 $(window).load(() => {
-    new Views.NavigationSidebar().load();
+    new NavigationSidebar().load();
     loadView();
 });

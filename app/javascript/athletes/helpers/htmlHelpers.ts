@@ -1,4 +1,5 @@
-namespace HtmlHelpers {
+export namespace HtmlHelpers {
+
     export function constructChartHtml(id: string, title: string, width: number, withLoadingIcon: boolean = false) {
         const canvas = `<canvas id="${id}-canvas" height="300"></canvas>`;
         const content = withLoadingIcon ? HtmlHelpers.getLoadingIcon() : canvas;

@@ -16,10 +16,7 @@ Rails.application.config.assets.precompile += %w(
   html5shiv/dist/html5shiv.min.js
   respond.js/dest/respond.min.js
   athletes.css
-  athletes.js
   errors.css
-  errors.js
   home.css
-  home.js
   vendor/donorbox.js
 )

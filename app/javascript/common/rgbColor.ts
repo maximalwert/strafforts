@@ -1,4 +1,4 @@
-class RgbColor {
+export class RgbColor {
 
     public r: number;
 
