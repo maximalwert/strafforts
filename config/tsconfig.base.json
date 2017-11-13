@@ -12,7 +12,7 @@
         "**/*.spec.ts",
         "node_modules",
         "vendor",
-        "vendor/bundle",
+        "vendor/**/*.ts",
         "public"
     ]
 }
