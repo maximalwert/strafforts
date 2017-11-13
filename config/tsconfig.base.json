@@ -1,16 +1,18 @@
 {
+    "compileOnSave": false,
     "compilerOptions": {
+        "experimentalDecorators": true,
         "noImplicitAny": true,
         "sourceMap": true,
         "strictNullChecks": true,
         "suppressImplicitAnyIndexErrors": true
     },
-    "compileOnSave": false,
     "exclude": [
         "**/*.d.ts",
         "**/*.spec.ts",
         "node_modules",
         "vendor",
+        "vendor/bundle",
         "public"
     ]
 }
