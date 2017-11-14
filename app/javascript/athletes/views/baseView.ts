@@ -1,7 +1,7 @@
 import { AppHelpers } from '../helpers/appHelpers';
 import { Helpers } from './../../common/helpers';
 
-export default abstract class BaseView {
+abstract class BaseView {
 
     protected prepareView(viewType: string, itemName?: string, navigationAnchor?: JQuery) {
         let viewName = viewType;
@@ -25,3 +25,5 @@ export default abstract class BaseView {
 
     protected abstract createView(): void;
 }
+
+export default BaseView;
