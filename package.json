@@ -49,7 +49,8 @@
     "toastr": "^2.1.2",
     "ts-loader": "^3.1.1",
     "tslint": "^5.5.0",
-    "typescript": "^2.6.1"
+    "typescript": "^2.6.1",
+    "webpack-merge": "^4.1.1"
   },
   "scripts": {
     "mdlint": "bundle exec mdl README.md -c config/.mdlrc && bundle exec mdl docs/ -c config/.mdlrc",

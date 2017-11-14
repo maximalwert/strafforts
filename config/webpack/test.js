@@ -1,3 +1,9 @@
+const merge = require('webpack-merge')
 const environment = require('./environment')
 
-module.exports = environment.toWebpackConfig()
+const customConfig = {
+    output: {
+        filename: '[name].bundle.js'
+    }
+};
+module.exports = merge(environment.toWebpackConfig(), customConfig)
