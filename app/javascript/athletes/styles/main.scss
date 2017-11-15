@@ -1,0 +1,606 @@
+@import '~bootstrap/dist/css/bootstrap'; // ~ to tell Webpacker that this is not a relative import.
+@import '~font-awesome/css/font-awesome';
+@import '~admin-lte/plugins/pace/pace.min';
+@import '~admin-lte/dist/css/AdminLTE.min';
+@import '~admin-lte/dist/css/skins/skin-black-light.min';
+@import '~datatables.net-bs/css/dataTables.bootstrap';
+@import '~toastr/build/toastr.min';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700&subset=cyrillic');
+
+@font-face {
+    font-family: 'Source Sans Pro Fallback';
+    font-weight: normal;
+    font-style: normal;
+
+    src: font-url('sourcesanspro-regular-webfont.eot');
+    src: font-url('sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'), font-url('sourcesanspro-regular-webfont.woff2') format('woff2'), font-url('sourcesanspro-regular-webfont.woff') format('woff'), font-url('sourcesanspro-regular-webfont.ttf') format('truetype'), font-url('sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+}
+
+$color-strava: #FC4C02;
+$color-strava-hover: #E34402;
+$color-light-green: #00BD65;
+$color-green: #00A65A;
+$color-red: #F56954;
+$color-yellow: #F39C12;
+$color-light-grey: rgba(128, 128, 128, .5);
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+       -moz-transition: $args;
+        -ms-transition: $args;
+         -o-transition: $args;
+            transition: $args;
+}
+
+body {
+    font-family: 'Source Sans Pro','Source Sans Pro Fallback','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+input[type='submit'] {
+    font-family: FontAwesome,'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.bg-strava {
+    color: #FFFFFF !important;
+    background-color: $color-strava !important;
+}
+
+.underline {
+    text-decoration: underline;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+/* Badge and label styles */
+.badge,
+.label {
+    font-size: 12px;
+
+    margin: 4px;
+}
+
+// Also used in app/assets/javascripts/common/helpers.ts.
+// Update there if any color is changed here.
+.hr-zone-na {
+    background-color: #D2D6DE;
+}
+
+.hr-zone-1 {
+    background-color: #BDD6BA;
+}
+
+.hr-zone-2 {
+    background-color: #00A65A;
+}
+
+.hr-zone-3 {
+    background-color: #F39C12;
+}
+
+.hr-zone-4 {
+    background-color: #C82300;
+}
+
+.hr-zone-5 {
+    background-color: #111111;
+}
+
+.workout-type-run {
+    background-color: $color-light-green;
+}
+
+.workout-type-race {
+    background-color: $color-red;
+}
+
+.workout-type-long-run {
+    background-color: $color-green;
+}
+
+.workout-type-workout {
+    background-color: $color-yellow;
+}
+
+.form-control:focus {
+    border-color: $color-strava;
+}
+
+.box.box-primary {
+    border-top-color: $color-strava;
+}
+
+.main-footer a,
+.main-header .logo b {
+    color: $color-strava;
+
+    &:hover {
+        color: $color-strava-hover;
+    }
+}
+
+.main-header {
+    li.user-header {
+        background-color: #555555 !important;
+    }
+
+    .logo,
+    .navbar .sidebar-toggle {
+        @include transition(all .2s ease-in-out);
+    }
+
+    .navbar-nav {
+        /* Blue follower and following links. */
+        .user-menu > .dropdown-menu > .user-body a {
+            color: #007FB6 !important;
+        }
+
+        .notifications-menu > .dropdown-menu,
+        .messages-menu > .dropdown-menu,
+        .tasks-menu > .dropdown-menu {
+            width: 380px;
+        }
+
+        /* Style User Menu Dropdown */
+        .user-menu .dropdown-menu li.user-header {
+            img {
+                width: 90px;
+                height: 90px;
+            }
+
+            a:hover,
+            a:focus {
+                background-color: inherit;
+            }
+        }
+
+        .btn-connect-with-strava {
+            padding: 8px;
+
+            img {
+                width: 140px;
+            }
+        }
+    }
+}
+
+.main-sidebar {
+    .user-panel {
+        overflow: hidden;
+
+        padding-bottom: 0;
+        .image {
+            margin-bottom: 6px;
+
+            img {
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+        .info {
+            font-weight: bold;
+
+            position: static;
+
+            padding-left: 5px;
+
+            span {
+                padding-top: 4px;
+            }
+
+            p {
+                margin-top: 10px;
+            }
+
+            a {
+                font-size: inherit;
+                font-weight: 600;
+
+                margin-top: inherit;
+                margin-bottom: 9px;
+                padding-right: inherit;
+            }
+        }
+    }
+
+    .sidebar-menu {
+        .treeview-header:not(.disabled) {
+            &:hover {
+                box-shadow: inset 3px 0 0 $color-strava;
+            }
+        }
+
+        .treeview-menu {
+            li a {
+                @include transition(all .2s ease-in-out);
+
+                &:hover {
+                    box-shadow: inset 3px 0 0 $color-strava;
+                }
+            }
+        }
+        .disabled {
+            cursor: default;
+        }
+    }
+}
+
+.control-sidebar {
+    .alert {
+        padding: 6px 6px 6px 10px;
+    }
+}
+
+.content-wrapper {
+    .global-message {
+        font-size: 16px;
+        font-weight: 600;
+
+        z-index: 999999;
+
+        padding: 20px 30px;
+
+        color: #FFFFFF;
+    }
+}
+
+.content-header {
+    h1 {
+        text-transform: capitalize;
+    }
+}
+
+#main-content {
+    .nav-tabs-custom > .nav-tabs {
+        li.active,
+        li.faq {
+            border-top-color: $color-strava;
+        }
+    }
+
+    .accordion {
+        .box-title {
+            font-size: 16px;
+            a {
+                @include transition(all .2s ease-in-out);
+
+                text-decoration: none;
+
+                color: inherit;
+                outline: 0;
+
+                &:hover {
+                    color: $color-strava;
+                    border-bottom-color: $color-strava;
+                }
+            }
+        }
+    }
+
+    .timeline-wrapper {
+        .btn {
+            color: #FFFFFF;
+            background-color: $color-light-grey;
+
+            &.active,
+            &:hover {
+                border-color: rgba(0, 0, 0, .2);
+                -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
+                        box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
+            }
+        }
+
+        .filter-buttons {
+            margin: 12px;
+
+            .btn {
+                margin: 2px;
+
+                &.active,
+                &:hover {
+                    background-color: $color-strava;
+                    -webkit-box-shadow: none;
+                            box-shadow: none;
+                }
+            }
+            .show-all {
+                background-color: gray;
+                &:hover {
+                    border-color: rgba(0, 0, 0, .2);
+                    -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
+                            box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
+                }
+            }
+        }
+
+        .timeline {
+            .time-label {
+                margin-bottom: 20px;
+                margin-left: 12px;
+            }
+            .timeline-item > .time {
+                font-size: inherit;
+            }
+            .timeline-header {
+                padding-bottom: 0;
+
+                border: none;
+                a {
+                    color: inherit;
+                    border-bottom: dotted 1px $color-light-grey;
+                    &:hover {
+                        color: $color-strava;
+                        border-bottom-color: $color-strava;
+                    }
+                }
+                .btn {
+                    font-size: 11px;
+
+                    margin: 8px;
+                    &[data-race-distance='Marathon'] {
+                        background-color: $color-red;
+                        &:hover {
+                            border-color: rgba(0, 0, 0, .2);
+                        }
+                    }
+                    &[data-race-distance='Half Marathon'] {
+                        background-color: $color-yellow;
+                        &:hover {
+                            border-color: rgba(0, 0, 0, .2);
+                        }
+                    }
+                    &[data-race-distance='10k'] {
+                        background-color: $color-green;
+                        &:hover {
+                            border-color: rgba(0, 0, 0, .2);
+                        }
+                    }
+                    &[data-race-distance='5k'] {
+                        background-color: $color-light-green;
+                        &:hover {
+                            border-color: rgba(0, 0, 0, .2);
+                        }
+                    }
+                }
+            }
+            .timeline-body {
+                .activity-data {
+                    display: inline;
+
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+
+    /* Style links within data tables */
+    .dataTables_filter input {
+        width: 170px !important;
+    }
+
+    .dataTables_length select {
+        width: 60px !important;
+    }
+
+    .dataTable-wrapper {
+        overflow-x: auto;
+    }
+
+    .dataTable {
+        width: 100% !important;
+
+        a {
+            @include transition(all .2s ease-in-out);
+
+            text-decoration: none;
+
+            color: inherit;
+            border-bottom: dotted 1px $color-light-grey;
+            outline: 0;
+
+            &:focus,
+            &:hover {
+                color: $color-strava;
+                border-bottom-color: $color-strava;
+            }
+        }
+
+        .strava-logo-link {
+            vertical-align: middle;
+
+            border-bottom: none;
+
+            span::before {
+                margin-right: 4px;
+
+                content: url('./images/strava-logo-small.png');
+                vertical-align: middle;
+            }
+        }
+    }
+
+    /* Style notification alerts in main-content */
+    .notification-alert {
+        .modal {
+            position: relative;
+            z-index: 1;
+            top: auto;
+            right: auto;
+            bottom: auto;
+            left: auto;
+
+            display: block;
+
+            color: #444444;
+            background: transparent !important;
+
+            a {
+                @include transition(all .2s ease-in-out);
+
+                text-decoration: none;
+
+                color: inherit;
+                border-bottom: dotted 1px $color-light-grey;
+                outline: 0;
+
+                &:focus,
+                &:hover {
+                    color: $color-strava;
+                    border-bottom-color: $color-strava;
+                }
+            }
+
+            .modal-content {
+                border-left: 5px solid $color-strava;
+
+                .modal-header {
+                    padding-bottom: 0;
+
+                    border-color: rgba(244, 244, 245, .4) !important;
+                    background-color: rgba(244, 244, 245, .4) !important;
+                }
+
+                .modal-body {
+                    border-color: rgba(244, 244, 245, .4) !important;
+                    background-color: rgba(244, 244, 245, .4) !important;
+                }
+            }
+        }
+    }
+
+    canvas {
+        height: 300px;
+    }
+
+    .pagination > .active > a,
+    .pagination > .active > a:focus,
+    .pagination > .active > a:hover,
+    .pagination > .active > a:visited,
+    .pagination > .active > span,
+    .pagination > .active > span:focus,
+    .pagination > .active > span:hover,
+    .pagination > .active > span:visited {
+        color: #FFFFFF;
+        border-color: $color-strava;
+        background-color: $color-strava;
+    }
+
+    .pagination > li > a,
+    .pagination > li > a:focus,
+    .pagination > li > a:hover,
+    .pagination > li > a:visited,
+    .pagination > li > span,
+    .pagination > li > span:focus,
+    .pagination > li > span:hover,
+    .pagination > li > span:visited {
+        color: #000000;
+    }
+}
+
+.main-footer {
+    font-weight: bold;
+
+    .btn {
+        font-size: 85%;
+    }
+
+    .pull-right {
+        padding-bottom: 15px;
+    }
+}
+
+/* Pace loading progress bar style */
+.pace {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+            pointer-events: none;
+
+    -webkit-pointer-events: none;
+}
+
+.pace-inactive {
+    display: none;
+}
+
+.pace .pace-progress {
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 100%;
+
+    width: 100%;
+    height: 2px;
+
+    background: $color-strava;
+}
+
+/* Responsive */
+@media (max-width: 544px) {
+    .hidden-xs-down {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hidden-sm-down {
+        display: none !important;
+    }
+    #main-conent {
+        div.dataTables_wrapper > div.row > div,
+        div.dataTables_length,
+        div.dataTables_filter,
+        div.dataTables_info,
+        div.dataTables_paginate {
+            text-align: left;
+        }
+    }
+}
+@media (min-width: 768px) {
+    .hidden-sm-up {
+        display: none !important;
+    }
+}
+@media (max-width: 992px) {
+    .hidden-md-down {
+        display: none !important;
+    }
+}
+@media (min-width: 992px) {
+    .hidden-md-up {
+        display: none !important;
+    }
+}
+@media (max-width: 1200px) {
+    .hidden-lg-down {
+        display: none !important;
+    }
+}
+@media (min-width: 1200px) {
+    .hidden-lg-up {
+        display: none !important;
+    }
+}
+@media (max-width: 1600px) {
+    .hidden-xl-down {
+        display: none !important;
+    }
+}
+@media (max-width: 1440px) {
+    #main-conent {
+        .dataTable td {
+            font-size: .9em !important;
+        }
+        .strava-logo-link span {
+            margin-right: 0 !important;
+
+            content: none !important;
+        }
+    }
+}

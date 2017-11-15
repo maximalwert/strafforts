@@ -7,6 +7,7 @@
   "author": "Yi Zeng <yi.zeng.dev@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@rails/webpacker": "^3.0.2",
     "@types/chart.js": "2.4.0",
     "@types/google.analytics": "^0.0.33",
     "@types/hubspot-pace": "^0.7.27",
@@ -21,6 +22,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.5.1",
+    "bootstrap": "^3.3.7",
     "chart.js": "2.5.0",
     "coffee-loader": "^0.7.3",
     "coffee-script": "^1.12.6",
@@ -46,24 +48,21 @@
     "sass-loader": "^6.0.5",
     "style-loader": "^0.18.1",
     "toastr": "^2.1.2",
+    "ts-loader": "^3.1.1",
     "tslint": "^5.5.0",
-    "typescript": "^2.3.2",
-    "webpack": "^2.6.1",
-    "webpack-manifest-plugin": "^1.1.0",
-    "webpack-merge": "^4.1.0"
+    "typescript": "^2.6.1",
+    "webpack-merge": "^4.1.1"
   },
   "scripts": {
     "mdlint": "bundle exec mdl README.md -c config/.mdlrc && bundle exec mdl docs/ -c config/.mdlrc",
     "start": "bundle exec rails foreman:start",
-    "postinstall": "node_modules/.bin/tsc --project app/assets/javascripts/athletes/ && node_modules/.bin/tsc --project app/assets/javascripts/home/",
     "test": "bundle exec rails test",
     "test:all": "bundle exec rails test && bundle exec rails test:system",
     "test:ui": "bundle exec rails test:system",
     "tslint": "node_modules/.bin/tslint -c config/tslint.json app/**/*.ts",
-    "rubocop": "bundle exec rubocop -c config/rubocop.yml",
-    "watch": "node_modules/.bin/concurrently \"node_modules/.bin/tsc --project app/assets/javascripts/home/ --watch\" \"node_modules/.bin/tsc --project app/assets/javascripts/athletes/ --watch\""
+    "rubocop": "bundle exec rubocop -c config/rubocop.yml"
   },
   "devDependencies": {
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.9.4"
   }
 }

@@ -1,12 +1,20 @@
 {
+    "compileOnSave": false,
     "compilerOptions": {
+        "experimentalDecorators": true,
         "noImplicitAny": true,
         "sourceMap": true,
         "strictNullChecks": true,
         "suppressImplicitAnyIndexErrors": true
     },
+    "include": [
+        "./../app/javascript/**/*.ts"
+    ],
     "exclude": [
         "**/*.d.ts",
-        "**/*.spec.ts"
+        "**/*.spec.ts",
+        "node_modules",
+        "vendor",
+        "public"
     ]
 }

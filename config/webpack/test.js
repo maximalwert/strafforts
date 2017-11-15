@@ -1,6 +1,13 @@
-// Note: You must restart bin/webpack-dev-server for changes to take effect
-
 const merge = require('webpack-merge')
-const sharedConfig = require('./shared.js')
+const environment = require('./environment')
 
-module.exports = merge(sharedConfig, {})
+const customConfig = {
+    output: {
+        filename: '[name].bundle.js'
+    }
+};
+
+const extractText = environment.plugins.get('ExtractText');
+extractText.filename = '[name].css';
+
+module.exports = merge(environment.toWebpackConfig(), customConfig);

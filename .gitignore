@@ -60,14 +60,12 @@ bower.json
 # Exclude RubyMine files.
 .idea
 
-# Ignore public/assets.
-/public/assets/**/*
-/public/packs/**/*
-
-# Ignore generated JS files.
-/app/assets/javascripts/generated/**
-/app/assets/javascripts/generated/**/public/packs
+# Ignore webpack generated files.
+/public/assets
+/public/packs
+/public/packs-test
 /node_modules
+/app/assets/javascripts/generated
 
 # Ignore generated Procfile.dev
 Procfile.dev
