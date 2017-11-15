@@ -419,7 +419,7 @@ input[type='submit'] {
             span::before {
                 margin-right: 4px;
 
-                content: image-url('strava-logo-small.png');
+                content: url('./images/strava-logo-small.png');
                 vertical-align: middle;
             }
         }
