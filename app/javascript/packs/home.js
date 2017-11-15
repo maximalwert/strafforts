@@ -7,7 +7,8 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-require('../home');
+import '../home';
+import '../home/styles/main';
 
 $(window).load(function () {
     var id = document.getElementsByTagName('body')[0].getAttribute('data-hotjar-id');

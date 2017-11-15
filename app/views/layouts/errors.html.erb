@@ -20,8 +20,8 @@
 
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag 'home', media: 'all' %>
-    <%= stylesheet_link_tag 'errors', media: 'all' %>
+    <%= stylesheet_pack_tag 'home', media: 'all' %>
+    <%= stylesheet_pack_tag 'errors', media: 'all' %>
   </head>
 
   <body id="page-top" class="error-page" data-error-code="<%= @error_code %>" data-ga-tracking-id="<%= ENV['GOOGLE_ANALYTICS_TRACKING_CODE'] %>" data-hotjar-id="<%= ENV['HOTJAR_ID'] %>" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -72,7 +72,6 @@
     </header>
 
     <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'errors' %>
     <%= javascript_include_tag 'home' %>
     <%= javascript_pack_tag 'home' %>
 

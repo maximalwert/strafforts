@@ -6,4 +6,8 @@ const customConfig = {
         filename: '[name].bundle.js'
     }
 };
-module.exports = merge(environment.toWebpackConfig(), customConfig)
+
+const extractText = environment.plugins.get('ExtractText');
+extractText.filename = '[name].css';
+
+module.exports = merge(environment.toWebpackConfig(), customConfig);

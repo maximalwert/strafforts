@@ -7,7 +7,8 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-require('../athletes');
+import '../athletes';
+import '../athletes/styles/main'
 
 // Extension method to convert a number into time format.
 String.prototype.toHHMMSS = function () {
