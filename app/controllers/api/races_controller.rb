@@ -29,29 +29,5 @@ module Api
         render json: shaped_items
       end
     end
-
-    def meta_by_distance
-      athlete = Athlete.find_by_id_or_username(params[:id_or_username])
-      ApplicationController.raise_athlete_not_found_error(params[:id_or_username]) if athlete.nil?
-
-      results = ApplicationController.get_meta(
-        athlete.id,
-        ApplicationHelper::Helper.all_race_distances,
-        ApplicationHelper::ViewType::RACES_BY_DISTANCE
-      )
-      render json: results
-    end
-
-    def meta_by_year
-      athlete = Athlete.find_by_id_or_username(params[:id_or_username])
-      ApplicationController.raise_athlete_not_found_error(params[:id_or_username]) if athlete.nil?
-
-      results = ApplicationController.get_meta(
-        athlete.id,
-        Race.find_years_and_counts_by_athlete_id(athlete.id),
-        ApplicationHelper::ViewType::RACES_BY_YEAR
-      )
-      render json: results
-    end
   end
 end

@@ -24,44 +24,51 @@ class ApplicationController < ActionController::Base
     '&approval_prompt=auto&scope=view_private'
   end
 
-  def self.get_meta(athlete_id, items, item_type) # rubocop:disable CyclomaticComplexity, MethodLength
-    results = []
+  def self.get_meta(athlete_id) # rubocop:disable MethodLength
+    best_efforts_meta = []
+    ApplicationHelper::Helper.all_best_effort_types.each do |item|
+      model = BestEffortType.find_by_name(item[:name])
+      next if model.nil?
 
-    items.each do |item| # rubocop:disable BlockLength
-      case item_type
-      when ApplicationHelper::ViewType::BEST_EFFORTS
-        model = BestEffortType.find_by_name(item[:name])
-        next if model.nil?
-
-        best_efforts = BestEffort.find_all_by_athlete_id_and_best_effort_type_id(athlete_id, model.id)
-        result = {
-          name: item[:name],
-          count: best_efforts.nil? ? 0 : best_efforts.size,
-          is_major: item[:is_major]
-        }
-      when ApplicationHelper::ViewType::RACES_BY_DISTANCE
-        model = RaceDistance.find_by_name(item[:name])
-        next if model.nil?
-
-        races = Race.find_all_by_athlete_id_and_race_distance_id(athlete_id, model.id)
-        result = {
-          name: item[:name],
-          count: races.nil? ? 0 : races.size,
-          is_major: item[:is_major]
-        }
-      when ApplicationHelper::ViewType::RACES_BY_YEAR
-        result = {
-          name: item[0].to_i.to_s,
-          count: item[1],
-          is_major: true
-        }
-      else
-        next
-      end
-
-      results << result
+      best_efforts = BestEffort.find_all_by_athlete_id_and_best_effort_type_id(athlete_id, model.id)
+      result = {
+        name: item[:name],
+        count: best_efforts.nil? ? 0 : best_efforts.size,
+        is_major: item[:is_major]
+      }
+      best_efforts_meta << result
     end
-    results
+
+    races_by_distance_meta = []
+    ApplicationHelper::Helper.all_race_distances.each do |item|
+      model = RaceDistance.find_by_name(item[:name])
+      next if model.nil?
+
+      races = Race.find_all_by_athlete_id_and_race_distance_id(athlete_id, model.id)
+      result = {
+        name: item[:name],
+        count: races.nil? ? 0 : races.size,
+        is_major: item[:is_major]
+      }
+      races_by_distance_meta << result
+    end
+
+    races_by_year_meta = []
+    items = Race.find_years_and_counts_by_athlete_id(athlete_id)
+    items.each do |item|
+      result = {
+        name: item[0].to_i.to_s,
+        count: item[1],
+        is_major: true
+      }
+      races_by_year_meta << result
+    end
+
+    {
+      best_efforts: best_efforts_meta,
+      races_by_distance: races_by_distance_meta,
+      races_by_year: races_by_year_meta
+    }
   end
 
   def self.raise_athlete_not_found_error(id_or_username)

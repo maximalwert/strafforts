@@ -12,12 +12,10 @@ Rails.application.routes.draw do
   post 'athletes/:id_or_username/reset_last_activity_retrieved' => 'athletes#reset_last_activity_retrieved'
 
   namespace :api do
+    get 'athletes/:id_or_username/meta' => 'meta#index'
     get 'athletes/:id_or_username/best-efforts' => 'best_efforts#index'
-    get 'athletes/:id_or_username/best-efforts/meta' => 'best_efforts#meta'
     get 'athletes/:id_or_username/best-efforts/:distance' => 'best_efforts#index'
     get 'athletes/:id_or_username/races' => 'races#index'
-    get 'athletes/:id_or_username/races/meta_by_distance' => 'races#meta_by_distance'
-    get 'athletes/:id_or_username/races/meta_by_year' => 'races#meta_by_year'
     get 'athletes/:id_or_username/races/:distance_or_year' => 'races#index'
     get 'faqs/index' => 'faqs#index'
   end

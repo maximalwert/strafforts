@@ -27,11 +27,11 @@ export default class RacesTimelineView extends BaseView {
 
     protected createView(): void {
         $.ajax({
-            url: AppHelpers.getApiBaseUrl() + '/races/meta_by_year',
+            url: `${AppHelpers.getApiBaseUrl()}/meta`,
             dataType: 'json',
             success: (data) => {
                 const years: number[] = [];
-                $.each(data, (key, value) => {
+                $.each(data['races_by_year'], (key, value) => {
                     const year = value['name'];
                     if ($.inArray(year, years) === -1) {
                         years.push(year);
