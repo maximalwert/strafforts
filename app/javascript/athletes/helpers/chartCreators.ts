@@ -1,7 +1,7 @@
-import * as Chart from 'chart.js';
-
 import { Helpers } from '../../common/helpers';
 import { RgbColor } from '../../common/rgbColor';
+
+declare var Chart: any;
 
 export class ChartCreator {
 
