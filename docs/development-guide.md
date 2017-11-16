@@ -20,7 +20,7 @@ please first make sure [Ruby on Rails][Ruby on Rails]
 and [PostgreSQL][PostgreSQL] environment have been properly setup on your machine.
 
 Note that Ruby on Rails uses [Sqlite][Sqlite] by default, which also works fine with Strafforts,
-but configurations in `config/database.yml` and `Gemfile` need to be updated accordingly in that case.cc
+but configurations in `config/database.yml` and `Gemfile` need to be updated accordingly in that case.
 
 1. Clone and config repository
 
@@ -43,28 +43,28 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
     Create a file called `config/secrets.yml` file like the following:
 
-        # Be sure to restart your server when you modify this file.
+       # Be sure to restart your server when you modify this file.
 
-        # Your secret key is used for verifying the integrity of signed cookies.
-        # If you change this key, all old signed cookies will become invalid!
+       # Your secret key is used for verifying the integrity of signed cookies.
+       # If you change this key, all old signed cookies will become invalid!
 
-        # Make sure the secret is at least 30 characters and all random,
-        # no regular words or you'll be exposed to dictionary attacks.
-        # You can use `rails secret` to generate a secure secret key.
+       # Make sure the secret is at least 30 characters and all random,
+       # no regular words or you'll be exposed to dictionary attacks.
+       # You can use `rails secret` to generate a secure secret key.
 
-        # Make sure the secrets in this file are kept private
-        # if you're sharing your code publicly.
+       # Make sure the secrets in this file are kept private
+       # if you're sharing your code publicly.
 
-        development:
-          secret_key_base: REPLACE_WITH_YOUR_TOKEN
+       development:
+         secret_key_base: REPLACE_WITH_YOUR_TOKEN
 
-        test:
-          secret_key_base: REPLACE_WITH_YOUR_TOKEN
+       test:
+         secret_key_base: REPLACE_WITH_YOUR_TOKEN
 
-        # Do not keep production secrets in the repository,
-        # instead read values from the environment.
-        production:
-          secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+       # Do not keep production secrets in the repository,
+       # instead read values from the environment.
+       production:
+         secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
 
 1. Setup environment variables
 
@@ -99,9 +99,7 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
         It can be accessed from <http://localhost:5000> by default.
       - start a worker process to fetch data
-      - start a watcher process that compiles TypeScript and watch for changes.
-
-      Note that the watcher might not work properly on Windows machines so that it needs to be started manually. See `yarn watch` command in `package.json` for more details.
+      - start a webpacker process that compiles assets using [Webpack][Webpack] dev server and watch for changes.
 
 1. Connect with Strava
 
@@ -112,11 +110,11 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
     Foreman's worker process should fetch all best efforts (PBs) once Strafforts has connected to Strava. Alternatively, the same can be achieved by the following rake tasks defined in `/lib/tasks/fetch.rake`.
 
-        bundle exec rails fetch:all                                       # Fetch all data for all athletes
-        bundle exec rails fetch:athlete MODE=[all/latest] ID=[athlete_id] # Fetch data for a particular athlete by ID
-        bundle exec rails fetch:best_efforts MODE=[all/latest]            # Fetch best efforts for all athletes
-        bundle exec rails fetch:latest                                    # Fetch the latest data for all athletes
-        bundle exec rails fetch:races MODE=[all/latest]                   # Fetch races for all athletes
+       bundle exec rails fetch:all                                       # Fetch all data for all athletes
+       bundle exec rails fetch:athlete MODE=[all/latest] ID=[athlete_id] # Fetch data for a particular athlete by ID
+       bundle exec rails fetch:best_efforts MODE=[all/latest]            # Fetch best efforts for all athletes
+       bundle exec rails fetch:latest                                    # Fetch the latest data for all athletes
+       bundle exec rails fetch:races MODE=[all/latest]                   # Fetch races for all athletes
 
 1. Run tests
 
@@ -140,26 +138,25 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 
 1. Clone repository
 
-        git clone https://github.com/yizeng/strafforts.git
+       git clone https://github.com/yizeng/strafforts.git
 
 1. Create Heroku App
 
     General instructions can be followed as described in [Getting Started on Heroku with Ruby](https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction).
 
-        cd strafforts
-        heroku create
-        git push heroku master
+       cd strafforts
+       heroku create
+       git push heroku master
 
-        heroku config:set STRAVA_API_CLIENT_ID=`Paste in your Client ID from Strava API application page`
-        heroku config:set STRAVA_API_CLIENT_SECRET=`Paste in your Client Secret from Strava API application page`
-        heroku config:set GOOGLE_ANALYTICS_TRACKING_CODE=`Paste in your Google Analytics Tracking Code if you have one`
+       heroku config:set STRAVA_API_CLIENT_ID=`Paste in your Client ID from Strava API application page`
+       heroku config:set STRAVA_API_CLIENT_SECRET=`Paste in your Client Secret from Strava API application page`
 
-        heroku run rake db:migrate
-        heroku run rake db:seed
-        heroku restart
+       heroku run rake db:migrate
+       heroku run rake db:seed
+       heroku restart
 
-        heroku addons:create scheduler
-        heroku addons:open scheduler
+       heroku addons:create scheduler
+       heroku addons:open scheduler
 
 1. Setup Heroku Scheduler
 
@@ -193,3 +190,4 @@ but configurations in `config/database.yml` and `Gemfile` need to be updated acc
 [Foreman]: https://github.com/ddollar/foreman
 [Yarn]: https://yarnpkg.com/en/
 [TypeScript]: https://www.typescriptlang.org/
+[Webpack]: https://webpack.js.org/
