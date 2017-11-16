@@ -65,7 +65,6 @@ bower.json
 /public/packs
 /public/packs-test
 /node_modules
-/app/assets/javascripts/generated
 
 # Ignore generated Procfile.dev
 Procfile.dev
