@@ -1,6 +1,6 @@
 {
   "name": "strafforts",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "private": true,
   "description": "An Analytics App for Strava Best Efforts (PBs) and Races",
   "repository": "https://github.com/yizeng/strafforts.git",
@@ -8,11 +8,6 @@
   "license": "MIT",
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
-    "@types/chart.js": "2.4.0",
-    "@types/google.analytics": "^0.0.33",
-    "@types/hubspot-pace": "^0.7.27",
-    "@types/jquery": "2.0.48",
-    "@types/toastr": "^2.1.34",
     "admin-lte": "^2.3.11",
     "autoprefixer": "^7.1.1",
     "autotrack": "^2.4.1",
@@ -27,7 +22,6 @@
     "coffee-loader": "^0.7.3",
     "coffee-script": "^1.12.6",
     "compression-webpack-plugin": "^0.4.0",
-    "concurrently": "^3.4.0",
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
@@ -49,7 +43,6 @@
     "style-loader": "^0.18.1",
     "toastr": "^2.1.2",
     "ts-loader": "^3.1.1",
-    "tslint": "^5.5.0",
     "typescript": "^2.6.1",
     "webpack-merge": "^4.1.1"
   },
@@ -59,10 +52,16 @@
     "test": "bundle exec rails test",
     "test:all": "bundle exec rails test && bundle exec rails test:system",
     "test:ui": "bundle exec rails test:system",
-    "tslint": "node_modules/.bin/tslint -c config/tslint.json app/**/*.ts",
+    "tslint": "node_modules/.bin/tslint -c config/tslint.json app/javascript/*.ts",
     "rubocop": "bundle exec rubocop -c config/rubocop.yml"
   },
   "devDependencies": {
+    "@types/chart.js": "2.4.0",
+    "@types/google.analytics": "^0.0.33",
+    "@types/hubspot-pace": "^0.7.27",
+    "@types/jquery": "2.0.48",
+    "@types/toastr": "^2.1.34",
+    "tslint": "^5.5.0",
     "webpack-dev-server": "^2.9.4"
   }
 }

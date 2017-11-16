@@ -9,4 +9,3 @@
 //= require moment/min/moment.min
 //= require chart.js/dist/Chart.min
 //= require toastr/build/toastr.min
-//= require vendor/donorbox
