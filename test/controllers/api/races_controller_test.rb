@@ -59,34 +59,4 @@ class RacesControllerTest < ActionDispatch::IntegrationTest
     end
     assert_equal("Could not find requested race distance '1999'.", exception.message)
   end
-
-  test 'should GET meta_by_distance for athlete 9123806' do
-    url = '/api/athletes/9123806/races/meta_by_distance'
-    get url
-
-    assert_response :success
-    assert_equal(read_expected_controller_response(url, ResponseType::JSON), response.body)
-  end
-
-  test 'should GET meta_by_year for athlete 9123806' do
-    url = '/api/athletes/9123806/races/meta_by_year'
-    get url
-
-    assert_response :success
-    assert_equal(read_expected_controller_response(url, ResponseType::JSON), response.body)
-  end
-
-  test 'should not find athlete when GET meta_by_distance with id or username that do not exist' do
-    exception = assert_raises(ActionController::RoutingError) do
-      get '/api/athletes/12345678/races/meta_by_distance'
-    end
-    assert_equal("Could not find athlete '12345678' by id or username.", exception.message)
-  end
-
-  test 'should not find athlete when GET meta_by_year with id or username that do not exist' do
-    exception = assert_raises(ActionController::RoutingError) do
-      get '/api/athletes/12345678/races/meta_by_year'
-    end
-    assert_equal("Could not find athlete '12345678' by id or username.", exception.message)
-  end
 end

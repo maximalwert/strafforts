@@ -24,17 +24,5 @@ module Api
         render json: shaped_items
       end
     end
-
-    def meta
-      athlete = Athlete.find_by_id_or_username(params[:id_or_username])
-      ApplicationController.raise_athlete_not_found_error(params[:id_or_username]) if athlete.nil?
-
-      results = ApplicationController.get_meta(
-        athlete.id,
-        ApplicationHelper::Helper.all_best_effort_types,
-        ApplicationHelper::ViewType::BEST_EFFORTS
-      )
-      render json: results
-    end
   end
 end
