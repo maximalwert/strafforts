@@ -22,6 +22,19 @@
             "args": [
                 "test"
             ]
+        },
+        {
+            "name": "RSpec - Current File",
+            "type": "Ruby",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "program": "${workspaceRoot}/bin/rspec",
+            "args": [
+                "${file}",
+                "--require", "spec_helper",
+                "--require", "rails_helper",
+                "--format", "documentation"
+            ]
         }
     ]
 }

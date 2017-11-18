@@ -45,6 +45,8 @@ group :development, :test do
   gem 'phantomjs', :require => 'phantomjs/poltergeist' unless Gem.win_platform?
   gem 'poltergeist'
   gem 'selenium-webdriver'
+  gem 'rspec'
+  gem 'rspec-rails'
 end
 
 group :development do
