@@ -278,7 +278,7 @@ RSpec.describe AthleteDecorator, type: :decorator do
       it 'should be the location' do
         # arrange.
         athlete = Athlete.find_by_id_or_username(123)
-  
+
         # act.
         decorator = AthleteDecorator.decorate(athlete)
 
