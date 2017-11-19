@@ -13,6 +13,7 @@ engines:
     exclude_paths:
       - 'config/**/*'
       - 'db/**/*'
+      - 'spec/**/*'
       - '**/*.js'
   fixme:
     enabled: true

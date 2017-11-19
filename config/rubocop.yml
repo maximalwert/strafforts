@@ -7,6 +7,7 @@ AllCops:
     - 'node_modules/**/*'
     - 'vendor/**/*'
     - 'tmp/**/*'
+    - '**/application_helper.rb'
   TargetRubyVersion: 2.0
 Documentation:
   Enabled: false
@@ -14,18 +15,23 @@ Metrics/AbcSize:
   Max: 50
 Metrics/BlockLength:
   Exclude:
-    - '**/application_helper.rb'
     - '**/*.rake'
+    - 'spec/**/*.rb'
 Metrics/ClassLength:
   Exclude:
-    - '**/application_helper.rb'
+    - 'spec/**/*.rb'
     - 'test/**/*.rb'
 Metrics/LineLength:
   Max: 120
 Metrics/MethodLength:
   Max: 25
+Style/BlockComments:
   Exclude:
-    - '**/application_helper.rb'
+    - '**/spec_helper.rb'
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/**/*.rb'
 Style/NumericLiterals:
   Exclude:
+    - 'spec/**/*.rb'
     - 'test/**/*.rb'

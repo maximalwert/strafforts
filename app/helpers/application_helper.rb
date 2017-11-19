@@ -78,7 +78,7 @@ module ApplicationHelper
         major_distances = ApplicationHelper::Helper.major_race_distances
         other_distances = ApplicationHelper::Helper.other_race_distances
 
-        # This determines showDistanceColumn in app/assets/javascripts/athletes/views/overview.ts.
+        # This determines showDistanceColumn in app/javascript/athletes/views/overview.ts.
         results['Recent'] = items.take(MAX_ITEM_ALLOWED_PER_DISTANCE) unless items.empty?
       end
 

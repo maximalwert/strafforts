@@ -1,0 +1,66 @@
+---
+unit_test_one:
+  id: 123
+  username: 'tonystark'
+  access_token: '3f2a45886980ebec9f4a689371e95860'
+  firstname: 'Tony'
+  lastname: 'Stark'
+  is_public: false
+  email: 'tony.stark@avengers.com'
+  profile_medium: https://www.tonystark.com/medium.jpg
+  profile: https://www.tonystark.com/large.jpg
+  city_id: 1
+  state_id: 1
+  country_id: 1
+  sex: M
+  follower_count: 9999
+  friend_count: 9
+  athlete_type: 1
+  date_preference: "%m/%d/%Y"
+  measurement_preference: meters
+  weight: 95.0
+  created_at: '2017-01-01 00:00:00'
+  updated_at: '2017-12-17 15:55:55.12305'
+  is_active: false
+  total_run_count: 725
+unit_test_two:
+  id: 456
+  access_token: '58e42e6f5e496dc5aa0d5ec354da8048'
+  firstname: 'Jessica'
+  lastname: 'Jones'
+  username: 'jessicajones'
+  is_public: true
+  last_activity_retrieved: 9999
+unit_test_three:
+  id: 789
+  access_token: '4e4711b645307480587dd52523e2d5e5'
+  username: 'bruce.banner'
+  is_public: false
+  city_id: 1
+  country_id: 1
+  is_public: false
+  email: 'bruce.banner@avengers.com'
+athlete_9123806:
+  id: 9123806
+  username: yizeng
+  access_token: 4d5cf2bbc714a4e22e309cf5fcf15e40
+  firstname: Yi
+  lastname: Zeng
+  is_public: true
+  last_activity_retrieved: 1074393172
+  profile_medium: https://dgalywyr863hv.cloudfront.net/pictures/athletes/9123806/2937558/10/medium.jpg
+  profile: https://dgalywyr863hv.cloudfront.net/pictures/athletes/9123806/2937558/10/large.jpg
+  city_id: 1
+  state_id: 1
+  country_id: 1
+  sex: M
+  follower_count: 49
+  friend_count: 44
+  athlete_type: 1
+  date_preference: "%m/%d/%Y"
+  measurement_preference: meters
+  weight: 63.0
+  created_at: '2017-01-01 00:00:00'
+  updated_at: '2017-07-12 11:51:12.85475'
+  is_active: true
+  total_run_count: 700
