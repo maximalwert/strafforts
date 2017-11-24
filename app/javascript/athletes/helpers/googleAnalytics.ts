@@ -124,6 +124,13 @@ export namespace GoogleAnalytics {
                     event.currentTarget,
                 );
             });
+            $('.control-sidebar').on('click', '.last-activity-retrieved', (event) => {
+                Helpers.sendGoogleAnalyticsEvent(
+                    'App - Settings Sidebar',
+                    'Open Last Retrieved Activity',
+                    event.currentTarget,
+                );
+            });
 
             // App - Footer.
             $('.main-footer').on('click', '.custom-dbox-popup', (event) => {

@@ -5,6 +5,9 @@ export namespace EventBinders {
 
     export function bindAll() {
         const eventBinders = () => {
+            // Enable Bootstrap tooltip.
+            ($('[data-toggle="tooltip"]') as any).tooltip();
+
             // Disable double clicking for logo and navigation items.
             const selectors = '.main-header .logo, a[id^="best-efforts-for-"], a[id^="races-for-"]';
             $(document).on('dblclick', selectors, (event) => {
@@ -79,8 +82,11 @@ export namespace EventBinders {
                     $('#publicize-profile-warning').removeClass('hidden');
                 }
             });
-            $(document).on('submit', '.form-reset-last-activity-retrieved', (event) => {
-                resetLastRetrieveActivity(event);
+            $(document).on('submit', '.reset-last-activity-retrieved form', (event) => {
+                // Only reset if the button is currently enabled.
+                if (!$('.reset-last-activity-retrieved .submit-form').is(':disabled')) {
+                    resetLastRetrieveActivity(event);
+                }
             });
         };
         return eventBinders;
@@ -114,14 +120,16 @@ export namespace EventBinders {
         event.preventDefault();
 
         $.ajax({
-            url: $('.form-reset-last-activity-retrieved').attr('action'),
+            url: $('.reset-last-activity-retrieved form').attr('action'),
             data: '',
             cache: false,
             type: 'post',
             success: () => {
-                toastr.success('Saved Successfully!');
                 $('.last-activity-retrieved').addClass('hidden');
                 $('.last-activity-na').removeClass('hidden');
+                $('.reset-last-activity-retrieved .submit-form').prop('disabled', true);
+                toastr.success(`Resetted Successfully!<br /><br />
+                    A full re-synchronization of all your activities has been queued.`);
             },
             error: (xhr, ajaxOptions, thrownError) => {
                 toastr.error(xhr.status + '\n' + thrownError);

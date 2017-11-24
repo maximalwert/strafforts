@@ -2,7 +2,6 @@ export namespace Toastr {
 
     export function getOptions(): ToastrOptions {
         const options = {
-            closeButton: true,
             debug: false,
             newestOnTop: true,
             progressBar: false,
@@ -10,8 +9,8 @@ export namespace Toastr {
             preventDuplicates: false,
             showDuration: 300,
             hideDuration: 1000,
-            timeOut: 3000,
-            extendedTimeOut: 1000,
+            timeOut: 6000,
+            extendedTimeOut: 12000,
             showEasing: 'swing',
             hideEasing: 'linear',
             showMethod: 'fadeIn',
