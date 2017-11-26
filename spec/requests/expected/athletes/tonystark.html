@@ -367,26 +367,34 @@
     <!-- Diagnostics tab content -->
     <div class="tab-pane" id="control-sidebar-diagnostics-tab">
       <h3 class="control-sidebar-heading">Diagnostics</h3>
-      <div class="form-group">
+      <div class="form-group reset-last-activity-retrieved">
         <label class="control-sidebar-subheading">
           Last activity retrieved:
           <i
             class="fa fa-question-circle"
             aria-hidden="true"
             data-toggle="tooltip"
-            title="Last activity that contains achievements, not necessarily the latest activity returned from Strava API."></i>
+            title="The last activity that contains achievements, not necessarily your overall latest activity on Strava."></i>
         </label>
-        <label></label>
-        <span class="pull-right last-activity-na ">N/A</span>
-        <a class="pull-right last-activity-retrieved hidden" href="https://www.strava.com/activities/" target="_blank">
-          
-        </a>
+        <div class="control-sidebar-subheading text-center">
+          <label class="last-activity-na ">N/A</label>
+          <label>
+            <a class="last-activity-retrieved hidden"
+              href="https://www.strava.com/activities/" target="_blank"
+              title="Open Last Retrieved Activity">
+              
+            </a>
+          </label>
+        </div>
         <div>
-          <p>
-            Worker process only fetches newer activities. Reset if you'd like update your older activities.
-          </p>
-          <form class="form-reset-last-activity-retrieved" action="/athletes/tonystark/reset_last_activity_retrieved" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
-          <button type="submit" class="btn btn-block btn-danger btn-flat submit-form">Reset</button>
+          <form action="/athletes/tonystark/reset_last_activity_retrieved" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+          <button type="submit" class="btn btn-block btn-danger btn-flat submit-form"
+            disabled
+              data-toggle="tooltip"
+              title="You will be queued for a full re-synchronization of all your activities."
+          >
+            Reset
+          </button>
 </form>        </div>
       </div>
 
