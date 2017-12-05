@@ -2,20 +2,23 @@ import { AppHelpers } from '../helpers/appHelpers';
 import { ChartCreator } from '../helpers/chartCreators';
 import { HtmlHelpers } from '../helpers/htmlHelpers';
 import BaseView from './baseView';
+import NavigationSidebar from './navigationSidebar';
 
 export default class RacesByYearView extends BaseView {
 
+    private count: number;
+
     private year: string;
 
-    constructor(year: string) {
+    constructor(year: string, count?: string | undefined) {
         super();
 
+        this.count = count ? parseInt(count, 10) : 0;
         this.year = year;
     }
 
     public load(): void {
-        const navigationAnchor = $(`a[id^="races-for-year-${this.year}"]`);
-        super.prepareView('Races', this.year, navigationAnchor);
+        super.prepareView('Races', this.year);
 
         this.createViewTemplate();
         this.createView();
@@ -70,6 +73,10 @@ export default class RacesByYearView extends BaseView {
                 $.each(data, (key, value) => {
                     items.push(value);
                 });
+
+                if (this.count < items.length) {
+                    new NavigationSidebar().load();
+                }
 
                 // Create all tables and charts.
                 const mainContent = $('#main-content');

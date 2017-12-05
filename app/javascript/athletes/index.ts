@@ -63,10 +63,11 @@ $(document).ready(() => {
         event.preventDefault();
 
         const distance = $(event.currentTarget).find('.item-text').text().trim();
+        const count = $(event.currentTarget).find('small').text().trim();
         const distanceFormattedForUrl = AppHelpers.formateDistanceForUrl(distance);
 
         AppHelpers.pushStateToWindow(`?view=best-efforts&distance=${distanceFormattedForUrl}`);
-        new BestEffortsByDistanceView(distance).load();
+        new BestEffortsByDistanceView(distance, count).load();
     });
     $(document).on('click', "a[id^='races-for-distance']", (event) => {
         event.preventDefault();
