@@ -60,14 +60,6 @@ $('#modal-social-sharing').on('shown.bs.modal', function (e) {
     document.head.appendChild(script);
 });
 
-// Handle browser back event.
-$(window).on('popstate', function (e) {
-    var state = e.originalEvent.state;
-    if (state !== null) {
-        loadView(); // Global function defined in main.ts.
-    }
-});
-
 $(document).ajaxStop(function () {
     var id = document.getElementsByTagName('body')[0].getAttribute('data-hotjar-id');
     if (id) {

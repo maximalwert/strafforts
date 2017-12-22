@@ -35,6 +35,11 @@ const loadView = () => {
 };
 
 $(document).ready(() => {
+    // Handle browser back event.
+    window.onpopstate = (event) => {
+        loadView();
+    };
+
     toastr.options = Toastr.getOptions();
 
     GoogleAnalytics.bindEvents().apply(null);
