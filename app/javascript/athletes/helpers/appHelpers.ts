@@ -60,26 +60,7 @@ export namespace AppHelpers {
         const viewName = Helpers.getUrlParameter('view');
 
         if (viewName) {
-            let navigationAnchor: JQuery | null = null;
-
-            const distance = Helpers.getUrlParameter('distance');
-            const distanceId = distance ? distance.replace('_', '-') : undefined;
-            const year = Helpers.getUrlParameter('year');
-
-            // Determine the view type first.
-            // If it's best efforts, races by distances or races by year,
-            // set the active navigation item by URL.
-            if (viewName === 'best-efforts' && distanceId) {
-                navigationAnchor = $(`a[id^="best-efforts-for-distance-${distanceId}"]`);
-            }
-
-            if (viewName === 'races' && distanceId) {
-                navigationAnchor = $(`a[id^="races-for-distance-${distanceId}"]`);
-            }
-
-            if (viewName === 'races' && year && /^20\d\d$/g.test(year)) {
-                navigationAnchor = $(`a[id^="races-for-year-${year}"]`);
-            }
+            const navigationAnchor = determineNavigationAnchor(viewName);
 
             if (navigationAnchor && navigationAnchor.length === 1) {
                 navigationAnchor.parent().closest('.treeview-expander').addClass('active');
@@ -88,5 +69,32 @@ export namespace AppHelpers {
                 navigationAnchor.children('i').addClass('fa-check-circle-o');
             }
         }
+    }
+
+    function determineNavigationAnchor(viewName: string) {
+        let navigationAnchor: JQuery | null = null;
+
+        const distance = Helpers.getUrlParameter('distance');
+        const distanceId = distance ? distance.replace('_', '-') : undefined;
+        const year = Helpers.getUrlParameter('year');
+
+        // Determine the view type first.
+        // If it's best efforts, races by distances or races by year,
+        // set the active navigation item by URL.
+        if (viewName === 'best-efforts' && distanceId) {
+            navigationAnchor = $(`.main-sidebar a[id^="best-efforts-for-distance-${distanceId}"]`);
+        }
+
+        if (viewName === 'races') {
+            if (distanceId) {
+                navigationAnchor = $(`.main-sidebar a[id^="races-for-distance-${distanceId}"]`);
+            }
+
+            if (year && /^20\d\d$/g.test(year)) {
+                navigationAnchor = $(`.main-sidebar a[id^="races-for-year-${year}"]`);
+            }
+        }
+
+        return navigationAnchor;
     }
 }
