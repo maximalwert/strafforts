@@ -69,26 +69,29 @@ $(document).ready(() => {
 
         const distance = $(event.currentTarget).find('.item-text').text().trim();
         const distanceFormattedForUrl = AppHelpers.formateDistanceForUrl(distance);
+        const count = $(event.currentTarget).find('small').text().trim();
 
         AppHelpers.pushStateToWindow(`?view=best-efforts&distance=${distanceFormattedForUrl}`);
-        new BestEffortsByDistanceView(distance).load();
+        new BestEffortsByDistanceView(distance, count).load();
     });
     $(document).on('click', "a[id^='races-for-distance']", (event) => {
         event.preventDefault();
 
         const distance = $(event.currentTarget).find('.item-text').text().trim();
         const distanceFormattedForUrl = AppHelpers.formateDistanceForUrl(distance);
+        const count = $(event.currentTarget).find('small').text().trim();
 
         AppHelpers.pushStateToWindow(`?view=races&distance=${distanceFormattedForUrl}`);
-        new RacesByDistanceView(distance).load();
+        new RacesByDistanceView(distance, count).load();
     });
     $(document).on('click', "a[id^='races-for-year']", (event) => {
         event.preventDefault();
 
         const year = $(event.currentTarget).find('.item-text').text().trim();
+        const count = $(event.currentTarget).find('small').text().trim();
 
         AppHelpers.pushStateToWindow(`?view=races&year=${year}`);
-        new RacesByYearView(year).load();
+        new RacesByYearView(year, count).load();
     });
 });
 

@@ -56,10 +56,37 @@ export namespace AppHelpers {
         }
     }
 
-    export function setNavigationItem(anchor: JQuery) {
-        anchor.parent().closest('.treeview-expander').addClass('active');
-        anchor.parent().addClass('active');
-        anchor.children('i').removeClass('fa-circle-o');
-        anchor.children('i').addClass('fa-check-circle-o');
+    export function setActiveNavigationItem() {
+        const viewName = Helpers.getUrlParameter('view');
+
+        if (viewName) {
+            let navigationAnchor: JQuery | null = null;
+
+            const distance = Helpers.getUrlParameter('distance');
+            const distanceId = distance ? distance.replace('_', '-') : undefined;
+            const year = Helpers.getUrlParameter('year');
+
+            // Determine the view type first.
+            // If it's best efforts, races by distances or races by year,
+            // set the active navigation item by URL.
+            if (viewName === 'best-efforts' && distanceId) {
+                navigationAnchor = $(`a[id^="best-efforts-for-distance-${distanceId}"]`);
+            }
+
+            if (viewName === 'races' && distanceId) {
+                navigationAnchor = $(`a[id^="races-for-distance-${distanceId}"]`);
+            }
+
+            if (viewName === 'races' && year && /^20\d\d$/g.test(year)) {
+                navigationAnchor = $(`a[id^="races-for-year-${year}"]`);
+            }
+
+            if (navigationAnchor && navigationAnchor.length === 1) {
+                navigationAnchor.parent().closest('.treeview-expander').addClass('active');
+                navigationAnchor.parent().addClass('active');
+                navigationAnchor.children('i').removeClass('fa-circle-o');
+                navigationAnchor.children('i').addClass('fa-check-circle-o');
+            }
+        }
     }
 }
