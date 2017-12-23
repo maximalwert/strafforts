@@ -106,13 +106,23 @@ export default class RacesTimelineView extends BaseView {
                         RacesTimelineView.distances.push(distance);
                     }
 
-                    let cadence = '';
-                    if (item['cadence'] !== '') {
-                        cadence = `
+                    let distanceBlock = '';
+                    if (distance.toLowerCase() === 'other distances' && item['distance'] && item['distance_unit']) {
+                        distanceBlock = `
+                        <div class="activity-data">
+                            <strong>Distance: </strong>${item['distance'].toFixed(2)}
+                            <small>${item['distance_unit']}</small>
+                        </div>
+                        <br />`;
+                    }
+
+                    let cadenceBlock = '';
+                    if (item['cadence']) {
+                        cadenceBlock = `
                         <div class="activity-data">
                             <strong>Cadence: </strong>${item['cadence']}
                         </div>
-                    `;
+                        <br />`;
                     }
 
                     content += `
@@ -127,6 +137,7 @@ export default class RacesTimelineView extends BaseView {
                                     <span class="btn btn-xs" data-race-distance="${distance}">${distance}</span>
                                 </h3>
                                 <div class="timeline-body">
+                                    ${distanceBlock}
                                     <div class="activity-data">
                                         <strong>Time: </strong>${item['elapsed_time_formatted']}
                                     </div>
@@ -139,8 +150,7 @@ export default class RacesTimelineView extends BaseView {
                                         <strong>Elevation: </strong>${item['elevation']}
                                         <small>${item['elevation_unit']}</small>
                                     </div>
-                                    ${cadence}
-                                    <br />
+                                    ${cadenceBlock}
                                     <div class="activity-data">
                                         <strong>Gear: </strong>${item['gear_name']}
                                     </div>

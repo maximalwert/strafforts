@@ -3,7 +3,7 @@ import { Helpers } from './../../common/helpers';
 
 abstract class BaseView {
 
-    protected prepareView(viewType: string, itemName?: string, navigationAnchor?: JQuery) {
+    protected prepareView(viewType: string, itemName?: string) {
         let viewName = viewType;
         if (itemName) {
             viewName = `${viewType} - ${itemName}`;
@@ -13,10 +13,7 @@ abstract class BaseView {
         AppHelpers.setContentHeader(viewName);
         AppHelpers.appendToPageTitle(` |  ${viewName}`);
         AppHelpers.resetNavigationItems();
-
-        if (navigationAnchor) {
-            AppHelpers.setNavigationItem(navigationAnchor);
-        }
+        AppHelpers.setActiveNavigationItem();
     }
 
     protected abstract load(relativeUrl: string): void;

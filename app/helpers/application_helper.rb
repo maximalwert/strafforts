@@ -227,7 +227,7 @@ module ApplicationHelper
       end
 
       # Sort by start_date (not id) with the latest first.
-      shaped_items.sort_by! { |shaped_item| shaped_item[:start_date] }.reverse!
+      shaped_items.sort_by! { |shaped_item| [shaped_item[:start_date], -shaped_item[:elapsed_time]] }.reverse!
       shaped_items
     end
 

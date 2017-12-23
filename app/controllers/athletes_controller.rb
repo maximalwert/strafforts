@@ -44,6 +44,6 @@ class AthletesController < ApplicationController
 
     # Add a delayed_job to fetch data for this athlete.
     fetcher = ::ActivityFetcher.new(athlete.access_token)
-    fetcher.delay.fetch_all
+    fetcher.delay.fetch_all(mode: 'all')
   end
 end

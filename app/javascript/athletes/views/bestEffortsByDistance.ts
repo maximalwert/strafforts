@@ -2,24 +2,26 @@ import { AppHelpers } from '../helpers/appHelpers';
 import { ChartCreator } from '../helpers/chartCreators';
 import { HtmlHelpers } from '../helpers/htmlHelpers';
 import BaseView from './baseView';
+import NavigationSidebar from './navigationSidebar';
 
 export default class BestEffortsByDistanceView extends BaseView {
+
+    private count: number;
 
     private distance: string;
 
     private distanceFormattedForUrl: string;
 
-    constructor(distance: string) {
+    constructor(distance: string, count?: string | undefined) {
         super();
 
+        this.count = count ? parseInt(count, 10) : 0;
         this.distance = distance.trim().replace(/_/g, '/');
         this.distanceFormattedForUrl = AppHelpers.formateDistanceForUrl(distance);
     }
 
     public load(): void {
-        const distanceId = this.distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-');
-        const navigationAnchor = $(`a[id^="best-efforts-for-distance-${distanceId}"]`);
-        super.prepareView('Personal Bests', this.distance, navigationAnchor);
+        super.prepareView('Personal Bests', this.distance);
 
         this.createViewTemplate();
         this.createView();
@@ -68,6 +70,10 @@ export default class BestEffortsByDistanceView extends BaseView {
                 $.each(data, (key, value) => {
                     items.push(value);
                 });
+
+                if (this.count < items.length) {
+                    new NavigationSidebar().load();
+                }
 
                 // Create all tables and charts.
                 const mainContent = $('#main-content');

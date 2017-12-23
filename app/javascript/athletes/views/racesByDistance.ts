@@ -2,8 +2,11 @@ import { AppHelpers } from '../helpers/appHelpers';
 import { ChartCreator } from '../helpers/chartCreators';
 import { HtmlHelpers } from '../helpers/htmlHelpers';
 import BaseView from './baseView';
+import NavigationSidebar from './navigationSidebar';
 
 export default class RacesByDistanceView extends BaseView {
+
+    private count: number;
 
     private distance: string;
 
@@ -11,19 +14,17 @@ export default class RacesByDistanceView extends BaseView {
 
     private isOtherDistance: boolean;
 
-    constructor(distance: string) {
+    constructor(distance: string, count?: string | undefined) {
         super();
 
+        this.count = count ? parseInt(count, 10) : 0;
         this.distance = distance;
         this.isOtherDistance = distance.toLocaleLowerCase() === 'other distances';
         this.distanceFormattedForUrl = AppHelpers.formateDistanceForUrl(distance);
     }
 
     public load(): void {
-        const viewUrl = `${AppHelpers.getBaseUrl()}?view=races&distance=${this.distanceFormattedForUrl}`;
-        const distanceId = this.distance.toLowerCase().replace(/ /g, '-').replace(/\//g, '-');
-        const navigationAnchor = $(`a[id^="races-for-distance-${distanceId}"]`);
-        super.prepareView('Races', this.distance, navigationAnchor);
+        super.prepareView('Races', this.distance);
 
         this.createViewTemplate();
         this.createView();
@@ -73,6 +74,10 @@ export default class RacesByDistanceView extends BaseView {
                 $.each(data, (key, value) => {
                     items.push(value);
                 });
+
+                if (this.count < items.length) {
+                    new NavigationSidebar().load();
+                }
 
                 // Create all tables and charts.
                 const mainContent = $('#main-content');
