@@ -11,6 +11,10 @@ export default class Overview extends BaseView {
         this.createView();
     }
 
+    public loadBestEffortsPanel(): void {
+        this.createView();
+    }
+
     public loadRacesPanel(): void {
         this.createOverviewDatatable('races');
     }
