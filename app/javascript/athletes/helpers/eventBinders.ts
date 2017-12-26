@@ -1,4 +1,5 @@
 import { HtmlHelpers } from '../helpers/htmlHelpers';
+import NavigationSidebar from '../views/navigationSidebar';
 import Overview from '../views/overview';
 
 export namespace EventBinders {
@@ -22,11 +23,14 @@ export namespace EventBinders {
             // Disable clicking for 'PBs by Distance', 'Race by Distance' and 'Race by Year' treeview headers.
             $('.sidebar-menu .disabled').click(false);
 
-            // Load Races Overview upon clicking 'Races' tab button if not yet created.
+            // Always load Overview panes upon clicking.
             $(document).on('click', "a[href^='#pane-races']", () => {
-                if ($('#pane-races .loading-icon-panel').length) {
-                    new Overview().loadRacesPanel();
-                }
+                new Overview().loadRacesPanel();
+                new NavigationSidebar().load();
+            });
+            $(document).on('click', "a[href^='#pane-best-efforts']", () => {
+                new Overview().loadBestEffortsPanel();
+                new NavigationSidebar().load();
             });
 
             // Bind race filter buttons in Races Timeline view.
