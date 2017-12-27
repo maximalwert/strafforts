@@ -90,6 +90,12 @@ export namespace Helpers {
         return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
+    export function isTouchDevice() {
+        // https://stackoverflow.com/a/4819886/1177636.
+        return 'ontouchstart' in window        // works on most browsers.
+            || navigator.maxTouchPoints;       // works on IE10/11 and Surface.
+    }
+
     export function sendGoogleAnalyticsEvent(category: string, action: string, element: Element, value?: number) {
         const title = element.getAttribute('title');
         const textConent = element.textContent ? element.textContent.trim() : undefined;

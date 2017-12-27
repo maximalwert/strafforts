@@ -1,5 +1,6 @@
 import { Helpers } from '../../common/helpers';
 import { RgbColor } from '../../common/rgbColor';
+import { AppHelpers } from './appHelpers';
 
 declare const Chart: any;
 
@@ -810,6 +811,11 @@ export class ChartCreator {
     }
 
     private createStravaActivityLink(chart: any, chartId: string) {
+        // Only do this when it's not a touch device.
+        if (Helpers.isTouchDevice()) {
+            return;
+        }
+
         const canvasElement = document.getElementById(chartId + '-canvas') as HTMLCanvasElement;
         canvasElement.onclick = (event) => {
             const activePoints = chart.getElementAtEvent(event);
