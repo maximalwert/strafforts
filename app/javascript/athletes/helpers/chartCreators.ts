@@ -1,5 +1,6 @@
 import { Helpers } from '../../common/helpers';
 import { RgbColor } from '../../common/rgbColor';
+import { AppHelpers } from './appHelpers';
 
 declare const Chart: any;
 
@@ -30,14 +31,17 @@ export class ChartCreator {
             return;
         }
 
+        const activityIds: string[] = [];
         const activityNames: string[] = [];
         const dates: string[] = [];
         const runTimes: number[] = [];
 
         this.items.forEach((item) => {
+            const activityId = item['activity_id'];
             const activityName = item['activity_name'];
             const date = item['start_date'];
             const runTime = item['elapsed_time'];
+            activityIds.push(activityId);
             activityNames.push(activityName);
             dates.push(date);
             runTimes.push(runTime);
@@ -48,6 +52,7 @@ export class ChartCreator {
             labels: dates,
             datasets: [{
                 label: activityNames,
+                activityIds,
                 fill: false,
                 lineTension: 0,
                 backgroundColor: 'rgba(75,192,192,0.4)',
@@ -116,7 +121,8 @@ export class ChartCreator {
             },
         };
 
-        this.createLineChart(id, chartData, customChartOptions);
+        const chart = this.createLineChart(id, chartData, customChartOptions);
+        this.createStravaActivityLink(chart, id);
     }
 
     public createYearDistributionChart(id: string) {
@@ -375,6 +381,7 @@ export class ChartCreator {
         const boundaryOffset = 5;
         const radius = 10;
 
+        const activityIds: string[] = [];
         const activityNames: string[] = [];
         const averageHeartRates: number[] = [];
         const bubbleColors: RgbColor[] = [];
@@ -387,8 +394,10 @@ export class ChartCreator {
             const maxHeartRate = item['max_heartrate'];
 
             if (averageHeartRate > 0 && maxHeartRate > 0) {
+                const activityId = item['activity_id'];
                 const activityName = item['activity_name'];
                 const date = item['start_date'];
+                activityIds.push(activityId);
                 activityNames.push(activityName);
                 dates.push(date);
 
@@ -416,6 +425,7 @@ export class ChartCreator {
             datasets: [{
                 data: points,
                 label: activityNames,
+                activityIds,
                 backgroundColor: Helpers.convertToRgbaColors(bubbleColors, 0.6),
                 hoverBackgroundColor: Helpers.convertToRgbaColors(bubbleColors, 1),
             }],
@@ -468,7 +478,8 @@ export class ChartCreator {
             },
         };
 
-        this.createBubbleChart(id, chartData, customChartOptions);
+        const chart = this.createBubbleChart(id, chartData, customChartOptions);
+        this.createStravaActivityLink(chart, id);
     }
 
     public createAverageHrZonesChart(id: string) {
@@ -586,15 +597,17 @@ export class ChartCreator {
         chartData: Chart.ChartData,
         chartOptions: Chart.ChartOptions) {
 
+        let chart;
         const canvasElement = document.getElementById(id + '-canvas') as HTMLCanvasElement;
         const context = canvasElement.getContext('2d');
         if (context) {
-            const chart = new Chart(context, {
+            chart = new Chart(context, {
                 type: chartType,
                 data: chartData,
                 options: chartOptions,
             });
         }
+        return chart;
     }
 
     private createBarChart(
@@ -661,7 +674,7 @@ export class ChartCreator {
 
         const chartOptions = customChartOptions ?
             { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
-        this.createChart(id, 'bar', chartData, chartOptions);
+        return this.createChart(id, 'bar', chartData, chartOptions);
     }
 
     private createBubbleChart(
@@ -679,7 +692,7 @@ export class ChartCreator {
 
         const chartOptions = customChartOptions ?
             { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
-        this.createChart(id, 'bubble', chartData, chartOptions);
+        return this.createChart(id, 'bubble', chartData, chartOptions);
     }
 
     private createHorizontalBarChart(
@@ -721,7 +734,7 @@ export class ChartCreator {
 
         const chartOptions = customChartOptions ?
             { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
-        this.createChart(id, 'horizontalBar', chartData, chartOptions);
+        return this.createChart(id, 'horizontalBar', chartData, chartOptions);
     }
 
     private createLineChart(
@@ -742,7 +755,7 @@ export class ChartCreator {
 
         const chartOptions = customChartOptions ?
             { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
-        this.createChart(id, 'line', chartData, chartOptions);
+        return this.createChart(id, 'line', chartData, chartOptions);
     }
 
     private createPieChart(
@@ -794,6 +807,23 @@ export class ChartCreator {
 
         const chartOptions = customChartOptions ?
             { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
-        this.createChart(id, 'pie', chartData, chartOptions);
+        return this.createChart(id, 'pie', chartData, chartOptions);
+    }
+
+    private createStravaActivityLink(chart: any, chartId: string) {
+        // Only do this when it's not a touch device.
+        if (Helpers.isTouchDevice()) {
+            return;
+        }
+
+        const canvasElement = document.getElementById(chartId + '-canvas') as HTMLCanvasElement;
+        canvasElement.onclick = (event) => {
+            const activePoints = chart.getElementAtEvent(event);
+            if (activePoints.length === 1) {
+                const index = activePoints[0]._index;
+                const activityLink = `https://www.strava.com/activities/${chart.data.datasets[0].activityIds[index]}`;
+                window.open(activityLink, '_blank');
+            }
+        };
     }
 }
