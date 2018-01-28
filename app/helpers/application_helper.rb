@@ -112,13 +112,24 @@ module ApplicationHelper
       total_elevation_gain.to_i
     end
 
+    # Use exactly the same logic as app/javascript/common/helpers.ts, instead of Ruby's divmod.
     def self.convert_to_pace(average_speed, is_imperial_unit)
       return '' if average_speed.blank? || average_speed.to_i.zero?
 
-      seconds = is_imperial_unit ? (1609.344 / average_speed) : (1000 / average_speed)
-      mins, secs = seconds.divmod(60)
-      return "#{mins}:0#{secs.round}" if secs.round < 10
-      "#{mins}:#{secs.round}"
+      total_seconds = is_imperial_unit ? (1609.344 / average_speed) : (1000 / average_speed)
+      
+      hours = (total_seconds / 3600).floor
+      minutes = ((total_seconds - (hours * 3600)) / 60).floor
+      seconds = (total_seconds - (hours * 3600) - (minutes * 60)).ceil
+
+      hours_text = hours == 0 ? '' : hours.to_s
+      minutes_text = "#{minutes.to_s}:"
+      seconds_text = seconds < 10 ? "0#{seconds.to_s}" : seconds.to_s
+      if seconds == 60
+        minutes_text = "#{(minutes + 1).to_s}:"
+        seconds_text = "00"
+      end
+      return "#{hours_text}#{minutes_text}#{seconds_text}"
     end
 
     def self.convert_to_pace_in_seconds(average_speed, is_imperial_unit)

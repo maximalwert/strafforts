@@ -35,6 +35,7 @@ export class ChartCreator {
         const activityNames: string[] = [];
         const dates: string[] = [];
         const runTimes: number[] = [];
+        const runTimesFormatted: string[] = [];
         const paces: number[] = [];
         let paceUnit: string;
 
@@ -43,12 +44,14 @@ export class ChartCreator {
             const activityName = item['activity_name'];
             const date = item['start_date'];
             const runTime = item['elapsed_time'];
+            const runTimeFormatted = item['elapsed_time_formatted'];
             const pace = item['pace_in_seconds'];
             paceUnit = item['pace_unit']; // User based, should be the same for all activities.
             activityIds.push(activityId);
             activityNames.push(activityName);
             dates.push(date);
             runTimes.push(runTime);
+            runTimesFormatted.push(runTimeFormatted);
             paces.push(pace);
         });
 
@@ -58,6 +61,7 @@ export class ChartCreator {
                 label: activityNames,
                 activityIds,
                 runTimes,
+                runTimesFormatted,
                 paces,
                 fill: false,
                 lineTension: 0,
@@ -120,7 +124,7 @@ export class ChartCreator {
                     label: (tooltipItem: Chart.ChartTooltipItem, data: any) => {
                         const index = tooltipItem.index;
                         if (typeof index !== 'undefined') {
-                            const time = Helpers.convertDurationToTime(data.datasets[0].runTimes[index]);
+                            const time = data.datasets[0].runTimesFormatted[index];
                             if (tooltipItem.yLabel) {
                                 const pace = Helpers.formatPace(data.datasets[0].paces[index], paceUnit);
                                 const date = tooltipItem.xLabel;
