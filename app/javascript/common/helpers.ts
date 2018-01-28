@@ -17,6 +17,27 @@ export namespace Helpers {
         return time;
     }
 
+    export function formatPace(duration: string, unit: string) {
+        const totalSeconds = parseInt(duration, 10); // Don't forget the second param.
+
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds - (hours * 3600)) / 60);
+        const seconds = totalSeconds - (hours * 3600) - (minutes * 60);
+
+        let hoursText = hours.toString();
+        if (hours === 0) {
+            hoursText = '';
+        } else if (hours < 10) {
+            hoursText = `0${minutes}:`;
+        }
+
+        const minutesText = `${minutes.toString()}:`;
+        const secondsText = seconds < 10 ? `0${seconds}` : seconds.toString();
+
+        const time = `${hoursText}${minutesText}${secondsText}${unit}`;
+        return time;
+    }
+
     export function convertToTitleCase(sourceText: string) {
         return sourceText.replace(/\w\S*/g,
             (text) => {

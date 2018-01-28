@@ -38,7 +38,12 @@ export default class RacesByDistanceView extends BaseView {
         const showLoadingIcon = true;
         const content = `
             <div class="row">
-                ${HtmlHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
+                ${HtmlHelpers.constructChartHtml(
+                    'progression-chart',
+                    'Progression Chart (Pace)',
+                    8,
+                    showLoadingIcon,
+                )}
                 ${HtmlHelpers.constructChartHtml(
                     'year-distribution-pie-chart',
                     'Year Distribution Chart',
@@ -85,7 +90,11 @@ export default class RacesByDistanceView extends BaseView {
 
                 const content = `
                     <div class="row">
-                        ${HtmlHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8)}
+                        ${HtmlHelpers.constructChartHtml(
+                            'progression-chart',
+                            'Progression Chart (Pace)',
+                            8,
+                        )}
                         ${HtmlHelpers.constructChartHtml(
                             'year-distribution-pie-chart',
                             'Year Distribution Chart',
@@ -114,7 +123,7 @@ export default class RacesByDistanceView extends BaseView {
                 if (this.isOtherDistance) {
                     chartCreator.createChartWithMessage(progressionChartId, 'Not Applicable');
                 } else {
-                    chartCreator.createProgressionChart(progressionChartId);
+                    chartCreator.createProgressionChart(progressionChartId, true);
                 }
 
                 // Setup all other charts and tables.

@@ -121,6 +121,12 @@ module ApplicationHelper
       "#{mins}:#{secs.round}"
     end
 
+    def self.convert_to_pace_in_seconds(average_speed, is_imperial_unit)
+      return 0 if average_speed.blank? || average_speed.to_i.zero?
+
+      seconds = is_imperial_unit ? (1609.344 / average_speed) : (1000 / average_speed)
+    end
+
     def self.create_default_heart_rate_zones
       heart_rate_zones = OpenStruct.new(custom_zones: false)
       heart_rate_zones.zone_1_min = 0
@@ -211,6 +217,7 @@ module ApplicationHelper
         item[:start_date] = get_date_time(entity.activity.start_date_local)
         item[:workout_type_name] = entity.activity.workout_type.nil? ? 'n/a' : entity.activity.workout_type.name
         item[:elapsed_time_formatted] = Time.at(item[:elapsed_time]).utc.strftime('%H:%M:%S')
+        item[:pace_in_seconds] = convert_to_pace_in_seconds(average_speed, item[:is_imperial_unit])
         item[:pace] = convert_to_pace(average_speed, item[:is_imperial_unit])
         item[:pace_unit] = item[:is_imperial_unit] ? '/mi' : '/km'
         item[:elevation] = calculate_total_elevation_gain(entity.activity.total_elevation_gain, item[:is_imperial_unit])
