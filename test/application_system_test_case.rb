@@ -40,7 +40,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     '1 Mile', '1k', '1/2 Mile', '400m'
   ].freeze
   BEST_EFFORTS_CHART_TITLES = [
-    'Progression Chart',
+    'Progression Chart (Duration)',
     'Year Distribution Chart',
     'Workout Type Chart',
     'Gear Count Chart',
@@ -68,7 +68,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     'Half Marathon', '15k', '10k', '5k', '3000m', 'Other Distances'
   ].freeze
   RACE_DISTANCES_CHART_TITLES = [
-    'Progression Chart',
+    'Progression Chart (Pace)',
     'Year Distribution Chart',
     'Gear Count Chart',
     'Gear Mileage Chart',
