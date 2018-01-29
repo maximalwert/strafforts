@@ -35,7 +35,12 @@ export default class BestEffortsByDistanceView extends BaseView {
         const showLoadingIcon = true;
         const content = `
             <div class="row">
-                ${HtmlHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8, showLoadingIcon)}
+                ${HtmlHelpers.constructChartHtml(
+                    'progression-chart',
+                    'Progression Chart (Duration)',
+                    8,
+                    showLoadingIcon,
+                )}
                 ${HtmlHelpers.constructChartHtml(
                     'year-distribution-pie-chart',
                     'Year Distribution Chart',
@@ -81,7 +86,11 @@ export default class BestEffortsByDistanceView extends BaseView {
 
                 const content = `
                     <div class="row">
-                        ${HtmlHelpers.constructChartHtml('progression-chart', 'Progression Chart', 8)}
+                        ${HtmlHelpers.constructChartHtml(
+                            'progression-chart',
+                            'Progression Chart (Duration)',
+                            8,
+                        )}
                         ${HtmlHelpers.constructChartHtml(
                             'year-distribution-pie-chart',
                             'Year Distribution Chart',
@@ -105,7 +114,7 @@ export default class BestEffortsByDistanceView extends BaseView {
 
                 // Setup all tables and charts.
                 const chartCreator = new ChartCreator(items);
-                chartCreator.createProgressionChart('progression-chart');
+                chartCreator.createProgressionChart('progression-chart', false);
                 chartCreator.createYearDistributionChart('year-distribution-pie-chart');
                 $('.dataTable').each(function() {
                     ($(this) as any).DataTable({

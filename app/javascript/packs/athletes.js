@@ -49,6 +49,8 @@ var AdminLTEOptions = {
     }
 };
 
+Pace.options.ajax.trackWebSockets = false;
+
 // Lazy Loading AddThis plugin.
 $('#modal-social-sharing').on('shown.bs.modal', function (e) {
     var script = document.createElement('script');

@@ -1,19 +1,22 @@
 import { RgbColor } from './rgbColor';
 
 export namespace Helpers {
-
-    export function convertDurationToTime(duration: string) {
-        const totalSeconds = parseInt(duration, 10); // Don't forget the second param.
+    export function formatPace(duration: string, unit: string) {
+        const totalSeconds = parseFloat(duration);
 
         const hours = Math.floor(totalSeconds / 3600);
         const minutes = Math.floor((totalSeconds - (hours * 3600)) / 60);
-        const seconds = totalSeconds - (hours * 3600) - (minutes * 60);
+        const seconds = Math.ceil(totalSeconds - (hours * 3600) - (minutes * 60));
 
-        const hoursText = hours < 10 ? `0${hours}` : hours.toString();
-        const minutesText = minutes < 10 ? `0${minutes}` : minutes.toString();
-        const secondsText = seconds < 10 ? `0${seconds}` : seconds.toString();
+        const hoursText = hours === 0 ? '' : hours.toString();
+        let minutesText = `${minutes.toString()}:`;
+        let secondsText = seconds < 10 ? `0${seconds}` : seconds.toString();
 
-        const time = `${hoursText}:${minutesText}:${secondsText}`;
+        if (seconds === 60) {
+            minutesText = `${(minutes + 1).toString()}:`;
+            secondsText = '00';
+        }
+        const time = `${hoursText}${minutesText}${secondsText}${unit}`;
         return time;
     }
 

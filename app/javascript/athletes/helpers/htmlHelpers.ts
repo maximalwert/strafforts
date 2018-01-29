@@ -51,7 +51,7 @@ export namespace HtmlHelpers {
         const messageBody = `
         <h4>If Just Connected...</h4>
         <p>
-            Please be patient while the data is being processed. It should nomrally take only a few minutes.
+            Please be patient while the data is being processed. It should normally take only a few minutes.
             Go grab a cup of tea then come back and refresh the page.
         </p>
         <h4>Troubleshooting...</h4>

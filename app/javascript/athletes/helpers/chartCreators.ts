@@ -25,7 +25,7 @@ export class ChartCreator {
         }
     }
 
-    public createProgressionChart(id: string) {
+    public createProgressionChart(id: string, sortByPace: boolean) {
         if (this.items.length <= 1) {
             this.createChartWithNotEnoughDataMessage(id);
             return;
@@ -35,24 +35,34 @@ export class ChartCreator {
         const activityNames: string[] = [];
         const dates: string[] = [];
         const runTimes: number[] = [];
+        const runTimesFormatted: string[] = [];
+        const paces: number[] = [];
+        let paceUnit: string;
 
         this.items.forEach((item) => {
             const activityId = item['activity_id'];
             const activityName = item['activity_name'];
             const date = item['start_date'];
             const runTime = item['elapsed_time'];
+            const runTimeFormatted = item['elapsed_time_formatted'];
+            const pace = item['pace_in_seconds'];
+            paceUnit = item['pace_unit']; // User based, should be the same for all activities.
             activityIds.push(activityId);
             activityNames.push(activityName);
             dates.push(date);
             runTimes.push(runTime);
+            runTimesFormatted.push(runTimeFormatted);
+            paces.push(pace);
         });
 
         const chartData: Chart.ChartData = {
-            yLabels: runTimes,
             labels: dates,
             datasets: [{
                 label: activityNames,
                 activityIds,
+                runTimes,
+                runTimesFormatted,
+                paces,
                 fill: false,
                 lineTension: 0,
                 backgroundColor: 'rgba(75,192,192,0.4)',
@@ -70,7 +80,7 @@ export class ChartCreator {
                 pointRadius: 4,
                 pointHitRadius: 10,
                 pointStyle: 'circle',
-                data: runTimes,
+                data: sortByPace ? paces : runTimes,
                 spanGaps: false,
             }],
         };
@@ -95,7 +105,8 @@ export class ChartCreator {
                     },
                     ticks: {
                         callback: (value: any) => {
-                            return value.toString().toHHMMSS();
+                            return sortByPace ?
+                                Helpers.formatPace(value.toString(), paceUnit) : value.toString().toHHMMSS();
                         },
                     },
                 }],
@@ -110,11 +121,15 @@ export class ChartCreator {
                             return data.datasets[0].label[index];
                         }
                     },
-                    label: (tooltipItem: Chart.ChartTooltipItem) => {
-                        if (tooltipItem.yLabel) {
-                            const time = Helpers.convertDurationToTime(tooltipItem.yLabel.toString());
-                            const date = tooltipItem.xLabel;
-                            return `Ran ${time} on ${date}`;
+                    label: (tooltipItem: Chart.ChartTooltipItem, data: any) => {
+                        const index = tooltipItem.index;
+                        if (typeof index !== 'undefined') {
+                            const time = data.datasets[0].runTimesFormatted[index];
+                            if (tooltipItem.yLabel) {
+                                const pace = Helpers.formatPace(data.datasets[0].paces[index], paceUnit);
+                                const date = tooltipItem.xLabel;
+                                return `Ran ${time} on ${date} at ${pace}`;
+                            }
                         }
                     },
                 },
