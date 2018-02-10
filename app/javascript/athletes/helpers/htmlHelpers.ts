@@ -61,8 +61,8 @@ export namespace HtmlHelpers {
             <ol>
                 <li>Check if there are any running activities for this athlete on Strava.</li>
                 <li>
-                    For PBs, check if there are any best efforts
-                    (e.g. gold trophies like 'Best Estimated 10k Effort') on Strava.
+                    For PBs/PRs, check if there are any gold trophies like 'Best Estimated 10k Effort' on any of your
+                    Strava activities.
                 </li>
                 <li>
                     For races, make sure there are activities tagged as 'Race' on Strava.

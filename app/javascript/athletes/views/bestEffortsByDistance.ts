@@ -29,6 +29,10 @@ export default class BestEffortsByDistanceView extends BaseView {
         } else {
             $('.best-efforts-filter-buttons .btn').removeClass('active');
             $('.best-efforts-wrapper').remove();
+
+            if ($('#main-content .best-efforts-filter-buttons .btn').length === 0) {
+                $('#main-content').append(HtmlHelpers.getNoDataInfoBox);
+            }
         }
     }
 
@@ -150,7 +154,7 @@ export default class BestEffortsByDistanceView extends BaseView {
     }
 
     private createFilterButtons() {
-        if ($('#main-content .best-efforts-filter-buttons').length === 0) {
+        if ($('#main-content .best-efforts-filter-buttons .btn').length === 0) {
 
             // Empty everything first (i.e. Loading Icon).
             const mainContent = $('#main-content');
