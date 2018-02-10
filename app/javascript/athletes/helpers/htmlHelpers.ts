@@ -94,21 +94,11 @@ export namespace HtmlHelpers {
     }
 
     export function getDatatableHeaderForBestEfforts() {
-        const header = `
-            <thead>
-                <tr>
-                    <th class="col-md-1">Date</th>
-                    <th class="col-md-1 text-center badge-cell hidden-xs-down">Type</th>
-                    <th class="col-md-4">Activity</th>
-                    <th class="col-md-1">Time</th>
-                    <th class="col-md-1 hidden-xs-down">Pace</th>
-                    <th class="col-md-2 hidden-lg-down">Gear</th>
-                    <th class="col-md-1 text-center badge-cell hidden-md-down">Avg. HR</th>
-                    <th class="col-md-1 text-center badge-cell hidden-md-down">Max HR</th>
-                </tr>
-            </thead>
-        `;
-        return header;
+        return createDatatableHeaderForBestEffortsOrPbs(false);
+    }
+
+    export function getDatatableHeaderForPersonalBests() {
+        return createDatatableHeaderForBestEffortsOrPbs(true);
     }
 
     export function getDatatableHeaderForRaces(showDistanceColumn?: boolean) {
@@ -134,41 +124,11 @@ export namespace HtmlHelpers {
     }
 
     export function getDatatableRowForBestEfforts(item: any[]) {
-        const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
-        const workoutTypeNameClass = `workout-type-${item['workout_type_name'].replace(/\s/g, '-')}`;
-        const row = `
-            <tr>
-                <td class="no-wrap">${item['start_date']}</td>
-                <td class="text-center badge-cell hidden-xs-down">
-                    <span class="label ${workoutTypeNameClass}">${item['workout_type_name']}</span>
-                </td>
-                <td>
-                    <a class="strava-activity-link" href="${stravaLink}" target="_blank">
-                        ${item['activity_name']}
-                    </a>
-                </td>
-                <td class="no-wrap">
-                    ${item['elapsed_time_formatted']}
-                </td>
-                <td class="hidden-xs-down">
-                    ${item['pace']}<small>${item['pace_unit']}</small>
-                </td>
-                <td class="hidden-lg-down">
-                    ${item['gear_name']}
-                </td>
-                <td class="text-center badge-cell hidden-md-down">
-                    <span class="badge hr-zone-${item['average_hr_zone']}">
-                        ${item['average_heartrate'] === -1 ? 'n/a' : item['average_heartrate']}
-                    </span>
-                </td>
-                <td class="text-center badge-cell hidden-md-down">
-                    <span class="badge hr-zone-${item['max_hr_zone']}">
-                        ${item['max_heartrate'] === -1 ? 'n/a' : item['max_heartrate']}
-                    </span>
-                </td>
-            </tr>
-        `;
-        return row;
+        return createDatatableRowForBestEffortsOrPbs(item, false);
+    }
+
+    export function getDatatableRowForPersonalBests(item: any[]) {
+        return createDatatableRowForBestEffortsOrPbs(item, true);
     }
 
     export function getDatatableRowForRaces(item: any[], showDistanceColumn?: boolean) {
@@ -212,6 +172,66 @@ export namespace HtmlHelpers {
                         ${item['max_heartrate'] === -1 ? 'n/a' : item['max_heartrate']}
                     </span>
                 </td>
+            </tr>
+        `;
+        return row;
+    }
+
+    function createDatatableHeaderForBestEffortsOrPbs(showHrColumns: boolean) {
+        const hrColumns = showHrColumns ?
+            `<th class="col-md-1 text-center badge-cell hidden-md-down">Avg. HR</th>
+            <th class="col-md-1 text-center badge-cell hidden-md-down">Max HR</th>` : '';
+        const header = `
+            <thead>
+                <tr>
+                    <th class="col-md-1">Date</th>
+                    <th class="col-md-1 text-center badge-cell hidden-xs-down">Type</th>
+                    <th class="col-md-4">Activity</th>
+                    <th class="col-md-1">Time</th>
+                    <th class="col-md-1 hidden-xs-down">Pace</th>
+                    <th class="col-md-2 hidden-lg-down">Gear</th>
+                    ${hrColumns}
+                </tr>
+            </thead>
+        `;
+        return header;
+    }
+
+    function createDatatableRowForBestEffortsOrPbs(item: any[], showHrColumns: boolean) {
+        const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
+        const workoutTypeNameClass = `workout-type-${item['workout_type_name'].replace(/\s/g, '-')}`;
+        const hrColumns = showHrColumns ?
+            `<td class="text-center badge-cell hidden-md-down">
+                <span class="badge hr-zone-${item['average_hr_zone']}">
+                    ${item['average_heartrate'] === -1 ? 'n/a' : item['average_heartrate']}
+                </span>
+            </td>
+            <td class="text-center badge-cell hidden-md-down">
+                <span class="badge hr-zone-${item['max_hr_zone']}">
+                    ${item['max_heartrate'] === -1 ? 'n/a' : item['max_heartrate']}
+                </span>
+            </td>` : '';
+        const row = `
+            <tr>
+                <td class="no-wrap">${item['start_date']}</td>
+                <td class="text-center badge-cell hidden-xs-down">
+                    <span class="label ${workoutTypeNameClass}">${item['workout_type_name']}</span>
+                </td>
+                <td>
+                    <a class="strava-activity-link" href="${stravaLink}" target="_blank">
+                        ${item['activity_name']}
+                    </a>
+                </td>
+                <td class="no-wrap">
+                    ${item['elapsed_time_formatted']}
+                </td>
+                <td class="hidden-xs-down">
+                    ${item['pace']}<small>${item['pace_unit']}</small>
+                </td>
+                <td class="hidden-lg-down">
+                    ${item['gear_name']}
+                </td>
+                ${hrColumns}
             </tr>
         `;
         return row;

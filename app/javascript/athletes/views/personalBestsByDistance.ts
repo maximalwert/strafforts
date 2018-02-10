@@ -1,24 +1,28 @@
 import { AppHelpers } from '../helpers/appHelpers';
 import { ChartCreator } from '../helpers/chartCreators';
+import { ChartType } from '../helpers/chartHelper';
 import { HtmlHelpers } from '../helpers/htmlHelpers';
 import BaseView from './baseView';
 import NavigationSidebar from './navigationSidebar';
 
-export default class RacesByYearView extends BaseView {
+export default class PersonalBestsByDistanceView extends BaseView {
 
     private count: number;
 
-    private year: string;
+    private distance: string;
 
-    constructor(year: string, count?: string | undefined) {
+    private distanceFormattedForUrl: string;
+
+    constructor(distance: string, count?: string | undefined) {
         super();
 
         this.count = count ? parseInt(count, 10) : 0;
-        this.year = year;
+        this.distance = distance.trim().replace(/_/g, '/');
+        this.distanceFormattedForUrl = AppHelpers.formatDistanceForUrl(distance);
     }
 
     public load(): void {
-        super.prepareView('Races', this.year);
+        super.prepareView('Personal Bests', this.distance);
 
         this.createViewTemplate();
         this.createView();
@@ -26,29 +30,29 @@ export default class RacesByYearView extends BaseView {
 
     protected createViewTemplate(): void {
         const mainContent = $('#main-content');
-        mainContent.empty();
+        mainContent.empty(); // Empty main content.
 
         // Create empty tables and charts with loading icon.
         const showLoadingIcon = true;
         const content = `
             <div class="row">
                 ${HtmlHelpers.constructChartHtml(
-                    'distances-distribution-chart',
-                    'Distance Distribution Chart',
-                    6,
+                    'progression-chart',
+                    'Progression Chart (Duration)',
+                    8,
                     showLoadingIcon,
                 )}
                 ${HtmlHelpers.constructChartHtml(
-                    'monthly-distribution-chart',
-                    'Monthly Distribution Chart',
-                    6,
+                    'year-distribution-pie-chart',
+                    'Year Distribution Chart',
+                    4,
                     showLoadingIcon,
                 )}
             </div>
             ${this.constructDataTableHtml()}
             <div class="row">
                 ${HtmlHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
-                ${HtmlHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
+                ${HtmlHelpers.constructChartHtml('workout-type-chart', 'Workout Type Chart', 6, showLoadingIcon)}
             </div>
             <div class="row">
                 ${HtmlHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6, showLoadingIcon)}
@@ -65,10 +69,9 @@ export default class RacesByYearView extends BaseView {
 
     protected createView(): void {
         $.ajax({
-            url: `${AppHelpers.getApiBaseUrl()}/races/${this.year}`,
+            url: `${AppHelpers.getApiBaseUrl()}/personal-bests/${this.distanceFormattedForUrl}`,
             dataType: 'json',
             success: (data) => {
-
                 const items: any[] = [];
                 $.each(data, (key, value) => {
                     items.push(value);
@@ -85,42 +88,42 @@ export default class RacesByYearView extends BaseView {
                 const content = `
                     <div class="row">
                         ${HtmlHelpers.constructChartHtml(
-                            'distances-distribution-chart',
-                            'Distance Distribution Chart',
-                            6,
+                            'progression-chart',
+                            'Progression Chart (Duration)',
+                            8,
                         )}
                         ${HtmlHelpers.constructChartHtml(
-                            'month-distribution-chart',
-                            'Monthly Distribution Chart',
-                            6,
+                            'year-distribution-pie-chart',
+                            'Year Distribution Chart',
+                            4,
                         )}
                     </div>
                     ${this.constructDataTableHtml(items)}
                     <div class="row">
+                        ${HtmlHelpers.constructChartHtml('workout-type-chart', 'Workout Type Chart', 6)}
                         ${HtmlHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6)}
-                        ${HtmlHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6)}
                     </div>
                     <div class="row">
                         ${HtmlHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6)}
                         ${HtmlHelpers.constructChartHtml(
                             'average-hr-zones-chart',
-                            'Average HR Zones Distribution Chart',
-                            6,
+                            'Average HR Zones Distribution Chart', 6,
                         )}
                     </div>
                 `;
                 mainContent.append(content);
 
-                // Setup all charts and tables.
+                // Setup all tables and charts.
                 const chartCreator = new ChartCreator(items);
-                chartCreator.createRaceDistancesChart('distances-distribution-chart');
-                chartCreator.createMonthDistributionChart('month-distribution-chart');
+                chartCreator.createProgressionChart('progression-chart', false);
+                chartCreator.createYearDistributionChart('year-distribution-pie-chart');
                 $('.dataTable').each(function() {
                     ($(this) as any).DataTable({
-                        bFilter: false,
-                        bPaginate: false,
+                        columnDefs: [{
+                            targets: [1, 3, 4, 6, 7], // Disable searching for WorkoutType, Time, Pace and HRs.
+                            searchable: false,
+                        }],
                         iDisplayLength: 10,
-                        info: false,
                         order: [
                             [0, 'desc'],
                             [4, 'asc'],
@@ -128,7 +131,7 @@ export default class RacesByYearView extends BaseView {
                     });
                 });
                 chartCreator.createGearCountChart('gear-count-chart');
-                chartCreator.createGearMileageChart('gear-mileage-chart');
+                chartCreator.createWorkoutTypeChart('workout-type-chart');
                 chartCreator.createHeartRatesChart('heart-rates-chart');
                 chartCreator.createAverageHrZonesChart('average-hr-zones-chart');
             },
@@ -139,43 +142,21 @@ export default class RacesByYearView extends BaseView {
         let table = HtmlHelpers.getLoadingIcon();
 
         if (items) {
-            table = ''; // Set to empty.
-
-            const distancesToDisplay: string[] = [];
-            const allDistances = [
-                '100 miles', '100k', '50 miles', '50k', 'Marathon', 'Half Marathon',
-                '20k', '15k', '10k', '5k', '3000m', '1 mile', 'Other Distances',
-            ]; // Just hard code race distances here. No need to get from server side for now.
-            allDistances.forEach((distance) => {
-                items.forEach((item, index) => {
-                    const raceDistance = items[index]['race_distance'];
-                    if (distance === raceDistance && distancesToDisplay.indexOf(raceDistance) === -1) {
-                        distancesToDisplay.push(raceDistance);
-                    }
-                });
+            let rows = '';
+            items.forEach((item) => {
+                rows += HtmlHelpers.getDatatableRowForPersonalBests(item);
             });
 
-            distancesToDisplay.forEach((distance) => {
-                let rows = '';
-                const showDistanceColumn: boolean = distance.toLocaleLowerCase() === 'other distances';
-                items.forEach((item) => {
-                    if (distance === item['race_distance']) {
-                        rows += HtmlHelpers.getDatatableRowForRaces(item, showDistanceColumn);
-                    }
-                });
-
-                table += `
-                    <h4>${distance}</h4>
-                    <div class="dataTable-wrapper">
-                        <table class="dataTable table table-bordered table-striped">
-                            ${HtmlHelpers.getDatatableHeaderForRaces(showDistanceColumn)}
-                            <tbody>
-                                ${rows}
-                            </tbody>
-                        </table>
-                    </div>
-                `;
-            });
+            table = `
+                <div class="dataTable-wrapper">
+                    <table class="dataTable table table-bordered table-striped">
+                        ${HtmlHelpers.getDatatableHeaderForPersonalBests()}
+                        <tbody>
+                            ${rows}
+                        </tbody>
+                    </table>
+                </div>
+            `;
         }
 
         const dataTable = `

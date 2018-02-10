@@ -3,6 +3,7 @@ module Creators
     def self.create_or_update(activity_hash)
       activity_json = JSON.parse(activity_hash.to_json)
 
+      # It's a race.
       if activity_json['workout_type'].to_i == 1
         Rails.logger.info("ActivityCreator - Activity #{activity_json['id']} is a race.")
         create_activity(activity_json)
@@ -11,10 +12,8 @@ module Creators
 
       return if activity_json['best_efforts'].blank?
 
+      # It has some best efforts.
       activity_json['best_efforts'].each do |best_effort_json|
-        next if best_effort_json['pr_rank'] != 1
-
-        Rails.logger.info("ActivityCreator - Activity #{activity_json['id']} has best efforts.")
         create_activity(activity_json)
         create_best_effort(activity_json, best_effort_json)
       end
@@ -69,18 +68,17 @@ module Creators
     end
 
     def self.create_best_effort(activity_json, best_effort_json)
-      Rails.logger.info("ActivityCreator - Creating or updating best effort for activity #{activity_json['id']} - '#{activity_json['name']}'.") # rubocop:disable LineLength
-      best_effort = BestEffort.where(id: best_effort_json['id']).first_or_create
-      best_effort.activity_id = activity_json['id']
-      best_effort.athlete_id = activity_json['athlete']['id']
-      best_effort.pr_rank = best_effort_json['pr_rank']
-      best_effort.best_effort_type_id = get_best_effort_type_id(best_effort_json['name'])
-      best_effort.distance = best_effort_json['distance']
-      best_effort.moving_time = best_effort_json['moving_time']
-      best_effort.elapsed_time = best_effort_json['elapsed_time']
-      best_effort.start_date = parse_date_time(best_effort_json['start_date'])
-      best_effort.start_date_local = parse_date_time(best_effort_json['start_date_local'])
-      best_effort.save!
+      entity = BestEffort.where(id: best_effort_json['id']).first_or_create
+      entity.activity_id = activity_json['id']
+      entity.athlete_id = activity_json['athlete']['id']
+      entity.pr_rank = best_effort_json['pr_rank']
+      entity.best_effort_type_id = get_best_effort_type_id(best_effort_json['name'])
+      entity.distance = best_effort_json['distance']
+      entity.moving_time = best_effort_json['moving_time']
+      entity.elapsed_time = best_effort_json['elapsed_time']
+      entity.start_date = parse_date_time(best_effort_json['start_date'])
+      entity.start_date_local = parse_date_time(best_effort_json['start_date_local'])
+      entity.save!
     end
 
     def self.create_race(activity_json)

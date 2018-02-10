@@ -1,6 +1,8 @@
 import { HtmlHelpers } from '../helpers/htmlHelpers';
 import NavigationSidebar from '../views/navigationSidebar';
 import Overview from '../views/overview';
+import { AppHelpers } from './appHelpers';
+import BestEffortsByDistanceView from '../views/bestEffortsByDistance';
 
 export namespace EventBinders {
 
@@ -15,7 +17,7 @@ export namespace EventBinders {
             });
 
             // Disable double clicking for logo and navigation items.
-            const selectors = '.main-header .logo, a[id^="best-efforts-for-"], a[id^="races-for-"]';
+            const selectors = '.main-header .logo, a[id^="personal-bests-for-"], a[id^="races-for-"]';
             $(document).on('dblclick', selectors, (event) => {
                 event.preventDefault();
             });
@@ -28,20 +30,36 @@ export namespace EventBinders {
                 new Overview().loadRacesPanel();
                 new NavigationSidebar().load();
             });
-            $(document).on('click', "a[href^='#pane-best-efforts']", () => {
-                new Overview().loadBestEffortsPanel();
+            $(document).on('click', "a[href^='#pane-personal-bests']", () => {
+                new Overview().loadPersonalBestsPanel();
                 new NavigationSidebar().load();
             });
 
+            $(document).on('click',
+                '.best-efforts-filter-buttons .btn-race-distance',
+                (event) => {
+                $('.best-efforts-filter-buttons .btn-race-distance').removeClass('active');
+                $(event.currentTarget).addClass('active');
+
+                const distance = $(event.currentTarget).attr('data-race-distance');
+                const distanceFormattedForUrl = AppHelpers.formatDistanceForUrl(distance);
+
+                AppHelpers.pushStateToWindow(`?view=best-efforts&distance=${distanceFormattedForUrl}`);
+                new BestEffortsByDistanceView(distance).load();
+            });
+
             // Bind race filter buttons in Races Timeline view.
-            $(document).on('click', '.filter-buttons .btn:not(.show-all)', (event) => {
+            $(document).on('click', '.timeline-wrapper .filter-buttons .btn:not(.show-all)',
+                (event) => {
                 // Set the filter button to active upon clicking.
                 $('.filter-buttons .btn').removeClass('active');
                 $('.filter-buttons .show-all').removeClass('hidden').fadeIn();
                 $(event.currentTarget).addClass('active');
             });
 
-            $(document).on('click', '.filter-buttons .btn-race-distance, .timeline-header .btn', (event) => {
+            $(document).on('click',
+                '.timeline-wrapper .filter-buttons .btn-race-distance, .timeline-wrapper .timeline-header .btn',
+                (event) => {
                 const distance = $(event.currentTarget).attr('data-race-distance');
 
                 // Show all year labels.
@@ -61,7 +79,7 @@ export namespace EventBinders {
                 $(`.filter-buttons [data-race-distance='${distance}']`).addClass('active');
             });
 
-            $(document).on('click', '.filter-buttons .btn-race-year', (event) => {
+            $(document).on('click', '.timeline-wrapper .filter-buttons .btn-race-year', (event) => {
                 const year = $(event.currentTarget).attr('data-race-year');
 
                 // Show only time labels, items of this year.

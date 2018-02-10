@@ -3,12 +3,8 @@ require 'ostruct'
 module ApplicationHelper
   class ItemType
     BEST_EFFORTS = 'best-efforts'.freeze
+    PERSONAL_BESTS = 'personal-bests'.freeze
     RACES = 'races'.freeze
-  end
-  class ViewType
-    BEST_EFFORTS = 'best-efforts'.freeze
-    RACES_BY_DISTANCE = 'races-by-distance'.freeze
-    RACES_BY_YEAR = 'races-by-year'.freeze
   end
 
   class Helper
@@ -20,9 +16,9 @@ module ApplicationHelper
     @major_race_distances = ['Marathon', 'Half Marathon', '10k', '5k']
     @other_race_distances = ['100 miles', '100k', '50 miles', '50k', '20k', '15k', '3000m', '1 mile', 'Other Distances']
 
-    # This shapes BestEffort entities retrieved from DB into best efforts needed in the view.
-    def self.shape_best_efforts(best_effort_entities, heart_rate_zones, measurement_unit)
-      shape_entities(best_effort_entities, heart_rate_zones, measurement_unit, true)
+    # This shapes BestEffort entities retrieved from DB into the form needed in the view.
+    def self.shape_best_efforts(entities, heart_rate_zones, measurement_unit)
+      shape_entities(entities, heart_rate_zones, measurement_unit, true)
     end
 
     # This shapes Race entities retrieved from DB into races needed in the view.
@@ -65,12 +61,12 @@ module ApplicationHelper
     end
 
     def self.find_items_to_show_in_overview(item_type, items) # rubocop:disable CyclomaticComplexity, PerceivedComplexity, LineLength
-      is_type_of_best_efforts = item_type == ApplicationHelper::ItemType::BEST_EFFORTS
+      is_type_of_pb = item_type == ApplicationHelper::ItemType::PERSONAL_BESTS
       is_type_of_races = item_type == ApplicationHelper::ItemType::RACES
 
       results = {}
 
-      if is_type_of_best_efforts
+      if is_type_of_pb
         major_distances = ApplicationHelper::Helper.major_best_effort_types
         other_distances = ApplicationHelper::Helper.other_best_effort_types
       end

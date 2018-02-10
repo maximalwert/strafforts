@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     get 'athletes/:id_or_username/meta' => 'meta#index'
     get 'athletes/:id_or_username/best-efforts' => 'best_efforts#index'
     get 'athletes/:id_or_username/best-efforts/:distance' => 'best_efforts#index'
+    get 'athletes/:id_or_username/personal-bests' => 'personal_bests#index'
+    get 'athletes/:id_or_username/personal-bests/:distance' => 'personal_bests#index'
     get 'athletes/:id_or_username/races' => 'races#index'
     get 'athletes/:id_or_username/races/:distance_or_year' => 'races#index'
     get 'faqs/index' => 'faqs#index'

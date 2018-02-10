@@ -25,6 +25,11 @@ namespace :fetch do
     fetch(ENV['MODE'], %w[best-efforts])
   end
 
+  desc 'Fetch personal bests for all athletes. Usage: bin/rails fetch:best_efforts MODE=[all/latest]'
+  task personal_bests: :environment do
+    fetch(ENV['MODE'], %w[personal-bests])
+  end
+
   desc 'Fetch races for all athletes. Usage: bin/rails fetch:races MODE=[all/latest]'
   task races: :environment do
     fetch(ENV['MODE'], %w[races])
@@ -34,7 +39,7 @@ namespace :fetch do
     athletes = Athlete.find_all_by_is_active(true)
     athletes.each_with_index do |athlete, index|
       fetcher = ActivityFetcher.new(athlete.access_token)
-      fetcher.delay(run_at: (index * 2).seconds.from_now, priority: 3).fetch_all(mode: mode, type: type)
+      fetcher.delay(run_at: (index * 5).seconds.from_now, priority: 3).fetch_all(mode: mode, type: type)
     end
   end
 end

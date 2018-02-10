@@ -11,4 +11,8 @@ export class RgbColor {
         this.g = g;
         this.b = b;
     }
+
+    public toString(alpha?: number) {
+        return alpha ? `rgba(${this.r}, ${this.g}, ${this.b}, ${alpha})` : `rgba(${this.r}, ${this.g}, ${this.b})`;
+    }
 }

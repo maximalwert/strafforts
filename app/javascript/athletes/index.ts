@@ -9,6 +9,7 @@ import BestEffortsByDistanceView from './views/bestEffortsByDistance';
 import FaqView from './views/faq';
 import NavigationSidebar from './views/navigationSidebar';
 import Overview from './views/overview';
+import PersonalBestsByDistanceView from './views/personalBestsByDistance';
 import RacesByDistanceView from './views/racesByDistance';
 import RacesByYearView from './views/racesByYear';
 import RacesTimelineView from './views/racesTimeline';
@@ -23,8 +24,10 @@ const loadView = () => {
         new FaqView().load();
     } else if (view === 'timeline') {
         new RacesTimelineView().load();
-    } else if (view === 'best-efforts' && distance) {
+    } else if (view === 'best-efforts') {
         new BestEffortsByDistanceView(distanceText).load();
+    } else if (view === 'personal-bests' && distance) {
+        new PersonalBestsByDistanceView(distanceText).load();
     } else if (view === 'races' && year && /^20\d\d$/g.test(year)) {
         new RacesByYearView(year).load();
     } else if (view === 'races' && distance) {
@@ -64,21 +67,27 @@ $(document).ready(() => {
         AppHelpers.pushStateToWindow('?view=timeline&type=races');
         new RacesTimelineView().load();
     });
-    $(document).on('click', "a[id^='best-efforts-for-']", (event) => {
+    $(document).on('click', '.show-best-efforts', (event) => {
+        event.preventDefault();
+
+        AppHelpers.pushStateToWindow('?view=best-efforts');
+        new BestEffortsByDistanceView().load();
+    });
+    $(document).on('click', "a[id^='personal-bests-for-']", (event) => {
         event.preventDefault();
 
         const distance = $(event.currentTarget).find('.item-text').text().trim();
-        const distanceFormattedForUrl = AppHelpers.formateDistanceForUrl(distance);
+        const distanceFormattedForUrl = AppHelpers.formatDistanceForUrl(distance);
         const count = $(event.currentTarget).find('small').text().trim();
 
-        AppHelpers.pushStateToWindow(`?view=best-efforts&distance=${distanceFormattedForUrl}`);
-        new BestEffortsByDistanceView(distance, count).load();
+        AppHelpers.pushStateToWindow(`?view=personal-bests&distance=${distanceFormattedForUrl}`);
+        new PersonalBestsByDistanceView(distance, count).load();
     });
     $(document).on('click', "a[id^='races-for-distance']", (event) => {
         event.preventDefault();
 
         const distance = $(event.currentTarget).find('.item-text').text().trim();
-        const distanceFormattedForUrl = AppHelpers.formateDistanceForUrl(distance);
+        const distanceFormattedForUrl = AppHelpers.formatDistanceForUrl(distance);
         const count = $(event.currentTarget).find('small').text().trim();
 
         AppHelpers.pushStateToWindow(`?view=races&distance=${distanceFormattedForUrl}`);

@@ -11,10 +11,10 @@ class AthletesController < ApplicationController
     @athlete_profile_url = "#{STRAVA_ATHLETES_URL}/#{athlete.id}"
     @athlete = athlete.decorate
 
-    raw_best_efforts = BestEffort.find_all_by_athlete_id(athlete.id)
+    raw_personal_bests = BestEffort.find_all_pbs_by_athlete_id(athlete.id)
     heart_rate_zones = ApplicationHelper::Helper.get_heart_rate_zones(athlete.id)
-    shaped_best_efforts = ApplicationHelper::Helper.shape_best_efforts(raw_best_efforts, heart_rate_zones, athlete.measurement_preference) # rubocop:disable LineLength
-    @best_efforts = BestEffortsDecorator.new(shaped_best_efforts)
+    shaped_personal_bests = ApplicationHelper::Helper.shape_best_efforts(raw_personal_bests, heart_rate_zones, athlete.measurement_preference) # rubocop:disable LineLength
+    @personal_bests = BestEffortsDecorator.new(shaped_personal_bests)
 
     raw_races = Race.find_all_by_athlete_id(athlete.id)
     shaped_races = ApplicationHelper::Helper.shape_races(raw_races, heart_rate_zones, athlete.measurement_preference)

@@ -1,6 +1,6 @@
 import { Helpers } from '../../common/helpers';
 import { RgbColor } from '../../common/rgbColor';
-import { AppHelpers } from './appHelpers';
+import { ChartHelpers, ChartType } from './chartHelper';
 
 declare const Chart: any;
 
@@ -12,22 +12,9 @@ export class ChartCreator {
         this.items = items;
     }
 
-    public createChartWithMessage(id: string, message: string) {
-        const content = `
-                <div class='text-center'>
-                    <h4>${message}</h4>
-                </div>
-            `;
-
-        const element = document.getElementById(id);
-        if (element) {
-            element.innerHTML = content;
-        }
-    }
-
     public createProgressionChart(id: string, sortByPace: boolean) {
         if (this.items.length <= 1) {
-            this.createChartWithNotEnoughDataMessage(id);
+            ChartHelpers.createChartWithNotEnoughDataMessage(id);
             return;
         }
 
@@ -136,46 +123,98 @@ export class ChartCreator {
             },
         };
 
-        const chart = this.createLineChart(id, chartData, customChartOptions);
-        this.createStravaActivityLink(chart, id);
+        const chart = ChartHelpers.createLineChart(id, chartData, customChartOptions);
+        ChartHelpers.createStravaActivityLink(chart, id);
     }
 
     public createYearDistributionChart(id: string) {
         if (this.items.length <= 1) {
-            this.createChartWithNotEnoughDataMessage(id);
+            ChartHelpers.createChartWithNotEnoughDataMessage(id);
             return;
         }
 
         const years: object = {}; // Holds year and its count.
+        const workoutTypeRun: object = {}; // Holds year and its count for workout type 'Run'.
+        const workoutTypeLongRun: object = {}; // Holds year and its count for workout type 'Long Run'.
+        const workoutTypeRace: object = {}; // Holds year and its count for workout type 'Race'.
+        const workoutTypeWorkout: object = {}; // Holds year and its count for workout type 'Workout'.
+
         this.items.forEach((item) => {
+            // Calculate how many years need to be included.
             const startDate = item['start_date'];
             const dateParts = startDate.split('-');
-            const year = new Date(dateParts[0], dateParts[1], dateParts[2]).getFullYear();
+            const year = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]).getFullYear();
+            const workoutType = item['workout_type_name'];
             if (year in years) {
                 years[year] += 1;
             } else {
                 years[year] = 1;
             }
+
+            // Initialize counter objects.
+            if (isNaN(workoutTypeRace[year])) {
+                workoutTypeRace[year] = 0;
+            }
+            if (isNaN(workoutTypeWorkout[year])) {
+                workoutTypeWorkout[year] = 0;
+            }
+            if (isNaN(workoutTypeLongRun[year])) {
+                workoutTypeLongRun[year] = 0;
+            }
+            if (isNaN(workoutTypeRun[year])) {
+                workoutTypeRun[year] = 0;
+            }
+
+            // Set counters.
+            switch (Helpers.convertToTitleCase(workoutType)) {
+                case 'Race':
+                    workoutTypeRace[year] += 1;
+                    break;
+                case 'Workout':
+                    workoutTypeWorkout[year] += 1;
+                    break;
+                case 'Long Run':
+                    workoutTypeLongRun[year] += 1;
+                    break;
+                default:
+                    workoutTypeRun[year] += 1;
+                    break;
+            }
         });
 
-        const counts: number[] = [];
-        const dataLabels = Object.keys(years);
-        const legendLabels: string[] = [];
-        for (const key in years) {
-            if (years.hasOwnProperty(key)) {
-                const value = years[key];
+        const datasets = [{
+            type: 'bar',
+            label: 'Run',
+            data:  Object.keys(workoutTypeRun).map((key)  => workoutTypeRun[key]),
+            backgroundColor: new RgbColor(189, 214, 186).toString(0.6),
+            hoverBackgroundColor: new RgbColor(189, 214, 186).toString(1),
+        }, {
+            type: 'bar',
+            label: 'Long Run',
+            data:  Object.keys(workoutTypeLongRun).map((key)  => workoutTypeLongRun[key]),
+            backgroundColor: new RgbColor(0, 166, 90).toString(0.6),
+            hoverBackgroundColor: new RgbColor(0, 166, 90).toString(1),
+        }, {
+            type: 'bar',
+            label: 'Race',
+            data:  Object.keys(workoutTypeRace).map((key)  => workoutTypeRace[key]),
+            backgroundColor: new RgbColor(245, 105, 84).toString(0.6),
+            hoverBackgroundColor: new RgbColor(245, 105, 84).toString(1),
+        }, {
+            type: 'bar',
+            label: 'Workout',
+            data:  Object.keys(workoutTypeWorkout).map((key)  => workoutTypeWorkout[key]),
+            backgroundColor: new RgbColor(243, 156, 18).toString(0.6),
+            hoverBackgroundColor: new RgbColor(243, 156, 18).toString(1),
+        }];
+        const legendLabels = Object.keys(years).map((key)  => `${key}: (${years[key]})`);
 
-                counts.push(value);
-                legendLabels.push(`${key}: (${value})`);
-            }
-        }
-
-        this.createPieChart(id, counts, dataLabels, legendLabels);
+        ChartHelpers.createStackedBarChart(id, Object.keys(years), datasets, legendLabels);
     }
 
     public createWorkoutTypeChart(id: string) {
         if (this.items.length <= 1) {
-            this.createChartWithNotEnoughDataMessage(id);
+            ChartHelpers.createChartWithNotEnoughDataMessage(id);
             return;
         }
 
@@ -195,41 +234,28 @@ export class ChartCreator {
             }
         });
 
-        const colors: RgbColor[] = [];
-        const counts: number[] = [];
-        const dataLabels: string[] = [];
-        const legendLabels: string[] = [];
-        for (const key in workoutTypes) {
-            if (workoutTypes.hasOwnProperty(key)) {
-                const name = Helpers.convertToTitleCase(key);
-                const value = workoutTypes[key];
-
-                switch (name) {
-                    case 'Race':
-                        colors.push(new RgbColor(245, 105, 84));
-                        break;
-                    case 'Workout':
-                        colors.push(new RgbColor(243, 156, 18));
-                        break;
-                    case 'Long Run':
-                        colors.push(new RgbColor(0, 166, 90));
-                        break;
-                    default:
-                        colors.push(new RgbColor(189, 214, 186));
-                        break;
-                }
-                counts.push(value);
-                dataLabels.push(name);
-                legendLabels.push(`${name}: (${value})`);
+        const workoutTypeLabels = Object.keys(workoutTypes);
+        const counts = Object.keys(workoutTypes).map((key)  => workoutTypes[key]);
+        const legendLabels = Object.keys(workoutTypes).map((key) =>
+            `${Helpers.convertToTitleCase(key)}: (${workoutTypes[key]})`);
+        const colors = Object.keys(workoutTypes).map((key)  => {
+            switch (Helpers.convertToTitleCase(key)) {
+                case 'Race':
+                    return new RgbColor(245, 105, 84);
+                case 'Workout':
+                    return new RgbColor(243, 156, 18);
+                case 'Long Run':
+                    return new RgbColor(0, 166, 90);
+                default:
+                    return new RgbColor(189, 214, 186);
             }
-        }
-
-        this.createPieChart(id, counts, dataLabels, legendLabels, colors);
+        });
+        ChartHelpers.createPieChart(id, counts, workoutTypeLabels, legendLabels, ChartType.Doughnut, colors);
     }
 
     public createMonthDistributionChart(id: string) {
         if (this.items.length <= 1) {
-            this.createChartWithNotEnoughDataMessage(id);
+            ChartHelpers.createChartWithNotEnoughDataMessage(id);
             return;
         }
 
@@ -237,10 +263,10 @@ export class ChartCreator {
         this.items.forEach((item) => {
             const startDate = item['start_date'];
             const dateParts = startDate.split('-');
-            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-                'July', 'August', 'September', 'October', 'November', 'December',
+            const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
             ];
-            const month = new Date(dateParts[0], (dateParts[1] - 1), dateParts[2]).getMonth();
+            const month = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]).getMonth();
             const monthName = monthNames[month];
             if (monthName in months) {
                 months[monthName] += 1;
@@ -249,24 +275,15 @@ export class ChartCreator {
             }
         });
 
-        const counts: number[] = [];
-        const dataLabels = Object.keys(months);
-        const legendLabels: string[] = [];
-        for (const key in months) {
-            if (months.hasOwnProperty(key)) {
-                const value = parseInt(months[key], 10);
-
-                counts.push(value);
-                legendLabels.push(`${key}: (${value})`);
-            }
-        }
-
-        this.createBarChart(id, counts, dataLabels, legendLabels);
+        const monthLabels = Object.keys(months);
+        const counts = Object.keys(months).map((key)  => months[key]);
+        const legendLabels = Object.keys(months).map((key)  => `${key}: (${months[key]})`);
+        ChartHelpers.createBarChart(id, counts.reverse(), monthLabels.reverse(), legendLabels.reverse());
     }
 
     public createRaceDistancesChart(id: string) {
         if (this.items.length <= 1) {
-            this.createChartWithNotEnoughDataMessage(id);
+            ChartHelpers.createChartWithNotEnoughDataMessage(id);
             return;
         }
 
@@ -280,33 +297,28 @@ export class ChartCreator {
             }
         });
 
-        const counts: number[] = [];
-        const dataLabels = Object.keys(raceDistances);
-        const legendLabels: string[] = [];
-        for (const key in raceDistances) {
-            if (raceDistances.hasOwnProperty(key)) {
-                const value = parseInt(raceDistances[key], 10);
-                counts.push(value);
-
-                if (key.toLowerCase() === 'other distances') {
-                    // Hack to use 'Other' instead 'Other Distances' in distance bar charts.
-                    legendLabels.push(`Other: (${value})`);
-                } else {
-                    legendLabels.push(`${key}: (${value})`);
-                }
+        const raceDistanceNames = Object.keys(raceDistances);
+        const counts = Object.keys(raceDistances).map((key)  => raceDistances[key]);
+        const legendLabels = Object.keys(raceDistances).map((key) => {
+            if (key.toLowerCase() === 'other distances') {
+                // Hack to use 'Other' instead 'Other Distances' in distance bar charts.
+                return `Other: (${raceDistances[key]})`;
+            } else if (key.toLowerCase() === 'half marathon') {
+                return `HM: (${raceDistances[key]})`;
+            } else {
+                return `${key}: (${raceDistances[key]})`;
             }
-        }
-
-        this.createBarChart(id, counts, dataLabels, legendLabels);
+        });
+        ChartHelpers.createBarChart(id, counts, raceDistanceNames, legendLabels);
     }
 
     public createGearCountChart(id: string) {
         if (this.items.length <= 1) {
-            this.createChartWithNotEnoughDataMessage(id);
+            ChartHelpers.createChartWithNotEnoughDataMessage(id);
             return;
         }
 
-        const gears: object = {}; // Holds Gear and its count.
+        const gears: object = {}; // Holds a gear name and its count.
         this.items.forEach((item) => {
             const gearName = item['gear_name'];
             if (gearName in gears) {
@@ -316,80 +328,82 @@ export class ChartCreator {
             }
         });
 
-        const counts: number[] = [];
-        const dataLabels = Object.keys(gears);
-        const legendLabels: string[] = [];
-        for (const key in gears) {
-            if (gears.hasOwnProperty(key)) {
-                const value = gears[key];
+        const gearNames = Object.keys(gears);
+        const counts = Object.keys(gears).map((key)  => gears[key]);
+        const colors = Helpers.getRgbColors();
+        const chartData = {
+            labels: gearNames,
+            datasets: [{
+                data: counts,
+                backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
+                hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1),
+            }],
+        };
 
-                counts.push(value);
-                legendLabels.push(`${key}: (${value})`);
-            }
-        }
-
-        this.createPieChart(id, counts, dataLabels, legendLabels);
+        ChartHelpers.createHorizontalBarChart(id, chartData);
     }
 
     public createGearMileageChart(id: string) {
         if (this.items.length <= 1) {
-            this.createChartWithNotEnoughDataMessage(id);
+            ChartHelpers.createChartWithNotEnoughDataMessage(id);
             return;
         }
 
-        const gears: object = {}; // Holds Gear and its mileage.
         let distanceUnit: string;
+        const gearNamesCollection: object = {}; // Holds Gear and its name.
+        const gearMileagesCollection: object = {}; // Holds Gear and its mileage.
         this.items.forEach((item) => {
             distanceUnit = item['distance_unit'];
             const distance = item['distance'];
             const gearName = item['gear_name'];
-            if (gearName in gears) {
-                gears[gearName] += distance;
+            if (gearName in gearNamesCollection) {
+                gearNamesCollection[gearName] += 1;
+                gearMileagesCollection[gearName] += distance;
             } else {
-                gears[gearName] = distance;
+                gearNamesCollection[gearName] = 1;
+                gearMileagesCollection[gearName] = distance;
             }
         });
 
-        const gearLabels = Object.keys(gears);
-        const gearMileages: number[] = [];
-        for (const key in gears) {
-            if (gears.hasOwnProperty(key)) {
-                const mileage = gears[key];
-                gearMileages.push(mileage);
-            }
-        }
-
-        const customChartOptions: Chart.ChartOptions = {
-            tooltips: {
-                enabled: true,
-                mode: 'single',
-                callbacks: {
-                    label: (tooltipItem: Chart.ChartTooltipItem) => {
-                        if (tooltipItem.xLabel) {
-                            const mileage = parseFloat(tooltipItem.xLabel).toFixed(1);
-                            return `Mileage: ${mileage} ${distanceUnit}`;
-                        }
-                    },
-                },
-            },
-        };
-
+        const counts = Object.keys(gearNamesCollection).map((key)  => gearNamesCollection[key]);
+        const gearMileages = Object.keys(gearMileagesCollection).map((key)  => gearMileagesCollection[key]);
         const colors = Helpers.getRgbColors();
+        const gearNames = Object.keys(gearNamesCollection);
         const chartData = {
-            labels: gearLabels,
-            datasets: [{
+            labels: gearNames,
+            datasets: [
+            {
+                counts,
                 data: gearMileages,
                 backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
                 hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1),
             }],
         };
 
-        this.createHorizontalBarChart(id, chartData, customChartOptions);
+        const customChartOptions: Chart.ChartOptions = {
+            tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                    label: (tooltipItem: Chart.ChartTooltipItem, data: any) => {
+                        const datasetIndex = tooltipItem.datasetIndex;
+                        const index = tooltipItem.index;
+                        if (tooltipItem.xLabel && typeof datasetIndex !== 'undefined' && typeof index !== 'undefined') {
+                            const mileage = parseFloat(tooltipItem.xLabel).toFixed(1);
+                            const count = data.datasets[datasetIndex].counts[index];
+                            return `Count: ${count} - Total Mileage: ${mileage} ${distanceUnit}`;
+                        }
+                    },
+                },
+            },
+        };
+
+        ChartHelpers.createHorizontalBarChart(id, chartData, customChartOptions);
     }
 
     public createHeartRatesChart(id: string) {
         if (this.items.length <= 1) {
-            this.createChartWithNotEnoughDataMessage(id);
+            ChartHelpers.createChartWithNotEnoughDataMessage(id);
             return;
         }
 
@@ -432,7 +446,7 @@ export class ChartCreator {
 
         // Not enough items with HR data to generate chart.
         if (points.length < 1) {
-            this.createChartWithNotEnoughDataMessage(id);
+            ChartHelpers.createChartWithNotEnoughDataMessage(id);
             return;
         }
 
@@ -484,8 +498,8 @@ export class ChartCreator {
                     },
                     label: (tooltipItem: Chart.ChartTooltipItem) => {
                         if (tooltipItem.xLabel && tooltipItem.yLabel) {
-                            const averageHeartRate = tooltipItem.xLabel.toString();
-                            const maxHeartRate = tooltipItem.yLabel.toString();
+                            const averageHeartRate = tooltipItem.xLabel;
+                            const maxHeartRate = tooltipItem.yLabel;
                             return `Avg. HR: ${averageHeartRate} - Max. HR: ${maxHeartRate}`;
                         }
                     },
@@ -493,13 +507,13 @@ export class ChartCreator {
             },
         };
 
-        const chart = this.createBubbleChart(id, chartData, customChartOptions);
-        this.createStravaActivityLink(chart, id);
+        const chart = ChartHelpers.createBubbleChart(id, chartData, customChartOptions);
+        ChartHelpers.createStravaActivityLink(chart, id);
     }
 
     public createAverageHrZonesChart(id: string) {
         if (this.items.length <= 1) {
-            this.createChartWithNotEnoughDataMessage(id);
+            ChartHelpers.createChartWithNotEnoughDataMessage(id);
             return;
         }
 
@@ -554,22 +568,13 @@ export class ChartCreator {
             }
         });
 
-        const counts: number[] = [];
-        const legendLabels: string[] = [];
-        let totalCount: number = 0;
-        for (const key in averageHrZones) {
-            if (averageHrZones.hasOwnProperty(key)) {
-                const value = averageHrZones[key];
-
-                counts.push(value);
-                legendLabels.push(`${key}: (${value})`);
-                totalCount += value;
-            }
-        }
+        const counts = Object.keys(averageHrZones).map((key)  => averageHrZones[key]);
+        const legendLabels = Object.keys(averageHrZones).map((key)  => `${key}: (${averageHrZones[key]})`);
+        const totalCount = counts.reduce((a, b) => a + b);
 
         // Not enough items with HR data to generate chart.
-        if (totalCount === totalNaCount) {
-            this.createChartWithNotEnoughDataMessage(id);
+        if (parseInt(totalCount, 10) === totalNaCount) {
+            ChartHelpers.createChartWithNotEnoughDataMessage(id);
             return;
         }
 
@@ -593,252 +598,12 @@ export class ChartCreator {
                     },
                     label: (tooltipItem: Chart.ChartTooltipItem) => {
                         if (tooltipItem.xLabel) {
-                            return `Count: ${tooltipItem.xLabel.toString()}`;
+                            return `Count: ${tooltipItem.xLabel}`;
                         }
                     },
                 },
             },
         };
-        this.createHorizontalBarChart(id, chartData, customChartOptions);
-    }
-
-    private createChartWithNotEnoughDataMessage(id: string) {
-        this.createChartWithMessage(id, 'Not Enough Data to Generate Chart');
-    }
-
-    private createChart(
-        id: string,
-        chartType: string,
-        chartData: Chart.ChartData,
-        chartOptions: Chart.ChartOptions) {
-
-        let chart;
-        const canvasElement = document.getElementById(id + '-canvas') as HTMLCanvasElement;
-        const context = canvasElement.getContext('2d');
-        if (context) {
-            chart = new Chart(context, {
-                type: chartType,
-                data: chartData,
-                options: chartOptions,
-            });
-        }
-        return chart;
-    }
-
-    private createBarChart(
-        id: string,
-        counts: number[],
-        dataLabels: string[],
-        legendLabels: string[],
-        customChartOptions?: Chart.ChartOptions) {
-
-        const colors = Helpers.getRgbColors();
-        const chartData = {
-            yLabels: counts,
-            labels: legendLabels.reverse(),
-            datasets: [{
-                data: counts.reverse(),
-                label: dataLabels.reverse(),
-                backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
-                hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1),
-            }],
-        };
-        const defaultChartOptions = {
-            legend: {
-                display: false,
-            },
-            maintainAspectRatio: false,
-            responsive: true,
-            scales: {
-                type: 'linear',
-                xAxes: [{
-                    ticks: {
-                        autoSkip: false,
-                    },
-                }],
-                yAxes: [{
-                    ticks: {
-                        autoSkip: false,
-                        beginAtZero: true,
-                        callback: (value: any) => {
-                            if (value % 1 === 0) {
-                                return value;
-                            }
-                        },
-                    },
-                }],
-            },
-            tooltips: {
-                enabled: true,
-                mode: 'single',
-                callbacks: {
-                    title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
-                        const index = tooltipItem[0].index;
-                        if (typeof index !== 'undefined') {
-                            return data.datasets[0].label[index];
-                        }
-                    },
-                    label: (tooltipItem: Chart.ChartTooltipItem) => {
-                        if (tooltipItem.yLabel) {
-                            return `Count: ${tooltipItem.yLabel.toString()}`;
-                        }
-                    },
-                },
-            },
-        };
-
-        const chartOptions = customChartOptions ?
-            { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
-        return this.createChart(id, 'bar', chartData, chartOptions);
-    }
-
-    private createBubbleChart(
-        id: string,
-        chartData: Chart.ChartData,
-        customChartOptions?: Chart.ChartOptions) {
-
-        const defaultChartOptions = {
-            legend: {
-                display: false,
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-        };
-
-        const chartOptions = customChartOptions ?
-            { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
-        return this.createChart(id, 'bubble', chartData, chartOptions);
-    }
-
-    private createHorizontalBarChart(
-        id: string,
-        chartData: Chart.ChartData,
-        customChartOptions?: Chart.ChartOptions) {
-
-        const defaultChartOptions = {
-            legend: {
-                display: false,
-            },
-            maintainAspectRatio: false,
-            responsive: true,
-            scales: {
-                xAxes: [{
-                    ticks: {
-                        autoSkip: false,
-                        beginAtZero: true,
-                        callback: (value: any) => {
-                            if (value % 1 === 0) {
-                                return value;
-                            }
-                        },
-                    },
-                }],
-            },
-            tooltips: {
-                enabled: true,
-                mode: 'single',
-                callbacks: {
-                    label: (tooltipItem: Chart.ChartTooltipItem) => {
-                        if (tooltipItem.xLabel) {
-                            return `Count: ${tooltipItem.xLabel.toString()}`;
-                        }
-                    },
-                },
-            },
-        };
-
-        const chartOptions = customChartOptions ?
-            { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
-        return this.createChart(id, 'horizontalBar', chartData, chartOptions);
-    }
-
-    private createLineChart(
-        id: string,
-        chartData: Chart.ChartData,
-        customChartOptions?: Chart.ChartOptions) {
-
-        const defaultChartOptions = {
-            legend: {
-                display: false,
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            tooltips: {
-                enabled: false,
-            },
-        };
-
-        const chartOptions = customChartOptions ?
-            { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
-        return this.createChart(id, 'line', chartData, chartOptions);
-    }
-
-    private createPieChart(
-        id: string,
-        counts: number[],
-        dataLabels: string[],
-        legendLabels?: string[],
-        colors?: RgbColor[],
-        customChartOptions?: Chart.ChartOptions) {
-
-        colors = colors ? colors : Helpers.getRgbColors();
-        const chartData = {
-            labels: (legendLabels) ? legendLabels : dataLabels,
-            datasets: [{
-                data: counts,
-                label: dataLabels,
-                backgroundColor: Helpers.convertToRgbaColors(colors, 0.6),
-                hoverBackgroundColor: Helpers.convertToRgbaColors(colors, 1),
-            }],
-        };
-        const defaultChartOptions = {
-            legend: {
-                position: 'bottom',
-                onClick: (event: any) => {
-                    event.stopPropagation();
-                },
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            tooltips: {
-                enabled: true,
-                mode: 'single',
-                callbacks: {
-                    title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
-                        const index = tooltipItem[0].index;
-                        if (typeof index !== 'undefined') {
-                            return data.datasets[0].label[index];
-                        }
-                    },
-                    label: (tooltipItem: Chart.ChartTooltipItem, data: any) => {
-                        const index = tooltipItem.index;
-                        if (typeof index !== 'undefined') {
-                            return `Count: ${data.datasets[0].data[index]}`;
-                        }
-                    },
-                },
-            },
-        };
-
-        const chartOptions = customChartOptions ?
-            { ...defaultChartOptions, ...customChartOptions } : defaultChartOptions;
-        return this.createChart(id, 'pie', chartData, chartOptions);
-    }
-
-    private createStravaActivityLink(chart: any, chartId: string) {
-        // Only do this when it's not a touch device.
-        if (Helpers.isTouchDevice()) {
-            return;
-        }
-
-        const canvasElement = document.getElementById(chartId + '-canvas') as HTMLCanvasElement;
-        canvasElement.onclick = (event) => {
-            const activePoints = chart.getElementAtEvent(event);
-            if (activePoints.length === 1) {
-                const index = activePoints[0]._index;
-                const activityLink = `https://www.strava.com/activities/${chart.data.datasets[0].activityIds[index]}`;
-                window.open(activityLink, '_blank');
-            }
-        };
+        ChartHelpers.createHorizontalBarChart(id, chartData, customChartOptions);
     }
 }

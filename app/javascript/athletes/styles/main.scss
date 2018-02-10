@@ -283,43 +283,50 @@ input[type='submit'] {
         }
     }
 
-    .timeline-wrapper {
+    .best-efforts-filter-buttons,
+    .filter-buttons {
+        margin: 12px;
+
         .btn {
+            margin: 2px;
+
             color: #FFFFFF;
             background-color: $color-light-grey;
 
             &.active,
+            &:hover {
+                background-color: $color-strava;
+                -webkit-box-shadow: none;
+                        box-shadow: none;
+            }
+        }
+        .show-all {
+            background-color: gray;
             &:hover {
                 border-color: rgba(0, 0, 0, .2);
                 -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
                         box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
             }
         }
+    }
 
-        .filter-buttons {
-            margin: 12px;
+    .best-efforts-wrapper {
+        margin-top: 24px;
+    }
 
+    .timeline-wrapper {
+        .timeline {
             .btn {
-                margin: 2px;
-
+                color: #FFFFFF;
+                background-color: $color-light-grey;
+    
                 &.active,
-                &:hover {
-                    background-color: $color-strava;
-                    -webkit-box-shadow: none;
-                            box-shadow: none;
-                }
-            }
-            .show-all {
-                background-color: gray;
                 &:hover {
                     border-color: rgba(0, 0, 0, .2);
                     -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
                             box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
                 }
             }
-        }
-
-        .timeline {
             .time-label {
                 margin-bottom: 20px;
                 margin-left: 12px;
