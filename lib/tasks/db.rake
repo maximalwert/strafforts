@@ -38,7 +38,7 @@ namespace :db do
         next if TABLES_TO_SKIP.include?(table_name)
 
         conter = '000'
-        file_path = "#{Rails.root}/test/fixtures/#{table_name}.yml"
+        file_path = "#{Rails.root}/spec/fixtures/#{table_name}.yml"
         File.open(file_path, 'w') do |file|
           rows = ActiveRecord::Base.connection.select_all("SELECT * FROM #{table_name}")
           data = rows.each_with_object({}) do |record, hash|

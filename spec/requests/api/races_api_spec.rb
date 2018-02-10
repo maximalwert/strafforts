@@ -58,7 +58,7 @@ RSpec.describe Api::RacesController, type: :request do
         end
       end
 
-      VALID_YEARS = %w[2014 2015 2016 2017].freeze
+      VALID_YEARS = %w[2014 2015 2016].freeze
       VALID_YEARS.each do |year|
         it "for race year '#{year}'" do
           # arrange.

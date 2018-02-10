@@ -92,14 +92,12 @@ RSpec.describe Race, type: :model do
 
       # assert.
       expect(results.count).to be > 0
-      expect(results[0][0]).to eq(2017)
-      expect(results[0][1]).to eq(7)
-      expect(results[1][0]).to eq(2016)
-      expect(results[1][1]).to eq(17)
-      expect(results[2][0]).to eq(2015)
-      expect(results[2][1]).to eq(20)
-      expect(results[3][0]).to eq(2014)
-      expect(results[3][1]).to eq(1)
+      expect(results[0][0]).to eq(2016)
+      expect(results[0][1]).to eq(6)
+      expect(results[1][0]).to eq(2015)
+      expect(results[1][1]).to eq(20)
+      expect(results[2][0]).to eq(2014)
+      expect(results[2][1]).to eq(1)
     end
   end
 end

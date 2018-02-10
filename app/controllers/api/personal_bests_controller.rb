@@ -8,7 +8,7 @@ module Api
       if params[:distance].blank?
         items = BestEffort.find_all_pbs_by_athlete_id(athlete.id)
         shaped_items = ApplicationHelper::Helper.shape_best_efforts(items, heart_rate_zones, athlete.measurement_preference) # rubocop:disable LineLength
-        @personal_bests = BestEffortsDecorator.new(shaped_items)
+        @personal_bests = PersonalBestsDecorator.new(shaped_items)
         @personal_bests = @personal_bests.to_show_in_overview
         render json: @personal_bests
       else

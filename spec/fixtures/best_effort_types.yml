@@ -2,70 +2,70 @@
 best_effort_type_1:
   id: 1
   name: 50k
-  created_at: '2017-02-20 08:54:05.46103'
-  updated_at: '2017-02-20 08:54:05.46103'
+  created_at: '2018-02-10 07:47:11.267867'
+  updated_at: '2018-02-10 07:47:11.267867'
 best_effort_type_2:
   id: 2
   name: Marathon
-  created_at: '2017-02-20 08:54:05.473244'
-  updated_at: '2017-02-20 08:54:05.473244'
+  created_at: '2018-02-10 07:47:11.272771'
+  updated_at: '2018-02-10 07:47:11.272771'
 best_effort_type_3:
   id: 3
   name: Half Marathon
-  created_at: '2017-02-20 08:54:05.488372'
-  updated_at: '2017-02-20 08:54:05.488372'
+  created_at: '2018-02-10 07:47:11.2768'
+  updated_at: '2018-02-10 07:47:11.2768'
 best_effort_type_4:
   id: 4
   name: 30k
-  created_at: '2017-02-20 08:54:05.500203'
-  updated_at: '2017-02-20 08:54:05.500203'
+  created_at: '2018-02-10 07:47:11.282103'
+  updated_at: '2018-02-10 07:47:11.282103'
 best_effort_type_5:
   id: 5
   name: 20k
-  created_at: '2017-02-20 08:54:05.511809'
-  updated_at: '2017-02-20 08:54:05.511809'
+  created_at: '2018-02-10 07:47:11.28624'
+  updated_at: '2018-02-10 07:47:11.28624'
 best_effort_type_6:
   id: 6
   name: 10 mile
-  created_at: '2017-02-20 08:54:05.523127'
-  updated_at: '2017-02-20 08:54:05.523127'
+  created_at: '2018-02-10 07:47:11.290898'
+  updated_at: '2018-02-10 07:47:11.290898'
 best_effort_type_7:
   id: 7
   name: 15k
-  created_at: '2017-02-20 08:54:05.534955'
-  updated_at: '2017-02-20 08:54:05.534955'
+  created_at: '2018-02-10 07:47:11.295221'
+  updated_at: '2018-02-10 07:47:11.295221'
 best_effort_type_8:
   id: 8
   name: 10k
-  created_at: '2017-02-20 08:54:05.546931'
-  updated_at: '2017-02-20 08:54:05.546931'
+  created_at: '2018-02-10 07:47:11.299271'
+  updated_at: '2018-02-10 07:47:11.299271'
 best_effort_type_9:
   id: 9
   name: 5k
-  created_at: '2017-02-20 08:54:05.558676'
-  updated_at: '2017-02-20 08:54:05.558676'
+  created_at: '2018-02-10 07:47:11.303265'
+  updated_at: '2018-02-10 07:47:11.303265'
 best_effort_type_10:
   id: 10
   name: 2 mile
-  created_at: '2017-02-20 08:54:05.570581'
-  updated_at: '2017-02-20 08:54:05.570581'
+  created_at: '2018-02-10 07:47:11.30673'
+  updated_at: '2018-02-10 07:47:11.30673'
 best_effort_type_11:
   id: 11
   name: 1 mile
-  created_at: '2017-02-20 08:54:05.582286'
-  updated_at: '2017-02-20 08:54:05.582286'
+  created_at: '2018-02-10 07:47:11.311355'
+  updated_at: '2018-02-10 07:47:11.311355'
 best_effort_type_12:
   id: 12
   name: 1k
-  created_at: '2017-02-20 08:54:05.598131'
-  updated_at: '2017-02-20 08:54:05.598131'
+  created_at: '2018-02-10 07:47:11.317642'
+  updated_at: '2018-02-10 07:47:11.317642'
 best_effort_type_13:
   id: 13
   name: 1/2 mile
-  created_at: '2017-02-20 08:54:05.609464'
-  updated_at: '2017-02-20 08:54:05.609464'
+  created_at: '2018-02-10 07:47:11.321901'
+  updated_at: '2018-02-10 07:47:11.321901'
 best_effort_type_14:
   id: 14
   name: 400m
-  created_at: '2017-02-20 08:54:05.620984'
-  updated_at: '2017-02-20 08:54:05.620984'
+  created_at: '2018-02-10 07:47:11.32865'
+  updated_at: '2018-02-10 07:47:11.32865'

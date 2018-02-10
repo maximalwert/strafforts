@@ -2,20 +2,20 @@
 workout_type_0:
   id: 0
   name: run
-  created_at: '2017-02-20 08:54:05.388555'
-  updated_at: '2017-02-20 08:54:05.388555'
+  created_at: '2018-02-10 07:47:11.235145'
+  updated_at: '2018-02-10 07:47:11.235145'
 workout_type_1:
   id: 1
   name: race
-  created_at: '2017-02-20 08:54:05.402122'
-  updated_at: '2017-02-20 08:54:05.402122'
+  created_at: '2018-02-10 07:47:11.240344'
+  updated_at: '2018-02-10 07:47:11.240344'
 workout_type_2:
   id: 2
   name: long run
-  created_at: '2017-02-20 08:54:05.415193'
-  updated_at: '2017-02-20 08:54:05.415193'
+  created_at: '2018-02-10 07:47:11.244694'
+  updated_at: '2018-02-10 07:47:11.244694'
 workout_type_3:
   id: 3
   name: workout
-  created_at: '2017-02-20 08:54:05.428108'
-  updated_at: '2017-02-20 08:54:05.428108'
+  created_at: '2018-02-10 07:47:11.248728'
+  updated_at: '2018-02-10 07:47:11.248728'
