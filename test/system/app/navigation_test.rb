@@ -29,7 +29,7 @@ class NavigationTest < AppTestBase
     end
   end
 
-  test 'navigation bar should work for best efforts views' do
+  test 'navigation bar should work for personal bests views' do
     # arrange.
     visit_page DEMO_URL
 
@@ -37,13 +37,13 @@ class NavigationTest < AppTestBase
       # act.
       resize_window_to(screen_size)
       open_navigation_bar_when_needed
-      expand_more_distances_when_needed('treeview-menu-best-efforts-for-distance')
+      expand_more_distances_when_needed('treeview-menu-personal-bests-for-distance')
 
       # asserts.
       ALL_BEST_EFFORTS_TYPES.each do |distance|
         puts "#{distance} - #{screen_size}" if VERBOSE_LOGGING
 
-        assert_navigate_to_distance_successfully('best-efforts', 'Personal Bests', distance, BEST_EFFORTS_CHART_TITLES)
+        assert_navigate_to_distance_successfully('personal-bests', 'Personal Bests', distance, PERSONAL_BESTS_CHART_TITLES)
       end
     end
   end
