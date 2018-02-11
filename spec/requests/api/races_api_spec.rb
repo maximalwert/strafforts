@@ -28,10 +28,28 @@ RSpec.describe Api::RacesController, type: :request do
       expect(JSON.parse(response.body)).to eq([])
     end
 
+    it 'should be empty when distance or year is not specified' do
+      get '/api/athletes/9123806/races'
+      expect(response.body).to eq('[]')
+    end
+
     context 'should be successful' do
-      it 'when race distance or year is not specified' do
+      it 'for getting items for overview' do
         # arrange.
-        url = '/api/athletes/9123806/races'
+        url = '/api/athletes/9123806/races/overview'
+        expected = "#{expected_folder}#{url}.json"
+
+        # act.
+        get url
+
+        # assert.
+        expect(response).to have_http_status(:success)
+        expect(response.body).to eq(File.read(expected))
+      end
+
+      it 'for getting recent items' do
+        # arrange.
+        url = '/api/athletes/9123806/races/recent'
         expected = "#{expected_folder}#{url}.json"
 
         # act.
