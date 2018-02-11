@@ -1,17 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe AthletesController, type: :request do
-  describe 'POST reset_last_activity_retrieved' do
+  describe 'POST reset_profile' do
     context 'should be a bad request' do
       it 'when the requested athlete does not exist' do
-        expect { post '/athletes/12345678/reset_last_activity_retrieved' }
+        expect { post '/athletes/12345678/reset_profile' }
           .to raise_error(ActionController::BadRequest, "Could not find requested athlete '12345678'.")
       end
 
       it 'when requested athlete is not the current user' do
         expect {
           setup_cookie(nil)
-          post '/athletes/9123806/reset_last_activity_retrieved'
+          post '/athletes/9123806/reset_profile'
         }.to raise_error(ActionController::BadRequest, 'Could not update a user that is not the current user.')
       end
     end
@@ -25,7 +25,7 @@ RSpec.describe AthletesController, type: :request do
       expect(athlete.last_activity_retrieved).not_to be_nil
 
       # act.
-      post '/athletes/456/reset_last_activity_retrieved'
+      post '/athletes/456/reset_profile'
 
       # assert.
       athlete.reload

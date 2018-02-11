@@ -32,17 +32,35 @@ class AthletesController < ApplicationController
     athlete.update(is_public: is_public)
   end
 
-  def reset_last_activity_retrieved
+  def fetch_latest
     athlete = Athlete.find_by_id_or_username(params[:id_or_username])
     ApplicationController.raise_item_not_found_error('athlete', params[:id_or_username]) if athlete.nil?
 
     @is_current_user = athlete.access_token == cookies.signed[:access_token]
     ApplicationController.raise_user_not_current_error unless @is_current_user
 
+    # Add a delayed_job to fetch the latest data for this athlete.
+    fetcher = ::ActivityFetcher.new(athlete.access_token)
+    fetcher.delay.fetch_all(mode: 'latest')
+  end
+
+  def reset_profile
+    athlete = Athlete.find_by_id_or_username(params[:id_or_username])
+    ApplicationController.raise_item_not_found_error('athlete', params[:id_or_username]) if athlete.nil?
+
+    @is_current_user = athlete.access_token == cookies.signed[:access_token]
+    ApplicationController.raise_user_not_current_error unless @is_current_user
+
+    # Delete all activity data except for the athlete itself.
+    Rails.logger.warn("Resetting all activity data for athlete #{athlete.id}.")
+    BestEffort.where(athlete_id: athlete.id).destroy_all
+    Race.where(athlete_id: athlete.id).destroy_all
+    Activity.where(athlete_id: athlete.id).destroy_all
+
     # Set last_activity_retrieved to nil for this athlete.
     athlete.update(last_activity_retrieved: nil)
 
-    # Add a delayed_job to fetch data for this athlete.
+    # Add a delayed_job to fetch all data for this athlete.
     fetcher = ::ActivityFetcher.new(athlete.access_token)
     fetcher.delay.fetch_all(mode: 'all')
   end

@@ -11,7 +11,7 @@ Strava's <a href='https://strava.github.io/api/v3/oauth/' target='_blank'>authen
 <p>Yes, abusolutely. First make sure you have connected and logged into Strafforts,
 then go to your 'Settings' sidebar by clicking <code><i class='fa fa-gears'></i></code> at top right corner of the app,
 and choosing <code><i class='fa fa-wrench'></i></code> tab,
-then click 'Delete All' button to remove yourself from Strafforts server.</p>
+then click 'Delete Profile' button to remove yourself from Strafforts server.</p>
 <p>If you've changed your mind,
 you can re-connect to give Strafforts permission to retrieve your Strava data again.
 However, since all data has been deleted on our server, it might take a while to retrieve everything again.</p>")

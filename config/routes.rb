@@ -8,8 +8,9 @@ Rails.application.routes.draw do
 
   get 'athletes/:id_or_username' => 'athletes#index'
 
+  post 'athletes/:id_or_username/fetch_latest' => 'athletes#fetch_latest'
   post 'athletes/:id_or_username/save_profile' => 'athletes#save_profile'
-  post 'athletes/:id_or_username/reset_last_activity_retrieved' => 'athletes#reset_last_activity_retrieved'
+  post 'athletes/:id_or_username/reset_profile' => 'athletes#reset_profile'
 
   namespace :api do
     get 'athletes/:id_or_username/meta' => 'meta#index'

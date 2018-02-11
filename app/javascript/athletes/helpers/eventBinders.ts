@@ -93,7 +93,7 @@ export namespace EventBinders {
             $(document).on('click', '.control-sidebar-toggle', () => {
                 if (!$('.link-contributions-welcome').length) {
                     const badges = HtmlHelpers.getContributionWelcomeBadges();
-                    $('#control-sidebar-data-tab form').append(badges);
+                    $('#control-sidebar-data-tab').append(badges);
                 }
             });
 
@@ -109,10 +109,16 @@ export namespace EventBinders {
                     $('#publicize-profile-warning').removeClass('hidden');
                 }
             });
-            $(document).on('submit', '.reset-last-activity-retrieved form', (event) => {
+            $(document).on('submit', '.form-fetch-latest-activities', (event) => {
+                // Only fetch if the button is currently enabled.
+                if (!$('.form-fetch-latest-activities .submit-form').is(':disabled')) {
+                    fetchLatestActivities(event);
+                }
+            });
+            $(document).on('submit', '.form-reset-profile', (event) => {
                 // Only reset if the button is currently enabled.
-                if (!$('.reset-last-activity-retrieved .submit-form').is(':disabled')) {
-                    resetLastRetrieveActivity(event);
+                if (!$('.reset-profile .btn-danger').is(':disabled')) {
+                    resetProfile(event);
                 }
             });
         };
@@ -143,22 +149,48 @@ export namespace EventBinders {
         });
     }
 
-    function resetLastRetrieveActivity(event: JQueryEventObject) {
+    function fetchLatestActivities(event: JQueryEventObject) {
         event.preventDefault();
 
         $.ajax({
-            url: $('.reset-last-activity-retrieved form').attr('action'),
+            url: $('.form-fetch-latest-activities').attr('action'),
+            data: '',
+            cache: false,
+            type: 'post',
+            success: () => {
+                $('.form-fetch-latest-activities .submit-form').prop('disabled', true);
+                toastr.success(`Your latest activities have been queued for fetching!`);
+            },
+            error: (xhr, ajaxOptions, thrownError) => {
+                toastr.error(xhr.status + '\n' + thrownError);
+            },
+        });
+    }
+
+    function resetProfile(event: JQueryEventObject) {
+        event.preventDefault();
+
+        $('.form-reset-profile .submit-form').prop('disabled', true);
+
+        $.ajax({
+            url: $('.form-reset-profile').attr('action'),
             data: '',
             cache: false,
             type: 'post',
             success: () => {
                 $('.last-activity-retrieved').addClass('hidden');
                 $('.last-activity-na').removeClass('hidden');
-                $('.reset-last-activity-retrieved .submit-form').prop('disabled', true);
+
+                // Disable both 'Fetch Latest' and 'Reset' buttons.
+                $('.form-fetch-latest-activities .submit-form').prop('disabled', true);
+                $('.reset-profile .btn-danger').prop('disabled', true);
+
+                ($('#confirm-reset-profile') as any).modal('toggle');
                 toastr.success(`Resetted Successfully!<br /><br />
                     A full re-synchronization of all your activities has been queued.`);
             },
             error: (xhr, ajaxOptions, thrownError) => {
+                ($('#confirm-reset-profile') as any).modal('toggle');
                 toastr.error(xhr.status + '\n' + thrownError);
             },
         });
