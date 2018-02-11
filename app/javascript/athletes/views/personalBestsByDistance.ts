@@ -117,18 +117,16 @@ export default class PersonalBestsByDistanceView extends BaseView {
                 const chartCreator = new ChartCreator(items);
                 chartCreator.createProgressionChart('progression-chart', false);
                 chartCreator.createYearDistributionChart('year-distribution-pie-chart');
-                $('.dataTable').each(function() {
-                    ($(this) as any).DataTable({
-                        columnDefs: [{
-                            targets: [1, 3, 4, 6, 7], // Disable searching for WorkoutType, Time, Pace and HRs.
-                            searchable: false,
-                        }],
-                        iDisplayLength: 10,
-                        order: [
-                            [0, 'desc'],
-                            [4, 'asc'],
-                        ],
-                    });
+                ($('.dataTable') as any).DataTable({
+                    columnDefs: [{
+                        targets: [1, 3, 4, 6, 7], // Disable searching for WorkoutType, Time, Pace and HRs.
+                        searchable: false,
+                    }],
+                    iDisplayLength: 10,
+                    order: [
+                        [0, 'desc'],
+                        [4, 'asc'],
+                    ],
                 });
                 chartCreator.createGearCountChart('gear-count-chart');
                 chartCreator.createWorkoutTypeChart('workout-type-chart');

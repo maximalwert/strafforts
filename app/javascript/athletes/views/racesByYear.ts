@@ -115,17 +115,15 @@ export default class RacesByYearView extends BaseView {
                 const chartCreator = new ChartCreator(items);
                 chartCreator.createRaceDistancesChart('distances-distribution-chart');
                 chartCreator.createMonthDistributionChart('month-distribution-chart');
-                $('.dataTable').each(function() {
-                    ($(this) as any).DataTable({
-                        bFilter: false,
-                        bPaginate: false,
-                        iDisplayLength: 10,
-                        info: false,
-                        order: [
-                            [0, 'desc'],
-                            [4, 'asc'],
-                        ],
-                    });
+                ($('.dataTable') as any).DataTable({
+                    bFilter: false,
+                    bPaginate: false,
+                    iDisplayLength: 10,
+                    info: false,
+                    order: [
+                        [0, 'desc'],
+                        [4, 'asc'],
+                    ],
                 });
                 chartCreator.createHeartRatesChart('heart-rates-chart');
                 chartCreator.createAverageHrZonesChart('average-hr-zones-chart');

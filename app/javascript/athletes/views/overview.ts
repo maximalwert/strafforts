@@ -162,7 +162,8 @@ export default class Overview extends BaseView {
                                 </a>
                             </div>
                             <div class="box-body dataTable-wrapper">
-                                <table class="dataTable table table-bordered table-striped">
+                                <table id="overview-dataTable-${type}"
+                                    class="dataTable table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th class="col-md-1">Date</th>
@@ -214,6 +215,9 @@ export default class Overview extends BaseView {
                             <tr>
                                 <td class="no-wrap">${item['start_date']}</td>
                                 <td>
+                                    <a class="strava-logo-link hidden-lg-down" href="${stravaLink}" target="_blank">
+                                        <span></span>
+                                    </a>
                                     <a class="strava-activity-link" href="${stravaLink}" target="_blank">
                                         ${item['activity_name']}
                                     </a>
@@ -248,7 +252,8 @@ export default class Overview extends BaseView {
                             </h3>
                         </div>
                         <div class="box-body dataTable-wrapper">
-                            <table class="dataTable table table-bordered table-striped">
+                            <table id="overview-dataTable-recent-${type}"
+                                class="dataTable table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th class="col-md-1">Date</th>
@@ -268,6 +273,18 @@ export default class Overview extends BaseView {
                         </div>
                     </div>`;
                     pane.append(table);
+
+                    ($(`#overview-dataTable-recent-${type}`) as any).DataTable({
+                        columnDefs: [{
+                            targets: [3, 4, 6, 7], // Disable searching for Time, Pace and HRs.
+                            searchable: false,
+                        }],
+                        iDisplayLength: 10,
+                        order: [
+                            [0, 'desc'],
+                            [3, 'desc'],
+                        ],
+                    });
                 }
             },
         });

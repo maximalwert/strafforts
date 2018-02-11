@@ -127,19 +127,17 @@ export default class RacesByDistanceView extends BaseView {
 
                 // Setup all other charts and tables.
                 chartCreator.createYearDistributionChart('year-distribution-pie-chart');
-                $('.dataTable').each(function() {
-                    ($(this) as any).DataTable({
-                        // Disable searching for Time, Pace, Elevation, Cadence and HRs.
-                        columnDefs: [{
-                            targets: [2, 3, 5, 6, 7, 8],
-                            searchable: false,
-                        }],
-                        iDisplayLength: 10,
-                        order: [
-                            [0, 'desc'],
-                            [4, 'asc'],
-                        ],
-                    });
+                ($('.dataTable') as any).DataTable({
+                    // Disable searching for Time, Pace, Elevation, Cadence and HRs.
+                    columnDefs: [{
+                        targets: [2, 3, 5, 6, 7, 8],
+                        searchable: false,
+                    }],
+                    iDisplayLength: 10,
+                    order: [
+                        [0, 'desc'],
+                        [4, 'asc'],
+                    ],
                 });
                 chartCreator.createHeartRatesChart('heart-rates-chart');
                 chartCreator.createAverageHrZonesChart('average-hr-zones-chart');
