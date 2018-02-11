@@ -46,6 +46,7 @@ export namespace EventBinders {
 
                 AppHelpers.pushStateToWindow(`?view=best-efforts&distance=${distanceFormattedForUrl}`);
                 new BestEffortsByDistanceView(distance).load();
+                new NavigationSidebar().load();
             });
 
             // Bind race filter buttons in Races Timeline view.
