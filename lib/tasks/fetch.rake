@@ -25,7 +25,7 @@ namespace :fetch do
     fetch(ENV['MODE'], %w[best-efforts])
   end
 
-  desc 'Fetch personal bests for all athletes. Usage: bin/rails fetch:best_efforts MODE=[all/latest]'
+  desc 'Fetch personal bests for all athletes. Usage: bin/rails fetch:personal_bests MODE=[all/latest]'
   task personal_bests: :environment do
     fetch(ENV['MODE'], %w[personal-bests])
   end

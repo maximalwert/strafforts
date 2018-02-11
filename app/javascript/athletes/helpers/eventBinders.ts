@@ -1,8 +1,8 @@
 import { HtmlHelpers } from '../helpers/htmlHelpers';
+import BestEffortsByDistanceView from '../views/bestEffortsByDistance';
 import NavigationSidebar from '../views/navigationSidebar';
 import Overview from '../views/overview';
 import { AppHelpers } from './appHelpers';
-import BestEffortsByDistanceView from '../views/bestEffortsByDistance';
 
 export namespace EventBinders {
 
