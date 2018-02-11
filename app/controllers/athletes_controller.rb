@@ -58,7 +58,7 @@ class AthletesController < ApplicationController
     Activity.where(athlete_id: athlete.id).destroy_all
 
     # Set last_activity_retrieved to nil for this athlete.
-    athlete.update(last_activity_retrieved: nil)
+    athlete.update(last_activity_retrieved: nil, total_run_count: 0)
 
     # Add a delayed_job to fetch all data for this athlete.
     fetcher = ::ActivityFetcher.new(athlete.access_token)
