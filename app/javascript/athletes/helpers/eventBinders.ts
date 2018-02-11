@@ -188,6 +188,9 @@ export namespace EventBinders {
                 ($('#confirm-reset-profile') as any).modal('toggle');
                 toastr.success(`Resetted Successfully!<br /><br />
                     A full re-synchronization of all your activities has been queued.`);
+
+                // Redirect back to homepage.
+                window.location.href = '/';
             },
             error: (xhr, ajaxOptions, thrownError) => {
                 ($('#confirm-reset-profile') as any).modal('toggle');
