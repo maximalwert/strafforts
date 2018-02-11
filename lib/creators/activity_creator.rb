@@ -3,18 +3,18 @@ module Creators
     def self.create_or_update(activity_hash)
       activity_json = JSON.parse(activity_hash.to_json)
 
+      return if activity_json['best_efforts'].blank? && activity_json['workout_type'].to_i != 1
+
+      create_activity(activity_json)
+
       # It's a race.
       if activity_json['workout_type'].to_i == 1
         Rails.logger.info("ActivityCreator - Activity #{activity_json['id']} is a race.")
-        create_activity(activity_json)
         create_race(activity_json)
       end
 
-      return if activity_json['best_efforts'].blank?
-
       # It has some best efforts.
       activity_json['best_efforts'].each do |best_effort_json|
-        create_activity(activity_json)
         create_best_effort(activity_json, best_effort_json)
       end
     end
