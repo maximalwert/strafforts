@@ -5,12 +5,18 @@ module Api
       ApplicationController.raise_athlete_not_found_error(params[:id_or_username]) if athlete.nil?
 
       heart_rate_zones = ApplicationHelper::Helper.get_heart_rate_zones(athlete.id)
-      if params[:distance].blank?
+      return if params[:distance].blank?
+
+      if 'overview'.casecmp(params[:distance]).zero?
         items = BestEffort.find_all_pbs_by_athlete_id(athlete.id)
         shaped_items = ApplicationHelper::Helper.shape_best_efforts(items, heart_rate_zones, athlete.measurement_preference) # rubocop:disable LineLength
         @personal_bests = PersonalBestsDecorator.new(shaped_items)
         @personal_bests = @personal_bests.to_show_in_overview
         render json: @personal_bests
+      elsif 'recent'.casecmp(params[:distance]).zero?
+        items = BestEffort.find_all_pbs_by_athlete_id(athlete.id)
+        shaped_items = ApplicationHelper::Helper.shape_best_efforts(items, heart_rate_zones, athlete.measurement_preference) # rubocop:disable LineLength
+        render json: shaped_items.first(RECENT_ITEMS_LIMIT)
       else
         # Get best_effort_type from distance parameter.
         # '1/2 mile' is passed in as 1_2 mile, 'Half Marathon' is passed in as half-marathon

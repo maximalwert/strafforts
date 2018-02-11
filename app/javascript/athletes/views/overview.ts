@@ -1,5 +1,6 @@
 import { AppHelpers } from '../helpers/appHelpers';
 import { HtmlHelpers } from '../helpers/htmlHelpers';
+import { ViewType } from '../helpers/viewTypes';
 import BaseView from './baseView';
 
 export default class Overview extends BaseView {
@@ -15,8 +16,20 @@ export default class Overview extends BaseView {
         this.createView();
     }
 
+    public loadRecentPersonalBestsPanel(): void {
+        this.createOverviewDatatableForRecentItems(ViewType.PersonalBests);
+    }
+
     public loadRacesPanel(): void {
-        this.createOverviewDatatable('races');
+        this.createOverviewDatatable(ViewType.Races);
+    }
+
+    public loadRecentRacesPanel(): void {
+        this.createOverviewDatatableForRecentItems(ViewType.Races);
+    }
+
+    protected createView(): void {
+        this.createOverviewDatatable(ViewType.PersonalBests);
     }
 
     protected createViewTemplate(): void {
@@ -32,12 +45,20 @@ export default class Overview extends BaseView {
                             <a href="#pane-personal-bests" data-toggle="tab">Personal Bests</a>
                         </li>
                         <li>
+                            <a href="#pane-recent-personal-bests" data-toggle="tab">Recent PBs</a>
+                        </li>
+                        <li>
                             <a href="#pane-races" data-toggle="tab">Races</a>
+                        </li>
+                        <li>
+                            <a href="#pane-recent-races" data-toggle="tab">Recent Races</a>
                         </li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="pane-personal-bests">${HtmlHelpers.getLoadingIcon()}</div>
+                        <div class="tab-pane" id="pane-recent-personal-bests">${HtmlHelpers.getLoadingIcon()}</div>
                         <div class="tab-pane" id="pane-races">${HtmlHelpers.getLoadingIcon()}</div>
+                        <div class="tab-pane" id="pane-recent-races">${HtmlHelpers.getLoadingIcon()}</div>
                     </div>
                 </div>
             </div>
@@ -45,12 +66,8 @@ export default class Overview extends BaseView {
         mainContent.append(content);
     }
 
-    protected createView(): void {
-        this.createOverviewDatatable('personal-bests');
-    }
-
     private createOverviewDatatable(type: string) {
-        const fullUrl = AppHelpers.getApiBaseUrl() + '/' + type;
+        const fullUrl = `${AppHelpers.getApiBaseUrl()}/${type}/overview`;
         $.ajax({
             url: fullUrl,
             dataType: 'json',
@@ -64,7 +81,7 @@ export default class Overview extends BaseView {
                     distances.push(model);
                 });
 
-                const pane = $('#pane-' + type);
+                const pane = $(`#pane-${type}`);
                 pane.empty();
 
                 if (distances.length === 0) {
@@ -72,7 +89,7 @@ export default class Overview extends BaseView {
                     pane.append(infoBox);
                 } else {
                     distances.forEach((model: any[]) => {
-                        const isTypeOfRaces = type === 'races';
+                        const isTypeOfRaces = type === ViewType.Races;
 
                         const distanceId = model['distance'].toLowerCase().replace(/\s/g, '-').replace(/\//g, '-');
                         const linkId = `${type}-for-distance-${distanceId}`;
@@ -167,6 +184,90 @@ export default class Overview extends BaseView {
                         </div>`;
                         pane.append(table);
                     });
+                }
+            },
+        });
+    }
+
+    private createOverviewDatatableForRecentItems(type: string) {
+        const fullUrl = `${AppHelpers.getApiBaseUrl()}/${type}/recent`;
+        const isTypeOfRaces = type === ViewType.Races;
+        $.ajax({
+            url: fullUrl,
+            dataType: 'json',
+            success: (data) => {
+                const pane = $(`#pane-recent-${type}`);
+                pane.empty();
+
+                if (data.length === 0) {
+                    const infoBox = HtmlHelpers.getNoDataInfoBox();
+                    pane.append(infoBox);
+                } else {
+                    let rows = '';
+                    data.forEach((item: any[]) => {
+                        const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
+                        const distance = isTypeOfRaces
+                            ? `${(item['distance']).toFixed(1)} ${item['distance_unit']}`
+                            : `${(item['best_effort_type'])}`;
+
+                        rows += `
+                            <tr>
+                                <td class="no-wrap">${item['start_date']}</td>
+                                <td>
+                                    <a class="strava-activity-link" href="${stravaLink}" target="_blank">
+                                        ${item['activity_name']}
+                                    </a>
+                                </td>
+                                <td class="hidden-xs-down">
+                                    ${distance}
+                                </td>
+                                <td class="no-wrap">${item['elapsed_time_formatted']}</td>
+                                <td class="hidden-xs-down">
+                                    ${item['pace']}<small>${item['pace_unit']}</small>
+                                </td>
+                                <td class="hidden-lg-down">${item['gear_name']}</td>
+                                <td class='text-center badge-cell hidden-md-down'>
+                                    <span class="badge hr-zone-${item['average_hr_zone']}">
+                                        ${item['average_heartrate'] === -1 ? 'n/a' : item['average_heartrate']}
+                                    </span>
+                                </td>
+                                <td class='text-center badge-cell hidden-md-down'>
+                                    <span class="badge hr-zone-${item['max_hr_zone']}">
+                                        ${item['max_heartrate'] === -1 ? 'n/a' : item['max_heartrate']}
+                                    </span>
+                                </td>
+                            </tr>
+                        `;
+                    });
+
+                    const table = `
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">
+                                Recent ${isTypeOfRaces ? 'Races' : 'PBs'}
+                            </h3>
+                        </div>
+                        <div class="box-body dataTable-wrapper">
+                            <table class="dataTable table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="col-md-1">Date</th>
+                                        <th class="col-md-3">Activity</th>
+                                        <th class="col-md-1 hidden-xs-down">Distance</th>
+                                        <th class="col-md-1">Time</th>
+                                        <th class="col-md-1 hidden-xs-down">Pace</th>
+                                        <th class="col-md-1 hidden-lg-down">Gear</th>
+                                        <th class="col-md-1 text-center badge-cell hidden-md-down">Avg. HR</th>
+                                        <th class="col-md-1 text-center badge-cell hidden-md-down">Max HR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${rows}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>`;
+                    pane.append(table);
                 }
             },
         });

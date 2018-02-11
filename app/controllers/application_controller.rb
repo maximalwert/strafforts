@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
   STRAVA_API_CLIENT_ID = Settings.strava.api_client_id
   STRAVA_ATHLETES_URL = Settings.strava.athletes_base_url
 
+  RECENT_ITEMS_LIMIT = 20
+  BEST_EFFORTS_LIMIT = 100
+
   protect_from_forgery with: :exception
 
   def self.get_auth_url(request)

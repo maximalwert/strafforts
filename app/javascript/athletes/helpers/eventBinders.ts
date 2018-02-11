@@ -3,6 +3,7 @@ import BestEffortsByDistanceView from '../views/bestEffortsByDistance';
 import NavigationSidebar from '../views/navigationSidebar';
 import Overview from '../views/overview';
 import { AppHelpers } from './appHelpers';
+import { ViewType } from './viewTypes';
 
 export namespace EventBinders {
 
@@ -26,12 +27,20 @@ export namespace EventBinders {
             $('.sidebar-menu .disabled').click(false);
 
             // Always load Overview panes upon clicking.
+            $(document).on('click', "a[href^='#pane-personal-bests']", () => {
+                new Overview().loadPersonalBestsPanel();
+                new NavigationSidebar().load();
+            });
+            $(document).on('click', "a[href^='#pane-recent-personal-bests']", () => {
+                new Overview().loadRecentPersonalBestsPanel();
+                new NavigationSidebar().load();
+            });
             $(document).on('click', "a[href^='#pane-races']", () => {
                 new Overview().loadRacesPanel();
                 new NavigationSidebar().load();
             });
-            $(document).on('click', "a[href^='#pane-personal-bests']", () => {
-                new Overview().loadPersonalBestsPanel();
+            $(document).on('click', "a[href^='#pane-recent-races']", () => {
+                new Overview().loadRecentRacesPanel();
                 new NavigationSidebar().load();
             });
 
@@ -44,7 +53,7 @@ export namespace EventBinders {
                 const distance = $(event.currentTarget).attr('data-race-distance');
                 const distanceFormattedForUrl = AppHelpers.formatDistanceForUrl(distance);
 
-                AppHelpers.pushStateToWindow(`?view=best-efforts&distance=${distanceFormattedForUrl}`);
+                AppHelpers.pushStateToWindow(`?view=${ViewType.BestEfforts}&distance=${distanceFormattedForUrl}`);
                 new BestEffortsByDistanceView(distance).load();
                 new NavigationSidebar().load();
             });
