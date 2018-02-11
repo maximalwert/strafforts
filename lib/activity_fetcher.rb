@@ -39,6 +39,7 @@ class ActivityFetcher
             activity = @api_wrapper.retrieve_an_activity(activity_id)
             Creators::ActivityCreator.create_or_update(activity)
             athlete.last_activity_retrieved = activity_id
+            athlete.save!
           end
         else
           Rails.logger.info(get_no_new_runs_message(athlete.id, current_total_run_count))
