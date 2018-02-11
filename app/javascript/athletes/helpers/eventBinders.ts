@@ -178,25 +178,18 @@ export namespace EventBinders {
             data: '',
             cache: false,
             type: 'post',
-            success: () => {
-                $('.last-activity-retrieved').addClass('hidden');
-                $('.last-activity-na').removeClass('hidden');
-
-                // Disable both 'Fetch Latest' and 'Reset' buttons.
-                $('.form-fetch-latest-activities .submit-form').prop('disabled', true);
-                $('.reset-profile .btn-danger').prop('disabled', true);
-
-                ($('#confirm-reset-profile') as any).modal('toggle');
-                toastr.success(`Resetted Successfully!<br /><br />
-                    A full re-synchronization of all your activities has been queued.`);
-
-                // Redirect back to homepage.
-                window.location.href = '/';
-            },
-            error: (xhr, ajaxOptions, thrownError) => {
-                ($('#confirm-reset-profile') as any).modal('toggle');
-                toastr.error(xhr.status + '\n' + thrownError);
-            },
         });
+
+        $('.last-activity-retrieved').addClass('hidden');
+        $('.last-activity-na').removeClass('hidden');
+
+        // Disable both 'Fetch Latest' and 'Reset' buttons.
+        $('.form-fetch-latest-activities .submit-form').prop('disabled', true);
+        $('.reset-profile .btn-danger').prop('disabled', true);
+
+        ($('#confirm-reset-profile') as any).modal('toggle');
+
+        toastr.success(`Your account will be reset shortly!<br /><br />
+            A full re-synchronization of all your activities will be queued.`);
     }
 }
