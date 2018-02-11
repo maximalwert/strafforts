@@ -1,4 +1,11 @@
 ---
+unit_test_one:
+  id: -1
+  activity_id: -1
+  athlete_id: 456
+  race_distance_id: 4
+  created_at: '2018-02-10 07:52:36.004981'
+  updated_at: '2018-02-10 07:52:36.004981'
 race_1:
   id: 1
   activity_id: 690190153

@@ -1,4 +1,38 @@
 ---
+unit_test_one:
+  id: -1
+  athlete_id: 456
+  gear_id: g1313288
+  workout_type_id: 0
+  name: First recorded running activity
+  description: "(Uploaded via API. Gear name: Fila Facilitator. Device name: null.)"
+  distance: 4346.3
+  moving_time: 1679
+  elapsed_time: 1679
+  total_elevation_gain: 0.0
+  elev_high: 38.3
+  elev_low: 25.1
+  start_date: '2014-01-03 04:28:00'
+  start_date_local: '2014-01-03 17:28:00'
+  timezone: "(GMT+12:00) Pacific/Auckland"
+  athlete_count: 2
+  trainer: false
+  commute: false
+  manual: false
+  private: false
+  device_name: 
+  flagged: false
+  average_speed: 2.589
+  max_speed: 4.0
+  average_cadence: 
+  average_temp: 
+  has_heartrate: false
+  average_heartrate: 
+  max_heartrate: 
+  calories: 338.0
+  suffer_score: 
+  created_at: '2018-02-10 07:50:05.917072'
+  updated_at: '2018-02-10 07:50:05.917072'
 activity_690180177:
   id: 690180177
   athlete_id: 9123806

@@ -16,7 +16,7 @@ RSpec.describe AthletesController, type: :request do
       end
     end
 
-    it 'should reset last_activity_retrieved for the current user' do
+    it 'should reset_profile for the current user' do
       # arrange.
       setup_cookie('58e42e6f5e496dc5aa0d5ec354da8048')
 
@@ -24,12 +24,26 @@ RSpec.describe AthletesController, type: :request do
       expect(athlete).not_to be_nil
       expect(athlete.last_activity_retrieved).not_to be_nil
 
+      best_efforts = BestEffort.where(athlete_id: athlete.id)
+      expect(best_efforts.count).to be > 0
+      races = Race.where(athlete_id: athlete.id)
+      expect(races.count).to be > 0
+      activities = Activity.where(athlete_id: athlete.id)
+      expect(activities.count).to be > 0
+
       # act.
       post '/athletes/456/reset_profile'
 
       # assert.
       athlete.reload
       expect(athlete.last_activity_retrieved).to be_nil
+
+      best_efforts = BestEffort.where(athlete_id: athlete.id)
+      expect(best_efforts.count).to be 0
+      races = Race.where(athlete_id: athlete.id)
+      expect(races.count).to be 0
+      activities = Activity.where(athlete_id: athlete.id)
+      expect(activities.count).to be 0
     end
   end
 end

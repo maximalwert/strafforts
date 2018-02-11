@@ -1,4 +1,17 @@
 ---
+unit_test_one:
+  id: -1
+  activity_id: -1
+  athlete_id: 456
+  best_effort_type_id: 14
+  pr_rank: 
+  distance: 400.0
+  moving_time: 136
+  elapsed_time: 136
+  start_date: '2014-01-03 04:28:04'
+  start_date_local: '2014-01-03 17:28:04'
+  created_at: '2018-02-10 07:50:06.007423'
+  updated_at: '2018-02-10 07:50:06.007423'
 best_effort_1587424199:
   id: 1587424199
   activity_id: 690180177
