@@ -44,7 +44,8 @@ class NavigationTest < AppTestBase
         puts "#{distance} - #{screen_size}" if VERBOSE_LOGGING
 
         assert_navigate_to_distance_successfully(
-          'personal-bests', 'Personal Bests', distance, PERSONAL_BESTS_CHART_TITLES)
+          'personal-bests', 'Personal Bests', distance, PERSONAL_BESTS_CHART_TITLES
+        )
       end
     end
   end
