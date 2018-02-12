@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     '&approval_prompt=auto&scope=view_private'
   end
 
-  def self.get_meta(athlete_id) # rubocop:disable MethodLength
+  def self.get_meta(athlete_id) # rubocop:disable CyclomaticComplexity, MethodLength
     best_efforts_meta = []
     ApplicationHelper::Helper.all_best_effort_types.each do |item|
       model = BestEffortType.find_by_name(item[:name])
