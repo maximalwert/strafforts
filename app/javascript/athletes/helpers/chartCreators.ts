@@ -91,7 +91,7 @@ export class ChartCreator {
                         offsetGridLines: true,
                     },
                     ticks: {
-                        callback: (value: any) => {
+                        callback: (value: any, index: any, values: any) => {
                             return sortByPace ?
                                 Helpers.formatPace(value.toString(), paceUnit) : value.toString().toHHMMSS();
                         },
@@ -102,13 +102,12 @@ export class ChartCreator {
                 enabled: true,
                 mode: 'single',
                 callbacks: {
-                    title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
+                    title: (tooltipItem: Chart.ChartTooltipItem[], data?: any) => {
                         const index = tooltipItem[0].index;
-                        if (typeof index !== 'undefined') {
-                            return data.datasets[0].label[index];
-                        }
+                        const result = typeof index !== 'undefined' ? data.datasets[0].label[index] : '';
+                        return result;
                     },
-                    label: (tooltipItem: Chart.ChartTooltipItem, data: any) => {
+                    label: (tooltipItem: Chart.ChartTooltipItem, data?: any) => {
                         const index = tooltipItem.index;
                         if (typeof index !== 'undefined') {
                             const time = data.datasets[0].runTimesFormatted[index];
@@ -118,6 +117,7 @@ export class ChartCreator {
                                 return `Ran ${time} on ${date} at ${pace}`;
                             }
                         }
+                        return '';
                     },
                 },
             },
@@ -234,7 +234,7 @@ export class ChartCreator {
             }
         });
 
-        const workoutTypeLabels = Object.keys(workoutTypes);
+        const workoutTypeLabels = Object.keys(workoutTypes).map((key)  => Helpers.convertToTitleCase(key));
         const counts = Object.keys(workoutTypes).map((key)  => workoutTypes[key]);
         const legendLabels = Object.keys(workoutTypes).map((key) =>
             `${Helpers.convertToTitleCase(key)}: (${workoutTypes[key]})`);
@@ -385,7 +385,7 @@ export class ChartCreator {
                 enabled: true,
                 mode: 'single',
                 callbacks: {
-                    label: (tooltipItem: Chart.ChartTooltipItem, data: any) => {
+                    label: (tooltipItem: Chart.ChartTooltipItem, data?: any) => {
                         const datasetIndex = tooltipItem.datasetIndex;
                         const index = tooltipItem.index;
                         if (tooltipItem.xLabel && typeof datasetIndex !== 'undefined' && typeof index !== 'undefined') {
@@ -393,6 +393,7 @@ export class ChartCreator {
                             const count = data.datasets[datasetIndex].counts[index];
                             return `Count: ${count} - Total Mileage: ${mileage} ${distanceUnit}`;
                         }
+                        return '';
                     },
                 },
             },
@@ -490,18 +491,17 @@ export class ChartCreator {
                 enabled: true,
                 mode: 'single',
                 callbacks: {
-                    title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
+                    title: (tooltipItem: Chart.ChartTooltipItem[], data?: any) => {
                         const index = tooltipItem[0].index;
-                        if (typeof index !== 'undefined') {
-                            return data.datasets[0].label[index];
-                        }
+                        const result = typeof index !== 'undefined' ? data.datasets[0].label[index] : '';
+                        return result;
                     },
-                    label: (tooltipItem: Chart.ChartTooltipItem) => {
-                        if (tooltipItem.xLabel && tooltipItem.yLabel) {
-                            const averageHeartRate = tooltipItem.xLabel;
-                            const maxHeartRate = tooltipItem.yLabel;
-                            return `Avg. HR: ${averageHeartRate} - Max. HR: ${maxHeartRate}`;
-                        }
+                    label: (tooltipItem: Chart.ChartTooltipItem, data?: any) => {
+                        const averageHeartRate = tooltipItem.xLabel;
+                        const maxHeartRate = tooltipItem.yLabel;
+                        return averageHeartRate && maxHeartRate
+                            ? `Avg. HR: ${averageHeartRate} - Max. HR: ${maxHeartRate}`
+                            : '';
                     },
                 },
             },
@@ -590,16 +590,13 @@ export class ChartCreator {
         const customChartOptions: Chart.ChartOptions = {
             tooltips: {
                 callbacks: {
-                    title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
+                    title: (tooltipItem: Chart.ChartTooltipItem[], data?: any) => {
                         const index = tooltipItem[0].index;
-                        if (typeof index !== 'undefined') {
-                            return data.datasets[0].label[index];
-                        }
+                        const result = typeof index !== 'undefined' ? data.datasets[0].label[index] : '';
+                        return result;
                     },
-                    label: (tooltipItem: Chart.ChartTooltipItem) => {
-                        if (tooltipItem.xLabel) {
-                            return `Count: ${tooltipItem.xLabel}`;
-                        }
+                    label: (tooltipItem: Chart.ChartTooltipItem, data?: any) => {
+                        return tooltipItem.xLabel ? `Count: ${tooltipItem.xLabel}` : '';
                     },
                 },
             },

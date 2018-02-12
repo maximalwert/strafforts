@@ -105,7 +105,7 @@ export namespace ChartHelpers {
         const defaultChartOptions = {
             legend: {
                 position: 'bottom',
-                onClick: (event: any) => {
+                onClick: (event: any, legendItem: any) => {
                     event.stopPropagation();
                 },
             },
@@ -115,17 +115,15 @@ export namespace ChartHelpers {
                 enabled: true,
                 mode: 'single',
                 callbacks: {
-                    title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
+                    title: (tooltipItem: Chart.ChartTooltipItem[], data?: any) => {
                         const index = tooltipItem[0].index;
-                        if (typeof index !== 'undefined') {
-                            return data.datasets[0].label[index];
-                        }
+                        const result = typeof index !== 'undefined' ? data.datasets[0].label[index] : '';
+                        return result;
                     },
-                    label: (tooltipItem: Chart.ChartTooltipItem, data: any) => {
+                    label: (tooltipItem: Chart.ChartTooltipItem, data?: any) => {
                         const index = tooltipItem.index;
-                        if (typeof index !== 'undefined') {
-                            return `Count: ${data.datasets[0].data[index]}`;
-                        }
+                        const result = typeof index !== 'undefined' ? `Count: ${data.datasets[0].data[index]}` : '';
+                        return result;
                     },
                 },
             },
@@ -172,10 +170,8 @@ export namespace ChartHelpers {
                     ticks: {
                         autoSkip: false,
                         beginAtZero: true,
-                        callback: (value: any) => {
-                            if (value % 1 === 0) {
-                                return value;
-                            }
+                        callback: (value: any, index: any, values: any) => {
+                            return value % 1 === 0 ? value : '';
                         },
                     },
                 }],
@@ -184,16 +180,14 @@ export namespace ChartHelpers {
                 enabled: true,
                 mode: 'single',
                 callbacks: {
-                    title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
+                    title: (tooltipItem: Chart.ChartTooltipItem[], data?: any) => {
                         const index = tooltipItem[0].index;
-                        if (typeof index !== 'undefined') {
-                            return data.datasets[0].label[index];
-                        }
+                        const result = typeof index !== 'undefined' ? data.datasets[0].label[index] : '';
+                        return result;
                     },
-                    label: (tooltipItem: Chart.ChartTooltipItem) => {
-                        if (tooltipItem.yLabel) {
-                            return `Count: ${tooltipItem.yLabel}`;
-                        }
+                    label: (tooltipItem: Chart.ChartTooltipItem, data?: any) => {
+                        const result = tooltipItem.yLabel ? `Count: ${tooltipItem.yLabel}` : '';
+                        return result;
                     },
                 },
             },
@@ -247,17 +241,17 @@ export namespace ChartHelpers {
                 enabled: true,
                 mode: 'index',
                 callbacks: {
-                    title: (tooltipItem: Chart.ChartTooltipItem[], data: any) => {
+                    title: (tooltipItem: Chart.ChartTooltipItem[], data?: any) => {
                         const index = tooltipItem[0].index;
-                        if (typeof index !== 'undefined') {
-                            return `${data.yLabels[index]}`;
-                        }
+                        const result = typeof index !== 'undefined' ? `${data.yLabels[index]}` : '';
+                        return result;
                     },
-                    label: (tooltipItem: Chart.ChartTooltipItem, data: any) => {
+                    label: (tooltipItem: Chart.ChartTooltipItem, data?: any) => {
                         const datasetIndex = tooltipItem.datasetIndex;
-                        if (tooltipItem.yLabel && typeof datasetIndex !== 'undefined') {
-                            return `${data.datasets[datasetIndex].label}: ${tooltipItem.yLabel}`;
-                        }
+                        const result = (tooltipItem.yLabel && typeof datasetIndex !== 'undefined')
+                            ? `${data.datasets[datasetIndex].label}: ${tooltipItem.yLabel}`
+                            : '';
+                        return result;
                     },
                 },
             },
@@ -314,10 +308,9 @@ export namespace ChartHelpers {
                 enabled: true,
                 mode: 'single',
                 callbacks: {
-                    label: (tooltipItem: Chart.ChartTooltipItem) => {
-                        if (tooltipItem.xLabel) {
-                            return `Count: ${tooltipItem.xLabel}`;
-                        }
+                    label: (tooltipItem: Chart.ChartTooltipItem, data?: any) => {
+                        const result = tooltipItem.xLabel ? `Count: ${tooltipItem.xLabel}` : '';
+                        return result;
                     },
                 },
             },
