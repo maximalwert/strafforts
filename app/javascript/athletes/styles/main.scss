@@ -555,6 +555,12 @@ input[type='submit'] {
     }
 }
 
+@media (min-width: 544px) {
+    .hidden-xs-up {
+        display: none !important;
+    }
+}
+
 @media (max-width: 768px) {
     .hidden-sm-down {
         display: none !important;
