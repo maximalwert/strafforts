@@ -135,6 +135,10 @@ input[type='submit'] {
     }
 
     .navbar-nav {
+        .fb-like {
+            padding: 15px;
+        }
+
         /* Blue follower and following links. */
         .user-menu > .dropdown-menu > .user-body a {
             color: #007FB6 !important;
@@ -547,6 +551,12 @@ input[type='submit'] {
 /* Responsive */
 @media (max-width: 544px) {
     .hidden-xs-down {
+        display: none !important;
+    }
+}
+
+@media (min-width: 544px) {
+    .hidden-xs-up {
         display: none !important;
     }
 }
