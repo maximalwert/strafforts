@@ -5,6 +5,7 @@ app:
   emailer:
     default_sender_name: 'Yi Zeng'
     default_sender_email: 'support@strafforts.com'
+  facebook_page_url: 'https://www.facebook.com/strafforts'
   global_message: <%= ENV['GLOBAL_MESSAGE'] %>
   html_meta_description: 'An analytics app that allow athletes to analyze their visualized Strava best efforts, personal bests and races data in tables and charts.'
   html_meta_description_for_athletes: 'Visualized Strava best efforts, PBs/PRs and races data for '

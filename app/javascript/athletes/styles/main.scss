@@ -135,6 +135,10 @@ input[type='submit'] {
     }
 
     .navbar-nav {
+        .fb-like {
+            padding: 15px;
+        }
+
         /* Blue follower and following links. */
         .user-menu > .dropdown-menu > .user-body a {
             color: #007FB6 !important;
