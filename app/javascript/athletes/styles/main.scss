@@ -136,6 +136,8 @@ input[type='submit'] {
 
     .navbar-nav {
         .fb-like {
+            display: inline-block;
+
             padding: 15px;
         }
 
@@ -323,7 +325,7 @@ input[type='submit'] {
             .btn {
                 color: #FFFFFF;
                 background-color: $color-light-grey;
-    
+
                 &.active,
                 &:hover {
                     border-color: rgba(0, 0, 0, .2);
