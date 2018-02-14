@@ -1,6 +1,4 @@
 <footer class="main-footer">
-  <div class="fb-like hidden-xs-up" data-href="<%= Settings.app.facebook_page_url %>"
-    data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
   <span class="hidden-xs-down">
     <small>
       Enjoyed <%= Settings.app.name %>?
@@ -9,7 +7,7 @@
     </small>
   </span>
   <span class="pull-right">
-      <a class="bg-strava btn label hidden-xs-down" href="https://www.strava.com<%= Settings.app.demo_path %>" target="_blank">Follow me on Strava</a>
+      <a class="bg-strava btn label" href="https://www.strava.com<%= Settings.app.demo_path %>" target="_blank">Follow me on Strava</a>
       <a class="bg-strava btn label" href="mailto:<%= Settings.app.emailer.default_sender_email %>" target="_blank">Contact Us</a>
       <% unless Settings.app.version.blank? %>
           <small><%= Settings.app.version %></small>
