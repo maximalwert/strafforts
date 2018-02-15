@@ -62,6 +62,7 @@ $('#modal-social-sharing').on('shown.bs.modal', function (e) {
     document.head.appendChild(script);
 });
 
+// Hotjar plugin.
 $(document).ajaxStop(function () {
     var id = document.getElementsByTagName('body')[0].getAttribute('data-hotjar-id');
     if (id) {
@@ -75,3 +76,12 @@ $(document).ajaxStop(function () {
         })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
     }
 });
+
+// Facebook like button.
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));

@@ -14,20 +14,12 @@ RSpec.describe Api::BestEffortsController, type: :request do
         .to raise_error(ActionController::BadRequest, "Could not find requested best effort type '100m'.")
     end
 
+    it 'should be empty when best effort type is not specified' do
+      get '/api/athletes/123/best-efforts'
+      expect(response.body).to eq('[]')
+    end
+
     context 'should be successful' do
-      it 'when best effort type is not specified' do
-        # arrange.
-        url = '/api/athletes/9123806/best-efforts'
-        expected = "#{expected_folder}#{url}.json"
-
-        # act.
-        get url
-
-        # assert.
-        expect(response).to have_http_status(:success)
-        expect(response.body).to eq(File.read(expected))
-      end
-
       distances = BestEffortType.all
       distances.each do |distance|
         it "for best effort type '#{distance.name}'" do

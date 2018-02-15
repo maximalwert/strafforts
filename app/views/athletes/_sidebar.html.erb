@@ -38,6 +38,15 @@
         </a>
       </li>
 
+      <% unless ENV['DIABLE_BEST_EFFORTS'] %>
+      <li>
+        <a class="show-best-efforts treeview-header" href="?view=best-efforts">
+          <i class="fa fa-flag-checkered"></i>
+          <span>Best Efforts</span>
+        </a>
+      </li>
+      <% end %>
+
       <li class="active treeview">
         <a class="treeview-header disabled" href="#">
           <i class="fa fa-trophy"></i>
@@ -45,7 +54,7 @@
         </a>
 
         <ul class="treeview-menu">
-          <li id="treeview-menu-best-efforts-for-distance" class="treeview-expander treeview">
+          <li id="treeview-menu-personal-bests-for-distance" class="treeview-expander treeview">
             <a href="#" class="show-more-distance">
               <i class="fa fa-circle-o"></i>More Distances
               <span class="pull-right-container">

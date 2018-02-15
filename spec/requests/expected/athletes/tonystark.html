@@ -12,11 +12,11 @@
     <meta name="author" content="Yi Zeng">
         <meta property="og:title" content="Strafforts | Tony Stark | Overview" />
     <meta property="og:locale" content="en" />
-    <meta name="description" content="Visualized Strava best efforts (PBs) and races data for Tony Stark." />
-    <meta property="og:description" content="Visualized Strava best efforts (PBs) and races data for Tony Stark." />
+    <meta name="description" content="Visualized Strava best efforts, PBs/PRs and races data for Tony Stark." />
+    <meta property="og:description" content="Visualized Strava best efforts, PBs/PRs and races data for Tony Stark." />
     <meta property="og:url" content="https://www.strafforts.com" />
     <meta name="keywords" content="strava,strafforts,bestefforts,pb,races,running,data,visualizer,analyticsTony Stark"/>
-    <script type="application/ld+json">{"@context": "http://schema.org","@type": "WebSite","name": "Straffrots","author":"Yi Zeng","description":"Visualized Strava best efforts (PBs) and races data for Tony Stark.","url": "https://www.strafforts.com/athletes/123"}</script>
+    <script type="application/ld+json">{"@context": "http://schema.org","@type": "WebSite","name": "Straffrots","author":"Yi Zeng","description":"Visualized Strava best efforts, PBs/PRs and races data for Tony Stark.","url": "https://www.strafforts.com/athletes/123"}</script>
 
     
 
@@ -33,6 +33,7 @@
   </head>
 
   <body class="hold-transition skin-black-light sidebar-mini page-loading" data-ga-tracking-id="" data-hotjar-id="">
+  <div id="fb-root"></div>
   <div class="wrapper">
 
     <header class="main-header">
@@ -56,6 +57,10 @@
 
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
+        <li>
+          <div class="fb-like hidden-xs-down" data-href="https://www.facebook.com/strafforts" data-layout="button_count"
+            data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+        </li>
         <li class="dropdown user user-menu">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <img alt="User Image" class="athlete-image user-image" src="https://www.tonystark.com/large.jpg">
@@ -183,6 +188,13 @@
         </a>
       </li>
 
+      <li>
+        <a class="show-best-efforts treeview-header" href="?view=best-efforts">
+          <i class="fa fa-flag-checkered"></i>
+          <span>Best Efforts</span>
+        </a>
+      </li>
+
       <li class="active treeview">
         <a class="treeview-header disabled" href="#">
           <i class="fa fa-trophy"></i>
@@ -190,7 +202,7 @@
         </a>
 
         <ul class="treeview-menu">
-          <li id="treeview-menu-best-efforts-for-distance" class="treeview-expander treeview">
+          <li id="treeview-menu-personal-bests-for-distance" class="treeview-expander treeview">
             <a href="#" class="show-more-distance">
               <i class="fa fa-circle-o"></i>More Distances
               <span class="pull-right-container">
@@ -268,7 +280,7 @@
     </div><!-- /.content-wrapper -->
 
     <footer class="main-footer">
-  <span class="hidden-xs">
+  <span class="hidden-xs-down">
     <small>
       Enjoyed Strafforts?
       <a class="custom-dbox-popup" href="https://donorbox.org/help-push-strafforts-forward?amount=25" 
@@ -278,7 +290,7 @@
   <span class="pull-right">
       <a class="bg-strava btn label" href="https://www.strava.com/athletes/9123806" target="_blank">Follow me on Strava</a>
       <a class="bg-strava btn label" href="mailto:support@strafforts.com" target="_blank">Contact Us</a>
-          <small>v1.1.2</small>
+          <small>v1.2.0</small>
   </span>
 </footer>
 <script> window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' } </script>
@@ -334,7 +346,7 @@
         <label class="control-sidebar-subheading checkbox inline" for="is_public">Public Profile:</label>
         <input type="checkbox" name="is_public" id="is_public" value="false" class="pull-right" />
         <p>
-          Anyone with the link can see this page.
+          Allows you to share this page.
         </p>
         <p id="publicize-profile-warning" class="alert alert-warning hidden">
           <small>If your profile was previously shared to anyone, they can no longer access this page.</small>
@@ -356,25 +368,18 @@
 
     <!-- Data tab content -->
     <div class="tab-pane" id="control-sidebar-data-tab">
-      <form method="post">
-        <h3 class="control-sidebar-heading">Data Settings</h3>
-        <p>
-          Slowly getting implemented...
-        </p>
-      </form>
+      <h3 class="control-sidebar-heading">Data Settings</h3>
+      <p>
+        Slowly getting implemented...
+      </p>
     </div>
 
     <!-- Diagnostics tab content -->
     <div class="tab-pane" id="control-sidebar-diagnostics-tab">
       <h3 class="control-sidebar-heading">Diagnostics</h3>
-      <div class="form-group reset-last-activity-retrieved">
+      <div class="form-group">
         <label class="control-sidebar-subheading">
           Last activity retrieved:
-          <i
-            class="fa fa-question-circle"
-            aria-hidden="true"
-            data-toggle="tooltip"
-            title="The last activity that contains achievements, not necessarily your overall latest activity on Strava."></i>
         </label>
         <div class="control-sidebar-subheading text-center">
           <label class="last-activity-na ">N/A</label>
@@ -387,14 +392,10 @@
           </label>
         </div>
         <div>
-          <form action="/athletes/tonystark/reset_last_activity_retrieved" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
-          <button type="submit" class="btn btn-block btn-danger btn-flat submit-form"
-            disabled
-              data-toggle="tooltip"
-              title="You will be queued for a full re-synchronization of all your activities."
-          >
-            Reset
-          </button>
+          <form class="form-fetch-latest-activities" action="/athletes/tonystark/fetch_latest" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+            <button type="submit" class="btn btn-block btn-default btn-flat submit-form">
+              Fetch Latest
+            </button>
 </form>        </div>
       </div>
 
@@ -404,11 +405,19 @@
         <label class="pull-right">2017-12-17 15:55 UTC</label>
       </div>
 
+      <div class="form-group reset-profile">
+        <h3 class="control-sidebar-heading">Reset Profile</h3>
+        <p>Delete all activities and queue for a full re-synchronization.</p>
+        <button type="button" class="btn btn-block btn-danger btn-flat" data-toggle="modal" data-target="#confirm-reset-profile">
+          Reset
+        </button>
+      </div>
+
       <div class="form-group">
         <h3 class="control-sidebar-heading">Delete Profile</h3>
         <p>Revoke access to Strava and delete all activities from our server.</p>
         <button type="button" class="btn btn-block btn-danger btn-flat" data-toggle="modal" data-target="#confirm-delete-profile">
-          Delete All
+          Delete
         </button>
       </div>
     </div>
@@ -419,6 +428,29 @@
        immediately after the control sidebar -->
 <div class="control-sidebar-bg"></div>
 
+<!-- Modal - Confirm Profile Reset -->
+<form class="form-reset-profile" action="/athletes/tonystark/reset_profile" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+  <div class="modal modal-danger" id="confirm-reset-profile" tabindex="-1" role="dialog" aria-labelledby="confirm-reset-profile-label">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="confirm-reset-profile-label">Are you sure?</h4>
+        </div>
+        <div class="modal-body">
+          <p>By clicking 'Confirm' below, Strafforts will delete all you data and queue for a full re-synchronization.</p>
+          <p>This would normally take a while (depending on server load) until you get all your data back.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-outline submit-form">Confirm</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 <!-- Modal - Confirm Profile Deletion -->
 <div class="modal modal-danger" id="confirm-delete-profile" tabindex="-1" role="dialog" aria-labelledby="confirm-delete-profile-label">
   <div class="modal-dialog" role="document">

@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
   STRAVA_API_CLIENT_ID = Settings.strava.api_client_id
   STRAVA_ATHLETES_URL = Settings.strava.athletes_base_url
 
+  RECENT_ITEMS_LIMIT = 20
+  BEST_EFFORTS_LIMIT = 100
+
   protect_from_forgery with: :exception
 
   def self.get_auth_url(request)
@@ -24,19 +27,34 @@ class ApplicationController < ActionController::Base
     '&approval_prompt=auto&scope=view_private'
   end
 
-  def self.get_meta(athlete_id) # rubocop:disable MethodLength
+  def self.get_meta(athlete_id) # rubocop:disable CyclomaticComplexity, MethodLength
     best_efforts_meta = []
     ApplicationHelper::Helper.all_best_effort_types.each do |item|
       model = BestEffortType.find_by_name(item[:name])
       next if model.nil?
 
-      best_efforts = BestEffort.find_all_by_athlete_id_and_best_effort_type_id(athlete_id, model.id)
+      # Limit to 1. Only need to check if there are any at this stage.
+      best_efforts = BestEffort.find_top_by_athlete_id_and_best_effort_type_id(athlete_id, model.id, 1)
       result = {
         name: item[:name],
         count: best_efforts.nil? ? 0 : best_efforts.size,
         is_major: item[:is_major]
       }
       best_efforts_meta << result
+    end
+
+    personal_bests_meta = []
+    ApplicationHelper::Helper.all_best_effort_types.each do |item|
+      model = BestEffortType.find_by_name(item[:name])
+      next if model.nil?
+
+      personal_bests = BestEffort.find_all_pbs_by_athlete_id_and_best_effort_type_id(athlete_id, model.id)
+      result = {
+        name: item[:name],
+        count: personal_bests.nil? ? 0 : personal_bests.size,
+        is_major: item[:is_major]
+      }
+      personal_bests_meta << result
     end
 
     races_by_distance_meta = []
@@ -66,6 +84,7 @@ class ApplicationController < ActionController::Base
 
     {
       best_efforts: best_efforts_meta,
+      personal_bests: personal_bests_meta,
       races_by_distance: races_by_distance_meta,
       races_by_year: races_by_year_meta
     }

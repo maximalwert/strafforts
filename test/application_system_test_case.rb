@@ -8,11 +8,11 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   VERBOSE_LOGGING = false
 
   APP_NAME = 'Strafforts'.freeze
-  APP_DESCRIPTION = 'An Analytics App for Strava Best Efforts (PBs) and Races'.freeze
+  APP_DESCRIPTION = 'An Analytics App for Strava Best Efforts, PBs/PRs and Races'.freeze
   HOME_URL = '/'.freeze
   DEMO_ATHLETE_ID = '9123806'.freeze
-  DEMO_ATHLETE_FRIENDS = '44'.freeze
-  DEMO_ATHLETE_FOLLOWERS = '49'.freeze
+  DEMO_ATHLETE_FRIENDS = '82'.freeze
+  DEMO_ATHLETE_FOLLOWERS = '378'.freeze
   DEMO_ATHLETE_LOCATION = 'Christchurch, New Zealand'.freeze
   DEMO_ATHLETE_NAME = 'Yi Zeng'.freeze
   DEMO_URL = "/athletes/#{DEMO_ATHLETE_ID}".freeze
@@ -23,7 +23,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   SOCIAL_SHARING_BUTTONS = %w[Facebook Vkontakte Twitter LinkedIn Email WhatsApp Telegram More].freeze
 
-  FAQ_CATEGORIES = ['Account', 'Support', 'Best Efforts', 'Races', 'Miscellaneous'].freeze
+  FAQ_CATEGORIES = ['Account', 'Support', 'Personal Bests', 'Races', 'Miscellaneous'].freeze
 
   MAJOR_DISTANCES = [
     'Marathon', 'Half Marathon', '10k', '5k'
@@ -39,7 +39,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     '10 Mile', '15k', '10k', '5k', '2 Mile',
     '1 Mile', '1k', '1/2 Mile', '400m'
   ].freeze
-  BEST_EFFORTS_CHART_TITLES = [
+  PERSONAL_BESTS_CHART_TITLES = [
     'Progression Chart (Duration)',
     'Year Distribution Chart',
     'Workout Type Chart',
@@ -47,7 +47,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     'Heart Rates Chart',
     'Average HR Zones Distribution Chart'
   ].freeze
-  BEST_EFFORTS_CHART_SECTION_SELECTORS = [
+  PERSONAL_BESTS_CHART_SECTION_SELECTORS = [
     '#progression-chart',
     '#year-distribution-pie-chart',
     '#workout-type-chart',
@@ -62,45 +62,43 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     '10k', '5k', '3000m', '1 Mile', 'Other Distances'
   ].freeze
   RACE_DISTANCES_WITH_ALL_CHARTS_SHOWN = [
-    'Half Marathon', '15k', '10k', '5k', 'Other Distances'
+    '10k', '5k', 'Other Distances'
   ].freeze
   RACE_DISTANCES_WITH_DATA = [
-    'Half Marathon', '15k', '10k', '5k', '3000m', 'Other Distances'
+    'Half Marathon', '10k', '5k', 'Other Distances'
   ].freeze
   RACE_DISTANCES_CHART_TITLES = [
     'Progression Chart (Pace)',
     'Year Distribution Chart',
-    'Gear Count Chart',
-    'Gear Mileage Chart',
     'Heart Rates Chart',
-    'Average HR Zones Distribution Chart'
+    'Average HR Zones Distribution Chart',
+    'Gear Mileage Chart'
   ].freeze
   RACE_DISTANCES_CHART_SECTION_SELECTORS = [
     '#progression-chart',
     '#year-distribution-pie-chart',
-    '#gear-count-chart',
-    '#gear-mileage-chart',
     '#heart-rates-chart',
-    '#average-hr-zones-chart'
+    '#average-hr-zones-chart',
+    '#gear-mileage-chart'
   ].freeze
 
-  ALL_RACE_YEARS = %w[2017 2016 2015 2014].freeze
-  RACE_YEARS_WITH_ALL_CHARTS_SHOWN = %w[2017 2016 2015].freeze
+  ALL_RACE_YEARS = %w[2016 2015 2014].freeze
+  RACE_YEARS_WITH_ALL_CHARTS_SHOWN = %w[2016 2015].freeze
   RACE_YEARS_CHART_TITLES = [
     'Distance Distribution Chart',
     'Monthly Distribution Chart',
-    'Gear Count Chart',
-    'Gear Mileage Chart',
     'Heart Rates Chart',
-    'Average HR Zones Distribution Chart'
+    'Average HR Zones Distribution Chart',
+    'Gear Count Chart',
+    'Gear Mileage Chart'
   ].freeze
   RACE_YEARS_CHART_SECTION_SELECTORS = [
     '#distances-distribution-chart',
     '#month-distribution-chart',
-    '#gear-count-chart',
-    '#gear-mileage-chart',
     '#heart-rates-chart',
-    '#average-hr-zones-chart'
+    '#average-hr-zones-chart',
+    '#gear-count-chart',
+    '#gear-mileage-chart'
   ].freeze
 
   LARGE_SCREENS = [

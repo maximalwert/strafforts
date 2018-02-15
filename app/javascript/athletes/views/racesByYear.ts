@@ -47,10 +47,6 @@ export default class RacesByYearView extends BaseView {
             </div>
             ${this.constructDataTableHtml()}
             <div class="row">
-                ${HtmlHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
-                ${HtmlHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
-            </div>
-            <div class="row">
                 ${HtmlHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6, showLoadingIcon)}
                 ${HtmlHelpers.constructChartHtml(
                     'average-hr-zones-chart',
@@ -58,6 +54,10 @@ export default class RacesByYearView extends BaseView {
                     6,
                     showLoadingIcon,
                 )}
+            </div>
+            <div class="row">
+                ${HtmlHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
+                ${HtmlHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
             </div>
         `;
         mainContent.append(content);
@@ -97,16 +97,16 @@ export default class RacesByYearView extends BaseView {
                     </div>
                     ${this.constructDataTableHtml(items)}
                     <div class="row">
-                        ${HtmlHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6)}
-                        ${HtmlHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6)}
-                    </div>
-                    <div class="row">
                         ${HtmlHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6)}
                         ${HtmlHelpers.constructChartHtml(
                             'average-hr-zones-chart',
                             'Average HR Zones Distribution Chart',
                             6,
                         )}
+                    </div>
+                    <div class="row">
+                        ${HtmlHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6)}
+                        ${HtmlHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6)}
                     </div>
                 `;
                 mainContent.append(content);
@@ -115,21 +115,20 @@ export default class RacesByYearView extends BaseView {
                 const chartCreator = new ChartCreator(items);
                 chartCreator.createRaceDistancesChart('distances-distribution-chart');
                 chartCreator.createMonthDistributionChart('month-distribution-chart');
-                $('.dataTable').each(function() {
-                    ($(this) as any).DataTable({
-                        bFilter: false,
-                        bPaginate: false,
-                        iDisplayLength: 10,
-                        info: false,
-                        order: [
-                            [0, 'desc'],
-                        ],
-                    });
+                ($('.dataTable') as any).DataTable({
+                    bFilter: false,
+                    bPaginate: false,
+                    iDisplayLength: 10,
+                    info: false,
+                    order: [
+                        [0, 'desc'],
+                        [4, 'asc'],
+                    ],
                 });
-                chartCreator.createGearCountChart('gear-count-chart');
-                chartCreator.createGearMileageChart('gear-mileage-chart');
                 chartCreator.createHeartRatesChart('heart-rates-chart');
                 chartCreator.createAverageHrZonesChart('average-hr-zones-chart');
+                chartCreator.createGearCountChart('gear-count-chart');
+                chartCreator.createGearMileageChart('gear-mileage-chart');
             },
         });
     }

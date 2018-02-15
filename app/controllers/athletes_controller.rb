@@ -11,10 +11,10 @@ class AthletesController < ApplicationController
     @athlete_profile_url = "#{STRAVA_ATHLETES_URL}/#{athlete.id}"
     @athlete = athlete.decorate
 
-    raw_best_efforts = BestEffort.find_all_by_athlete_id(athlete.id)
+    raw_personal_bests = BestEffort.find_all_pbs_by_athlete_id(athlete.id)
     heart_rate_zones = ApplicationHelper::Helper.get_heart_rate_zones(athlete.id)
-    shaped_best_efforts = ApplicationHelper::Helper.shape_best_efforts(raw_best_efforts, heart_rate_zones, athlete.measurement_preference) # rubocop:disable LineLength
-    @best_efforts = BestEffortsDecorator.new(shaped_best_efforts)
+    shaped_personal_bests = ApplicationHelper::Helper.shape_best_efforts(raw_personal_bests, heart_rate_zones, athlete.measurement_preference) # rubocop:disable LineLength
+    @personal_bests = PersonalBestsDecorator.new(shaped_personal_bests)
 
     raw_races = Race.find_all_by_athlete_id(athlete.id)
     shaped_races = ApplicationHelper::Helper.shape_races(raw_races, heart_rate_zones, athlete.measurement_preference)
@@ -32,17 +32,35 @@ class AthletesController < ApplicationController
     athlete.update(is_public: is_public)
   end
 
-  def reset_last_activity_retrieved
+  def fetch_latest
     athlete = Athlete.find_by_id_or_username(params[:id_or_username])
     ApplicationController.raise_item_not_found_error('athlete', params[:id_or_username]) if athlete.nil?
 
     @is_current_user = athlete.access_token == cookies.signed[:access_token]
     ApplicationController.raise_user_not_current_error unless @is_current_user
 
-    # Set last_activity_retrieved to nil for this athlete.
-    athlete.update(last_activity_retrieved: nil)
+    # Add a delayed_job to fetch the latest data for this athlete.
+    fetcher = ::ActivityFetcher.new(athlete.access_token)
+    fetcher.delay.fetch_all(mode: 'latest')
+  end
 
-    # Add a delayed_job to fetch data for this athlete.
+  def reset_profile
+    athlete = Athlete.find_by_id_or_username(params[:id_or_username])
+    ApplicationController.raise_item_not_found_error('athlete', params[:id_or_username]) if athlete.nil?
+
+    @is_current_user = athlete.access_token == cookies.signed[:access_token]
+    ApplicationController.raise_user_not_current_error unless @is_current_user
+
+    # Delete all activity data except for the athlete itself.
+    Rails.logger.warn("Resetting all activity data for athlete #{athlete.id}.")
+    BestEffort.where(athlete_id: athlete.id).destroy_all
+    Race.where(athlete_id: athlete.id).destroy_all
+    Activity.where(athlete_id: athlete.id).destroy_all
+
+    # Set last_activity_retrieved to nil for this athlete.
+    athlete.update(last_activity_retrieved: nil, total_run_count: 0)
+
+    # Add a delayed_job to fetch all data for this athlete.
     fetcher = ::ActivityFetcher.new(athlete.access_token)
     fetcher.delay.fetch_all(mode: 'all')
   end

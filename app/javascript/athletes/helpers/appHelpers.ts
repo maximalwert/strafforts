@@ -1,4 +1,5 @@
 import { Helpers } from './../../common/helpers';
+import { ViewType } from './viewTypes';
 
 export namespace AppHelpers {
 
@@ -20,7 +21,7 @@ export namespace AppHelpers {
         return getBaseUrl(true);
     }
 
-    export function formateDistanceForUrl(distance: string) {
+    export function formatDistanceForUrl(distance: string) {
         return distance.trim().replace(/\//g, '_').replace(/\s/g, '-').toLowerCase();
     }
 
@@ -79,13 +80,13 @@ export namespace AppHelpers {
         const year = Helpers.getUrlParameter('year');
 
         // Determine the view type first.
-        // If it's best efforts, races by distances or races by year,
+        // If it's personal bests, races by distances or races by year,
         // set the active navigation item by URL.
-        if (viewName === 'best-efforts' && distanceId) {
-            navigationAnchor = $(`.main-sidebar a[id^="best-efforts-for-distance-${distanceId}"]`);
+        if (viewName === ViewType.PersonalBests && distanceId) {
+            navigationAnchor = $(`.main-sidebar a[id^="personal-bests-for-distance-${distanceId}"]`);
         }
 
-        if (viewName === 'races') {
+        if (viewName === ViewType.Races) {
             if (distanceId) {
                 navigationAnchor = $(`.main-sidebar a[id^="races-for-distance-${distanceId}"]`);
             }

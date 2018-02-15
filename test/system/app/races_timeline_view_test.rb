@@ -115,7 +115,7 @@ class RacesTimelineTest < AppTestBase
   def click_show_all
     show_all_button = find(:css, App::Selectors::MainContent.timeline_show_all)
     show_all_button.click
-    sleep 0.2
+    sleep 0.5
   end
 
   def assert_clicking_filter_button_works_as_expected(text)

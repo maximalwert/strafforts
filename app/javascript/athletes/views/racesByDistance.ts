@@ -1,5 +1,6 @@
 import { AppHelpers } from '../helpers/appHelpers';
 import { ChartCreator } from '../helpers/chartCreators';
+import { ChartHelpers, ChartType } from '../helpers/chartHelper';
 import { HtmlHelpers } from '../helpers/htmlHelpers';
 import BaseView from './baseView';
 import NavigationSidebar from './navigationSidebar';
@@ -20,7 +21,7 @@ export default class RacesByDistanceView extends BaseView {
         this.count = count ? parseInt(count, 10) : 0;
         this.distance = distance;
         this.isOtherDistance = distance.toLocaleLowerCase() === 'other distances';
-        this.distanceFormattedForUrl = AppHelpers.formateDistanceForUrl(distance);
+        this.distanceFormattedForUrl = AppHelpers.formatDistanceForUrl(distance);
     }
 
     public load(): void {
@@ -53,10 +54,6 @@ export default class RacesByDistanceView extends BaseView {
             </div>
             ${this.constructDataTableHtml()}
             <div class="row">
-                ${HtmlHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6, showLoadingIcon)}
-                ${HtmlHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6, showLoadingIcon)}
-            </div>
-            <div class="row">
                 ${HtmlHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6, showLoadingIcon)}
                 ${HtmlHelpers.constructChartHtml(
                     'average-hr-zones-chart',
@@ -64,6 +61,9 @@ export default class RacesByDistanceView extends BaseView {
                     6,
                     showLoadingIcon,
                 )}
+            </div>
+            <div class="row">
+                ${HtmlHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 12, showLoadingIcon)}
             </div>
         `;
         mainContent.append(content);
@@ -103,16 +103,15 @@ export default class RacesByDistanceView extends BaseView {
                     </div>
                     ${this.constructDataTableHtml(items)}
                     <div class="row">
-                        ${HtmlHelpers.constructChartHtml('gear-count-chart', 'Gear Count Chart', 6)}
-                        ${HtmlHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 6)}
-                    </div>
-                    <div class="row">
                         ${HtmlHelpers.constructChartHtml('heart-rates-chart', 'Heart Rates Chart', 6)}
                         ${HtmlHelpers.constructChartHtml(
                             'average-hr-zones-chart',
                             'Average HR Zones Distribution Chart',
                             6,
                         )}
+                    </div>
+                    <div class="row">
+                        ${HtmlHelpers.constructChartHtml('gear-mileage-chart', 'Gear Mileage Chart', 12)}
                     </div>
                 `;
                 mainContent.append(content);
@@ -121,30 +120,28 @@ export default class RacesByDistanceView extends BaseView {
                 const chartCreator = new ChartCreator(items);
                 const progressionChartId = 'progression-chart';
                 if (this.isOtherDistance) {
-                    chartCreator.createChartWithMessage(progressionChartId, 'Not Applicable');
+                    ChartHelpers.createChartWithMessage(progressionChartId, 'Not Applicable');
                 } else {
                     chartCreator.createProgressionChart(progressionChartId, true);
                 }
 
                 // Setup all other charts and tables.
                 chartCreator.createYearDistributionChart('year-distribution-pie-chart');
-                $('.dataTable').each(function() {
-                    ($(this) as any).DataTable({
-                        // Disable searching for Time, Pace, Elevation, Cadence and HRs.
-                        columnDefs: [{
-                            targets: [2, 3, 5, 6, 7, 8],
-                            searchable: false,
-                        }],
-                        iDisplayLength: 10,
-                        order: [
-                            [0, 'desc'],
-                        ],
-                    });
+                ($('.dataTable') as any).DataTable({
+                    // Disable searching for Time, Pace, Elevation, Cadence and HRs.
+                    columnDefs: [{
+                        targets: [2, 3, 5, 6, 7, 8],
+                        searchable: false,
+                    }],
+                    iDisplayLength: 10,
+                    order: [
+                        [0, 'desc'],
+                        [4, 'asc'],
+                    ],
                 });
-                chartCreator.createGearCountChart('gear-count-chart');
-                chartCreator.createGearMileageChart('gear-mileage-chart');
                 chartCreator.createHeartRatesChart('heart-rates-chart');
                 chartCreator.createAverageHrZonesChart('average-hr-zones-chart');
+                chartCreator.createGearMileageChart('gear-mileage-chart');
             },
         });
     }

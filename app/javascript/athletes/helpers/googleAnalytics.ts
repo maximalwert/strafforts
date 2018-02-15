@@ -33,7 +33,10 @@ export namespace GoogleAnalytics {
             $('.main-sidebar .sidebar-menu').on('click', '.show-races-timeline', (event) => {
                 Helpers.sendGoogleAnalyticsEvent('App - Navigation Sidebar', 'Show Race Timeline', event.currentTarget);
             });
-            $('.main-sidebar .sidebar-menu').on('click', 'a[id^="best-efforts-for-"]', (event) => {
+            $('.main-sidebar .sidebar-menu').on('click', '.show-best-efforts', (event) => {
+                Helpers.sendGoogleAnalyticsEvent('App - Navigation Sidebar', 'Show Best Efforts', event.currentTarget);
+            });
+            $('.main-sidebar .sidebar-menu').on('click', 'a[id^="personal-bests-for-"]', (event) => {
                 Helpers.sendGoogleAnalyticsEvent(
                     'App - Navigation Sidebar',
                     'Show PBs Details',
@@ -94,6 +97,12 @@ export namespace GoogleAnalytics {
             });
             $('#main-content').delegate('.timeline-wrapper .filter-buttons .btn', 'click', (event) => {
                 Helpers.sendGoogleAnalyticsEvent('App - Main Content', 'Filter Timeline', event.currentTarget);
+            });
+            $('#main-content').delegate('.best-efforts-filter-buttons .filter-buttons .btn', 'click', (event) => {
+                Helpers.sendGoogleAnalyticsEvent(
+                    'App - Main Content',
+                    'Select Best Efforts Distance',
+                    event.currentTarget);
             });
             $('#main-content').delegate('.faq-panel .box-title a', 'click', (event) => {
                 Helpers.sendGoogleAnalyticsEvent('App - Main Content', 'View FAQ Item', event.currentTarget);

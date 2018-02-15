@@ -9,7 +9,7 @@ class ActivityFetcher
 
   def fetch_all(options = {}) # rubocop:disable AbcSize, CyclomaticComplexity, MethodLength, PerceivedComplexity
     mode = options[:mode] || 'latest'
-    type = options[:type] || %w[best-efforts races]
+    type = options[:type] || %w[best-efforts personal-bests races]
 
     begin
       # Create or update the current athlete first.
@@ -39,6 +39,7 @@ class ActivityFetcher
             activity = @api_wrapper.retrieve_an_activity(activity_id)
             Creators::ActivityCreator.create_or_update(activity)
             athlete.last_activity_retrieved = activity_id
+            athlete.save!
           end
         else
           Rails.logger.info(get_no_new_runs_message(athlete.id, current_total_run_count))
@@ -64,7 +65,7 @@ class ActivityFetcher
   private
 
   # Get ids of all running activities that have achievement items or are races.
-  def get_all_activity_ids(type)
+  def get_all_activity_ids(type) # rubocop:disable CyclomaticComplexity
     # Call Strava API to list all athlete activities,
     # then parse out all activity ids.
     athlete_activities = @api_wrapper.list_all_athlete_activities
@@ -75,10 +76,19 @@ class ActivityFetcher
     athlete_activities.each do |page|
       page.each do |activity|
         activity_json = JSON.parse(activity.to_json)
+
+        # Only care about running activities.
         next unless activity_json['type'] == 'Run'
-        if type.include?('best-efforts') && activity_json['achievement_count'] > 0
+
+        # Best efforts (need to analyse all activities).
+        activity_ids << activity_json['id'] if type.include?('best-efforts')
+
+        # Personal Bests.
+        if type.include?('personal-bests') && activity_json['achievement_count'] > 0
           activity_ids << activity_json['id']
         end
+
+        # Races.
         if type.include?('races') && (activity_json['workout_type'] == 1)
           activity_ids << activity_json['id']
         end

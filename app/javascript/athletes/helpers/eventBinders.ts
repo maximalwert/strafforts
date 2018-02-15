@@ -1,6 +1,9 @@
 import { HtmlHelpers } from '../helpers/htmlHelpers';
+import BestEffortsByDistanceView from '../views/bestEffortsByDistance';
 import NavigationSidebar from '../views/navigationSidebar';
 import Overview from '../views/overview';
+import { AppHelpers } from './appHelpers';
+import { ViewType } from './viewTypes';
 
 export namespace EventBinders {
 
@@ -15,7 +18,7 @@ export namespace EventBinders {
             });
 
             // Disable double clicking for logo and navigation items.
-            const selectors = '.main-header .logo, a[id^="best-efforts-for-"], a[id^="races-for-"]';
+            const selectors = '.main-header .logo, a[id^="personal-bests-for-"], a[id^="races-for-"]';
             $(document).on('dblclick', selectors, (event) => {
                 event.preventDefault();
             });
@@ -24,24 +27,49 @@ export namespace EventBinders {
             $('.sidebar-menu .disabled').click(false);
 
             // Always load Overview panes upon clicking.
+            $(document).on('click', "a[href^='#pane-personal-bests']", () => {
+                new Overview().loadPersonalBestsPanel();
+                new NavigationSidebar().load();
+            });
+            $(document).on('click', "a[href^='#pane-recent-personal-bests']", () => {
+                new Overview().loadRecentPersonalBestsPanel();
+                new NavigationSidebar().load();
+            });
             $(document).on('click', "a[href^='#pane-races']", () => {
                 new Overview().loadRacesPanel();
                 new NavigationSidebar().load();
             });
-            $(document).on('click', "a[href^='#pane-best-efforts']", () => {
-                new Overview().loadBestEffortsPanel();
+            $(document).on('click', "a[href^='#pane-recent-races']", () => {
+                new Overview().loadRecentRacesPanel();
+                new NavigationSidebar().load();
+            });
+
+            $(document).on('click',
+                '.best-efforts-filter-buttons .btn-race-distance',
+                (event) => {
+                $('.best-efforts-filter-buttons .btn-race-distance').removeClass('active');
+                $(event.currentTarget).addClass('active');
+
+                const distance = $(event.currentTarget).attr('data-race-distance');
+                const distanceFormattedForUrl = AppHelpers.formatDistanceForUrl(distance);
+
+                AppHelpers.pushStateToWindow(`?view=${ViewType.BestEfforts}&distance=${distanceFormattedForUrl}`);
+                new BestEffortsByDistanceView(distance).load();
                 new NavigationSidebar().load();
             });
 
             // Bind race filter buttons in Races Timeline view.
-            $(document).on('click', '.filter-buttons .btn:not(.show-all)', (event) => {
+            $(document).on('click', '.timeline-wrapper .filter-buttons .btn:not(.show-all)',
+                (event) => {
                 // Set the filter button to active upon clicking.
                 $('.filter-buttons .btn').removeClass('active');
                 $('.filter-buttons .show-all').removeClass('hidden').fadeIn();
                 $(event.currentTarget).addClass('active');
             });
 
-            $(document).on('click', '.filter-buttons .btn-race-distance, .timeline-header .btn', (event) => {
+            $(document).on('click',
+                '.timeline-wrapper .filter-buttons .btn-race-distance, .timeline-wrapper .timeline-header .btn',
+                (event) => {
                 const distance = $(event.currentTarget).attr('data-race-distance');
 
                 // Show all year labels.
@@ -61,7 +89,7 @@ export namespace EventBinders {
                 $(`.filter-buttons [data-race-distance='${distance}']`).addClass('active');
             });
 
-            $(document).on('click', '.filter-buttons .btn-race-year', (event) => {
+            $(document).on('click', '.timeline-wrapper .filter-buttons .btn-race-year', (event) => {
                 const year = $(event.currentTarget).attr('data-race-year');
 
                 // Show only time labels, items of this year.
@@ -75,7 +103,7 @@ export namespace EventBinders {
             $(document).on('click', '.control-sidebar-toggle', () => {
                 if (!$('.link-contributions-welcome').length) {
                     const badges = HtmlHelpers.getContributionWelcomeBadges();
-                    $('#control-sidebar-data-tab form').append(badges);
+                    $('#control-sidebar-data-tab').append(badges);
                 }
             });
 
@@ -91,10 +119,16 @@ export namespace EventBinders {
                     $('#publicize-profile-warning').removeClass('hidden');
                 }
             });
-            $(document).on('submit', '.reset-last-activity-retrieved form', (event) => {
+            $(document).on('submit', '.form-fetch-latest-activities', (event) => {
+                // Only fetch if the button is currently enabled.
+                if (!$('.form-fetch-latest-activities .submit-form').is(':disabled')) {
+                    fetchLatestActivities(event);
+                }
+            });
+            $(document).on('submit', '.form-reset-profile', (event) => {
                 // Only reset if the button is currently enabled.
-                if (!$('.reset-last-activity-retrieved .submit-form').is(':disabled')) {
-                    resetLastRetrieveActivity(event);
+                if (!$('.reset-profile .btn-danger').is(':disabled')) {
+                    resetProfile(event);
                 }
             });
         };
@@ -125,24 +159,46 @@ export namespace EventBinders {
         });
     }
 
-    function resetLastRetrieveActivity(event: JQueryEventObject) {
+    function fetchLatestActivities(event: JQueryEventObject) {
         event.preventDefault();
 
         $.ajax({
-            url: $('.reset-last-activity-retrieved form').attr('action'),
+            url: $('.form-fetch-latest-activities').attr('action'),
             data: '',
             cache: false,
             type: 'post',
             success: () => {
-                $('.last-activity-retrieved').addClass('hidden');
-                $('.last-activity-na').removeClass('hidden');
-                $('.reset-last-activity-retrieved .submit-form').prop('disabled', true);
-                toastr.success(`Resetted Successfully!<br /><br />
-                    A full re-synchronization of all your activities has been queued.`);
+                $('.form-fetch-latest-activities .submit-form').prop('disabled', true);
+                toastr.success(`Your latest activities have been queued for fetching!`);
             },
             error: (xhr, ajaxOptions, thrownError) => {
                 toastr.error(xhr.status + '\n' + thrownError);
             },
         });
+    }
+
+    function resetProfile(event: JQueryEventObject) {
+        event.preventDefault();
+
+        $('.form-reset-profile .submit-form').prop('disabled', true);
+
+        $.ajax({
+            url: $('.form-reset-profile').attr('action'),
+            data: '',
+            cache: false,
+            type: 'post',
+        });
+
+        $('.last-activity-retrieved').addClass('hidden');
+        $('.last-activity-na').removeClass('hidden');
+
+        // Disable both 'Fetch Latest' and 'Reset' buttons.
+        $('.form-fetch-latest-activities .submit-form').prop('disabled', true);
+        $('.reset-profile .btn-danger').prop('disabled', true);
+
+        ($('#confirm-reset-profile') as any).modal('toggle');
+
+        toastr.success(`Your account will be reset shortly!<br /><br />
+            A full re-synchronization of all your activities will be queued.`);
     }
 }

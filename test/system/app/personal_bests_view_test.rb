@@ -1,9 +1,9 @@
 require_relative './app_test_base'
 
-class BestEffortsViewTest < AppTestBase
-  URL = "#{DEMO_URL}?view=best-efforts&distance=".freeze
+class PersonalBestsViewTest < AppTestBase
+  URL = "#{DEMO_URL}?view=personal-bests&distance=".freeze
 
-  test 'best efforts view should load with the correct title' do
+  test 'personal bests view should load with the correct title' do
     ALL_BEST_EFFORTS_TYPES.each do |distance|
       # arrange & act.
       visit_page URL + format_text_for_url(distance)
@@ -13,7 +13,7 @@ class BestEffortsViewTest < AppTestBase
     end
   end
 
-  test 'best efforts view should have the correct header and breadcrumb' do
+  test 'personal bests view should have the correct header and breadcrumb' do
     ALL_BEST_EFFORTS_TYPES.each do |distance|
       # arrange.
       visit_page URL + format_text_for_url(distance)
@@ -29,7 +29,7 @@ class BestEffortsViewTest < AppTestBase
     end
   end
 
-  test 'best efforts view should load charts correctly' do
+  test 'personal bests view should load charts correctly' do
     ALL_BEST_EFFORTS_TYPES.each do |distance|
       # arrange.
       visit_page URL + format_text_for_url(distance)
@@ -39,9 +39,9 @@ class BestEffortsViewTest < AppTestBase
         resize_window_to(screen_size)
 
         # assert.
-        assert_all_chart_titles_load_successfully(BEST_EFFORTS_CHART_TITLES)
+        assert_all_chart_titles_load_successfully(PERSONAL_BESTS_CHART_TITLES)
 
-        BEST_EFFORTS_CHART_SECTION_SELECTORS.each do |chart_section_selector|
+        PERSONAL_BESTS_CHART_SECTION_SELECTORS.each do |chart_section_selector|
           puts "#{distance} - #{screen_size} - #{chart_section_selector}" if VERBOSE_LOGGING
           if BEST_EFFORTS_TYPES_WITH_ALL_CHARTS_SHOWN.include?(distance)
             assert_chart_canvas_loads_successfully(chart_section_selector)

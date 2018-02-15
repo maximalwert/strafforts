@@ -9,7 +9,7 @@ export default class NavigationSidebar {
             dataType: 'json',
             success: (data) => {
                 this.createNavigationItem(
-                    data['best_efforts'], '?view=best-efforts&distance', 'best-efforts-for-distance');
+                    data['personal_bests'], '?view=personal-bests&distance', 'personal-bests-for-distance');
                 this.createNavigationItem(
                     data['races_by_distance'], '?view=races&distance', 'races-for-distance');
                 this.createNavigationItem(
