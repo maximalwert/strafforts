@@ -58,7 +58,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'dotenv-rails'
-  gem 'foreman' # Manager Procfile.dev under develpoment environment.
 
   gem 'mdl', require: false # Markdown lint tool.
   gem 'os', '~> 1.0'
@@ -86,6 +85,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
 gem 'draper'
 
+gem 'foreman' # Manager Procfile.dev under develpoment environment.
 gem 'bootstrap-sass', '~> 3.3.6' # Bootstrap.
 gem 'config' # Config.
 gem 'daemons' # Add daemons gem to show delayed_job status.
