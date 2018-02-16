@@ -6,7 +6,7 @@ namespace :fetch do
       puts "Athlete '#{ENV['ID']}' was not found."
     else
       fetcher = ActivityFetcher.new(athlete.access_token)
-      fetcher.delay.fetch_all(mode: ENV['MODE'])
+      fetcher.delay(priority: 2).fetch_all(mode: ENV['MODE'])
     end
   end
 
