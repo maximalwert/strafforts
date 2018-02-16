@@ -66,5 +66,5 @@ Rails.application.configure do
 
   # Set up logger rotation for 2 files * 5 MB. https://stackoverflow.com/a/37499712/1177636
   config.logger = ActiveSupport::Logger.new(Rails.root.join('log', "#{Rails.env}.log"), 2, 5 * 1024 * 1024)
-  config.log_level = :debug
+  config.log_level = :info
 end

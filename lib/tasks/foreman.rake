@@ -3,7 +3,7 @@ namespace :foreman do
   task :start do
     FILE_NAME = 'Procfile.dev'.freeze
     content = "web: bundle exec rails server -b 0.0.0.0 -p $PORT\n"
-    content += "worker: bundle exec rails jobs:work\n"
+    content += "worker: bundle exec foreman start -f Procfile.workers\n"
     content += "webpacker: ruby ./bin/webpack-dev-server\n"
 
     File.open(FILE_NAME, 'w+') do |f|

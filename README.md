@@ -5,7 +5,7 @@
 
 [![Travis](https://img.shields.io/travis/yizeng/strafforts/master.svg?style=flat-square)][Strafforts Travis]
 [![Codecov](https://img.shields.io/codecov/c/github/yizeng/strafforts/master.svg?style=flat-square)][Strafforts Codecov]
-[![Code Climate](https://img.shields.io/codeclimate/github/yizeng/strafforts.svg?style=flat-square)][Strafforts Code Climate]
+[![Code Climate](https://img.shields.io/codeclimate/maintainability/yizeng/strafforts.svg?style=flat-square)][Strafforts Code Climate]
 [![Gemnasium](https://img.shields.io/gemnasium/yizeng/strafforts.svg?style=flat-square)][Strafforts Gemnasium]
 
 ## An Analytics App for Strava Best Efforts, PBs/PRs and Races
