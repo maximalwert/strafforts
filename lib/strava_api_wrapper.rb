@@ -21,6 +21,12 @@ class StravaApiWrapper
     activity
   end
 
+  def retrieve_gear(gear_id)
+    Rails.logger.debug("StravaApiWrapper - Retrieving gear #{gear_id}.")
+    gear = @api_client.retrieve_gear(gear_id)
+    gear
+  end
+
   def totals_and_stats(athlete_id)
     Rails.logger.debug('StravaApiWrapper - Retrieving current athlete\'s totals and stats.')
     totals = @api_client.totals_and_stats(athlete_id)

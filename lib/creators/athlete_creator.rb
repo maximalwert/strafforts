@@ -27,9 +27,6 @@ module Creators
       update_ahtlete_location(athlete_hash)
 
       @athlete.save!
-
-      Creators::GearCreator.create(athlete_id, athlete_hash['shoes'])
-
       @athlete
     end
 

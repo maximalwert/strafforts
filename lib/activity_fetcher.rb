@@ -12,14 +12,19 @@ class ActivityFetcher
     type = options[:type] || %w[best-efforts personal-bests races]
 
     begin
+      # Call Strava API: to get a detailed view of the current athlete.
       # Create or update the current athlete first.
       current_athlete = @api_wrapper.retrieve_current_athlete
       athlete = Creators::AthleteCreator.create_or_update(@access_token, current_athlete, true)
-      Rails.logger.info("ActivityFetcher - Start fetching activities for athlete #{athlete.id}.")
 
-      # Create or update HR Zones of the current athlete.
+      # Create or update athlete's gears.
+      Creators::GearCreator.create(@access_token, athlete.id, current_athlete['shoes'])
+
+      # Call Strava API: to get the HR zones of the current athlete.
       current_athlete_zones = @api_wrapper.retrieve_current_athlete_zones
       Creators::HeartRateZonesCreator.create_or_update(athlete.id, current_athlete_zones)
+
+      Rails.logger.info("ActivityFetcher - Start fetching activities for athlete #{athlete.id}.")
 
       # Retrieve activities of the current athlete.
       activities_to_retrieve = []
@@ -36,6 +41,7 @@ class ActivityFetcher
           Rails.logger.info("ActivityFetcher - A total of #{activities_to_retrieve.count} activities to be retrieved for athlete #{athlete.id}.") # rubocop:disable LineLength
 
           activities_to_retrieve.sort.each do |activity_id|
+            # Call Strava API: to get a detailed view of the activity.
             activity = @api_wrapper.retrieve_an_activity(activity_id)
             Creators::ActivityCreator.create_or_update(activity)
             athlete.last_activity_retrieved = activity_id
@@ -66,8 +72,7 @@ class ActivityFetcher
 
   # Get ids of all running activities that have achievement items or are races.
   def get_all_activity_ids(type) # rubocop:disable CyclomaticComplexity
-    # Call Strava API to list all athlete activities,
-    # then parse out all activity ids.
+    # Call Strava API: to list all athlete activities, then parse out all activity ids.
     athlete_activities = @api_wrapper.list_all_athlete_activities
 
     # For all activity ids, choose running activities only,
@@ -103,6 +108,7 @@ class ActivityFetcher
   end
 
   def retrieve_current_total_run_count(athlete_id)
+    # Call Strava API: to get athlete's total run count.
     totals_and_stats = @api_wrapper.totals_and_stats(athlete_id)
     totals_and_stats_json = JSON.parse(totals_and_stats.to_json)
     total_run_count = totals_and_stats_json['all_run_totals']['count']
