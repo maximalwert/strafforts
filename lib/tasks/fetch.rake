@@ -39,7 +39,7 @@ namespace :fetch do
     athletes = Athlete.find_all_by_is_active(true)
     athletes.each_with_index do |athlete, index|
       fetcher = ActivityFetcher.new(athlete.access_token)
-      fetcher.delay(run_at: (index * 1).seconds.from_now, priority: 3).fetch_all(mode: mode, type: type)
+      fetcher.delay(run_at: (index * 5).seconds.from_now, priority: 3).fetch_all(mode: mode, type: type)
     end
   end
 end
