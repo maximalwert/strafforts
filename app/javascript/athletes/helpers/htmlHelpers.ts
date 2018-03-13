@@ -150,7 +150,7 @@ export namespace HtmlHelpers {
                 <td class="no-wrap">
                     ${item['elapsed_time_formatted']}
                 </td>
-                <td class="hidden-xs-down">
+                <td class="hidden-xs-down" data-sort="${item['pace_in_seconds']}">
                     ${item['pace']}<small>${item['pace_unit']}</small>
                 </td>
                 <td class="hidden-lg-down">

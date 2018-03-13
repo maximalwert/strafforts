@@ -118,11 +118,14 @@ export default class RacesByYearView extends BaseView {
                 ($('.dataTable') as any).DataTable({
                     bFilter: false,
                     bPaginate: false,
+                    columnDefs: [
+                        { type: 'time', targets: 3 },
+                        { orderData: [[0, 'desc'], [3, 'asc']] },
+                    ],
                     iDisplayLength: 10,
                     info: false,
                     order: [
                         [0, 'desc'],
-                        [4, 'asc'],
                     ],
                 });
                 chartCreator.createHeartRatesChart('heart-rates-chart');

@@ -96,15 +96,14 @@ export default class BestEffortsByDistanceView extends BaseView {
                 const chartCreator = new ChartCreator(items);
                 chartCreator.createYearDistributionChart('year-distribution-pie-chart');
                 ($('.dataTable') as any).DataTable({
-                    columnDefs: [{
-                        targets: [1, 3, 4], // Disable searching for WorkoutType, Time, Pace and HRs.
-                        searchable: false,
-                    }],
+                    columnDefs: [
+                        // Disable searching for WorkoutType, Time, Pace and HRs.
+                        { targets: [1, 3, 4], searchable: false},
+                        { orderData: [[4, 'asc'], [3, 'asc'], [0, 'desc']] },
+                    ],
                     iDisplayLength: 10,
                     order: [
                         [4, 'asc'],
-                        [3, 'asc'],
-                        [1, 'desc'],
                     ],
                 });
                 chartCreator.createWorkoutTypeChart('workout-type-chart');
