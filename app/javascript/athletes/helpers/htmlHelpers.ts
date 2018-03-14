@@ -133,8 +133,9 @@ export namespace HtmlHelpers {
 
     export function getDatatableRowForRaces(item: any[], showDistanceColumn?: boolean) {
         const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
+        const distance = item['distance'].toFixed(1);
         const distanceColumn = showDistanceColumn ?
-            `<td>${(item['distance']).toFixed(1)} ${item['distance_unit']}</td>` : '';
+            `<td data-sort="${distance}">${distance} ${item['distance_unit']}</td>` : '';
         const row = `
             <tr>
                 <td class="no-wrap">${item['start_date']}</td>
