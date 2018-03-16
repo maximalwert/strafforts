@@ -92,6 +92,11 @@ export namespace Helpers {
         return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
+    export function formatPaceStringForOrdering(pace: string) {
+        const result = pace.indexOf(':') > 0 && pace.split(':')[0].length == 1 ? `0${pace}` : pace;
+        return result;
+    }
+
     export function isTouchDevice() {
         // https://stackoverflow.com/a/4819886/1177636.
         return 'ontouchstart' in window        // works on most browsers.

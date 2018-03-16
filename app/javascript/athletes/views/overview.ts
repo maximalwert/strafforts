@@ -1,3 +1,4 @@
+import { Helpers } from '../../common/helpers';
 import { AppHelpers } from '../helpers/appHelpers';
 import { HtmlHelpers } from '../helpers/htmlHelpers';
 import { ViewType } from '../helpers/viewTypes';
@@ -117,6 +118,7 @@ export default class Overview extends BaseView {
                             `<a class="strava-logo-link hidden-lg-down" href="${stravaLink}" target="_blank">
                                 <span></span>
                             </a>` : '';
+                            const paceOrder = Helpers.formatPaceStringForOrdering(item['pace']);
 
                             rows += `
                             <tr>
@@ -130,7 +132,7 @@ export default class Overview extends BaseView {
                                 </td>
                                 ${distanceColumn}
                                 <td class="no-wrap">${item['elapsed_time_formatted']}</td>
-                                <td class="hidden-xs-down" data-sort="${item['pace_in_seconds']}">
+                                <td class="hidden-xs-down" data-sort="${paceOrder}">
                                     ${item['pace']}<small>${item['pace_unit']}</small>
                                 </td>
                                 <td class="hidden-lg-down">${item['gear_name']}</td>
@@ -212,6 +214,7 @@ export default class Overview extends BaseView {
                             : `${item['best_effort_type']}`;
                         const distanceSortOrder = isTypeOfRaces
                             ? item['distance'].toFixed(1) : item['best_effort_type_id'];
+                        const paceOrder = Helpers.formatPaceStringForOrdering(item['pace']);
 
                         rows += `
                             <tr>
@@ -228,7 +231,7 @@ export default class Overview extends BaseView {
                                     ${distance}
                                 </td>
                                 <td class="no-wrap">${item['elapsed_time_formatted']}</td>
-                                <td class="hidden-xs-down" data-sort="${item['pace_in_seconds']}">
+                                <td class="hidden-xs-down" data-sort="${paceOrder}">
                                     ${item['pace']}<small>${item['pace_unit']}</small>
                                 </td>
                                 <td class="hidden-lg-down">${item['gear_name']}</td>
