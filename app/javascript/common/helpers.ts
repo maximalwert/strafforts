@@ -93,7 +93,7 @@ export namespace Helpers {
     }
 
     export function formatPaceStringForOrdering(pace: string) {
-        const result = pace.indexOf(':') > 0 && pace.split(':')[0].length == 1 ? `0${pace}` : pace;
+        const result = pace.indexOf(':') > 0 && pace.split(':')[0].length === 1 ? `0${pace}` : pace;
         return result;
     }
 
