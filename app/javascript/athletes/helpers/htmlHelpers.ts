@@ -1,3 +1,5 @@
+import { Helpers } from '../../common/helpers';
+
 export namespace HtmlHelpers {
 
     export function constructChartHtml(id: string, title: string, width: number, withLoadingIcon: boolean = false) {
@@ -133,8 +135,10 @@ export namespace HtmlHelpers {
 
     export function getDatatableRowForRaces(item: any[], showDistanceColumn?: boolean) {
         const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
+        const distance = item['distance'].toFixed(1);
         const distanceColumn = showDistanceColumn ?
-            `<td>${(item['distance']).toFixed(1)} ${item['distance_unit']}</td>` : '';
+            `<td data-sort="${distance}">${distance} ${item['distance_unit']}</td>` : '';
+        const paceOrder = Helpers.formatPaceStringForOrdering(item['pace']);
         const row = `
             <tr>
                 <td class="no-wrap">${item['start_date']}</td>
@@ -150,7 +154,7 @@ export namespace HtmlHelpers {
                 <td class="no-wrap">
                     ${item['elapsed_time_formatted']}
                 </td>
-                <td class="hidden-xs-down">
+                <td class="hidden-xs-down" data-sort="${paceOrder}">
                     ${item['pace']}<small>${item['pace_unit']}</small>
                 </td>
                 <td class="hidden-lg-down">
@@ -200,6 +204,7 @@ export namespace HtmlHelpers {
     function createDatatableRowForBestEffortsOrPbs(item: any[], showHrColumns: boolean) {
         const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
         const workoutTypeNameClass = `workout-type-${item['workout_type_name'].replace(/\s/g, '-')}`;
+        const paceOrder = Helpers.formatPaceStringForOrdering(item['pace']);
         const hrColumns = showHrColumns ?
             `<td class="text-center badge-cell hidden-md-down">
                 <span class="badge hr-zone-${item['average_hr_zone']}">
@@ -225,7 +230,7 @@ export namespace HtmlHelpers {
                 <td class="no-wrap">
                     ${item['elapsed_time_formatted']}
                 </td>
-                <td class="hidden-xs-down">
+                <td class="hidden-xs-down" data-sort="${paceOrder}">
                     ${item['pace']}<small>${item['pace_unit']}</small>
                 </td>
                 <td class="hidden-lg-down">

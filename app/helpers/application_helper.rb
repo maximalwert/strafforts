@@ -197,6 +197,7 @@ module ApplicationHelper
         item[:is_imperial_unit] = measurement_unit == 'feet'
         if is_type_of_best_efforts
           next if entity.best_effort_type.nil?
+          item[:best_effort_type_id] = entity.best_effort_type.id
           item[:best_effort_type] = entity.best_effort_type.name
           item[:elapsed_time] = entity.elapsed_time
 

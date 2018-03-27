@@ -129,14 +129,13 @@ export default class RacesByDistanceView extends BaseView {
                 chartCreator.createYearDistributionChart('year-distribution-pie-chart');
                 ($('.dataTable') as any).DataTable({
                     // Disable searching for Time, Pace, Elevation, Cadence and HRs.
-                    columnDefs: [{
-                        targets: [2, 3, 5, 6, 7, 8],
-                        searchable: false,
-                    }],
+                    columnDefs: [
+                        { targets: [2, 3, 5, 6, 7, 8], searchable: false },
+                        { orderData: [[0, 'desc'], [3, 'asc']] },
+                    ],
                     iDisplayLength: 10,
                     order: [
                         [0, 'desc'],
-                        [4, 'asc'],
                     ],
                 });
                 chartCreator.createHeartRatesChart('heart-rates-chart');
