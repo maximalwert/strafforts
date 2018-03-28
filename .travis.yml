@@ -31,8 +31,9 @@ before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
   - yarn
-  - RAILS_ENV=test bin/rails db:migrate --trace
-  - RAILS_ENV=test bin/rails db:seed
+  - RAILS_ENV=test bundle exec bin/rails db:migrate --trace
+  - RAILS_ENV=test bundle exec bin/rails db:seed
+  - NODE_ENV=test RAILS_ENV=test bundle exec rails webpacker:compile
 
 script:
   - yarn test:all

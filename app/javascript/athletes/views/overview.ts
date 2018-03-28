@@ -1,3 +1,4 @@
+import { Helpers } from '../../common/helpers';
 import { AppHelpers } from '../helpers/appHelpers';
 import { HtmlHelpers } from '../helpers/htmlHelpers';
 import { ViewType } from '../helpers/viewTypes';
@@ -117,6 +118,7 @@ export default class Overview extends BaseView {
                             `<a class="strava-logo-link hidden-lg-down" href="${stravaLink}" target="_blank">
                                 <span></span>
                             </a>` : '';
+                            const paceOrder = Helpers.formatPaceStringForOrdering(item['pace']);
 
                             rows += `
                             <tr>
@@ -130,7 +132,7 @@ export default class Overview extends BaseView {
                                 </td>
                                 ${distanceColumn}
                                 <td class="no-wrap">${item['elapsed_time_formatted']}</td>
-                                <td class="hidden-xs-down">
+                                <td class="hidden-xs-down" data-sort="${paceOrder}">
                                     ${item['pace']}<small>${item['pace_unit']}</small>
                                 </td>
                                 <td class="hidden-lg-down">${item['gear_name']}</td>
@@ -208,8 +210,11 @@ export default class Overview extends BaseView {
                     data.forEach((item: any[]) => {
                         const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
                         const distance = isTypeOfRaces
-                            ? `${(item['distance']).toFixed(1)} ${item['distance_unit']}`
-                            : `${(item['best_effort_type'])}`;
+                            ? `${item['distance'].toFixed(1)} ${item['distance_unit']}`
+                            : `${item['best_effort_type']}`;
+                        const distanceSortOrder = isTypeOfRaces
+                            ? item['distance'].toFixed(1) : item['best_effort_type_id'];
+                        const paceOrder = Helpers.formatPaceStringForOrdering(item['pace']);
 
                         rows += `
                             <tr>
@@ -222,11 +227,11 @@ export default class Overview extends BaseView {
                                         ${item['activity_name']}
                                     </a>
                                 </td>
-                                <td class="hidden-xs-down">
+                                <td class="hidden-xs-down" data-sort="${distanceSortOrder}">
                                     ${distance}
                                 </td>
                                 <td class="no-wrap">${item['elapsed_time_formatted']}</td>
-                                <td class="hidden-xs-down">
+                                <td class="hidden-xs-down" data-sort="${paceOrder}">
                                     ${item['pace']}<small>${item['pace_unit']}</small>
                                 </td>
                                 <td class="hidden-lg-down">${item['gear_name']}</td>
@@ -275,14 +280,14 @@ export default class Overview extends BaseView {
                     pane.append(table);
 
                     ($(`#overview-dataTable-recent-${type}`) as any).DataTable({
-                        columnDefs: [{
-                            targets: [3, 4, 6, 7], // Disable searching for Time, Pace and HRs.
-                            searchable: false,
-                        }],
+                        columnDefs: [
+                            // Disable searching for Time, Pace and HRs.
+                            { targets: [3, 4, 6, 7], searchable: false },
+                            { orderData: [[0, 'desc'], [1, 'asc']] },
+                        ],
                         iDisplayLength: 10,
                         order: [
                             [0, 'desc'],
-                            [3, 'desc'],
                         ],
                     });
                 }
