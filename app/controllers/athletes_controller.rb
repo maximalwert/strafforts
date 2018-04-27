@@ -51,7 +51,7 @@ class AthletesController < ApplicationController
     @is_current_user = athlete.access_token == cookies.signed[:access_token]
     ApplicationController.raise_user_not_current_error unless @is_current_user
 
-    if params[:is_hard_reset] == 'true'
+    if params[:is_hard_reset].to_s == 'true'
       # Delete all activity data except for the athlete itself.
       BestEffort.where(athlete_id: athlete.id).destroy_all
       Race.where(athlete_id: athlete.id).destroy_all
