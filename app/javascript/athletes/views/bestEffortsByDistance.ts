@@ -118,13 +118,13 @@ export default class BestEffortsByDistanceView extends BaseView {
         if (items) {
             let rows = '';
             items.forEach((item) => {
-                rows += HtmlHelpers.getDatatableRowForBestEfforts(item);
+                rows += HtmlHelpers.createDatatableRowForBestEffortsOrPbs(item);
             });
 
             table = `
                 <div class="dataTable-wrapper">
                     <table class="dataTable table table-bordered table-striped">
-                        ${HtmlHelpers.getDatatableHeaderForBestEfforts()}
+                        ${HtmlHelpers.createDatatableHeaderForBestEffortsOrPbs()}
                         <tbody>
                             ${rows}
                         </tbody>

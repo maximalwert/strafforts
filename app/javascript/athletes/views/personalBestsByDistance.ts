@@ -142,13 +142,13 @@ export default class PersonalBestsByDistanceView extends BaseView {
         if (items) {
             let rows = '';
             items.forEach((item) => {
-                rows += HtmlHelpers.getDatatableRowForPersonalBests(item);
+                rows += HtmlHelpers.createDatatableRowForBestEffortsOrPbs(item);
             });
 
             table = `
                 <div class="dataTable-wrapper">
                     <table class="dataTable table table-bordered table-striped">
-                        ${HtmlHelpers.getDatatableHeaderForPersonalBests()}
+                        ${HtmlHelpers.createDatatableHeaderForBestEffortsOrPbs()}
                         <tbody>
                             ${rows}
                         </tbody>
