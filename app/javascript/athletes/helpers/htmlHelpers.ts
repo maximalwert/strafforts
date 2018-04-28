@@ -95,14 +95,6 @@ export namespace HtmlHelpers {
         return html;
     }
 
-    export function getDatatableHeaderForBestEfforts() {
-        return createDatatableHeaderForBestEffortsOrPbs(false);
-    }
-
-    export function getDatatableHeaderForPersonalBests() {
-        return createDatatableHeaderForBestEffortsOrPbs(true);
-    }
-
     export function getDatatableHeaderForRaces(showDistanceColumn?: boolean) {
         const distanceColumn = showDistanceColumn ? `<th class="col-md-1">Distance</th>` : '';
         const gearColumnWidth = showDistanceColumn ? '1' : '2';
@@ -123,14 +115,6 @@ export namespace HtmlHelpers {
             </thead>
         `;
         return header;
-    }
-
-    export function getDatatableRowForBestEfforts(item: any[]) {
-        return createDatatableRowForBestEffortsOrPbs(item, false);
-    }
-
-    export function getDatatableRowForPersonalBests(item: any[]) {
-        return createDatatableRowForBestEffortsOrPbs(item, true);
     }
 
     export function getDatatableRowForRaces(item: any[], showDistanceColumn?: boolean) {
@@ -181,10 +165,7 @@ export namespace HtmlHelpers {
         return row;
     }
 
-    function createDatatableHeaderForBestEffortsOrPbs(showHrColumns: boolean) {
-        const hrColumns = showHrColumns ?
-            `<th class="col-md-1 text-center badge-cell hidden-md-down">Avg. HR</th>
-            <th class="col-md-1 text-center badge-cell hidden-md-down">Max HR</th>` : '';
+    export function createDatatableHeaderForBestEffortsOrPbs() {
         const header = `
             <thead>
                 <tr>
@@ -194,28 +175,18 @@ export namespace HtmlHelpers {
                     <th class="col-md-1">Time</th>
                     <th class="col-md-1 hidden-xs-down">Pace</th>
                     <th class="col-md-2 hidden-lg-down">Gear</th>
-                    ${hrColumns}
+                    <th class="col-md-1 text-center badge-cell hidden-md-down">Avg. HR</th>
+                    <th class="col-md-1 text-center badge-cell hidden-md-down">Max HR</th>
                 </tr>
             </thead>
         `;
         return header;
     }
 
-    function createDatatableRowForBestEffortsOrPbs(item: any[], showHrColumns: boolean) {
+    export function createDatatableRowForBestEffortsOrPbs(item: any[]) {
         const stravaLink = `https://www.strava.com/activities/${item['activity_id']}`;
         const workoutTypeNameClass = `workout-type-${item['workout_type_name'].replace(/\s/g, '-')}`;
         const paceOrder = Helpers.formatPaceStringForOrdering(item['pace']);
-        const hrColumns = showHrColumns ?
-            `<td class="text-center badge-cell hidden-md-down">
-                <span class="badge hr-zone-${item['average_hr_zone']}">
-                    ${item['average_heartrate'] === -1 ? 'n/a' : item['average_heartrate']}
-                </span>
-            </td>
-            <td class="text-center badge-cell hidden-md-down">
-                <span class="badge hr-zone-${item['max_hr_zone']}">
-                    ${item['max_heartrate'] === -1 ? 'n/a' : item['max_heartrate']}
-                </span>
-            </td>` : '';
         const row = `
             <tr>
                 <td class="no-wrap">${item['start_date']}</td>
@@ -236,7 +207,16 @@ export namespace HtmlHelpers {
                 <td class="hidden-lg-down">
                     ${item['gear_name']}
                 </td>
-                ${hrColumns}
+                <td class="text-center badge-cell hidden-md-down">
+                    <span class="badge hr-zone-${item['average_hr_zone']}">
+                        ${item['average_heartrate'] === -1 ? 'n/a' : item['average_heartrate']}
+                    </span>
+                </td>
+                <td class="text-center badge-cell hidden-md-down">
+                    <span class="badge hr-zone-${item['max_hr_zone']}">
+                        ${item['max_heartrate'] === -1 ? 'n/a' : item['max_heartrate']}
+                    </span>
+                </td>
             </tr>
         `;
         return row;
