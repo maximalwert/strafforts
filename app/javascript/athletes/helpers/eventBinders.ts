@@ -184,7 +184,7 @@ export namespace EventBinders {
 
         $.ajax({
             url: $('.form-reset-profile').attr('action'),
-            data: '',
+            data: { is_hard_reset: ($('#is_hard_reset')[0] as any).checked },
             cache: false,
             type: 'post',
         });

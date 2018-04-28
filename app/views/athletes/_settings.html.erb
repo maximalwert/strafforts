@@ -111,7 +111,10 @@
 
       <div class="form-group reset-profile">
         <h3 class="control-sidebar-heading">Reset Profile</h3>
-        <p>Delete all activities and queue for a full re-synchronization.</p>
+        <p>
+          <%= label_tag(:is_hard_reset, 'Delete existing data:', class: 'control-sidebar-subheading checkbox inline') %>
+          <%= check_box_tag(:is_hard_reset, false, false, class: 'pull-right') %>
+        </p>
         <button type="button" class="btn btn-block btn-danger btn-flat" data-toggle="modal" data-target="#confirm-reset-profile">
           Reset
         </button>
@@ -144,8 +147,8 @@
           <h4 class="modal-title" id="confirm-reset-profile-label">Are you sure?</h4>
         </div>
         <div class="modal-body">
-          <p>By clicking 'Confirm' below, Strafforts will delete all you data and queue for a full re-synchronization.</p>
-          <p>This would normally take a while (depending on server load) until you get all your data back.</p>
+          <p>By clicking 'Confirm' below, Strafforts will queue for a full re-synchronization of all your data.</p>
+          <p>This would normally take a while (depending on server load) until you get all your data updated.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline" data-dismiss="modal">Cancel</button>
