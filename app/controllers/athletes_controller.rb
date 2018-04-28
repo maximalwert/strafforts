@@ -51,11 +51,15 @@ class AthletesController < ApplicationController
     @is_current_user = athlete.access_token == cookies.signed[:access_token]
     ApplicationController.raise_user_not_current_error unless @is_current_user
 
-    # Delete all activity data except for the athlete itself.
-    Rails.logger.warn("Resetting all activity data for athlete #{athlete.id}.")
-    BestEffort.where(athlete_id: athlete.id).destroy_all
-    Race.where(athlete_id: athlete.id).destroy_all
-    Activity.where(athlete_id: athlete.id).destroy_all
+    if params[:is_hard_reset].to_s == 'true'
+      # Delete all activity data except for the athlete itself.
+      BestEffort.where(athlete_id: athlete.id).destroy_all
+      Race.where(athlete_id: athlete.id).destroy_all
+      Activity.where(athlete_id: athlete.id).destroy_all
+      Rails.logger.warn("Hard resetting all activity data for athlete #{athlete.id}.")
+    else
+      Rails.logger.warn("Soft resetting all activity data for athlete #{athlete.id}.")
+    end
 
     # Set last_activity_retrieved to nil for this athlete.
     athlete.update(last_activity_retrieved: nil, total_run_count: 0)

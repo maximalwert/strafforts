@@ -290,7 +290,7 @@
   <span class="pull-right">
       <a class="bg-strava btn label" href="https://www.strava.com/athletes/9123806" target="_blank">Follow me on Strava</a>
       <a class="bg-strava btn label" href="mailto:support@strafforts.com" target="_blank">Contact Us</a>
-          <small>v1.2.3</small>
+          <small>v1.2.4</small>
   </span>
 </footer>
 <script> window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' } </script>
@@ -407,7 +407,10 @@
 
       <div class="form-group reset-profile">
         <h3 class="control-sidebar-heading">Reset Profile</h3>
-        <p>Delete all activities and queue for a full re-synchronization.</p>
+        <p>
+          <label class="control-sidebar-subheading checkbox inline" for="is_hard_reset">Delete existing data:</label>
+          <input type="checkbox" name="is_hard_reset" id="is_hard_reset" value="false" class="pull-right" />
+        </p>
         <button type="button" class="btn btn-block btn-danger btn-flat" data-toggle="modal" data-target="#confirm-reset-profile">
           Reset
         </button>
@@ -440,8 +443,8 @@
           <h4 class="modal-title" id="confirm-reset-profile-label">Are you sure?</h4>
         </div>
         <div class="modal-body">
-          <p>By clicking 'Confirm' below, Strafforts will delete all you data and queue for a full re-synchronization.</p>
-          <p>This would normally take a while (depending on server load) until you get all your data back.</p>
+          <p>By clicking 'Confirm' below, Strafforts will queue for a full re-synchronization of all your data.</p>
+          <p>This would normally take a while (depending on server load) until you get all your data updated.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline" data-dismiss="modal">Cancel</button>
