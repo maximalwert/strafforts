@@ -20,14 +20,7 @@ namespace :athlete do
         puts "[DRY_RUN] Destroying all data for athlete #{athlete_id} (#{email})."
       else
         puts "Destroying all data for athlete #{athlete_id} (#{email})."
-
-        BestEffort.where(athlete_id: athlete_id).destroy_all
-        Race.where(athlete_id: athlete_id).destroy_all
-        Gear.where(athlete_id: athlete_id).destroy_all
-        HeartRateZones.where(athlete_id: athlete_id).destroy_all
-        Activity.where(athlete_id: athlete_id).destroy_all
-        Athlete.where(id: athlete_id).destroy_all
-
+        destroy_athlete(athlete_id)
         counter += 1
       end
     end
@@ -44,18 +37,20 @@ namespace :athlete do
         puts "[DRY_RUN] Destroying all data for athlete #{id} (#{athlete_email})."
       else
         puts "Destroying all data for athlete #{id} (#{athlete_email})."
-
-        BestEffort.where(athlete_id: id).destroy_all
-        Race.where(athlete_id: id).destroy_all
-        Gear.where(athlete_id: id).destroy_all
-        HeartRateZones.where(athlete_id: id).destroy_all
-        Activity.where(athlete_id: id).destroy_all
-        Athlete.where(id: id).destroy_all
-
+        destroy_athlete(id)
         counter += 1
       end
     end
 
     puts "Rake task 'athlete:destroy' completed. A total of #{counter} athletes destroyed."
+  end
+
+  def destroy_athlete(id)
+    BestEffort.where(athlete_id: id).destroy_all
+    Race.where(athlete_id: id).destroy_all
+    Gear.where(athlete_id: id).destroy_all
+    HeartRateZones.where(athlete_id: id).destroy_all
+    Activity.where(athlete_id: id).destroy_all
+    Athlete.where(id: id).destroy_all
   end
 end
