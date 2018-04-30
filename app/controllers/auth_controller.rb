@@ -18,7 +18,7 @@ class AuthController < ApplicationController
       athlete = Athlete.find_by_access_token(cookies.signed[:access_token])
       unless athlete.nil?
         athlete_id = athlete.id
-        Rails.logger.warn("Destroying all data for athlete #{athlete_id}.")
+        Rails.logger.warn("Deauthrozing and destroying all data for athlete #{athlete_id}.")
         BestEffort.where(athlete_id: athlete_id).destroy_all
         Race.where(athlete_id: athlete_id).destroy_all
         Gear.where(athlete_id: athlete_id).destroy_all

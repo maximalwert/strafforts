@@ -30,6 +30,25 @@ RSpec.describe Athlete, type: :model do
     end
   end
 
+  describe '.find_by_email' do
+    it 'should get nil when the provided email matches nothing' do
+      # act.
+      item = Athlete.find_by_email('tony.stark@yahoo.com')
+
+      # assert.
+      expect(item).to be_nil
+    end
+
+    it 'should get an athlete matching the provided id' do
+      # act.
+      item = Athlete.find_by_email('tony.stark@avengers.com')
+
+      # assert.
+      expect(item.is_a?(Athlete)).to be true
+      expect(item.id).to eq(123)
+    end
+  end
+
   describe '.find_by_id_or_username' do
     it 'should get nil when the provided id matches nothing' do
       # act.
