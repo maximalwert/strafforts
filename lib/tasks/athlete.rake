@@ -2,9 +2,11 @@ require 'yaml'
 
 namespace :athlete do
   desc 'Delete all data assiociated with athletes in the given comma separated email/id list.'
-  # Usage: bin/rails athlete:destroy EMAIL=[Comma Separated list] ID=[Comma Separated list]'
+  # Usage: bin/rails athlete:destroy EMAIL=[Comma Separated list] ID=[Comma Separated list] DRY_RUN=[true/false]
+  # Only to destroy when DRY_RUN is explicitly set to false.
   task destroy: :environment do
     counter = 0
+    is_dry_run = ENV['DRY_RUN'].blank? || ENV['DRY_RUN'] != 'false'
 
     emails = ENV['EMAIL'].blank? ? [] : ENV['EMAIL'].split(',')
     emails.each do |email|
@@ -14,15 +16,20 @@ namespace :athlete do
       next if athlete.nil?
 
       athlete_id = athlete.id
-      Rails.logger.warn("Destroying all data for athlete #{athlete_id} (#{email}).")
-      BestEffort.where(athlete_id: athlete_id).destroy_all
-      Race.where(athlete_id: athlete_id).destroy_all
-      Gear.where(athlete_id: athlete_id).destroy_all
-      HeartRateZones.where(athlete_id: athlete_id).destroy_all
-      Activity.where(athlete_id: athlete_id).destroy_all
-      Athlete.where(id: athlete_id).destroy_all
+      if is_dry_run
+        puts "[DRY_RUN] Destroying all data for athlete #{athlete_id} (#{email})."
+      else
+        puts "Destroying all data for athlete #{athlete_id} (#{email})."
 
-      counter += 1
+        BestEffort.where(athlete_id: athlete_id).destroy_all
+        Race.where(athlete_id: athlete_id).destroy_all
+        Gear.where(athlete_id: athlete_id).destroy_all
+        HeartRateZones.where(athlete_id: athlete_id).destroy_all
+        Activity.where(athlete_id: athlete_id).destroy_all
+        Athlete.where(id: athlete_id).destroy_all
+
+        counter += 1
+      end
     end
 
     ids = ENV['ID'].blank? ? [] : ENV['ID'].split(',')
@@ -33,17 +40,22 @@ namespace :athlete do
       next if athlete.nil?
 
       athlete_email = athlete.email
-      Rails.logger.warn("Destroying all data for athlete #{id} (#{athlete_email}).")
-      BestEffort.where(athlete_id: id).destroy_all
-      Race.where(athlete_id: id).destroy_all
-      Gear.where(athlete_id: id).destroy_all
-      HeartRateZones.where(athlete_id: id).destroy_all
-      Activity.where(athlete_id: id).destroy_all
-      Athlete.where(id: id).destroy_all
+      if is_dry_run
+        puts "[DRY_RUN] Destroying all data for athlete #{id} (#{athlete_email})."
+      else
+        puts "Destroying all data for athlete #{id} (#{athlete_email})."
 
-      counter += 1
+        BestEffort.where(athlete_id: id).destroy_all
+        Race.where(athlete_id: id).destroy_all
+        Gear.where(athlete_id: id).destroy_all
+        HeartRateZones.where(athlete_id: id).destroy_all
+        Activity.where(athlete_id: id).destroy_all
+        Athlete.where(id: id).destroy_all
+
+        counter += 1
+      end
     end
 
-    Rails.logger.warn("Task 'athlete:destroy' finished. A total of #{counter} athletes destroyed.")
+    puts "Rake task 'athlete:destroy' completed. A total of #{counter} athletes destroyed."
   end
 end
