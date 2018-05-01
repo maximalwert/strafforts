@@ -19,6 +19,11 @@ class Athlete < ApplicationRecord
     results.empty? ? nil : results.take
   end
 
+  def self.find_by_email(email)
+    results = where('lower(email) = ?', email.downcase)
+    results.empty? ? nil : results.take
+  end
+
   def self.find_by_id_or_username(id_or_username)
     results = where('id = ? OR lower(username) = ?', id_or_username.to_i, id_or_username.to_s.downcase)
     results.empty? ? nil : results.take
