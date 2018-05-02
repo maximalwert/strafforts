@@ -71,7 +71,7 @@ class AuthController < ApplicationController
       fetcher.delay.fetch_all
 
       # Encrypt and set access_token in cookies.
-      cookies.signed[:access_token] = access_token
+      cookies.signed[:access_token] = { value: access_token, expires: Time.now + 1.day }
       return
     end
 
