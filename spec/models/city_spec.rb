@@ -8,5 +8,5 @@ RSpec.describe City, type: :model do
 
   it { should belong_to(:country) }
 
-  it { should have_many(:athletes) }
+  it { should have_many(:athlete_infos) }
 end

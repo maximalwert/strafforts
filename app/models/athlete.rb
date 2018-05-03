@@ -10,7 +10,6 @@ class Athlete < ApplicationRecord
   has_many :heart_rate_zones
   has_many :races
 
-  before_destroy :remove_from_mailing_list
 
   def self.find_by_access_token(access_token)
     results = where(access_token: access_token)
@@ -20,11 +19,5 @@ class Athlete < ApplicationRecord
   def self.find_all_by_is_active(is_active = true)
     results = where('is_active = ?', is_active).order('updated_at')
     results.empty? ? nil : results
-  end
-
-  private
-
-  def remove_from_mailing_list
-    RemoveFromMailingListJob.perform_later(id, email)
   end
 end
