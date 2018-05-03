@@ -16,14 +16,15 @@ class MailChimpApiWrapper
   end
 
   def subscribe_to_list(athlete)
-    hashed_email_address = Digest::MD5.hexdigest(athlete.email.downcase)
+    email = athlete.athlete_info.email
+    hashed_email_address = Digest::MD5.hexdigest(email.downcase)
     begin
       member = @api_client.lists(ENV['MAILCHIMP_LIST_ID']).members(hashed_email_address).retrieve
       current_status = member.body['status']
 
       @api_client.lists(ENV['MAILCHIMP_LIST_ID']).members(hashed_email_address).upsert(
         body: {
-          email_address: athlete.email,
+          email_address: email,
           status: current_status,
           merge_fields: create_merge_fields(athlete)
         }
@@ -32,7 +33,7 @@ class MailChimpApiWrapper
       raise unless e.message.include?('404')
       @api_client.lists(ENV['MAILCHIMP_LIST_ID']).members.create(
         body: {
-          email_address: athlete.email,
+          email_address: email,
           status: 'subscribed',
           merge_fields: create_merge_fields(athlete)
         }
@@ -46,8 +47,8 @@ class MailChimpApiWrapper
     {
       ATHLETE_ID: athlete.id.to_s,
       JOIN_DATE: athlete.created_at.strftime('%Y/%m/%d'),
-      FNAME: athlete.firstname,
-      LNAME: athlete.lastname,
+      FNAME: athlete.athlete_info.firstname,
+      LNAME: athlete.athlete_info.lastname,
       LAST_LOGIN: Time.now.utc.to_date.strftime('%Y/%m/%d'),
       URL: "#{Settings.app.production_url}/athletes/#{athlete.id}",
       STRAVA_URL: "#{Settings.strava.athletes_base_url}/#{athlete.id}"

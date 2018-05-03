@@ -48,7 +48,7 @@ RSpec.describe AuthController, type: :request do
       get '/auth/deauthorize'
 
       # assert.
-      expect(Athlete.find_by_id_or_username(123)).to be_nil
+      expect(Athlete.find_by(id: 123)).to be_nil
       expect(cookies[:access_token].blank?).to be true
       expect(response).to redirect_to(root_path)
     end
@@ -61,7 +61,7 @@ RSpec.describe AuthController, type: :request do
       get '/auth/deauthorize'
 
       # assert.
-      expect(Athlete.find_by_id_or_username(123)).not_to be_nil
+      expect(Athlete.find_by(id: 123)).not_to be_nil
       expect(cookies[:access_token].blank?).to be true
       expect(response).to redirect_to(root_path)
     end
@@ -76,7 +76,7 @@ RSpec.describe AuthController, type: :request do
       get '/auth/deauthorize'
 
       # assert.
-      expect(Athlete.find_by_id_or_username(123)).not_to be_nil
+      expect(Athlete.find_by(id: 123)).not_to be_nil
       expect(cookies[:access_token].blank?).to be true
       expect(response).to redirect_to(root_path)
     end

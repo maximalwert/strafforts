@@ -16,7 +16,7 @@ RSpec.describe UserMailer, type: :mailer do
 
       it 'when athlete has no email' do
         # arrange.
-        athlete = Athlete.find_by_id_or_username(456)
+        athlete = Athlete.find_by(id: 456)
         email = UserMailer.welcome_email(athlete)
 
         # act & assert.
@@ -27,7 +27,7 @@ RSpec.describe UserMailer, type: :mailer do
     context 'should send successfully' do
       it 'for an ordinary athlete' do
         # arrange.
-        athlete = Athlete.find_by_id_or_username(123)
+        athlete = Athlete.find_by(id: 123)
         email = UserMailer.welcome_email(athlete)
 
         # act & assert.
@@ -39,8 +39,8 @@ RSpec.describe UserMailer, type: :mailer do
 
       it 'for an athlete with short firstname' do
         # arrange.
-        athlete = Athlete.find_by_id_or_username(123)
-        athlete.firstname = 'Y'
+        athlete = Athlete.find_by(id: 123)
+        athlete.athlete_info.firstname = 'Y'
         email = UserMailer.welcome_email(athlete)
 
         # act & assert.
@@ -54,9 +54,9 @@ RSpec.describe UserMailer, type: :mailer do
 
       it 'for an athlete without name' do
         # arrange.
-        athlete = Athlete.find_by_id_or_username(123)
-        athlete.firstname = nil
-        athlete.lastname = ''
+        athlete = Athlete.find_by(id: 123)
+        athlete.athlete_info.firstname = nil
+        athlete.athlete_info.lastname = ''
         email = UserMailer.welcome_email(athlete)
 
         # act & assert.

@@ -1,0 +1,5 @@
+class AddLastLoginAtToAthletes < ActiveRecord::Migration[5.1]
+  def change
+    add_column :athletes, :last_login_at, :datetime
+  end
+end

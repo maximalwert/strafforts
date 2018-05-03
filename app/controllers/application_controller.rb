@@ -90,13 +90,13 @@ class ApplicationController < ActionController::Base
     }
   end
 
-  def self.raise_athlete_not_found_error(id_or_username)
-    error_message = "Could not find athlete '#{id_or_username}' by id or username."
+  def self.raise_athlete_not_found_error(id)
+    error_message = "Could not find athlete '#{id}' by id."
     raise ActionController::RoutingError, error_message
   end
 
-  def self.raise_athlete_not_accessible_error(id_or_username)
-    error_message = "Could not access athlete '#{id_or_username}'."
+  def self.raise_athlete_not_accessible_error(id)
+    error_message = "Could not access athlete '#{id}'."
     raise ActionController::RoutingError, error_message
   end
 

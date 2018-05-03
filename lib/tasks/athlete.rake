@@ -52,7 +52,7 @@ namespace :athlete do
     ids.each do |id|
       next if id.blank?
 
-      athlete = Athlete.find_by_id_or_username(id)
+      athlete = Athlete.find_by(id: id)
       if athlete.nil?
         puts "Athlete '#{id}' was not found."
       else

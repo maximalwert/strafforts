@@ -24,6 +24,7 @@ class AuthController < ApplicationController
         Gear.where(athlete_id: athlete_id).destroy_all
         HeartRateZones.where(athlete_id: athlete_id).destroy_all
         Activity.where(athlete_id: athlete_id).destroy_all
+        AthleteInfo.where(athlete_id: athlete_id).destroy_all
         Athlete.where(id: athlete_id).destroy_all
       end
 

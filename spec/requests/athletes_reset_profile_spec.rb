@@ -20,7 +20,7 @@ RSpec.describe AthletesController, type: :request do
       # arrange.
       setup_cookie('58e42e6f5e496dc5aa0d5ec354da8048')
 
-      athlete = Athlete.find_by_id_or_username(456)
+      athlete = Athlete.find_by(id: 456)
       expect(athlete).not_to be_nil
       expect(athlete.last_activity_retrieved).not_to be_nil
 
@@ -50,7 +50,7 @@ RSpec.describe AthletesController, type: :request do
       # arrange.
       setup_cookie('58e42e6f5e496dc5aa0d5ec354da8048')
 
-      athlete = Athlete.find_by_id_or_username(456)
+      athlete = Athlete.find_by(id: 456)
       expect(athlete).not_to be_nil
       expect(athlete.last_activity_retrieved).not_to be_nil
 
