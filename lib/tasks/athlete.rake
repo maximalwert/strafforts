@@ -45,6 +45,23 @@ namespace :athlete do
     puts "Rake task 'athlete:destroy' completed. A total of #{counter} athletes destroyed."
   end
 
+  desc 'Fetch data for athletes in the given comma separated email/id list.'
+  # Usage: bin/rails athlete:fetch MODE=[all/latest] ID=[Comma Separated list]
+  task fetch: :environment do
+    ids = ENV['ID'].blank? ? [] : ENV['ID'].split(',')
+    ids.each do |id|
+      next if id.blank?
+
+      athlete = Athlete.find_by_id_or_username(id)
+      if athlete.nil?
+        puts "Athlete '#{id}' was not found."
+      else
+        fetcher = ActivityFetcher.new(athlete.access_token)
+        fetcher.delay(priority: 3).fetch_all(mode: ENV['MODE'])
+      end
+    end
+  end
+
   def destroy_athlete(id)
     BestEffort.where(athlete_id: id).destroy_all
     Race.where(athlete_id: id).destroy_all

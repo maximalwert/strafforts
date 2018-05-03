@@ -1,15 +1,4 @@
 namespace :fetch do
-  desc 'Fetch data for a particular athlete by ID. Usage: bin/rails fetch:athlete MODE=[all/latest] ID=[athlete_id]'
-  task athlete: :environment do
-    athlete = Athlete.find_by_id_or_username(ENV['ID'])
-    if athlete.nil?
-      puts "Athlete '#{ENV['ID']}' was not found."
-    else
-      fetcher = ActivityFetcher.new(athlete.access_token)
-      fetcher.delay(priority: 2).fetch_all(mode: ENV['MODE'])
-    end
-  end
-
   desc 'Fetch the latest data for all athletes'
   task latest: :environment do
     fetch('latest')
@@ -39,7 +28,7 @@ namespace :fetch do
     athletes = Athlete.find_all_by_is_active(true)
     athletes.each_with_index do |athlete, index|
       fetcher = ActivityFetcher.new(athlete.access_token)
-      fetcher.delay(run_at: (index * 5).seconds.from_now, priority: 3).fetch_all(mode: mode, type: type)
+      fetcher.delay(run_at: (index * 5).seconds.from_now, priority: 5).fetch_all(mode: mode, type: type)
     end
   end
 end
