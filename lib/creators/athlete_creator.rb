@@ -26,12 +26,12 @@ module Creators
 
       @athlete_info = AthleteInfo.find(athlete_id)
       if @athlete_info.nil?
-        Rails.logger.info("AthleteCreator - Creating athlete info #{athlete_id}.")
+        Rails.logger.info("AthleteCreator - Creating athlete info for athlete '#{athlete_id}'.")
 
         @athlete_info = AthleteInfo.new
         @athlete_info.athlete_id = athlete_id
       else
-        Rails.logger.info("AthleteCreator - Updating athlete info #{athlete_id}.")
+        Rails.logger.info("AthleteCreator - Updating athlete info for athlete '#{athlete_id}'.")
       end
 
       update_athlete_summary(access_token, athlete_hash)
@@ -48,6 +48,7 @@ module Creators
     def self.update_athlete_summary(access_token, athlete_hash)
       @athlete.access_token = access_token
       @athlete.is_active = true
+      @athlete.last_login_at = Time.now.utc
 
       @athlete_info.username = athlete_hash['username']
       @athlete_info.firstname = athlete_hash['firstname']
