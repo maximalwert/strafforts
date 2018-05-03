@@ -79,35 +79,15 @@ ActiveRecord::Schema.define(version: 20180503082217) do
   end
 
   create_table "athletes", id: :serial, force: :cascade do |t|
-    t.string "username"
     t.string "access_token"
-    t.string "firstname"
-    t.string "lastname"
     t.boolean "is_public"
+    t.boolean "is_active", default: true
     t.integer "last_activity_retrieved"
-    t.string "profile_medium"
-    t.string "profile"
-    t.integer "city_id"
-    t.integer "state_id"
-    t.integer "country_id"
-    t.string "sex"
-    t.integer "follower_count"
-    t.integer "friend_count"
-    t.integer "athlete_type"
-    t.string "date_preference"
-    t.string "measurement_preference"
-    t.string "email"
-    t.float "weight"
+    t.integer "total_run_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_active", default: true
-    t.integer "total_run_count", default: 0
     t.datetime "last_login_at"
     t.index ["access_token"], name: "index_athletes_on_access_token"
-    t.index ["city_id"], name: "index_athletes_on_city_id"
-    t.index ["country_id"], name: "index_athletes_on_country_id"
-    t.index ["state_id"], name: "index_athletes_on_state_id"
-    t.index ["username"], name: "index_athletes_on_username"
   end
 
   create_table "best_effort_types", id: :serial, force: :cascade do |t|
