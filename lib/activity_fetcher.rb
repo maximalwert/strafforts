@@ -45,7 +45,7 @@ class ActivityFetcher
             activity = @api_wrapper.retrieve_an_activity(activity_id)
             begin
               Creators::ActivityCreator.create_or_update(activity)
-            rescue
+            rescue StandardError => e
               Rails.logger.error("ActivityCreator - Error creating or updating activity '#{activity_id}'. #{e.message}\nBacktrace:\n\t#{e.backtrace.join("\n\t")}") # rubocop:disable LineLength
               next
             end
