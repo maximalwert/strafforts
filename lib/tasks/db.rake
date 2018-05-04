@@ -53,4 +53,14 @@ namespace :db do
       ActiveRecord::Base.connection.close if ActiveRecord::Base.connection
     end
   end
+
+  desc 'Purge all queued delayed_jobs. Usage: bundle exec bin/rails db:truncate_delayed_jobs'
+  task truncate_delayed_jobs: :environment do
+    begin
+      ActiveRecord::Base.establish_connection
+      ActiveRecord::Base.connection.execute('TRUNCATE delayed_jobs RESTART IDENTITY')
+    ensure
+      ActiveRecord::Base.connection.close if ActiveRecord::Base.connection
+    end
+  end
 end
