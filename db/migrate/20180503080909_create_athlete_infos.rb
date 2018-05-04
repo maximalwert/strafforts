@@ -6,6 +6,7 @@ class CreateAthleteInfos < ActiveRecord::Migration[5.1]
       t.string :username, index: true
       t.string :firstname
       t.string :lastname
+      t.string :email
 
       t.string :profile_medium
       t.string :profile
@@ -23,7 +24,6 @@ class CreateAthleteInfos < ActiveRecord::Migration[5.1]
       t.integer :athlete_type
       t.string :date_preference
       t.string :measurement_preference
-      t.string :email
       t.float :weight
 
       t.timestamps

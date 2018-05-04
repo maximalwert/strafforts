@@ -90,6 +90,11 @@ class ApplicationController < ActionController::Base
     }
   end
 
+  def self.set_last_active_at(athlete) # rubocop:disable AccessorMethodName
+    athlete.last_active_at = Time.now.utc
+    athlete.save!
+  end
+
   def self.raise_athlete_not_found_error(id)
     error_message = "Could not find athlete '#{id}' by id."
     raise ActionController::RoutingError, error_message

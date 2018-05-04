@@ -48,7 +48,7 @@ module Creators
     def self.update_athlete_summary(access_token, athlete_hash)
       @athlete.access_token = access_token
       @athlete.is_active = true
-      @athlete.last_login_at = Time.now.utc
+      @athlete.last_active_at = Time.now.utc
 
       @athlete_info.username = athlete_hash['username']
       @athlete_info.firstname = athlete_hash['firstname']
