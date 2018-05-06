@@ -17,7 +17,7 @@ RSpec.describe AthletesController, type: :request do
     end
 
     context 'should set is_public to true' do
-      let(:athlete) { Athlete.find_by_id_or_username(123) }
+      let(:athlete) { Athlete.find_by(id: 123) }
 
       it 'when POST without parameters' do
         # arrange.
@@ -51,7 +51,7 @@ RSpec.describe AthletesController, type: :request do
     end
 
     context 'should set is_public to false' do
-      let(:athlete) { Athlete.find_by_id_or_username(456) }
+      let(:athlete) { Athlete.find_by(id: 456) }
 
       it 'when POST with is_public = false' do
         # arrange.

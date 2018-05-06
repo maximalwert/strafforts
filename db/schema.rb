@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217042541) do
+ActiveRecord::Schema.define(version: 20180503082217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,13 +53,11 @@ ActiveRecord::Schema.define(version: 20180217042541) do
     t.index ["workout_type_id"], name: "index_activities_on_workout_type_id"
   end
 
-  create_table "athletes", force: :cascade do |t|
+  create_table "athlete_infos", primary_key: "athlete_id", id: :integer, default: nil, force: :cascade do |t|
     t.string "username"
-    t.string "access_token"
     t.string "firstname"
     t.string "lastname"
-    t.boolean "is_public"
-    t.integer "last_activity_retrieved"
+    t.string "email"
     t.string "profile_medium"
     t.string "profile"
     t.integer "city_id"
@@ -71,17 +69,25 @@ ActiveRecord::Schema.define(version: 20180217042541) do
     t.integer "athlete_type"
     t.string "date_preference"
     t.string "measurement_preference"
-    t.string "email"
     t.float "weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_athlete_infos_on_city_id"
+    t.index ["country_id"], name: "index_athlete_infos_on_country_id"
+    t.index ["state_id"], name: "index_athlete_infos_on_state_id"
+    t.index ["username"], name: "index_athlete_infos_on_username"
+  end
+
+  create_table "athletes", force: :cascade do |t|
+    t.string "access_token"
+    t.boolean "is_public"
+    t.integer "last_activity_retrieved"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_active", default: true
     t.integer "total_run_count", default: 0
+    t.datetime "last_active_at"
     t.index ["access_token"], name: "index_athletes_on_access_token"
-    t.index ["city_id"], name: "index_athletes_on_city_id"
-    t.index ["country_id"], name: "index_athletes_on_country_id"
-    t.index ["state_id"], name: "index_athletes_on_state_id"
-    t.index ["username"], name: "index_athletes_on_username"
   end
 
   create_table "best_effort_types", force: :cascade do |t|
@@ -145,7 +151,7 @@ ActiveRecord::Schema.define(version: 20180217042541) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "primary", default: false
-    t.float "distance", default: 0.0
+    t.float "distance"
     t.string "brand_name"
     t.string "model"
     t.string "description"

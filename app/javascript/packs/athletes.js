@@ -8,6 +8,13 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import '../athletes';
+import 'bootstrap/dist/css/bootstrap';
+import 'font-awesome/css/font-awesome';
+import 'admin-lte/plugins/pace/pace.min';
+import 'admin-lte/dist/css/AdminLTE.min';
+import 'admin-lte/dist/css/skins/skin-black-light.min';
+import 'datatables.net-bs/css/dataTables.bootstrap';
+import 'toastr/build/toastr.min';
 import '../athletes/styles/main'
 
 // Extension method to convert a number into time format.

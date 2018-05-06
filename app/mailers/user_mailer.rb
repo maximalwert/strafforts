@@ -14,10 +14,10 @@ class UserMailer < ApplicationMailer
     @athlete_name = format_athlete_fullname
     @athlete_profile_url = "#{@app_url}/athletes/#{@athlete.id}"
 
-    return if @athlete_name.blank? || @athlete.email.blank?
+    return if @athlete_name.blank? || @athlete.athlete_info.email.blank?
     mail(
       from: "#{@sender_name} <#{@sender_email}>",
-      to: "#{@athlete_name} <#{@athlete.email}>",
+      to: "#{@athlete_name} <#{@athlete.athlete_info.email}>",
       subject: "Welcome to #{@app_name}!"
     )
   end
@@ -25,8 +25,8 @@ class UserMailer < ApplicationMailer
   private
 
   def format_athlete_fullname
-    return 'New Athlete' if @athlete.firstname.blank? && @athlete.lastname.blank?
-    return @athlete.firstname if !@athlete.firstname.blank? && @athlete.firstname.length > 1
-    "#{@athlete.firstname} #{@athlete.lastname}".to_s.strip
+    return 'New Athlete' if @athlete.athlete_info.firstname.blank? && @athlete.athlete_info.lastname.blank?
+    return @athlete.athlete_info.firstname if !@athlete.athlete_info.firstname.blank? && @athlete.athlete_info.firstname.length > 1 # rubocop:disable LineLength
+    "#{@athlete.athlete_info.firstname} #{@athlete.athlete_info.lastname}".to_s.strip
   end
 end

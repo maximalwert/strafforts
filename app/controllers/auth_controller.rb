@@ -24,6 +24,7 @@ class AuthController < ApplicationController
         Gear.where(athlete_id: athlete_id).destroy_all
         HeartRateZones.where(athlete_id: athlete_id).destroy_all
         Activity.where(athlete_id: athlete_id).destroy_all
+        AthleteInfo.where(athlete_id: athlete_id).destroy_all
         Athlete.where(id: athlete_id).destroy_all
       end
 
@@ -71,7 +72,7 @@ class AuthController < ApplicationController
       fetcher.delay.fetch_all
 
       # Encrypt and set access_token in cookies.
-      cookies.signed[:access_token] = access_token
+      cookies.signed[:access_token] = { value: access_token, expires: Time.now + 7.days }
       return
     end
 

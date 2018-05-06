@@ -1,13 +1,9 @@
-const merge = require('webpack-merge')
-const environment = require('./environment')
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
-const customConfig = {
-    output: {
-        filename: '[name].bundle.js'
-    }
-};
+const environment = require('./environment')
+environment.config.set('output.filename', '[name].js')
 
 const extractText = environment.plugins.get('ExtractText');
 extractText.filename = '[name].css';
 
-module.exports = merge(environment.toWebpackConfig(), customConfig);
+module.exports = environment.toWebpackConfig()

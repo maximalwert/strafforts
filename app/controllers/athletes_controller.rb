@@ -1,29 +1,33 @@
 class AthletesController < ApplicationController
   def index
     @auth_url = ApplicationController.get_auth_url(request)
-    athlete = Athlete.find_by_id_or_username(params[:id_or_username])
-    ApplicationController.raise_athlete_not_found_error(params[:id_or_username]) if athlete.nil?
+    athlete = Athlete.find_by(id: params[:id])
+    ApplicationController.raise_athlete_not_found_error(params[:id]) if athlete.nil?
 
     @is_current_user = athlete.access_token == cookies.signed[:access_token]
     is_accessible = athlete.is_public || @is_current_user
-    ApplicationController.raise_athlete_not_accessible_error(params[:id_or_username]) unless is_accessible
+    ApplicationController.raise_athlete_not_accessible_error(params[:id]) unless is_accessible
 
     @athlete_profile_url = "#{STRAVA_ATHLETES_URL}/#{athlete.id}"
     @athlete = athlete.decorate
 
     raw_personal_bests = BestEffort.find_all_pbs_by_athlete_id(athlete.id)
     heart_rate_zones = ApplicationHelper::Helper.get_heart_rate_zones(athlete.id)
-    shaped_personal_bests = ApplicationHelper::Helper.shape_best_efforts(raw_personal_bests, heart_rate_zones, athlete.measurement_preference) # rubocop:disable LineLength
+    shaped_personal_bests = ApplicationHelper::Helper.shape_best_efforts(
+      raw_personal_bests, heart_rate_zones, athlete.athlete_info.measurement_preference
+    )
     @personal_bests = PersonalBestsDecorator.new(shaped_personal_bests)
 
     raw_races = Race.find_all_by_athlete_id(athlete.id)
-    shaped_races = ApplicationHelper::Helper.shape_races(raw_races, heart_rate_zones, athlete.measurement_preference)
+    shaped_races = ApplicationHelper::Helper.shape_races(
+      raw_races, heart_rate_zones, athlete.athlete_info.measurement_preference
+    )
     @races = RacesDecorator.new(shaped_races)
   end
 
   def save_profile
-    athlete = Athlete.find_by_id_or_username(params[:id_or_username])
-    ApplicationController.raise_item_not_found_error('athlete', params[:id_or_username]) if athlete.nil?
+    athlete = Athlete.find_by(id: params[:id])
+    ApplicationController.raise_item_not_found_error('athlete', params[:id]) if athlete.nil?
 
     @is_current_user = athlete.access_token == cookies.signed[:access_token]
     ApplicationController.raise_user_not_current_error unless @is_current_user
@@ -33,8 +37,8 @@ class AthletesController < ApplicationController
   end
 
   def fetch_latest
-    athlete = Athlete.find_by_id_or_username(params[:id_or_username])
-    ApplicationController.raise_item_not_found_error('athlete', params[:id_or_username]) if athlete.nil?
+    athlete = Athlete.find_by(id: params[:id])
+    ApplicationController.raise_item_not_found_error('athlete', params[:id]) if athlete.nil?
 
     @is_current_user = athlete.access_token == cookies.signed[:access_token]
     ApplicationController.raise_user_not_current_error unless @is_current_user
@@ -45,8 +49,8 @@ class AthletesController < ApplicationController
   end
 
   def reset_profile
-    athlete = Athlete.find_by_id_or_username(params[:id_or_username])
-    ApplicationController.raise_item_not_found_error('athlete', params[:id_or_username]) if athlete.nil?
+    athlete = Athlete.find_by(id: params[:id])
+    ApplicationController.raise_item_not_found_error('athlete', params[:id]) if athlete.nil?
 
     @is_current_user = athlete.access_token == cookies.signed[:access_token]
     ApplicationController.raise_user_not_current_error unless @is_current_user

@@ -118,7 +118,7 @@ end
 
 def setup_cookie(access_token)
   my_cookies = ActionDispatch::Request.new(Rails.application.env_config).cookie_jar
-  my_cookies.signed[:access_token] = access_token
+  my_cookies.signed[:access_token] = { value: access_token, expiry: Time.now + 7.days }
   cookies[:access_token] = my_cookies[:access_token]
 end
 
