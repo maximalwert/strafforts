@@ -4,7 +4,7 @@ RSpec.describe AthleteDecorator, type: :decorator do
   STRAVA_URL = 'https://www.strava.com'.freeze
   DEFAULT_NAME = 'Strava User'.freeze
 
-  let(:athlete) { Athlete.find_by_id_or_username(123) }
+  let(:athlete) { Athlete.find_by(id: 123) }
 
   it 'should be the same entity after decorating' do
     # act.
@@ -38,7 +38,7 @@ RSpec.describe AthleteDecorator, type: :decorator do
   describe '.profile_image_url' do
     it 'should be nil when athlete.profile is an invalid url' do
       # arrange.
-      athlete.profile = 'strafforts/@#$%^&*()'
+      athlete.athlete_info.profile = 'strafforts/@#$%^&*()'
 
       # act.
       decorator = AthleteDecorator.decorate(athlete)
@@ -101,8 +101,8 @@ RSpec.describe AthleteDecorator, type: :decorator do
   describe '.fullname' do
     it "should be '#{DEFAULT_NAME}' when both athlete.firstname and athlete.lastname are blank" do
       # arrange.
-      athlete.firstname = nil
-      athlete.lastname = nil
+      athlete.athlete_info.firstname = nil
+      athlete.athlete_info.lastname = nil
 
       # act.
       decorator = AthleteDecorator.decorate(athlete)
@@ -121,7 +121,7 @@ RSpec.describe AthleteDecorator, type: :decorator do
 
     it 'should be the firstname when only athlete.firstname is not blank' do
       # arrange.
-      athlete.lastname = nil
+      athlete.athlete_info.lastname = nil
 
       # act.
       decorator = AthleteDecorator.decorate(athlete)
@@ -132,7 +132,7 @@ RSpec.describe AthleteDecorator, type: :decorator do
 
     it 'should be the lastname when only athlete.lastname is not blank' do
       # arrange.
-      athlete.firstname = nil
+      athlete.athlete_info.firstname = nil
 
       # act.
       decorator = AthleteDecorator.decorate(athlete)
@@ -146,7 +146,7 @@ RSpec.describe AthleteDecorator, type: :decorator do
     context 'when fullname is under length limit' do
       it 'should be the fullname' do
         # arrange.
-        athlete = Athlete.find_by_id_or_username(123)
+        athlete = Athlete.find_by(id: 123)
 
         # act.
         decorator = AthleteDecorator.decorate(athlete)
@@ -157,11 +157,11 @@ RSpec.describe AthleteDecorator, type: :decorator do
     end
 
     context 'when fullname is over length limit' do
-      let(:athlete) { Athlete.find_by_id_or_username(123) }
+      let(:athlete) { Athlete.find_by(id: 123) }
 
       it 'should be the firstname when the athlete has firstname' do
         # arrange.
-        athlete.firstname = 'Veryveryveryveryverylongname'
+        athlete.athlete_info.firstname = 'Veryveryveryveryverylongname'
 
         # act.
         decorator = AthleteDecorator.decorate(athlete)
@@ -172,8 +172,8 @@ RSpec.describe AthleteDecorator, type: :decorator do
 
       it 'should be the lastname when the athlete has only lastname' do
         # arrange.
-        athlete.firstname = nil
-        athlete.lastname = 'Veryveryveryveryverylongname'
+        athlete.athlete_info.firstname = nil
+        athlete.athlete_info.lastname = 'Veryveryveryveryverylongname'
 
         # act.
         decorator = AthleteDecorator.decorate(athlete)
@@ -188,9 +188,9 @@ RSpec.describe AthleteDecorator, type: :decorator do
     context 'when athlete.city and athlete.country are both nil' do
       it 'should be ""' do
         # arrange.
-        athlete = Athlete.find_by_id_or_username(123)
-        athlete.city = nil
-        athlete.country = nil
+        athlete = Athlete.find_by(id: 123)
+        athlete.athlete_info.city = nil
+        athlete.athlete_info.country = nil
 
         # act.
         decorator = AthleteDecorator.decorate(athlete)
@@ -201,11 +201,11 @@ RSpec.describe AthleteDecorator, type: :decorator do
     end
 
     context 'when one of athlete.city and athlete.country is nil' do
-      let(:athlete) { Athlete.find_by_id_or_username(123) }
+      let(:athlete) { Athlete.find_by(id: 123) }
 
       it 'should be country name when athlete.city is nil but not athlete.country' do
         # arrange.
-        athlete.city = nil
+        athlete.athlete_info.city = nil
 
         # act.
         decorator = AthleteDecorator.decorate(athlete)
@@ -216,7 +216,7 @@ RSpec.describe AthleteDecorator, type: :decorator do
 
       it 'should be city name when athlete.country is nil but not athlete.city' do
         # arrange.
-        athlete.country = nil
+        athlete.athlete_info.country = nil
 
         # act.
         decorator = AthleteDecorator.decorate(athlete)
@@ -227,12 +227,12 @@ RSpec.describe AthleteDecorator, type: :decorator do
     end
 
     context 'when both athlete.city and athlete.country are not nil' do
-      let(:athlete) { Athlete.find_by_id_or_username(123) }
+      let(:athlete) { Athlete.find_by(id: 123) }
 
       it 'should be "" when both athlete.city.name and athlete.country.name are blank' do
         # arrange.
-        athlete.city.name = nil
-        athlete.country.name = nil
+        athlete.athlete_info.city.name = nil
+        athlete.athlete_info.country.name = nil
 
         # act.
         decorator = AthleteDecorator.decorate(athlete)
@@ -243,7 +243,7 @@ RSpec.describe AthleteDecorator, type: :decorator do
 
       it 'should be the country name when athlete.city.name is blank' do
         # arrange.
-        athlete.city.name = nil
+        athlete.athlete_info.city.name = nil
 
         # act.
         decorator = AthleteDecorator.decorate(athlete)
@@ -254,7 +254,7 @@ RSpec.describe AthleteDecorator, type: :decorator do
 
       it 'should be the city name when athlete.country.name is blank' do
         # arrange.
-        athlete.country.name = nil
+        athlete.athlete_info.country.name = nil
 
         # act.
         decorator = AthleteDecorator.decorate(athlete)
@@ -277,7 +277,7 @@ RSpec.describe AthleteDecorator, type: :decorator do
     context 'when location is under length limit' do
       it 'should be the location' do
         # arrange.
-        athlete = Athlete.find_by_id_or_username(123)
+        athlete = Athlete.find_by(id: 123)
 
         # act.
         decorator = AthleteDecorator.decorate(athlete)
@@ -288,11 +288,11 @@ RSpec.describe AthleteDecorator, type: :decorator do
     end
 
     context 'when location is over length limit' do
-      let(:athlete) { Athlete.find_by_id_or_username(123) }
+      let(:athlete) { Athlete.find_by(id: 123) }
 
       it 'should be the city name when athlete.city.name is not blank' do
         # arrange.
-        athlete.country.name = 'The United States of America'
+        athlete.athlete_info.country.name = 'The United States of America'
 
         # act.
         decorator = AthleteDecorator.decorate(athlete)
@@ -303,8 +303,8 @@ RSpec.describe AthleteDecorator, type: :decorator do
 
       it 'should be the country name when athlete.country.name is not blank' do
         # arrange.
-        athlete.city = nil
-        athlete.country.name = 'The United States of America'
+        athlete.athlete_info.city = nil
+        athlete.athlete_info.country.name = 'The United States of America'
 
         # act.
         decorator = AthleteDecorator.decorate(athlete)
@@ -318,7 +318,7 @@ RSpec.describe AthleteDecorator, type: :decorator do
   describe '.friend_count' do
     it 'should be "0" when athlete.friend_count is blank' do
       # arrange.
-      athlete.friend_count = nil
+      athlete.athlete_info.friend_count = nil
 
       # act.
       decorator = AthleteDecorator.decorate(athlete)
@@ -339,7 +339,7 @@ RSpec.describe AthleteDecorator, type: :decorator do
   describe '.follower_count' do
     it 'should be "0" when athlete.follower_count is blank' do
       # arrange.
-      athlete.follower_count = nil
+      athlete.athlete_info.follower_count = nil
 
       # act.
       decorator = AthleteDecorator.decorate(athlete)

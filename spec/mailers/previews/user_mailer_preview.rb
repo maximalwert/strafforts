@@ -2,7 +2,7 @@
 class UserMailerPreview < ActionMailer::Preview
   # DEPRECATED. This is now handled by MailChimp workflow.
   def welcome_email
-    athlete = Athlete.find_by_id_or_username(9123806)
+    athlete = Athlete.find_by(id: 9123806)
     UserMailer.welcome_email(athlete)
   end
 end

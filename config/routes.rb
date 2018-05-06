@@ -6,20 +6,20 @@ Rails.application.routes.draw do
   match '/404', to: 'errors#not_found', via: :all
   match '/500', to: 'errors#internal_server_error', via: :all
 
-  get 'athletes/:id_or_username' => 'athletes#index'
+  get 'athletes/:id' => 'athletes#index'
 
-  post 'athletes/:id_or_username/fetch_latest' => 'athletes#fetch_latest'
-  post 'athletes/:id_or_username/save_profile' => 'athletes#save_profile'
-  post 'athletes/:id_or_username/reset_profile' => 'athletes#reset_profile'
+  post 'athletes/:id/fetch_latest' => 'athletes#fetch_latest'
+  post 'athletes/:id/save_profile' => 'athletes#save_profile'
+  post 'athletes/:id/reset_profile' => 'athletes#reset_profile'
 
   namespace :api do
-    get 'athletes/:id_or_username/meta' => 'meta#index'
-    get 'athletes/:id_or_username/best-efforts' => 'best_efforts#index'
-    get 'athletes/:id_or_username/best-efforts/:distance' => 'best_efforts#index'
-    get 'athletes/:id_or_username/personal-bests' => 'personal_bests#index'
-    get 'athletes/:id_or_username/personal-bests/:distance' => 'personal_bests#index'
-    get 'athletes/:id_or_username/races' => 'races#index'
-    get 'athletes/:id_or_username/races/:distance_or_year' => 'races#index'
+    get 'athletes/:id/meta' => 'meta#index'
+    get 'athletes/:id/best-efforts' => 'best_efforts#index'
+    get 'athletes/:id/best-efforts/:distance' => 'best_efforts#index'
+    get 'athletes/:id/personal-bests' => 'personal_bests#index'
+    get 'athletes/:id/personal-bests/:distance' => 'personal_bests#index'
+    get 'athletes/:id/races' => 'races#index'
+    get 'athletes/:id/races/:distance_or_year' => 'races#index'
     get 'faqs/index' => 'faqs#index'
   end
 

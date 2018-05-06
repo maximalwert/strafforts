@@ -4,5 +4,5 @@ class State < ApplicationRecord
 
   belongs_to :country, foreign_key: 'country_id'
 
-  has_many :athletes
+  has_many :athlete_infos
 end
