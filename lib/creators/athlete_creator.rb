@@ -5,7 +5,7 @@ module Creators
 
     # On OAuth token exchange, a summary JSON is returned from Strava.
     # Otherwise, a detailed JSON will be retrieved for athletes.
-    def self.create_or_update(access_token, athlete_hash, is_detailed) # rubocop:disable MethodLength
+    def self.create_or_update(access_token, athlete_hash, is_detailed) # rubocop:disable MethodLength, PerceivedComplexity, LineLength
       if athlete_hash['id'].blank?
         Rails.logger.warn('AthleteCreator - Athlete ID is blank. Exiting...')
         return
@@ -38,6 +38,9 @@ module Creators
       update_athlete_details(athlete_hash) if is_detailed
       update_ahtlete_location(athlete_hash)
 
+      # Don't set last_active_at when it's called from ActivityFetcher, i.e. is_detailed is true.
+      @athlete.last_active_at = Time.now.utc unless is_detailed
+
       @athlete.save!
       @athlete_info.save!
       @athlete
@@ -48,7 +51,6 @@ module Creators
     def self.update_athlete_summary(access_token, athlete_hash)
       @athlete.access_token = access_token
       @athlete.is_active = true
-      @athlete.last_active_at = Time.now.utc
 
       @athlete_info.username = athlete_hash['username']
       @athlete_info.firstname = athlete_hash['firstname']
