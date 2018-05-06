@@ -1,10 +1,3 @@
-@import '~bootstrap/dist/css/bootstrap'; // ~ to tell Webpacker that this is not a relative import.
-@import '~font-awesome/css/font-awesome';
-@import '~admin-lte/plugins/pace/pace.min';
-@import '~admin-lte/dist/css/AdminLTE.min';
-@import '~admin-lte/dist/css/skins/skin-black-light.min';
-@import '~datatables.net-bs/css/dataTables.bootstrap';
-@import '~toastr/build/toastr.min';
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700&subset=cyrillic');
 
 @font-face {
@@ -428,7 +421,7 @@ input[type='submit'] {
             span::before {
                 margin-right: 4px;
 
-                content: url('./images/strava-logo-small.png');
+                content: url('~/images/strava-logo-small.png');
                 vertical-align: middle;
             }
         }

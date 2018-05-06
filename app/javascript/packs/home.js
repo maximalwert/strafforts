@@ -8,6 +8,7 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import '../home';
+import 'bootstrap/dist/css/bootstrap';
 import '../home/styles/main';
 
 $(window).load(function () {
