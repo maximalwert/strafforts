@@ -41,9 +41,9 @@ class ActivityFetcher
           Rails.logger.info("ActivityFetcher - A total of #{activities_to_retrieve.count} activities to be retrieved for athlete #{athlete.id}.") # rubocop:disable LineLength
 
           activities_to_retrieve.sort.each do |activity_id|
-            # Call Strava API: to get a detailed view of the activity.
-            activity = @api_wrapper.retrieve_an_activity(activity_id)
             begin
+              # Call Strava API: to get a detailed view of the activity.
+              activity = @api_wrapper.retrieve_an_activity(activity_id)
               Creators::ActivityCreator.create_or_update(activity)
             rescue StandardError => e
               Rails.logger.error("ActivityCreator - Error creating or updating activity '#{activity_id}'. #{e.message}\nBacktrace:\n\t#{e.backtrace.join("\n\t")}") # rubocop:disable LineLength
