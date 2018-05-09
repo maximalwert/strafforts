@@ -15,7 +15,7 @@ RSpec.describe Race, type: :model do
       items = Race.find_all_by_athlete_id(12345678)
 
       # assert.
-      expect(items).to be_nil
+      expect(items).to eq([])
     end
 
     it 'should get best efforts matching the provided athlete_id' do
@@ -37,7 +37,7 @@ RSpec.describe Race, type: :model do
       items = Race.find_all_by_athlete_id_and_race_distance_id(12345678, 4)
 
       # assert.
-      expect(items).to be_nil
+      expect(items).to eq([])
     end
 
     it 'should get races matching the provided athlete_id and race_distance_id' do
@@ -60,7 +60,7 @@ RSpec.describe Race, type: :model do
       items = Race.find_all_by_athlete_id_and_year(9123806, 1999)
 
       # assert.
-      expect(items).to be_nil
+      expect(items).to eq([])
     end
 
     it 'should get races matching the provided athlete_id and year' do

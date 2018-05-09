@@ -1,6 +1,6 @@
 module Api
   class PersonalBestsController < ApplicationController
-    def index
+    def index # rubocop:disable MethodLength
       athlete = Athlete.find_by(id: params[:id])
       ApplicationController.raise_athlete_not_found_error(params[:id]) if athlete.nil?
 

@@ -7,6 +7,6 @@ class Subscription < ApplicationRecord
 
   def self.find_all_active_items_by_athlete_id(athlete_id)
     results = where('athlete_id = ? AND starts_at <= ? AND expires_at > ?', athlete_id, Time.now.utc, Time.now.utc)
-    results.empty? ? nil : results
+    results.empty? ? [] : results
   end
 end

@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
       personal_bests = BestEffort.find_all_pbs_by_athlete_id_and_best_effort_type_id(athlete_id, model.id)
       result = {
         name: item[:name],
-        count: personal_bests.nil? ? 0 : personal_bests.size,
+        count: personal_bests.size,
         is_major: item[:is_major]
       }
       personal_bests_meta << result
@@ -65,7 +65,7 @@ class ApplicationController < ActionController::Base
       races = Race.find_all_by_athlete_id_and_race_distance_id(athlete_id, model.id)
       result = {
         name: item[:name],
-        count: races.nil? ? 0 : races.size,
+        count: races.size,
         is_major: item[:is_major]
       }
       races_by_distance_meta << result

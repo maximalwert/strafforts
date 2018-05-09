@@ -19,6 +19,6 @@ class Athlete < ApplicationRecord
 
   def self.find_all_by_is_active(is_active = true)
     results = where('is_active = ?', is_active).order('updated_at')
-    results.empty? ? nil : results
+    results.empty? ? [] : results
   end
 end

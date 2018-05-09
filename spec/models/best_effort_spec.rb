@@ -18,7 +18,7 @@ RSpec.describe BestEffort, type: :model do
       items = BestEffort.find_all_pbs_by_athlete_id(12345678)
 
       # assert.
-      expect(items).to be_nil
+      expect(items).to eq([])
     end
 
     it 'should get personal bests matching the provided athlete_id' do
@@ -40,7 +40,7 @@ RSpec.describe BestEffort, type: :model do
       items = BestEffort.find_all_pbs_by_athlete_id_and_best_effort_type_id(9123806, 1)
 
       # assert.
-      expect(items).to be_nil
+      expect(items).to eq([])
     end
 
     it 'should get personal best matching the provided athlete_id and best_effort_type_id' do

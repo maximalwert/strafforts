@@ -186,7 +186,7 @@ module ApplicationHelper
     def self.shape_entities(entities, heart_rate_zones, measurement_unit, is_type_of_best_efforts) # rubocop:disable AbcSize, CyclomaticComplexity, PerceivedComplexity, LineLength
       shaped_items = []
 
-      return shaped_items if entities.nil?
+      return shaped_items if entities.blank?
 
       entities.each do |entity|
         item = {}
