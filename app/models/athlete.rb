@@ -8,8 +8,9 @@ class Athlete < ApplicationRecord
   has_many :best_efforts
   has_many :gears
   has_many :heart_rate_zones
+  has_many :payments
   has_many :races
-
+  has_many :subscriptions
 
   def self.find_by_access_token(access_token)
     results = where(access_token: access_token)

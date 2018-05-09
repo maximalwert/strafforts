@@ -1,0 +1,15 @@
+---
+subscription_plan_001:
+  id: 1
+  amount: 0
+  name: Early Birds PRO
+  description: Early Birds PRO Plan
+  created_at: '2018-02-15 17:19:43.545464'
+  updated_at: '2018-02-15 18:29:56.125433'
+subscription_plan_002:
+  id: 2
+  amount: 0
+  name: Lifetime PRO
+  description: Lifetime PRO Plan
+  created_at: '2018-02-15 17:20:32.843423'
+  updated_at: '2018-02-20 12:32:53.954322'

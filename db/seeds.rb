@@ -38,3 +38,6 @@ RaceDistance.find_or_create_by(distance: 50_000, name: '50k')
 RaceDistance.find_or_create_by(distance: 80_467, name: '50 miles')
 RaceDistance.find_or_create_by(distance: 100_000, name: '100k')
 RaceDistance.find_or_create_by(distance: 160_934, name: '100 miles')
+
+SubscriptionPlan.find_or_create_by(amount: 0, name: 'Early Birds PRO', description: 'Early Birds PRO Plan')
+SubscriptionPlan.find_or_create_by(amount: 0, name: 'Lifetime PRO', description: 'Lifetime PRO Plan')
