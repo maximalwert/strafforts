@@ -19,10 +19,12 @@
 
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
-        <li>
-          <div class="fb-like hidden-xs-down" data-href="<%= Settings.app.facebook_page_url %>" data-layout="button_count"
-            data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
-        </li>
+        <% unless ENV['HIDE_FACEBOOK_LIKE'] %>
+          <li>
+            <div class="fb-like hidden-xs-down" data-href="<%= Settings.app.facebook_page_url %>" data-layout="button_count"
+              data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+          </li>
+        <% end %>
         <li class="dropdown user user-menu">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             <% if @athlete.profile_image_url.nil? %>
@@ -74,11 +76,13 @@
             </li>
           </ul>
         </li>
-        <li>
-          <a class="social-sharing-toggle hidden-xs-down" href="#" data-toggle="modal" data-target="#modal-social-sharing" title="Share <% if @is_current_user %>Your<% else %>This<% end %> Profile">
-            <i class="fa fa-share-alt"></i>
-          </a>
-        </li>
+        <% unless ENV['HIDE_SOCIAL_SHARING'] %>
+          <li>
+            <a class="social-sharing-toggle hidden-xs-down" href="#" data-toggle="modal" data-target="#modal-social-sharing" title="Share <% if @is_current_user %>Your<% else %>This<% end %> Profile">
+              <i class="fa fa-share-alt"></i>
+            </a>
+          </li>
+        <% end %>
         <li>
           <a class="show-faq" href="?view=faq" title="Show FAQ">
             <i class="fa fa-question-circle"></i>
