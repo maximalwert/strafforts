@@ -154,7 +154,7 @@ export namespace EventBinders {
                 $('#publicize-profile-warning').addClass('hidden');
             },
             error: (xhr, ajaxOptions, thrownError) => {
-                toastr.error(xhr.status + '\n' + thrownError);
+                toastr.error(`${xhr.status} - ${xhr.statusText}<br /><br />${$.parseJSON(xhr.responseText)['error']}`);
             },
         });
     }
@@ -172,7 +172,7 @@ export namespace EventBinders {
                 toastr.success(`Your latest activities have been queued for fetching!`);
             },
             error: (xhr, ajaxOptions, thrownError) => {
-                toastr.error(xhr.status + '\n' + thrownError);
+                toastr.error(`${xhr.status} - ${xhr.statusText}<br /><br />${$.parseJSON(xhr.responseText)['error']}`);
             },
         });
     }
@@ -187,18 +187,22 @@ export namespace EventBinders {
             data: { is_hard_reset: ($('#is_hard_reset')[0] as any).checked },
             cache: false,
             type: 'post',
+            success: () => {
+                $('.last-activity-retrieved').addClass('hidden');
+                $('.last-activity-na').removeClass('hidden');
+        
+                // Disable both 'Fetch Latest' and 'Reset' buttons.
+                $('.form-fetch-latest-activities .submit-form').prop('disabled', true);
+                $('.reset-profile .btn-danger').prop('disabled', true);
+        
+                ($('#confirm-reset-profile') as any).modal('toggle');
+        
+                toastr.success(`Your account will be reset shortly!<br /><br />
+                    A full re-synchronization of all your activities will be queued.`);
+            },
+            error: (xhr, ajaxOptions, thrownError) => {
+                toastr.error(`${xhr.status} - ${xhr.statusText}<br /><br />${$.parseJSON(xhr.responseText)['error']}`);
+            },
         });
-
-        $('.last-activity-retrieved').addClass('hidden');
-        $('.last-activity-na').removeClass('hidden');
-
-        // Disable both 'Fetch Latest' and 'Reset' buttons.
-        $('.form-fetch-latest-activities .submit-form').prop('disabled', true);
-        $('.reset-profile .btn-danger').prop('disabled', true);
-
-        ($('#confirm-reset-profile') as any).modal('toggle');
-
-        toastr.success(`Your account will be reset shortly!<br /><br />
-            A full re-synchronization of all your activities will be queued.`);
     }
 }

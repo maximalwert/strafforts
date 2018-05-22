@@ -14,7 +14,7 @@ import 'admin-lte/plugins/pace/pace.min';
 import 'admin-lte/dist/css/AdminLTE.min';
 import 'admin-lte/dist/css/skins/skin-black-light.min';
 import 'datatables.net-bs/css/dataTables.bootstrap';
-import 'toastr/build/toastr.min';
+import 'toastr/build/toastr';
 import '../athletes/styles/main'
 
 // Extension method to convert a number into time format.

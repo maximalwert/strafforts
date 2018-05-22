@@ -109,9 +109,4 @@ class ApplicationController < ActionController::Base
     error_message = "Could not find requested #{item_type} '#{item_name}'."
     raise ActionController::BadRequest, error_message
   end
-
-  def self.raise_user_not_current_error
-    error_message = 'Could not update a user that is not the current user.'
-    raise ActionController::BadRequest, error_message
-  end
 end
