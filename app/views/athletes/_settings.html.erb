@@ -22,6 +22,24 @@
   <div class="tab-content">
     <!-- Profile tab content -->
     <div class="tab-pane active" id="control-sidebar-profile-tab">
+      <h3 class="control-sidebar-heading">Subscription</h3>
+      <div class="form-group">
+        <label class="control-sidebar-subheading">Status:
+          <span class='subscription-badge pull-right'>
+            <span class="label <%= @athlete.pro_subscription? ? 'pro-account' : 'free-account' %>">
+              <%= @athlete.pro_subscription? ? 'PRO' : 'FREE' %>
+            </span>
+          </span>
+        </label>
+      </div>
+      <% if @athlete.pro_subscription? %>
+        <div class="form-group">
+          <label class="control-sidebar-subheading">Expires at:
+            <span class="pull-right"><%= @athlete.pro_subscription_expires_at %></span>
+          </label>
+        </div>
+      <% end %>
+
       <%= form_tag({controller: 'athletes', action: 'save_profile'}, class: 'form-save-profile') do %>
       <h3 class="control-sidebar-heading">Profile Settings</h3>
       <div class="form-group">
@@ -94,13 +112,6 @@
             </a>
           </label>
         </div>
-        <div>
-          <%= form_tag({controller: 'athletes', action: 'fetch_latest'}, class: 'form-fetch-latest-activities') do %>
-            <button type="submit" class="btn btn-block btn-default btn-flat submit-form">
-              Fetch Latest
-            </button>
-          <% end %>
-        </div>
       </div>
 
       <div class="form-group">
@@ -109,13 +120,24 @@
         <label class="pull-right"><%= @athlete.updated_at.strftime('%F %H:%M UTC') %></label>
       </div>
 
+      <div class="form-group">
+        <h3 class="control-sidebar-heading">Fetch Now<span class='subscription-badge pull-right'><span class="label">PRO</span></span></h3>
+        <div>
+          <%= form_tag({controller: 'athletes', action: 'fetch_latest'}, class: 'form-fetch-latest-activities') do %>
+            <button type="submit" class="btn btn-block btn-default btn-flat submit-form" <%= @athlete.pro_subscription? ? '' : 'disabled' %>>
+              Fetch Now
+            </button>
+          <% end %>
+        </div>
+      </div>
+
       <div class="form-group reset-profile">
-        <h3 class="control-sidebar-heading">Reset Profile</h3>
+        <h3 class="control-sidebar-heading">Reset Profile<span class='subscription-badge pull-right'><span class="label">PRO</span></span></h3>
         <p>
           <%= label_tag(:is_hard_reset, 'Delete existing data:', class: 'control-sidebar-subheading checkbox inline') %>
-          <%= check_box_tag(:is_hard_reset, false, false, class: 'pull-right') %>
+          <%= check_box_tag(:is_hard_reset, false, false, class: 'pull-right', disabled: !@athlete.pro_subscription?) %>
         </p>
-        <button type="button" class="btn btn-block btn-danger btn-flat" data-toggle="modal" data-target="#confirm-reset-profile">
+        <button type="button" class="btn btn-block btn-danger btn-flat" data-toggle="modal" data-target="#confirm-reset-profile" <%= @athlete.pro_subscription? ? '' : 'disabled' %>>
           Reset
         </button>
       </div>

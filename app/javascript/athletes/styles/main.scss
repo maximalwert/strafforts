@@ -38,6 +38,28 @@ input[type='submit'] {
     background-color: $color-strava !important;
 }
 
+.subscription-badge span {
+    font-size: .7em;
+    font-weight: bold;
+    line-height: 1;
+
+    padding: .2em .8em !important;
+
+    color: $color-light-grey;
+    border: 1px solid $color-light-grey;
+    border-radius: .25em;
+}
+.subscription-badge .pro-account {
+    color: #FFFFFF;
+    border: none;
+    background-color: $color-strava;
+}
+.subscription-badge .free-account {
+    color: #FFFFFF;
+    border: none;
+    background-color: $color-green;
+}
+
 .underline {
     text-decoration: underline;
 
@@ -224,8 +246,27 @@ input[type='submit'] {
                 }
             }
         }
+
         .disabled {
             cursor: default;
+        }
+        .disabled-for-free-account a,
+        .disabled-for-free-account span,
+        .disabled-for-free-account i,
+        .disabled-for-free-account label, {
+            cursor: default;
+
+            color: #BBB;
+            &:hover {
+                box-shadow: none !important;
+            }
+        }
+
+        .subscription-badge {
+            position: absolute;
+            right: 2px;
+            top: 50%;
+            margin-top: -10px;
         }
     }
 }
