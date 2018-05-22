@@ -14,6 +14,7 @@ import PersonalBestsByDistanceView from './views/personalBestsByDistance';
 import RacesByDistanceView from './views/racesByDistance';
 import RacesByYearView from './views/racesByYear';
 import RacesTimelineView from './views/racesTimeline';
+import UpgradeToProView from './views/upgradeToPro';
 
 const loadView = () => {
     const view = Helpers.getUrlParameter('view');
@@ -22,7 +23,7 @@ const loadView = () => {
     const year = Helpers.getUrlParameter('year');
 
     if (view === 'faq') {
-        new FaqView().load();
+        new UpgradeToProView().load();
     } else if (view === ViewType.Timeline) {
         new RacesTimelineView().load();
     } else if (view === ViewType.BestEfforts) {

@@ -15,6 +15,7 @@ import 'admin-lte/dist/css/AdminLTE.min';
 import 'admin-lte/dist/css/skins/skin-black-light.min';
 import 'datatables.net-bs/css/dataTables.bootstrap';
 import 'toastr/build/toastr';
+import '../vendor/pricing';
 import '../athletes/styles/main'
 
 // Extension method to convert a number into time format.

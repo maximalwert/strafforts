@@ -1,0 +1,369 @@
+/* http://bestjquery.com/tutorial/pricing-table/demo82/ */
+:root {
+    --pricingTable-orange: #FC4C02;
+    --pricingTable-green: #00A65A;
+    --pricingTable-blue: #0192af;
+}
+.demo {
+    background: #DEDDDB;
+}
+.pricingTable {
+    position: relative;
+
+    overflow: hidden;
+
+    padding-bottom: 10px;
+
+    text-align: center;
+
+    border-bottom: 15px solid var(--pricingTable-orange);
+    background: #FFFFFF;
+}
+.pricingTable:before {
+    position: absolute;
+    top: -150px;
+    left: 0;
+
+    width: 100%;
+    height: 350px;
+
+    content: '';
+    transform: skewY(-20deg);
+
+    background: var(--pricingTable-orange);
+}
+.pricingTable .pricingTable-header {
+    position: relative;
+
+    padding: 20px 20px 60px;
+
+    text-align: left;
+}
+.pricingTable .title {
+    font-size: 30px;
+    font-weight: 600;
+
+    margin: 0;
+
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+.pricingTable .sub-title {
+    font-size: 16px;
+
+    display: block;
+
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+.pricingTable .year {
+    font-size: 15px;
+    font-weight: 600;
+    font-style: italic;
+
+    position: absolute;
+    z-index: 1;
+    top: 30px;
+    right: 20px;
+
+    width: 80px;
+    height: 55px;
+    padding: 7px 0;
+
+    text-align: center;
+
+    color: var(--pricingTable-orange);
+    background: #FFFFFF;
+}
+.pricingTable .year:before,
+.pricingTable .year:after {
+    position: absolute;
+    z-index: -1;
+    top: -28px;
+    left: 50%;
+
+    width: 57px;
+    height: 57px;
+
+    content: '';
+    transform: translateX(-50%) scaleY(.5) rotate(45deg);
+
+    background: #FFFFFF;
+}
+.pricingTable .year:after {
+    top: auto;
+    bottom: -28px;
+}
+.pricingTable .price-value {
+    position: relative;
+
+    display: inline-block;
+
+    width: 170px;
+    height: 110px;
+    padding: 15px;
+
+    border: 2px solid var(--pricingTable-orange);
+    border-top: none;
+    border-bottom: none;
+}
+.pricingTable .price-value:before,
+.pricingTable .price-value:after {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+
+    width: 121px;
+    height: 121px;
+
+    content: '';
+    transform: translateX(-50%) scaleY(.5) rotate(45deg);
+
+    border: 3px solid var(--pricingTable-orange);
+    border-right: none;
+    border-bottom: none;
+}
+.pricingTable .price-value:after {
+    top: auto;
+    bottom: -60px;
+
+    border-top: none;
+    border-right: 3px solid var(--pricingTable-orange);
+    border-bottom: 3px solid var(--pricingTable-orange);
+    border-left: none;
+}
+.pricingTable .value {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    color: var(--pricingTable-orange);
+    border: 2px solid var(--pricingTable-orange);
+    border-top: none;
+    border-bottom: none;
+    background: #FFFFFF;
+}
+.pricingTable .value:before,
+.pricingTable .value:after {
+    position: absolute;
+    z-index: -1;
+    top: -48px;
+    left: 50%;
+
+    width: 97px;
+    height: 97px;
+
+    content: '';
+    transform: translateX(-50%) scaleY(.5) rotate(45deg);
+
+    border: 3px solid var(--pricingTable-orange);
+    border-right: none;
+    border-bottom: none;
+    background: #FFFFFF;
+}
+.pricingTable .value:after {
+    top: auto;
+    bottom: -48px;
+
+    border-top: none;
+    border-right: 3px solid var(--pricingTable-orange);
+    border-bottom: 3px solid var(--pricingTable-orange);
+    border-left: none;
+}
+.pricingTable .currency {
+    font-size: 30px;
+
+    display: inline-block;
+
+    margin-top: 7px;
+
+    vertical-align: top;
+}
+.pricingTable .amount {
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 65px;
+
+    display: inline-block;
+}
+.pricingTable .amount span {
+    font-size: 30px;
+    font-weight: normal;
+
+    display: inline-block;
+
+    margin-top: -7px;
+
+    vertical-align: top;
+}
+.pricingTable .month {
+    font-size: 16px;
+    line-height: 0;
+
+    display: block;
+}
+.pricingTable .pricing-content {
+    margin-bottom: 20px;
+    padding: 50px 0 0 80px;
+
+    list-style: none;
+
+    transition: all .3s ease 0s;
+    text-align: left;
+}
+.pricingTable .pricing-content li {
+    font-size: 16px;
+
+    position: relative;
+
+    padding: 7px 0;
+
+    color: #808080;
+}
+.pricingTable .pricing-content li:before,
+.pricingTable .pricing-content li.disable:before {
+    font-family: fontawesome;
+    line-height: 25px;
+
+    position: absolute;
+    left: -50px;
+
+    width: 25px;
+    height: 25px;
+
+    content: '\f00c';
+    text-align: center;
+
+    color: #FFFFFF;
+    border-radius: 50%;
+    background: #98C458;
+}
+.pricingTable .pricing-content li.disable:before {
+    content: '\f00d';
+
+    background: #FE6C6C;
+}
+.pricingTable .pricingTable-signup {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 50px;
+
+    position: relative;
+
+    display: inline-block;
+
+    width: 60%;
+    height: 50px;
+    margin: 0 auto 10px;
+
+    transition: all .3s ease 0s;
+    text-transform: uppercase;
+
+    color: var(--pricingTable-orange);
+    border: 2px solid var(--pricingTable-orange);
+}
+.pricingTable .pricingTable-signup:hover {
+    color: #FFFFFF;
+    background: var(--pricingTable-orange);
+}
+.pricingTable.green {
+    border-bottom-color: var(--pricingTable-green);
+}
+.pricingTable.green:before {
+    background: var(--pricingTable-green);
+}
+.pricingTable.green .year {
+    color: var(--pricingTable-green);
+}
+.pricingTable.green .price-value {
+    border-right-color: var(--pricingTable-green);
+    border-left-color: var(--pricingTable-green);
+}
+.pricingTable.green .price-value:before {
+    border-top-color: var(--pricingTable-green);
+    border-left-color: var(--pricingTable-green);
+}
+.pricingTable.green .price-value:after {
+    border-right-color: var(--pricingTable-green);
+    border-bottom-color: var(--pricingTable-green);
+}
+.pricingTable.green .value {
+    color: var(--pricingTable-green);
+    border-right-color: var(--pricingTable-green);
+    border-left-color: var(--pricingTable-green);
+}
+.pricingTable.green .value:before {
+    border-top-color: var(--pricingTable-green);
+    border-left-color: var(--pricingTable-green);
+}
+.pricingTable.green .value:after {
+    border-right-color: var(--pricingTable-green);
+    border-bottom-color: var(--pricingTable-green);
+}
+.pricingTable.green .pricingTable-signup {
+    color: var(--pricingTable-green);
+    border-color: var(--pricingTable-green);
+}
+.pricingTable.green .pricingTable-signup:hover {
+    color: #FFFFFF;
+    background: var(--pricingTable-green);
+}
+.pricingTable.blue {
+    border-bottom-color: var(--pricingTable-blue);
+}
+.pricingTable.blue:before {
+    background: var(--pricingTable-blue);
+}
+.pricingTable.blue .year {
+    color: var(--pricingTable-blue);
+}
+.pricingTable.blue .price-value {
+    border-right-color: var(--pricingTable-blue);
+    border-left-color: var(--pricingTable-blue);
+}
+.pricingTable.blue .price-value:before {
+    border-top-color: var(--pricingTable-blue);
+    border-left-color: var(--pricingTable-blue);
+}
+.pricingTable.blue .price-value:after {
+    border-right-color: var(--pricingTable-blue);
+    border-bottom-color: var(--pricingTable-blue);
+}
+.pricingTable.blue .value {
+    color: var(--pricingTable-blue);
+    border-right-color: var(--pricingTable-blue);
+    border-left-color: var(--pricingTable-blue);
+}
+.pricingTable.blue .value:before {
+    border-top-color: var(--pricingTable-blue);
+    border-left-color: var(--pricingTable-blue);
+}
+.pricingTable.blue .value:after {
+    border-right-color: var(--pricingTable-blue);
+    border-bottom-color: var(--pricingTable-blue);
+}
+.pricingTable.blue .pricingTable-signup {
+    color: var(--pricingTable-blue);
+    border-color: var(--pricingTable-blue);
+}
+.pricingTable.blue .pricingTable-signup:hover {
+    color: #FFFFFF;
+    background: var(--pricingTable-blue);
+}
+@media only screen and (max-width: 990px) {
+    .pricingTable {
+        margin-bottom: 30px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .pricingTable:before {
+        transform: skewY(-15deg);
+    }
+    .pricingTable .title {
+        font-size: 22px;
+    }
+}
